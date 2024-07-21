@@ -125,11 +125,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAttendanceMonitoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAttendanceMonitoring.Designer.cs">
+      <DependentUpon>FormAttendanceMonitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEmployeeProfiling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEmployeeProfiling.Designer.cs">
+      <DependentUpon>FormEmployeeProfiling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPayrollManagemant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPayrollManagemant.Designer.cs">
+      <DependentUpon>FormPayrollManagemant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTimeInTimeOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTimeInTimeOut.Designer.cs">
+      <DependentUpon>FormTimeInTimeOut.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUTZ_Capstone_Project
+namespace GUTZ_Capstone_Project.Forms
 {
-    public partial class Form1 : Form
+    public partial class FormPayrollManagemant : Form
     {
-        public Form1()
+        public FormPayrollManagemant()
         {
             InitializeComponent();
         }
