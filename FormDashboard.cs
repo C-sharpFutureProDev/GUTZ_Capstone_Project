@@ -15,6 +15,12 @@ namespace GUTZ_Capstone_Project
         public FormDashboard()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void FormDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
