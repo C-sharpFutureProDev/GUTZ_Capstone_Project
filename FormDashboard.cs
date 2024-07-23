@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using GUTZ_Capstone_Project.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,21 +11,77 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+//using System.Windows.Media;
 
 namespace GUTZ_Capstone_Project
 {
     public partial class FormDashboard : Form
     {
+        private Guna.UI2.WinForms.Guna2Button currentBtn;
+        private Image originalImage;
+        private Form currentChildForm;
+
         public FormDashboard()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             LoadChartData();
+            originalImage = iconCurrentChildForm.Image; //get the original image icon for the dashboard
         }
 
-        private void FormDashboard_Load(object sender, EventArgs e)
+        private void ActivateButton(object senderBtn)
         {
+            if (senderBtn != null)
+            {
+                DisableButton();
 
+                currentBtn = (Guna.UI2.WinForms.Guna2Button)senderBtn;
+
+                // Current Child Form Icon
+                iconCurrentChildForm.Image = currentBtn.Image;
+                currentBtn.FillColor = Color.Ivory;
+                currentBtn.ForeColor = Color.Black;
+            }
+        }
+
+        private void DisableButton()
+        {
+            if (currentBtn != null)
+            {
+                currentBtn.FillColor = Color.ForestGreen;
+                currentBtn.ForeColor = Color.White;
+            }
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            // Close the current child form if it exists
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+
+            // Set the new child form as the current one
+            currentChildForm = childForm;
+
+            // Remove the child form from the parent form's controls
+            if (childForm.Parent != null)
+            {
+                childForm.Parent.Controls.Remove(childForm);
+            }
+
+            // Set the child form properties
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            // Add the child form to the main form's controls
+            this.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
+
+            // Update the title
+            lblTitleChildForm.Text = childForm.Text;
         }
 
         private void LoadChartData()
@@ -56,12 +114,68 @@ namespace GUTZ_Capstone_Project
 
             chart1.Series["Employee"].Points.AddXY("", totalEmployees);
 
-
             // Customize the chart
             //chart1.ChartAreas[0].AxisY.Title = "Amount";
             //chart1.ChartAreas[0].AxisY.LabelStyle.Format = "C0";
             chart1.Titles.Add("Attendance Monitoring and Payroll Management Overview");
         }
 
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new FormEmployeeProfiling());
+        }
+
+        private void btnAttendanceMonitoring_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new FormAttendanceMonitoring());
+        }
+
+        private void btnPayrollManagement_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new FormPayrollManagemant());
+        }
+
+        private void btnGenerateReports_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            currentChildForm.Close();
+
+            if (iconCurrentChildForm != null)
+            {
+                iconCurrentChildForm.Image = originalImage;
+                lblTitleChildForm.Text = "Dashboard";
+            }
+
+            if (lblTitleChildForm != null)
+            {
+                lblTitleChildForm.ForeColor = Color.Black;
+            }
+        }
+
+        private void btnBackToHome_Click(object sender, EventArgs e)
+        {
+            if(currentChildForm != null)
+            {
+                Reset();
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
