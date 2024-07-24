@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace GUTZ_Capstone_Project
         {
             if (currentBtn != null)
             {
-                currentBtn.FillColor = Color.ForestGreen;
+                currentBtn.FillColor = Color.FromArgb(22, 43, 64);
                 currentBtn.ForeColor = Color.White;
             }
         }
@@ -87,17 +88,17 @@ namespace GUTZ_Capstone_Project
         private void LoadChartData()
         {
             // Dummy data
-            int totalEmployees = 5000000;
-            int payrollProcessed = 24;
-            double totalGrossPay = 2500000;
-            double totalDeductions = 650000;
-            double netPayroll = 1850000;
-            int timeOffAccrued = 12000;
+            int totalEmployees = 70;
+            int payrollProcessed = 30;
+            double totalGrossPay = 50000;
+            double totalDeductions = 6500;
+            double netPayroll = 45000;
+            int timeOffAccrued = 1200;
 
-            int allAttendance = 500000;
-            int present = 1000000;
-            int absent = 1000000;
-            int late = 700000;
+            int allAttendance = 500;
+            int present = 74;
+            int absent = 1;
+            int late = 7;
 
             // Add data to the chart
             chart1.Series["Payroll Management Overview"].Points.AddXY("", totalEmployees);
@@ -112,7 +113,7 @@ namespace GUTZ_Capstone_Project
             chart1.Series["Attendance Monitoring"].Points.AddXY("", absent);
             chart1.Series["Attendance Monitoring"].Points.AddXY("", late);
 
-            chart1.Series["Employee"].Points.AddXY("", totalEmployees);
+            //chart1.Series["Employee"].Points.AddXY("", totalEmployees);
 
             // Customize the chart
             //chart1.ChartAreas[0].AxisY.Title = "Amount";
@@ -167,7 +168,7 @@ namespace GUTZ_Capstone_Project
 
         private void btnBackToHome_Click(object sender, EventArgs e)
         {
-            if(currentChildForm != null)
+            if (currentChildForm != null)
             {
                 Reset();
             }
@@ -176,6 +177,63 @@ namespace GUTZ_Capstone_Project
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateDateTimeLabel();
+        }
+
+        private void FormDashboard_Load(object sender, EventArgs e)
+        {
+            UpdateDateTimeLabel();
+            timer1.Start();
+        }
+
+        private void UpdateDateTimeLabel()
+        {
+            DateTime currentDateTime = DateTime.Now;
+            string timeString = currentDateTime.ToString("hh:mm tt");
+            string dayOfWeekString = currentDateTime.ToString("dddd");
+            string monthString = currentDateTime.ToString("MMMM");
+            int dayOfMonth = currentDateTime.Day;
+            int year = currentDateTime.Year;
+            int weekNumberInMonth = GetWeekNumberInMonth(currentDateTime);
+
+            label1.Text = $"{dayOfWeekString}, {monthString} {dayOfMonth}, {year} | Week {weekNumberInMonth} | {timeString}";
+        }
+
+        private int GetWeekNumberInMonth(DateTime date)
+        {
+            // Calculate the week number within the current month
+            DateTime firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
+            DateTime lastDayOfMonth = new DateTime(date.Year, date.Month, daysInMonth);
+
+            // Get the week number of the first day of the month
+            int firstWeekNumberOfMonth = GetWeekNumber(firstDayOfMonth);
+
+            // Adjust the week number based on the day of the month
+            int weekNumberInMonth = ((date.Day - 1) / 7) + 1;
+
+            // If the last day of the month is in the first week of the next month, use the week number of the last day of the previous month
+            if (GetWeekNumber(lastDayOfMonth) == 1 && firstWeekNumberOfMonth > 1)
+            {
+                weekNumberInMonth = firstWeekNumberOfMonth;
+            }
+
+            return weekNumberInMonth;
+        }
+
+        private int GetWeekNumber(DateTime date)
+        {
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(date);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                date = date.AddDays(3);
+            }
+
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
     }
 }

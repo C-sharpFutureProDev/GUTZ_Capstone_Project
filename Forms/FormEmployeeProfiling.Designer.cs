@@ -34,10 +34,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1605, 1050);
             this.Name = "FormEmployeeProfiling";
             this.Text = "Employee Profiling Section";
+            this.Load += new System.EventHandler(this.FormEmployeeProfiling_Load);
             this.ResumeLayout(false);
 
         }

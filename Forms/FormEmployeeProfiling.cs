@@ -16,5 +16,12 @@ namespace GUTZ_Capstone_Project.Forms
         {
             InitializeComponent();
         }
+
+        private void FormEmployeeProfiling_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
+
+
 }
