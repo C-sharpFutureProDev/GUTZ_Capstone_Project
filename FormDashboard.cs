@@ -49,7 +49,7 @@ namespace GUTZ_Capstone_Project
         {
             if (currentBtn != null)
             {
-                currentBtn.FillColor = Color.FromArgb(22, 43, 64);
+                currentBtn.FillColor = Color.FromArgb(6, 20, 27);
                 currentBtn.ForeColor = Color.White;
             }
         }
@@ -158,11 +158,12 @@ namespace GUTZ_Capstone_Project
             {
                 iconCurrentChildForm.Image = originalImage;
                 lblTitleChildForm.Text = "Dashboard";
+                lblTitleChildForm.ForeColor = Color.White;
             }
 
             if (lblTitleChildForm != null)
             {
-                lblTitleChildForm.ForeColor = Color.Black;
+                lblTitleChildForm.ForeColor = Color.White;
             }
         }
 
