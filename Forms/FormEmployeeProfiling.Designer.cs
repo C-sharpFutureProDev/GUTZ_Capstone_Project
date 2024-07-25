@@ -68,7 +68,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1605, 152);
+            this.guna2Panel1.Size = new System.Drawing.Size(1141, 152);
             this.guna2Panel1.TabIndex = 1;
             // 
             // guna2Button3
@@ -201,7 +201,7 @@
             this.dataGridView1.RowHeadersWidth = 60;
             this.dataGridView1.RowTemplate.Height = 75;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1605, 898);
+            this.dataGridView1.Size = new System.Drawing.Size(1141, 520);
             this.dataGridView1.TabIndex = 2;
             // 
             // Column1
@@ -212,6 +212,7 @@
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
             // 
             // Column2
             // 
@@ -292,7 +293,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(1605, 1050);
+            this.ClientSize = new System.Drawing.Size(1141, 672);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "FormEmployeeProfiling";

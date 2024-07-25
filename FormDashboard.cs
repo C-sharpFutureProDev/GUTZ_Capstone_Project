@@ -25,6 +25,7 @@ namespace GUTZ_Capstone_Project
         public FormDashboard()
         {
             InitializeComponent();
+            this.DoubleBuffered = true; // Enable double buffering for the main form
             this.WindowState = FormWindowState.Maximized;
             LoadChartData();
             originalImage = iconCurrentChildForm.Image; //get the original image icon for the dashboard
@@ -56,8 +57,11 @@ namespace GUTZ_Capstone_Project
 
         private void OpenChildForm(Form childForm)
         {
-            // Close the current child form if it exists
-            if (currentChildForm != null)
+            // Enable double buffering for the child form
+            typeof(Form).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                .SetValue(childForm, true, null);
+            // open only form
+            if (currentChildForm != null && !currentChildForm.IsDisposed)
             {
                 currentChildForm.Close();
             }
@@ -65,23 +69,14 @@ namespace GUTZ_Capstone_Project
             // Set the new child form as the current one
             currentChildForm = childForm;
 
-            // Remove the child form from the parent form's controls
-            if (childForm.Parent != null)
-            {
-                childForm.Parent.Controls.Remove(childForm);
-            }
-
-            // Set the child form properties
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
-            // Add the child form to the main form's controls
-            this.Controls.Add(childForm);
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
-            // Update the title
             lblTitleChildForm.Text = childForm.Text;
         }
 

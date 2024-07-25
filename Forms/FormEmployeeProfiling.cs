@@ -17,6 +17,7 @@ namespace GUTZ_Capstone_Project.Forms
         public FormEmployeeProfiling()
         {
             InitializeComponent();
+            this.DoubleBuffered = true; // Enable double buffering for the main form
             System.Data.DataTable dataTable = new System.Data.DataTable();
 
             // Add the required columns to the DataTable
