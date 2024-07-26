@@ -8,11 +8,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-//using System.Windows.Media;
 
 namespace GUTZ_Capstone_Project
 {
@@ -25,10 +25,18 @@ namespace GUTZ_Capstone_Project
         public FormDashboard()
         {
             InitializeComponent();
-            this.DoubleBuffered = true; // Enable double buffering for the main form
             this.WindowState = FormWindowState.Maximized;
-            LoadChartData();
-            originalImage = iconCurrentChildForm.Image; //get the original image icon for the dashboard
+            originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
         private void ActivateButton(object senderBtn)
@@ -57,9 +65,6 @@ namespace GUTZ_Capstone_Project
 
         private void OpenChildForm(Form childForm)
         {
-            // Enable double buffering for the child form
-            typeof(Form).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                .SetValue(childForm, true, null);
             // open only form
             if (currentChildForm != null && !currentChildForm.IsDisposed)
             {
@@ -78,42 +83,6 @@ namespace GUTZ_Capstone_Project
             childForm.BringToFront();
             childForm.Show();
             lblTitleChildForm.Text = childForm.Text;
-        }
-
-        private void LoadChartData()
-        {
-            // Dummy data
-            int totalEmployees = 70;
-            int payrollProcessed = 30;
-            double totalGrossPay = 50000;
-            double totalDeductions = 6500;
-            double netPayroll = 45000;
-            int timeOffAccrued = 1200;
-
-            int allAttendance = 500;
-            int present = 74;
-            int absent = 1;
-            int late = 7;
-
-            // Add data to the chart
-            chart1.Series["Payroll Management Overview"].Points.AddXY("", totalEmployees);
-            chart1.Series["Payroll Management Overview"].Points.AddXY("", payrollProcessed);
-            chart1.Series["Payroll Management Overview"].Points.AddXY("", totalGrossPay);
-            chart1.Series["Payroll Management Overview"].Points.AddXY("", totalDeductions);
-            chart1.Series["Payroll Management Overview"].Points.AddXY("", netPayroll);
-            chart1.Series["Payroll Management Overview"].Points.AddXY("", timeOffAccrued);
-
-            chart1.Series["Attendance Monitoring"].Points.AddXY("", allAttendance);
-            chart1.Series["Attendance Monitoring"].Points.AddXY("", present);
-            chart1.Series["Attendance Monitoring"].Points.AddXY("", absent);
-            chart1.Series["Attendance Monitoring"].Points.AddXY("", late);
-
-            //chart1.Series["Employee"].Points.AddXY("", totalEmployees);
-
-            // Customize the chart
-            //chart1.ChartAreas[0].AxisY.Title = "Amount";
-            //chart1.ChartAreas[0].AxisY.LabelStyle.Format = "C0";
-            chart1.Titles.Add("Attendance Monitoring and Payroll Management Overview");
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)

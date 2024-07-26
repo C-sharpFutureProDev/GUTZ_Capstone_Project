@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,9 +18,15 @@ namespace GUTZ_Capstone_Project.Forms
         public FormEmployeeProfiling()
         {
             InitializeComponent();
-            this.DoubleBuffered = true; // Enable double buffering for the main form
+            dataGridView1.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | 
+                BindingFlags.NonPublic).SetValue(dataGridView1, true, null);
+        }
+
+        private void FormEmployeeProfiling_Load(object sender, EventArgs e)
+        {
             System.Data.DataTable dataTable = new System.Data.DataTable();
 
+            AjustDataGridViewHeight();
             // Add the required columns to the DataTable
             dataTable.Columns.Add("Image", typeof(Bitmap));
             dataTable.Columns.Add("Name", typeof(string));
@@ -51,15 +58,10 @@ namespace GUTZ_Capstone_Project.Forms
             dataGridView1.DataSource = dataTable;
         }
 
-        private void FormEmployeeProfiling_Load(object sender, EventArgs e)
-        {
-            AjustDataGridViewHeight();
-        }
-
         private void AjustDataGridViewHeight()
         {
             var heigth = dataGridView1.ColumnHeadersHeight;
-            foreach(DataGridViewRow dr in dataGridView1.Rows)
+            foreach (DataGridViewRow dr in dataGridView1.Rows)
             {
                 heigth += dr.Height;
             }
