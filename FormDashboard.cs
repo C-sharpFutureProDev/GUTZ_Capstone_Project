@@ -41,16 +41,13 @@ namespace GUTZ_Capstone_Project
 
         private void ActivateButton(object senderBtn)
         {
-            if (senderBtn != null)
+            DisableButton();
+            if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
-                DisableButton();
-
-                currentBtn = (Guna.UI2.WinForms.Guna2Button)senderBtn;
-
-                // Current Child Form Icon
-                iconCurrentChildForm.Image = currentBtn.Image;
+                currentBtn = btn;
                 currentBtn.FillColor = Color.Ivory;
                 currentBtn.ForeColor = Color.Black;
+                iconCurrentChildForm.Image = currentBtn.Image;
             }
         }
 
@@ -122,11 +119,6 @@ namespace GUTZ_Capstone_Project
             {
                 iconCurrentChildForm.Image = originalImage;
                 lblTitleChildForm.Text = "Dashboard";
-                lblTitleChildForm.ForeColor = Color.White;
-            }
-
-            if (lblTitleChildForm != null)
-            {
                 lblTitleChildForm.ForeColor = Color.White;
             }
         }

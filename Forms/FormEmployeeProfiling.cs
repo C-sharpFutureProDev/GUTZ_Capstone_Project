@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Org.BouncyCastle.Asn1.Crmf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project.Forms
@@ -18,15 +20,20 @@ namespace GUTZ_Capstone_Project.Forms
         public FormEmployeeProfiling()
         {
             InitializeComponent();
-            dataGridView1.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | 
-                BindingFlags.NonPublic).SetValue(dataGridView1, true, null);
+            this.DGVEmployee.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | 
+                BindingFlags.NonPublic).SetValue(DGVEmployee, true, null);
+            this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+            this.DGVEmployee.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+
+            // Create a custom button cell 
+            Column8.CellTemplate.Style.Font = new Font("Arial", 9f, FontStyle.Bold);
+            Column9.CellTemplate.Style.Font = new Font("Arial", 9f, FontStyle.Bold);
         }
 
         private void FormEmployeeProfiling_Load(object sender, EventArgs e)
         {
             System.Data.DataTable dataTable = new System.Data.DataTable();
 
-            AjustDataGridViewHeight();
             // Add the required columns to the DataTable
             dataTable.Columns.Add("Image", typeof(Bitmap));
             dataTable.Columns.Add("Name", typeof(string));
@@ -55,17 +62,7 @@ namespace GUTZ_Capstone_Project.Forms
 
 
             // Bind the DataTable to the DataGridView
-            dataGridView1.DataSource = dataTable;
-        }
-
-        private void AjustDataGridViewHeight()
-        {
-            var heigth = dataGridView1.ColumnHeadersHeight;
-            foreach (DataGridViewRow dr in dataGridView1.Rows)
-            {
-                heigth += dr.Height;
-            }
-            dataGridView1.Height = heigth;
+            DGVEmployee.DataSource = dataTable;
         }
     }
 }
