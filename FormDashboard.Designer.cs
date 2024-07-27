@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
@@ -114,7 +114,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.panelMenu.BorderRadius = 15;
             this.panelMenu.Controls.Add(this.btnLogout);
@@ -125,7 +125,7 @@
             this.panelMenu.Controls.Add(this.btnEmployee);
             this.panelMenu.Controls.Add(this.label18);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.panelMenu.FillColor = System.Drawing.Color.White;
             this.panelMenu.Location = new System.Drawing.Point(0, 304);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelMenu.Name = "panelMenu";
@@ -135,19 +135,19 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnLogout.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnLogout.BorderRadius = 3;
             this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnLogout.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnLogout.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnLogout.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnLogout.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLogout.ImageSize = new System.Drawing.Size(35, 32);
@@ -157,7 +157,7 @@
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnLogout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
             this.btnLogout.PressedDepth = 100;
-            this.btnLogout.ShadowDecoration.Color = System.Drawing.Color.Ivory;
+            this.btnLogout.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(57)))), ((int)(((byte)(138)))));
             this.btnLogout.ShadowDecoration.Enabled = true;
             this.btnLogout.Size = new System.Drawing.Size(284, 58);
             this.btnLogout.TabIndex = 27;
@@ -167,19 +167,19 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnSettings.BorderColor = System.Drawing.Color.Navy;
             this.btnSettings.BorderRadius = 3;
             this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnSettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnSettings.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnSettings.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnSettings.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnSettings.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSettings.ImageSize = new System.Drawing.Size(35, 32);
@@ -189,7 +189,7 @@
             this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnSettings.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
             this.btnSettings.PressedDepth = 100;
-            this.btnSettings.ShadowDecoration.Color = System.Drawing.Color.Ivory;
+            this.btnSettings.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(57)))), ((int)(((byte)(138)))));
             this.btnSettings.ShadowDecoration.Enabled = true;
             this.btnSettings.Size = new System.Drawing.Size(284, 58);
             this.btnSettings.TabIndex = 26;
@@ -199,19 +199,19 @@
             // 
             // btnGenerateReports
             // 
-            this.btnGenerateReports.BackColor = System.Drawing.Color.Transparent;
+            this.btnGenerateReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnGenerateReports.BorderColor = System.Drawing.Color.Navy;
             this.btnGenerateReports.BorderRadius = 3;
             this.btnGenerateReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGenerateReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGenerateReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnGenerateReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGenerateReports.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            this.btnGenerateReports.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnGenerateReports.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnGenerateReports.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerateReports.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateReports.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnGenerateReports.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnGenerateReports.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnGenerateReports.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnGenerateReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnGenerateReports.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
             this.btnGenerateReports.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateReports.Image")));
             this.btnGenerateReports.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGenerateReports.ImageSize = new System.Drawing.Size(35, 32);
@@ -221,7 +221,7 @@
             this.btnGenerateReports.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGenerateReports.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
             this.btnGenerateReports.PressedDepth = 100;
-            this.btnGenerateReports.ShadowDecoration.Color = System.Drawing.Color.Ivory;
+            this.btnGenerateReports.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(57)))), ((int)(((byte)(138)))));
             this.btnGenerateReports.ShadowDecoration.Enabled = true;
             this.btnGenerateReports.Size = new System.Drawing.Size(284, 58);
             this.btnGenerateReports.TabIndex = 25;
@@ -231,19 +231,19 @@
             // 
             // btnPayrollManagement
             // 
-            this.btnPayrollManagement.BackColor = System.Drawing.Color.Transparent;
+            this.btnPayrollManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnPayrollManagement.BorderColor = System.Drawing.Color.Navy;
             this.btnPayrollManagement.BorderRadius = 3;
             this.btnPayrollManagement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPayrollManagement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPayrollManagement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPayrollManagement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPayrollManagement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            this.btnPayrollManagement.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnPayrollManagement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnPayrollManagement.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayrollManagement.ForeColor = System.Drawing.Color.White;
-            this.btnPayrollManagement.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnPayrollManagement.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnPayrollManagement.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnPayrollManagement.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnPayrollManagement.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnPayrollManagement.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
             this.btnPayrollManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnPayrollManagement.Image")));
             this.btnPayrollManagement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPayrollManagement.ImageSize = new System.Drawing.Size(35, 32);
@@ -253,7 +253,7 @@
             this.btnPayrollManagement.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnPayrollManagement.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
             this.btnPayrollManagement.PressedDepth = 100;
-            this.btnPayrollManagement.ShadowDecoration.Color = System.Drawing.Color.Ivory;
+            this.btnPayrollManagement.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(57)))), ((int)(((byte)(138)))));
             this.btnPayrollManagement.ShadowDecoration.Enabled = true;
             this.btnPayrollManagement.Size = new System.Drawing.Size(284, 58);
             this.btnPayrollManagement.TabIndex = 24;
@@ -263,19 +263,19 @@
             // 
             // btnAttendanceMonitoring
             // 
-            this.btnAttendanceMonitoring.BackColor = System.Drawing.Color.Transparent;
+            this.btnAttendanceMonitoring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnAttendanceMonitoring.BorderColor = System.Drawing.Color.Navy;
             this.btnAttendanceMonitoring.BorderRadius = 3;
             this.btnAttendanceMonitoring.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAttendanceMonitoring.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAttendanceMonitoring.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAttendanceMonitoring.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAttendanceMonitoring.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            this.btnAttendanceMonitoring.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendanceMonitoring.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnAttendanceMonitoring.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttendanceMonitoring.ForeColor = System.Drawing.Color.White;
-            this.btnAttendanceMonitoring.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnAttendanceMonitoring.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnAttendanceMonitoring.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnAttendanceMonitoring.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnAttendanceMonitoring.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnAttendanceMonitoring.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
             this.btnAttendanceMonitoring.Image = ((System.Drawing.Image)(resources.GetObject("btnAttendanceMonitoring.Image")));
             this.btnAttendanceMonitoring.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAttendanceMonitoring.ImageSize = new System.Drawing.Size(35, 32);
@@ -285,7 +285,7 @@
             this.btnAttendanceMonitoring.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnAttendanceMonitoring.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
             this.btnAttendanceMonitoring.PressedDepth = 100;
-            this.btnAttendanceMonitoring.ShadowDecoration.Color = System.Drawing.Color.Ivory;
+            this.btnAttendanceMonitoring.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(57)))), ((int)(((byte)(138)))));
             this.btnAttendanceMonitoring.ShadowDecoration.Enabled = true;
             this.btnAttendanceMonitoring.Size = new System.Drawing.Size(284, 58);
             this.btnAttendanceMonitoring.TabIndex = 23;
@@ -295,19 +295,19 @@
             // 
             // btnEmployee
             // 
-            this.btnEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnEmployee.BorderColor = System.Drawing.Color.Navy;
             this.btnEmployee.BorderRadius = 3;
             this.btnEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            this.btnEmployee.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnEmployee.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnEmployee.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnEmployee.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnEmployee.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.btnEmployee.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
             this.btnEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployee.Image")));
             this.btnEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnEmployee.ImageSize = new System.Drawing.Size(35, 32);
@@ -317,7 +317,7 @@
             this.btnEmployee.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnEmployee.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
             this.btnEmployee.PressedDepth = 100;
-            this.btnEmployee.ShadowDecoration.Color = System.Drawing.Color.Ivory;
+            this.btnEmployee.ShadowDecoration.Color = System.Drawing.Color.Navy;
             this.btnEmployee.ShadowDecoration.Enabled = true;
             this.btnEmployee.Size = new System.Drawing.Size(284, 58);
             this.btnEmployee.TabIndex = 22;
@@ -337,7 +337,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.guna2Panel5);
             this.panel6.Controls.Add(this.guna2Separator1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -349,12 +349,12 @@
             // 
             // guna2Panel5
             // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.guna2Panel5.BackColor = System.Drawing.Color.White;
             this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.guna2Panel5.BorderRadius = 15;
             this.guna2Panel5.Controls.Add(this.btnBackToHome);
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.guna2Panel5.FillColor = System.Drawing.Color.White;
             this.guna2Panel5.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Panel5.Name = "guna2Panel5";
@@ -365,23 +365,24 @@
             // btnBackToHome
             // 
             this.btnBackToHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnBackToHome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(43)))), ((int)(((byte)(64)))));
+            this.btnBackToHome.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnBackToHome.BorderRadius = 3;
             this.btnBackToHome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnBackToHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnBackToHome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnBackToHome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToHome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.btnBackToHome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.btnBackToHome.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBackToHome.ForeColor = System.Drawing.Color.White;
-            this.btnBackToHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(33)))), ((int)(((byte)(45)))));
+            this.btnBackToHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
             this.btnBackToHome.Image = ((System.Drawing.Image)(resources.GetObject("btnBackToHome.Image")));
             this.btnBackToHome.ImageSize = new System.Drawing.Size(260, 145);
             this.btnBackToHome.Location = new System.Drawing.Point(18, 26);
             this.btnBackToHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBackToHome.Name = "btnBackToHome";
             this.btnBackToHome.Padding = new System.Windows.Forms.Padding(7);
-            this.btnBackToHome.ShadowDecoration.Color = System.Drawing.Color.Ivory;
+            this.btnBackToHome.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
+            this.btnBackToHome.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(57)))), ((int)(((byte)(138)))));
             this.btnBackToHome.ShadowDecoration.Enabled = true;
             this.btnBackToHome.Size = new System.Drawing.Size(284, 109);
             this.btnBackToHome.TabIndex = 16;
@@ -389,7 +390,8 @@
             // 
             // guna2Separator1
             // 
-            this.guna2Separator1.FillColor = System.Drawing.Color.White;
+            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.guna2Separator1.FillThickness = 2;
             this.guna2Separator1.Location = new System.Drawing.Point(18, 277);
             this.guna2Separator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Separator1.Name = "guna2Separator1";
@@ -411,7 +413,7 @@
             // iconPictureBox1
             // 
             this.iconPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(33)))), ((int)(((byte)(45)))));
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(120)))), ((int)(((byte)(220)))));
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Bell;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -422,12 +424,12 @@
             this.iconPictureBox1.Size = new System.Drawing.Size(42, 42);
             this.iconPictureBox1.TabIndex = 6;
             this.iconPictureBox1.TabStop = false;
-            this.iconPictureBox1.Tag = "toolTip1";
+            this.iconPictureBox1.Tag = "";
             // 
             // iconPictureBox2
             // 
             this.iconPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(33)))), ((int)(((byte)(45)))));
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(120)))), ((int)(((byte)(220)))));
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Navicon;
             this.iconPictureBox2.IconColor = System.Drawing.Color.White;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -443,7 +445,7 @@
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(33)))), ((int)(((byte)(45)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(120)))), ((int)(((byte)(220)))));
             this.panelTitleBar.Controls.Add(this.label1);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm);
             this.panelTitleBar.Controls.Add(this.guna2CirclePictureBox1);
@@ -511,6 +513,7 @@
             // 
             // panelDesktop
             // 
+            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
             this.panelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDesktop.Controls.Add(this.chart1);
             this.panelDesktop.Controls.Add(this.guna2Panel4);
@@ -527,20 +530,20 @@
             // 
             this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(168)))), ((int)(((byte)(171)))));
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(75, 287);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Payroll Management Overview";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Attendance Monitoring";
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Payroll Management Overview";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Attendance Monitoring";
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(688, 300);
             this.chart1.TabIndex = 21;
             this.chart1.Text = "chart1";
@@ -548,12 +551,12 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(43)))), ((int)(((byte)(64)))));
+            this.guna2Panel4.BorderColor = System.Drawing.Color.White;
             this.guna2Panel4.BorderRadius = 15;
             this.guna2Panel4.BorderThickness = 2;
             this.guna2Panel4.Controls.Add(this.label17);
             this.guna2Panel4.Controls.Add(this.guna2Button4);
-            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(168)))), ((int)(((byte)(171)))));
+            this.guna2Panel4.FillColor = System.Drawing.Color.White;
             this.guna2Panel4.ForeColor = System.Drawing.Color.Ivory;
             this.guna2Panel4.Location = new System.Drawing.Point(1204, 66);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -576,20 +579,21 @@
             // guna2Button4
             // 
             this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button4.BorderRadius = 3;
             this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
             this.guna2Button4.ImageSize = new System.Drawing.Size(70, 70);
             this.guna2Button4.Location = new System.Drawing.Point(17, 17);
             this.guna2Button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2Button4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button4.ShadowDecoration.Enabled = true;
             this.guna2Button4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
             this.guna2Button4.Size = new System.Drawing.Size(83, 88);
@@ -598,7 +602,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(43)))), ((int)(((byte)(64)))));
+            this.guna2Panel3.BorderColor = System.Drawing.Color.White;
             this.guna2Panel3.BorderRadius = 15;
             this.guna2Panel3.BorderThickness = 2;
             this.guna2Panel3.Controls.Add(this.label16);
@@ -607,7 +611,7 @@
             this.guna2Panel3.Controls.Add(this.label13);
             this.guna2Panel3.Controls.Add(this.label12);
             this.guna2Panel3.Controls.Add(this.guna2Button5);
-            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(168)))), ((int)(((byte)(171)))));
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
             this.guna2Panel3.ForeColor = System.Drawing.Color.Ivory;
             this.guna2Panel3.Location = new System.Drawing.Point(829, 66);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -678,15 +682,15 @@
             this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.Image")));
             this.guna2Button5.ImageSize = new System.Drawing.Size(75, 70);
             this.guna2Button5.Location = new System.Drawing.Point(18, 17);
             this.guna2Button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2Button5.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button5.ShadowDecoration.Enabled = true;
             this.guna2Button5.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
             this.guna2Button5.Size = new System.Drawing.Size(83, 88);
@@ -695,7 +699,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(43)))), ((int)(((byte)(64)))));
+            this.guna2Panel2.BorderColor = System.Drawing.Color.White;
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 2;
             this.guna2Panel2.Controls.Add(this.label11);
@@ -704,7 +708,7 @@
             this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Controls.Add(this.label7);
             this.guna2Panel2.Controls.Add(this.guna2Button6);
-            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(168)))), ((int)(((byte)(171)))));
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.ForeColor = System.Drawing.Color.Ivory;
             this.guna2Panel2.Location = new System.Drawing.Point(451, 66);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -775,15 +779,15 @@
             this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button6.ForeColor = System.Drawing.Color.White;
-            this.guna2Button6.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button6.Image")));
             this.guna2Button6.ImageSize = new System.Drawing.Size(80, 80);
             this.guna2Button6.Location = new System.Drawing.Point(18, 17);
             this.guna2Button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2Button6.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button6.ShadowDecoration.Enabled = true;
             this.guna2Button6.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
             this.guna2Button6.Size = new System.Drawing.Size(83, 88);
@@ -792,7 +796,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(43)))), ((int)(((byte)(64)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.White;
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.label6);
@@ -801,7 +805,7 @@
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.label19);
             this.guna2Panel1.Controls.Add(this.guna2Button7);
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(168)))), ((int)(((byte)(171)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.ForeColor = System.Drawing.Color.Black;
             this.guna2Panel1.Location = new System.Drawing.Point(75, 66);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -874,15 +878,15 @@
             this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
+            this.guna2Button7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button7.ForeColor = System.Drawing.Color.White;
-            this.guna2Button7.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button7.Image")));
             this.guna2Button7.ImageSize = new System.Drawing.Size(80, 80);
             this.guna2Button7.Location = new System.Drawing.Point(16, 17);
             this.guna2Button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button7.Name = "guna2Button7";
             this.guna2Button7.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2Button7.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.guna2Button7.ShadowDecoration.Enabled = true;
             this.guna2Button7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
             this.guna2Button7.Size = new System.Drawing.Size(83, 88);

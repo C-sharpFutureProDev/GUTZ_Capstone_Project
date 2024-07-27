@@ -26,8 +26,8 @@ namespace GUTZ_Capstone_Project.Forms
             //this.DGVEmployee.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
 
             // Create a custom button cell 
-            Column8.CellTemplate.Style.Font = new Font("Arial", 9f, FontStyle.Bold);
-            Column9.CellTemplate.Style.Font = new Font("Arial", 9f, FontStyle.Bold);
+            Column8.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
+            Column9.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
         }
 
         private void FormEmployeeProfiling_Load(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace GUTZ_Capstone_Project.Forms
             dataTable.Columns.Add("Hire Date", typeof(DateTime));
 
             // Generate some dummy data and add it to the DataTable
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 13; i++)
             {
                 // Load the image from the downloads folder
                 Bitmap userImage = new Bitmap("C:\\Users\\User\\Downloads\\264692019_231225682454241_3629721876682858121_n.jpg");
