@@ -23,7 +23,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVEmployee.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | 
                 BindingFlags.NonPublic).SetValue(DGVEmployee, true, null);
             this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
-            this.DGVEmployee.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            //this.DGVEmployee.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
 
             // Create a custom button cell 
             Column8.CellTemplate.Style.Font = new Font("Arial", 9f, FontStyle.Bold);
