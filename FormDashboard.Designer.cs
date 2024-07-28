@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
@@ -54,7 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.AdminRoundedPictureBox = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -82,6 +81,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
+            this.AdminRoundedPictureBox = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.panel5.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -91,13 +91,13 @@
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).BeginInit();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -135,7 +135,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnLogout.BorderRadius = 3;
             this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -167,7 +167,7 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
             this.btnSettings.BorderColor = System.Drawing.Color.Navy;
             this.btnSettings.BorderRadius = 3;
             this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -199,7 +199,7 @@
             // 
             // btnGenerateReports
             // 
-            this.btnGenerateReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnGenerateReports.BackColor = System.Drawing.Color.Transparent;
             this.btnGenerateReports.BorderColor = System.Drawing.Color.Navy;
             this.btnGenerateReports.BorderRadius = 3;
             this.btnGenerateReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -231,7 +231,7 @@
             // 
             // btnPayrollManagement
             // 
-            this.btnPayrollManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnPayrollManagement.BackColor = System.Drawing.Color.Transparent;
             this.btnPayrollManagement.BorderColor = System.Drawing.Color.Navy;
             this.btnPayrollManagement.BorderRadius = 3;
             this.btnPayrollManagement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -263,7 +263,7 @@
             // 
             // btnAttendanceMonitoring
             // 
-            this.btnAttendanceMonitoring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnAttendanceMonitoring.BackColor = System.Drawing.Color.Transparent;
             this.btnAttendanceMonitoring.BorderColor = System.Drawing.Color.Navy;
             this.btnAttendanceMonitoring.BorderRadius = 3;
             this.btnAttendanceMonitoring.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -295,7 +295,7 @@
             // 
             // btnEmployee
             // 
-            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
+            this.btnEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnEmployee.BorderColor = System.Drawing.Color.Navy;
             this.btnEmployee.BorderRadius = 3;
             this.btnEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -413,7 +413,7 @@
             // iconPictureBox1
             // 
             this.iconPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(120)))), ((int)(((byte)(220)))));
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Bell;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -429,7 +429,7 @@
             // iconPictureBox2
             // 
             this.iconPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(120)))), ((int)(((byte)(220)))));
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Navicon;
             this.iconPictureBox2.IconColor = System.Drawing.Color.White;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -445,7 +445,7 @@
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(120)))), ((int)(((byte)(220)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(82)))), ((int)(((byte)(197)))));
             this.panelTitleBar.Controls.Add(this.label1);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm);
             this.panelTitleBar.Controls.Add(this.guna2CirclePictureBox1);
@@ -495,18 +495,6 @@
             this.guna2CirclePictureBox1.TabIndex = 10;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // AdminRoundedPictureBox
-            // 
-            this.AdminRoundedPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminRoundedPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AdminRoundedPictureBox.Image")));
-            this.AdminRoundedPictureBox.Location = new System.Drawing.Point(1379, 12);
-            this.AdminRoundedPictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AdminRoundedPictureBox.Name = "AdminRoundedPictureBox";
-            this.AdminRoundedPictureBox.Size = new System.Drawing.Size(42, 42);
-            this.AdminRoundedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.AdminRoundedPictureBox.TabIndex = 8;
-            this.AdminRoundedPictureBox.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -530,20 +518,20 @@
             // 
             this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(168)))), ((int)(((byte)(171)))));
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(20)))), ((int)(((byte)(27)))));
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(75, 287);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Payroll Management Overview";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Attendance Monitoring";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Payroll Management Overview";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Attendance Monitoring";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(688, 300);
             this.chart1.TabIndex = 21;
             this.chart1.Text = "chart1";
@@ -892,6 +880,18 @@
             this.guna2Button7.Size = new System.Drawing.Size(83, 88);
             this.guna2Button7.TabIndex = 16;
             // 
+            // AdminRoundedPictureBox
+            // 
+            this.AdminRoundedPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminRoundedPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AdminRoundedPictureBox.Image")));
+            this.AdminRoundedPictureBox.Location = new System.Drawing.Point(1379, 12);
+            this.AdminRoundedPictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AdminRoundedPictureBox.Name = "AdminRoundedPictureBox";
+            this.AdminRoundedPictureBox.Size = new System.Drawing.Size(42, 42);
+            this.AdminRoundedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AdminRoundedPictureBox.TabIndex = 8;
+            this.AdminRoundedPictureBox.TabStop = false;
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -916,7 +916,6 @@
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
@@ -927,6 +926,7 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

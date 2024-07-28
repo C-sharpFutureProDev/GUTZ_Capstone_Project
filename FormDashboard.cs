@@ -29,6 +29,7 @@ namespace GUTZ_Capstone_Project
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
         }
 
+        // Fixed flicker user interface rendering
         protected override CreateParams CreateParams
         {
             get
@@ -75,11 +76,35 @@ namespace GUTZ_Capstone_Project
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
+            panelDesktop.SuspendLayout(); // Suspend layout updates
+
+            // Enable double buffering for the child form
+            childForm.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | 
+                System.Reflection.BindingFlags.NonPublic).SetValue(childForm, true, null);
+
             panelDesktop.Controls.Add(childForm);
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+
+            panelDesktop.ResumeLayout(); // Resume layout updates
+            panelDesktop.PerformLayout(); // Force immediate layout update
+
             lblTitleChildForm.Text = childForm.Text;
+        }
+
+
+        private void Reset()
+        {
+            DisableButton();
+            currentChildForm.Close();
+
+            if (iconCurrentChildForm != null)
+            {
+                iconCurrentChildForm.Image = originalImage;
+                lblTitleChildForm.Text = "Dashboard";
+                lblTitleChildForm.ForeColor = Color.White;
+            }
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -108,19 +133,6 @@ namespace GUTZ_Capstone_Project
         private void btnSettings_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-        }
-
-        private void Reset()
-        {
-            DisableButton();
-            currentChildForm.Close();
-
-            if (iconCurrentChildForm != null)
-            {
-                iconCurrentChildForm.Image = originalImage;
-                lblTitleChildForm.Text = "Dashboard";
-                lblTitleChildForm.ForeColor = Color.White;
-            }
         }
 
         private void btnBackToHome_Click(object sender, EventArgs e)

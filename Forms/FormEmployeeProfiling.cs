@@ -23,7 +23,6 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVEmployee.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | 
                 BindingFlags.NonPublic).SetValue(DGVEmployee, true, null);
             this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
-            //this.DGVEmployee.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
 
             // Create a custom button cell 
             Column8.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
@@ -32,7 +31,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void FormEmployeeProfiling_Load(object sender, EventArgs e)
         {
-            System.Data.DataTable dataTable = new System.Data.DataTable();
+            DataTable dataTable = new DataTable();
 
             // Add the required columns to the DataTable
             dataTable.Columns.Add("Image", typeof(Bitmap));
@@ -59,7 +58,6 @@ namespace GUTZ_Capstone_Project.Forms
                     new DateTime(2020, 1, 1).AddDays(i * 30)
                 );
             }
-
 
             // Bind the DataTable to the DataGridView
             DGVEmployee.DataSource = dataTable;
