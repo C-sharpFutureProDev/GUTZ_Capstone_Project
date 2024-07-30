@@ -31,25 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAttendanceMonitoring));
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.roundedPictureBoxControl2 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.roundedPictureBoxControl3 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.roundedPictureBoxControl4 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.roundedPictureBoxControl5 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.roundedPictureBoxControl4 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.roundedPictureBoxControl3 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.roundedPictureBoxControl2 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl2)).BeginInit();
             this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl3)).BeginInit();
             this.guna2Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl4)).BeginInit();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,6 +77,16 @@
             this.guna2Panel1.Size = new System.Drawing.Size(301, 325);
             this.guna2Panel1.TabIndex = 23;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(98, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(108, 110);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
@@ -92,6 +102,17 @@
             this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Empty;
             this.guna2Panel2.Size = new System.Drawing.Size(301, 325);
             this.guna2Panel2.TabIndex = 24;
+            // 
+            // roundedPictureBoxControl2
+            // 
+            this.roundedPictureBoxControl2.BackColor = System.Drawing.Color.White;
+            this.roundedPictureBoxControl2.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl2.Image")));
+            this.roundedPictureBoxControl2.Location = new System.Drawing.Point(97, 24);
+            this.roundedPictureBoxControl2.Name = "roundedPictureBoxControl2";
+            this.roundedPictureBoxControl2.Size = new System.Drawing.Size(108, 110);
+            this.roundedPictureBoxControl2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.roundedPictureBoxControl2.TabIndex = 0;
+            this.roundedPictureBoxControl2.TabStop = false;
             // 
             // guna2Panel3
             // 
@@ -109,6 +130,17 @@
             this.guna2Panel3.Size = new System.Drawing.Size(301, 325);
             this.guna2Panel3.TabIndex = 25;
             // 
+            // roundedPictureBoxControl3
+            // 
+            this.roundedPictureBoxControl3.BackColor = System.Drawing.Color.White;
+            this.roundedPictureBoxControl3.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl3.Image")));
+            this.roundedPictureBoxControl3.Location = new System.Drawing.Point(97, 24);
+            this.roundedPictureBoxControl3.Name = "roundedPictureBoxControl3";
+            this.roundedPictureBoxControl3.Size = new System.Drawing.Size(108, 110);
+            this.roundedPictureBoxControl3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.roundedPictureBoxControl3.TabIndex = 0;
+            this.roundedPictureBoxControl3.TabStop = false;
+            // 
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
@@ -124,6 +156,17 @@
             this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.Empty;
             this.guna2Panel4.Size = new System.Drawing.Size(301, 325);
             this.guna2Panel4.TabIndex = 24;
+            // 
+            // roundedPictureBoxControl4
+            // 
+            this.roundedPictureBoxControl4.BackColor = System.Drawing.Color.White;
+            this.roundedPictureBoxControl4.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl4.Image")));
+            this.roundedPictureBoxControl4.Location = new System.Drawing.Point(97, 24);
+            this.roundedPictureBoxControl4.Name = "roundedPictureBoxControl4";
+            this.roundedPictureBoxControl4.Size = new System.Drawing.Size(108, 110);
+            this.roundedPictureBoxControl4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.roundedPictureBoxControl4.TabIndex = 0;
+            this.roundedPictureBoxControl4.TabStop = false;
             // 
             // guna2Panel5
             // 
@@ -152,49 +195,6 @@
             this.roundedPictureBoxControl5.TabIndex = 0;
             this.roundedPictureBoxControl5.TabStop = false;
             // 
-            // roundedPictureBoxControl4
-            // 
-            this.roundedPictureBoxControl4.BackColor = System.Drawing.Color.White;
-            this.roundedPictureBoxControl4.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl4.Image")));
-            this.roundedPictureBoxControl4.Location = new System.Drawing.Point(97, 24);
-            this.roundedPictureBoxControl4.Name = "roundedPictureBoxControl4";
-            this.roundedPictureBoxControl4.Size = new System.Drawing.Size(108, 110);
-            this.roundedPictureBoxControl4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl4.TabIndex = 0;
-            this.roundedPictureBoxControl4.TabStop = false;
-            // 
-            // roundedPictureBoxControl3
-            // 
-            this.roundedPictureBoxControl3.BackColor = System.Drawing.Color.White;
-            this.roundedPictureBoxControl3.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl3.Image")));
-            this.roundedPictureBoxControl3.Location = new System.Drawing.Point(97, 24);
-            this.roundedPictureBoxControl3.Name = "roundedPictureBoxControl3";
-            this.roundedPictureBoxControl3.Size = new System.Drawing.Size(108, 110);
-            this.roundedPictureBoxControl3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl3.TabIndex = 0;
-            this.roundedPictureBoxControl3.TabStop = false;
-            // 
-            // roundedPictureBoxControl2
-            // 
-            this.roundedPictureBoxControl2.BackColor = System.Drawing.Color.White;
-            this.roundedPictureBoxControl2.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl2.Image")));
-            this.roundedPictureBoxControl2.Location = new System.Drawing.Point(97, 24);
-            this.roundedPictureBoxControl2.Name = "roundedPictureBoxControl2";
-            this.roundedPictureBoxControl2.Size = new System.Drawing.Size(108, 110);
-            this.roundedPictureBoxControl2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl2.TabIndex = 0;
-            this.roundedPictureBoxControl2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(98, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 110);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
-            // 
             // FormAttendanceMonitoring
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -207,19 +207,20 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "FormAttendanceMonitoring";
             this.Text = "Attendance Monitoring Section";
             this.Load += new System.EventHandler(this.FormAttendanceMonitoring_Load);
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl2)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl3)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl4)).EndInit();
             this.guna2Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
