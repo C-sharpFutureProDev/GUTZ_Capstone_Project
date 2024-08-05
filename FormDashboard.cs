@@ -25,6 +25,7 @@ namespace GUTZ_Capstone_Project
         public FormDashboard()
         {
             InitializeComponent();
+            
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
         }
@@ -46,7 +47,7 @@ namespace GUTZ_Capstone_Project
             if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
                 currentBtn = btn;
-                currentBtn.FillColor = Color.FromArgb(55, 43, 37);
+                currentBtn.FillColor = Color.FromArgb(22, 91, 131);
                 currentBtn.ForeColor = Color.White;
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
@@ -88,11 +89,9 @@ namespace GUTZ_Capstone_Project
             childForm.Show();
 
             panelDesktop.ResumeLayout(); // Resume layout updates
-            panelDesktop.PerformLayout(); // Force immediate layout update
 
             lblTitleChildForm.Text = childForm.Text;
         }
-
 
         private void Reset()
         {

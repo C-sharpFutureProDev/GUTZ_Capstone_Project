@@ -51,12 +51,12 @@ namespace GUTZ_Capstone_Project.Forms
 
                 dataTable.Rows.Add(
                     userImage,
-                    $"Orlando Jaso",
-                    i,
-                    $"GUTZ-Orlando",
-                    $"BPO Dept.",
-                    $"Call Center Agent",
-                    new DateTime(2020, 1, 1).AddDays(i * 30)
+                    $" Orlando Jaso",
+                     i,
+                    $" GUTZ-Orlando",
+                    $" BPO Dept.",
+                    $" Call Center Agent",
+                     new DateTime(2024, 1, 1)
                 );
             }
 
@@ -66,8 +66,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void btnAddNewEmployee_Click(object sender, EventArgs e)
         {
-            Form enroll = new FormEnroll();
-            enroll.ShowDialog();
+            //OpenChildForm(new FormEnroll());
         }
     }
 }

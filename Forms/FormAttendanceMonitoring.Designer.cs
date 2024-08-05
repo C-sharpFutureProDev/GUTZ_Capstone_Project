@@ -28,215 +28,219 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAttendanceMonitoring));
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.roundedPictureBoxControl2 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.roundedPictureBoxControl3 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.roundedPictureBoxControl4 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.roundedPictureBoxControl5 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
-            this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl2)).BeginInit();
-            this.guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl3)).BeginInit();
-            this.guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl4)).BeginInit();
-            this.guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl5)).BeginInit();
+            this.DGVAttendance = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVAttendance)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1924, 100);
-            this.panel1.TabIndex = 0;
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderRadius = 15;
-            this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.pictureBox1);
-            this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Panel1.Location = new System.Drawing.Point(53, 161);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Silver;
+            this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Empty;
-            this.guna2Panel1.Size = new System.Drawing.Size(301, 325);
-            this.guna2Panel1.TabIndex = 23;
+            this.guna2Panel1.ShadowDecoration.Enabled = true;
+            this.guna2Panel1.Size = new System.Drawing.Size(1924, 200);
+            this.guna2Panel1.TabIndex = 2;
             // 
-            // pictureBox1
+            // DGVAttendance
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(98, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 110);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
+            this.DGVAttendance.AllowUserToAddRows = false;
+            this.DGVAttendance.AllowUserToDeleteRows = false;
+            this.DGVAttendance.AllowUserToResizeColumns = false;
+            this.DGVAttendance.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(29)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(43)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.DGVAttendance.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.DGVAttendance.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.DGVAttendance.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGVAttendance.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
+            this.DGVAttendance.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVAttendance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.DGVAttendance.ColumnHeadersHeight = 50;
+            this.DGVAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVAttendance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column7,
+            this.Column5,
+            this.Column8,
+            this.Column6,
+            this.Column9});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAttendance.DefaultCellStyle = dataGridViewCellStyle8;
+            this.DGVAttendance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVAttendance.EnableHeadersVisualStyles = false;
+            this.DGVAttendance.GridColor = System.Drawing.Color.Black;
+            this.DGVAttendance.Location = new System.Drawing.Point(0, 200);
+            this.DGVAttendance.Name = "DGVAttendance";
+            this.DGVAttendance.ReadOnly = true;
+            this.DGVAttendance.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVAttendance.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.DGVAttendance.RowHeadersVisible = false;
+            this.DGVAttendance.RowHeadersWidth = 60;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(43)))), ((int)(((byte)(37)))));
+            this.DGVAttendance.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.DGVAttendance.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGVAttendance.RowTemplate.Height = 55;
+            this.DGVAttendance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVAttendance.Size = new System.Drawing.Size(1924, 777);
+            this.DGVAttendance.TabIndex = 3;
             // 
-            // guna2Panel2
+            // Column1
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderRadius = 15;
-            this.guna2Panel2.BorderThickness = 2;
-            this.guna2Panel2.Controls.Add(this.roundedPictureBoxControl2);
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Panel2.Location = new System.Drawing.Point(410, 161);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Empty;
-            this.guna2Panel2.Size = new System.Drawing.Size(301, 325);
-            this.guna2Panel2.TabIndex = 24;
+            this.Column1.DataPropertyName = "Image";
+            this.Column1.HeaderText = "";
+            this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 80;
             // 
-            // roundedPictureBoxControl2
+            // Column2
             // 
-            this.roundedPictureBoxControl2.BackColor = System.Drawing.Color.White;
-            this.roundedPictureBoxControl2.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl2.Image")));
-            this.roundedPictureBoxControl2.Location = new System.Drawing.Point(97, 24);
-            this.roundedPictureBoxControl2.Name = "roundedPictureBoxControl2";
-            this.roundedPictureBoxControl2.Size = new System.Drawing.Size(108, 110);
-            this.roundedPictureBoxControl2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl2.TabIndex = 0;
-            this.roundedPictureBoxControl2.TabStop = false;
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.Width = 250;
             // 
-            // guna2Panel3
+            // Column3
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.BorderThickness = 2;
-            this.guna2Panel3.Controls.Add(this.roundedPictureBoxControl3);
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Panel3.Location = new System.Drawing.Point(772, 161);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Empty;
-            this.guna2Panel3.Size = new System.Drawing.Size(301, 325);
-            this.guna2Panel3.TabIndex = 25;
+            this.Column3.DataPropertyName = "ID";
+            this.Column3.HeaderText = "ID";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 110;
             // 
-            // roundedPictureBoxControl3
+            // Column4
             // 
-            this.roundedPictureBoxControl3.BackColor = System.Drawing.Color.White;
-            this.roundedPictureBoxControl3.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl3.Image")));
-            this.roundedPictureBoxControl3.Location = new System.Drawing.Point(97, 24);
-            this.roundedPictureBoxControl3.Name = "roundedPictureBoxControl3";
-            this.roundedPictureBoxControl3.Size = new System.Drawing.Size(108, 110);
-            this.roundedPictureBoxControl3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl3.TabIndex = 0;
-            this.roundedPictureBoxControl3.TabStop = false;
+            this.Column4.DataPropertyName = "Agent Code";
+            this.Column4.HeaderText = "Agent Code";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 200;
             // 
-            // guna2Panel4
+            // Column7
             // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel4.BorderRadius = 15;
-            this.guna2Panel4.BorderThickness = 2;
-            this.guna2Panel4.Controls.Add(this.roundedPictureBoxControl4);
-            this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Panel4.Location = new System.Drawing.Point(1126, 161);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.Empty;
-            this.guna2Panel4.Size = new System.Drawing.Size(301, 325);
-            this.guna2Panel4.TabIndex = 24;
+            this.Column7.DataPropertyName = "Current Shift";
+            this.Column7.HeaderText = "Current Shift";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 200;
             // 
-            // roundedPictureBoxControl4
+            // Column5
             // 
-            this.roundedPictureBoxControl4.BackColor = System.Drawing.Color.White;
-            this.roundedPictureBoxControl4.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl4.Image")));
-            this.roundedPictureBoxControl4.Location = new System.Drawing.Point(97, 24);
-            this.roundedPictureBoxControl4.Name = "roundedPictureBoxControl4";
-            this.roundedPictureBoxControl4.Size = new System.Drawing.Size(108, 110);
-            this.roundedPictureBoxControl4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl4.TabIndex = 0;
-            this.roundedPictureBoxControl4.TabStop = false;
+            this.Column5.DataPropertyName = "Time-In";
+            this.Column5.HeaderText = "Time-In";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 250;
             // 
-            // guna2Panel5
+            // Column8
             // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel5.BorderRadius = 15;
-            this.guna2Panel5.BorderThickness = 2;
-            this.guna2Panel5.Controls.Add(this.roundedPictureBoxControl5);
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.ForeColor = System.Drawing.Color.Black;
-            this.guna2Panel5.Location = new System.Drawing.Point(1482, 161);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.ShadowDecoration.Color = System.Drawing.Color.Empty;
-            this.guna2Panel5.Size = new System.Drawing.Size(301, 325);
-            this.guna2Panel5.TabIndex = 25;
+            this.Column8.DataPropertyName = "Status";
+            this.Column8.HeaderText = "Status";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 150;
             // 
-            // roundedPictureBoxControl5
+            // Column6
             // 
-            this.roundedPictureBoxControl5.BackColor = System.Drawing.Color.White;
-            this.roundedPictureBoxControl5.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl5.Image")));
-            this.roundedPictureBoxControl5.Location = new System.Drawing.Point(97, 24);
-            this.roundedPictureBoxControl5.Name = "roundedPictureBoxControl5";
-            this.roundedPictureBoxControl5.Size = new System.Drawing.Size(108, 110);
-            this.roundedPictureBoxControl5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl5.TabIndex = 0;
-            this.roundedPictureBoxControl5.TabStop = false;
+            this.Column6.DataPropertyName = "Time-Out";
+            this.Column6.HeaderText = "Time-Out";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 205;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Dial Hours";
+            this.Column9.HeaderText = "Dial Hours";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 150;
             // 
             // FormAttendanceMonitoring
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1924, 977);
-            this.Controls.Add(this.guna2Panel5);
-            this.Controls.Add(this.guna2Panel4);
-            this.Controls.Add(this.guna2Panel3);
-            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.DGVAttendance);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Name = "FormAttendanceMonitoring";
             this.Text = "Attendance Monitoring Section";
             this.Load += new System.EventHandler(this.FormAttendanceMonitoring_Load);
-            this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl2)).EndInit();
-            this.guna2Panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl3)).EndInit();
-            this.guna2Panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl4)).EndInit();
-            this.guna2Panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVAttendance)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private RoundedPictureBoxControl roundedPictureBoxControl2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private RoundedPictureBoxControl roundedPictureBoxControl3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private RoundedPictureBoxControl roundedPictureBoxControl4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private RoundedPictureBoxControl roundedPictureBoxControl5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView DGVAttendance;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

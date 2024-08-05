@@ -15,14 +15,6 @@ namespace GUTZ_Capstone_Project
         public FormEnroll()
         {
             InitializeComponent();
-            this.MinimumSize = new Size(1200, 800);
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.StartPosition = FormStartPosition.CenterScreen;
-        }
-
-        private void FormEnroll_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
