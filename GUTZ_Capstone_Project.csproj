@@ -138,6 +138,12 @@
     <Compile Include="Forms\FormAttendanceMonitoring.Designer.cs">
       <DependentUpon>FormAttendanceMonitoring.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormEmployeeEnrollment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEmployeeEnrollment.Designer.cs">
+      <DependentUpon>FormEmployeeEnrollment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormEmployeeProfiling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,9 +164,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoundedImageDataGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="RoundedPictureBoxControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -169,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAttendanceMonitoring.resx">
       <DependentUpon>FormAttendanceMonitoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEmployeeEnrollment.resx">
+      <DependentUpon>FormEmployeeEnrollment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEmployeeProfiling.resx">
       <DependentUpon>FormEmployeeProfiling.cs</DependentUpon>

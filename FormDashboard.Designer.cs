@@ -152,7 +152,6 @@
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnLogout.PressedColor = System.Drawing.Color.Empty;
             this.btnLogout.ShadowDecoration.Color = System.Drawing.Color.White;
-            this.btnLogout.ShadowDecoration.Enabled = true;
             this.btnLogout.Size = new System.Drawing.Size(284, 58);
             this.btnLogout.TabIndex = 27;
             this.btnLogout.Text = "Logout";
