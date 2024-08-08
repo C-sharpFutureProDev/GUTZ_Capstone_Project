@@ -47,8 +47,8 @@ namespace GUTZ_Capstone_Project
             if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
                 currentBtn = btn;
-                currentBtn.FillColor = Color.FromArgb(44, 62, 80);
-                currentBtn.ForeColor = Color.White;
+                currentBtn.FillColor = Color.Ivory;
+                currentBtn.ForeColor = Color.Black;
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
         }
@@ -102,7 +102,7 @@ namespace GUTZ_Capstone_Project
             {
                 iconCurrentChildForm.Image = originalImage;
                 lblTitleChildForm.Text = "Dashboard";
-                lblTitleChildForm.ForeColor = Color.FromArgb(176, 183, 195);
+                lblTitleChildForm.ForeColor = Color.White;
             }
         }
 

@@ -51,6 +51,7 @@
             this.iconCurrentChildForm = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.AdminRoundedPictureBox = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.AdminRoundedPictureBox = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.panel5.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -88,12 +88,12 @@
             this.panelTitleBar.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.panelDesktop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -151,7 +151,7 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnLogout.PressedColor = System.Drawing.Color.Empty;
-            this.btnLogout.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.btnLogout.ShadowDecoration.Color = System.Drawing.Color.White;
             this.btnLogout.ShadowDecoration.Enabled = true;
             this.btnLogout.Size = new System.Drawing.Size(284, 58);
             this.btnLogout.TabIndex = 27;
@@ -298,6 +298,7 @@
             this.btnEmployee.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnEmployee.PressedColor = System.Drawing.Color.Empty;
             this.btnEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.btnEmployee.ShadowDecoration.Enabled = true;
             this.btnEmployee.Size = new System.Drawing.Size(284, 58);
             this.btnEmployee.TabIndex = 22;
             this.btnEmployee.Text = "Employee Profiling";
@@ -352,6 +353,7 @@
             this.btnBackToHome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBackToHome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(37)))));
             this.btnBackToHome.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBackToHome.ForeColor = System.Drawing.Color.White;
             this.btnBackToHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.btnBackToHome.Image = ((System.Drawing.Image)(resources.GetObject("btnBackToHome.Image")));
             this.btnBackToHome.ImageSize = new System.Drawing.Size(265, 150);
@@ -381,7 +383,7 @@
             this.lblTitleChildForm.AutoSize = true;
             this.lblTitleChildForm.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.White;
             this.lblTitleChildForm.Location = new System.Drawing.Point(78, 27);
             this.lblTitleChildForm.Name = "lblTitleChildForm";
             this.lblTitleChildForm.Size = new System.Drawing.Size(162, 32);
@@ -392,9 +394,8 @@
             // 
             this.iconPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(37)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 42;
             this.iconPictureBox1.Location = new System.Drawing.Point(1447, 17);
@@ -409,9 +410,8 @@
             // 
             this.iconPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(23)))), ((int)(((byte)(37)))));
-            this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Navicon;
-            this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.iconPictureBox2.IconColor = System.Drawing.Color.White;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 40;
             this.iconPictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("iconPictureBox2.InitialImage")));
@@ -481,7 +481,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(831, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 30);
@@ -500,6 +500,18 @@
             this.guna2CirclePictureBox1.TabIndex = 10;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
+            // AdminRoundedPictureBox
+            // 
+            this.AdminRoundedPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminRoundedPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AdminRoundedPictureBox.Image")));
+            this.AdminRoundedPictureBox.Location = new System.Drawing.Point(1381, 16);
+            this.AdminRoundedPictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AdminRoundedPictureBox.Name = "AdminRoundedPictureBox";
+            this.AdminRoundedPictureBox.Size = new System.Drawing.Size(42, 42);
+            this.AdminRoundedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AdminRoundedPictureBox.TabIndex = 8;
+            this.AdminRoundedPictureBox.TabStop = false;
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -515,7 +527,7 @@
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.label19);
             this.guna2Panel1.Controls.Add(this.guna2Button7);
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel1.ForeColor = System.Drawing.Color.Black;
             this.guna2Panel1.Location = new System.Drawing.Point(75, 66);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -613,7 +625,7 @@
             this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Controls.Add(this.label7);
             this.guna2Panel2.Controls.Add(this.guna2Button6);
-            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.guna2Panel2.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel2.ForeColor = System.Drawing.Color.Ivory;
             this.guna2Panel2.Location = new System.Drawing.Point(451, 66);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -710,7 +722,7 @@
             this.guna2Panel3.Controls.Add(this.label13);
             this.guna2Panel3.Controls.Add(this.label12);
             this.guna2Panel3.Controls.Add(this.guna2Button5);
-            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.guna2Panel3.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel3.ForeColor = System.Drawing.Color.Ivory;
             this.guna2Panel3.Location = new System.Drawing.Point(829, 66);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -803,7 +815,7 @@
             this.guna2Panel4.BorderRadius = 15;
             this.guna2Panel4.Controls.Add(this.label17);
             this.guna2Panel4.Controls.Add(this.guna2Button4);
-            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
+            this.guna2Panel4.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel4.ForeColor = System.Drawing.Color.Ivory;
             this.guna2Panel4.Location = new System.Drawing.Point(1213, 66);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -873,18 +885,6 @@
             this.guna2Panel7.Size = new System.Drawing.Size(1591, 1);
             this.guna2Panel7.TabIndex = 27;
             // 
-            // AdminRoundedPictureBox
-            // 
-            this.AdminRoundedPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminRoundedPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AdminRoundedPictureBox.Image")));
-            this.AdminRoundedPictureBox.Location = new System.Drawing.Point(1381, 16);
-            this.AdminRoundedPictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AdminRoundedPictureBox.Name = "AdminRoundedPictureBox";
-            this.AdminRoundedPictureBox.Size = new System.Drawing.Size(42, 42);
-            this.AdminRoundedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.AdminRoundedPictureBox.TabIndex = 8;
-            this.AdminRoundedPictureBox.TabStop = false;
-            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -910,6 +910,7 @@
             this.panelTitleBar.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
@@ -919,7 +920,6 @@
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             this.panelDesktop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.AdminRoundedPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
