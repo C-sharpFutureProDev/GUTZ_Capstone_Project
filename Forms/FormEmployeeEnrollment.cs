@@ -17,5 +17,16 @@ namespace GUTZ_Capstone_Project.Forms
             InitializeComponent();
             this.Size = new Size(1297, 950);
         }
+
+        // Fixed flicker user interface rendering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
     }
 }
