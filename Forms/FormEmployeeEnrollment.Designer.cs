@@ -35,17 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmployeeLastName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpEmployeeDateOfBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmployeeMiddleInitial = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmployeeDept = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtEmployeeAge = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dptEmployeeHiredDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtEmployeeGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEmployeeContactNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmployeeAddress = new Guna.UI2.WinForms.Guna2TextBox();
@@ -53,6 +50,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtEmployeeEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbFemale = new System.Windows.Forms.RadioButton();
+            this.rdbMale = new System.Windows.Forms.RadioButton();
+            this.dtpEmployeeDateOfBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnUploadImage = new Guna.UI2.WinForms.Guna2Button();
             this.employeeProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -61,11 +61,12 @@
             this.cboEmployeeCityMunicipality = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtpEmployeeHiredDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnStartScan = new Guna.UI2.WinForms.Guna2Button();
             this.lblSampleNeededStatus = new System.Windows.Forms.Label();
-            this.captureStatusLog = new Guna.UI2.WinForms.Guna2TextBox();
-            this.scannerPrompt = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCaptureStatusLog = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtScannerPrompt = new Guna.UI2.WinForms.Guna2TextBox();
             this.scanningProgressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.employeeFingerprintImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnSaveEmployeeDetails = new Guna.UI2.WinForms.Guna2Button();
@@ -192,29 +193,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(82, 157);
+            this.label3.Location = new System.Drawing.Point(69, 157);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 26);
+            this.label3.Size = new System.Drawing.Size(61, 26);
             this.label3.TabIndex = 31;
-            this.label3.Text = "M.I.:";
-            // 
-            // dtpEmployeeDateOfBirth
-            // 
-            this.dtpEmployeeDateOfBirth.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.dtpEmployeeDateOfBirth.BorderRadius = 4;
-            this.dtpEmployeeDateOfBirth.BorderThickness = 1;
-            this.dtpEmployeeDateOfBirth.Checked = true;
-            this.dtpEmployeeDateOfBirth.FillColor = System.Drawing.Color.White;
-            this.dtpEmployeeDateOfBirth.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEmployeeDateOfBirth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.dtpEmployeeDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpEmployeeDateOfBirth.Location = new System.Drawing.Point(672, 29);
-            this.dtpEmployeeDateOfBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpEmployeeDateOfBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpEmployeeDateOfBirth.Name = "dtpEmployeeDateOfBirth";
-            this.dtpEmployeeDateOfBirth.Size = new System.Drawing.Size(290, 35);
-            this.dtpEmployeeDateOfBirth.TabIndex = 48;
-            this.dtpEmployeeDateOfBirth.Value = new System.DateTime(2024, 8, 8, 15, 3, 2, 237);
+            this.label3.Text = "M. N.:";
             // 
             // label11
             // 
@@ -248,9 +231,8 @@
             this.txtEmployeeMiddleInitial.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtEmployeeMiddleInitial.PlaceholderText = "";
             this.txtEmployeeMiddleInitial.SelectedText = "";
-            this.txtEmployeeMiddleInitial.Size = new System.Drawing.Size(89, 34);
+            this.txtEmployeeMiddleInitial.Size = new System.Drawing.Size(386, 34);
             this.txtEmployeeMiddleInitial.TabIndex = 32;
-            this.txtEmployeeMiddleInitial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtEmployeeDept
             // 
@@ -320,30 +302,12 @@
             this.txtEmployeeAge.TabIndex = 34;
             this.txtEmployeeAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dptEmployeeHiredDate
-            // 
-            this.dptEmployeeHiredDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.dptEmployeeHiredDate.BorderRadius = 4;
-            this.dptEmployeeHiredDate.BorderThickness = 1;
-            this.dptEmployeeHiredDate.Checked = true;
-            this.dptEmployeeHiredDate.FillColor = System.Drawing.Color.White;
-            this.dptEmployeeHiredDate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dptEmployeeHiredDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.dptEmployeeHiredDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dptEmployeeHiredDate.Location = new System.Drawing.Point(137, 50);
-            this.dptEmployeeHiredDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dptEmployeeHiredDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dptEmployeeHiredDate.Name = "dptEmployeeHiredDate";
-            this.dptEmployeeHiredDate.Size = new System.Drawing.Size(290, 34);
-            this.dptEmployeeHiredDate.TabIndex = 44;
-            this.dptEmployeeHiredDate.Value = new System.DateTime(2024, 8, 8, 15, 3, 2, 237);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(51, 219);
+            this.label5.Location = new System.Drawing.Point(51, 215);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 26);
             this.label5.TabIndex = 35;
@@ -359,26 +323,6 @@
             this.label9.Size = new System.Drawing.Size(108, 26);
             this.label9.TabIndex = 43;
             this.label9.Text = "Hired Date:";
-            // 
-            // txtEmployeeGender
-            // 
-            this.txtEmployeeGender.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeGender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.txtEmployeeGender.BorderRadius = 4;
-            this.txtEmployeeGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtEmployeeGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtEmployeeGender.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmployeeGender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmployeeGender.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmployeeGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.txtEmployeeGender.ItemHeight = 30;
-            this.txtEmployeeGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.txtEmployeeGender.Location = new System.Drawing.Point(137, 209);
-            this.txtEmployeeGender.Name = "txtEmployeeGender";
-            this.txtEmployeeGender.Size = new System.Drawing.Size(132, 36);
-            this.txtEmployeeGender.TabIndex = 36;
             // 
             // label6
             // 
@@ -487,6 +431,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdbFemale);
+            this.groupBox1.Controls.Add(this.rdbMale);
+            this.groupBox1.Controls.Add(this.dtpEmployeeDateOfBirth);
             this.groupBox1.Controls.Add(this.btnUploadImage);
             this.groupBox1.Controls.Add(this.employeeProfilePicture);
             this.groupBox1.Controls.Add(this.label8);
@@ -499,11 +446,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtEmployeeMiddleInitial);
-            this.groupBox1.Controls.Add(this.dtpEmployeeDateOfBirth);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtEmployeeAge);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtEmployeeGender);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -514,6 +459,47 @@
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Details";
+            // 
+            // rdbFemale
+            // 
+            this.rdbFemale.AutoSize = true;
+            this.rdbFemale.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale.Location = new System.Drawing.Point(252, 211);
+            this.rdbFemale.Name = "rdbFemale";
+            this.rdbFemale.Size = new System.Drawing.Size(102, 32);
+            this.rdbFemale.TabIndex = 58;
+            this.rdbFemale.TabStop = true;
+            this.rdbFemale.Text = "Female";
+            this.rdbFemale.UseVisualStyleBackColor = true;
+            // 
+            // rdbMale
+            // 
+            this.rdbMale.AutoSize = true;
+            this.rdbMale.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale.Location = new System.Drawing.Point(137, 211);
+            this.rdbMale.Name = "rdbMale";
+            this.rdbMale.Size = new System.Drawing.Size(81, 32);
+            this.rdbMale.TabIndex = 57;
+            this.rdbMale.TabStop = true;
+            this.rdbMale.Text = "Male";
+            this.rdbMale.UseVisualStyleBackColor = true;
+            // 
+            // dtpEmployeeDateOfBirth
+            // 
+            this.dtpEmployeeDateOfBirth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.dtpEmployeeDateOfBirth.BorderRadius = 4;
+            this.dtpEmployeeDateOfBirth.Checked = true;
+            this.dtpEmployeeDateOfBirth.FillColor = System.Drawing.Color.White;
+            this.dtpEmployeeDateOfBirth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEmployeeDateOfBirth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.dtpEmployeeDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpEmployeeDateOfBirth.Location = new System.Drawing.Point(673, 27);
+            this.dtpEmployeeDateOfBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEmployeeDateOfBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEmployeeDateOfBirth.Name = "dtpEmployeeDateOfBirth";
+            this.dtpEmployeeDateOfBirth.Size = new System.Drawing.Size(265, 36);
+            this.dtpEmployeeDateOfBirth.TabIndex = 53;
+            this.dtpEmployeeDateOfBirth.Value = new System.DateTime(2024, 8, 11, 10, 3, 30, 841);
             // 
             // btnUploadImage
             // 
@@ -627,7 +613,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dptEmployeeHiredDate);
+            this.groupBox3.Controls.Add(this.dtpEmployeeHiredDate);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.txtEmployeeJobDesc);
@@ -643,12 +629,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Job Description";
             // 
+            // dtpEmployeeHiredDate
+            // 
+            this.dtpEmployeeHiredDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.dtpEmployeeHiredDate.BorderRadius = 4;
+            this.dtpEmployeeHiredDate.Checked = true;
+            this.dtpEmployeeHiredDate.FillColor = System.Drawing.Color.White;
+            this.dtpEmployeeHiredDate.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEmployeeHiredDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.dtpEmployeeHiredDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpEmployeeHiredDate.Location = new System.Drawing.Point(137, 48);
+            this.dtpEmployeeHiredDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEmployeeHiredDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEmployeeHiredDate.Name = "dtpEmployeeHiredDate";
+            this.dtpEmployeeHiredDate.Size = new System.Drawing.Size(290, 36);
+            this.dtpEmployeeHiredDate.TabIndex = 57;
+            this.dtpEmployeeHiredDate.Value = new System.DateTime(2024, 8, 11, 10, 3, 30, 841);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnStartScan);
             this.groupBox4.Controls.Add(this.lblSampleNeededStatus);
-            this.groupBox4.Controls.Add(this.captureStatusLog);
-            this.groupBox4.Controls.Add(this.scannerPrompt);
+            this.groupBox4.Controls.Add(this.txtCaptureStatusLog);
+            this.groupBox4.Controls.Add(this.txtScannerPrompt);
             this.groupBox4.Controls.Add(this.scanningProgressBar);
             this.groupBox4.Controls.Add(this.employeeFingerprintImage);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -678,6 +681,7 @@
             this.btnStartScan.Size = new System.Drawing.Size(154, 45);
             this.btnStartScan.TabIndex = 57;
             this.btnStartScan.Text = "Start Scan";
+            this.btnStartScan.Click += new System.EventHandler(this.btnStartScan_Click);
             // 
             // lblSampleNeededStatus
             // 
@@ -689,54 +693,54 @@
             this.lblSampleNeededStatus.TabIndex = 59;
             this.lblSampleNeededStatus.Text = "[SAMPLE NEEDED STATUS]";
             // 
-            // captureStatusLog
+            // txtCaptureStatusLog
             // 
-            this.captureStatusLog.BorderRadius = 4;
-            this.captureStatusLog.BorderThickness = 0;
-            this.captureStatusLog.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.captureStatusLog.DefaultText = "";
-            this.captureStatusLog.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.captureStatusLog.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.captureStatusLog.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.captureStatusLog.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.captureStatusLog.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.captureStatusLog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.captureStatusLog.ForeColor = System.Drawing.Color.Black;
-            this.captureStatusLog.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.captureStatusLog.Location = new System.Drawing.Point(278, 90);
-            this.captureStatusLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.captureStatusLog.Multiline = true;
-            this.captureStatusLog.Name = "captureStatusLog";
-            this.captureStatusLog.PasswordChar = '\0';
-            this.captureStatusLog.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.captureStatusLog.PlaceholderText = "";
-            this.captureStatusLog.SelectedText = "";
-            this.captureStatusLog.Size = new System.Drawing.Size(330, 239);
-            this.captureStatusLog.TabIndex = 43;
+            this.txtCaptureStatusLog.BorderRadius = 4;
+            this.txtCaptureStatusLog.BorderThickness = 0;
+            this.txtCaptureStatusLog.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCaptureStatusLog.DefaultText = "";
+            this.txtCaptureStatusLog.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCaptureStatusLog.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCaptureStatusLog.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaptureStatusLog.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCaptureStatusLog.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCaptureStatusLog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCaptureStatusLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.txtCaptureStatusLog.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCaptureStatusLog.Location = new System.Drawing.Point(278, 90);
+            this.txtCaptureStatusLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCaptureStatusLog.Multiline = true;
+            this.txtCaptureStatusLog.Name = "txtCaptureStatusLog";
+            this.txtCaptureStatusLog.PasswordChar = '\0';
+            this.txtCaptureStatusLog.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtCaptureStatusLog.PlaceholderText = "";
+            this.txtCaptureStatusLog.SelectedText = "";
+            this.txtCaptureStatusLog.Size = new System.Drawing.Size(330, 239);
+            this.txtCaptureStatusLog.TabIndex = 43;
             // 
-            // scannerPrompt
+            // txtScannerPrompt
             // 
-            this.scannerPrompt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.scannerPrompt.BorderRadius = 4;
-            this.scannerPrompt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.scannerPrompt.DefaultText = "";
-            this.scannerPrompt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.scannerPrompt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.scannerPrompt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.scannerPrompt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.scannerPrompt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.scannerPrompt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scannerPrompt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.scannerPrompt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.scannerPrompt.Location = new System.Drawing.Point(40, 46);
-            this.scannerPrompt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.scannerPrompt.Name = "scannerPrompt";
-            this.scannerPrompt.PasswordChar = '\0';
-            this.scannerPrompt.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.scannerPrompt.PlaceholderText = "";
-            this.scannerPrompt.SelectedText = "";
-            this.scannerPrompt.Size = new System.Drawing.Size(568, 34);
-            this.scannerPrompt.TabIndex = 43;
+            this.txtScannerPrompt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.txtScannerPrompt.BorderRadius = 4;
+            this.txtScannerPrompt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtScannerPrompt.DefaultText = "";
+            this.txtScannerPrompt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtScannerPrompt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtScannerPrompt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtScannerPrompt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtScannerPrompt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtScannerPrompt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtScannerPrompt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.txtScannerPrompt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtScannerPrompt.Location = new System.Drawing.Point(40, 46);
+            this.txtScannerPrompt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtScannerPrompt.Name = "txtScannerPrompt";
+            this.txtScannerPrompt.PasswordChar = '\0';
+            this.txtScannerPrompt.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtScannerPrompt.PlaceholderText = "";
+            this.txtScannerPrompt.SelectedText = "";
+            this.txtScannerPrompt.Size = new System.Drawing.Size(568, 34);
+            this.txtScannerPrompt.TabIndex = 43;
             // 
             // scanningProgressBar
             // 
@@ -797,7 +801,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(132, 45);
             this.btnCancel.TabIndex = 58;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Close";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnResetInputFields
@@ -848,6 +852,8 @@
             this.Name = "FormEmployeeEnrollment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Employee Enrollment Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEmployeeEnrollment_FormClosing);
+            this.Load += new System.EventHandler(this.FormEmployeeEnrollment_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).EndInit();
@@ -872,17 +878,14 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtEmployeeLastName;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEmployeeDateOfBirth;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2TextBox txtEmployeeMiddleInitial;
         private Guna.UI2.WinForms.Guna2ComboBox txtEmployeeDept;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txtEmployeeAge;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dptEmployeeHiredDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2ComboBox txtEmployeeGender;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox txtEmployeeContactNumber;
         private Guna.UI2.WinForms.Guna2TextBox txtEmployeeAddress;
@@ -897,8 +900,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private Guna.UI2.WinForms.Guna2ProgressBar scanningProgressBar;
         private Guna.UI2.WinForms.Guna2PictureBox employeeFingerprintImage;
-        private Guna.UI2.WinForms.Guna2TextBox captureStatusLog;
-        private Guna.UI2.WinForms.Guna2TextBox scannerPrompt;
+        private Guna.UI2.WinForms.Guna2TextBox txtCaptureStatusLog;
+        private Guna.UI2.WinForms.Guna2TextBox txtScannerPrompt;
         private System.Windows.Forms.Label lblSampleNeededStatus;
         private Guna.UI2.WinForms.Guna2Button btnSaveEmployeeDetails;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
@@ -909,5 +912,9 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboEmployeeCityMunicipality;
         private System.Windows.Forms.Label label16;
         private Guna.UI2.WinForms.Guna2Button btnStartScan;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEmployeeDateOfBirth;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEmployeeHiredDate;
+        private System.Windows.Forms.RadioButton rdbMale;
+        private System.Windows.Forms.RadioButton rdbFemale;
     }
 }

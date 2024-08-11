@@ -142,7 +142,7 @@
             this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnLogout.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnLogout.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnLogout.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -172,7 +172,7 @@
             this.btnSettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnSettings.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnSettings.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnSettings.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -202,7 +202,7 @@
             this.btnGenerateReports.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnGenerateReports.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerateReports.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnGenerateReports.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnGenerateReports.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnGenerateReports.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateReports.Image")));
             this.btnGenerateReports.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -232,7 +232,7 @@
             this.btnPayrollManagement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnPayrollManagement.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayrollManagement.ForeColor = System.Drawing.Color.White;
-            this.btnPayrollManagement.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnPayrollManagement.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnPayrollManagement.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnPayrollManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnPayrollManagement.Image")));
             this.btnPayrollManagement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -262,7 +262,7 @@
             this.btnAttendanceMonitoring.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnAttendanceMonitoring.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttendanceMonitoring.ForeColor = System.Drawing.Color.White;
-            this.btnAttendanceMonitoring.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnAttendanceMonitoring.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnAttendanceMonitoring.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAttendanceMonitoring.Image = ((System.Drawing.Image)(resources.GetObject("btnAttendanceMonitoring.Image")));
             this.btnAttendanceMonitoring.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -292,7 +292,7 @@
             this.btnEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnEmployee.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnEmployee.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnEmployee.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployee.Image")));
             this.btnEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -358,7 +358,7 @@
             this.btnBackToHome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnBackToHome.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBackToHome.ForeColor = System.Drawing.Color.White;
-            this.btnBackToHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnBackToHome.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnBackToHome.Image = ((System.Drawing.Image)(resources.GetObject("btnBackToHome.Image")));
             this.btnBackToHome.ImageSize = new System.Drawing.Size(265, 150);
             this.btnBackToHome.Location = new System.Drawing.Point(18, 26);
