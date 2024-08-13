@@ -10,22 +10,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Windows.Controls.Primitives;
+using System.Xml.Linq;
 
 namespace GUTZ_Capstone_Project.Forms
 {
     public partial class FormEmployeeEnrollment : Form, DPFP.Capture.EventHandler
     {
+        // Global variables declaration
         private DPFP.Capture.Capture Capturer;
         private DPFP.Processing.Enrollment Enroller;
         public delegate void OnTemplateEventHandler(DPFP.Template template);
         public event OnTemplateEventHandler OnTemplate;
         private byte[] fingerprintData;
+        private byte[] employeeProfilePic;
+        string _empId;
 
-        public FormEmployeeEnrollment()
+        public FormEmployeeEnrollment(string empId_)
         {
             InitializeComponent();
             SetFormRegion();
             this.Size = new Size(1297, 950);
+
+            // Add event handler for the department combo box SelectedIndexChanged event
+            cboEmployeeDept.SelectedIndexChanged += cboEmployeeDept_SelectedIndexChanged;
+            if (empId_ != null)
+            {
+                _empId = empId_;
+            }
         }
 
         // Method to set the rounded rectangle region
@@ -71,11 +83,56 @@ namespace GUTZ_Capstone_Project.Forms
 
             Enroller = new DPFP.Processing.Enrollment();
             UpdateStatus();
+
+            if (_empId != null)
+            {
+                string sql = @"SELECT emp_profilePic, f_name, m_name, l_name, agent_code, b_day, age, gender, address, email,
+                                      phone, hired_date, department_name, position_type
+                                        FROM tbl_employee
+                                        INNER JOIN tbl_department
+                                        ON tbl_employee.department_id = tbl_department.department_id
+                                        INNER JOIN tbl_position
+                                        ON tbl_employee.position_id = tbl_position.position_id 
+                                        WHERE emp_id = '" + _empId + "'";
+
+                DataTable dt = DB_OperationHelperClass.QueryData(sql);
+                if (dt.Rows.Count > 0)
+                {
+                    lblFormLabel.Text = "Update Employee Record";
+                    groupBox4.Visible = false;
+                    txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
+                    txtEmployeeMiddleIName.Text = dt.Rows[0]["m_name"].ToString();
+                    txtEmployeeLastName.Text = dt.Rows[0]["l_name"].ToString();
+                    string savedGender = txtEmployeeMiddleIName.Text = dt.Rows[0]["gender"].ToString();
+
+                    rdbMale.Checked = (savedGender == "Male") ? true : false;
+                    rdbFemale.Checked = (savedGender == "Male") ? false : true;
+
+                    txtEmployeeAge.Text = dt.Rows[0]["age"].ToString();
+                    dtpEmployeeDateOfBirth.Value = Convert.ToDateTime(dt.Rows[0]["b_day"]);
+                    txtEmployeeContactNumber.Text = dt.Rows[0]["phone"].ToString();
+                    txtEmployeeEmail.Text = dt.Rows[0]["email"].ToString();
+
+                    byte[] employeeProfilePic = (byte[])dt.Rows[0]["emp_profilePic"];
+                    using (MemoryStream ms = new MemoryStream(employeeProfilePic))
+                        employeeProfilePicture.Image = Image.FromStream(ms);
+
+                    string[] addressParts = dt.Rows[0]["address"].ToString().Split(',');
+                    cboEmployeeCityMunicipality.SelectedItem = (addressParts.Length == 2) ? addressParts[1].Trim() : null;
+                    txtEmployeeBrgyAddress.Text = (addressParts.Length == 2) ? addressParts[0].Trim() : string.Empty;
+
+                    dtpEmployeeHiredDate.Value = Convert.ToDateTime(dt.Rows[0]["hired_date"]);
+                    cboEmployeeDept.SelectedItem = dt.Rows[0]["department_name"].ToString();
+                    txtEmployeeJobDesc.Text = dt.Rows[0]["position_type"].ToString();
+                }
+            }
         }
 
+        // Finger Capturing, Enrollment Implementation
+        #region
         private void UpdateStatus()
         {
-            // Show number of samples needed.
+            // Show number of fingerprint samples needed for enrollment
             SetStatus(String.Format("Fingerprint samples needed: {0}", Enroller.FeaturesNeeded));
         }
 
@@ -164,13 +221,9 @@ namespace GUTZ_Capstone_Project.Forms
                             OnTemplate?.Invoke(template); // Raise the OnTemplate eventUp
 
                             if (template != null)
-                            {
-                                MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Fingerprint Enrollment");
-                            }
+                                MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Enrollment Success");
                             else
-                            {
-                                MessageBox.Show("Fingerprint Enrollment was unsuccessful!", "Failed");
-                            }
+                                MessageBox.Show("Fingerprint Enrollment was unsuccessful!", "Enrollment Failed");
 
                             // Prepare acquired fingerprint data for saving to the database
                             using (MemoryStream fingerprintStream = new MemoryStream())
@@ -220,8 +273,11 @@ namespace GUTZ_Capstone_Project.Forms
             else
                 return null;
         }
+        #endregion
 
         // Default Digital Persona Event Handler Members
+        #region
+
         public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
         {
             MakeReport("The fingerprint sample was captured.");
@@ -255,10 +311,129 @@ namespace GUTZ_Capstone_Project.Forms
             else
                 MakeReport("The fingerprint sample is poor!");
         }
+        #endregion
+
+        private OpenFileDialog openFileDialog2 = new OpenFileDialog
+        {
+            Filter = "Image files (*.jpg, *.jpeg, *.png, *.gif) | *.jpg; *.jpeg; *.png; *.gif",
+            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
+        };
+
+        private void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                // Load the selected image into the PictureBox
+                employeeProfilePicture.Image = Image.FromFile(openFileDialog2.FileName);
+
+                // Convert the image to a byte array
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    employeeProfilePicture.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    employeeProfilePic = ms.ToArray();
+                }
+            }
+        }
 
         private void btnSaveEmployeeDetails_Click(object sender, EventArgs e)
         {
-            
+            // Get all user input from all the required fields
+            string fName = txtEmployeeFirstName.Text;
+            string lName = txtEmployeeLastName.Text;
+            string midName = txtEmployeeMiddleIName.Text;
+
+            string gender = "";
+            if (rdbMale.Checked)
+                gender = "Male";
+            else if (rdbFemale.Checked)
+                gender = "Female";
+
+            DateTime birthDate = dtpEmployeeDateOfBirth.Value.Date;
+            int age = int.Parse(txtEmployeeAge.Text);
+            string contactNo = txtEmployeeContactNumber.Text;
+            string email = txtEmployeeEmail.Text;
+            string cityOrMunicipality = cboEmployeeCityMunicipality.SelectedItem.ToString();
+            DateTime hiredDate = dtpEmployeeHiredDate.Value.Date;
+
+            int deptID = 0;
+            int posID = 0;
+            switch (cboEmployeeDept.SelectedItem)
+            {
+                case "BPO Department":
+                    deptID = 1111;
+                    posID = 21615;
+                    break;
+                case "ESL Department":
+                    deptID = 2222;
+                    posID = 51912;
+                    break;
+            }
+
+            string agentCode = $"GUTZ-{fName}";
+            string address = txtEmployeeBrgyAddress.Text + ", " + cboEmployeeCityMunicipality.SelectedItem;
+
+            // INSERT INTO Query
+            string sqlInsert = @"INSERT INTO tbl_employee 
+                                        (department_id, position_id, emp_profilePic, 
+                                        f_name, m_name, l_name, agent_code, b_day,
+                                        age, gender, address, email, phone, hired_date) 
+                                 VALUES (@deptID, @posID, @empProPic, @fname, @mName, @lname,
+                                        @agentCode, @bDay, @age, @gender, @address, @email, 
+                                        @phone, @hiredDate)";
+
+            var parameterInsert = new Dictionary<string, object>
+            {
+                { "@deptID", deptID },
+                { "@posID",  posID },
+                { "@empProPic", employeeProfilePic},
+                { "@fname", fName },
+                { "@mName", midName },
+                { "@lname", lName },
+                { "@agentCode", agentCode},
+                { "@bDay", birthDate },
+                { "@age", age },
+                { "@gender", gender },
+                { "@address", address },
+                { "@email", email },
+                { "@phone", contactNo },
+                { "@hiredDate", hiredDate }
+            };
+
+            int emp_id = 0;
+            if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(sqlInsert, parameterInsert))
+            {
+                DataTable dt = new DataTable();
+                string selectID = "SELECT emp_id FROM tbl_employee";
+                // Get the inserted employee ID
+                dt = DB_OperationHelperClass.QueryData(selectID);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        emp_id = int.Parse(row["emp_id"].ToString());
+                    }
+                }
+
+                // SQL query with parameters
+                string insertIntoFingerprintTable = @"INSERT INTO tbl_fingerprint (fingerprint_data, emp_id)
+                                 VALUES(@FingerprintData, @EmpId)";
+
+                // Create a dictionary for parameters
+                var param = new Dictionary<string, object>
+                {
+                    { "@FingerprintData", fingerprintData },
+                    { "@EmpId", emp_id }
+                };
+
+                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
+                    MessageBox.Show("New record has been saved successfully.", "New Employee Added",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!",
+                           MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }// end inner if
+
+            this.Close();
         }
 
         private void btnResetInputFields_Click(object sender, EventArgs e)
@@ -279,6 +454,24 @@ namespace GUTZ_Capstone_Project.Forms
         private void FormEmployeeEnrollment_FormClosing(object sender, FormClosingEventArgs e)
         {
             Stop();
+        }
+
+        private void cboEmployeeDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedDepartment = cboEmployeeDept.SelectedItem.ToString();
+
+            switch (selectedDepartment)
+            {
+                case "BPO Department":
+                    txtEmployeeJobDesc.Text = "Call Center Agent";
+                    break;
+                case "ESL Department":
+                    txtEmployeeJobDesc.Text = "English as a Second Language Teacher";
+                    break;
+                default:
+                    txtEmployeeJobDesc.Text = "";
+                    break;
+            }
         }
     }
 }
