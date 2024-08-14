@@ -22,5 +22,11 @@ namespace GUTZ_Capstone_Project.Forms
         {
            
         }
+
+        private void btnAddNewEmployee_Click(object sender, EventArgs e)
+        {
+            FormTimeInTimeOut formTimeInTimeOut = new FormTimeInTimeOut();
+            formTimeInTimeOut.ShowDialog();
+        }
     }
 }

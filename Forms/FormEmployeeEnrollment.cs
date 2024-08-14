@@ -214,8 +214,7 @@ namespace GUTZ_Capstone_Project.Forms
         protected void Process(DPFP.Sample Sample)
         {
             DrawPicture(ConvertSampleToBitmap(Sample));
-            //Process(Sample);
-
+           
             // Process the sample and create a feature set for the enrollment purpose.
             DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
 
