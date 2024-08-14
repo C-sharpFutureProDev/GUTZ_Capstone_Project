@@ -12,6 +12,7 @@ using System.IO;
 using MySql.Data.MySqlClient;
 using System.Windows.Controls.Primitives;
 using System.Xml.Linq;
+using DPFP;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -86,20 +87,22 @@ namespace GUTZ_Capstone_Project.Forms
 
             if (_empId != null)
             {
-                string sql = @"SELECT emp_profilePic, f_name, m_name, l_name, agent_code, b_day, age, gender, address, email,
-                                      phone, hired_date, department_name, position_type
+                string sql = @"SELECT emp_profilePic, fingerprint_data, f_name, m_name, l_name, agent_code, b_day, age, gender, address, email, phone, hired_date, department_name,
+                                        position_type
                                         FROM tbl_employee
+                                        INNER JOIN tbl_fingerprint 
+                                        ON tbl_employee.emp_id = tbl_fingerprint.emp_id
                                         INNER JOIN tbl_department
                                         ON tbl_employee.department_id = tbl_department.department_id
                                         INNER JOIN tbl_position
-                                        ON tbl_employee.position_id = tbl_position.position_id 
-                                        WHERE emp_id = '" + _empId + "'";
+                                        ON tbl_employee.position_id = tbl_position.position_id
+                                        WHERE tbl_employee.emp_id = '" + _empId + "'";
 
                 DataTable dt = DB_OperationHelperClass.QueryData(sql);
                 if (dt.Rows.Count > 0)
                 {
                     lblFormLabel.Text = "Update Employee Record";
-                    groupBox4.Visible = false;
+                    //groupBox4.Visible = false;
                     txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
                     txtEmployeeMiddleIName.Text = dt.Rows[0]["m_name"].ToString();
                     txtEmployeeLastName.Text = dt.Rows[0]["l_name"].ToString();
@@ -114,8 +117,25 @@ namespace GUTZ_Capstone_Project.Forms
                     txtEmployeeEmail.Text = dt.Rows[0]["email"].ToString();
 
                     byte[] employeeProfilePic = (byte[])dt.Rows[0]["emp_profilePic"];
-                    using (MemoryStream ms = new MemoryStream(employeeProfilePic))
-                        employeeProfilePicture.Image = Image.FromStream(ms);
+                    {
+                        using (MemoryStream ms = new MemoryStream(employeeProfilePic))
+                            employeeProfilePicture.Image = Image.FromStream(ms);
+                    }
+
+                    try
+                    {
+                        byte[] FData = (byte[])dt.Rows[0]["fingerprint_data"];
+                        DPFP.Template template = new DPFP.Template();
+                        using (MemoryStream memoryStream = new MemoryStream(FData))
+                        {
+                            template.DeSerialize(memoryStream);
+                           //display the fingerprint image to the picture box
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error: {ex.Message}");
+                    }
 
                     string[] addressParts = dt.Rows[0]["address"].ToString().Split(',');
                     cboEmployeeCityMunicipality.SelectedItem = (addressParts.Length == 2) ? addressParts[1].Trim() : null;
@@ -135,7 +155,6 @@ namespace GUTZ_Capstone_Project.Forms
             // Show number of fingerprint samples needed for enrollment
             SetStatus(String.Format("Fingerprint samples needed: {0}", Enroller.FeaturesNeeded));
         }
-
 
         private void MakeReport(string message)
         {
@@ -337,6 +356,38 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void btnSaveEmployeeDetails_Click(object sender, EventArgs e)
         {
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeFirstName, "First Name"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeLastName, "Last Name"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeMiddleIName, "Middle Name"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGenderSelection(rdbMale, rdbFemale))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeAge, "Age"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxAsNumber(txtEmployeeAge, "Age"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeContactNumber, "Contact Number"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateEmailFormat(txtEmployeeEmail))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeEmail, "Email Address"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateProfilePicture(employeeProfilePic))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeCityMunicipality, "City/Municipality"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeBrgyAddress, "Barangay Address"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeDept, "Department"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeJobDesc, "Job Title"))
+                return;
+            if (!User_InputsValidatorHelperClass.ValidateFingerprintPicture(fingerprintData))
+                return;
+
+
             // Get all user input from all the required fields
             string fName = txtEmployeeFirstName.Text;
             string lName = txtEmployeeLastName.Text;
@@ -372,66 +423,77 @@ namespace GUTZ_Capstone_Project.Forms
             string agentCode = $"GUTZ-{fName}";
             string address = txtEmployeeBrgyAddress.Text + ", " + cboEmployeeCityMunicipality.SelectedItem;
 
-            // INSERT INTO Query
-            string sqlInsert = @"INSERT INTO tbl_employee 
+            // 
+            string sql = "";
+
+            if (_empId == "") // add
+            {
+                sql = @"INSERT INTO tbl_employee 
                                         (department_id, position_id, emp_profilePic, 
                                         f_name, m_name, l_name, agent_code, b_day,
                                         age, gender, address, email, phone, hired_date) 
-                                 VALUES (@deptID, @posID, @empProPic, @fname, @mName, @lname,
+                                 VALUES (@deptID, @posID, @empProPic, @fName, @mName, @lName,
                                         @agentCode, @bDay, @age, @gender, @address, @email, 
                                         @phone, @hiredDate)";
 
-            var parameterInsert = new Dictionary<string, object>
-            {
-                { "@deptID", deptID },
-                { "@posID",  posID },
-                { "@empProPic", employeeProfilePic},
-                { "@fname", fName },
-                { "@mName", midName },
-                { "@lname", lName },
-                { "@agentCode", agentCode},
-                { "@bDay", birthDate },
-                { "@age", age },
-                { "@gender", gender },
-                { "@address", address },
-                { "@email", email },
-                { "@phone", contactNo },
-                { "@hiredDate", hiredDate }
-            };
-
-            int emp_id = 0;
-            if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(sqlInsert, parameterInsert))
-            {
-                DataTable dt = new DataTable();
-                string selectID = "SELECT emp_id FROM tbl_employee";
-                // Get the inserted employee ID
-                dt = DB_OperationHelperClass.QueryData(selectID);
-                if (dt.Rows.Count > 0)
+                var parameterInsert = new Dictionary<string, object>
                 {
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        emp_id = int.Parse(row["emp_id"].ToString());
-                    }
-                }
-
-                // SQL query with parameters
-                string insertIntoFingerprintTable = @"INSERT INTO tbl_fingerprint (fingerprint_data, emp_id)
-                                 VALUES(@FingerprintData, @EmpId)";
-
-                // Create a dictionary for parameters
-                var param = new Dictionary<string, object>
-                {
-                    { "@FingerprintData", fingerprintData },
-                    { "@EmpId", emp_id }
+                    { "@deptID", deptID },
+                    { "@posID",  posID },
+                    { "@empProPic", employeeProfilePic},
+                    { "@fName", fName },
+                    { "@mName", midName },
+                    { "@lName", lName },
+                    { "@agentCode", agentCode},
+                    { "@bDay", birthDate },
+                    { "@age", age },
+                    { "@gender", gender },
+                    { "@address", address },
+                    { "@email", email },
+                    { "@phone", contactNo },
+                    { "@hiredDate", hiredDate }
                 };
 
-                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
-                    MessageBox.Show("New record has been saved successfully.", "New Employee Added",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!",
-                           MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }// end inner if
+                int emp_id = 0;
+                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(sql, parameterInsert))
+                {
+                    DataTable dt = new DataTable();
+                    string selectID = "SELECT emp_id FROM tbl_employee";
+                    // Get the inserted employee ID
+                    dt = DB_OperationHelperClass.QueryData(selectID);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            emp_id = int.Parse(row["emp_id"].ToString());
+                        }
+                    }
+
+                    // SQL query with parameters
+                    string insertIntoFingerprintTable = @"INSERT INTO tbl_fingerprint (fingerprint_data, emp_id)
+                                 VALUES(@FingerprintData, @EmpId)";
+
+                    // Create a dictionary for parameters
+                    var param = new Dictionary<string, object>
+                    {
+                        { "@FingerprintData", fingerprintData },
+                        { "@EmpId", emp_id }
+                    };
+
+                    if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
+                        MessageBox.Show("New record has been saved successfully.", "New Employee Added",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!",
+                               MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }// end inner if
+
+
+            } //end if for add operation
+            else // update
+            {
+
+            }
 
             this.Close();
         }

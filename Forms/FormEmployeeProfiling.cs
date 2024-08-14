@@ -65,7 +65,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void FormEmployeeProfiling_Load(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void btnAddNewEmployee_Click(object sender, EventArgs e)
