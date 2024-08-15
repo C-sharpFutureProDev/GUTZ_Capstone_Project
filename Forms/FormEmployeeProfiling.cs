@@ -19,7 +19,7 @@ namespace GUTZ_Capstone_Project.Forms
     public partial class FormEmployeeProfiling : Form
     {
         string retrieveEmployeeDetails = @"SELECT emp_profilePic, tbl_employee.emp_id, 
-                                   CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS Fullname, 
+                                   CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
                                    agent_code, department_name, 
                                    position_type, DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
                                    FROM tbl_employee
@@ -31,7 +31,6 @@ namespace GUTZ_Capstone_Project.Forms
         public FormEmployeeProfiling()
         {
             InitializeComponent();
-            DGVEmployee.AutoGenerateColumns = false;
             LoadData();
 
             // Customize header and  button cell 
@@ -43,6 +42,7 @@ namespace GUTZ_Capstone_Project.Forms
         // Method:: Display retrieve employee data to the data grid view
         private void LoadData()
         {
+            DGVEmployee.AutoGenerateColumns = false;
             // Retrieve employee data and display to the DataGridView
             try
             {

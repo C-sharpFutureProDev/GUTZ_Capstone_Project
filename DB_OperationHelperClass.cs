@@ -77,5 +77,28 @@ namespace GUTZ_Capstone_Project
                 }
             }
         }
+
+        // Helper method to determine if the time-in is for the morning shift
+        public static bool IsInMorningShift(DateTime timeIn)
+        {
+            // Define the time ranges for the morning and evening shifts
+            DateTime morningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 6, 0, 0); // 6:00 AM
+            DateTime morningShiftEnd = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 14, 0, 0); // 2:00 PM
+            DateTime eveningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 18, 0, 0); // 6:00 PM
+            DateTime eveningShiftEnd = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day + 1, 6, 0, 0); // 6:00 AM (next day)
+
+            if (timeIn >= morningShiftStart && timeIn < morningShiftEnd)
+            {
+                return true; // Time-in is for the morning shift
+            }
+            else if (timeIn >= eveningShiftStart || timeIn < eveningShiftEnd)
+            {
+                return false; // Time-in is for the evening shift
+            }
+            else
+            {
+                return false; // Time-in is outside of the defined shift times
+            }
+        }
     }
 }

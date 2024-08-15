@@ -905,6 +905,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEmployeeEnrollment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

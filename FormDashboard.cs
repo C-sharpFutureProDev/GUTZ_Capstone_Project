@@ -25,7 +25,7 @@ namespace GUTZ_Capstone_Project
         public FormDashboard()
         {
             InitializeComponent();
-            
+            this.DoubleBuffered = true;
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
         }
@@ -64,6 +64,7 @@ namespace GUTZ_Capstone_Project
 
         private void OpenChildForm(Form childForm)
         {
+            SuspendLayout();
             // open only form
             if (currentChildForm != null && !currentChildForm.IsDisposed)
             {
@@ -76,19 +77,12 @@ namespace GUTZ_Capstone_Project
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-
-            panelDesktop.SuspendLayout(); // Suspend layout updates
-
-            // Enable double buffering for the child form
-            childForm.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | 
-                System.Reflection.BindingFlags.NonPublic).SetValue(childForm, true, null);
-
             panelDesktop.Controls.Add(childForm);
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
 
-            panelDesktop.ResumeLayout(); // Resume layout updates
+            ResumeLayout(false);
 
             lblTitleChildForm.Text = childForm.Text;
         }

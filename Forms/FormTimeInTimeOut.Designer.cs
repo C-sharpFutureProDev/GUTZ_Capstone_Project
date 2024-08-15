@@ -151,6 +151,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(800, 511);
             this.Controls.Add(this.groupBox4);
+            this.DoubleBuffered = true;
             this.Name = "FormTimeInTimeOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Time-In \' Time-Out";

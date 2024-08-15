@@ -35,6 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.DoubleBuffered = true;
             this.Name = "FormPayrollManagemant";
             this.Text = "Payroll Management Section";
             this.ResumeLayout(false);

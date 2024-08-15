@@ -58,7 +58,7 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BackColor = System.Drawing.Color.Teal;
             this.guna2Panel1.Controls.Add(this.btnAddNewEmployee);
             this.guna2Panel1.Controls.Add(this.guna2ComboBox2);
             this.guna2Panel1.Controls.Add(this.label2);
@@ -66,7 +66,7 @@
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.guna2ComboBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(248)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.Teal;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -76,16 +76,16 @@
             // 
             // btnAddNewEmployee
             // 
-            this.btnAddNewEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnAddNewEmployee.BorderColor = System.Drawing.Color.Teal;
             this.btnAddNewEmployee.BorderRadius = 5;
             this.btnAddNewEmployee.BorderThickness = 1;
             this.btnAddNewEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddNewEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddNewEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.btnAddNewEmployee.FillColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewEmployee.ForeColor = System.Drawing.Color.White;
+            this.btnAddNewEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
             this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnAddNewEmployee.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(35, 32);
@@ -103,7 +103,7 @@
             // guna2ComboBox2
             // 
             this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.guna2ComboBox2.BorderColor = System.Drawing.Color.Teal;
             this.guna2ComboBox2.BorderRadius = 5;
             this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -126,7 +126,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(777, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 24);
@@ -136,7 +136,7 @@
             // guna2TextBox1
             // 
             this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.Teal;
             this.guna2TextBox1.BorderRadius = 4;
             this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox1.DefaultText = "";
@@ -162,7 +162,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(9, 156);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 24);
@@ -172,7 +172,7 @@
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
+            this.guna2ComboBox1.BorderColor = System.Drawing.Color.Teal;
             this.guna2ComboBox1.BorderRadius = 4;
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -276,7 +276,7 @@
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "Fullname";
+            this.Column2.DataPropertyName = "FullName";
             this.Column2.HeaderText = "Name";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";

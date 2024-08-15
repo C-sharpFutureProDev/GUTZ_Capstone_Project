@@ -9,19 +9,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
+using System.Data.SqlClient;
 
 namespace GUTZ_Capstone_Project.Forms
 {
     public partial class FormTimeInTimeOut : Form, DPFP.Capture.EventHandler
     {
-        private DPFP.Template Template;
+        //private DPFP.Template Template;
         private DPFP.Verification.Verification Verifier;
         private DPFP.Capture.Capture Capturer;
+        private string sqlRetrieve = @"SELECT fingerprint_id, fingerprint_data, tbl_fingerprint.emp_id, l_name,
+                                      CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS full_name
+                                      FROM tbl_fingerprint
+                                      INNER JOIN tbl_employee
+                                      ON tbl_fingerprint.emp_id = tbl_employee.emp_id;";
+        private int f_id;
+        private int emp_id;
+        private string emp_name;
+        private string att_id;
+        private string l_name;
+        private string work_shift = "";
+
         public FormTimeInTimeOut()
         {
             InitializeComponent();
             Verifier = new DPFP.Verification.Verification();
-            //UpdateStatus(0);
         }
 
         private void UpdateStatus(int FAR)
@@ -110,7 +123,8 @@ namespace GUTZ_Capstone_Project.Forms
                 if (null != Capturer)
                 {
                     Capturer.EventHandler = this; // Subscribe for capturing events.
-                    //Start(); on load
+                    //Start(); // on load
+                    UpdateStatus(0);
                 }
                 else
                     SetPrompt("Can't initiate capture operation!");
@@ -118,6 +132,15 @@ namespace GUTZ_Capstone_Project.Forms
             catch
             {
                 MessageBox.Show("Can't initiate capture operation!");
+            }
+
+            DataTable dt = DB_OperationHelperClass.QueryData(sqlRetrieve);
+            foreach (DataRow dr in dt.Rows)
+            {
+                f_id = int.Parse(dr["fingerprint_id"].ToString());
+                emp_id = int.Parse(dr["emp_id"].ToString());
+                emp_name = dr["full_name"].ToString();
+                l_name = dr["l_name"].ToString();
             }
         }
 
@@ -129,6 +152,7 @@ namespace GUTZ_Capstone_Project.Forms
             }));
         }
 
+        // Default Digital Persona Event Handlers
         #region
         public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
         {
@@ -177,60 +201,107 @@ namespace GUTZ_Capstone_Project.Forms
                 return null;
         }
 
+        // Method:: Voice Verification Feedback
+        public void AnnounceVerification(bool isVerified)
+        {
+            using (SpeechSynthesizer synthesizer = new SpeechSynthesizer())
+            {
+                string message = isVerified ? "Verified" : "Not Verified";
+                synthesizer.Speak(message);
+            }
+        }
+
+        // Method:: Process for fingerprint verification and saving attendance logs
         private void Process(DPFP.Sample Sample)
         {
+            DateTime timeIn = DateTime.Now;
+            DateTime timeOut = DateTime.Now;
             try
             {
-                string connectionString = "SERVER=localhost;UID=root;PWD=;DATABASE=attendancepayrolldb;";
                 string sql = "SELECT * FROM tbl_fingerprint";
-
-                using (MySqlConnection con = new MySqlConnection(connectionString))
+                DataTable dataTable = DB_OperationHelperClass.QueryData(sql);
+                foreach (DataRow row in dataTable.Rows)
                 {
-                    MySqlCommand mySqlCommand = new MySqlCommand(sql, con);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.SelectCommand = mySqlCommand;
+                    byte[] f_data = (byte[])row["fingerprint_data"];
+                    MemoryStream memoryStream = new MemoryStream(f_data);
 
-                    DataTable dataTable = new DataTable();
-                    con.Open();
-                    adapter.Fill(dataTable);
+                    DPFP.Template Template = new DPFP.Template();
+                    Template.DeSerialize(memoryStream);
 
-                    foreach (DataRow row in dataTable.Rows)
+                    DrawPicture(ConvertSampleToBitmap(Sample));
+
+                    DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
+
+                    if (features != null)
                     {
-                        byte[] _fingerprint_ = (byte[])row["fingerprint_data"];
-
-                        MemoryStream memoryStream = new MemoryStream(_fingerprint_);
-
-                        DPFP.Template Template = new DPFP.Template();
-                        Template.DeSerialize(memoryStream);
-
-                        DrawPicture(ConvertSampleToBitmap(Sample));
-
-                        DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
-
-                        if (features != null)
+                        DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
+                        Verifier.Verify(features, Template, ref result);
+                        UpdateStatus(result.FARAchieved);
+                        if (result.Verified == true)
                         {
-                            DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
-                            Verifier.Verify(features, Template, ref result);
-                            UpdateStatus(result.FARAchieved);
-                            if (result.Verified == true)
+                            AnnounceVerification(true); // call voice over authentication feedback
+
+                            att_id = emp_id + "-" + l_name; // generate custom attendance id for each employee
+
+                            // Check if the employee has an existing time-in record
+                            string checkTimeInQuery = "SELECT * FROM tbl_attendance WHERE emp_id = '" + emp_id + "' AND time_out IS NULL";
+                            DataTable timeInRecord = DB_OperationHelperClass.QueryData(checkTimeInQuery);
+                            if (timeInRecord.Rows.Count > 0)
                             {
-                                MakeReport("Verified");
-                               //MessageBox.Show("Verified");
-                                break;
+                                // Employee has an existing time-in record, so perform time-out
+                                string updateTimeOutQuery = "UPDATE tbl_attendance SET time_out = @time_out WHERE emp_id = @emp_id AND time_out IS NULL";
+                                var parameters = new Dictionary<string, object>
+                                {
+                                    { "@time_out", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") },
+                                    { "@emp_id", emp_id }
+                                };
+                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateTimeOutQuery, parameters))
+                                    MessageBox.Show($"Employee with ID: {emp_id} Time out at {DateTime.Now} Verified.", "Time Out Successful");
+                                else
+                                    MessageBox.Show("Please try again.", "Unverified");
                             }
                             else
                             {
-                                //MessageBox.Show("NOT Verified");
-                                MakeReport("NOT Verified!");
+                                if (DB_OperationHelperClass.IsInMorningShift(timeIn))
+                                    work_shift = "morning";
+                                else
+                                    work_shift = "evening";
+
+                                string insertInto = @"INSERT INTO tbl_attendance (attendance_id, emp_id, fingerprint_id, time_in, time_out, work_shift) 
+                                                      VALUES (@attendance_id, @emp_id, @fingerprint_id, @time_in, NULL, @work_shift)";
+
+                                var parameters = new Dictionary<string, object>
+                                {
+                                    { "@attendance_id", att_id },
+                                    { "@emp_id", emp_id },
+                                    { "@fingerprint_id", f_id },
+                                    { "@time_in", timeIn.ToString("yyyy-MM-dd HH:mm:ss") },
+                                    { "@work_shift", work_shift }
+                                };
+
+                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertInto, parameters))
+                                {
+                                    if (work_shift == "morning")
+                                        MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. Morning Shift.", "Time In Successful");
+                                    else
+                                        MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. Evening Shift.", "Time In Successful");
+                                }
+                                else
+                                    MessageBox.Show("Please try again.", "Unverified");
                             }
+                            break;
                         }
-                    }
-                }
+                        else
+                        {
+                            AnnounceVerification(false);
+                        }// end if else
+                    }// end if
+                }// end foreach
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }// end Process
     }
 }

@@ -391,7 +391,6 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(43)))), ((int)(((byte)(35)))));
             this.guna2Panel1.BorderRadius = 15;
-            this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.label6);
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.label4);
@@ -490,7 +489,6 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.guna2Panel2.BorderRadius = 15;
-            this.guna2Panel2.BorderThickness = 1;
             this.guna2Panel2.Controls.Add(this.label11);
             this.guna2Panel2.Controls.Add(this.label10);
             this.guna2Panel2.Controls.Add(this.label9);
@@ -588,7 +586,6 @@
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.BorderThickness = 1;
             this.guna2Panel3.Controls.Add(this.label16);
             this.guna2Panel3.Controls.Add(this.label15);
             this.guna2Panel3.Controls.Add(this.label14);
@@ -686,7 +683,6 @@
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.guna2Panel4.BorderRadius = 15;
-            this.guna2Panel4.BorderThickness = 1;
             this.guna2Panel4.Controls.Add(this.label17);
             this.guna2Panel4.Controls.Add(this.guna2Button4);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
@@ -734,7 +730,7 @@
             // 
             // panelDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(248)))));
+            this.panelDesktop.BackColor = System.Drawing.Color.Teal;
             this.panelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDesktop.Controls.Add(this.guna2Panel7);
             this.panelDesktop.Controls.Add(this.guna2Panel4);
@@ -750,13 +746,13 @@
             // 
             // guna2Panel7
             // 
-            this.guna2Panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.guna2Panel7.BackColor = System.Drawing.Color.White;
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel7.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(209)))), ((int)(((byte)(239)))));
             this.guna2Panel7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(10);
-            this.guna2Panel7.Size = new System.Drawing.Size(1591, 2);
+            this.guna2Panel7.Size = new System.Drawing.Size(1591, 1);
             this.guna2Panel7.TabIndex = 27;
             // 
             // iconPictureBox1
