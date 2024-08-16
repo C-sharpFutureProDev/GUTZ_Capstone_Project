@@ -1,6 +1,6 @@
 ﻿namespace GUTZ_Capstone_Project.Forms
 {
-    partial class FormPayrollManagemant
+    partial class FormPayrollManagement
     {
         /// <summary>
         /// Required designer variable.

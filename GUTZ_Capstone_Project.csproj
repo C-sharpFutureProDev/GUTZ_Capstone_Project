@@ -153,11 +153,11 @@
     <Compile Include="Forms\FormEmployeeProfiling.Designer.cs">
       <DependentUpon>FormEmployeeProfiling.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPayrollManagemant.cs">
+    <Compile Include="Forms\FormPayrollManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPayrollManagemant.Designer.cs">
-      <DependentUpon>FormPayrollManagemant.cs</DependentUpon>
+    <Compile Include="Forms\FormPayrollManagement.Designer.cs">
+      <DependentUpon>FormPayrollManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormTimeInTimeOut.cs">
       <SubType>Form</SubType>
@@ -183,8 +183,8 @@
     <EmbeddedResource Include="Forms\FormEmployeeProfiling.resx">
       <DependentUpon>FormEmployeeProfiling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPayrollManagemant.resx">
-      <DependentUpon>FormPayrollManagemant.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormPayrollManagement.resx">
+      <DependentUpon>FormPayrollManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormTimeInTimeOut.resx">
       <DependentUpon>FormTimeInTimeOut.cs</DependentUpon>

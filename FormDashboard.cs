@@ -21,11 +21,10 @@ namespace GUTZ_Capstone_Project
         private Guna.UI2.WinForms.Guna2Button currentBtn;
         private Image originalImage;
         private Form currentChildForm;
-
+        private PictureBox AdminRoundedPictureBox;
         public FormDashboard()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
         }
@@ -65,11 +64,10 @@ namespace GUTZ_Capstone_Project
         private void OpenChildForm(Form childForm)
         {
             SuspendLayout();
+
             // open only form
             if (currentChildForm != null && !currentChildForm.IsDisposed)
-            {
                 currentChildForm.Close();
-            }
 
             // Set the new child form as the current one
             currentChildForm = childForm;
@@ -77,14 +75,15 @@ namespace GUTZ_Capstone_Project
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
+
             panelDesktop.Controls.Add(childForm);
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
 
-            ResumeLayout(false);
-
             lblTitleChildForm.Text = childForm.Text;
+
+            ResumeLayout(false);
         }
 
         private void Reset()
@@ -115,7 +114,7 @@ namespace GUTZ_Capstone_Project
         private void btnPayrollManagement_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new FormPayrollManagemant());
+            OpenChildForm(new FormPayrollManagement());
         }
 
         private void btnGenerateReports_Click(object sender, EventArgs e)

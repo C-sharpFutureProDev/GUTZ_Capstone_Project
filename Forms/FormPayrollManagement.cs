@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project.Forms
 {
-    public partial class FormPayrollManagemant : Form
+    public partial class FormPayrollManagement : Form
     {
-        public FormPayrollManagemant()
+        public FormPayrollManagement()
         {
             InitializeComponent();
         }

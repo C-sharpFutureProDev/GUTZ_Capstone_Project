@@ -730,7 +730,7 @@
             // 
             // panelDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.Teal;
+            this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDesktop.Controls.Add(this.guna2Panel7);
             this.panelDesktop.Controls.Add(this.guna2Panel4);
@@ -897,7 +897,6 @@
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panel5);
-            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormDashboard";
@@ -969,7 +968,7 @@
         private System.Windows.Forms.Panel panelDesktop;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private RoundedPictureBoxControl AdminRoundedPictureBox;
+        //private RoundedPictureBoxControl AdminRoundedPictureBox;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private System.Windows.Forms.Label lblTitleChildForm;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;

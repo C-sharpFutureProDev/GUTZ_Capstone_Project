@@ -13,6 +13,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Controls.Primitives;
 using System.Xml.Linq;
 using DPFP;
+using System.Drawing.Text;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -122,20 +123,8 @@ namespace GUTZ_Capstone_Project.Forms
                             employeeProfilePicture.Image = Image.FromStream(ms);
                     }
 
-                    try
-                    {
-                        byte[] FData = (byte[])dt.Rows[0]["fingerprint_data"];
-                        DPFP.Template template = new DPFP.Template();
-                        using (MemoryStream memoryStream = new MemoryStream(FData))
-                        {
-                            template.DeSerialize(memoryStream);
-                           //display the fingerprint image to the picture box
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error: {ex.Message}");
-                    }
+                    byte[] f_data = (byte[])dt.Rows[0]["fingerprint_data"];
+                    //display to picture box
 
                     string[] addressParts = dt.Rows[0]["address"].ToString().Split(',');
                     cboEmployeeCityMunicipality.SelectedItem = (addressParts.Length == 2) ? addressParts[1].Trim() : null;
@@ -236,7 +225,7 @@ namespace GUTZ_Capstone_Project.Forms
                         case DPFP.Processing.Enrollment.Status.Ready: // report success and stop capturing
                             DPFP.Template template = Enroller.Template;
                             Enroller.Clear();
-                            OnTemplate?.Invoke(template); // Raise the OnTemplate eventUp
+                            OnTemplate?.Invoke(template);
 
                             if (template != null)
                                 MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Enrollment Success");
@@ -249,6 +238,18 @@ namespace GUTZ_Capstone_Project.Forms
                                 template.Serialize(fingerprintStream);
                                 fingerprintData = fingerprintStream.ToArray();
                             }
+
+                            //or
+                            /*
+                            using (MemoryStream fingerprintStream = new MemoryStream())
+                            {
+                                template.Serialize(fingerprintStream);
+                                fingerprintStream.Position = 0;
+                                BinaryReader reader = new BinaryReader(fingerprintStream);
+                                byte[] bytes = reader.ReadBytes((int)fingerprintStream.Length);
+                                fingerprintData = bytes;
+                            }
+                            */
 
                             break;
 
@@ -276,7 +277,7 @@ namespace GUTZ_Capstone_Project.Forms
         {
             DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion();  // Create a sample convertor.
             Bitmap bitmap = null;                                                           // TODO: the size doesn't matter
-            Convertor.ConvertToPicture(Sample, ref bitmap);                                 // TODO: return bitmap as a result
+            Convertor.ConvertToPicture(Sample, ref bitmap);                                // TODO: return bitmap as a result
             return bitmap;
         }
 

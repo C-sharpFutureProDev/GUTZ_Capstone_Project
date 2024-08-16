@@ -263,9 +263,9 @@ namespace GUTZ_Capstone_Project.Forms
                             else
                             {
                                 if (DB_OperationHelperClass.IsInMorningShift(timeIn))
-                                    work_shift = "morning";
+                                    work_shift = "MORNING";
                                 else
-                                    work_shift = "evening";
+                                    work_shift = "NIGHT";
 
                                 string insertInto = @"INSERT INTO tbl_attendance (attendance_id, emp_id, fingerprint_id, time_in, time_out, work_shift) 
                                                       VALUES (@attendance_id, @emp_id, @fingerprint_id, @time_in, NULL, @work_shift)";
@@ -281,10 +281,10 @@ namespace GUTZ_Capstone_Project.Forms
 
                                 if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertInto, parameters))
                                 {
-                                    if (work_shift == "morning")
-                                        MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. Morning Shift.", "Time In Successful");
+                                    if (work_shift == "MORNING")
+                                        MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. MORNING Shift.", "Time In Successful");
                                     else
-                                        MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. Evening Shift.", "Time In Successful");
+                                        MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. NIGHT Shift.", "Time In Successful");
                                 }
                                 else
                                     MessageBox.Show("Please try again.", "Unverified");
