@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -31,24 +32,36 @@ namespace GUTZ_Capstone_Project.Forms
         public FormEmployeeProfiling()
         {
             InitializeComponent();
-            LoadData();
-
-            // Customize header and  button cell 
-            this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-            Column8.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
-            Column9.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
         }
 
         // Method:: Display retrieve employee data to the data grid view
         private void LoadData()
         {
             DGVEmployee.AutoGenerateColumns = false;
-            // Retrieve employee data and display to the DataGridView
+            this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            Column8.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
+            Column9.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
+
             try
             {
                 DataTable dt = DB_OperationHelperClass.QueryData(retrieveEmployeeDetails);
                 if (dt.Rows.Count > 0)
-                    DGVEmployee.DataSource = dt;
+                {
+                    DGVEmployee.Rows.Clear(); // Clear any existing rows
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string image_path = row["emp_profilePic"].ToString();
+                        string full_name = row["FullName"].ToString();
+                        int emp_id = int.Parse(row["emp_id"].ToString());
+                        string agent_code = row["agent_code"].ToString();
+                        string dept = row["department_name"].ToString();
+                        string job_title = row["position_type"].ToString();
+                        DateTime hired_date = DateTime.Parse(row["HiredDate"].ToString());
+                        DGVEmployee.Rows.Add(System.Drawing.Image.FromFile(image_path), full_name, emp_id, agent_code, dept, job_title,
+                            hired_date.ToString("MMMM d, yyyy"));
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -62,10 +75,9 @@ namespace GUTZ_Capstone_Project.Forms
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void FormEmployeeProfiling_Load(object sender, EventArgs e)
         {
-            
+            LoadData();
         }
 
         private void btnAddNewEmployee_Click(object sender, EventArgs e)
@@ -83,7 +95,7 @@ namespace GUTZ_Capstone_Project.Forms
             int selectedRowIndex = e.RowIndex;
 
             // Get the employee ID from the selected row
-             id = DGVEmployee.Rows[selectedRowIndex].Cells[2].Value.ToString();
+            id = DGVEmployee.Rows[selectedRowIndex].Cells[2].Value.ToString();
 
             // Get the selected column index
             int selectedColumnIndex = e.ColumnIndex;
@@ -91,7 +103,8 @@ namespace GUTZ_Capstone_Project.Forms
             // Get the column name of the selected column
             string selectedColumnName = DGVEmployee.Columns[selectedColumnIndex].Name;
 
-            switch (selectedColumnName) {
+            switch (selectedColumnName)
+            {
                 case "Column8":
                     {
                         // instance of the frmUpdate form, passing the employee ID as a parameter
@@ -99,7 +112,7 @@ namespace GUTZ_Capstone_Project.Forms
                         enrollmentForm.ShowDialog(this);
                         break;
                     } //end case Column8
-                   
+
                 case "Column9":
                     {
                         // Display a confirmation message

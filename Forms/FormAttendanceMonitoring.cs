@@ -55,37 +55,45 @@ namespace GUTZ_Capstone_Project.Forms
                     string time_out_formatted = row["time_out_formatted"].ToString();
                     bool hasTimeOut = DateTime.TryParse(time_out_formatted, out time_out);
 
-                    string working_hours = (working_shift == "MORNING") ? "6AM - 2PM" : "2PM - 10PM";
+                    string working_hours = (working_shift == "MORNING") ? "6AM - 2PM" : "6PM - 6AM";
+
+                    DateTime morningShiftStart = new DateTime(time_in.Year, time_in.Month, time_in.Day, 6, 0, 0); // 6:00 AM
+                    DateTime morningShiftEnd = new DateTime(time_in.Year, time_in.Month, time_in.Day, 14, 0, 0); // 2:00 PM
+                    DateTime eveningShiftStart = new DateTime(time_in.Year, time_in.Month, time_in.Day, 18, 0, 0); // 6:00 PM
+                    DateTime eveningShiftEnd = new DateTime(time_in.Year, time_in.Month, time_in.Day + 1, 6, 0, 0); // 6:00 AM (next day)
+
+                    // Add a 15-minute grace period
+                    TimeSpan gracePeriod = TimeSpan.FromMinutes(15);
 
                     string time_in_status;
                     TimeSpan lateTime = TimeSpan.Zero;
-                    int currentYear = DateTime.Now.Year;
-                    DateTime morningShiftStart = new DateTime(currentYear, 8, 16, 6, 0, 0);
-                    DateTime nightShiftStart = new DateTime(currentYear, 8, 16, 14, 0, 0);
 
-                    if (DateTime.Today.Month > 8)
+                    // Determine time_in_status and calculate lateTime
+                    if (working_shift == "MORNING")
                     {
-                        morningShiftStart = new DateTime(currentYear, 9, 16, 6, 0, 0);
-                        nightShiftStart = new DateTime(currentYear, 9, 16, 14, 0, 0);
+                        if (time_in <= morningShiftStart.Add(gracePeriod))
+                            time_in_status = "On Time";
+                        else
+                        {
+                            time_in_status = "Late";
+                            lateTime = time_in - morningShiftStart;
+                        }
                     }
-                    else if (DateTime.Today.Month > 8 && DateTime.Today.Year > currentYear)
+                    else if (working_shift == "NIGHT")
                     {
-                        morningShiftStart = new DateTime(currentYear + 1, 9, 16, 6, 0, 0);
-                        nightShiftStart = new DateTime(currentYear + 1, 9, 16, 14, 0, 0);
+                        if (time_in <= eveningShiftStart.Add(gracePeriod))
+                            time_in_status = "On Time";
+                        else
+                        {
+                            time_in_status = "Late";
+                            lateTime = time_in - eveningShiftStart;
+                        }
                     }
-
-                    time_in_status = (time_in >= morningShiftStart && time_in < morningShiftStart.AddSeconds(1)) ? "On Time" :
-                                     (time_in > morningShiftStart && working_shift == "MORNING") ? "Late" :
-                                     (time_in >= nightShiftStart && time_in < nightShiftStart.AddSeconds(1)) ? "On Time" :
-                                     (time_in > nightShiftStart && working_shift == "NIGHT") ? "Late" : "Unknown";
-
-                    // Calculate the Late Time
-                    if (time_in_status == "Late" && working_shift == "MORNING")
-                        lateTime = time_in - morningShiftStart;
-                    else if (time_in_status == "Late" && working_shift == "NIGHT")
-                        lateTime = time_in - nightShiftStart;
                     else
+                    {
+                        time_in_status = "Unknown";
                         lateTime = TimeSpan.Zero;
+                    }
 
                     DGVAttendance.Rows.Add(img, f_name, working_shift, working_hours, time_in_status, time_in.ToString("hh:mm:ss tt").ToUpper(), "", BPO_REQUIRED_WORKING_HOURS.ToString() + " Hours");
 

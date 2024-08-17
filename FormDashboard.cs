@@ -21,7 +21,6 @@ namespace GUTZ_Capstone_Project
         private Guna.UI2.WinForms.Guna2Button currentBtn;
         private Image originalImage;
         private Form currentChildForm;
-        private PictureBox AdminRoundedPictureBox;
         public FormDashboard()
         {
             InitializeComponent();

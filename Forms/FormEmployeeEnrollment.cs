@@ -25,14 +25,17 @@ namespace GUTZ_Capstone_Project.Forms
         public delegate void OnTemplateEventHandler(DPFP.Template template);
         public event OnTemplateEventHandler OnTemplate;
         private byte[] fingerprintData;
-        private byte[] employeeProfilePic;
-        string _empId;
+        //private byte[] employeeProfilePic;
+        private string employeeProfilePicPath;
+        private string _empId;
+        private bool isResetButtonClicked = false;
 
         public FormEmployeeEnrollment(string empId_)
         {
             InitializeComponent();
             SetFormRegion();
             this.Size = new Size(1297, 950);
+            progressPecentageStatus.Text = "[ + {0} + ' %' ]";
 
             // Add event handler for the department combo box SelectedIndexChanged event
             cboEmployeeDept.SelectedIndexChanged += cboEmployeeDept_SelectedIndexChanged;
@@ -117,11 +120,8 @@ namespace GUTZ_Capstone_Project.Forms
                     txtEmployeeContactNumber.Text = dt.Rows[0]["phone"].ToString();
                     txtEmployeeEmail.Text = dt.Rows[0]["email"].ToString();
 
-                    byte[] employeeProfilePic = (byte[])dt.Rows[0]["emp_profilePic"];
-                    {
-                        using (MemoryStream ms = new MemoryStream(employeeProfilePic))
-                            employeeProfilePicture.Image = Image.FromStream(ms);
-                    }
+                    string image_path = dt.Rows[0]["emp_profilePic"].ToString();
+                    employeeProfilePicture.Image = System.Drawing.Image.FromFile(image_path);
 
                     byte[] f_data = (byte[])dt.Rows[0]["fingerprint_data"];
                     //display to picture box
@@ -141,8 +141,28 @@ namespace GUTZ_Capstone_Project.Forms
         #region
         private void UpdateStatus()
         {
-            // Show number of fingerprint samples needed for enrollment
-            SetStatus(String.Format("Fingerprint samples needed: {0}", Enroller.FeaturesNeeded));
+            if (isResetButtonClicked)
+            {
+                // Reset the status and progress percentage to zero
+                SetStatus("Fingerprint samples needed: 0");
+                scanningProgressBar.Value = 0;
+                progressPecentageStatus.Text = "0%";
+            }
+            else
+            {
+                // Show number of fingerprint samples needed for enrollment
+                int samplesNeeded = (int)Enroller.FeaturesNeeded;
+                SetStatus(String.Format("Fingerprint samples needed: {0}", samplesNeeded));
+
+                // Update the progress bar
+                int progressPercentage = (int)((float)(4 - samplesNeeded) / 4 * 100);
+                scanningProgressBar.Value = progressPercentage;
+                // Update the progress label status
+                this.Invoke(new Action(() =>
+                {
+                    progressPecentageStatus.Text = $"{progressPercentage}%";
+                }));
+            }
         }
 
         private void MakeReport(string message)
@@ -203,7 +223,7 @@ namespace GUTZ_Capstone_Project.Forms
         protected void Process(DPFP.Sample Sample)
         {
             DrawPicture(ConvertSampleToBitmap(Sample));
-           
+
             // Process the sample and create a feature set for the enrollment purpose.
             DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
 
@@ -230,7 +250,9 @@ namespace GUTZ_Capstone_Project.Forms
                             if (template != null)
                                 MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Enrollment Success");
                             else
+                            {
                                 MessageBox.Show("Fingerprint Enrollment was unsuccessful!", "Enrollment Failed");
+                            }
 
                             // Prepare acquired fingerprint data for saving to the database
                             using (MemoryStream fingerprintStream = new MemoryStream())
@@ -255,13 +277,14 @@ namespace GUTZ_Capstone_Project.Forms
 
                         case DPFP.Processing.Enrollment.Status.Failed:  // report failure and restart capturing
                             Enroller.Clear();
+                            txtCaptureStatusLog.Clear();
                             Stop();
                             UpdateStatus();
                             OnTemplate?.Invoke(null);
                             Start();
                             break;
                     }
-                }
+                }// end finally 
             }
         }
 
@@ -345,12 +368,8 @@ namespace GUTZ_Capstone_Project.Forms
                 // Load the selected image into the PictureBox
                 employeeProfilePicture.Image = Image.FromFile(openFileDialog2.FileName);
 
-                // Convert the image to a byte array
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    employeeProfilePicture.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    employeeProfilePic = ms.ToArray();
-                }
+                // Get the file path
+                employeeProfilePicPath = openFileDialog2.FileName;
             }
         }
 
@@ -374,8 +393,8 @@ namespace GUTZ_Capstone_Project.Forms
                 return;
             if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeEmail, "Email Address"))
                 return;
-            if (!User_InputsValidatorHelperClass.ValidateProfilePicture(employeeProfilePic))
-                return;
+            //if (!User_InputsValidatorHelperClass.ValidateProfilePicture(employeeProfilePic))
+                //return;
             if (!User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeCityMunicipality, "City/Municipality"))
                 return;
             if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeBrgyAddress, "Barangay Address"))
@@ -432,7 +451,7 @@ namespace GUTZ_Capstone_Project.Forms
                                         (department_id, position_id, emp_profilePic, 
                                         f_name, m_name, l_name, agent_code, b_day,
                                         age, gender, address, email, phone, hired_date) 
-                                 VALUES (@deptID, @posID, @empProPic, @fName, @mName, @lName,
+                                 VALUES (@deptID, @posID, @empProPicPath, @fName, @mName, @lName,
                                         @agentCode, @bDay, @age, @gender, @address, @email, 
                                         @phone, @hiredDate)";
 
@@ -440,7 +459,7 @@ namespace GUTZ_Capstone_Project.Forms
                 {
                     { "@deptID", deptID },
                     { "@posID",  posID },
-                    { "@empProPic", employeeProfilePic},
+                    { "@empProPicPath", employeeProfilePicPath},
                     { "@fName", fName },
                     { "@mName", midName },
                     { "@lName", lName },
@@ -487,12 +506,10 @@ namespace GUTZ_Capstone_Project.Forms
                         MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!",
                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }// end inner if
-
-
             } //end if for add operation
             else // update
             {
-
+                //pending
             }
 
             this.Close();
@@ -500,7 +517,28 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void btnResetInputFields_Click(object sender, EventArgs e)
         {
-
+            txtEmployeeFirstName.Clear();
+            txtEmployeeLastName.Clear();
+            txtEmployeeMiddleIName.Clear();
+            rdbMale.Checked = false;
+            rdbFemale.Checked = false;
+            dtpEmployeeDateOfBirth.Value = DateTime.Now;
+            txtEmployeeAge.Clear();
+            txtEmployeeContactNumber.Clear();
+            txtEmployeeEmail.Clear();
+            employeeProfilePicture.Image = null;
+            cboEmployeeCityMunicipality.SelectedItem = null;
+            txtEmployeeBrgyAddress.Clear();
+            dtpEmployeeHiredDate.Value = DateTime.Now;
+            cboEmployeeDept.SelectedItem = null;
+            txtEmployeeJobDesc.Clear();
+            txtScannerPrompt.Clear();
+            txtCaptureStatusLog.Clear();
+            employeeFingerprintImage.Image = null;
+            scanningProgressBar.Value = 0;
+            isResetButtonClicked = true;
+            UpdateStatus();
+            isResetButtonClicked = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
