@@ -39,14 +39,7 @@ namespace GUTZ_Capstone_Project.Forms
                 DataTable dt = DB_OperationHelperClass.QueryData(retrieveAttendanceQuery);
                 foreach (DataRow row in dt.Rows)
                 {
-                    byte[] employee_profile_pic = (byte[])row["emp_profilePic"];
-                    Image img;
-
-                    using (MemoryStream ms = new MemoryStream(employee_profile_pic))
-                    {
-                        img = Image.FromStream(ms);
-                    }
-
+                    string image_path = row["emp_profilePic"].ToString();
                     string f_name = row["FullName"].ToString();
                     string working_shift = row["work_shift"].ToString();
                     DateTime time_in = DateTime.Parse(row["time_in_formatted"].ToString());
@@ -95,7 +88,7 @@ namespace GUTZ_Capstone_Project.Forms
                         lateTime = TimeSpan.Zero;
                     }
 
-                    DGVAttendance.Rows.Add(img, f_name, working_shift, working_hours, time_in_status, time_in.ToString("hh:mm:ss tt").ToUpper(), "", BPO_REQUIRED_WORKING_HOURS.ToString() + " Hours");
+                    DGVAttendance.Rows.Add(System.Drawing.Image.FromFile(image_path), f_name, working_shift, working_hours, time_in_status, time_in.ToString("hh:mm:ss tt").ToUpper(), "", BPO_REQUIRED_WORKING_HOURS.ToString() + " Hours");
 
                     if (!hasTimeOut)
                     {

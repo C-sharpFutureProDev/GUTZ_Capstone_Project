@@ -154,7 +154,6 @@
             this.DoubleBuffered = true;
             this.Name = "FormTimeInTimeOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Employee Time-In \' Time-Out";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTimeInTimeOut_FormClosing);
             this.Load += new System.EventHandler(this.FormTimeInTimeOut_Load);
             this.groupBox4.ResumeLayout(false);

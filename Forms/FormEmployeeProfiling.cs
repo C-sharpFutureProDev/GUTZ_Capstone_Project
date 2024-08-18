@@ -21,7 +21,7 @@ namespace GUTZ_Capstone_Project.Forms
     {
         string retrieveEmployeeDetails = @"SELECT emp_profilePic, tbl_employee.emp_id, 
                                    CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                                   agent_code, department_name, 
+                                   agent_code, tbl_employee.department_id, department_name, 
                                    position_type, DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
                                    FROM tbl_employee
                                    INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
@@ -77,6 +77,7 @@ namespace GUTZ_Capstone_Project.Forms
         }
         private void FormEmployeeProfiling_Load(object sender, EventArgs e)
         {
+            cboSearch.SelectedIndex = 0;
             LoadData();
         }
 
@@ -151,6 +152,60 @@ namespace GUTZ_Capstone_Project.Forms
                         }
                         break;
                     }// end case Column9
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string search_criteria = "";
+            switch (cboSearch.SelectedIndex)
+            {
+                case 0:
+                    search_criteria = retrieveEmployeeDetails + " AND tbl_employee.emp_id LIKE '" + txtSearch.Text + "%'";
+                    break;
+                case 1:
+                    search_criteria = retrieveEmployeeDetails + " AND CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) LIKE '" + txtSearch.Text + "%'";
+                    break;
+                case 2:
+                    search_criteria = retrieveEmployeeDetails + " AND tbl_employee.agent_code LIKE '" + txtSearch.Text + "%'";
+                    break;
+            }
+
+            try
+            {
+                DataTable dt = DB_OperationHelperClass.QueryData(search_criteria);
+                if (dt.Rows.Count > 0)
+                {
+                    DGVEmployee.Rows.Clear(); // Clear any existing rows
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string image_path = row["emp_profilePic"].ToString();
+                        string full_name = row["FullName"].ToString();
+                        int emp_id = int.Parse(row["emp_id"].ToString());
+                        string agent_code = row["agent_code"].ToString();
+                        string dept = row["department_name"].ToString();
+                        string job_title = row["position_type"].ToString();
+                        DateTime hired_date = DateTime.Parse(row["HiredDate"].ToString());
+                        DGVEmployee.Rows.Add(System.Drawing.Image.FromFile(image_path), full_name, emp_id, agent_code, dept, job_title,
+                            hired_date.ToString("MMMM d, yyyy"));
+                    }
+                }
+                else
+                {
+                    DGVEmployee.Rows.Clear(); // Clear any existing rows
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving employee data: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (DGVEmployee.Rows.Count == 0)
+                    MessageBox.Show("No records found.", "No Records",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

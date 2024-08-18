@@ -257,7 +257,6 @@
             this.Controls.Add(this.DGVAttendance);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "FormAttendanceMonitoring";
-            this.Text = "Attendance Monitoring Section";
             this.Load += new System.EventHandler(this.FormAttendanceMonitoring_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAttendance)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
