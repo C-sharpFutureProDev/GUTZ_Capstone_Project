@@ -16,10 +16,8 @@ namespace GUTZ_Capstone_Project.Forms
 {
     public partial class FormTimeInTimeOut : Form, DPFP.Capture.EventHandler
     {
-        //private DPFP.Template Template;
         private DPFP.Verification.Verification Verifier;
         private DPFP.Capture.Capture Capturer;
-        private string work_shift = "";
 
         public FormTimeInTimeOut()
         {
@@ -282,10 +280,6 @@ namespace GUTZ_Capstone_Project.Forms
                                 {
                                     string shiftMessage = work_shift == "MORNING" ? "MORNING Shift." : "NIGHT Shift.";
                                     MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. {shiftMessage}", "Time In Successful");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Please try again.", "Unverified");
                                 }
                             }
                             break; // Exit the loop after a successful verification

@@ -28,7 +28,7 @@ namespace GUTZ_Capstone_Project
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
         }
 
-        // Fixed flicker user interface rendering
+        // Fixed flicker issue on controls rendering
         protected override CreateParams CreateParams
         {
             get
@@ -45,7 +45,7 @@ namespace GUTZ_Capstone_Project
             if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
                 currentBtn = btn;
-                currentBtn.FillColor = Color.FromArgb(0, 43, 35);
+                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
                 currentBtn.ForeColor = Color.White;
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
@@ -55,7 +55,7 @@ namespace GUTZ_Capstone_Project
         {
             if (currentBtn != null)
             {
-                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
+                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
                 currentBtn.ForeColor = Color.White;
             }
         }

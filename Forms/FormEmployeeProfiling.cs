@@ -34,6 +34,17 @@ namespace GUTZ_Capstone_Project.Forms
             InitializeComponent();
         }
 
+        // Fixed flicker issue on controls rendering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
         // Method:: Display retrieve employee data to the data grid view
         private void LoadData()
         {

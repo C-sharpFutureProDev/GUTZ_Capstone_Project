@@ -14,6 +14,7 @@ using System.Windows.Controls.Primitives;
 using System.Xml.Linq;
 using DPFP;
 using System.Drawing.Text;
+using Org.BouncyCastle.Crypto;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -22,12 +23,12 @@ namespace GUTZ_Capstone_Project.Forms
         // Global variables declaration
         private DPFP.Capture.Capture Capturer;
         private DPFP.Processing.Enrollment Enroller;
+        private DPFP.Verification.Verification Verifier = new DPFP.Verification.Verification();
         public delegate void OnTemplateEventHandler(DPFP.Template template);
         public event OnTemplateEventHandler OnTemplate;
         private byte[] fingerprintData;
-        //private byte[] employeeProfilePic;
-        private string employeeProfilePicPath;
-        private string _empId;
+        private string employeeProfilePicPath = "";
+        private string _empId = "";
         private bool isResetButtonClicked = false;
 
         public FormEmployeeEnrollment(string empId_)
@@ -220,71 +221,120 @@ namespace GUTZ_Capstone_Project.Forms
             }
         }
 
+        private void UpdateStatus(int FAR)
+        {
+            SetStatus(String.Format("False Accept Rate (FAR) = {0}", FAR));
+        }
+
         protected void Process(DPFP.Sample Sample)
         {
-            DrawPicture(ConvertSampleToBitmap(Sample));
-
-            // Process the sample and create a feature set for the enrollment purpose.
-            DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
-
-            // Check quality of the sample and add to enroller if it's good
-            if (features != null)
+            try
             {
-                try
+                string sql = @"SELECT fingerprint_data, fingerprint_id, tbl_fingerprint.emp_id, l_name 
+                               FROM tbl_fingerprint 
+                               INNER JOIN tbl_employee ON tbl_fingerprint.emp_id = tbl_employee.emp_id
+                               WHERE is_deleted = 0";
+
+                DataTable dataTable = DB_OperationHelperClass.QueryData(sql);
+                bool isVerified = false;
+
+                DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
+
+                if (features == null)
                 {
-                    MakeReport("The fingerprint feature set was created.");
-                    Enroller.AddFeatures(features); // Add feature set to template.
+                    MessageBox.Show("Failed to extract features from the sample.", "Unverified");
+                    return;
                 }
-                finally
+
+                DrawPicture(ConvertSampleToBitmap(Sample));
+
+                foreach (DataRow row in dataTable.Rows)
                 {
-                    UpdateStatus();
+                    byte[] f_data = (byte[])row["fingerprint_data"];
+                    string emp_id = row["emp_id"].ToString();
+                    string f_id = row["fingerprint_id"].ToString();
+                    string l_name = row["l_name"].ToString();
 
-                    // Check if template has been created.
-                    switch (Enroller.TemplateStatus)
+                    using (MemoryStream memoryStream = new MemoryStream(f_data))
                     {
-                        case DPFP.Processing.Enrollment.Status.Ready: // report success and stop capturing
-                            DPFP.Template template = Enroller.Template;
-                            Enroller.Clear();
-                            OnTemplate?.Invoke(template);
+                        DPFP.Template Template = new DPFP.Template();
+                        Template.DeSerialize(memoryStream);
 
-                            if (template != null)
-                                MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Enrollment Success");
-                            else
+                        DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
+                        Verifier.Verify(features, Template, ref result);
+                        UpdateStatus(result.FARAchieved);
+
+                        if (result.Verified)
+                        {
+                            isVerified = true;
+                            if (isVerified)
                             {
-                                MessageBox.Show("Fingerprint Enrollment was unsuccessful!", "Enrollment Failed");
+                                MessageBox.Show($"Fingerprint matched with employee:\n" +
+                                                 $"(Last Name: {l_name})\n" +
+                                                 $"(Employee ID: {emp_id})\n" +
+                                                 $"(Fingerprint ID: {f_id})",
+                                                 "Employee Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-
-                            // Prepare acquired fingerprint data for saving to the database
-                            using (MemoryStream fingerprintStream = new MemoryStream())
-                            {
-                                template.Serialize(fingerprintStream);
-                                fingerprintData = fingerprintStream.ToArray();
-                            }
-
-                            //or
-                            /*
-                            using (MemoryStream fingerprintStream = new MemoryStream())
-                            {
-                                template.Serialize(fingerprintStream);
-                                fingerprintStream.Position = 0;
-                                BinaryReader reader = new BinaryReader(fingerprintStream);
-                                byte[] bytes = reader.ReadBytes((int)fingerprintStream.Length);
-                                fingerprintData = bytes;
-                            }
-                            */
-
                             break;
-
-                        case DPFP.Processing.Enrollment.Status.Failed:  // report failure and restart capturing
-                            Enroller.Clear();
-                            txtCaptureStatusLog.Clear();
-                            Stop();
-                            UpdateStatus();
-                            OnTemplate?.Invoke(null);
-                            Start();
-                            break;
+                        }
                     }
-                }// end finally 
+                }
+
+                if (!isVerified)
+                {
+                    // Proceed with the enrollment process
+                    DPFP.FeatureSet enrollmentFeatures = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
+
+                    if (enrollmentFeatures != null)
+                    {
+                        try
+                        {
+                            MakeReport("The fingerprint feature set was created.");
+                            Enroller.AddFeatures(enrollmentFeatures); // Add feature set to template.
+                        }
+                        finally
+                        {
+                            UpdateStatus();
+
+                            // Check if template has been created.
+                            switch (Enroller.TemplateStatus)
+                            {
+                                case DPFP.Processing.Enrollment.Status.Ready: // report success and stop capturing
+                                    DPFP.Template template = Enroller.Template;
+                                    Enroller.Clear();
+                                    OnTemplate?.Invoke(template);
+
+                                    if (template != null)
+                                        MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Enrollment Success");
+                                    else
+                                    {
+                                        MessageBox.Show("Fingerprint Enrollment was unsuccessful!", "Enrollment Failed");
+                                    }
+
+                                    // Prepare acquired fingerprint data for saving to the database
+                                    using (MemoryStream fingerprintStream = new MemoryStream())
+                                    {
+                                        template.Serialize(fingerprintStream);
+                                        fingerprintData = fingerprintStream.ToArray();
+                                    }
+                                    break;
+
+                                case DPFP.Processing.Enrollment.Status.Failed:  // report failure and restart capturing
+                                    Enroller.Clear();
+                                    txtCaptureStatusLog.Clear();
+                                    Stop();
+                                    UpdateStatus();
+                                    OnTemplate?.Invoke(null);
+                                    Start();
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -375,49 +425,38 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void btnSaveEmployeeDetails_Click(object sender, EventArgs e)
         {
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeFirstName, "First Name"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeLastName, "Last Name"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeMiddleIName, "Middle Name"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGenderSelection(rdbMale, rdbFemale))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeAge, "Age"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxAsNumber(txtEmployeeAge, "Age"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeContactNumber, "Contact Number"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateEmailFormat(txtEmployeeEmail))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeEmail, "Email Address"))
-                return;
-            //if (!User_InputsValidatorHelperClass.ValidateProfilePicture(employeeProfilePic))
-                //return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeCityMunicipality, "City/Municipality"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeBrgyAddress, "Barangay Address"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeDept, "Department"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeJobDesc, "Job Title"))
-                return;
-            if (!User_InputsValidatorHelperClass.ValidateFingerprintPicture(fingerprintData))
-                return;
+            // Create a list of validation checks foreach required input fields
+            var validationChecks = new List<Func<bool>>
+            {
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeFirstName, "First Name"),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeLastName, "Last Name"),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeMiddleIName, "Middle Name"),
+                () => User_InputsValidatorHelperClass.ValidateGenderSelection(rdbMale, rdbFemale),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeAge, "Age"),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxAsNumber(txtEmployeeAge, "Age"),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeContactNumber, "Contact Number"),
+                () => User_InputsValidatorHelperClass.ValidateEmailFormat(txtEmployeeEmail),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeEmail, "Email Address"),
+                () => User_InputsValidatorHelperClass.ValidateProfilePicture(employeeProfilePicPath),
+                () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeCityMunicipality, "City/Municipality"),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeBrgyAddress, "Barangay Address"),
+                () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeDept, "Department"),
+                () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeJobDesc, "Job Title"),
+                () => User_InputsValidatorHelperClass.ValidateFingerprintPicture(fingerprintData)
+            };
 
+            // Iterate through the validation checks and return if any fail
+            foreach (var check in validationChecks)
+            {
+                if (!check())
+                    return;
+            }
 
             // Get all user input from all the required fields
             string fName = txtEmployeeFirstName.Text;
             string lName = txtEmployeeLastName.Text;
             string midName = txtEmployeeMiddleIName.Text;
-
-            string gender = "";
-            if (rdbMale.Checked)
-                gender = "Male";
-            else if (rdbFemale.Checked)
-                gender = "Female";
-
+            string gender = rdbMale.Checked ? "Male" : "Female";
             DateTime birthDate = dtpEmployeeDateOfBirth.Value.Date;
             int age = int.Parse(txtEmployeeAge.Text);
             string contactNo = txtEmployeeContactNumber.Text;
@@ -425,31 +464,20 @@ namespace GUTZ_Capstone_Project.Forms
             string cityOrMunicipality = cboEmployeeCityMunicipality.SelectedItem.ToString();
             DateTime hiredDate = dtpEmployeeHiredDate.Value.Date;
 
-            int deptID = 0;
-            int posID = 0;
-            switch (cboEmployeeDept.SelectedItem)
+            Dictionary<string, (int deptID, int posID)> deptLookup = new Dictionary<string, (int, int)>
             {
-                case "BPO Department":
-                    deptID = 1111;
-                    posID = 21615;
-                    break;
-                case "ESL Department":
-                    deptID = 2222;
-                    posID = 51912;
-                    break;
-            }
+                { "BPO Department", (1111, 21615) },
+                { "ESL Department", (2222, 51912) }
+            };
+            (int deptID, int posID) = deptLookup[cboEmployeeDept.SelectedItem.ToString()];
 
             string agentCode = $"GUTZ-{fName}";
             string address = txtEmployeeBrgyAddress.Text + ", " + cboEmployeeCityMunicipality.SelectedItem;
-
-            // 
             string sql = "";
 
             if (_empId == "") // add
             {
-                sql = @"INSERT INTO tbl_employee 
-                                        (department_id, position_id, emp_profilePic, 
-                                        f_name, m_name, l_name, agent_code, b_day,
+                sql = @"INSERT INTO tbl_employee (department_id, position_id, emp_profilePic, f_name, m_name, l_name, agent_code, b_day,
                                         age, gender, address, email, phone, hired_date) 
                                  VALUES (@deptID, @posID, @empProPicPath, @fName, @mName, @lName,
                                         @agentCode, @bDay, @age, @gender, @address, @email, 
@@ -478,7 +506,6 @@ namespace GUTZ_Capstone_Project.Forms
                 {
                     DataTable dt = new DataTable();
                     string selectID = "SELECT emp_id FROM tbl_employee";
-                    // Get the inserted employee ID
                     dt = DB_OperationHelperClass.QueryData(selectID);
                     if (dt.Rows.Count > 0)
                     {
@@ -488,11 +515,9 @@ namespace GUTZ_Capstone_Project.Forms
                         }
                     }
 
-                    // SQL query with parameters
                     string insertIntoFingerprintTable = @"INSERT INTO tbl_fingerprint (fingerprint_data, emp_id)
                                  VALUES(@FingerprintData, @EmpId)";
 
-                    // Create a dictionary for parameters
                     var param = new Dictionary<string, object>
                     {
                         { "@FingerprintData", fingerprintData },
@@ -500,22 +525,33 @@ namespace GUTZ_Capstone_Project.Forms
                     };
 
                     if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
-                        MessageBox.Show("New record has been saved successfully.", "New Employee Added",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    {
+                        DialogResult result = MessageBox.Show("New record has been saved successfully. Do you want to add another employee?",
+                            "New Employee Added", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            // Clear the form and show it again for adding a new employee
+                            Stop();
+                            ClearForm();
+                            this.Show();
+                            Start();
+                            btnStartScan.Enabled = false;
+                        }
+                        else
+                            this.Close();
+                    }
                     else
                         MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!",
                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }// end inner if
-            } //end if for add operation
+                }
+            } // end if for add operation
             else // update
             {
                 //pending
             }
-
-            this.Close();
         }
 
-        private void btnResetInputFields_Click(object sender, EventArgs e)
+        private void ClearForm()
         {
             txtEmployeeFirstName.Clear();
             txtEmployeeLastName.Clear();
@@ -541,6 +577,11 @@ namespace GUTZ_Capstone_Project.Forms
             isResetButtonClicked = false;
         }
 
+        private void btnResetInputFields_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -558,9 +599,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void cboEmployeeDept_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedDepartment = cboEmployeeDept.SelectedItem.ToString();
-
-            switch (selectedDepartment)
+            switch (cboEmployeeDept.SelectedItem)
             {
                 case "BPO Department":
                     txtEmployeeJobDesc.Text = "Call Center Agent";
@@ -569,6 +608,7 @@ namespace GUTZ_Capstone_Project.Forms
                     txtEmployeeJobDesc.Text = "English as a Second Language Teacher";
                     break;
                 default:
+                    cboEmployeeDept.SelectedItem = "";
                     txtEmployeeJobDesc.Text = "";
                     break;
             }

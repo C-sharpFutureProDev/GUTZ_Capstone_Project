@@ -90,15 +90,14 @@ namespace GUTZ_Capstone_Project
         /// </summary>
         /// <param name="profilePictureData">The byte array containing the profile picture data.</param>
         /// <returns>True if a picture is selected, false otherwise.</returns>
-        public static bool ValidateProfilePicture(byte[] profilePictureData)
+        public static bool ValidateProfilePicture(string profilePicturePath)
         {
             // Check if a picture has been selected
-            if (profilePictureData == null || profilePictureData.Length == 0)
+            if (string.IsNullOrWhiteSpace(profilePicturePath))
             {
                 MessageBox.Show("Please select an employee profile picture.", "No Picture Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
             return true;
         }
 

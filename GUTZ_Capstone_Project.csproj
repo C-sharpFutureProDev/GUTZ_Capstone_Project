@@ -128,6 +128,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RoundedPictureBoxControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DB_OperationHelperClass.cs" />
     <Compile Include="FormDashboard.cs">
       <SubType>Form</SubType>
@@ -167,9 +170,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoundedPictureBoxControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="User_InputsValidatorHelperClass.cs" />
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>

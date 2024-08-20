@@ -29,6 +29,17 @@ namespace GUTZ_Capstone_Project.Forms
             InitializeComponent();
         }
 
+        // Fixed flicker issue on controls rendering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
         private void LoadData()
         {
             this.DGVAttendance.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
