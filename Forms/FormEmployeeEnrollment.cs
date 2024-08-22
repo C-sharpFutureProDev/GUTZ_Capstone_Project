@@ -305,11 +305,9 @@ namespace GUTZ_Capstone_Project.Forms
                                     OnTemplate?.Invoke(template);
 
                                     if (template != null)
-                                        MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Enrollment Success");
+                                        MessageBox.Show("The fingerprint template was ready for fingerprint verification.", "Enrollment Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     else
-                                    {
-                                        MessageBox.Show("Fingerprint Enrollment was unsuccessful!", "Enrollment Failed");
-                                    }
+                                        MessageBox.Show("Fingerprint Enrollment was unsuccessful!", "Enrollment Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                                     // Prepare acquired fingerprint data for saving to the database
                                     using (MemoryStream fingerprintStream = new MemoryStream())

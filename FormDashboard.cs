@@ -24,8 +24,14 @@ namespace GUTZ_Capstone_Project
         public FormDashboard()
         {
             InitializeComponent();
+            CountAttendanceStatuses();
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
+
+            // Initialize the timer
+            timer2.Interval = 10;
+            timer2.Tick += timer2_Tick;
+            timer2.Start();
         }
 
         // Fixed flicker issue on controls rendering
@@ -150,6 +156,41 @@ namespace GUTZ_Capstone_Project
             timer1.Start();
         }
 
+        private void CountAttendanceStatuses()
+        {
+            string sqlCountPresent = "SELECT * FROM tbl_attendance WHERE time_in IS NOT NULL"; // count present
+            string sqlCountOnTime = "SELECT * FROM tbl_attendance WHERE time_in_status = 'On Time'"; // count on time
+            string sqlCountLate = "SELECT * FROM tbl_attendance WHERE time_in_status = 'Late'"; // count late
+
+            int countPresent = 0;
+            int countOnTime = 0;
+            int countLate = 0;
+
+            // Retrieve all records for 'Present'
+            DataTable dtPresent = DB_OperationHelperClass.QueryData(sqlCountPresent);
+            foreach (DataRow row in dtPresent.Rows)
+            {
+                countPresent++;
+            }
+            btnPresent.Text = countPresent.ToString();
+
+            // Retrieve all records for 'On Time'
+            DataTable dtOnTime = DB_OperationHelperClass.QueryData(sqlCountOnTime);
+            foreach (DataRow row in dtOnTime.Rows)
+            {
+                countOnTime++;
+            }
+            btnOnTime.Text = countOnTime.ToString();
+
+            // Retrieve all records for 'Late'
+            DataTable dtLate = DB_OperationHelperClass.QueryData(sqlCountLate);
+            foreach (DataRow row in dtLate.Rows)
+            {
+                countLate++;
+            }
+            btnLate.Text = countLate.ToString();
+        }
+
         private void UpdateDateTimeLabel()
         {
             DateTime currentDateTime = DateTime.Now;
@@ -159,7 +200,6 @@ namespace GUTZ_Capstone_Project
             int dayOfMonth = currentDateTime.Day;
             int year = currentDateTime.Year;
             int weekNumberInMonth = GetWeekNumberInMonth(currentDateTime);
-
             label1.Text = $"{dayOfWeekString}, {monthString} {dayOfMonth}, {year} | Week {weekNumberInMonth} | {timeString}";
         }
 
@@ -178,9 +218,7 @@ namespace GUTZ_Capstone_Project
 
             // If the last day of the month is in the first week of the next month, use the week number of the last day of the previous month
             if (GetWeekNumber(lastDayOfMonth) == 1 && firstWeekNumberOfMonth > 1)
-            {
                 weekNumberInMonth = firstWeekNumberOfMonth;
-            }
 
             return weekNumberInMonth;
         }
@@ -194,6 +232,17 @@ namespace GUTZ_Capstone_Project
             }
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            CountAttendanceStatuses();
+        }
+
+        private void FormDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Dispose();
+            timer2.Dispose();
         }
     }
 }

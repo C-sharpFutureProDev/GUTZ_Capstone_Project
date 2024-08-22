@@ -77,10 +77,10 @@
             // lblFARStatus
             // 
             this.lblFARStatus.AutoSize = true;
-            this.lblFARStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFARStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFARStatus.Location = new System.Drawing.Point(39, 360);
             this.lblFARStatus.Name = "lblFARStatus";
-            this.lblFARStatus.Size = new System.Drawing.Size(167, 25);
+            this.lblFARStatus.Size = new System.Drawing.Size(175, 25);
             this.lblFARStatus.TabIndex = 59;
             this.lblFARStatus.Text = "[False Accept Rate]";
             // 
@@ -155,6 +155,7 @@
             this.DoubleBuffered = true;
             this.Name = "FormTimeInTimeOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Fingerprint Verification";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTimeInTimeOut_FormClosing);
             this.Load += new System.EventHandler(this.FormTimeInTimeOut_Load);
             this.groupBox4.ResumeLayout(false);

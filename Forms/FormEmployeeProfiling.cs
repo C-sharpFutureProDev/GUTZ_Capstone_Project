@@ -49,7 +49,7 @@ namespace GUTZ_Capstone_Project.Forms
         private void LoadData()
         {
             DGVEmployee.AutoGenerateColumns = false;
-            this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             Column8.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
             Column9.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
 

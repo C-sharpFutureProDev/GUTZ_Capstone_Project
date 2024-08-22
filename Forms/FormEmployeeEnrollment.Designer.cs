@@ -94,7 +94,7 @@
             // txtEmployeeJobDesc
             // 
             this.txtEmployeeJobDesc.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeJobDesc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeJobDesc.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeJobDesc.BorderRadius = 4;
             this.txtEmployeeJobDesc.BorderThickness = 0;
             this.txtEmployeeJobDesc.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -121,7 +121,7 @@
             // txtEmployeeFirstName
             // 
             this.txtEmployeeFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeFirstName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeFirstName.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeFirstName.BorderRadius = 4;
             this.txtEmployeeFirstName.BorderThickness = 0;
             this.txtEmployeeFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -169,7 +169,7 @@
             // txtEmployeeLastName
             // 
             this.txtEmployeeLastName.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeLastName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeLastName.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeLastName.BorderRadius = 4;
             this.txtEmployeeLastName.BorderThickness = 0;
             this.txtEmployeeLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -217,7 +217,7 @@
             // txtEmployeeMiddleIName
             // 
             this.txtEmployeeMiddleIName.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeMiddleIName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeMiddleIName.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeMiddleIName.BorderRadius = 4;
             this.txtEmployeeMiddleIName.BorderThickness = 0;
             this.txtEmployeeMiddleIName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -243,7 +243,7 @@
             // cboEmployeeDept
             // 
             this.cboEmployeeDept.BackColor = System.Drawing.Color.Transparent;
-            this.cboEmployeeDept.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.cboEmployeeDept.BorderColor = System.Drawing.Color.White;
             this.cboEmployeeDept.BorderRadius = 4;
             this.cboEmployeeDept.BorderThickness = 0;
             this.cboEmployeeDept.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -286,7 +286,7 @@
             // 
             // txtEmployeeAge
             // 
-            this.txtEmployeeAge.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeAge.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeAge.BorderRadius = 4;
             this.txtEmployeeAge.BorderThickness = 0;
             this.txtEmployeeAge.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -335,7 +335,7 @@
             // txtEmployeeContactNumber
             // 
             this.txtEmployeeContactNumber.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeContactNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeContactNumber.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeContactNumber.BorderRadius = 4;
             this.txtEmployeeContactNumber.BorderThickness = 0;
             this.txtEmployeeContactNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -383,7 +383,7 @@
             // txtEmployeeEmail
             // 
             this.txtEmployeeEmail.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeEmail.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeEmail.BorderRadius = 4;
             this.txtEmployeeEmail.BorderThickness = 0;
             this.txtEmployeeEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -464,7 +464,7 @@
             // dtpEmployeeDateOfBirth
             // 
             this.dtpEmployeeDateOfBirth.BackColor = System.Drawing.Color.Transparent;
-            this.dtpEmployeeDateOfBirth.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dtpEmployeeDateOfBirth.BorderColor = System.Drawing.Color.White;
             this.dtpEmployeeDateOfBirth.BorderRadius = 4;
             this.dtpEmployeeDateOfBirth.Checked = true;
             this.dtpEmployeeDateOfBirth.FillColor = System.Drawing.Color.White;
@@ -483,7 +483,7 @@
             // 
             this.btnUploadImage.AutoRoundedCorners = true;
             this.btnUploadImage.BackColor = System.Drawing.Color.Transparent;
-            this.btnUploadImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnUploadImage.BorderColor = System.Drawing.Color.White;
             this.btnUploadImage.BorderRadius = 21;
             this.btnUploadImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -608,7 +608,7 @@
             this.txtEmployeeBrgyAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtEmployeeBrgyAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtEmployeeBrgyAddress.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeBrgyAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtEmployeeBrgyAddress.BorderColor = System.Drawing.Color.White;
             this.txtEmployeeBrgyAddress.BorderRadius = 4;
             this.txtEmployeeBrgyAddress.BorderThickness = 0;
             this.txtEmployeeBrgyAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -634,7 +634,7 @@
             // cboEmployeeCityMunicipality
             // 
             this.cboEmployeeCityMunicipality.BackColor = System.Drawing.Color.Transparent;
-            this.cboEmployeeCityMunicipality.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.cboEmployeeCityMunicipality.BorderColor = System.Drawing.Color.White;
             this.cboEmployeeCityMunicipality.BorderRadius = 4;
             this.cboEmployeeCityMunicipality.BorderThickness = 0;
             this.cboEmployeeCityMunicipality.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -697,7 +697,7 @@
             // dtpEmployeeHiredDate
             // 
             this.dtpEmployeeHiredDate.BackColor = System.Drawing.Color.Transparent;
-            this.dtpEmployeeHiredDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dtpEmployeeHiredDate.BorderColor = System.Drawing.Color.White;
             this.dtpEmployeeHiredDate.BorderRadius = 4;
             this.dtpEmployeeHiredDate.Checked = true;
             this.dtpEmployeeHiredDate.FillColor = System.Drawing.Color.White;
@@ -746,7 +746,7 @@
             // 
             this.btnStartScan.AutoRoundedCorners = true;
             this.btnStartScan.BackColor = System.Drawing.Color.Transparent;
-            this.btnStartScan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnStartScan.BorderColor = System.Drawing.Color.White;
             this.btnStartScan.BorderRadius = 21;
             this.btnStartScan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -775,7 +775,7 @@
             // 
             // txtCaptureStatusLog
             // 
-            this.txtCaptureStatusLog.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtCaptureStatusLog.BorderColor = System.Drawing.Color.White;
             this.txtCaptureStatusLog.BorderRadius = 4;
             this.txtCaptureStatusLog.BorderThickness = 0;
             this.txtCaptureStatusLog.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -802,7 +802,7 @@
             // txtScannerPrompt
             // 
             this.txtScannerPrompt.BackColor = System.Drawing.Color.Transparent;
-            this.txtScannerPrompt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtScannerPrompt.BorderColor = System.Drawing.Color.White;
             this.txtScannerPrompt.BorderRadius = 4;
             this.txtScannerPrompt.BorderThickness = 0;
             this.txtScannerPrompt.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -828,7 +828,7 @@
             // scanningProgressBar
             // 
             this.scanningProgressBar.BackColor = System.Drawing.Color.Transparent;
-            this.scanningProgressBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.scanningProgressBar.BorderColor = System.Drawing.Color.White;
             this.scanningProgressBar.BorderRadius = 4;
             this.scanningProgressBar.FillColor = System.Drawing.Color.White;
             this.scanningProgressBar.Location = new System.Drawing.Point(43, 394);
@@ -854,7 +854,7 @@
             // 
             this.btnSaveEmployeeDetails.AutoRoundedCorners = true;
             this.btnSaveEmployeeDetails.BackColor = System.Drawing.Color.Transparent;
-            this.btnSaveEmployeeDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnSaveEmployeeDetails.BorderColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.BorderRadius = 21;
             this.btnSaveEmployeeDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveEmployeeDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -875,7 +875,7 @@
             // 
             this.btnCancel.AutoRoundedCorners = true;
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnCancel.BorderColor = System.Drawing.Color.White;
             this.btnCancel.BorderRadius = 21;
             this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -896,7 +896,7 @@
             // 
             this.btnResetInputFields.AutoRoundedCorners = true;
             this.btnResetInputFields.BackColor = System.Drawing.Color.Transparent;
-            this.btnResetInputFields.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnResetInputFields.BorderColor = System.Drawing.Color.White;
             this.btnResetInputFields.BorderRadius = 21;
             this.btnResetInputFields.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnResetInputFields.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;

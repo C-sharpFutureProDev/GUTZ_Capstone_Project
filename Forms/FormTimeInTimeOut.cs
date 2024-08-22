@@ -135,7 +135,7 @@ namespace GUTZ_Capstone_Project.Forms
         #region
         public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
         {
-            MakeReport("The fingerprint sample was captured.");
+            //MakeReport("Fingerprint was Verified.");
             Process(Sample);
         }
 
@@ -146,7 +146,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         public void OnFingerTouch(object Capture, string ReaderSerialNumber)
         {
-            MakeReport("The fingerprint reader was touched.");
+            //MakeReport("The fingerprint reader was touched.");
         }
 
         public void OnReaderConnect(object Capture, string ReaderSerialNumber)
@@ -161,10 +161,10 @@ namespace GUTZ_Capstone_Project.Forms
 
         public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)
         {
-            if (CaptureFeedback == DPFP.Capture.CaptureFeedback.Good)
-                MakeReport("The fingerprint sample is good.");
-            else
-                MakeReport("The fingerprint sample is poor!");
+            //if (CaptureFeedback == DPFP.Capture.CaptureFeedback.Good)
+            //MakeReport("The fingerprint sample is good.");
+            //else
+            //MakeReport("The fingerprint sample is poor!");
         }
         #endregion
 
@@ -193,22 +193,21 @@ namespace GUTZ_Capstone_Project.Forms
         private void Process(DPFP.Sample Sample)
         {
             DateTime timeIn = DateTime.Now;
-            DateTime timeOut = DateTime.Now;
 
             try
             {
                 string sql = @"SELECT fingerprint_data, fingerprint_id, tbl_fingerprint.emp_id, l_name 
-                       FROM tbl_fingerprint 
-                       INNER JOIN tbl_employee ON tbl_fingerprint.emp_id = tbl_employee.emp_id";
+                               FROM tbl_fingerprint 
+                               INNER JOIN tbl_employee ON tbl_fingerprint.emp_id = tbl_employee.emp_id
+                               WHERE is_deleted = 0";
 
                 DataTable dataTable = DB_OperationHelperClass.QueryData(sql);
                 bool isVerified = false;
 
                 DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
-
                 if (features == null)
                 {
-                    MessageBox.Show("Failed to extract features from the sample.", "Unverified");
+                    ShowMessage("Failed to extract features from the sample.", "Unverified", MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -230,42 +229,45 @@ namespace GUTZ_Capstone_Project.Forms
                         Verifier.Verify(features, Template, ref result);
                         UpdateStatus(result.FARAchieved);
 
-                        if (result.Verified)
+                        if (result.Verified == true)
                         {
-                            AnnounceVerification(true); // Call voice over authentication feedback
+                            MakeReport("Fingerprint Verified.");
+                            AnnounceVerification(true);
                             isVerified = true;
+                            Stop();
 
-                            string att_id = emp_id + "-" + l_name; // Generate custom attendance ID for each employee
+                            string att_id = emp_id + "-" + l_name;
 
-                            // Check if the employee has an existing time-in record
                             string checkTimeInQuery = "SELECT * FROM tbl_attendance WHERE emp_id = '" + emp_id + "' AND time_out IS NULL";
                             DataTable timeInRecord = DB_OperationHelperClass.QueryData(checkTimeInQuery);
 
                             if (timeInRecord.Rows.Count > 0)
                             {
-                                // Employee has an existing time-in record, so perform time-out
-                                string updateTimeOutQuery = "UPDATE tbl_attendance SET time_out = @time_out WHERE emp_id = @emp_id AND time_out IS NULL";
+                                // Perform time-out
+                                DateTime existingTimeIn = DateTime.Parse(timeInRecord.Rows[0]["time_in"].ToString());
+                                TimeSpan workingHours = DateTime.Now - existingTimeIn;
+
+                                string updateTimeOutQuery = "UPDATE tbl_attendance SET time_out = @time_out, working_hours = @working_hours WHERE emp_id = @emp_id AND time_out IS NULL";
                                 var updateTimeOutParams = new Dictionary<string, object>
                                 {
                                     { "@time_out", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") },
+                                    { "@working_hours", workingHours.ToString(@"hh\:mm\:ss") },
                                     { "@emp_id", emp_id }
                                 };
 
-                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateTimeOutQuery, updateTimeOutParams))
+                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateTimeOutQuery, updateTimeOutParams) == true)
                                 {
-                                    MessageBox.Show($"Employee with ID: {emp_id} Time out at {DateTime.Now} Verified.", "Time Out Successful");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Please try again.", "Unverified");
+                                    ShowMessage($"Employee with ID: {emp_id} Time out at {DateTime.Now} Verified.", "Time Out Successful", MessageBoxIcon.Information);
                                 }
                             }
                             else
                             {
                                 string work_shift = DB_OperationHelperClass.IsInMorningShift(timeIn) ? "MORNING" : "NIGHT";
+                                string time_in_status = CalculateTimeInStatus(work_shift, timeIn);
+                                TimeSpan lateTime = CalculateLateTime(work_shift, timeIn);
 
-                                string insertInto = @"INSERT INTO tbl_attendance (attendance_id, emp_id, fingerprint_id, time_in, time_out, work_shift) 
-                                              VALUES (@attendance_id, @emp_id, @fingerprint_id, @time_in, NULL, @work_shift)";
+                                string insertInto = @"INSERT INTO tbl_attendance (attendance_id, emp_id, fingerprint_id, time_in, time_out, work_shift, time_in_status, late_time, working_hours) 
+                                              VALUES (@attendance_id, @emp_id, @fingerprint_id, @time_in, NULL, @work_shift, @time_in_status, @late_time, NULL)";
 
                                 var insertParams = new Dictionary<string, object>
                                 {
@@ -273,30 +275,81 @@ namespace GUTZ_Capstone_Project.Forms
                                     { "@emp_id", emp_id },
                                     { "@fingerprint_id", f_id },
                                     { "@time_in", timeIn.ToString("yyyy-MM-dd HH:mm:ss") },
-                                    { "@work_shift", work_shift }
+                                    { "@work_shift", work_shift },
+                                    { "@time_in_status", time_in_status },
+                                    { "@late_time", lateTime.ToString(@"hh\:mm\:ss") }
                                 };
 
-                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertInto, insertParams))
+                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertInto, insertParams) == true)
                                 {
                                     string shiftMessage = work_shift == "MORNING" ? "MORNING Shift." : "NIGHT Shift.";
-                                    MessageBox.Show($"Employee with ID: {emp_id} Time in at {timeIn} Verified. {shiftMessage}", "Time In Successful");
+                                    ShowMessage($"Employee with ID: {emp_id} Time in at {timeIn} Verified. {shiftMessage}", "Time In Successful", MessageBoxIcon.Information);
                                 }
                             }
-                            break; // Exit the loop after a successful verification
-                        }
+                            break;
+                        }// end if verified
                     }
-                }
-
+                }// end foreach
+                Start();
                 if (!isVerified)
                 {
+                    MakeReport("Fingerprint Not Verified!");
                     AnnounceVerification(false);
-                    MessageBox.Show("Fingerprint not recognized.", "Unverified");
+                    ShowMessage("Fingerprint not recognized.", "Unverified", MessageBoxIcon.Warning);
+                    Stop();
+                    Start();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                ShowMessage(ex.Message, "Error", MessageBoxIcon.Error);
             }
+        }
+
+        private void ShowMessage(string message, string title, MessageBoxIcon icon)
+        {
+            // Ensure this runs on the UI thread
+            Invoke(new Action(() =>
+            {
+                MessageBox.Show(message, title, MessageBoxButtons.OK, icon);
+            }));
+        }
+
+
+        private string CalculateTimeInStatus(string workShift, DateTime timeIn)
+        {
+            DateTime morningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 6, 0, 0);
+            DateTime eveningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 18, 0, 0);
+            TimeSpan gracePeriod = TimeSpan.FromMinutes(15);
+
+            if (workShift == "MORNING")
+            {
+                return timeIn <= morningShiftStart.Add(gracePeriod) ? "On Time" : "Late";
+            }
+            else if (workShift == "NIGHT")
+            {
+                return timeIn <= eveningShiftStart.Add(gracePeriod) ? "On Time" : "Late";
+            }
+
+            return "Unknown";
+        }
+
+        private TimeSpan CalculateLateTime(string workShift, DateTime timeIn)
+        {
+            DateTime morningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 6, 0, 0);
+            DateTime eveningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 18, 0, 0);
+            TimeSpan gracePeriod = TimeSpan.FromMinutes(15);
+
+            if (workShift == "MORNING" && timeIn > morningShiftStart.Add(gracePeriod))
+            {
+                return timeIn - morningShiftStart;
+            }
+            else if (workShift == "NIGHT" && timeIn > eveningShiftStart.Add(gracePeriod))
+            {
+                return timeIn - eveningShiftStart;
+            }
+
+            return TimeSpan.Zero;
         }
     }
 }
