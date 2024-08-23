@@ -107,13 +107,13 @@ namespace GUTZ_Capstone_Project
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new FormEmployeeProfiling());
+            OpenChildForm(new FormEmployeeManagement());
         }
 
         private void btnAttendanceMonitoring_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new FormAttendanceMonitoring());
+            OpenChildForm(new FormAttendanceManagement());
         }
 
         private void btnPayrollManagement_Click(object sender, EventArgs e)
@@ -158,37 +158,76 @@ namespace GUTZ_Capstone_Project
 
         private void CountAttendanceStatuses()
         {
-            string sqlCountPresent = "SELECT * FROM tbl_attendance WHERE time_in IS NOT NULL"; // count present
-            string sqlCountOnTime = "SELECT * FROM tbl_attendance WHERE time_in_status = 'On Time'"; // count on time
-            string sqlCountLate = "SELECT * FROM tbl_attendance WHERE time_in_status = 'Late'"; // count late
+            // Get the current date
+            DateTime currentDate = DateTime.Today;
 
-            int countPresent = 0;
-            int countOnTime = 0;
-            int countLate = 0;
+            // Define the time ranges for the morning and evening shifts
+            DateTime morningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 6, 0, 0); // 6:00 AM
+            DateTime morningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 14, 0, 0); // 2:00 PM
+            DateTime eveningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 18, 0, 0); // 6:00 PM
+            DateTime eveningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day + 1, 6, 0, 0); // 6:00 AM (next day)
 
-            // Retrieve all records for 'Present'
-            DataTable dtPresent = DB_OperationHelperClass.QueryData(sqlCountPresent);
-            foreach (DataRow row in dtPresent.Rows)
+            // Add grace period of 15 minutes
+            DateTime morningGracePeriodEnd = morningShiftStart.AddMinutes(15);
+            DateTime eveningGracePeriodEnd = eveningShiftStart.AddMinutes(15);
+
+            int countMorningPresent = 0;
+            int countMorningOnTime = 0;
+            int countMorningLate = 0;
+
+            int countEveningPresent = 0;
+            int countEveningOnTime = 0;
+            int countEveningLate = 0;
+
+            // Retrieve all records for the current day
+            string sqlCountAttendance = $"SELECT * FROM tbl_attendance WHERE DATE(time_in) = '{currentDate.Date.ToString("yyyy-MM-dd")}'";
+            DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
+
+            foreach (DataRow row in dtAttendance.Rows)
             {
-                countPresent++;
-            }
-            btnPresent.Text = countPresent.ToString();
+                DateTime timeIn = (DateTime)row["time_in"];
 
-            // Retrieve all records for 'On Time'
-            DataTable dtOnTime = DB_OperationHelperClass.QueryData(sqlCountOnTime);
-            foreach (DataRow row in dtOnTime.Rows)
-            {
-                countOnTime++;
-            }
-            btnOnTime.Text = countOnTime.ToString();
+                // Check if the time-in is within the morning shift range
+                if (timeIn >= morningShiftStart && timeIn <= morningShiftEnd)
+                {
+                    countMorningPresent++;
+                    shiftLabelStatus.Text = "Today, Morning Shift";
 
-            // Retrieve all records for 'Late'
-            DataTable dtLate = DB_OperationHelperClass.QueryData(sqlCountLate);
-            foreach (DataRow row in dtLate.Rows)
-            {
-                countLate++;
+                    if (timeIn <= morningGracePeriodEnd)
+                    {
+                        countMorningOnTime++;
+                    }
+                    else
+                    {
+                        countMorningLate++;
+                    }
+                }
+                // Check if the time-in is within the evening shift range
+                else if (timeIn >= eveningShiftStart || timeIn <= eveningShiftEnd)
+                {
+                    countEveningPresent++;
+                    shiftLabelStatus.Text = "Today, Evening Shift";
+
+                    if (timeIn <= eveningGracePeriodEnd)
+                    {
+                        countEveningOnTime++;
+                    }
+                    else
+                    {
+                        countEveningLate++;
+                    }
+                }
             }
-            btnLate.Text = countLate.ToString();
+
+            // Update the button texts for morning shift count
+            btnPresent.Text = countMorningPresent.ToString();
+            btnOnTime.Text = countMorningOnTime.ToString();
+            btnLate.Text = countMorningLate.ToString();
+
+            // Update the button texts for evening shift count
+            btnPresent.Text = countEveningPresent.ToString();
+            btnOnTime.Text = countEveningOnTime.ToString();
+            btnLate.Text = countEveningLate.ToString();
         }
 
         private void UpdateDateTimeLabel()

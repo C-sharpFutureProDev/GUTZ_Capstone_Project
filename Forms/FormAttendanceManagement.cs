@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project.Forms
 {
-    public partial class FormAttendanceMonitoring : Form
+    public partial class FormAttendanceManagement : Form
     {
         private const int BPO_REQUIRED_WORKING_HOURS = 8;
-        public FormAttendanceMonitoring()
+        public FormAttendanceManagement()
         {
             InitializeComponent();
         }
@@ -37,14 +37,34 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVAttendance.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             DGVAttendance.Rows.Clear(); // Clear existing rows before loading new data
             DGVAttendance.AutoGenerateColumns = false;
-            string retrieveAttendanceQuery = @"SELECT attendance_id, emp_profilePic, position_id, CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                                 work_shift, working_hours, time_in_status,
-                                 DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                                 DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted
-                                 FROM tbl_employee
-                                 INNER JOIN tbl_attendance
-                                 ON tbl_employee.emp_id = tbl_attendance.emp_id
-                                 WHERE is_deleted = 0";
+
+            // Get the current date and time
+            DateTime currentDate = DateTime.Today;
+            DateTime currentTime = DateTime.Now;
+
+            // Define the time ranges for the morning and evening shifts
+            DateTime morningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 6, 0, 0); // 6:00 AM
+            DateTime morningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 14, 0, 0); // 2:00 PM
+            DateTime eveningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 18, 0, 0); // 6:00 PM
+            DateTime eveningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day + 1, 6, 0, 0); // 6:00 AM next day
+
+            string shiftCondition = "";
+
+            if (currentTime >= morningShiftStart && currentTime <= morningShiftEnd)
+            {
+                shiftCondition = "work_shift = 'MORNING'";
+            }
+            else if (currentTime >= eveningShiftStart || currentTime <= eveningShiftEnd)
+            {
+                shiftCondition = "work_shift = 'NIGHT'";
+            }
+
+            string retrieveAttendanceQuery = $@"SELECT attendance_id, emp_profilePic, position_id, CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
+                                                   work_shift, working_hours, time_in_status, DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                                   DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted
+                                                FROM tbl_employee
+                                                INNER JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                                                WHERE is_deleted = 0 AND DATE(time_in) = '{currentDate:yyyy-MM-dd}' AND {shiftCondition}";
 
             try
             {
@@ -92,7 +112,7 @@ namespace GUTZ_Capstone_Project.Forms
             finally
             {
                 if (DGVAttendance.Rows.Count == 0)
-                    MessageBox.Show("No records found.", "No Records", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No records found for the current shift.", "No Records", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

@@ -17,7 +17,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUTZ_Capstone_Project.Forms
 {
-    public partial class FormEmployeeProfiling : Form
+    public partial class FormEmployeeManagement : Form
     {
         string retrieveEmployeeDetails = @"SELECT emp_profilePic, tbl_employee.emp_id, 
                                    CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
@@ -29,7 +29,7 @@ namespace GUTZ_Capstone_Project.Forms
                                    WHERE is_deleted = 0";
 
         private string id;
-        public FormEmployeeProfiling()
+        public FormEmployeeManagement()
         {
             InitializeComponent();
         }
@@ -43,6 +43,12 @@ namespace GUTZ_Capstone_Project.Forms
                 cp.ExStyle |= 0x02000000;
                 return cp;
             }
+        }
+
+        private void FormEmployeeProfiling_Load(object sender, EventArgs e)
+        {
+            LoadData();
+            cboSearch.SelectedIndex = 0;
         }
 
         // Method:: Display retrieve employee data to the data grid view
@@ -73,28 +79,22 @@ namespace GUTZ_Capstone_Project.Forms
                             hired_date.ToString("MMMM d, yyyy"));
                     }
                 }
+                else
+                {
+                    MessageBox.Show("No records found.", "No Records",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error retrieving employee data: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                if (DGVEmployee.Rows.Count == 0)
-                    MessageBox.Show("No records found.", "No Records",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-        private void FormEmployeeProfiling_Load(object sender, EventArgs e)
-        {
-            cboSearch.SelectedIndex = 0;
-            LoadData();
         }
 
         private void btnAddNewEmployee_Click(object sender, EventArgs e)
         {
-            using (FormEmployeeEnrollment formEmployeeEnrollment = new FormEmployeeEnrollment(""))
+            using (FormAddNewEmployee formEmployeeEnrollment = new FormAddNewEmployee(""))
             {
                 formEmployeeEnrollment.FormClosed += (s, args) => LoadData();
                 formEmployeeEnrollment.ShowDialog(this);
@@ -120,7 +120,7 @@ namespace GUTZ_Capstone_Project.Forms
                 case "Column8":
                     {
                         // instance of the frmUpdate form, passing the employee ID as a parameter
-                        FormEmployeeEnrollment enrollmentForm = new FormEmployeeEnrollment(id);
+                        FormAddNewEmployee enrollmentForm = new FormAddNewEmployee(id);
                         enrollmentForm.ShowDialog(this);
                         break;
                     } //end case Column8

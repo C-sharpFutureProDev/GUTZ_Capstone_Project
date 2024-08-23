@@ -18,7 +18,7 @@ using Org.BouncyCastle.Crypto;
 
 namespace GUTZ_Capstone_Project.Forms
 {
-    public partial class FormEmployeeEnrollment : Form, DPFP.Capture.EventHandler
+    public partial class FormAddNewEmployee : Form, DPFP.Capture.EventHandler
     {
         // Global variables declaration
         private DPFP.Capture.Capture Capturer;
@@ -31,7 +31,7 @@ namespace GUTZ_Capstone_Project.Forms
         private string _empId = "";
         private bool isResetButtonClicked = false;
 
-        public FormEmployeeEnrollment(string empId_)
+        public FormAddNewEmployee(string empId_)
         {
             InitializeComponent();
             SetFormRegion();

@@ -256,12 +256,11 @@ namespace GUTZ_Capstone_Project.Forms
                                 };
 
                                 if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateTimeOutQuery, updateTimeOutParams) == true)
-                                {
                                     ShowMessage($"Employee with ID: {emp_id} Time out at {DateTime.Now} Verified.", "Time Out Successful", MessageBoxIcon.Information);
-                                }
                             }
                             else
                             {
+                                // Perform time-in
                                 string work_shift = DB_OperationHelperClass.IsInMorningShift(timeIn) ? "MORNING" : "NIGHT";
                                 string time_in_status = CalculateTimeInStatus(work_shift, timeIn);
                                 TimeSpan lateTime = CalculateLateTime(work_shift, timeIn);

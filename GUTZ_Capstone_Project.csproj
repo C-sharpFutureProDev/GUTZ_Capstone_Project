@@ -138,23 +138,23 @@
     <Compile Include="FormDashboard.Designer.cs">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormAttendanceMonitoring.cs">
+    <Compile Include="Forms\FormAttendanceManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormAttendanceMonitoring.Designer.cs">
-      <DependentUpon>FormAttendanceMonitoring.cs</DependentUpon>
+    <Compile Include="Forms\FormAttendanceManagement.Designer.cs">
+      <DependentUpon>FormAttendanceManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormEmployeeEnrollment.cs">
+    <Compile Include="Forms\FormAddNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormEmployeeEnrollment.Designer.cs">
-      <DependentUpon>FormEmployeeEnrollment.cs</DependentUpon>
+    <Compile Include="Forms\FormAddNewEmployee.Designer.cs">
+      <DependentUpon>FormAddNewEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormEmployeeProfiling.cs">
+    <Compile Include="Forms\FormEmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormEmployeeProfiling.Designer.cs">
-      <DependentUpon>FormEmployeeProfiling.cs</DependentUpon>
+    <Compile Include="Forms\FormEmployeeManagement.Designer.cs">
+      <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormPayrollManagement.cs">
       <SubType>Form</SubType>
@@ -174,14 +174,14 @@
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormAttendanceMonitoring.resx">
-      <DependentUpon>FormAttendanceMonitoring.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormAttendanceManagement.resx">
+      <DependentUpon>FormAttendanceManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormEmployeeEnrollment.resx">
-      <DependentUpon>FormEmployeeEnrollment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormAddNewEmployee.resx">
+      <DependentUpon>FormAddNewEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormEmployeeProfiling.resx">
-      <DependentUpon>FormEmployeeProfiling.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormEmployeeManagement.resx">
+      <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPayrollManagement.resx">
       <DependentUpon>FormPayrollManagement.cs</DependentUpon>
