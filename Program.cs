@@ -16,7 +16,8 @@ namespace GUTZ_Capstone_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormDashboard());
+            //Application.Run(new FormDashboard());
+            Application.Run(new FormLogin());
         }
     }
 }

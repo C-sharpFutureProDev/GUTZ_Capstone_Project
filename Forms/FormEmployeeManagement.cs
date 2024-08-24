@@ -27,7 +27,7 @@ namespace GUTZ_Capstone_Project.Forms
                                    INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                    INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                    WHERE is_deleted = 0
-                                   ORDER BY FullName ASC"; // Sort alphabetically by FullName
+                                   ORDER BY FullName ASC";
 
         private string id;
         public FormEmployeeManagement()
@@ -39,6 +39,12 @@ namespace GUTZ_Capstone_Project.Forms
             DGVEmployee.Columns["Column4"].DefaultCellStyle.Padding = new Padding(2, 0, 0, 0);
             DGVEmployee.Columns["Column5"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
             DGVEmployee.Columns["Column6"].DefaultCellStyle.Padding = new Padding(4, 0, 0, 0);
+            this.Column8.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.Column9.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.Column10.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.Column8.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
+            this.Column9.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
+            this.Column10.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
         }
 
         // Fixed flicker issue on controls rendering
@@ -62,10 +68,6 @@ namespace GUTZ_Capstone_Project.Forms
         private void LoadData()
         {
             DGVEmployee.AutoGenerateColumns = false;
-            this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            Column8.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
-            Column9.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
-            Column10.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
 
             try
             {
@@ -171,6 +173,11 @@ namespace GUTZ_Capstone_Project.Forms
                         }
                         break;
                     }// end case Column9
+                case "Column10":
+                    {
+
+                        break;
+                    }
             }
         }
 

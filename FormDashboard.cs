@@ -72,7 +72,6 @@ namespace GUTZ_Capstone_Project
                 currentBtn = btn;
                 currentBtn.FillColor = Color.FromArgb(12, 90, 37);
                 currentBtn.ForeColor = Color.White;
-                currentBtn.ShadowDecoration.Color = Color.FromArgb(12, 90, 37);
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
         }
@@ -82,7 +81,6 @@ namespace GUTZ_Capstone_Project
             if (currentBtn != null)
             {
                 currentBtn.FillColor = Color.FromArgb(0, 62, 41);
-                currentBtn.ShadowDecoration.Color = Color.FromArgb(0, 62, 41);
                 currentBtn.ForeColor = Color.White;
             }
         }
@@ -161,7 +159,12 @@ namespace GUTZ_Capstone_Project
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Close the current form
+            this.Close();
+
+            // Show the login form
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -52,6 +52,7 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.iconCurrentChildForm = new Guna.UI2.WinForms.Guna2Button();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.roundedPictureBoxControl1 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.panelGenInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.panelAttendanceToday = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -86,7 +87,6 @@
             this.panelChartAttendanve = new Guna.UI2.WinForms.Guna2Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.roundedPictureBoxControl1 = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.panel5.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -96,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel6.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl1)).BeginInit();
             this.panelAttendanceToday.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
@@ -110,7 +111,6 @@
             this.panelDesktop.SuspendLayout();
             this.panelChartPayroll.SuspendLayout();
             this.panelChartAttendanve.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -127,7 +127,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
             this.panelMenu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.panelMenu.BorderRadius = 15;
             this.panelMenu.Controls.Add(this.btnLogout);
@@ -138,7 +138,7 @@
             this.panelMenu.Controls.Add(this.btnEmployee);
             this.panelMenu.Controls.Add(this.label18);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenu.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.panelMenu.FillColor = System.Drawing.SystemColors.Control;
             this.panelMenu.Location = new System.Drawing.Point(0, 304);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelMenu.Name = "panelMenu";
@@ -167,7 +167,7 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 20, 3);
             this.btnLogout.PressedColor = System.Drawing.Color.Empty;
-            this.btnLogout.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnLogout.ShadowDecoration.Color = System.Drawing.Color.White;
             this.btnLogout.ShadowDecoration.Enabled = true;
             this.btnLogout.Size = new System.Drawing.Size(284, 58);
             this.btnLogout.TabIndex = 27;
@@ -197,7 +197,7 @@
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 20, 3);
             this.btnSettings.PressedColor = System.Drawing.Color.Empty;
-            this.btnSettings.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnSettings.ShadowDecoration.Color = System.Drawing.Color.White;
             this.btnSettings.ShadowDecoration.Enabled = true;
             this.btnSettings.Size = new System.Drawing.Size(284, 58);
             this.btnSettings.TabIndex = 26;
@@ -227,7 +227,7 @@
             this.btnGenerateReports.Name = "btnGenerateReports";
             this.btnGenerateReports.Padding = new System.Windows.Forms.Padding(10, 0, 20, 3);
             this.btnGenerateReports.PressedColor = System.Drawing.Color.Empty;
-            this.btnGenerateReports.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnGenerateReports.ShadowDecoration.Color = System.Drawing.Color.White;
             this.btnGenerateReports.ShadowDecoration.Enabled = true;
             this.btnGenerateReports.Size = new System.Drawing.Size(284, 58);
             this.btnGenerateReports.TabIndex = 25;
@@ -257,7 +257,7 @@
             this.btnPayrollManagement.Name = "btnPayrollManagement";
             this.btnPayrollManagement.Padding = new System.Windows.Forms.Padding(10, 0, 20, 3);
             this.btnPayrollManagement.PressedColor = System.Drawing.Color.Empty;
-            this.btnPayrollManagement.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnPayrollManagement.ShadowDecoration.Color = System.Drawing.Color.White;
             this.btnPayrollManagement.ShadowDecoration.Enabled = true;
             this.btnPayrollManagement.Size = new System.Drawing.Size(284, 58);
             this.btnPayrollManagement.TabIndex = 24;
@@ -287,7 +287,7 @@
             this.btnAttendanceMonitoring.Name = "btnAttendanceMonitoring";
             this.btnAttendanceMonitoring.Padding = new System.Windows.Forms.Padding(10, 0, 20, 3);
             this.btnAttendanceMonitoring.PressedColor = System.Drawing.Color.Empty;
-            this.btnAttendanceMonitoring.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnAttendanceMonitoring.ShadowDecoration.Color = System.Drawing.Color.White;
             this.btnAttendanceMonitoring.ShadowDecoration.Enabled = true;
             this.btnAttendanceMonitoring.Size = new System.Drawing.Size(284, 58);
             this.btnAttendanceMonitoring.TabIndex = 23;
@@ -317,7 +317,7 @@
             this.btnEmployee.Name = "btnEmployee";
             this.btnEmployee.Padding = new System.Windows.Forms.Padding(10, 0, 20, 3);
             this.btnEmployee.PressedColor = System.Drawing.Color.Empty;
-            this.btnEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnEmployee.ShadowDecoration.Color = System.Drawing.Color.White;
             this.btnEmployee.ShadowDecoration.Enabled = true;
             this.btnEmployee.Size = new System.Drawing.Size(284, 58);
             this.btnEmployee.TabIndex = 22;
@@ -337,7 +337,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.BackColor = System.Drawing.SystemColors.Control;
             this.panel6.Controls.Add(this.guna2Panel5);
             this.panel6.Controls.Add(this.guna2Separator1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -349,12 +349,12 @@
             // 
             // guna2Panel5
             // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel5.BackColor = System.Drawing.SystemColors.Control;
             this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.guna2Panel5.BorderRadius = 15;
             this.guna2Panel5.Controls.Add(this.btnBackToHome);
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel5.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel5.FillColor = System.Drawing.SystemColors.Control;
             this.guna2Panel5.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Panel5.Name = "guna2Panel5";
@@ -384,7 +384,7 @@
             this.btnBackToHome.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(201)))), ((int)(((byte)(255)))));
             this.btnBackToHome.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnBackToHome.ShadowDecoration.Enabled = true;
-            this.btnBackToHome.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7);
+            this.btnBackToHome.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(8);
             this.btnBackToHome.Size = new System.Drawing.Size(284, 109);
             this.btnBackToHome.TabIndex = 16;
             this.btnBackToHome.Click += new System.EventHandler(this.btnBackToHome_Click);
@@ -523,6 +523,16 @@
             this.panelTitleBar.Size = new System.Drawing.Size(1591, 70);
             this.panelTitleBar.TabIndex = 17;
             // 
+            // roundedPictureBoxControl1
+            // 
+            this.roundedPictureBoxControl1.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl1.Image")));
+            this.roundedPictureBoxControl1.Location = new System.Drawing.Point(1404, 16);
+            this.roundedPictureBoxControl1.Name = "roundedPictureBoxControl1";
+            this.roundedPictureBoxControl1.Size = new System.Drawing.Size(43, 42);
+            this.roundedPictureBoxControl1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.roundedPictureBoxControl1.TabIndex = 24;
+            this.roundedPictureBoxControl1.TabStop = false;
+            // 
             // panelGenInfo
             // 
             this.panelGenInfo.BackColor = System.Drawing.Color.Transparent;
@@ -570,7 +580,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(319, 67);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(165, 180);
+            this.guna2Panel1.Size = new System.Drawing.Size(160, 180);
             this.guna2Panel1.TabIndex = 29;
             // 
             // btnPresent
@@ -591,10 +601,10 @@
             this.btnPresent.Location = new System.Drawing.Point(5, 118);
             this.btnPresent.Margin = new System.Windows.Forms.Padding(5);
             this.btnPresent.Name = "btnPresent";
-            this.btnPresent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnPresent.Padding = new System.Windows.Forms.Padding(12, 0, 10, 0);
             this.btnPresent.PressedColor = System.Drawing.Color.Empty;
             this.btnPresent.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnPresent.Size = new System.Drawing.Size(155, 41);
+            this.btnPresent.Size = new System.Drawing.Size(150, 41);
             this.btnPresent.TabIndex = 28;
             this.btnPresent.Text = "0";
             // 
@@ -640,7 +650,7 @@
             this.panelLateEmployeeForToday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelLateEmployeeForToday.Name = "panelLateEmployeeForToday";
             this.panelLateEmployeeForToday.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
-            this.panelLateEmployeeForToday.Size = new System.Drawing.Size(165, 180);
+            this.panelLateEmployeeForToday.Size = new System.Drawing.Size(160, 180);
             this.panelLateEmployeeForToday.TabIndex = 32;
             // 
             // iconPictureBox4
@@ -676,10 +686,10 @@
             this.btnLate.Location = new System.Drawing.Point(5, 118);
             this.btnLate.Margin = new System.Windows.Forms.Padding(5);
             this.btnLate.Name = "btnLate";
-            this.btnLate.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLate.Padding = new System.Windows.Forms.Padding(15, 0, 10, 0);
             this.btnLate.PressedColor = System.Drawing.Color.Empty;
             this.btnLate.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnLate.Size = new System.Drawing.Size(155, 41);
+            this.btnLate.Size = new System.Drawing.Size(150, 41);
             this.btnLate.TabIndex = 31;
             this.btnLate.Text = "0";
             // 
@@ -708,7 +718,7 @@
             this.panelOnTimeEmployeeForToday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelOnTimeEmployeeForToday.Name = "panelOnTimeEmployeeForToday";
             this.panelOnTimeEmployeeForToday.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
-            this.panelOnTimeEmployeeForToday.Size = new System.Drawing.Size(165, 180);
+            this.panelOnTimeEmployeeForToday.Size = new System.Drawing.Size(160, 180);
             this.panelOnTimeEmployeeForToday.TabIndex = 31;
             // 
             // btnOnTime
@@ -729,10 +739,10 @@
             this.btnOnTime.Location = new System.Drawing.Point(5, 118);
             this.btnOnTime.Margin = new System.Windows.Forms.Padding(5);
             this.btnOnTime.Name = "btnOnTime";
-            this.btnOnTime.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnOnTime.Padding = new System.Windows.Forms.Padding(15, 0, 10, 0);
             this.btnOnTime.PressedColor = System.Drawing.Color.Empty;
             this.btnOnTime.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnOnTime.Size = new System.Drawing.Size(155, 41);
+            this.btnOnTime.Size = new System.Drawing.Size(150, 41);
             this.btnOnTime.TabIndex = 30;
             this.btnOnTime.Text = "0";
             // 
@@ -777,7 +787,7 @@
             this.panelAbsentForToday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelAbsentForToday.Name = "panelAbsentForToday";
             this.panelAbsentForToday.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
-            this.panelAbsentForToday.Size = new System.Drawing.Size(165, 180);
+            this.panelAbsentForToday.Size = new System.Drawing.Size(160, 180);
             this.panelAbsentForToday.TabIndex = 30;
             // 
             // btnAbsent
@@ -798,10 +808,10 @@
             this.btnAbsent.Location = new System.Drawing.Point(5, 118);
             this.btnAbsent.Margin = new System.Windows.Forms.Padding(5);
             this.btnAbsent.Name = "btnAbsent";
-            this.btnAbsent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnAbsent.Padding = new System.Windows.Forms.Padding(15, 0, 10, 0);
             this.btnAbsent.PressedColor = System.Drawing.Color.Empty;
             this.btnAbsent.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnAbsent.Size = new System.Drawing.Size(155, 41);
+            this.btnAbsent.Size = new System.Drawing.Size(150, 41);
             this.btnAbsent.TabIndex = 29;
             this.btnAbsent.Text = "0";
             // 
@@ -855,7 +865,7 @@
             this.panelExpectedAttendees.Location = new System.Drawing.Point(100, 67);
             this.panelExpectedAttendees.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelExpectedAttendees.Name = "panelExpectedAttendees";
-            this.panelExpectedAttendees.Size = new System.Drawing.Size(165, 180);
+            this.panelExpectedAttendees.Size = new System.Drawing.Size(160, 180);
             this.panelExpectedAttendees.TabIndex = 25;
             // 
             // btnExpected
@@ -876,10 +886,10 @@
             this.btnExpected.Location = new System.Drawing.Point(5, 118);
             this.btnExpected.Margin = new System.Windows.Forms.Padding(5);
             this.btnExpected.Name = "btnExpected";
-            this.btnExpected.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnExpected.Padding = new System.Windows.Forms.Padding(12, 0, 10, 0);
             this.btnExpected.PressedColor = System.Drawing.Color.Empty;
             this.btnExpected.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnExpected.Size = new System.Drawing.Size(155, 41);
+            this.btnExpected.Size = new System.Drawing.Size(150, 41);
             this.btnExpected.TabIndex = 28;
             this.btnExpected.Text = "200";
             // 
@@ -1054,16 +1064,6 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // roundedPictureBoxControl1
-            // 
-            this.roundedPictureBoxControl1.Image = ((System.Drawing.Image)(resources.GetObject("roundedPictureBoxControl1.Image")));
-            this.roundedPictureBoxControl1.Location = new System.Drawing.Point(1404, 16);
-            this.roundedPictureBoxControl1.Name = "roundedPictureBoxControl1";
-            this.roundedPictureBoxControl1.Size = new System.Drawing.Size(43, 42);
-            this.roundedPictureBoxControl1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundedPictureBoxControl1.TabIndex = 24;
-            this.roundedPictureBoxControl1.TabStop = false;
-            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -1091,6 +1091,7 @@
             this.guna2Panel6.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl1)).EndInit();
             this.panelAttendanceToday.ResumeLayout(false);
             this.panelAttendanceToday.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
@@ -1113,7 +1114,6 @@
             this.panelChartPayroll.PerformLayout();
             this.panelChartAttendanve.ResumeLayout(false);
             this.panelChartAttendanve.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedPictureBoxControl1)).EndInit();
             this.ResumeLayout(false);
 
         }

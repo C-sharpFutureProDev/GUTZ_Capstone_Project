@@ -128,6 +128,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RoundedPictureBoxControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -173,6 +182,9 @@
     <Compile Include="User_InputsValidatorHelperClass.cs" />
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAttendanceManagement.resx">
       <DependentUpon>FormAttendanceManagement.cs</DependentUpon>

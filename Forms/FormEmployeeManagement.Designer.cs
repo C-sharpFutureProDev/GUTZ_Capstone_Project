@@ -226,7 +226,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVEmployee.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DGVEmployee.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DGVEmployee.RowTemplate.Height = 50;
-            this.DGVEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DGVEmployee.Size = new System.Drawing.Size(1821, 472);
             this.DGVEmployee.TabIndex = 2;
             this.DGVEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVEmployee_CellContentClick);
@@ -295,7 +295,6 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column10.Text = "View";
             this.Column10.UseColumnTextForButtonValue = true;
             this.Column10.Width = 175;
-            this.Column10.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // 
             // Column8
             // 
@@ -309,7 +308,6 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column8.Text = "Update";
             this.Column8.UseColumnTextForButtonValue = true;
             this.Column8.Width = 175;
-            this.Column8.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // 
             // Column9
             // 
@@ -323,7 +321,6 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column9.Text = "Remove";
             this.Column9.UseColumnTextForButtonValue = true;
             this.Column9.Width = 175;
-            this.Column9.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // 
             // FormEmployeeManagement
             // 
@@ -351,14 +348,14 @@ namespace GUTZ_Capstone_Project.Forms
         private Guna.UI2.WinForms.Guna2ComboBox cboSearch;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnAddNewEmployee;
-        private System.Windows.Forms.DataGridViewImageColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewButtonColumn Column10;
-        private System.Windows.Forms.DataGridViewButtonColumn Column8;
-        private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private DataGridViewImageColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewButtonColumn Column10;
+        private DataGridViewButtonColumn Column8;
+        private DataGridViewButtonColumn Column9;
     }
 }

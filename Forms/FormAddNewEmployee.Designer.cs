@@ -484,7 +484,7 @@
             this.btnUploadImage.AutoRoundedCorners = true;
             this.btnUploadImage.BackColor = System.Drawing.Color.Transparent;
             this.btnUploadImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnUploadImage.BorderRadius = 17;
+            this.btnUploadImage.BorderRadius = 18;
             this.btnUploadImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -492,11 +492,12 @@
             this.btnUploadImage.FillColor = System.Drawing.Color.White;
             this.btnUploadImage.Font = new System.Drawing.Font("Malgun Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUploadImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnUploadImage.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(240)))), ((int)(((byte)(226)))));
+            this.btnUploadImage.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnUploadImage.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnUploadImage.Location = new System.Drawing.Point(1031, 218);
             this.btnUploadImage.Name = "btnUploadImage";
-            this.btnUploadImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.btnUploadImage.Size = new System.Drawing.Size(183, 37);
+            this.btnUploadImage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.btnUploadImage.Size = new System.Drawing.Size(183, 39);
             this.btnUploadImage.TabIndex = 56;
             this.btnUploadImage.Text = "Choose Image";
             this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
@@ -756,9 +757,11 @@
             this.btnStartScan.FillColor = System.Drawing.Color.White;
             this.btnStartScan.Font = new System.Drawing.Font("Malgun Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.btnStartScan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnStartScan.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnStartScan.Location = new System.Drawing.Point(476, 434);
             this.btnStartScan.Name = "btnStartScan";
-            this.btnStartScan.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.btnStartScan.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnStartScan.Size = new System.Drawing.Size(132, 37);
             this.btnStartScan.TabIndex = 57;
             this.btnStartScan.Text = "Start Scan";
