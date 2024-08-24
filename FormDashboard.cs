@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Media.Media3D;
 
 namespace GUTZ_Capstone_Project
 {
@@ -34,6 +35,24 @@ namespace GUTZ_Capstone_Project
             timer2.Start();
         }
 
+        /*private void chartData()
+        {
+            // Clear previous series points
+            chart1.Series["Employees"].Points.Clear();
+
+            // Add the data points with proper labels
+            chart1.Series["Employees"].Points.AddXY("130", 130);
+            chart1.Series["Employees"].Points.AddXY("70", 70);
+
+            // Customize the chart appearance
+            chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
+
+            // Set the legend text
+            chart1.Series["Employees"].Legend = "Legend";
+            chart1.Series["Employees"].Points[0].LegendText = "BPO";
+            chart1.Series["Employees"].Points[1].LegendText = "ESL";
+        }*/
+
         // Fixed flicker issue on controls rendering
         protected override CreateParams CreateParams
         {
@@ -51,8 +70,9 @@ namespace GUTZ_Capstone_Project
             if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
                 currentBtn = btn;
-                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
+                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
                 currentBtn.ForeColor = Color.White;
+                currentBtn.ShadowDecoration.Color = Color.FromArgb(12, 90, 37);
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
         }
@@ -61,7 +81,8 @@ namespace GUTZ_Capstone_Project
         {
             if (currentBtn != null)
             {
-                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
+                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
+                currentBtn.ShadowDecoration.Color = Color.FromArgb(0, 62, 41);
                 currentBtn.ForeColor = Color.White;
             }
         }
@@ -135,9 +156,7 @@ namespace GUTZ_Capstone_Project
         private void btnBackToHome_Click(object sender, EventArgs e)
         {
             if (currentChildForm != null)
-            {
                 Reset();
-            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -201,6 +220,10 @@ namespace GUTZ_Capstone_Project
                     {
                         countMorningLate++;
                     }
+                    // Update the button texts for morning shift count
+                    btnPresent.Text = countMorningPresent.ToString();
+                    btnOnTime.Text = countMorningOnTime.ToString();
+                    btnLate.Text = countMorningLate.ToString();
                 }
                 // Check if the time-in is within the evening shift range
                 else if (timeIn >= eveningShiftStart || timeIn <= eveningShiftEnd)
@@ -216,18 +239,13 @@ namespace GUTZ_Capstone_Project
                     {
                         countEveningLate++;
                     }
+
+                    // Update the button texts for evening shift count
+                    btnPresent.Text = countEveningPresent.ToString();
+                    btnOnTime.Text = countEveningOnTime.ToString();
+                    btnLate.Text = countEveningLate.ToString();
                 }
             }
-
-            // Update the button texts for morning shift count
-            btnPresent.Text = countMorningPresent.ToString();
-            btnOnTime.Text = countMorningOnTime.ToString();
-            btnLate.Text = countMorningLate.ToString();
-
-            // Update the button texts for evening shift count
-            btnPresent.Text = countEveningPresent.ToString();
-            btnOnTime.Text = countEveningOnTime.ToString();
-            btnLate.Text = countEveningLate.ToString();
         }
 
         private void UpdateDateTimeLabel()
@@ -266,9 +284,7 @@ namespace GUTZ_Capstone_Project
         {
             DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(date);
             if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
-            {
                 date = date.AddDays(3);
-            }
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }

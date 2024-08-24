@@ -26,12 +26,19 @@ namespace GUTZ_Capstone_Project.Forms
                                    FROM tbl_employee
                                    INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                    INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                                   WHERE is_deleted = 0";
+                                   WHERE is_deleted = 0
+                                   ORDER BY FullName ASC"; // Sort alphabetically by FullName
 
         private string id;
         public FormEmployeeManagement()
         {
             InitializeComponent();
+
+            DGVEmployee.Columns["Column2"].DefaultCellStyle.Padding = new Padding(4, 0, 0, 0);
+            DGVEmployee.Columns["Column3"].DefaultCellStyle.Padding = new Padding(2, 0, 0, 0);
+            DGVEmployee.Columns["Column4"].DefaultCellStyle.Padding = new Padding(2, 0, 0, 0);
+            DGVEmployee.Columns["Column5"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVEmployee.Columns["Column6"].DefaultCellStyle.Padding = new Padding(4, 0, 0, 0);
         }
 
         // Fixed flicker issue on controls rendering
@@ -58,6 +65,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             Column8.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
             Column9.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
+            Column10.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
 
             try
             {
@@ -74,9 +82,9 @@ namespace GUTZ_Capstone_Project.Forms
                         string agent_code = row["agent_code"].ToString();
                         string dept = row["department_name"].ToString();
                         string job_title = row["position_type"].ToString();
-                        DateTime hired_date = DateTime.Parse(row["HiredDate"].ToString());
-                        DGVEmployee.Rows.Add(System.Drawing.Image.FromFile(image_path), full_name, emp_id, agent_code, dept, job_title,
-                            hired_date.ToString("MMMM d, yyyy"));
+                        //DateTime hired_date = DateTime.Parse(row["HiredDate"].ToString());
+                        DGVEmployee.Rows.Add(System.Drawing.Image.FromFile(image_path), full_name, emp_id, agent_code, dept, job_title
+                            /*hired_date.ToString("MMMM d, yyyy")*/);
                     }
                 }
                 else
@@ -168,19 +176,30 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string search_criteria = "";
+            string searchText = txtSearch.Text.Replace("'", "''"); // Sanitize input
+            string search_criteria = @"SELECT emp_profilePic, tbl_employee.emp_id, 
+                                       CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
+                                       agent_code, tbl_employee.department_id, department_name, 
+                                       position_type, DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                       FROM tbl_employee
+                                       INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                       INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                       WHERE is_deleted = 0";
+
             switch (cboSearch.SelectedIndex)
             {
                 case 0:
-                    search_criteria = retrieveEmployeeDetails + " AND tbl_employee.emp_id LIKE '" + txtSearch.Text + "%'";
+                    search_criteria += " AND tbl_employee.emp_id LIKE '" + searchText + "%'";
                     break;
                 case 1:
-                    search_criteria = retrieveEmployeeDetails + " AND CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) LIKE '" + txtSearch.Text + "%'";
+                    search_criteria += " AND CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) LIKE '" + searchText + "%'";
                     break;
                 case 2:
-                    search_criteria = retrieveEmployeeDetails + " AND tbl_employee.agent_code LIKE '" + txtSearch.Text + "%'";
+                    search_criteria += " AND tbl_employee.agent_code LIKE '" + searchText + "%'";
                     break;
             }
+
+            search_criteria += " ORDER BY FullName ASC"; // Ensure sorting in search
 
             try
             {

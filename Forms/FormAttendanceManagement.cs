@@ -19,6 +19,14 @@ namespace GUTZ_Capstone_Project.Forms
         public FormAttendanceManagement()
         {
             InitializeComponent();
+            DGVAttendance.Columns["Column2"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVAttendance.Columns["Column3"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVAttendance.Columns["Column9"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVAttendance.Columns["Column4"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVAttendance.Columns["Column5"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVAttendance.Columns["Column6"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVAttendance.Columns["Column7"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+            DGVAttendance.Columns["Column8"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
         }
 
         // Fixed flicker issue on controls rendering
@@ -51,13 +59,9 @@ namespace GUTZ_Capstone_Project.Forms
             string shiftCondition = "";
 
             if (currentTime >= morningShiftStart && currentTime <= morningShiftEnd)
-            {
                 shiftCondition = "work_shift = 'MORNING'";
-            }
             else if (currentTime >= eveningShiftStart || currentTime <= eveningShiftEnd)
-            {
                 shiftCondition = "work_shift = 'NIGHT'";
-            }
 
             string retrieveAttendanceQuery = $@"SELECT attendance_id, emp_profilePic, position_id, CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
                                                    work_shift, working_hours, time_in_status, DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
