@@ -175,7 +175,8 @@ namespace GUTZ_Capstone_Project.Forms
                     }// end case Column9
                 case "Column10":
                     {
-
+                        FormEmployeeProfile formEmployeeProfile = new FormEmployeeProfile(id);
+                        formEmployeeProfile.ShowDialog(this);
                         break;
                     }
             }

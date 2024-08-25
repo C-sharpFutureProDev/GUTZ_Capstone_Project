@@ -60,10 +60,10 @@
             this.btnAddTimeInTimeOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddTimeInTimeOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddTimeInTimeOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddTimeInTimeOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnAddTimeInTimeOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.btnAddTimeInTimeOut.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTimeInTimeOut.ForeColor = System.Drawing.Color.White;
-            this.btnAddTimeInTimeOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnAddTimeInTimeOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnAddTimeInTimeOut.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddTimeInTimeOut.ImageSize = new System.Drawing.Size(35, 32);
             this.btnAddTimeInTimeOut.Location = new System.Drawing.Point(32, 133);

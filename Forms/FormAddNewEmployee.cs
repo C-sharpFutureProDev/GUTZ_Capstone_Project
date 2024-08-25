@@ -34,20 +34,21 @@ namespace GUTZ_Capstone_Project.Forms
         public FormAddNewEmployee(string empId_)
         {
             InitializeComponent();
-            SetFormRegion();
+            //SetFormRegion();
             this.Size = new Size(1297, 950);
             progressPecentageStatus.Text = "[ + {0} + ' %' ]";
 
             // Add event handler for the department combo box SelectedIndexChanged event
             cboEmployeeDept.SelectedIndexChanged += cboEmployeeDept_SelectedIndexChanged;
+
             if (empId_ != null)
             {
-                _empId = empId_;
+                this._empId = empId_;
             }
         }
 
         // Method to set the rounded rectangle region
-        private void SetFormRegion()
+        /*private void SetFormRegion()
         {
             int radius = 25; // Border radius
             GraphicsPath path = new GraphicsPath();
@@ -58,7 +59,7 @@ namespace GUTZ_Capstone_Project.Forms
             path.AddArc(0, this.Height - radius, radius, radius, 90, 90); // Bottom-left
             path.CloseFigure();
             this.Region = new Region(path);
-        }
+        }*/
 
         // Fixed flicker user interface rendering
         protected override CreateParams CreateParams

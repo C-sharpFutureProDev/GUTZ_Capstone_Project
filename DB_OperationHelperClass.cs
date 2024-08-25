@@ -44,6 +44,43 @@ namespace GUTZ_Capstone_Project
             return dt;
         }
 
+        // Method: Execute SELECT query to retrieve data from the Database with parameterized input
+        public static DataTable ParameterizedQueryData(string sql, Dictionary<string, object> parameters)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = sql;
+                    cmd.CommandType = CommandType.Text;
+
+                    // Add parameters to the command
+                    foreach (var parameter in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                    }
+
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        dt.Load(dr);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error connecting to the database: {ex.Message}",
+                    "Database connection error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            return dt;
+        }
+
         // Method: Execute CRUD operation to the Database with parameterized query
         public static bool ExecuteCRUDSQLQuery(string sql, Dictionary<string, object> parameters)
         {

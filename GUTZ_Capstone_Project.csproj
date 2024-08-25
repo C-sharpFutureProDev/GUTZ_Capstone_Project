@@ -128,6 +128,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormEmployeeProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmployeeProfile.Designer.cs">
+      <DependentUpon>FormEmployeeProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading.Designer.cs">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +194,12 @@
     <Compile Include="User_InputsValidatorHelperClass.cs" />
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmployeeProfile.resx">
+      <DependentUpon>FormEmployeeProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoading.resx">
+      <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

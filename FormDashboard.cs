@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using GUTZ_Capstone_Project.Forms;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,7 +24,8 @@ namespace GUTZ_Capstone_Project
         private Guna.UI2.WinForms.Guna2Button currentBtn;
         private Image originalImage;
         private Form currentChildForm;
-        public FormDashboard()
+        private int id;
+        public FormDashboard(int id)
         {
             InitializeComponent();
             CountAttendanceStatuses();
@@ -33,6 +36,7 @@ namespace GUTZ_Capstone_Project
             timer2.Interval = 10;
             timer2.Tick += timer2_Tick;
             timer2.Start();
+            this.id = id;
         }
 
         /*private void chartData()
@@ -70,7 +74,7 @@ namespace GUTZ_Capstone_Project
             if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
                 currentBtn = btn;
-                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
+                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
                 currentBtn.ForeColor = Color.White;
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
@@ -80,7 +84,7 @@ namespace GUTZ_Capstone_Project
         {
             if (currentBtn != null)
             {
-                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
+                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
                 currentBtn.ForeColor = Color.White;
             }
         }
@@ -159,12 +163,10 @@ namespace GUTZ_Capstone_Project
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            // Close the current form
             this.Close();
-
             // Show the login form
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
+            //FormLogin formLogin = new FormLogin();
+            //formLogin.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -176,6 +178,44 @@ namespace GUTZ_Capstone_Project
         {
             UpdateDateTimeLabel();
             timer1.Start();
+            label3.Text = "Orlando";
+            string sql = "SELECT emp_profilePic FROM tbl_employee WHERE emp_id = @id";
+            var parameters = new Dictionary<string, object> { { "@id", id } };
+
+            try
+            {
+                DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
+
+                if (dt.Rows.Count > 0)
+                {
+                    string adminProfilePath = dt.Rows[0]["emp_profilePic"].ToString();
+
+                    try
+                    {
+                        roundedPictureBoxControl1.Image = Image.FromFile(adminProfilePath);
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        MessageBox.Show("Profile picture file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error loading profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No profile picture found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CountAttendanceStatuses()

@@ -59,7 +59,7 @@
             // 
             this.btnStartScan.AutoRoundedCorners = true;
             this.btnStartScan.BackColor = System.Drawing.Color.Transparent;
-            this.btnStartScan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnStartScan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.btnStartScan.BorderRadius = 21;
             this.btnStartScan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -68,7 +68,7 @@
             this.btnStartScan.FillColor = System.Drawing.Color.White;
             this.btnStartScan.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartScan.ForeColor = System.Drawing.Color.Black;
-            this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnStartScan.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnStartScan.Location = new System.Drawing.Point(454, 394);
             this.btnStartScan.Name = "btnStartScan";
@@ -89,7 +89,7 @@
             // 
             // txtCaptureStatusLog
             // 
-            this.txtCaptureStatusLog.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.txtCaptureStatusLog.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.txtCaptureStatusLog.BorderRadius = 4;
             this.txtCaptureStatusLog.BorderThickness = 0;
             this.txtCaptureStatusLog.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -116,7 +116,7 @@
             // txtScannerPrompt
             // 
             this.txtScannerPrompt.BackColor = System.Drawing.Color.Transparent;
-            this.txtScannerPrompt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.txtScannerPrompt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.txtScannerPrompt.BorderRadius = 4;
             this.txtScannerPrompt.BorderThickness = 0;
             this.txtScannerPrompt.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -152,7 +152,7 @@
             // FormTimeInTimeOut
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(800, 511);
             this.Controls.Add(this.groupBox4);
             this.DoubleBuffered = true;
