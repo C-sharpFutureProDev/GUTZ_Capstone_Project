@@ -13,12 +13,16 @@ namespace GUTZ_Capstone_Project
 {
     public partial class FormLoading : Form
     {
-        private FormLogin formLogin;
-        public FormLoading()
+        //private FormLogin formLogin;
+        private FormDashboard formDashboard;
+        private int id;
+        public FormLoading(int id)
         {
             InitializeComponent();
             this.Size = new Size(575, 30);
-            formLogin = new FormLogin();
+            //formLogin = new FormLogin();
+            this.id = id;
+            formDashboard = new FormDashboard(id);
         }
 
         private void FormLoading_Load(object sender, EventArgs e)
@@ -42,8 +46,8 @@ namespace GUTZ_Capstone_Project
                 timer1.Stop();
 
                 // Show the FormLogin and hide the FormLoading
-                formLogin.Show();
-                this.Hide();
+                formDashboard.Show();
+                this.Close();
             }
         }
 

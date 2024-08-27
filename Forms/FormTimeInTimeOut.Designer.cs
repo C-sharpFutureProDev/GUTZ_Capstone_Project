@@ -46,7 +46,7 @@
             this.groupBox4.Controls.Add(this.txtScannerPrompt);
             this.groupBox4.Controls.Add(this.employeeFingerprintImage);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
             this.groupBox4.Location = new System.Drawing.Point(83, 12);
             this.groupBox4.Name = "groupBox4";
@@ -57,16 +57,16 @@
             // 
             // btnStartScan
             // 
-            this.btnStartScan.AutoRoundedCorners = true;
             this.btnStartScan.BackColor = System.Drawing.Color.Transparent;
             this.btnStartScan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.btnStartScan.BorderRadius = 21;
+            this.btnStartScan.BorderRadius = 5;
+            this.btnStartScan.BorderThickness = 1;
             this.btnStartScan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnStartScan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnStartScan.FillColor = System.Drawing.Color.White;
-            this.btnStartScan.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartScan.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartScan.ForeColor = System.Drawing.Color.Black;
             this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnStartScan.HoverState.ForeColor = System.Drawing.Color.White;
@@ -80,18 +80,17 @@
             // lblFARStatus
             // 
             this.lblFARStatus.AutoSize = true;
-            this.lblFARStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFARStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFARStatus.Location = new System.Drawing.Point(39, 360);
             this.lblFARStatus.Name = "lblFARStatus";
-            this.lblFARStatus.Size = new System.Drawing.Size(175, 25);
+            this.lblFARStatus.Size = new System.Drawing.Size(179, 21);
             this.lblFARStatus.TabIndex = 59;
             this.lblFARStatus.Text = "[False Accept Rate]";
             // 
             // txtCaptureStatusLog
             // 
-            this.txtCaptureStatusLog.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtCaptureStatusLog.BorderColor = System.Drawing.Color.White;
             this.txtCaptureStatusLog.BorderRadius = 4;
-            this.txtCaptureStatusLog.BorderThickness = 0;
             this.txtCaptureStatusLog.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCaptureStatusLog.DefaultText = "";
             this.txtCaptureStatusLog.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -99,7 +98,7 @@
             this.txtCaptureStatusLog.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaptureStatusLog.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaptureStatusLog.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCaptureStatusLog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCaptureStatusLog.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.txtCaptureStatusLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.txtCaptureStatusLog.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCaptureStatusLog.Location = new System.Drawing.Point(278, 90);
@@ -116,9 +115,8 @@
             // txtScannerPrompt
             // 
             this.txtScannerPrompt.BackColor = System.Drawing.Color.Transparent;
-            this.txtScannerPrompt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtScannerPrompt.BorderColor = System.Drawing.Color.White;
             this.txtScannerPrompt.BorderRadius = 4;
-            this.txtScannerPrompt.BorderThickness = 0;
             this.txtScannerPrompt.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtScannerPrompt.DefaultText = "";
             this.txtScannerPrompt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -126,7 +124,7 @@
             this.txtScannerPrompt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtScannerPrompt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtScannerPrompt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtScannerPrompt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.txtScannerPrompt.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.txtScannerPrompt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.txtScannerPrompt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtScannerPrompt.Location = new System.Drawing.Point(40, 46);
@@ -152,7 +150,7 @@
             // FormTimeInTimeOut
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(800, 511);
             this.Controls.Add(this.groupBox4);
             this.DoubleBuffered = true;

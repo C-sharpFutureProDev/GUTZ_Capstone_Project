@@ -534,7 +534,6 @@ namespace GUTZ_Capstone_Project.Forms
                             ClearForm();
                             this.Show();
                             Start();
-                            btnStartScan.Enabled = false;
                         }
                         else
                             this.Close();

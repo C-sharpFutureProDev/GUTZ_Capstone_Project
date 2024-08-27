@@ -13,7 +13,7 @@ namespace GUTZ_Capstone_Project
 {
     public partial class FormLogin : Form
     {
-        public int currentLoginAdminID;
+        private int currentLoginAdminID;
         public FormLogin()
         {
             InitializeComponent();
@@ -63,10 +63,13 @@ namespace GUTZ_Capstone_Project
 
                 // Check if a user is found
                 if (dt.Rows.Count > 0)
-                { 
+                {
                     currentLoginAdminID = int.Parse(dt.Rows[0]["emp_id"].ToString());
-                    FormDashboard formDashboard = new FormDashboard(currentLoginAdminID);
-                    formDashboard.ShowDialog();
+                    //FormDashboard formDashboard = new FormDashboard(currentLoginAdminID);
+                    //formDashboard.ShowDialog();
+                    FormLoading formLoading = new FormLoading(currentLoginAdminID);
+                    formLoading.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -84,6 +87,11 @@ namespace GUTZ_Capstone_Project
             txtUsername.Clear();
             txtPassword.Clear();
             txtUsername.Focus();
+        }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

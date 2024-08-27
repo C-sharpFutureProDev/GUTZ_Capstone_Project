@@ -24,6 +24,7 @@ namespace GUTZ_Capstone_Project
         private Guna.UI2.WinForms.Guna2Button currentBtn;
         private Image originalImage;
         private Form currentChildForm;
+        private System.Drawing.Color _originalIconColor;
         private int id;
         public FormDashboard(int id)
         {
@@ -74,7 +75,7 @@ namespace GUTZ_Capstone_Project
             if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
                 currentBtn = btn;
-                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
+                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
                 currentBtn.ForeColor = Color.White;
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
@@ -84,7 +85,7 @@ namespace GUTZ_Capstone_Project
         {
             if (currentBtn != null)
             {
-                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
+                currentBtn.FillColor = Color.FromArgb(0, 62, 41);
                 currentBtn.ForeColor = Color.White;
             }
         }
@@ -165,8 +166,8 @@ namespace GUTZ_Capstone_Project
         {
             this.Close();
             // Show the login form
-            //FormLogin formLogin = new FormLogin();
-            //formLogin.Show();
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -178,7 +179,6 @@ namespace GUTZ_Capstone_Project
         {
             UpdateDateTimeLabel();
             timer1.Start();
-            label3.Text = "Orlando";
             string sql = "SELECT emp_profilePic FROM tbl_employee WHERE emp_id = @id";
             var parameters = new Dictionary<string, object> { { "@id", id } };
 
@@ -192,7 +192,7 @@ namespace GUTZ_Capstone_Project
 
                     try
                     {
-                        roundedPictureBoxControl1.Image = Image.FromFile(adminProfilePath);
+                        iconCurrentLoginAdmin.Image = Image.FromFile(adminProfilePath);
                     }
                     catch (FileNotFoundException)
                     {
@@ -341,6 +341,40 @@ namespace GUTZ_Capstone_Project
         {
             timer1.Dispose();
             timer2.Dispose();
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+        }
+
+        private void iconAdminNotification_MouseEnter(object sender, EventArgs e)
+        {
+            _originalIconColor = this.iconAdminNotification.IconColor;
+            this.iconAdminNotification.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+        }
+
+        private void iconAdminNotification_MouseLeave(object sender, EventArgs e)
+        {
+            this.iconAdminNotification.IconColor = _originalIconColor;
+        }
+
+        private void iconAdminNotification_Click(object sender, EventArgs e)
+        {
+            this.iconAdminNotification.FlatAppearance.BorderColor = Color.FromArgb(12, 90, 37);
+        }
+
+        private void iconAdminSubMenu_MouseEnter(object sender, EventArgs e)
+        {
+            _originalIconColor = this.iconAdminNotification.IconColor;
+            this.iconAdminSubMenu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+        }
+
+        private void iconAdminSubMenu_MouseLeave(object sender, EventArgs e)
+        {
+            this.iconAdminSubMenu.IconColor = _originalIconColor;
+        }
+
+        private void iconAdminSubMenu_Click(object sender, EventArgs e)
+        {
+            this.iconAdminSubMenu.FlatAppearance.BorderColor = Color.FromArgb(12, 90, 37);
         }
     }
 }

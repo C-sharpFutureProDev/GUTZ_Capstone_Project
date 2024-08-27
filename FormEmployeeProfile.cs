@@ -17,10 +17,20 @@ namespace GUTZ_Capstone_Project
         public FormEmployeeProfile(string empId_)
         {
             InitializeComponent();
-            this.Size = new Size(1500, 950);
+            //this.Size = new Size(1550, 950);
             if (empId_ != null)
             {
                 this._empId = empId_;
+            }
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
             }
         }
 

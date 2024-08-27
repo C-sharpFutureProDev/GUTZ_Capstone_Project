@@ -53,17 +53,17 @@
             // 
             // btnAddTimeInTimeOut
             // 
-            this.btnAddTimeInTimeOut.AutoRoundedCorners = true;
             this.btnAddTimeInTimeOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnAddTimeInTimeOut.BorderRadius = 21;
+            this.btnAddTimeInTimeOut.BorderRadius = 5;
+            this.btnAddTimeInTimeOut.BorderThickness = 1;
             this.btnAddTimeInTimeOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddTimeInTimeOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddTimeInTimeOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddTimeInTimeOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddTimeInTimeOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnAddTimeInTimeOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnAddTimeInTimeOut.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTimeInTimeOut.ForeColor = System.Drawing.Color.White;
-            this.btnAddTimeInTimeOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnAddTimeInTimeOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.btnAddTimeInTimeOut.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddTimeInTimeOut.ImageSize = new System.Drawing.Size(35, 32);
             this.btnAddTimeInTimeOut.Location = new System.Drawing.Point(32, 133);
@@ -72,7 +72,7 @@
             this.btnAddTimeInTimeOut.Padding = new System.Windows.Forms.Padding(10, 0, 10, 3);
             this.btnAddTimeInTimeOut.PressedColor = System.Drawing.Color.Empty;
             this.btnAddTimeInTimeOut.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(43)))), ((int)(((byte)(37)))));
-            this.btnAddTimeInTimeOut.Size = new System.Drawing.Size(204, 44);
+            this.btnAddTimeInTimeOut.Size = new System.Drawing.Size(200, 45);
             this.btnAddTimeInTimeOut.TabIndex = 23;
             this.btnAddTimeInTimeOut.Text = "Time-In \' Time-Out";
             this.btnAddTimeInTimeOut.Click += new System.EventHandler(this.btnAddTimeInTimeOut_Click);
@@ -140,14 +140,14 @@
             this.DGVAttendance.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
             this.DGVAttendance.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.DGVAttendance.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DGVAttendance.RowTemplate.Height = 50;
-            this.DGVAttendance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DGVAttendance.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
+            this.DGVAttendance.RowTemplate.Height = 45;
+            this.DGVAttendance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVAttendance.Size = new System.Drawing.Size(1924, 777);
             this.DGVAttendance.TabIndex = 3;
             // 
@@ -162,7 +162,7 @@
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 

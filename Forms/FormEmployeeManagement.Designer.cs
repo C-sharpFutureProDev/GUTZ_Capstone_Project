@@ -74,27 +74,27 @@ namespace GUTZ_Capstone_Project.Forms
             // 
             // btnAddNewEmployee
             // 
-            this.btnAddNewEmployee.AutoRoundedCorners = true;
             this.btnAddNewEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddNewEmployee.BorderColor = System.Drawing.Color.White;
-            this.btnAddNewEmployee.BorderRadius = 21;
+            this.btnAddNewEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnAddNewEmployee.BorderRadius = 5;
+            this.btnAddNewEmployee.BorderThickness = 1;
             this.btnAddNewEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddNewEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddNewEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.btnAddNewEmployee.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnAddNewEmployee.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnAddNewEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.btnAddNewEmployee.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(1393, 136);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(1379, 135);
             this.btnAddNewEmployee.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
             this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(10, 0, 10, 2);
             this.btnAddNewEmployee.PressedColor = System.Drawing.Color.Empty;
             this.btnAddNewEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnAddNewEmployee.Size = new System.Drawing.Size(176, 44);
+            this.btnAddNewEmployee.Size = new System.Drawing.Size(170, 45);
             this.btnAddNewEmployee.TabIndex = 23;
             this.btnAddNewEmployee.Text = "New Employee";
             this.btnAddNewEmployee.Click += new System.EventHandler(this.btnAddNewEmployee_Click);
@@ -102,7 +102,7 @@ namespace GUTZ_Capstone_Project.Forms
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.Transparent;
-            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.txtSearch.BorderRadius = 4;
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSearch.DefaultText = "";
@@ -112,7 +112,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Location = new System.Drawing.Point(298, 144);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(5);
@@ -130,7 +130,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.label1.Location = new System.Drawing.Point(9, 156);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 24);
@@ -140,14 +140,14 @@ namespace GUTZ_Capstone_Project.Forms
             // cboSearch
             // 
             this.cboSearch.BackColor = System.Drawing.Color.Transparent;
-            this.cboSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.cboSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.cboSearch.BorderRadius = 4;
             this.cboSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cboSearch.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.cboSearch.ItemHeight = 30;
             this.cboSearch.Items.AddRange(new object[] {
             "Employee ID",
@@ -176,12 +176,12 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DGVEmployee.ColumnHeadersHeight = 53;
+            this.DGVEmployee.ColumnHeadersHeight = 50;
             this.DGVEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DGVEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -210,7 +210,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVEmployee.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -219,14 +219,14 @@ namespace GUTZ_Capstone_Project.Forms
             this.DGVEmployee.RowHeadersVisible = false;
             this.DGVEmployee.RowHeadersWidth = 60;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
             this.DGVEmployee.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.DGVEmployee.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DGVEmployee.RowTemplate.Height = 50;
-            this.DGVEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DGVEmployee.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
+            this.DGVEmployee.RowTemplate.Height = 45;
+            this.DGVEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVEmployee.Size = new System.Drawing.Size(1821, 472);
             this.DGVEmployee.TabIndex = 2;
             this.DGVEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVEmployee_CellContentClick);
@@ -238,7 +238,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
@@ -284,7 +284,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 220;
+            this.Column6.Width = 235;
             // 
             // Column10
             // 
@@ -294,7 +294,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column10.ReadOnly = true;
             this.Column10.Text = "View";
             this.Column10.UseColumnTextForButtonValue = true;
-            this.Column10.Width = 175;
+            this.Column10.Width = 170;
             // 
             // Column8
             // 
@@ -307,7 +307,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column8.ReadOnly = true;
             this.Column8.Text = "Update";
             this.Column8.UseColumnTextForButtonValue = true;
-            this.Column8.Width = 175;
+            this.Column8.Width = 170;
             // 
             // Column9
             // 
@@ -320,7 +320,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column9.ReadOnly = true;
             this.Column9.Text = "Remove";
             this.Column9.UseColumnTextForButtonValue = true;
-            this.Column9.Width = 175;
+            this.Column9.Width = 170;
             // 
             // FormEmployeeManagement
             // 

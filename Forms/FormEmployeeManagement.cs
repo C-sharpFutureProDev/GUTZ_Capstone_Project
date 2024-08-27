@@ -42,9 +42,9 @@ namespace GUTZ_Capstone_Project.Forms
             this.Column8.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.Column9.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.Column10.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.Column8.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
-            this.Column9.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
-            this.Column10.CellTemplate.Style.Font = new Font("Segoe UI", 8f, FontStyle.Bold);
+            this.Column8.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
+            this.Column9.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
+            this.Column10.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
         }
 
         // Fixed flicker issue on controls rendering
