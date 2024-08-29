@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,8 +48,21 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelGenInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLate = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOnTime = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPresent = new Guna.UI2.WinForms.Guna2Button();
+            this.shiftLabelStatus = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAttendance)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            this.panelGenInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddTimeInTimeOut
@@ -66,13 +80,13 @@
             this.btnAddTimeInTimeOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.btnAddTimeInTimeOut.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddTimeInTimeOut.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnAddTimeInTimeOut.Location = new System.Drawing.Point(32, 133);
+            this.btnAddTimeInTimeOut.Location = new System.Drawing.Point(55, 133);
             this.btnAddTimeInTimeOut.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddTimeInTimeOut.Name = "btnAddTimeInTimeOut";
             this.btnAddTimeInTimeOut.Padding = new System.Windows.Forms.Padding(10, 0, 10, 3);
             this.btnAddTimeInTimeOut.PressedColor = System.Drawing.Color.Empty;
             this.btnAddTimeInTimeOut.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(43)))), ((int)(((byte)(37)))));
-            this.btnAddTimeInTimeOut.Size = new System.Drawing.Size(200, 45);
+            this.btnAddTimeInTimeOut.Size = new System.Drawing.Size(194, 45);
             this.btnAddTimeInTimeOut.TabIndex = 23;
             this.btnAddTimeInTimeOut.Text = "Time-In \' Time-Out";
             this.btnAddTimeInTimeOut.Click += new System.EventHandler(this.btnAddTimeInTimeOut_Click);
@@ -236,16 +250,258 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel1.Controls.Add(this.panelGenInfo);
             this.guna2Panel1.Controls.Add(this.btnAddTimeInTimeOut);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.Size = new System.Drawing.Size(1924, 200);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // panelGenInfo
+            // 
+            this.panelGenInfo.BackColor = System.Drawing.Color.Transparent;
+            this.panelGenInfo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.panelGenInfo.BorderRadius = 14;
+            this.panelGenInfo.BorderThickness = 2;
+            this.panelGenInfo.Controls.Add(this.label4);
+            this.panelGenInfo.Controls.Add(this.label3);
+            this.panelGenInfo.Controls.Add(this.label2);
+            this.panelGenInfo.Controls.Add(this.guna2Button8);
+            this.panelGenInfo.Controls.Add(this.guna2Button7);
+            this.panelGenInfo.Controls.Add(this.guna2Button6);
+            this.panelGenInfo.Controls.Add(this.btnLate);
+            this.panelGenInfo.Controls.Add(this.btnOnTime);
+            this.panelGenInfo.Controls.Add(this.btnPresent);
+            this.panelGenInfo.Controls.Add(this.shiftLabelStatus);
+            this.panelGenInfo.FillColor = System.Drawing.Color.White;
+            this.panelGenInfo.ForeColor = System.Drawing.Color.Black;
+            this.panelGenInfo.Location = new System.Drawing.Point(377, 45);
+            this.panelGenInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelGenInfo.Name = "panelGenInfo";
+            this.panelGenInfo.ShadowDecoration.BorderRadius = 14;
+            this.panelGenInfo.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.panelGenInfo.ShadowDecoration.Enabled = true;
+            this.panelGenInfo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
+            this.panelGenInfo.Size = new System.Drawing.Size(1174, 133);
+            this.panelGenInfo.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(1114, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 21);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Late";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Green;
+            this.label3.Location = new System.Drawing.Point(972, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 21);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "On Time";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Orange;
+            this.label2.Location = new System.Drawing.Point(834, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 21);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Present";
+            // 
+            // guna2Button8
+            // 
+            this.guna2Button8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button8.BorderColor = System.Drawing.Color.Red;
+            this.guna2Button8.BorderRadius = 4;
+            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button8.FillColor = System.Drawing.Color.Red;
+            this.guna2Button8.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.guna2Button8.ForeColor = System.Drawing.Color.Gray;
+            this.guna2Button8.HoverState.FillColor = System.Drawing.Color.White;
+            this.guna2Button8.HoverState.ForeColor = System.Drawing.Color.Gray;
+            this.guna2Button8.ImageSize = new System.Drawing.Size(35, 32);
+            this.guna2Button8.Location = new System.Drawing.Point(1076, 14);
+            this.guna2Button8.Margin = new System.Windows.Forms.Padding(5);
+            this.guna2Button8.Name = "guna2Button8";
+            this.guna2Button8.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
+            this.guna2Button8.PressedColor = System.Drawing.Color.White;
+            this.guna2Button8.ShadowDecoration.BorderRadius = 30;
+            this.guna2Button8.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2Button8.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
+            this.guna2Button8.Size = new System.Drawing.Size(30, 19);
+            this.guna2Button8.TabIndex = 31;
+            // 
+            // guna2Button7
+            // 
+            this.guna2Button7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button7.BorderColor = System.Drawing.Color.Green;
+            this.guna2Button7.BorderRadius = 4;
+            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button7.FillColor = System.Drawing.Color.Green;
+            this.guna2Button7.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.guna2Button7.ForeColor = System.Drawing.Color.Gray;
+            this.guna2Button7.HoverState.FillColor = System.Drawing.Color.White;
+            this.guna2Button7.HoverState.ForeColor = System.Drawing.Color.Gray;
+            this.guna2Button7.ImageSize = new System.Drawing.Size(35, 32);
+            this.guna2Button7.Location = new System.Drawing.Point(934, 13);
+            this.guna2Button7.Margin = new System.Windows.Forms.Padding(5);
+            this.guna2Button7.Name = "guna2Button7";
+            this.guna2Button7.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
+            this.guna2Button7.PressedColor = System.Drawing.Color.White;
+            this.guna2Button7.ShadowDecoration.BorderRadius = 30;
+            this.guna2Button7.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2Button7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
+            this.guna2Button7.Size = new System.Drawing.Size(30, 19);
+            this.guna2Button7.TabIndex = 30;
+            // 
+            // guna2Button6
+            // 
+            this.guna2Button6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button6.BorderColor = System.Drawing.Color.Orange;
+            this.guna2Button6.BorderRadius = 4;
+            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button6.FillColor = System.Drawing.Color.Orange;
+            this.guna2Button6.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.guna2Button6.ForeColor = System.Drawing.Color.Gray;
+            this.guna2Button6.HoverState.FillColor = System.Drawing.Color.White;
+            this.guna2Button6.HoverState.ForeColor = System.Drawing.Color.Gray;
+            this.guna2Button6.ImageSize = new System.Drawing.Size(35, 32);
+            this.guna2Button6.Location = new System.Drawing.Point(796, 14);
+            this.guna2Button6.Margin = new System.Windows.Forms.Padding(5);
+            this.guna2Button6.Name = "guna2Button6";
+            this.guna2Button6.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
+            this.guna2Button6.PressedColor = System.Drawing.Color.White;
+            this.guna2Button6.ShadowDecoration.BorderRadius = 30;
+            this.guna2Button6.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2Button6.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
+            this.guna2Button6.Size = new System.Drawing.Size(30, 19);
+            this.guna2Button6.TabIndex = 29;
+            // 
+            // btnLate
+            // 
+            this.btnLate.BackColor = System.Drawing.Color.Transparent;
+            this.btnLate.BorderColor = System.Drawing.Color.Red;
+            this.btnLate.BorderRadius = 14;
+            this.btnLate.BorderThickness = 1;
+            this.btnLate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLate.FillColor = System.Drawing.Color.White;
+            this.btnLate.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.btnLate.ForeColor = System.Drawing.Color.Red;
+            this.btnLate.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnLate.HoverState.ForeColor = System.Drawing.Color.Red;
+            this.btnLate.ImageSize = new System.Drawing.Size(35, 32);
+            this.btnLate.Location = new System.Drawing.Point(476, 56);
+            this.btnLate.Margin = new System.Windows.Forms.Padding(5);
+            this.btnLate.Name = "btnLate";
+            this.btnLate.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
+            this.btnLate.PressedColor = System.Drawing.Color.White;
+            this.btnLate.ShadowDecoration.BorderRadius = 14;
+            this.btnLate.ShadowDecoration.Color = System.Drawing.Color.Red;
+            this.btnLate.ShadowDecoration.Enabled = true;
+            this.btnLate.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
+            this.btnLate.Size = new System.Drawing.Size(125, 55);
+            this.btnLate.TabIndex = 27;
+            this.btnLate.Text = "0";
+            // 
+            // btnOnTime
+            // 
+            this.btnOnTime.BackColor = System.Drawing.Color.Transparent;
+            this.btnOnTime.BorderColor = System.Drawing.Color.Green;
+            this.btnOnTime.BorderRadius = 14;
+            this.btnOnTime.BorderThickness = 1;
+            this.btnOnTime.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOnTime.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOnTime.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOnTime.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOnTime.FillColor = System.Drawing.Color.White;
+            this.btnOnTime.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.btnOnTime.ForeColor = System.Drawing.Color.Green;
+            this.btnOnTime.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnOnTime.HoverState.ForeColor = System.Drawing.Color.Green;
+            this.btnOnTime.ImageSize = new System.Drawing.Size(35, 32);
+            this.btnOnTime.Location = new System.Drawing.Point(278, 57);
+            this.btnOnTime.Margin = new System.Windows.Forms.Padding(5);
+            this.btnOnTime.Name = "btnOnTime";
+            this.btnOnTime.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
+            this.btnOnTime.PressedColor = System.Drawing.Color.White;
+            this.btnOnTime.ShadowDecoration.BorderRadius = 14;
+            this.btnOnTime.ShadowDecoration.Color = System.Drawing.Color.Green;
+            this.btnOnTime.ShadowDecoration.Enabled = true;
+            this.btnOnTime.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
+            this.btnOnTime.Size = new System.Drawing.Size(125, 55);
+            this.btnOnTime.TabIndex = 26;
+            this.btnOnTime.Text = "0";
+            // 
+            // btnPresent
+            // 
+            this.btnPresent.BackColor = System.Drawing.Color.Transparent;
+            this.btnPresent.BorderColor = System.Drawing.Color.Orange;
+            this.btnPresent.BorderRadius = 14;
+            this.btnPresent.BorderThickness = 1;
+            this.btnPresent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPresent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPresent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPresent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPresent.FillColor = System.Drawing.Color.White;
+            this.btnPresent.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.btnPresent.ForeColor = System.Drawing.Color.Orange;
+            this.btnPresent.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnPresent.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.btnPresent.ImageSize = new System.Drawing.Size(35, 32);
+            this.btnPresent.Location = new System.Drawing.Point(80, 57);
+            this.btnPresent.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPresent.Name = "btnPresent";
+            this.btnPresent.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
+            this.btnPresent.PressedColor = System.Drawing.Color.White;
+            this.btnPresent.ShadowDecoration.BorderRadius = 14;
+            this.btnPresent.ShadowDecoration.Color = System.Drawing.Color.Orange;
+            this.btnPresent.ShadowDecoration.Enabled = true;
+            this.btnPresent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
+            this.btnPresent.Size = new System.Drawing.Size(125, 55);
+            this.btnPresent.TabIndex = 25;
+            this.btnPresent.Text = "0";
+            // 
+            // shiftLabelStatus
+            // 
+            this.shiftLabelStatus.AutoSize = true;
+            this.shiftLabelStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.shiftLabelStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.shiftLabelStatus.Location = new System.Drawing.Point(16, 14);
+            this.shiftLabelStatus.Name = "shiftLabelStatus";
+            this.shiftLabelStatus.Size = new System.Drawing.Size(63, 21);
+            this.shiftLabelStatus.TabIndex = 24;
+            this.shiftLabelStatus.Text = "Today";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormAttendanceManagement
             // 
@@ -260,6 +516,8 @@
             this.Load += new System.EventHandler(this.FormAttendanceMonitoring_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAttendance)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
+            this.panelGenInfo.ResumeLayout(false);
+            this.panelGenInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -277,5 +535,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private Guna.UI2.WinForms.Guna2Panel panelGenInfo;
+        private System.Windows.Forms.Label shiftLabelStatus;
+        private Guna.UI2.WinForms.Guna2Button btnPresent;
+        private Guna.UI2.WinForms.Guna2Button btnOnTime;
+        private Guna.UI2.WinForms.Guna2Button btnLate;
+        private Guna.UI2.WinForms.Guna2Button guna2Button8;
+        private Guna.UI2.WinForms.Guna2Button guna2Button7;
+        private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -65,8 +65,6 @@ namespace GUTZ_Capstone_Project
                 if (dt.Rows.Count > 0)
                 {
                     currentLoginAdminID = int.Parse(dt.Rows[0]["emp_id"].ToString());
-                    //FormDashboard formDashboard = new FormDashboard(currentLoginAdminID);
-                    //formDashboard.ShowDialog();
                     FormLoading formLoading = new FormLoading(currentLoginAdminID);
                     formLoading.Show();
                     this.Hide();

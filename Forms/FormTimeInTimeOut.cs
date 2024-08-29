@@ -341,11 +341,11 @@ namespace GUTZ_Capstone_Project.Forms
 
             if (workShift == "MORNING" && timeIn > morningShiftStart.Add(gracePeriod))
             {
-                return timeIn - morningShiftStart;
+                return timeIn - (morningShiftStart + gracePeriod);
             }
             else if (workShift == "NIGHT" && timeIn > eveningShiftStart.Add(gracePeriod))
             {
-                return timeIn - eveningShiftStart;
+                return timeIn - (eveningShiftStart + gracePeriod);
             }
 
             return TimeSpan.Zero;

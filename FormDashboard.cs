@@ -29,14 +29,8 @@ namespace GUTZ_Capstone_Project
         public FormDashboard(int id)
         {
             InitializeComponent();
-            CountAttendanceStatuses();
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
-
-            // Initialize the timer
-            timer2.Interval = 10;
-            timer2.Tick += timer2_Tick;
-            timer2.Start();
             this.id = id;
         }
 
@@ -165,7 +159,6 @@ namespace GUTZ_Capstone_Project
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
-            // Show the login form
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
         }
@@ -218,79 +211,6 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void CountAttendanceStatuses()
-        {
-            // Get the current date
-            DateTime currentDate = DateTime.Today;
-
-            // Define the time ranges for the morning and evening shifts
-            DateTime morningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 6, 0, 0); // 6:00 AM
-            DateTime morningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 14, 0, 0); // 2:00 PM
-            DateTime eveningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 18, 0, 0); // 6:00 PM
-            DateTime eveningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day + 1, 6, 0, 0); // 6:00 AM (next day)
-
-            // Add grace period of 15 minutes
-            DateTime morningGracePeriodEnd = morningShiftStart.AddMinutes(15);
-            DateTime eveningGracePeriodEnd = eveningShiftStart.AddMinutes(15);
-
-            int countMorningPresent = 0;
-            int countMorningOnTime = 0;
-            int countMorningLate = 0;
-
-            int countEveningPresent = 0;
-            int countEveningOnTime = 0;
-            int countEveningLate = 0;
-
-            // Retrieve all records for the current day
-            string sqlCountAttendance = $"SELECT * FROM tbl_attendance WHERE DATE(time_in) = '{currentDate.Date.ToString("yyyy-MM-dd")}'";
-            DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
-
-            foreach (DataRow row in dtAttendance.Rows)
-            {
-                DateTime timeIn = (DateTime)row["time_in"];
-
-                // Check if the time-in is within the morning shift range
-                if (timeIn >= morningShiftStart && timeIn <= morningShiftEnd)
-                {
-                    countMorningPresent++;
-                    shiftLabelStatus.Text = "Today, Morning Shift";
-
-                    if (timeIn <= morningGracePeriodEnd)
-                    {
-                        countMorningOnTime++;
-                    }
-                    else
-                    {
-                        countMorningLate++;
-                    }
-                    // Update the button texts for morning shift count
-                    btnPresent.Text = countMorningPresent.ToString();
-                    btnOnTime.Text = countMorningOnTime.ToString();
-                    btnLate.Text = countMorningLate.ToString();
-                }
-                // Check if the time-in is within the evening shift range
-                else if (timeIn >= eveningShiftStart || timeIn <= eveningShiftEnd)
-                {
-                    countEveningPresent++;
-                    shiftLabelStatus.Text = "Today, Evening Shift";
-
-                    if (timeIn <= eveningGracePeriodEnd)
-                    {
-                        countEveningOnTime++;
-                    }
-                    else
-                    {
-                        countEveningLate++;
-                    }
-
-                    // Update the button texts for evening shift count
-                    btnPresent.Text = countEveningPresent.ToString();
-                    btnOnTime.Text = countEveningOnTime.ToString();
-                    btnLate.Text = countEveningLate.ToString();
-                }
-            }
-        }
-
         private void UpdateDateTimeLabel()
         {
             DateTime currentDateTime = DateTime.Now;
@@ -332,17 +252,10 @@ namespace GUTZ_Capstone_Project
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            CountAttendanceStatuses();
-        }
-
         private void FormDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Dispose();
-            timer2.Dispose();
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
+            Application.Exit();
         }
 
         private void iconAdminNotification_MouseEnter(object sender, EventArgs e)

@@ -64,7 +64,7 @@ namespace GUTZ_Capstone_Project.Forms
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.cboSearch);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -88,13 +88,13 @@ namespace GUTZ_Capstone_Project.Forms
             this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.btnAddNewEmployee.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(1379, 135);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(1385, 135);
             this.btnAddNewEmployee.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
             this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(10, 0, 10, 2);
             this.btnAddNewEmployee.PressedColor = System.Drawing.Color.Empty;
             this.btnAddNewEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.btnAddNewEmployee.Size = new System.Drawing.Size(170, 45);
+            this.btnAddNewEmployee.Size = new System.Drawing.Size(164, 45);
             this.btnAddNewEmployee.TabIndex = 23;
             this.btnAddNewEmployee.Text = "New Employee";
             this.btnAddNewEmployee.Click += new System.EventHandler(this.btnAddNewEmployee_Click);

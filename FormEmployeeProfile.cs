@@ -13,6 +13,7 @@ namespace GUTZ_Capstone_Project
 {
     public partial class FormEmployeeProfile : Form
     {
+        private System.Drawing.Color _originalIconColor;
         private string _empId = "";
         public FormEmployeeProfile(string empId_)
         {
@@ -37,6 +38,22 @@ namespace GUTZ_Capstone_Project
         private void FormEmployeeProfile_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void iconButtonClose_MouseEnter(object sender, EventArgs e)
+        {
+            _originalIconColor = this.iconButtonClose.IconColor;
+            this.iconButtonClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+        }
+
+        private void iconButtonClose_MouseLeave(object sender, EventArgs e)
+        {
+            this.iconButtonClose.IconColor = _originalIconColor;
+        }
+
+        private void iconButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

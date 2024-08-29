@@ -19,6 +19,11 @@ namespace GUTZ_Capstone_Project.Forms
         public FormAttendanceManagement()
         {
             InitializeComponent();
+            CountAttendance();
+            // Initialize the timer
+            timer1.Interval = 10;
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
             DGVAttendance.Columns["Column2"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
             DGVAttendance.Columns["Column3"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
             DGVAttendance.Columns["Column9"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
@@ -125,6 +130,79 @@ namespace GUTZ_Capstone_Project.Forms
             LoadData();
         }
 
+        private void CountAttendance()
+        {
+            // Get the current date
+            DateTime currentDate = DateTime.Today;
+
+            // Define the time ranges for the morning and evening shifts
+            DateTime morningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 6, 0, 0); // 6:00 AM
+            DateTime morningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 14, 0, 0); // 2:00 PM
+            DateTime eveningShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 18, 0, 0); // 6:00 PM
+            DateTime eveningShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day + 1, 6, 0, 0); // 6:00 AM (next day)
+
+            // Add grace period of 15 minutes
+            DateTime morningGracePeriodEnd = morningShiftStart.AddMinutes(15);
+            DateTime eveningGracePeriodEnd = eveningShiftStart.AddMinutes(15);
+
+            int countMorningPresent = 0;
+            int countMorningOnTime = 0;
+            int countMorningLate = 0;
+
+            int countEveningPresent = 0;
+            int countEveningOnTime = 0;
+            int countEveningLate = 0;
+
+            // Retrieve all records for the current day
+            string sqlCountAttendance = $"SELECT * FROM tbl_attendance WHERE DATE(time_in) = '{currentDate.Date.ToString("yyyy-MM-dd")}'";
+            DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
+
+            foreach (DataRow row in dtAttendance.Rows)
+            {
+                DateTime timeIn = (DateTime)row["time_in"];
+
+                // Check if the time-in is within the morning shift range
+                if (timeIn >= morningShiftStart && timeIn <= morningShiftEnd)
+                {
+                    countMorningPresent++;
+                    shiftLabelStatus.Text = ", Morning Shift";
+
+                    if (timeIn <= morningGracePeriodEnd)
+                    {
+                        countMorningOnTime++;
+                    }
+                    else
+                    {
+                        countMorningLate++;
+                    }
+                    // Update the button texts for morning shift count
+                    btnPresent.Text = countMorningPresent.ToString();
+                    btnOnTime.Text = countMorningOnTime.ToString();
+                    btnLate.Text = countMorningLate.ToString();
+                }
+                // Check if the time-in is within the evening shift range
+                else if (timeIn >= eveningShiftStart || timeIn <= eveningShiftEnd)
+                {
+                    countEveningPresent++;
+                    shiftLabelStatus.Text = ", Evening Shift";
+
+                    if (timeIn <= eveningGracePeriodEnd)
+                    {
+                        countEveningOnTime++;
+                    }
+                    else
+                    {
+                        countEveningLate++;
+                    }
+
+                    // Update the button texts for evening shift count
+                    btnPresent.Text = countEveningPresent.ToString();
+                    btnOnTime.Text = countEveningOnTime.ToString();
+                    btnLate.Text = countEveningLate.ToString();
+                }
+            }
+        }
+
         private void btnAddTimeInTimeOut_Click(object sender, EventArgs e)
         {
             using (FormTimeInTimeOut formTimeInTimeOut = new FormTimeInTimeOut())
@@ -132,6 +210,11 @@ namespace GUTZ_Capstone_Project.Forms
                 formTimeInTimeOut.FormClosed += (s, args) => LoadData();
                 formTimeInTimeOut.ShowDialog(this);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            CountAttendance();
         }
     }
 }
