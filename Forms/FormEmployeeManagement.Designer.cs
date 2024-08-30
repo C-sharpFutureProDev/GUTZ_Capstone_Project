@@ -77,7 +77,6 @@ namespace GUTZ_Capstone_Project.Forms
             this.btnAddNewEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnAddNewEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnAddNewEmployee.BorderRadius = 5;
-            this.btnAddNewEmployee.BorderThickness = 1;
             this.btnAddNewEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

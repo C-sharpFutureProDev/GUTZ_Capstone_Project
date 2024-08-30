@@ -69,7 +69,6 @@
             // 
             this.btnAddTimeInTimeOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnAddTimeInTimeOut.BorderRadius = 5;
-            this.btnAddTimeInTimeOut.BorderThickness = 1;
             this.btnAddTimeInTimeOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddTimeInTimeOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddTimeInTimeOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -265,7 +264,7 @@
             // panelGenInfo
             // 
             this.panelGenInfo.BackColor = System.Drawing.Color.Transparent;
-            this.panelGenInfo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.panelGenInfo.BorderColor = System.Drawing.Color.White;
             this.panelGenInfo.BorderRadius = 14;
             this.panelGenInfo.BorderThickness = 2;
             this.panelGenInfo.Controls.Add(this.label4);
@@ -285,8 +284,7 @@
             this.panelGenInfo.Name = "panelGenInfo";
             this.panelGenInfo.ShadowDecoration.BorderRadius = 14;
             this.panelGenInfo.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.panelGenInfo.ShadowDecoration.Enabled = true;
-            this.panelGenInfo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
+            this.panelGenInfo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.panelGenInfo.Size = new System.Drawing.Size(1174, 133);
             this.panelGenInfo.TabIndex = 23;
             // 
@@ -492,7 +490,7 @@
             // 
             this.shiftLabelStatus.AutoSize = true;
             this.shiftLabelStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.shiftLabelStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.shiftLabelStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.shiftLabelStatus.Location = new System.Drawing.Point(16, 14);
             this.shiftLabelStatus.Name = "shiftLabelStatus";
             this.shiftLabelStatus.Size = new System.Drawing.Size(63, 21);

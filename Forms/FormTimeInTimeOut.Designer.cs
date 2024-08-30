@@ -46,11 +46,11 @@
             this.groupBox4.Controls.Add(this.txtScannerPrompt);
             this.groupBox4.Controls.Add(this.employeeFingerprintImage);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(83, 12);
+            this.groupBox4.Location = new System.Drawing.Point(31, 37);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(635, 477);
+            this.groupBox4.Size = new System.Drawing.Size(569, 441);
             this.groupBox4.TabIndex = 56;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Time-In \' Time-Out";
@@ -60,19 +60,18 @@
             this.btnStartScan.BackColor = System.Drawing.Color.Transparent;
             this.btnStartScan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.btnStartScan.BorderRadius = 5;
-            this.btnStartScan.BorderThickness = 1;
             this.btnStartScan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnStartScan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnStartScan.FillColor = System.Drawing.Color.White;
-            this.btnStartScan.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartScan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.btnStartScan.ForeColor = System.Drawing.Color.Black;
             this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnStartScan.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnStartScan.Location = new System.Drawing.Point(454, 394);
+            this.btnStartScan.Location = new System.Drawing.Point(398, 383);
             this.btnStartScan.Name = "btnStartScan";
-            this.btnStartScan.Size = new System.Drawing.Size(154, 45);
+            this.btnStartScan.Size = new System.Drawing.Size(132, 37);
             this.btnStartScan.TabIndex = 57;
             this.btnStartScan.Text = "Start Scan";
             this.btnStartScan.Click += new System.EventHandler(this.btnStartScan_Click);
@@ -80,10 +79,10 @@
             // lblFARStatus
             // 
             this.lblFARStatus.AutoSize = true;
-            this.lblFARStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFARStatus.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFARStatus.Location = new System.Drawing.Point(39, 360);
             this.lblFARStatus.Name = "lblFARStatus";
-            this.lblFARStatus.Size = new System.Drawing.Size(179, 21);
+            this.lblFARStatus.Size = new System.Drawing.Size(159, 24);
             this.lblFARStatus.TabIndex = 59;
             this.lblFARStatus.Text = "[False Accept Rate]";
             // 
@@ -98,10 +97,10 @@
             this.txtCaptureStatusLog.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaptureStatusLog.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCaptureStatusLog.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCaptureStatusLog.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.txtCaptureStatusLog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.txtCaptureStatusLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.txtCaptureStatusLog.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCaptureStatusLog.Location = new System.Drawing.Point(278, 90);
+            this.txtCaptureStatusLog.Location = new System.Drawing.Point(252, 89);
             this.txtCaptureStatusLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCaptureStatusLog.Multiline = true;
             this.txtCaptureStatusLog.Name = "txtCaptureStatusLog";
@@ -109,7 +108,7 @@
             this.txtCaptureStatusLog.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtCaptureStatusLog.PlaceholderText = "";
             this.txtCaptureStatusLog.SelectedText = "";
-            this.txtCaptureStatusLog.Size = new System.Drawing.Size(330, 256);
+            this.txtCaptureStatusLog.Size = new System.Drawing.Size(278, 247);
             this.txtCaptureStatusLog.TabIndex = 43;
             // 
             // txtScannerPrompt
@@ -124,7 +123,7 @@
             this.txtScannerPrompt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtScannerPrompt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtScannerPrompt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtScannerPrompt.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.txtScannerPrompt.Font = new System.Drawing.Font("Arial", 11.5F, System.Drawing.FontStyle.Bold);
             this.txtScannerPrompt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.txtScannerPrompt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtScannerPrompt.Location = new System.Drawing.Point(40, 46);
@@ -134,7 +133,7 @@
             this.txtScannerPrompt.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtScannerPrompt.PlaceholderText = "";
             this.txtScannerPrompt.SelectedText = "";
-            this.txtScannerPrompt.Size = new System.Drawing.Size(568, 34);
+            this.txtScannerPrompt.Size = new System.Drawing.Size(490, 30);
             this.txtScannerPrompt.TabIndex = 43;
             // 
             // employeeFingerprintImage
@@ -143,7 +142,7 @@
             this.employeeFingerprintImage.ImageRotate = 0F;
             this.employeeFingerprintImage.Location = new System.Drawing.Point(40, 89);
             this.employeeFingerprintImage.Name = "employeeFingerprintImage";
-            this.employeeFingerprintImage.Size = new System.Drawing.Size(231, 257);
+            this.employeeFingerprintImage.Size = new System.Drawing.Size(205, 247);
             this.employeeFingerprintImage.TabIndex = 57;
             this.employeeFingerprintImage.TabStop = false;
             // 
@@ -151,7 +150,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(800, 511);
+            this.ClientSize = new System.Drawing.Size(630, 511);
             this.Controls.Add(this.groupBox4);
             this.DoubleBuffered = true;
             this.Name = "FormTimeInTimeOut";

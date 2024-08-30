@@ -54,11 +54,33 @@
             this.iconAdminNotification = new FontAwesome.Sharp.IconButton();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.iconCurrentLoginAdmin = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconPayrollPeriod = new FontAwesome.Sharp.IconButton();
+            this.lblCountDown = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.panelAttendance = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblLatePercent = new System.Windows.Forms.Label();
+            this.iconLate = new FontAwesome.Sharp.IconButton();
+            this.lblOnTimePercent = new System.Windows.Forms.Label();
+            this.iconOnTime = new FontAwesome.Sharp.IconButton();
+            this.lblPresentForToday = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.panelTotalEmployee = new Guna.UI2.WinForms.Guna2Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblPercentText = new System.Windows.Forms.Label();
+            this.iconIncrease = new FontAwesome.Sharp.IconButton();
+            this.lblTotalEmployee = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconCurrentLoginAdmin = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.panel5.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -67,8 +89,11 @@
             this.guna2Panel6.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
+            this.panelAttendance.SuspendLayout();
+            this.panelTotalEmployee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -109,7 +134,6 @@
             this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.BorderColor = System.Drawing.Color.White;
             this.btnLogout.BorderRadius = 5;
-            this.btnLogout.BorderThickness = 1;
             this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -139,7 +163,6 @@
             this.btnSettings.BackColor = System.Drawing.Color.Transparent;
             this.btnSettings.BorderColor = System.Drawing.Color.White;
             this.btnSettings.BorderRadius = 5;
-            this.btnSettings.BorderThickness = 1;
             this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -170,7 +193,6 @@
             this.btnGenerateReports.BackColor = System.Drawing.Color.Transparent;
             this.btnGenerateReports.BorderColor = System.Drawing.Color.White;
             this.btnGenerateReports.BorderRadius = 5;
-            this.btnGenerateReports.BorderThickness = 1;
             this.btnGenerateReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGenerateReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGenerateReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -201,7 +223,6 @@
             this.btnPayrollManagement.BackColor = System.Drawing.Color.Transparent;
             this.btnPayrollManagement.BorderColor = System.Drawing.Color.White;
             this.btnPayrollManagement.BorderRadius = 5;
-            this.btnPayrollManagement.BorderThickness = 1;
             this.btnPayrollManagement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPayrollManagement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPayrollManagement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -232,7 +253,6 @@
             this.btnAttendanceMonitoring.BackColor = System.Drawing.Color.Transparent;
             this.btnAttendanceMonitoring.BorderColor = System.Drawing.Color.White;
             this.btnAttendanceMonitoring.BorderRadius = 5;
-            this.btnAttendanceMonitoring.BorderThickness = 1;
             this.btnAttendanceMonitoring.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAttendanceMonitoring.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAttendanceMonitoring.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -263,7 +283,6 @@
             this.btnEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnEmployee.BorderColor = System.Drawing.Color.White;
             this.btnEmployee.BorderRadius = 5;
-            this.btnEmployee.BorderThickness = 1;
             this.btnEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -526,6 +545,427 @@
             this.panelDesktop.Size = new System.Drawing.Size(1594, 906);
             this.panelDesktop.TabIndex = 13;
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel1.BorderRadius = 15;
+            this.guna2Panel1.Controls.Add(this.guna2Panel9);
+            this.guna2Panel1.Controls.Add(this.guna2Panel8);
+            this.guna2Panel1.Controls.Add(this.guna2Panel3);
+            this.guna2Panel1.Controls.Add(this.guna2Panel2);
+            this.guna2Panel1.Controls.Add(this.guna2Panel4);
+            this.guna2Panel1.Controls.Add(this.panelAttendance);
+            this.guna2Panel1.Controls.Add(this.panelTotalEmployee);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 1);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel1.Size = new System.Drawing.Size(1594, 905);
+            this.guna2Panel1.TabIndex = 0;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel4.BorderRadius = 15;
+            this.guna2Panel4.BorderThickness = 2;
+            this.guna2Panel4.Controls.Add(this.iconPayrollPeriod);
+            this.guna2Panel4.Controls.Add(this.lblCountDown);
+            this.guna2Panel4.Controls.Add(this.label4);
+            this.guna2Panel4.Controls.Add(this.guna2Button3);
+            this.guna2Panel4.FillColor = System.Drawing.Color.White;
+            this.guna2Panel4.Location = new System.Drawing.Point(670, 36);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.Maroon;
+            this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel4.Size = new System.Drawing.Size(284, 174);
+            this.guna2Panel4.TabIndex = 1;
+            // 
+            // iconPayrollPeriod
+            // 
+            this.iconPayrollPeriod.BackColor = System.Drawing.Color.White;
+            this.iconPayrollPeriod.FlatAppearance.BorderSize = 0;
+            this.iconPayrollPeriod.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconPayrollPeriod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconPayrollPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconPayrollPeriod.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.iconPayrollPeriod.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.iconPayrollPeriod.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPayrollPeriod.IconSize = 45;
+            this.iconPayrollPeriod.Location = new System.Drawing.Point(113, 70);
+            this.iconPayrollPeriod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iconPayrollPeriod.Name = "iconPayrollPeriod";
+            this.iconPayrollPeriod.Padding = new System.Windows.Forms.Padding(0, 5, 0, 12);
+            this.iconPayrollPeriod.Size = new System.Drawing.Size(45, 45);
+            this.iconPayrollPeriod.TabIndex = 34;
+            this.iconPayrollPeriod.UseVisualStyleBackColor = false;
+            // 
+            // lblCountDown
+            // 
+            this.lblCountDown.AutoSize = true;
+            this.lblCountDown.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Bold);
+            this.lblCountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.lblCountDown.Location = new System.Drawing.Point(17, 123);
+            this.lblCountDown.Name = "lblCountDown";
+            this.lblCountDown.Size = new System.Drawing.Size(144, 18);
+            this.lblCountDown.TabIndex = 31;
+            this.lblCountDown.Text = "Next Payroll Period";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.label4.Location = new System.Drawing.Point(16, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(204, 21);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Next Payroll Schedule";
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.AutoRoundedCorners = true;
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.BorderColor = System.Drawing.Color.White;
+            this.guna2Button3.BorderRadius = 23;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
+            this.guna2Button3.ImageSize = new System.Drawing.Size(37, 32);
+            this.guna2Button3.Location = new System.Drawing.Point(221, 15);
+            this.guna2Button3.Margin = new System.Windows.Forms.Padding(5);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Padding = new System.Windows.Forms.Padding(10, 0, 20, 4);
+            this.guna2Button3.PressedColor = System.Drawing.Color.Empty;
+            this.guna2Button3.ShadowDecoration.Color = System.Drawing.Color.White;
+            this.guna2Button3.ShadowDecoration.Enabled = true;
+            this.guna2Button3.Size = new System.Drawing.Size(48, 48);
+            this.guna2Button3.TabIndex = 28;
+            this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // panelAttendance
+            // 
+            this.panelAttendance.BackColor = System.Drawing.Color.Transparent;
+            this.panelAttendance.BorderColor = System.Drawing.Color.White;
+            this.panelAttendance.BorderRadius = 15;
+            this.panelAttendance.BorderThickness = 2;
+            this.panelAttendance.Controls.Add(this.lblLatePercent);
+            this.panelAttendance.Controls.Add(this.iconLate);
+            this.panelAttendance.Controls.Add(this.lblOnTimePercent);
+            this.panelAttendance.Controls.Add(this.iconOnTime);
+            this.panelAttendance.Controls.Add(this.lblPresentForToday);
+            this.panelAttendance.Controls.Add(this.label3);
+            this.panelAttendance.Controls.Add(this.guna2Button2);
+            this.panelAttendance.FillColor = System.Drawing.Color.White;
+            this.panelAttendance.Location = new System.Drawing.Point(353, 36);
+            this.panelAttendance.Name = "panelAttendance";
+            this.panelAttendance.ShadowDecoration.BorderRadius = 15;
+            this.panelAttendance.ShadowDecoration.Color = System.Drawing.Color.Green;
+            this.panelAttendance.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
+            this.panelAttendance.Size = new System.Drawing.Size(284, 174);
+            this.panelAttendance.TabIndex = 1;
+            // 
+            // lblLatePercent
+            // 
+            this.lblLatePercent.AutoSize = true;
+            this.lblLatePercent.BackColor = System.Drawing.Color.Transparent;
+            this.lblLatePercent.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblLatePercent.ForeColor = System.Drawing.Color.Red;
+            this.lblLatePercent.Location = new System.Drawing.Point(230, 121);
+            this.lblLatePercent.Name = "lblLatePercent";
+            this.lblLatePercent.Size = new System.Drawing.Size(34, 19);
+            this.lblLatePercent.TabIndex = 33;
+            this.lblLatePercent.Text = "5%";
+            // 
+            // iconLate
+            // 
+            this.iconLate.BackColor = System.Drawing.Color.White;
+            this.iconLate.FlatAppearance.BorderSize = 0;
+            this.iconLate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconLate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconLate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconLate.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
+            this.iconLate.IconColor = System.Drawing.Color.Red;
+            this.iconLate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconLate.IconSize = 35;
+            this.iconLate.Location = new System.Drawing.Point(190, 108);
+            this.iconLate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iconLate.Name = "iconLate";
+            this.iconLate.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.iconLate.Size = new System.Drawing.Size(38, 38);
+            this.iconLate.TabIndex = 32;
+            this.iconLate.UseVisualStyleBackColor = false;
+            // 
+            // lblOnTimePercent
+            // 
+            this.lblOnTimePercent.AutoSize = true;
+            this.lblOnTimePercent.BackColor = System.Drawing.Color.Transparent;
+            this.lblOnTimePercent.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblOnTimePercent.ForeColor = System.Drawing.Color.Green;
+            this.lblOnTimePercent.Location = new System.Drawing.Point(59, 121);
+            this.lblOnTimePercent.Name = "lblOnTimePercent";
+            this.lblOnTimePercent.Size = new System.Drawing.Size(43, 19);
+            this.lblOnTimePercent.TabIndex = 30;
+            this.lblOnTimePercent.Text = "95%";
+            // 
+            // iconOnTime
+            // 
+            this.iconOnTime.BackColor = System.Drawing.Color.White;
+            this.iconOnTime.FlatAppearance.BorderSize = 0;
+            this.iconOnTime.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconOnTime.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconOnTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconOnTime.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.iconOnTime.IconColor = System.Drawing.Color.Green;
+            this.iconOnTime.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconOnTime.IconSize = 35;
+            this.iconOnTime.Location = new System.Drawing.Point(20, 108);
+            this.iconOnTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iconOnTime.Name = "iconOnTime";
+            this.iconOnTime.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.iconOnTime.Size = new System.Drawing.Size(38, 38);
+            this.iconOnTime.TabIndex = 31;
+            this.iconOnTime.UseVisualStyleBackColor = false;
+            // 
+            // lblPresentForToday
+            // 
+            this.lblPresentForToday.AutoSize = true;
+            this.lblPresentForToday.BackColor = System.Drawing.Color.Transparent;
+            this.lblPresentForToday.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPresentForToday.ForeColor = System.Drawing.Color.Orange;
+            this.lblPresentForToday.Location = new System.Drawing.Point(92, 55);
+            this.lblPresentForToday.Name = "lblPresentForToday";
+            this.lblPresentForToday.Size = new System.Drawing.Size(92, 54);
+            this.lblPresentForToday.TabIndex = 30;
+            this.lblPresentForToday.Text = "270";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.label3.Location = new System.Drawing.Point(16, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 21);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Attendance, Today";
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.AutoRoundedCorners = true;
+            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderColor = System.Drawing.Color.White;
+            this.guna2Button2.BorderRadius = 23;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.ImageSize = new System.Drawing.Size(39, 45);
+            this.guna2Button2.Location = new System.Drawing.Point(222, 15);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(5);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 4);
+            this.guna2Button2.PressedColor = System.Drawing.Color.Empty;
+            this.guna2Button2.ShadowDecoration.Color = System.Drawing.Color.White;
+            this.guna2Button2.ShadowDecoration.Enabled = true;
+            this.guna2Button2.Size = new System.Drawing.Size(48, 48);
+            this.guna2Button2.TabIndex = 28;
+            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // panelTotalEmployee
+            // 
+            this.panelTotalEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.panelTotalEmployee.BorderColor = System.Drawing.Color.White;
+            this.panelTotalEmployee.BorderRadius = 15;
+            this.panelTotalEmployee.BorderThickness = 2;
+            this.panelTotalEmployee.Controls.Add(this.label7);
+            this.panelTotalEmployee.Controls.Add(this.lblPercentText);
+            this.panelTotalEmployee.Controls.Add(this.iconIncrease);
+            this.panelTotalEmployee.Controls.Add(this.lblTotalEmployee);
+            this.panelTotalEmployee.Controls.Add(this.label2);
+            this.panelTotalEmployee.Controls.Add(this.guna2Button1);
+            this.panelTotalEmployee.FillColor = System.Drawing.Color.White;
+            this.panelTotalEmployee.Location = new System.Drawing.Point(36, 36);
+            this.panelTotalEmployee.Name = "panelTotalEmployee";
+            this.panelTotalEmployee.ShadowDecoration.BorderRadius = 15;
+            this.panelTotalEmployee.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.panelTotalEmployee.Size = new System.Drawing.Size(284, 174);
+            this.panelTotalEmployee.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.label7.Location = new System.Drawing.Point(15, 128);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 18);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "This Month";
+            // 
+            // lblPercentText
+            // 
+            this.lblPercentText.AutoSize = true;
+            this.lblPercentText.BackColor = System.Drawing.Color.Transparent;
+            this.lblPercentText.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblPercentText.ForeColor = System.Drawing.Color.Green;
+            this.lblPercentText.Location = new System.Drawing.Point(215, 122);
+            this.lblPercentText.Name = "lblPercentText";
+            this.lblPercentText.Size = new System.Drawing.Size(54, 19);
+            this.lblPercentText.TabIndex = 28;
+            this.lblPercentText.Text = "+ 2 %";
+            // 
+            // iconIncrease
+            // 
+            this.iconIncrease.BackColor = System.Drawing.Color.White;
+            this.iconIncrease.FlatAppearance.BorderSize = 0;
+            this.iconIncrease.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconIncrease.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconIncrease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconIncrease.IconChar = FontAwesome.Sharp.IconChar.ArrowUp;
+            this.iconIncrease.IconColor = System.Drawing.Color.Green;
+            this.iconIncrease.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconIncrease.IconSize = 25;
+            this.iconIncrease.Location = new System.Drawing.Point(180, 108);
+            this.iconIncrease.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iconIncrease.Name = "iconIncrease";
+            this.iconIncrease.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.iconIncrease.Size = new System.Drawing.Size(38, 38);
+            this.iconIncrease.TabIndex = 27;
+            this.iconIncrease.UseVisualStyleBackColor = false;
+            // 
+            // lblTotalEmployee
+            // 
+            this.lblTotalEmployee.AutoSize = true;
+            this.lblTotalEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalEmployee.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.lblTotalEmployee.Location = new System.Drawing.Point(97, 55);
+            this.lblTotalEmployee.Name = "lblTotalEmployee";
+            this.lblTotalEmployee.Size = new System.Drawing.Size(92, 54);
+            this.lblTotalEmployee.TabIndex = 27;
+            this.lblTotalEmployee.Text = "270";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.label2.Location = new System.Drawing.Point(14, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 21);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Total Employee";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.White;
+            this.guna2Button1.BorderRadius = 23;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2Button1.Location = new System.Drawing.Point(221, 16);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(5);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 4);
+            this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
+            this.guna2Button1.ShadowDecoration.Color = System.Drawing.Color.White;
+            this.guna2Button1.ShadowDecoration.Enabled = true;
+            this.guna2Button1.Size = new System.Drawing.Size(48, 48);
+            this.guna2Button1.TabIndex = 28;
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel2.BorderRadius = 15;
+            this.guna2Panel2.BorderThickness = 2;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(987, 36);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel2.Size = new System.Drawing.Size(578, 174);
+            this.guna2Panel2.TabIndex = 30;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel3.BorderRadius = 15;
+            this.guna2Panel3.BorderThickness = 2;
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
+            this.guna2Panel3.Location = new System.Drawing.Point(36, 244);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel3.Size = new System.Drawing.Size(918, 410);
+            this.guna2Panel3.TabIndex = 31;
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel8.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel8.BorderRadius = 15;
+            this.guna2Panel8.BorderThickness = 2;
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(987, 244);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel8.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel8.Size = new System.Drawing.Size(578, 622);
+            this.guna2Panel8.TabIndex = 31;
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel9.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel9.BorderRadius = 15;
+            this.guna2Panel9.BorderThickness = 2;
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(36, 686);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel9.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel9.Size = new System.Drawing.Size(918, 180);
+            this.guna2Panel9.TabIndex = 31;
+            // 
             // iconCurrentLoginAdmin
             // 
             this.iconCurrentLoginAdmin.BackColor = System.Drawing.Color.Transparent;
@@ -536,69 +976,6 @@
             this.iconCurrentLoginAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconCurrentLoginAdmin.TabIndex = 24;
             this.iconCurrentLoginAdmin.TabStop = false;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2Panel1.BorderRadius = 15;
-            this.guna2Panel1.Controls.Add(this.guna2Panel4);
-            this.guna2Panel1.Controls.Add(this.guna2Panel3);
-            this.guna2Panel1.Controls.Add(this.guna2Panel2);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 1);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel1.Size = new System.Drawing.Size(1594, 905);
-            this.guna2Panel1.TabIndex = 0;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.Green;
-            this.guna2Panel2.BorderRadius = 15;
-            this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(31, 34);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Green;
-            this.guna2Panel2.ShadowDecoration.Enabled = true;
-            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
-            this.guna2Panel2.Size = new System.Drawing.Size(284, 162);
-            this.guna2Panel2.TabIndex = 0;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.Green;
-            this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.BorderThickness = 1;
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(352, 34);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Green;
-            this.guna2Panel3.ShadowDecoration.Enabled = true;
-            this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
-            this.guna2Panel3.Size = new System.Drawing.Size(284, 162);
-            this.guna2Panel3.TabIndex = 1;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.Green;
-            this.guna2Panel4.BorderRadius = 15;
-            this.guna2Panel4.BorderThickness = 1;
-            this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(673, 34);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.Green;
-            this.guna2Panel4.ShadowDecoration.Enabled = true;
-            this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
-            this.guna2Panel4.Size = new System.Drawing.Size(284, 162);
-            this.guna2Panel4.TabIndex = 1;
             // 
             // FormDashboard
             // 
@@ -626,8 +1003,14 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel4.PerformLayout();
+            this.panelAttendance.ResumeLayout(false);
+            this.panelAttendance.PerformLayout();
+            this.panelTotalEmployee.ResumeLayout(false);
+            this.panelTotalEmployee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -659,9 +1042,31 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private System.Windows.Forms.Panel panelDesktop;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel panelTotalEmployee;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Panel panelAttendance;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTotalEmployee;
+        private FontAwesome.Sharp.IconButton iconIncrease;
+        private System.Windows.Forms.Label lblPercentText;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblPresentForToday;
+        private FontAwesome.Sharp.IconButton iconOnTime;
+        private FontAwesome.Sharp.IconButton iconLate;
+        private System.Windows.Forms.Label lblOnTimePercent;
+        private System.Windows.Forms.Label lblLatePercent;
+        private System.Windows.Forms.Label lblCountDown;
+        private FontAwesome.Sharp.IconButton iconPayrollPeriod;
+        private System.Windows.Forms.Timer timer2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
     }
 }
 

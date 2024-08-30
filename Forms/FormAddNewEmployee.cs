@@ -34,8 +34,7 @@ namespace GUTZ_Capstone_Project.Forms
         public FormAddNewEmployee(string empId_)
         {
             InitializeComponent();
-            //SetFormRegion();
-            this.Size = new Size(1297, 950);
+            SetFormRegion();
             progressPecentageStatus.Text = "[ + {0} + ' %' ]";
 
             // Add event handler for the department combo box SelectedIndexChanged event
@@ -48,7 +47,7 @@ namespace GUTZ_Capstone_Project.Forms
         }
 
         // Method to set the rounded rectangle region
-        /*private void SetFormRegion()
+        private void SetFormRegion()
         {
             int radius = 25; // Border radius
             GraphicsPath path = new GraphicsPath();
@@ -59,7 +58,7 @@ namespace GUTZ_Capstone_Project.Forms
             path.AddArc(0, this.Height - radius, radius, radius, 90, 90); // Bottom-left
             path.CloseFigure();
             this.Region = new Region(path);
-        }*/
+        }
 
         // Fixed flicker user interface rendering
         protected override CreateParams CreateParams
@@ -107,7 +106,7 @@ namespace GUTZ_Capstone_Project.Forms
                 DataTable dt = DB_OperationHelperClass.QueryData(sql);
                 if (dt.Rows.Count > 0)
                 {
-                    lblFormLabel.Text = "Update Employee Record";
+                    lblFormLabel.Text = "Update Record";
                     //groupBox4.Visible = false;
                     txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
                     txtEmployeeMiddleIName.Text = dt.Rows[0]["m_name"].ToString();

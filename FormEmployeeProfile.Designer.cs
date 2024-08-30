@@ -127,7 +127,6 @@
             this.btnEditEmployeeProfile.BackColor = System.Drawing.Color.Transparent;
             this.btnEditEmployeeProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnEditEmployeeProfile.BorderRadius = 5;
-            this.btnEditEmployeeProfile.BorderThickness = 1;
             this.btnEditEmployeeProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEditEmployeeProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEditEmployeeProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -162,12 +161,12 @@
             // empProfilePic
             // 
             this.empProfilePic.AutoRoundedCorners = true;
-            this.empProfilePic.BorderRadius = 50;
+            this.empProfilePic.BorderRadius = 63;
             this.empProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("empProfilePic.Image")));
             this.empProfilePic.ImageRotate = 0F;
-            this.empProfilePic.Location = new System.Drawing.Point(44, 63);
+            this.empProfilePic.Location = new System.Drawing.Point(29, 54);
             this.empProfilePic.Name = "empProfilePic";
-            this.empProfilePic.Size = new System.Drawing.Size(103, 103);
+            this.empProfilePic.Size = new System.Drawing.Size(131, 129);
             this.empProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.empProfilePic.TabIndex = 67;
             this.empProfilePic.TabStop = false;
@@ -622,22 +621,22 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Cooper Black", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label24.ForeColor = System.Drawing.SystemColors.Control;
-            this.label24.Location = new System.Drawing.Point(21, 15);
+            this.label24.Location = new System.Drawing.Point(19, 7);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(292, 36);
+            this.label24.Size = new System.Drawing.Size(257, 41);
             this.label24.TabIndex = 132;
             this.label24.Text = "Employee Profile";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Cooper Black", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.SystemColors.Control;
-            this.label25.Location = new System.Drawing.Point(40, 169);
+            this.label25.Location = new System.Drawing.Point(161, 162);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(130, 19);
+            this.label25.Size = new System.Drawing.Size(119, 21);
             this.label25.TabIndex = 133;
             this.label25.Text = "Profile Picture";
             // 
@@ -1576,7 +1575,6 @@
             this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnSave.BorderRadius = 5;
-            this.btnSave.BorderThickness = 1;
             this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -1602,7 +1600,6 @@
             this.btnDeleteProfile.BackColor = System.Drawing.Color.Transparent;
             this.btnDeleteProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             this.btnDeleteProfile.BorderRadius = 5;
-            this.btnDeleteProfile.BorderThickness = 1;
             this.btnDeleteProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDeleteProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDeleteProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

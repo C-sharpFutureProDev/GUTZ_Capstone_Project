@@ -25,10 +25,14 @@ namespace GUTZ_Capstone_Project
         private Image originalImage;
         private Form currentChildForm;
         private System.Drawing.Color _originalIconColor;
+        private DateTime dueDate;
         private int id;
         public FormDashboard(int id)
         {
             InitializeComponent();
+            dueDate = DateTime.Now.AddDays(10);
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
             this.id = id;
@@ -288,6 +292,22 @@ namespace GUTZ_Capstone_Project
         private void iconAdminSubMenu_Click(object sender, EventArgs e)
         {
             this.iconAdminSubMenu.FlatAppearance.BorderColor = Color.FromArgb(12, 90, 37);
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            TimeSpan timeRemaining = dueDate - DateTime.Now;
+
+            if (timeRemaining.TotalSeconds <= 0)
+            {
+                timer1.Stop();
+                lblCountDown.Text = "Payroll is Due Today";
+                iconPayrollPeriod.BackColor = Color.Red;
+            }
+            else
+            {
+                lblCountDown.Text = $"{timeRemaining.Days} days {timeRemaining.Hours} hrs {timeRemaining.Minutes} min's {timeRemaining.Seconds} sec's rem.";
+            }
         }
     }
 }
