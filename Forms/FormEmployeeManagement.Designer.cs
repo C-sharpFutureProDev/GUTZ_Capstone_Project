@@ -169,7 +169,7 @@ namespace GUTZ_Capstone_Project.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.DGVEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DGVEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.DGVEmployee.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.DGVEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DGVEmployee.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.DGVEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

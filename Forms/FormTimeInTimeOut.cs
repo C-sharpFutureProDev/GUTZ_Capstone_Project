@@ -197,9 +197,9 @@ namespace GUTZ_Capstone_Project.Forms
             try
             {
                 string sql = @"SELECT fingerprint_data, fingerprint_id, tbl_fingerprint.emp_id, l_name 
-                               FROM tbl_fingerprint 
-                               INNER JOIN tbl_employee ON tbl_fingerprint.emp_id = tbl_employee.emp_id
-                               WHERE is_deleted = 0";
+                       FROM tbl_fingerprint 
+                       INNER JOIN tbl_employee ON tbl_fingerprint.emp_id = tbl_employee.emp_id
+                       WHERE is_deleted = 0";
 
                 DataTable dataTable = DB_OperationHelperClass.QueryData(sql);
                 bool isVerified = false;
@@ -237,9 +237,36 @@ namespace GUTZ_Capstone_Project.Forms
                             Stop();
 
                             string att_id = emp_id + "-" + l_name;
+                            string work_shift = DB_OperationHelperClass.IsInMorningShift(timeIn) ? "MORNING" : "NIGHT";
 
-                            string checkTimeInQuery = "SELECT * FROM tbl_attendance WHERE emp_id = '" + emp_id + "' AND time_out IS NULL";
-                            DataTable timeInRecord = DB_OperationHelperClass.QueryData(checkTimeInQuery);
+                            string checkExistingRecordQuery = @"SELECT * FROM tbl_attendance 
+                                                                WHERE emp_id = @emp_id 
+                                                                AND work_shift = @work_shift 
+                                                                AND time_out IS NOT NULL 
+                                                                AND DATE(time_in) = @current_date";
+
+                            var checkExistingRecordParams = new Dictionary<string, object>
+                            {
+                                { "@emp_id", emp_id },
+                                { "@work_shift", work_shift },
+                                { "@current_date", timeIn.Date }
+                            };
+
+                            DataTable existingRecords = DB_OperationHelperClass.ParameterizedQueryData(checkExistingRecordQuery, checkExistingRecordParams);
+
+                            if (existingRecords.Rows.Count > 0)
+                            {
+                                ShowMessage($"Employee with ID: {emp_id} has already completed a {work_shift} shift on {timeIn.Date}.", "Duplicate Shift Record", MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            string checkTimeInQuery = "SELECT * FROM tbl_attendance WHERE emp_id = @emp_id AND time_out IS NULL";
+                            var checkTimeInParams = new Dictionary<string, object>
+                            {
+                                { "@emp_id", emp_id }
+                            };
+
+                            DataTable timeInRecord = DB_OperationHelperClass.ParameterizedQueryData(checkTimeInQuery, checkTimeInParams);
 
                             if (timeInRecord.Rows.Count > 0)
                             {
@@ -255,13 +282,12 @@ namespace GUTZ_Capstone_Project.Forms
                                     { "@emp_id", emp_id }
                                 };
 
-                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateTimeOutQuery, updateTimeOutParams) == true)
+                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateTimeOutQuery, updateTimeOutParams))
                                     ShowMessage($"Employee with ID: {emp_id} Time out at {DateTime.Now} Verified.", "Time Out Successful", MessageBoxIcon.Information);
                             }
                             else
                             {
                                 // Perform time-in
-                                string work_shift = DB_OperationHelperClass.IsInMorningShift(timeIn) ? "MORNING" : "NIGHT";
                                 string time_in_status = CalculateTimeInStatus(work_shift, timeIn);
                                 TimeSpan lateTime = CalculateLateTime(work_shift, timeIn);
 
@@ -279,7 +305,7 @@ namespace GUTZ_Capstone_Project.Forms
                                     { "@late_time", lateTime.ToString(@"hh\:mm\:ss") }
                                 };
 
-                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertInto, insertParams) == true)
+                                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertInto, insertParams))
                                 {
                                     string shiftMessage = work_shift == "MORNING" ? "MORNING Shift." : "NIGHT Shift.";
                                     ShowMessage($"Employee with ID: {emp_id} Time in at {timeIn} Verified. {shiftMessage}", "Time In Successful", MessageBoxIcon.Information);
@@ -304,10 +330,8 @@ namespace GUTZ_Capstone_Project.Forms
                 ShowMessage(ex.Message, "Error", MessageBoxIcon.Error);
             }
         }
-
         private void ShowMessage(string message, string title, MessageBoxIcon icon)
         {
-            // Ensure this runs on the UI thread
             Invoke(new Action(() =>
             {
                 MessageBox.Show(message, title, MessageBoxButtons.OK, icon);

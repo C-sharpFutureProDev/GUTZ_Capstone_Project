@@ -52,9 +52,14 @@
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.iconAdminSubMenu = new FontAwesome.Sharp.IconButton();
             this.iconAdminNotification = new FontAwesome.Sharp.IconButton();
+            this.iconCurrentLoginAdmin = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.iconPayrollPeriod = new FontAwesome.Sharp.IconButton();
             this.lblCountDown = new System.Windows.Forms.Label();
@@ -76,11 +81,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.iconCurrentLoginAdmin = new GUTZ_Capstone_Project.RoundedPictureBoxControl();
             this.panel5.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -88,12 +88,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel6.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).BeginInit();
             this.panelDesktop.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.panelAttendance.SuspendLayout();
             this.panelTotalEmployee.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -465,7 +465,7 @@
             this.panelTitleBar.Controls.Add(this.iconCurrentLoginAdmin);
             this.panelTitleBar.Controls.Add(this.guna2Panel6);
             this.panelTitleBar.Controls.Add(this.label1);
-            this.panelTitleBar.Controls.Add(this.guna2CirclePictureBox1);
+            //this.panelTitleBar.Controls.Add(this.guna2CirclePictureBox1);
             this.panelTitleBar.Controls.Add(this.lblTitleChildForm);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -519,6 +519,17 @@
             this.iconAdminNotification.MouseEnter += new System.EventHandler(this.iconAdminNotification_MouseEnter);
             this.iconAdminNotification.MouseLeave += new System.EventHandler(this.iconAdminNotification_MouseLeave);
             // 
+            // iconCurrentLoginAdmin
+            // 
+            this.iconCurrentLoginAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.iconCurrentLoginAdmin.Location = new System.Drawing.Point(1393, 14);
+            this.iconCurrentLoginAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iconCurrentLoginAdmin.Name = "iconCurrentLoginAdmin";
+            this.iconCurrentLoginAdmin.Size = new System.Drawing.Size(43, 42);
+            this.iconCurrentLoginAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconCurrentLoginAdmin.TabIndex = 24;
+            this.iconCurrentLoginAdmin.TabStop = false;
+            // 
             // guna2Panel7
             // 
             this.guna2Panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
@@ -563,6 +574,62 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel1.Size = new System.Drawing.Size(1594, 905);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel9.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel9.BorderRadius = 15;
+            this.guna2Panel9.BorderThickness = 2;
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(36, 686);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel9.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel9.Size = new System.Drawing.Size(918, 180);
+            this.guna2Panel9.TabIndex = 31;
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel8.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel8.BorderRadius = 15;
+            this.guna2Panel8.BorderThickness = 2;
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(987, 244);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel8.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel8.Size = new System.Drawing.Size(578, 622);
+            this.guna2Panel8.TabIndex = 31;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel3.BorderRadius = 15;
+            this.guna2Panel3.BorderThickness = 2;
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
+            this.guna2Panel3.Location = new System.Drawing.Point(36, 244);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel3.Size = new System.Drawing.Size(918, 410);
+            this.guna2Panel3.TabIndex = 31;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel2.BorderRadius = 15;
+            this.guna2Panel2.BorderThickness = 2;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(987, 36);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2Panel2.Size = new System.Drawing.Size(578, 174);
+            this.guna2Panel2.TabIndex = 30;
             // 
             // guna2Panel4
             // 
@@ -910,73 +977,6 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderRadius = 15;
-            this.guna2Panel2.BorderThickness = 2;
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(987, 36);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel2.Size = new System.Drawing.Size(578, 174);
-            this.guna2Panel2.TabIndex = 30;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.BorderThickness = 2;
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(36, 244);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel3.Size = new System.Drawing.Size(918, 410);
-            this.guna2Panel3.TabIndex = 31;
-            // 
-            // guna2Panel8
-            // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel8.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel8.BorderRadius = 15;
-            this.guna2Panel8.BorderThickness = 2;
-            this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(987, 244);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel8.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel8.Size = new System.Drawing.Size(578, 622);
-            this.guna2Panel8.TabIndex = 31;
-            // 
-            // guna2Panel9
-            // 
-            this.guna2Panel9.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel9.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel9.BorderRadius = 15;
-            this.guna2Panel9.BorderThickness = 2;
-            this.guna2Panel9.FillColor = System.Drawing.Color.White;
-            this.guna2Panel9.Location = new System.Drawing.Point(36, 686);
-            this.guna2Panel9.Name = "guna2Panel9";
-            this.guna2Panel9.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel9.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel9.Size = new System.Drawing.Size(918, 180);
-            this.guna2Panel9.TabIndex = 31;
-            // 
-            // iconCurrentLoginAdmin
-            // 
-            this.iconCurrentLoginAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.iconCurrentLoginAdmin.Location = new System.Drawing.Point(1393, 14);
-            this.iconCurrentLoginAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconCurrentLoginAdmin.Name = "iconCurrentLoginAdmin";
-            this.iconCurrentLoginAdmin.Size = new System.Drawing.Size(43, 42);
-            this.iconCurrentLoginAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconCurrentLoginAdmin.TabIndex = 24;
-            this.iconCurrentLoginAdmin.TabStop = false;
-            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -1002,6 +1002,7 @@
             this.guna2Panel6.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
@@ -1010,7 +1011,6 @@
             this.panelAttendance.PerformLayout();
             this.panelTotalEmployee.ResumeLayout(false);
             this.panelTotalEmployee.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentLoginAdmin)).EndInit();
             this.ResumeLayout(false);
 
         }

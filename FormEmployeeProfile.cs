@@ -19,7 +19,6 @@ namespace GUTZ_Capstone_Project
         public FormEmployeeProfile(string empId_)
         {
             InitializeComponent();
-            SetFormRegion();
             if (empId_ != null)
             {
                 this._empId = empId_;
@@ -37,7 +36,7 @@ namespace GUTZ_Capstone_Project
         }
 
         // Method to set the rounded rectangle region
-        private void SetFormRegion()
+        /*private void SetFormRegion()
         {
             int radius = 25; // Border radius
             GraphicsPath path = new GraphicsPath();
@@ -48,11 +47,14 @@ namespace GUTZ_Capstone_Project
             path.AddArc(0, this.Height - radius, radius, radius, 90, 90); // Bottom-left
             path.CloseFigure();
             this.Region = new Region(path);
-        }
+        }*/
 
         private void FormEmployeeProfile_Load(object sender, EventArgs e)
         {
+            if (_empId != null)
+            {
 
+            }
         }
 
         private void iconButtonClose_MouseEnter(object sender, EventArgs e)
@@ -70,5 +72,6 @@ namespace GUTZ_Capstone_Project
         {
             this.Close();
         }
+
     }
 }

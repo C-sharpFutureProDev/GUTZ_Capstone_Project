@@ -15,6 +15,7 @@ using System.Xml.Linq;
 using DPFP;
 using System.Drawing.Text;
 using Org.BouncyCastle.Crypto;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -34,7 +35,7 @@ namespace GUTZ_Capstone_Project.Forms
         public FormAddNewEmployee(string empId_)
         {
             InitializeComponent();
-            SetFormRegion();
+            //SetFormRegion();
             progressPecentageStatus.Text = "[ + {0} + ' %' ]";
 
             // Add event handler for the department combo box SelectedIndexChanged event
@@ -47,7 +48,7 @@ namespace GUTZ_Capstone_Project.Forms
         }
 
         // Method to set the rounded rectangle region
-        private void SetFormRegion()
+        /*private void SetFormRegion()
         {
             int radius = 25; // Border radius
             GraphicsPath path = new GraphicsPath();
@@ -58,7 +59,7 @@ namespace GUTZ_Capstone_Project.Forms
             path.AddArc(0, this.Height - radius, radius, radius, 90, 90); // Bottom-left
             path.CloseFigure();
             this.Region = new Region(path);
-        }
+        }*/
 
         // Fixed flicker user interface rendering
         protected override CreateParams CreateParams
@@ -125,7 +126,7 @@ namespace GUTZ_Capstone_Project.Forms
                     employeeProfilePicture.Image = System.Drawing.Image.FromFile(image_path);
 
                     byte[] f_data = (byte[])dt.Rows[0]["fingerprint_data"];
-                    //display to picture box
+                    // pending
 
                     string[] addressParts = dt.Rows[0]["address"].ToString().Split(',');
                     cboEmployeeCityMunicipality.SelectedItem = (addressParts.Length == 2) ? addressParts[1].Trim() : null;
@@ -135,6 +136,11 @@ namespace GUTZ_Capstone_Project.Forms
                     cboEmployeeDept.SelectedItem = dt.Rows[0]["department_name"].ToString();
                     txtEmployeeJobDesc.Text = dt.Rows[0]["position_type"].ToString();
                 }
+            }// end if
+            else
+            {
+                MessageBox.Show("No records found to update.", "No Records Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 
@@ -518,7 +524,7 @@ namespace GUTZ_Capstone_Project.Forms
 
                     var param = new Dictionary<string, object>
                     {
-                        { "@FingerprintData", fingerprintData },
+                        { "@FingerprintData", fingerprintData as byte[] },
                         { "@EmpId", emp_id }
                     };
 

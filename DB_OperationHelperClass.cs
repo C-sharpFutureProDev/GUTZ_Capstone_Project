@@ -47,7 +47,7 @@ namespace GUTZ_Capstone_Project
             return dt;
         }
 
-        // Method: Execute SELECT query to retrieve data from the Database with parameterized input
+        // Method: Execute SELECT query to retrieve data from the Database with parameterized arguments
         public static DataTable ParameterizedQueryData(string sql, Dictionary<string, object> parameters)
         {
             DataTable dt = new DataTable();
@@ -84,7 +84,7 @@ namespace GUTZ_Capstone_Project
             return dt;
         }
 
-        // Method: Execute CRUD operation to the Database with parameterized query
+        // Method: Execute CRUD operation to the Database with parameterized arguments
         public static bool ExecuteCRUDSQLQuery(string sql, Dictionary<string, object> parameters)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -125,13 +125,13 @@ namespace GUTZ_Capstone_Project
             DateTime morningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 6, 0, 0); // 6:00 AM
             DateTime morningShiftEnd = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 14, 0, 0); // 2:00 PM
             DateTime eveningShiftStart = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day, 18, 0, 0); // 6:00 PM
-            DateTime eveningShiftEnd = new DateTime(timeIn.Year, timeIn.Month, timeIn.Day + 1, 6, 0, 0); // 6:00 AM (next day)
+            DateTime eveningShiftEnd = morningShiftStart.AddDays(1); // 6:00 AM (next day)
 
             if (timeIn >= morningShiftStart && timeIn < morningShiftEnd)
             {
                 return true; // Time-in is for the morning shift
             }
-            else if (timeIn >= eveningShiftStart || timeIn < eveningShiftEnd)
+            else if (timeIn >= eveningShiftStart && timeIn < eveningShiftEnd)
             {
                 return false; // Time-in is for the evening shift
             }

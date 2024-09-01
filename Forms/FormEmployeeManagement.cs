@@ -27,7 +27,7 @@ namespace GUTZ_Capstone_Project.Forms
                                    INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                    INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                    WHERE is_deleted = 0
-                                   ORDER BY FullName ASC";
+                                   ORDER BY emp_id ASC";
 
         private string id;
         public FormEmployeeManagement()

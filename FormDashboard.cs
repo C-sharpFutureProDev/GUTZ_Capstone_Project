@@ -33,6 +33,8 @@ namespace GUTZ_Capstone_Project
             dueDate = DateTime.Now.AddDays(10);
             timer1.Tick += timer1_Tick;
             timer1.Start();
+            timer2.Tick += timer2_Tick;
+            timer2.Start();
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
             this.id = id;
@@ -259,6 +261,7 @@ namespace GUTZ_Capstone_Project
         private void FormDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Dispose();
+            timer2.Dispose();
             Application.Exit();
         }
 
@@ -300,7 +303,7 @@ namespace GUTZ_Capstone_Project
 
             if (timeRemaining.TotalSeconds <= 0)
             {
-                timer1.Stop();
+                timer2.Stop();
                 lblCountDown.Text = "Payroll is Due Today";
                 iconPayrollPeriod.BackColor = Color.Red;
             }
