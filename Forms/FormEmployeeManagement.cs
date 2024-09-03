@@ -39,12 +39,19 @@ namespace GUTZ_Capstone_Project.Forms
             DGVEmployee.Columns["Column4"].DefaultCellStyle.Padding = new Padding(2, 0, 0, 0);
             DGVEmployee.Columns["Column5"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
             DGVEmployee.Columns["Column6"].DefaultCellStyle.Padding = new Padding(4, 0, 0, 0);
+            DGVEmployee.Columns["Column7"].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+
             this.Column8.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.Column9.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.Column10.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Set font and padding for specific columns
             this.Column8.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
+            this.Column8.CellTemplate.Style.Padding = new Padding(1, 1, 1, 1);
+
             this.Column9.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
+            this.Column9.CellTemplate.Style.Padding = new Padding(1, 1, 1, 1);
+
             this.Column10.CellTemplate.Style.Font = new Font("Arial", 8f, FontStyle.Bold);
+            this.Column10.CellTemplate.Style.Padding = new Padding(1, 1, 1, 1);
         }
 
         // Fixed flicker issue on controls rendering
@@ -62,6 +69,8 @@ namespace GUTZ_Capstone_Project.Forms
         {
             LoadData();
             cboSearch.SelectedIndex = 0;
+            cboFilter.SelectedIndex = 0;
+            cboSort.SelectedIndex = 0;
         }
 
         // Method:: Display retrieve employee data to the data grid view
@@ -85,7 +94,7 @@ namespace GUTZ_Capstone_Project.Forms
                         string dept = row["department_name"].ToString();
                         string job_title = row["position_type"].ToString();
                         //DateTime hired_date = DateTime.Parse(row["HiredDate"].ToString());
-                        DGVEmployee.Rows.Add(System.Drawing.Image.FromFile(image_path), full_name, emp_id, agent_code, dept, job_title
+                        DGVEmployee.Rows.Add(System.Drawing.Image.FromFile(image_path), full_name, emp_id, agent_code, dept, job_title, "Active"
                             /*hired_date.ToString("MMMM d, yyyy")*/);
                     }
                 }
@@ -196,13 +205,13 @@ namespace GUTZ_Capstone_Project.Forms
 
             switch (cboSearch.SelectedIndex)
             {
-                case 0:
+                case 1:
                     search_criteria += " AND tbl_employee.emp_id LIKE '" + searchText + "%'";
                     break;
-                case 1:
+                case 2:
                     search_criteria += " AND CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) LIKE '" + searchText + "%'";
                     break;
-                case 2:
+                case 3:
                     search_criteria += " AND tbl_employee.agent_code LIKE '" + searchText + "%'";
                     break;
             }

@@ -107,12 +107,12 @@ namespace GUTZ_Capstone_Project.Forms
                 DataTable dt = DB_OperationHelperClass.QueryData(sql);
                 if (dt.Rows.Count > 0)
                 {
-                    lblFormLabel.Text = "Update Record";
+                    lblFormLabel.Text = "Update Existing Record";
                     //groupBox4.Visible = false;
                     txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
                     txtEmployeeMiddleIName.Text = dt.Rows[0]["m_name"].ToString();
                     txtEmployeeLastName.Text = dt.Rows[0]["l_name"].ToString();
-                    string savedGender = txtEmployeeMiddleIName.Text = dt.Rows[0]["gender"].ToString();
+                    string savedGender = dt.Rows[0]["gender"].ToString();
 
                     rdbMale.Checked = (savedGender == "Male") ? true : false;
                     rdbFemale.Checked = (savedGender == "Male") ? false : true;
@@ -608,7 +608,7 @@ namespace GUTZ_Capstone_Project.Forms
                     txtEmployeeJobDesc.Text = "Call Center Agent";
                     break;
                 case "ESL Department":
-                    txtEmployeeJobDesc.Text = "English as a Second Language Teacher";
+                    txtEmployeeJobDesc.Text = "ESL Teacher";
                     break;
                 default:
                     cboEmployeeDept.SelectedItem = "";
