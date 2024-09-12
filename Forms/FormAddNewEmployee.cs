@@ -16,6 +16,7 @@ using DPFP;
 using System.Drawing.Text;
 using Org.BouncyCastle.Crypto;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.InteropServices;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -35,10 +36,9 @@ namespace GUTZ_Capstone_Project.Forms
         public FormAddNewEmployee(string empId_)
         {
             InitializeComponent();
-            //SetFormRegion();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             progressPecentageStatus.Text = "[ + {0} + ' %' ]";
-
-            // Add event handler for the department combo box SelectedIndexChanged event
             cboEmployeeDept.SelectedIndexChanged += cboEmployeeDept_SelectedIndexChanged;
 
             if (empId_ != null)
@@ -46,20 +46,6 @@ namespace GUTZ_Capstone_Project.Forms
                 this._empId = empId_;
             }
         }
-
-        // Method to set the rounded rectangle region
-        /*private void SetFormRegion()
-        {
-            int radius = 25; // Border radius
-            GraphicsPath path = new GraphicsPath();
-            path.StartFigure();
-            path.AddArc(0, 0, radius, radius, 180, 90); // Top-left
-            path.AddArc(this.Width - radius, 0, radius, radius, 270, 90); // Top-right
-            path.AddArc(this.Width - radius, this.Height - radius, radius, radius, 0, 90); // Bottom-right
-            path.AddArc(0, this.Height - radius, radius, radius, 90, 90); // Bottom-left
-            path.CloseFigure();
-            this.Region = new Region(path);
-        }*/
 
         // Fixed flicker user interface rendering
         protected override CreateParams CreateParams
@@ -74,6 +60,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void FormEmployeeEnrollment_Load(object sender, EventArgs e)
         {
+            txtScannerPrompt.Text = "Fingerprint Enrollment Section";
             try
             {
                 Capturer = new DPFP.Capture.Capture(); // Create a capture operation 
@@ -108,7 +95,6 @@ namespace GUTZ_Capstone_Project.Forms
                 if (dt.Rows.Count > 0)
                 {
                     lblFormLabel.Text = "Update Existing Record";
-                    //groupBox4.Visible = false;
                     txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
                     txtEmployeeMiddleIName.Text = dt.Rows[0]["m_name"].ToString();
                     txtEmployeeLastName.Text = dt.Rows[0]["l_name"].ToString();
@@ -159,7 +145,7 @@ namespace GUTZ_Capstone_Project.Forms
             {
                 // Show number of fingerprint samples needed for enrollment
                 int samplesNeeded = (int)Enroller.FeaturesNeeded;
-                SetStatus(String.Format("Fingerprint samples needed: {0}", samplesNeeded));
+                SetStatus(String.Format("Fingerprint sample needed: {0}", samplesNeeded));
 
                 // Update the progress bar
                 int progressPercentage = (int)((float)(4 - samplesNeeded) / 4 * 100);
@@ -268,7 +254,7 @@ namespace GUTZ_Capstone_Project.Forms
 
                         DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
                         Verifier.Verify(features, Template, ref result);
-                        UpdateStatus(result.FARAchieved);
+                        //UpdateStatus(result.FARAchieved);
 
                         if (result.Verified)
                         {
@@ -397,7 +383,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
         {
-            MakeReport("HID Digital Persona fingerprint scanner was disconnected!");
+            MakeReport("HID Digital Persona fingerprint scanner is disconnected!");
         }
 
         public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)
@@ -415,7 +401,7 @@ namespace GUTZ_Capstone_Project.Forms
             InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
         };
 
-        private void btnUploadImage_Click(object sender, EventArgs e)
+        private void btnUploadImage_Click_1(object sender, EventArgs e)
         {
             if (openFileDialog2.ShowDialog() == DialogResult.OK)
             {
@@ -547,10 +533,11 @@ namespace GUTZ_Capstone_Project.Forms
                         MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!",
                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-            } // end if for add operation
+            }
             else // update
             {
-                //pending
+                // pending
+
             }
         }
 
@@ -593,6 +580,7 @@ namespace GUTZ_Capstone_Project.Forms
         private void btnStartScan_Click(object sender, EventArgs e)
         {
             Start();
+            txtCaptureStatusLog.Clear();
         }
 
         private void FormEmployeeEnrollment_FormClosing(object sender, FormClosingEventArgs e)

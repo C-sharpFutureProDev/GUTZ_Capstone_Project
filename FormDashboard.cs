@@ -21,6 +21,7 @@ namespace GUTZ_Capstone_Project
 {
     public partial class FormDashboard : Form
     {
+        RoundedPictureBoxControl iconCurrentLoginAdmin = new RoundedPictureBoxControl();
         private Guna.UI2.WinForms.Guna2Button currentBtn;
         private Image originalImage;
         private Form currentChildForm;
@@ -75,7 +76,7 @@ namespace GUTZ_Capstone_Project
             if (senderBtn is Guna.UI2.WinForms.Guna2Button btn)
             {
                 currentBtn = btn;
-                currentBtn.FillColor = Color.FromArgb(46, 125, 50);
+                currentBtn.FillColor = Color.FromArgb(3, 58, 14);
                 currentBtn.ForeColor = Color.White;
                 iconCurrentChildForm.Image = currentBtn.Image;
             }
@@ -131,7 +132,9 @@ namespace GUTZ_Capstone_Project
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new FormEmployeeManagement());
+            //OpenChildForm(new FormEmployeeManagement());
+            //OpenChildForm(new FormEmployee());
+            OpenChildForm(new EmployeeList());
         }
 
         private void btnAttendanceMonitoring_Click(object sender, EventArgs e)
@@ -262,7 +265,7 @@ namespace GUTZ_Capstone_Project
         {
             timer1.Dispose();
             timer2.Dispose();
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void iconAdminNotification_MouseEnter(object sender, EventArgs e)

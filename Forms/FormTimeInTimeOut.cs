@@ -156,7 +156,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
         {
-            MakeReport("HID Digital Persona fingerprint was disconnected!");
+            MakeReport("HID Digital Persona fingerprint is disconnected!");
         }
 
         public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)
@@ -330,6 +330,7 @@ namespace GUTZ_Capstone_Project.Forms
                 ShowMessage(ex.Message, "Error", MessageBoxIcon.Error);
             }
         }
+
         private void ShowMessage(string message, string title, MessageBoxIcon icon)
         {
             Invoke(new Action(() =>
@@ -337,7 +338,6 @@ namespace GUTZ_Capstone_Project.Forms
                 MessageBox.Show(message, title, MessageBoxButtons.OK, icon);
             }));
         }
-
 
         private string CalculateTimeInStatus(string workShift, DateTime timeIn)
         {

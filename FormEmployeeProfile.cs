@@ -14,7 +14,6 @@ namespace GUTZ_Capstone_Project
 {
     public partial class FormEmployeeProfile : Form
     {
-        private System.Drawing.Color _originalIconColor;
         private string _empId = "";
         public FormEmployeeProfile(string empId_)
         {

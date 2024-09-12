@@ -128,6 +128,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeListCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeListCard.Designer.cs">
+      <DependentUpon>EmployeeListCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeList.Designer.cs">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmployee.Designer.cs">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEmployeeProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,8 +210,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User_InputsValidatorHelperClass.cs" />
+    <EmbeddedResource Include="EmployeeListCard.resx">
+      <DependentUpon>EmployeeListCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeList.resx">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmployee.resx">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEmployeeProfile.resx">
       <DependentUpon>FormEmployeeProfile.cs</DependentUpon>
