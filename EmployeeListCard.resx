@@ -121,7 +121,7 @@
   <data name="btnEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAShJREFUSEvtljtuAkEQRPckCDmFC5AQG3EM34rjQMARiCwEduIIIZEPVd0F5jM7
+        DAAACwwBP0AiyAAAAShJREFUSEvtljtuAkEQRPckCDmFC5AQG3EM34rjQMARiCwEduIIIZEPVd0F5jM7
         +5klYp9U2ume2i6NGBBFz6sIIQyhNXSAvtR+PQgbQX8QOaj9D5pz6Ne223OEJprHk460HkMMX7O+A80f
         KIfH0C3EsLF6PPmQ6zvQzCEWeoHhdvIo7mnFCZpqxgD6ZvOGHfRhITHc05i8UOK+RuSHEveGoLI2eKV9
         KHF/s2DYHy8SYW23F0+7cEnsFaCyEliTJ8VzAh3NnIJvEZVJYEuelGDNr1j1PJqIylJgqfWZervb4IU7
@@ -255,6 +255,20 @@
         8eJr5ZAdACVZ5bezegdgKdsq/8nP8uNzt3oHYHlPGvqGOwCPtg39lbb343Mx3AGg4XXwV1jxx8dosAPA
         F+LQWobh/zrU42My2AHgRjFst5uA7UZguxk4c0Ow/e+3P7/9fdvfT1f/+Me/AUrUtJcV6E1WAAAAAElF
         TkSuQmCC
+</value>
+  </data>
+  <data name="btnViewProfile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAeJJREFUSEvtlk8vA0EYh9sD0qDSWz+AOFKNuzgTN3FwFV+iOCBoIhHxIQhxk7i4
+        cVOHfoj6exThpJ7f9K3o7kxt69BLn+RJdmZ+8052dnbbVJ8+Pader8/gNl7jI36YulbfFhYt/n8otoj3
+        mJQ7XLDpncPkCbxSpS65xHErlwwmLOO7Zkd4xhIWcNicxnXUWJQ3XLKyYQilcRe/MMoZjlo0hsbwXMEI
+        qrWDaYu2ogE8Rh9a1D/xF8qgb3FxhPEadB644TjawuCdRiGbxRdN9FC2WAM61hr9XkoWc9AexDI+YA33
+        1WfDDtobGGK1GZrCT9flZ8oFDdpaKMq+DTto68CF0Ls/qVDFNcO0bDNt3WWUmg07aOugtaOiULVxHaSb
+        hfWc21FVaA59r0+TgtVz0PZt9Z4NO2i322qtNdsM6qiHWHchg7YOlxbXnYcO1yaGOLTYT7Fb1x2n09dp
+        DF810cMNDli0AR05DD1vfRSSfkAuNMGDaucs2goDedSviw8tnrVoDMZ0p6FFVTNvUT8EMniqtAd9kfRx
+        KOKIqWs909D2nmDGyreHoLZsBX2vTlI0VzX+fEQxmKQPgX5ZQnfjQ7uifyqJD2QQigzhPOrXS6f/CZt/
+        fXStPo0pM2TT+vTpBanUN0YEjrzEjwkhAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

@@ -47,6 +47,34 @@ namespace GUTZ_Capstone_Project
         }
 
         /// <summary>
+        /// Validates the user input in a Guna TextBox field as a valid year.
+        /// </summary>
+        /// <param name="textBox">The Guna TextBox to be validated.</param>
+        /// <param name="fieldTitle">The title of the field being validated.</param>
+        /// <returns>True if the input is a valid number, false otherwise.</returns>
+        public static bool ValidateGunaTextBoxAsYear(Guna2TextBox textBox, string fieldTitle)
+        {
+            // Validate the input as an integer
+            if (!int.TryParse(textBox.Text, out int year))
+            {
+                MessageBox.Show($"The {fieldTitle} field must be a valid year.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox.Focus();
+                return false;
+            }
+
+            // Check if the year is within a reasonable range
+            int currentYear = DateTime.Now.Year;
+            if (year < 1900 || year > currentYear)
+            {
+                MessageBox.Show($"The {fieldTitle} field must be a valid year between 1900 and {currentYear}.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Validates the user's gender selection using radio buttons.
         /// </summary>
         /// <param name="maleRadioButton">The male radio button control.</param>
@@ -100,8 +128,6 @@ namespace GUTZ_Capstone_Project
             }
             return true;
         }
-
-        // Previous methods omitted for brevity
 
         /// <summary>
         /// Validates the Guna ComboBox input.

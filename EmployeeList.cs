@@ -9,7 +9,7 @@ namespace GUTZ_Capstone_Project
 {
     public partial class EmployeeList : Form
     {
-        int id;
+        public int id;
 
         public EmployeeList()
         {
@@ -17,26 +17,67 @@ namespace GUTZ_Capstone_Project
             txtSearch.TextChanged += txtSearch_TextChanged;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // Fixed flicker user interface rendering
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        private void EmployeeList_Load(object sender, EventArgs e)
         {
             // Set default selected index for ComboBoxes
             cboSearch.SelectedIndex = 0;
             cboSort.SelectedIndex = 0;
             cboFilter.SelectedIndex = 0;
             PopulateItems();
+            CountActiveAndInactive();
+        }
+
+        private void CountActiveAndInactive()
+        {
+            string sqlActive = "SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0";
+            string sqlInactive = "SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 1";
+
+            DataTable activeEmployee = DB_OperationHelperClass.QueryData(sqlActive);
+            DataTable inactiveEmployee = DB_OperationHelperClass.QueryData(sqlInactive);
+
+            if (activeEmployee.Rows.Count > 0)
+            {
+                int activeCount = Convert.ToInt32(activeEmployee.Rows[0][0]);
+                lblActiveEmployee.Text = activeCount.ToString();
+            }
+            else
+            {
+                lblActiveEmployee.Text = "0"; // No active employees found
+            }
+
+            if (inactiveEmployee.Rows.Count > 0)
+            {
+                int inactiveCount = Convert.ToInt32(inactiveEmployee.Rows[0][0]);
+                lblInactiveEmployee.Text = inactiveCount.ToString();
+            }
+            else
+            {
+                lblInactiveEmployee.Text = "0"; // No inactive employees found
+            }
         }
 
         private void PopulateItems()
         {
-            string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, position_type, hired_date,
-                                   CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                                   agent_code, tbl_employee.department_id, department_name, 
-                                   position_type, DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                                   FROM tbl_employee
-                                   INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                                   WHERE is_deleted = 0
-                                   ORDER BY emp_id ASC";
+            string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc,
+               f_name, m_name, l_name, tbl_employee.department_id, account_name, department_name, 
+               DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
+               FROM tbl_employee
+               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+               INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+               WHERE is_deleted = 0
+               ORDER BY emp_id ASC";
 
             try
             {
@@ -53,15 +94,31 @@ namespace GUTZ_Capstone_Project
                 foreach (DataRow row in dt.Rows)
                 {
                     id = int.Parse(row["emp_id"].ToString());
-                    string name = row["FullName"].ToString();
+                    string firstName = row["f_name"].ToString();
+                    string middleName = row["m_name"].ToString();
+                    string lastName = row["l_name"].ToString();
+                    string name;
+
+                    // Check for middle name and construct the full name accordingly
+                    if (string.IsNullOrEmpty(middleName) || middleName == "N/A")
+                    {
+                        name = $"{firstName} {lastName}"; // No middle name
+                    }
+                    else
+                    {
+                        name = $"{firstName} {middleName[0]}. {lastName}"; // With middle initial
+                    }
+
                     string imagePath = row["emp_ProfilePic"].ToString();
-                    string jobRole = row["position_type"].ToString();
+                    string jobRole = row["position_desc"].ToString();
                     string email = row["email"].ToString();
                     string contactNo = row["phone"].ToString();
-                    string hired_date = row["hired_date"].ToString();
-                    string agentCode = row["agent_code"].ToString();
+                    string joinedDate = row["start_date"].ToString();
+                    string gender = row["gender"].ToString();
+                    string accountName = row["account_name"].ToString();
+                    int isDeleted = int.Parse(row["is_deleted"].ToString());
 
-                    EmployeeListCard employeeControl = new EmployeeListCard
+                    EmployeeListCard employeeControl = new EmployeeListCard(this)
                     {
                         EmployeeName = name,
                         ID = id.ToString(),
@@ -69,11 +126,15 @@ namespace GUTZ_Capstone_Project
                         JobRole = jobRole,
                         Email = email,
                         Contact = contactNo,
-                        JoinDate = DateTime.TryParse(hired_date, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
-                        AgentCode = agentCode
+                        JoinDate = DateTime.TryParse(joinedDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
+                        Rate = accountName,
                     };
 
+                    // Set the button text based on the is_deleted status
+                    employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
+
                     employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
+                    employeeControl.EmployeeDeactivated += (s, args) => CountActiveAndInactive();
 
                     flowLayoutPanel1.Controls.Add(employeeControl);
                 }
@@ -91,18 +152,6 @@ namespace GUTZ_Capstone_Project
             {
                 formAddNewEmployee.FormClosed += (s, args) => PopulateItems();
                 formAddNewEmployee.ShowDialog(this);
-            }
-        }
-
-        private void cboSearch_DropDown(object sender, EventArgs e)
-        {
-            // Check if "SEARCH BY" exists before removing
-            txtSearch.Clear();
-            PopulateItems();
-            if (cboSearch.Items.Contains("SEARCH BY"))
-            {
-                cboSearch.Items.Remove("SEARCH BY");
-                cboSearch.SelectedIndex = 0; // Set to the first item
             }
         }
 
@@ -126,36 +175,44 @@ namespace GUTZ_Capstone_Project
                     switch (cboSearch.SelectedIndex)
                     {
                         case 0: // Employee ID
-                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, position_type, hired_date,
-                               CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                               agent_code, tbl_employee.department_id, department_name, 
-                               position_type, DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                               FROM tbl_employee
-                               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                               WHERE is_deleted = 0 AND emp_id = @empId";
+                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                      CONCAT(f_name, ' ', 
+                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                      FROM tbl_employee
+                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                      WHERE is_deleted = 0 AND emp_id = @empId";
                             break;
 
                         case 1: // Employee Name
-                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, position_type, hired_date,
-                               CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                               agent_code, tbl_employee.department_id, department_name, 
-                               position_type, DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                               FROM tbl_employee
-                               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                               WHERE is_deleted = 0 AND CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) LIKE @empName";
+                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                      CONCAT(f_name, ' ', 
+                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                      FROM tbl_employee
+                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                      WHERE is_deleted = 0 AND CONCAT(f_name, ' ', 
+                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                      l_name) LIKE @empName";
                             break;
 
-                        case 2: // Employee Agent Code
-                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, position_type, hired_date,
-                               CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                               agent_code, tbl_employee.department_id, department_name, 
-                               position_type, DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                               FROM tbl_employee
-                               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                               WHERE is_deleted = 0 AND agent_code = @agentCode";
+                        case 2: // Employee Email
+                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                      CONCAT(f_name, ' ', 
+                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                      FROM tbl_employee
+                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                      WHERE is_deleted = 0 AND email LIKE @empEmail";
                             break;
 
                         default:
@@ -174,8 +231,8 @@ namespace GUTZ_Capstone_Project
                         case 1: // Employee Name
                             parameters.Add("@empName", "%" + searchText + "%");
                             break;
-                        case 2: // Employee Agent Code
-                            parameters.Add("@agentCode", searchText);
+                        case 2: // Employee Email
+                            parameters.Add("@empEmail", "%" + searchText + "%");
                             break;
                     }
 
@@ -189,14 +246,15 @@ namespace GUTZ_Capstone_Project
                         DataRow row = dt.Rows[0];
                         id = int.Parse(row["emp_id"].ToString());
                         string name = row["FullName"].ToString();
-                        string imagePath = row["emp_ProfilePic"].ToString();
-                        string jobRole = row["position_type"].ToString();
+                        string imagePath = row["emp_profilePic"].ToString();
+                        string jobRole = row["position_desc"].ToString();
                         string email = row["email"].ToString();
                         string contactNo = row["phone"].ToString();
-                        string hiredDate = row["hired_date"].ToString();
-                        string agentCode = row["agent_code"].ToString();
+                        string joinedDate = row["start_date"].ToString();
+                        string accountName = row["account_name"].ToString();
+                        int isDeleted = int.Parse(row["is_deleted"].ToString());
 
-                        EmployeeListCard employeeControl = new EmployeeListCard
+                        EmployeeListCard employeeControl = new EmployeeListCard(this)
                         {
                             EmployeeName = name,
                             ID = id.ToString(),
@@ -204,9 +262,15 @@ namespace GUTZ_Capstone_Project
                             JobRole = jobRole,
                             Email = email,
                             Contact = contactNo,
-                            JoinDate = DateTime.TryParse(hiredDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
-                            AgentCode = agentCode
+                            JoinDate = DateTime.TryParse(joinedDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
+                            Rate = accountName,
                         };
+
+                        // Set the button text based on the is_deleted status
+                        employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
+
+                        employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
+                        employeeControl.EmployeeDeactivated += (s, args) => CountActiveAndInactive();
 
                         flowLayoutPanel1.Controls.Add(employeeControl);
                     }
@@ -223,7 +287,7 @@ namespace GUTZ_Capstone_Project
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             case 2:
-                                MessageBox.Show("No employee found with the provided agent code.", "Search Result",
+                                MessageBox.Show("No employee found with the provided email.", "Search Result",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
@@ -243,6 +307,43 @@ namespace GUTZ_Capstone_Project
             {
                 PopulateItems();
             }
+        }
+
+        private void cboSearch_DropDown(object sender, EventArgs e)
+        {
+            // Clear the search text
+            txtSearch.Clear();
+
+            // Populate items
+            PopulateItems();
+
+            // Check if "SEARCH BY" exists before removing
+            if (cboSearch.Items.Contains("SEARCH BY"))
+            {
+                cboSearch.Items.Remove("SEARCH BY");
+            }
+
+            // Set to the first item
+            cboSearch.SelectedIndex = 0; // Set to the first item
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            cboSearch.SelectedIndex = 0;
+            txtSearch.Clear();
+            flowLayoutPanel2.Visible = false;
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            PopulateItems();
+
+            // Check if "SEARCH BY" exists, if not, add it
+            if (!cboSearch.Items.Contains("SEARCH BY"))
+            {
+                cboSearch.Items.Insert(0, "SEARCH BY"); // Add "SEARCH BY" at the top
+            }
+
+            // Reset selected index to the first item
+            cboSearch.SelectedIndex = 0;
         }
     }
 }

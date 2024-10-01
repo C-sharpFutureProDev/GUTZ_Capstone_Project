@@ -15,22 +15,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Input;
 using System.Windows.Media.Media3D;
 
 namespace GUTZ_Capstone_Project
 {
     public partial class FormDashboard : Form
     {
-        RoundedPictureBoxControl iconCurrentLoginAdmin = new RoundedPictureBoxControl();
         private Guna.UI2.WinForms.Guna2Button currentBtn;
         private Image originalImage;
         private Form currentChildForm;
         private System.Drawing.Color _originalIconColor;
         private DateTime dueDate;
         private int id;
+
         public FormDashboard(int id)
         {
             InitializeComponent();
+            this.id = id;
             dueDate = DateTime.Now.AddDays(10);
             timer1.Tick += timer1_Tick;
             timer1.Start();
@@ -38,26 +40,8 @@ namespace GUTZ_Capstone_Project
             timer2.Start();
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
-            this.id = id;
+            DisplayAdminProfilePic();
         }
-
-        /*private void chartData()
-        {
-            // Clear previous series points
-            chart1.Series["Employees"].Points.Clear();
-
-            // Add the data points with proper labels
-            chart1.Series["Employees"].Points.AddXY("130", 130);
-            chart1.Series["Employees"].Points.AddXY("70", 70);
-
-            // Customize the chart appearance
-            chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
-
-            // Set the legend text
-            chart1.Series["Employees"].Legend = "Legend";
-            chart1.Series["Employees"].Points[0].LegendText = "BPO";
-            chart1.Series["Employees"].Points[1].LegendText = "ESL";
-        }*/
 
         // Fixed flicker issue on controls rendering
         protected override CreateParams CreateParams
@@ -68,6 +52,47 @@ namespace GUTZ_Capstone_Project
                 cp.ExStyle |= 0x02000000;
                 return cp;
             }
+        }
+
+        private void DisplayAdminProfilePic()
+        {
+            string sql = "SELECT emp_profilePic FROM tbl_employee WHERE emp_id = @id";
+            var parameters = new Dictionary<string, object> { { "@id", id } };
+            try
+            {
+                DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No profile picture found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                string adminProfilePath = dt.Rows[0]["emp_profilePic"].ToString();
+
+                try
+                {
+                    iconCurrentLoginAdmin.SizeMode = PictureBoxSizeMode.StretchImage;
+                    iconCurrentLoginAdmin.Image = Image.FromFile(adminProfilePath);
+                }
+                catch (FileNotFoundException)
+                {
+                    MessageBox.Show("Profile picture file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void ActivateButton(object senderBtn)
@@ -86,7 +111,7 @@ namespace GUTZ_Capstone_Project
         {
             if (currentBtn != null)
             {
-                currentBtn.FillColor = Color.FromArgb(12, 90, 37);
+                currentBtn.FillColor = Color.FromArgb(19, 92, 61);
                 currentBtn.ForeColor = Color.White;
             }
         }
@@ -132,8 +157,6 @@ namespace GUTZ_Capstone_Project
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            //OpenChildForm(new FormEmployeeManagement());
-            //OpenChildForm(new FormEmployee());
             OpenChildForm(new EmployeeList());
         }
 
@@ -181,43 +204,6 @@ namespace GUTZ_Capstone_Project
         {
             UpdateDateTimeLabel();
             timer1.Start();
-            string sql = "SELECT emp_profilePic FROM tbl_employee WHERE emp_id = @id";
-            var parameters = new Dictionary<string, object> { { "@id", id } };
-
-            try
-            {
-                DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
-
-                if (dt.Rows.Count > 0)
-                {
-                    string adminProfilePath = dt.Rows[0]["emp_profilePic"].ToString();
-
-                    try
-                    {
-                        iconCurrentLoginAdmin.Image = Image.FromFile(adminProfilePath);
-                    }
-                    catch (FileNotFoundException)
-                    {
-                        MessageBox.Show("Profile picture file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error loading profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No profile picture found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void UpdateDateTimeLabel()
@@ -265,7 +251,6 @@ namespace GUTZ_Capstone_Project
         {
             timer1.Dispose();
             timer2.Dispose();
-            //Application.Exit();
         }
 
         private void iconAdminNotification_MouseEnter(object sender, EventArgs e)

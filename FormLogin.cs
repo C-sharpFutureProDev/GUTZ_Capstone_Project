@@ -15,22 +15,12 @@ namespace GUTZ_Capstone_Project
     public partial class FormLogin : Form
     {
         private int currentLoginAdminID;
-        /*[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-              int nLeftRect,     // x-coordinate of upper-left corner
-              int nTopRect,      // y-coordinate of upper-left corner
-              int nRightRect,    // x-coordinate of lower-right corner
-              int nBottomRect,   // y-coordinate of lower-right corner
-              int nWidthEllipse, // height of ellipse
-              int nHeightEllipse // width of ellipse
-        );*/
 
         public FormLogin()
         {
             InitializeComponent();
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 45, 45));
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(FormLogin_KeyDown);
         }
 
         protected override CreateParams CreateParams
@@ -101,9 +91,12 @@ namespace GUTZ_Capstone_Project
             txtUsername.Focus();
         }
 
-        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            Application.Exit();
+            if (e.Control && e.KeyCode == Keys.X)
+            {
+                Application.Exit();
+            }
         }
     }
 }

@@ -33,17 +33,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
-            this.iconUsername = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPassword = new FontAwesome.Sharp.IconPictureBox();
-            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.GUTZLoginLOGO = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.iconUsername)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPassword)).BeginInit();
+            this.iconPassword = new FontAwesome.Sharp.IconPictureBox();
+            this.iconUsername = new FontAwesome.Sharp.IconPictureBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconUsername)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -64,9 +62,9 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Green;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(70, 408);
+            this.panel2.Location = new System.Drawing.Point(70, 437);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(358, 1);
@@ -74,9 +72,9 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(70, 316);
+            this.panel1.Location = new System.Drawing.Point(70, 345);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(358, 1);
@@ -84,63 +82,56 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.AutoRoundedCorners = true;
-            this.btnLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.btnLogin.BorderRadius = 33;
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnLogin.BorderRadius = 5;
             this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.btnLogin.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnLogin.Font = new System.Drawing.Font("Cambria", 22F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
+            this.btnLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(100)))), ((int)(((byte)(20)))));
+            this.btnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(100)))), ((int)(((byte)(20)))));
             this.btnLogin.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(69, 459);
+            this.btnLogin.Location = new System.Drawing.Point(69, 488);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.btnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
+            this.btnLogin.PressedColor = System.Drawing.Color.Green;
+            this.btnLogin.ShadowDecoration.BorderRadius = 0;
+            this.btnLogin.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnLogin.Size = new System.Drawing.Size(359, 68);
             this.btnLogin.TabIndex = 24;
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // iconUsername
+            // guna2Panel1
             // 
-            this.iconUsername.BackColor = System.Drawing.Color.White;
-            this.iconUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.iconUsername.IconChar = FontAwesome.Sharp.IconChar.UserTag;
-            this.iconUsername.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.iconUsername.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconUsername.IconSize = 49;
-            this.iconUsername.Location = new System.Drawing.Point(70, 260);
-            this.iconUsername.Name = "iconUsername";
-            this.iconUsername.Padding = new System.Windows.Forms.Padding(2, 9, 0, 0);
-            this.iconUsername.Size = new System.Drawing.Size(49, 49);
-            this.iconUsername.TabIndex = 28;
-            this.iconUsername.TabStop = false;
-            // 
-            // iconPassword
-            // 
-            this.iconPassword.BackColor = System.Drawing.Color.White;
-            this.iconPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.iconPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
-            this.iconPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.iconPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPassword.IconSize = 49;
-            this.iconPassword.Location = new System.Drawing.Point(70, 351);
-            this.iconPassword.Name = "iconPassword";
-            this.iconPassword.Padding = new System.Windows.Forms.Padding(1, 9, 0, 0);
-            this.iconPassword.Size = new System.Drawing.Size(49, 50);
-            this.iconPassword.TabIndex = 29;
-            this.iconPassword.TabStop = false;
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.guna2Panel1.Controls.Add(this.txtUsername);
+            this.guna2Panel1.Controls.Add(this.txtPassword);
+            this.guna2Panel1.Controls.Add(this.GUTZLoginLOGO);
+            this.guna2Panel1.Controls.Add(this.iconPassword);
+            this.guna2Panel1.Controls.Add(this.iconUsername);
+            this.guna2Panel1.Controls.Add(this.panel1);
+            this.guna2Panel1.Controls.Add(this.btnLogin);
+            this.guna2Panel1.Controls.Add(this.panel2);
+            this.guna2Panel1.Controls.Add(this.button1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.BorderRadius = 1;
+            this.guna2Panel1.Size = new System.Drawing.Size(493, 611);
+            this.guna2Panel1.TabIndex = 32;
             // 
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.Color.Transparent;
-            this.txtUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.txtUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtUsername.BorderRadius = 5;
-            this.txtUsername.BorderThickness = 2;
+            this.txtUsername.BorderThickness = 0;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsername.DefaultText = "";
             this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -148,67 +139,29 @@
             this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtUsername.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtUsername.Font = new System.Drawing.Font("Cambria", 10.5F, System.Drawing.FontStyle.Bold);
+            this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtUsername.Location = new System.Drawing.Point(127, 269);
+            this.txtUsername.Location = new System.Drawing.Point(128, 288);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
-            this.txtUsername.PlaceholderText = "\r\n";
+            this.txtUsername.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.txtUsername.PlaceholderText = "Username";
             this.txtUsername.SelectedText = "";
-            this.txtUsername.Size = new System.Drawing.Size(301, 40);
-            this.txtUsername.TabIndex = 30;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.txtPassword);
-            this.guna2Panel1.Controls.Add(this.GUTZLoginLOGO);
-            this.guna2Panel1.Controls.Add(this.iconPassword);
-            this.guna2Panel1.Controls.Add(this.txtUsername);
-            this.guna2Panel1.Controls.Add(this.iconUsername);
-            this.guna2Panel1.Controls.Add(this.panel1);
-            this.guna2Panel1.Controls.Add(this.btnLogin);
-            this.guna2Panel1.Controls.Add(this.panel2);
-            this.guna2Panel1.Controls.Add(this.button1);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(493, 557);
-            this.guna2Panel1.TabIndex = 32;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label2.Location = new System.Drawing.Point(125, 334);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 24);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Password";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label1.Location = new System.Drawing.Point(125, 238);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 24);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Username";
+            this.txtUsername.ShadowDecoration.BorderRadius = 8;
+            this.txtUsername.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.txtUsername.ShadowDecoration.Enabled = true;
+            this.txtUsername.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Size = new System.Drawing.Size(300, 48);
+            this.txtUsername.TabIndex = 34;
             // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.Transparent;
-            this.txtPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.txtPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtPassword.BorderRadius = 5;
-            this.txtPassword.BorderThickness = 2;
+            this.txtPassword.BorderThickness = 0;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.DefaultText = "";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -216,59 +169,96 @@
             this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtPassword.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.txtPassword.Font = new System.Drawing.Font("Cambria", 10.5F, System.Drawing.FontStyle.Bold);
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtPassword.Location = new System.Drawing.Point(127, 362);
+            this.txtPassword.Location = new System.Drawing.Point(128, 381);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '\0';
-            this.txtPassword.PlaceholderText = "";
+            this.txtPassword.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.txtPassword.PlaceholderText = "Password";
             this.txtPassword.SelectedText = "";
-            this.txtPassword.Size = new System.Drawing.Size(301, 40);
+            this.txtPassword.ShadowDecoration.BorderRadius = 8;
+            this.txtPassword.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.txtPassword.ShadowDecoration.Enabled = true;
+            this.txtPassword.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Size = new System.Drawing.Size(300, 48);
             this.txtPassword.TabIndex = 31;
             // 
             // GUTZLoginLOGO
             // 
             this.GUTZLoginLOGO.BackColor = System.Drawing.Color.Transparent;
-            this.GUTZLoginLOGO.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.GUTZLoginLOGO.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.GUTZLoginLOGO.BorderRadius = 8;
             this.GUTZLoginLOGO.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.GUTZLoginLOGO.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.GUTZLoginLOGO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.GUTZLoginLOGO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.GUTZLoginLOGO.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.GUTZLoginLOGO.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.GUTZLoginLOGO.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.GUTZLoginLOGO.ForeColor = System.Drawing.Color.White;
-            this.GUTZLoginLOGO.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
+            this.GUTZLoginLOGO.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.GUTZLoginLOGO.HoverState.ForeColor = System.Drawing.Color.White;
             this.GUTZLoginLOGO.Image = ((System.Drawing.Image)(resources.GetObject("GUTZLoginLOGO.Image")));
             this.GUTZLoginLOGO.ImageSize = new System.Drawing.Size(340, 225);
-            this.GUTZLoginLOGO.Location = new System.Drawing.Point(69, 38);
+            this.GUTZLoginLOGO.Location = new System.Drawing.Point(69, 67);
             this.GUTZLoginLOGO.Name = "GUTZLoginLOGO";
             this.GUTZLoginLOGO.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.GUTZLoginLOGO.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.GUTZLoginLOGO.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.GUTZLoginLOGO.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.GUTZLoginLOGO.ShadowDecoration.Enabled = true;
             this.GUTZLoginLOGO.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(8);
             this.GUTZLoginLOGO.Size = new System.Drawing.Size(359, 136);
             this.GUTZLoginLOGO.TabIndex = 33;
+            // 
+            // iconPassword
+            // 
+            this.iconPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.iconPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.iconPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
+            this.iconPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.iconPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPassword.IconSize = 45;
+            this.iconPassword.Location = new System.Drawing.Point(70, 379);
+            this.iconPassword.Name = "iconPassword";
+            this.iconPassword.Padding = new System.Windows.Forms.Padding(1, 9, 0, 0);
+            this.iconPassword.Size = new System.Drawing.Size(49, 50);
+            this.iconPassword.TabIndex = 29;
+            this.iconPassword.TabStop = false;
+            // 
+            // iconUsername
+            // 
+            this.iconUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.iconUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.iconUsername.IconChar = FontAwesome.Sharp.IconChar.UserTag;
+            this.iconUsername.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.iconUsername.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconUsername.IconSize = 45;
+            this.iconUsername.Location = new System.Drawing.Point(70, 287);
+            this.iconUsername.Name = "iconUsername";
+            this.iconUsername.Padding = new System.Windows.Forms.Padding(2, 9, 0, 0);
+            this.iconUsername.Size = new System.Drawing.Size(49, 49);
+            this.iconUsername.TabIndex = 28;
+            this.iconUsername.TabStop = false;
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(248)))), ((int)(((byte)(233)))));
-            this.ClientSize = new System.Drawing.Size(493, 557);
+            this.ClientSize = new System.Drawing.Size(493, 611);
             this.Controls.Add(this.guna2Panel1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
             this.Load += new System.EventHandler(this.FormLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.iconUsername)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPassword)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormLogin_KeyDown);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconUsername)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,13 +269,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
-        private FontAwesome.Sharp.IconPictureBox iconUsername;
-        private FontAwesome.Sharp.IconPictureBox iconPassword;
-        private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button GUTZLoginLOGO;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
-        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox txtUsername;
+        private FontAwesome.Sharp.IconPictureBox iconPassword;
+        private FontAwesome.Sharp.IconPictureBox iconUsername;
     }
 }

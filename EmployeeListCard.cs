@@ -15,19 +15,23 @@ namespace GUTZ_Capstone_Project
         private string _role;
         private string _email;
         private string _contact;
-        private string _hireDate;
-        private string _agentCode;
+        private string _joinDate;
+        private string _rate;
         public event EventHandler EmployeeDeleted;
+        public event EventHandler EmployeeDeactivated;
+        private EmployeeList _employeeList;
+        private static EmployeeListCard _activeCard = null;
 
-        public EmployeeListCard()
+        public EmployeeListCard(EmployeeList employeeList)
         {
             InitializeComponent();
+            _employeeList = employeeList;
+            btnViewProfile.Click += btnViewProfile_Click;
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnDeactivateEmployee, "Deactivate");
             toolTip.SetToolTip(btnEdit, "Update Record");
             toolTip.UseAnimation = false;
             toolTip.UseFading = false;
-
         }
 
         [Category("Custom Control")]
@@ -100,28 +104,78 @@ namespace GUTZ_Capstone_Project
         [Category("Custom Control")]
         public string JoinDate
         {
-            get => _hireDate;
+            get => _joinDate;
             set
             {
-                _hireDate = value;
+                _joinDate = value;
                 lblJoinedDate.Text = value;
             }
         }
 
         [Category("Custom Control")]
-        public string AgentCode
+        public string Rate
         {
-            get => _agentCode;
+            get => _rate;
             set
             {
-                _agentCode = value;
-                lblAgentCode.Text = value;
+                _rate = value;
+                lblEmpRate.Text = value;
             }
+        }
+
+        private void ActivateCard()
+        {
+            btnViewProfile.FillColor = Color.Green;
+            btnViewProfile.ForeColor = Color.White;
+            btnViewProfile.Enabled = false;
+            // Additional activation logic if needed
+        }
+
+        private void DeactivateCard()
+        {
+            btnViewProfile.FillColor = Color.FromArgb(12, 90, 37); // Reset to default color
+            btnViewProfile.Enabled = true;
+            // Additional deactivation logic if needed
         }
 
         private void btnViewProfile_Click(object sender, EventArgs e)
         {
+            if (_activeCard != null && _activeCard != this)
+            {
+                // Reset the previous active card
+                _activeCard.DeactivateCard();
+            }
 
+            // Set the current card as active
+            _activeCard = this;
+            ActivateCard();
+
+            if (_employeeList != null)
+            {
+                // Modify properties
+                _employeeList.flowLayoutPanel1.BackColor = Color.FromArgb(229, 230, 237); // Change background color
+                _employeeList.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
+                _employeeList.flowLayoutPanel1.Size = new Size(400, 1000); // Set size if needed
+
+                // Show flowLayoutPanel2
+                _employeeList.flowLayoutPanel2.Visible = true;
+                _employeeList.flowLayoutPanel2.Dock = DockStyle.Fill;
+
+                // Clear existing controls in flowLayoutPanel2
+                _employeeList.flowLayoutPanel2.Controls.Clear();
+
+                // Create and add the EmployeeProfileCard
+                EmployeeProfileCard employeeProfileCard = new EmployeeProfileCard(_id, _employeeList);
+                _employeeList.flowLayoutPanel2.Controls.Add(employeeProfileCard);
+                employeeProfileCard.btnOrganization.FillColor = Color.FromArgb(19, 92, 61);
+                employeeProfileCard.btnOrganization.ForeColor = Color.White;
+                employeeProfileCard.panelMainSubContainer.Size = new Size(1462, 500);
+                employeeProfileCard.panelBasicDetails.Visible = true;
+
+                // Refresh layout
+                _employeeList.flowLayoutPanel1.Refresh();
+                _employeeList.PerformLayout();
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -163,6 +217,7 @@ namespace GUTZ_Capstone_Project
 
                     // Invoke the EmployeeDeleted event
                     EmployeeDeleted?.Invoke(this, EventArgs.Empty);
+                    EmployeeDeactivated?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {
