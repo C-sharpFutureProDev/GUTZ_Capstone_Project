@@ -163,7 +163,7 @@ namespace GUTZ_Capstone_Project
         private void btnAttendanceMonitoring_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new FormAttendanceManagement());
+            OpenChildForm(new EmployeeAttendance());
         }
 
         private void btnPayrollManagement_Click(object sender, EventArgs e)

@@ -73,7 +73,7 @@
             this.btnEditPrevWorkExp = new Guna.UI2.WinForms.Guna2Button();
             this.txtPrevJobSupervisorOrManager = new Guna.UI2.WinForms.Guna2TextBox();
             this.label75 = new System.Windows.Forms.Label();
-            this.prevJobRole = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrevJobRole = new Guna.UI2.WinForms.Guna2TextBox();
             this.label74 = new System.Windows.Forms.Label();
             this.txtPrevJobTenure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label72 = new System.Windows.Forms.Label();
@@ -954,7 +954,7 @@
             this.panelPreWorkExperience.Controls.Add(this.btnEditPrevWorkExp);
             this.panelPreWorkExperience.Controls.Add(this.txtPrevJobSupervisorOrManager);
             this.panelPreWorkExperience.Controls.Add(this.label75);
-            this.panelPreWorkExperience.Controls.Add(this.prevJobRole);
+            this.panelPreWorkExperience.Controls.Add(this.txtPrevJobRole);
             this.panelPreWorkExperience.Controls.Add(this.label74);
             this.panelPreWorkExperience.Controls.Add(this.txtPrevJobTenure);
             this.panelPreWorkExperience.Controls.Add(this.label72);
@@ -1041,32 +1041,32 @@
             this.label75.TabIndex = 191;
             this.label75.Text = "Supervisor / Manager:";
             // 
-            // prevJobRole
+            // txtPrevJobRole
             // 
-            this.prevJobRole.AutoScroll = true;
-            this.prevJobRole.BackColor = System.Drawing.Color.Transparent;
-            this.prevJobRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.prevJobRole.BorderRadius = 4;
-            this.prevJobRole.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.prevJobRole.DefaultText = "";
-            this.prevJobRole.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.prevJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.prevJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.prevJobRole.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.prevJobRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.prevJobRole.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.prevJobRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.prevJobRole.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.prevJobRole.Location = new System.Drawing.Point(700, 302);
-            this.prevJobRole.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
-            this.prevJobRole.Multiline = true;
-            this.prevJobRole.Name = "prevJobRole";
-            this.prevJobRole.PasswordChar = '\0';
-            this.prevJobRole.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.prevJobRole.PlaceholderText = "";
-            this.prevJobRole.SelectedText = "";
-            this.prevJobRole.Size = new System.Drawing.Size(610, 141);
-            this.prevJobRole.TabIndex = 190;
+            this.txtPrevJobRole.AutoScroll = true;
+            this.txtPrevJobRole.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrevJobRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPrevJobRole.BorderRadius = 4;
+            this.txtPrevJobRole.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrevJobRole.DefaultText = "";
+            this.txtPrevJobRole.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrevJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrevJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobRole.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.txtPrevJobRole.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.txtPrevJobRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPrevJobRole.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.txtPrevJobRole.Location = new System.Drawing.Point(700, 302);
+            this.txtPrevJobRole.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
+            this.txtPrevJobRole.Multiline = true;
+            this.txtPrevJobRole.Name = "txtPrevJobRole";
+            this.txtPrevJobRole.PasswordChar = '\0';
+            this.txtPrevJobRole.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtPrevJobRole.PlaceholderText = "";
+            this.txtPrevJobRole.SelectedText = "";
+            this.txtPrevJobRole.Size = new System.Drawing.Size(610, 141);
+            this.txtPrevJobRole.TabIndex = 190;
             // 
             // label74
             // 
@@ -3512,7 +3512,7 @@
         private System.Windows.Forms.Label label70;
         public Guna.UI2.WinForms.Guna2TextBox txtPrevCompName;
         private System.Windows.Forms.Label label69;
-        public Guna.UI2.WinForms.Guna2TextBox prevJobRole;
+        public Guna.UI2.WinForms.Guna2TextBox txtPrevJobRole;
         private System.Windows.Forms.Label label74;
         public Guna.UI2.WinForms.Guna2TextBox txtPrevJobTenure;
         private System.Windows.Forms.Label label72;

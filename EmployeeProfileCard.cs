@@ -46,7 +46,8 @@ namespace GUTZ_Capstone_Project
             {
                 string sql = @"SELECT emp_profilePic, tbl_account.account_id, account_name, fingerprint_data, f_name, m_name, l_name, b_day, age, gender, civil_status, address, email, phone, hired_date,
                                       CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, tbl_position.position_id, position_desc, employment_type, work_arrangement, department_name, position_type, 
-                                      contact_person, emerg_contact, relationship, deg_obtained, field_of_study, major, institution, location, status, from_date, to_date, lic_cert
+                                      contact_person, emerg_contact, relationship, deg_obtained, field_of_study, major, institution, location, status, from_date, to_date, lic_cert, prev_comp_name, prev_job_title, 
+                                      prev_comp_location, tenure, prev_role, supv_mgr
                                FROM tbl_employee
                                INNER JOIN tbl_fingerprint ON tbl_employee.emp_id = tbl_fingerprint.emp_id
                                INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
@@ -146,6 +147,12 @@ namespace GUTZ_Capstone_Project
                     txtYearStarted.Text = dt.Rows[0]["from_date"].ToString();
                     txtYearFinished.Text = dt.Rows[0]["to_date"].ToString();
                     txtLicensesCertifications.Text = dt.Rows[0]["lic_cert"].ToString();
+                    txtPrevCompName.Text = dt.Rows[0]["prev_comp_name"].ToString();
+                    txtPrevJobTitle.Text = dt.Rows[0]["prev_job_title"].ToString();
+                    txtPrevJobCompLoc.Text = dt.Rows[0]["prev_comp_location"].ToString();
+                    txtPrevJobTenure.Text = dt.Rows[0]["tenure"].ToString();
+                    txtPrevJobSupervisorOrManager.Text = dt.Rows[0]["supv_mgr"].ToString();
+                    txtPrevJobRole.Text = dt.Rows[0]["prev_role"].ToString();
 
                     int accID = int.Parse(dt.Rows[0]["account_id"].ToString());
 

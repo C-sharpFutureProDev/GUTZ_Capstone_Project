@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2TextBox38 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrevJobSupvrMngr = new Guna.UI2.WinForms.Guna2TextBox();
             this.label75 = new System.Windows.Forms.Label();
-            this.guna2TextBox37 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrevJobRole = new Guna.UI2.WinForms.Guna2TextBox();
             this.label74 = new System.Windows.Forms.Label();
-            this.guna2TextBox36 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrevJobTenure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label72 = new System.Windows.Forms.Label();
-            this.guna2TextBox35 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrevJovLocation = new Guna.UI2.WinForms.Guna2TextBox();
             this.label71 = new System.Windows.Forms.Label();
-            this.guna2TextBox34 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrevJobTitle = new Guna.UI2.WinForms.Guna2TextBox();
             this.label70 = new System.Windows.Forms.Label();
-            this.guna2TextBox33 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrevCompanyName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label69 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.panelPersonalDetails = new Guna.UI2.WinForms.Guna2Panel();
@@ -47,30 +47,30 @@
             this.panelPersonalDetails.SuspendLayout();
             this.SuspendLayout();
             // 
-            // guna2TextBox38
+            // txtPrevJobSupvrMngr
             // 
-            this.guna2TextBox38.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox38.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2TextBox38.BorderRadius = 4;
-            this.guna2TextBox38.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox38.DefaultText = "";
-            this.guna2TextBox38.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox38.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox38.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox38.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox38.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2TextBox38.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2TextBox38.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2TextBox38.Location = new System.Drawing.Point(589, 165);
-            this.guna2TextBox38.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
-            this.guna2TextBox38.Name = "guna2TextBox38";
-            this.guna2TextBox38.PasswordChar = '\0';
-            this.guna2TextBox38.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox38.PlaceholderText = "";
-            this.guna2TextBox38.SelectedText = "";
-            this.guna2TextBox38.Size = new System.Drawing.Size(500, 44);
-            this.guna2TextBox38.TabIndex = 205;
+            this.txtPrevJobSupvrMngr.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrevJobSupvrMngr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPrevJobSupvrMngr.BorderRadius = 4;
+            this.txtPrevJobSupvrMngr.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrevJobSupvrMngr.DefaultText = "";
+            this.txtPrevJobSupvrMngr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrevJobSupvrMngr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrevJobSupvrMngr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobSupvrMngr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobSupvrMngr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.txtPrevJobSupvrMngr.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.txtPrevJobSupvrMngr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPrevJobSupvrMngr.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.txtPrevJobSupvrMngr.Location = new System.Drawing.Point(589, 165);
+            this.txtPrevJobSupvrMngr.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
+            this.txtPrevJobSupvrMngr.Name = "txtPrevJobSupvrMngr";
+            this.txtPrevJobSupvrMngr.PasswordChar = '\0';
+            this.txtPrevJobSupvrMngr.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtPrevJobSupvrMngr.PlaceholderText = "";
+            this.txtPrevJobSupvrMngr.SelectedText = "";
+            this.txtPrevJobSupvrMngr.Size = new System.Drawing.Size(500, 44);
+            this.txtPrevJobSupvrMngr.TabIndex = 205;
             // 
             // label75
             // 
@@ -83,32 +83,32 @@
             this.label75.TabIndex = 204;
             this.label75.Text = "Supervisor / Manager:";
             // 
-            // guna2TextBox37
+            // txtPrevJobRole
             // 
-            this.guna2TextBox37.AutoScroll = true;
-            this.guna2TextBox37.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox37.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2TextBox37.BorderRadius = 4;
-            this.guna2TextBox37.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox37.DefaultText = "";
-            this.guna2TextBox37.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox37.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox37.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox37.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox37.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2TextBox37.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2TextBox37.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2TextBox37.Location = new System.Drawing.Point(589, 267);
-            this.guna2TextBox37.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
-            this.guna2TextBox37.Multiline = true;
-            this.guna2TextBox37.Name = "guna2TextBox37";
-            this.guna2TextBox37.PasswordChar = '\0';
-            this.guna2TextBox37.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox37.PlaceholderText = "";
-            this.guna2TextBox37.SelectedText = "";
-            this.guna2TextBox37.Size = new System.Drawing.Size(500, 140);
-            this.guna2TextBox37.TabIndex = 203;
+            this.txtPrevJobRole.AutoScroll = true;
+            this.txtPrevJobRole.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrevJobRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPrevJobRole.BorderRadius = 4;
+            this.txtPrevJobRole.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrevJobRole.DefaultText = "";
+            this.txtPrevJobRole.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrevJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrevJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobRole.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.txtPrevJobRole.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.txtPrevJobRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPrevJobRole.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.txtPrevJobRole.Location = new System.Drawing.Point(589, 267);
+            this.txtPrevJobRole.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
+            this.txtPrevJobRole.Multiline = true;
+            this.txtPrevJobRole.Name = "txtPrevJobRole";
+            this.txtPrevJobRole.PasswordChar = '\0';
+            this.txtPrevJobRole.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtPrevJobRole.PlaceholderText = "";
+            this.txtPrevJobRole.SelectedText = "";
+            this.txtPrevJobRole.Size = new System.Drawing.Size(500, 140);
+            this.txtPrevJobRole.TabIndex = 203;
             // 
             // label74
             // 
@@ -121,30 +121,30 @@
             this.label74.TabIndex = 202;
             this.label74.Text = "Role:";
             // 
-            // guna2TextBox36
+            // txtPrevJobTenure
             // 
-            this.guna2TextBox36.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox36.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2TextBox36.BorderRadius = 4;
-            this.guna2TextBox36.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox36.DefaultText = "";
-            this.guna2TextBox36.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox36.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox36.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox36.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox36.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2TextBox36.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2TextBox36.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2TextBox36.Location = new System.Drawing.Point(39, 363);
-            this.guna2TextBox36.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
-            this.guna2TextBox36.Name = "guna2TextBox36";
-            this.guna2TextBox36.PasswordChar = '\0';
-            this.guna2TextBox36.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox36.PlaceholderText = "";
-            this.guna2TextBox36.SelectedText = "";
-            this.guna2TextBox36.Size = new System.Drawing.Size(500, 44);
-            this.guna2TextBox36.TabIndex = 201;
+            this.txtPrevJobTenure.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrevJobTenure.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPrevJobTenure.BorderRadius = 4;
+            this.txtPrevJobTenure.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrevJobTenure.DefaultText = "";
+            this.txtPrevJobTenure.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrevJobTenure.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrevJobTenure.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobTenure.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobTenure.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.txtPrevJobTenure.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.txtPrevJobTenure.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPrevJobTenure.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.txtPrevJobTenure.Location = new System.Drawing.Point(39, 363);
+            this.txtPrevJobTenure.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
+            this.txtPrevJobTenure.Name = "txtPrevJobTenure";
+            this.txtPrevJobTenure.PasswordChar = '\0';
+            this.txtPrevJobTenure.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtPrevJobTenure.PlaceholderText = "";
+            this.txtPrevJobTenure.SelectedText = "";
+            this.txtPrevJobTenure.Size = new System.Drawing.Size(500, 44);
+            this.txtPrevJobTenure.TabIndex = 201;
             // 
             // label72
             // 
@@ -157,30 +157,30 @@
             this.label72.TabIndex = 200;
             this.label72.Text = "Tenure:";
             // 
-            // guna2TextBox35
+            // txtPrevJovLocation
             // 
-            this.guna2TextBox35.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox35.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2TextBox35.BorderRadius = 4;
-            this.guna2TextBox35.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox35.DefaultText = "";
-            this.guna2TextBox35.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox35.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox35.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox35.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox35.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2TextBox35.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2TextBox35.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2TextBox35.Location = new System.Drawing.Point(39, 264);
-            this.guna2TextBox35.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
-            this.guna2TextBox35.Name = "guna2TextBox35";
-            this.guna2TextBox35.PasswordChar = '\0';
-            this.guna2TextBox35.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox35.PlaceholderText = "";
-            this.guna2TextBox35.SelectedText = "";
-            this.guna2TextBox35.Size = new System.Drawing.Size(500, 44);
-            this.guna2TextBox35.TabIndex = 199;
+            this.txtPrevJovLocation.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrevJovLocation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPrevJovLocation.BorderRadius = 4;
+            this.txtPrevJovLocation.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrevJovLocation.DefaultText = "";
+            this.txtPrevJovLocation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrevJovLocation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrevJovLocation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJovLocation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJovLocation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.txtPrevJovLocation.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.txtPrevJovLocation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPrevJovLocation.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.txtPrevJovLocation.Location = new System.Drawing.Point(39, 264);
+            this.txtPrevJovLocation.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
+            this.txtPrevJovLocation.Name = "txtPrevJovLocation";
+            this.txtPrevJovLocation.PasswordChar = '\0';
+            this.txtPrevJovLocation.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtPrevJovLocation.PlaceholderText = "";
+            this.txtPrevJovLocation.SelectedText = "";
+            this.txtPrevJovLocation.Size = new System.Drawing.Size(500, 44);
+            this.txtPrevJovLocation.TabIndex = 199;
             // 
             // label71
             // 
@@ -193,30 +193,30 @@
             this.label71.TabIndex = 198;
             this.label71.Text = "Location:";
             // 
-            // guna2TextBox34
+            // txtPrevJobTitle
             // 
-            this.guna2TextBox34.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox34.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2TextBox34.BorderRadius = 4;
-            this.guna2TextBox34.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox34.DefaultText = "";
-            this.guna2TextBox34.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox34.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox34.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox34.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox34.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2TextBox34.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2TextBox34.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2TextBox34.Location = new System.Drawing.Point(39, 165);
-            this.guna2TextBox34.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
-            this.guna2TextBox34.Name = "guna2TextBox34";
-            this.guna2TextBox34.PasswordChar = '\0';
-            this.guna2TextBox34.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox34.PlaceholderText = "";
-            this.guna2TextBox34.SelectedText = "";
-            this.guna2TextBox34.Size = new System.Drawing.Size(500, 44);
-            this.guna2TextBox34.TabIndex = 197;
+            this.txtPrevJobTitle.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrevJobTitle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPrevJobTitle.BorderRadius = 4;
+            this.txtPrevJobTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrevJobTitle.DefaultText = "";
+            this.txtPrevJobTitle.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrevJobTitle.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrevJobTitle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobTitle.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevJobTitle.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.txtPrevJobTitle.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.txtPrevJobTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPrevJobTitle.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.txtPrevJobTitle.Location = new System.Drawing.Point(39, 165);
+            this.txtPrevJobTitle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
+            this.txtPrevJobTitle.Name = "txtPrevJobTitle";
+            this.txtPrevJobTitle.PasswordChar = '\0';
+            this.txtPrevJobTitle.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtPrevJobTitle.PlaceholderText = "";
+            this.txtPrevJobTitle.SelectedText = "";
+            this.txtPrevJobTitle.Size = new System.Drawing.Size(500, 44);
+            this.txtPrevJobTitle.TabIndex = 197;
             // 
             // label70
             // 
@@ -229,30 +229,30 @@
             this.label70.TabIndex = 196;
             this.label70.Text = "Job Title:";
             // 
-            // guna2TextBox33
+            // txtPrevCompanyName
             // 
-            this.guna2TextBox33.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox33.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2TextBox33.BorderRadius = 4;
-            this.guna2TextBox33.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox33.DefaultText = "";
-            this.guna2TextBox33.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox33.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox33.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox33.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox33.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2TextBox33.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2TextBox33.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2TextBox33.Location = new System.Drawing.Point(39, 66);
-            this.guna2TextBox33.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
-            this.guna2TextBox33.Name = "guna2TextBox33";
-            this.guna2TextBox33.PasswordChar = '\0';
-            this.guna2TextBox33.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox33.PlaceholderText = "";
-            this.guna2TextBox33.SelectedText = "";
-            this.guna2TextBox33.Size = new System.Drawing.Size(1050, 44);
-            this.guna2TextBox33.TabIndex = 194;
+            this.txtPrevCompanyName.BackColor = System.Drawing.Color.Transparent;
+            this.txtPrevCompanyName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPrevCompanyName.BorderRadius = 4;
+            this.txtPrevCompanyName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrevCompanyName.DefaultText = "";
+            this.txtPrevCompanyName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrevCompanyName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrevCompanyName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevCompanyName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrevCompanyName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.txtPrevCompanyName.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.txtPrevCompanyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPrevCompanyName.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.txtPrevCompanyName.Location = new System.Drawing.Point(39, 66);
+            this.txtPrevCompanyName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 9);
+            this.txtPrevCompanyName.Name = "txtPrevCompanyName";
+            this.txtPrevCompanyName.PasswordChar = '\0';
+            this.txtPrevCompanyName.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtPrevCompanyName.PlaceholderText = "";
+            this.txtPrevCompanyName.SelectedText = "";
+            this.txtPrevCompanyName.Size = new System.Drawing.Size(1050, 44);
+            this.txtPrevCompanyName.TabIndex = 194;
             // 
             // label69
             // 
@@ -283,18 +283,18 @@
             this.panelPersonalDetails.BorderColor = System.Drawing.Color.Gainsboro;
             this.panelPersonalDetails.BorderRadius = 8;
             this.panelPersonalDetails.BorderThickness = 1;
-            this.panelPersonalDetails.Controls.Add(this.guna2TextBox38);
+            this.panelPersonalDetails.Controls.Add(this.txtPrevJobSupvrMngr);
             this.panelPersonalDetails.Controls.Add(this.label69);
             this.panelPersonalDetails.Controls.Add(this.label75);
-            this.panelPersonalDetails.Controls.Add(this.guna2TextBox33);
-            this.panelPersonalDetails.Controls.Add(this.guna2TextBox37);
+            this.panelPersonalDetails.Controls.Add(this.txtPrevCompanyName);
+            this.panelPersonalDetails.Controls.Add(this.txtPrevJobRole);
             this.panelPersonalDetails.Controls.Add(this.label70);
             this.panelPersonalDetails.Controls.Add(this.label74);
-            this.panelPersonalDetails.Controls.Add(this.guna2TextBox34);
-            this.panelPersonalDetails.Controls.Add(this.guna2TextBox36);
+            this.panelPersonalDetails.Controls.Add(this.txtPrevJobTitle);
+            this.panelPersonalDetails.Controls.Add(this.txtPrevJobTenure);
             this.panelPersonalDetails.Controls.Add(this.label71);
             this.panelPersonalDetails.Controls.Add(this.label72);
-            this.panelPersonalDetails.Controls.Add(this.guna2TextBox35);
+            this.panelPersonalDetails.Controls.Add(this.txtPrevJovLocation);
             this.panelPersonalDetails.FillColor = System.Drawing.Color.White;
             this.panelPersonalDetails.Font = new System.Drawing.Font("Cambria", 8.5F, System.Drawing.FontStyle.Bold);
             this.panelPersonalDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -329,6 +329,7 @@
             this.btnSave.Size = new System.Drawing.Size(160, 48);
             this.btnSave.TabIndex = 208;
             this.btnSave.Text = "Save Changes";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -352,6 +353,7 @@
             this.btnCancel.Size = new System.Drawing.Size(160, 48);
             this.btnCancel.TabIndex = 207;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // EmployeePreviousWorkingExperience
             // 
@@ -374,17 +376,17 @@
 
         #endregion
 
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox38;
+        public Guna.UI2.WinForms.Guna2TextBox txtPrevJobSupvrMngr;
         private System.Windows.Forms.Label label75;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox37;
+        public Guna.UI2.WinForms.Guna2TextBox txtPrevJobRole;
         private System.Windows.Forms.Label label74;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox36;
+        public Guna.UI2.WinForms.Guna2TextBox txtPrevJobTenure;
         private System.Windows.Forms.Label label72;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox35;
+        public Guna.UI2.WinForms.Guna2TextBox txtPrevJovLocation;
         private System.Windows.Forms.Label label71;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox34;
+        public Guna.UI2.WinForms.Guna2TextBox txtPrevJobTitle;
         private System.Windows.Forms.Label label70;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox33;
+        public Guna.UI2.WinForms.Guna2TextBox txtPrevCompanyName;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label59;
         public Guna.UI2.WinForms.Guna2Panel panelPersonalDetails;

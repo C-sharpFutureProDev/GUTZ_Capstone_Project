@@ -40,6 +40,7 @@
             this.lblInactiveEmployee = new System.Windows.Forms.Label();
             this.btnAddNewEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboSort = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
@@ -48,7 +49,6 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cboSort = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,10 +115,7 @@
             "Male",
             "Female",
             "Full Time",
-            "Part Time",
-            "Most Present",
-            "Most Late",
-            "Most Absent"});
+            "Part Time"});
             this.cboFilter.Location = new System.Drawing.Point(1000, 138);
             this.cboFilter.Name = "cboFilter";
             this.cboFilter.ShadowDecoration.BorderRadius = 4;
@@ -270,6 +267,36 @@
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Size = new System.Drawing.Size(1914, 202);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // cboSort
+            // 
+            this.cboSort.BackColor = System.Drawing.Color.Transparent;
+            this.cboSort.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSort.BorderThickness = 2;
+            this.cboSort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSort.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSort.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
+            this.cboSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSort.ItemHeight = 35;
+            this.cboSort.Items.AddRange(new object[] {
+            "SORT BY",
+            "Non-Tenured",
+            "Tenured",
+            "ESO",
+            "RKESI",
+            "VUIHOC"});
+            this.cboSort.Location = new System.Drawing.Point(1000, 82);
+            this.cboSort.Name = "cboSort";
+            this.cboSort.ShadowDecoration.BorderRadius = 4;
+            this.cboSort.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSort.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.cboSort.Size = new System.Drawing.Size(212, 41);
+            this.cboSort.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cboSort.TabIndex = 80;
             // 
             // guna2Button4
             // 
@@ -471,36 +498,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 774);
             this.flowLayoutPanel2.TabIndex = 0;
             this.flowLayoutPanel2.Visible = false;
-            // 
-            // cboSort
-            // 
-            this.cboSort.BackColor = System.Drawing.Color.Transparent;
-            this.cboSort.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.cboSort.BorderThickness = 2;
-            this.cboSort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSort.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSort.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold);
-            this.cboSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cboSort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.cboSort.ItemHeight = 35;
-            this.cboSort.Items.AddRange(new object[] {
-            "SORT BY",
-            "Non-Tenured",
-            "Tenured",
-            "ESO",
-            "RKESI",
-            "VUIHOC"});
-            this.cboSort.Location = new System.Drawing.Point(1000, 82);
-            this.cboSort.Name = "cboSort";
-            this.cboSort.ShadowDecoration.BorderRadius = 4;
-            this.cboSort.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cboSort.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.cboSort.Size = new System.Drawing.Size(212, 41);
-            this.cboSort.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.cboSort.TabIndex = 80;
             // 
             // EmployeeList
             // 

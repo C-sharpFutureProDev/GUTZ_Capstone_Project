@@ -59,8 +59,9 @@
             // panelTotalEmployee
             // 
             this.panelTotalEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.panelTotalEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
+            this.panelTotalEmployee.BorderColor = System.Drawing.Color.Gainsboro;
             this.panelTotalEmployee.BorderRadius = 15;
+            this.panelTotalEmployee.BorderThickness = 1;
             this.panelTotalEmployee.Controls.Add(this.btnEdit);
             this.panelTotalEmployee.Controls.Add(this.btnDeactivateEmployee);
             this.panelTotalEmployee.Controls.Add(this.lblJoinedDate);

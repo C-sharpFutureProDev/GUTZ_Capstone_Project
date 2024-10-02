@@ -55,7 +55,6 @@ namespace GUTZ_Capstone_Project
                     return;
                 }
 
-                // Set the retrieved values to the UI elements
                 cboHighestEducAttObt.SelectedItem = degObtained;
                 txtFieldOfStudy.Text = fieldOfStudy;
                 txtMajor.Text = major;
@@ -75,7 +74,7 @@ namespace GUTZ_Capstone_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //Validation 
+            // Validation 
             var validationChecks = new List<Func<bool>>
             {
                  () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboHighestEducAttObt, "Highest Degree Obtained"),

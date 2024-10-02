@@ -118,7 +118,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        // Helper method to determine if the time-in is for the morning shift
+        // Helper method to determine start and end time of ESL Employee 
         public static bool IsInMorningShift(DateTime timeIn)
         {
             // Define the time ranges for the morning and evening shifts

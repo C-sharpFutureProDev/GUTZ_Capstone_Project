@@ -10,10 +10,20 @@ namespace GUTZ_Capstone_Project
     public partial class EmployeeList : Form
     {
         public int id;
+        string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc,
+               f_name, m_name, l_name, tbl_employee.department_id, account_name, department_name, 
+               DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
+               FROM tbl_employee
+               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+               INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+               WHERE is_deleted = 0
+               ORDER BY emp_id ASC";
 
         public EmployeeList()
         {
             InitializeComponent();
+            PopulateItems();
             txtSearch.TextChanged += txtSearch_TextChanged;
         }
 
@@ -34,7 +44,6 @@ namespace GUTZ_Capstone_Project
             cboSearch.SelectedIndex = 0;
             cboSort.SelectedIndex = 0;
             cboFilter.SelectedIndex = 0;
-            PopulateItems();
             CountActiveAndInactive();
         }
 
@@ -69,16 +78,6 @@ namespace GUTZ_Capstone_Project
 
         private void PopulateItems()
         {
-            string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc,
-               f_name, m_name, l_name, tbl_employee.department_id, account_name, department_name, 
-               DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
-               FROM tbl_employee
-               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-               INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-               WHERE is_deleted = 0
-               ORDER BY emp_id ASC";
-
             try
             {
                 DataTable dt = DB_OperationHelperClass.QueryData(sql);
@@ -176,43 +175,43 @@ namespace GUTZ_Capstone_Project
                     {
                         case 0: // Employee ID
                             query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                      CONCAT(f_name, ' ', 
-                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                      FROM tbl_employee
-                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                      WHERE is_deleted = 0 AND emp_id = @empId";
+                                      CONCAT(f_name, ' ', 
+                                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                      FROM tbl_employee
+                                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                      WHERE is_deleted = 0 AND emp_id = @empId";
                             break;
 
                         case 1: // Employee Name
                             query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                      CONCAT(f_name, ' ', 
-                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                      FROM tbl_employee
-                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                      WHERE is_deleted = 0 AND CONCAT(f_name, ' ', 
-                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                      l_name) LIKE @empName";
+                                      CONCAT(f_name, ' ', 
+                                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                      FROM tbl_employee
+                                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                      WHERE is_deleted = 0 AND CONCAT(f_name, ' ', 
+                                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                      l_name) LIKE @empName";
                             break;
 
                         case 2: // Employee Email
                             query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                      CONCAT(f_name, ' ', 
-                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                      FROM tbl_employee
-                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                      WHERE is_deleted = 0 AND email LIKE @empEmail";
+                                      CONCAT(f_name, ' ', 
+                                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                      l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                      FROM tbl_employee
+                                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                      WHERE is_deleted = 0 AND email LIKE @empEmail";
                             break;
 
                         default:
