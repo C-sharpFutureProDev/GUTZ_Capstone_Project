@@ -139,7 +139,7 @@
             this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtUsername.Font = new System.Drawing.Font("Cambria", 10.5F, System.Drawing.FontStyle.Bold);
+            this.txtUsername.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.txtUsername.Location = new System.Drawing.Point(128, 288);
@@ -169,7 +169,7 @@
             this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtPassword.Font = new System.Drawing.Font("Cambria", 10.5F, System.Drawing.FontStyle.Bold);
+            this.txtPassword.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.txtPassword.Location = new System.Drawing.Point(128, 381);
@@ -219,7 +219,7 @@
             this.iconPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.iconPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.iconPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPassword.IconSize = 45;
+            this.iconPassword.IconSize = 49;
             this.iconPassword.Location = new System.Drawing.Point(70, 379);
             this.iconPassword.Name = "iconPassword";
             this.iconPassword.Padding = new System.Windows.Forms.Padding(1, 9, 0, 0);
@@ -234,7 +234,7 @@
             this.iconUsername.IconChar = FontAwesome.Sharp.IconChar.UserTag;
             this.iconUsername.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.iconUsername.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconUsername.IconSize = 45;
+            this.iconUsername.IconSize = 49;
             this.iconUsername.Location = new System.Drawing.Point(70, 287);
             this.iconUsername.Name = "iconUsername";
             this.iconUsername.Padding = new System.Windows.Forms.Padding(2, 9, 0, 0);

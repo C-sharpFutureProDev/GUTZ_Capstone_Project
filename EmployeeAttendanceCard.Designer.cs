@@ -49,15 +49,14 @@
             // panelTotalEmployee
             // 
             this.panelTotalEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.panelTotalEmployee.BorderColor = System.Drawing.Color.Gainsboro;
+            this.panelTotalEmployee.BorderColor = System.Drawing.Color.Black;
             this.panelTotalEmployee.BorderRadius = 15;
-            this.panelTotalEmployee.BorderThickness = 1;
             this.panelTotalEmployee.Controls.Add(this.lblCurrentDate);
             this.panelTotalEmployee.Controls.Add(this.btnViewEmployeeAttendanceHistory);
             this.panelTotalEmployee.Controls.Add(this.EmployeeListCardEmployeeDetailsCard);
             this.panelTotalEmployee.Controls.Add(this.lblName);
             this.panelTotalEmployee.Controls.Add(this.employeeProfilePicture);
-            this.panelTotalEmployee.FillColor = System.Drawing.Color.White;
+            this.panelTotalEmployee.FillColor = System.Drawing.Color.WhiteSmoke;
             this.panelTotalEmployee.Location = new System.Drawing.Point(27, 24);
             this.panelTotalEmployee.Margin = new System.Windows.Forms.Padding(0);
             this.panelTotalEmployee.Name = "panelTotalEmployee";
@@ -78,6 +77,7 @@
             this.lblCurrentDate.Size = new System.Drawing.Size(108, 19);
             this.lblCurrentDate.TabIndex = 75;
             this.lblCurrentDate.Text = "Current Date";
+            this.lblCurrentDate.Visible = false;
             // 
             // btnViewEmployeeAttendanceHistory
             // 
@@ -110,15 +110,16 @@
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.MistyRose;
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.Green;
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 15;
+            this.EmployeeListCardEmployeeDetailsCard.BorderThickness = 1;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.btnClockOut);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.btnStatus);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.btnClockIn);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.label3);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.label2);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.label1);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.MistyRose;
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(127, 45);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
             this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.BorderRadius = 15;
@@ -239,6 +240,7 @@
             // lblName
             // 
             this.lblName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(14, 153);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(283, 31);
@@ -249,7 +251,7 @@
             // employeeProfilePicture
             // 
             this.employeeProfilePicture.AutoRoundedCorners = true;
-            this.employeeProfilePicture.BackColor = System.Drawing.Color.White;
+            this.employeeProfilePicture.BackColor = System.Drawing.Color.WhiteSmoke;
             this.employeeProfilePicture.BorderRadius = 45;
             this.employeeProfilePicture.FillColor = System.Drawing.Color.Gainsboro;
             this.employeeProfilePicture.ImageRotate = 0F;
@@ -264,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.Controls.Add(this.panelTotalEmployee);
             this.Font = new System.Drawing.Font("Cambria", 8.9F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));

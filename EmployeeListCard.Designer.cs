@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeListCard));
-            this.panelTotalEmployee = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelEmployeeList = new Guna.UI2.WinForms.Guna2Panel();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.btnDeactivateEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.lblJoinedDate = new System.Windows.Forms.Label();
@@ -38,48 +38,44 @@
             this.label5 = new System.Windows.Forms.Label();
             this.EmployeeListCardEmployeeDetailsCard = new Guna.UI2.WinForms.Guna2Panel();
             this.lblEmpRate = new System.Windows.Forms.Label();
-            this.IconEmpRate = new FontAwesome.Sharp.IconButton();
             this.lblContactNo = new System.Windows.Forms.Label();
-            this.iconContact = new FontAwesome.Sharp.IconButton();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.iconEmail = new FontAwesome.Sharp.IconButton();
             this.lblJobRole = new System.Windows.Forms.Label();
-            this.iconIDNumber = new FontAwesome.Sharp.IconButton();
-            this.iconPosition = new FontAwesome.Sharp.IconButton();
             this.lblID = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnActiveInactive = new Guna.UI2.WinForms.Guna2Button();
             this.employeeProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panelTotalEmployee.SuspendLayout();
+            this.btnActivate = new Guna.UI2.WinForms.Guna2Button();
+            this.panelEmployeeList.SuspendLayout();
             this.EmployeeListCardEmployeeDetailsCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelTotalEmployee
+            // panelEmployeeList
             // 
-            this.panelTotalEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.panelTotalEmployee.BorderColor = System.Drawing.Color.Gainsboro;
-            this.panelTotalEmployee.BorderRadius = 15;
-            this.panelTotalEmployee.BorderThickness = 1;
-            this.panelTotalEmployee.Controls.Add(this.btnEdit);
-            this.panelTotalEmployee.Controls.Add(this.btnDeactivateEmployee);
-            this.panelTotalEmployee.Controls.Add(this.lblJoinedDate);
-            this.panelTotalEmployee.Controls.Add(this.btnViewProfile);
-            this.panelTotalEmployee.Controls.Add(this.label5);
-            this.panelTotalEmployee.Controls.Add(this.EmployeeListCardEmployeeDetailsCard);
-            this.panelTotalEmployee.Controls.Add(this.lblName);
-            this.panelTotalEmployee.Controls.Add(this.btnActiveInactive);
-            this.panelTotalEmployee.Controls.Add(this.employeeProfilePicture);
-            this.panelTotalEmployee.FillColor = System.Drawing.Color.White;
-            this.panelTotalEmployee.Location = new System.Drawing.Point(11, 24);
-            this.panelTotalEmployee.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTotalEmployee.Name = "panelTotalEmployee";
-            this.panelTotalEmployee.ShadowDecoration.BorderRadius = 15;
-            this.panelTotalEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
-            this.panelTotalEmployee.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.panelTotalEmployee.Size = new System.Drawing.Size(351, 465);
-            this.panelTotalEmployee.TabIndex = 1;
+            this.panelEmployeeList.BackColor = System.Drawing.Color.Transparent;
+            this.panelEmployeeList.BorderColor = System.Drawing.Color.Green;
+            this.panelEmployeeList.BorderRadius = 15;
+            this.panelEmployeeList.Controls.Add(this.btnActivate);
+            this.panelEmployeeList.Controls.Add(this.btnEdit);
+            this.panelEmployeeList.Controls.Add(this.btnDeactivateEmployee);
+            this.panelEmployeeList.Controls.Add(this.lblJoinedDate);
+            this.panelEmployeeList.Controls.Add(this.btnViewProfile);
+            this.panelEmployeeList.Controls.Add(this.label5);
+            this.panelEmployeeList.Controls.Add(this.EmployeeListCardEmployeeDetailsCard);
+            this.panelEmployeeList.Controls.Add(this.lblName);
+            this.panelEmployeeList.Controls.Add(this.btnActiveInactive);
+            this.panelEmployeeList.Controls.Add(this.employeeProfilePicture);
+            this.panelEmployeeList.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.panelEmployeeList.Location = new System.Drawing.Point(11, 24);
+            this.panelEmployeeList.Margin = new System.Windows.Forms.Padding(0);
+            this.panelEmployeeList.Name = "panelEmployeeList";
+            this.panelEmployeeList.ShadowDecoration.BorderRadius = 15;
+            this.panelEmployeeList.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
+            this.panelEmployeeList.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
+            this.panelEmployeeList.Size = new System.Drawing.Size(351, 465);
+            this.panelEmployeeList.TabIndex = 1;
             // 
             // btnEdit
             // 
@@ -98,11 +94,11 @@
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEdit.Location = new System.Drawing.Point(239, 147);
+            this.btnEdit.Location = new System.Drawing.Point(250, 13);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(5);
             this.btnEdit.PressedColor = System.Drawing.Color.Green;
-            this.btnEdit.Size = new System.Drawing.Size(35, 36);
+            this.btnEdit.Size = new System.Drawing.Size(40, 40);
             this.btnEdit.TabIndex = 76;
             this.btnEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -136,11 +132,11 @@
             // lblJoinedDate
             // 
             this.lblJoinedDate.AutoSize = true;
-            this.lblJoinedDate.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Bold);
-            this.lblJoinedDate.Location = new System.Drawing.Point(89, 423);
+            this.lblJoinedDate.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblJoinedDate.Location = new System.Drawing.Point(90, 423);
             this.lblJoinedDate.Name = "lblJoinedDate";
             this.lblJoinedDate.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.lblJoinedDate.Size = new System.Drawing.Size(76, 17);
+            this.lblJoinedDate.Size = new System.Drawing.Size(75, 22);
             this.lblJoinedDate.TabIndex = 74;
             this.lblJoinedDate.Text = "Hire Date";
             // 
@@ -155,7 +151,7 @@
             this.btnViewProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnViewProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnViewProfile.Font = new System.Drawing.Font("Cambria", 7F, System.Drawing.FontStyle.Bold);
+            this.btnViewProfile.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewProfile.ForeColor = System.Drawing.Color.White;
             this.btnViewProfile.HoverState.BorderColor = System.Drawing.Color.Green;
             this.btnViewProfile.HoverState.FillColor = System.Drawing.Color.Green;
@@ -175,182 +171,93 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(31, 423);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(59, 17);
+            this.label5.Size = new System.Drawing.Size(64, 22);
             this.label5.TabIndex = 72;
             this.label5.Text = "Joined:";
             // 
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.MistyRose;
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.Green;
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 15;
+            this.EmployeeListCardEmployeeDetailsCard.BorderThickness = 2;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmpRate);
-            this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.IconEmpRate);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblContactNo);
-            this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.iconContact);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmail);
-            this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.iconEmail);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblJobRole);
-            this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.iconIDNumber);
-            this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.iconPosition);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblID);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.MistyRose;
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(34, 253);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
             this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.BorderRadius = 15;
-            this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.Color = System.Drawing.Color.MistyRose;
-            this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.Enabled = true;
-            this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.Color = System.Drawing.Color.Green;
+            this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
             this.EmployeeListCardEmployeeDetailsCard.Size = new System.Drawing.Size(284, 156);
             this.EmployeeListCardEmployeeDetailsCard.TabIndex = 62;
             // 
             // lblEmpRate
             // 
-            this.lblEmpRate.AutoSize = true;
-            this.lblEmpRate.Font = new System.Drawing.Font("Cambria", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpRate.Location = new System.Drawing.Point(201, 12);
+            this.lblEmpRate.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblEmpRate.ForeColor = System.Drawing.Color.Black;
+            this.lblEmpRate.Location = new System.Drawing.Point(3, 122);
             this.lblEmpRate.Name = "lblEmpRate";
-            this.lblEmpRate.Size = new System.Drawing.Size(43, 19);
+            this.lblEmpRate.Size = new System.Drawing.Size(278, 24);
             this.lblEmpRate.TabIndex = 73;
             this.lblEmpRate.Text = "Rate";
-            // 
-            // IconEmpRate
-            // 
-            this.IconEmpRate.BackColor = System.Drawing.Color.MistyRose;
-            this.IconEmpRate.FlatAppearance.BorderSize = 0;
-            this.IconEmpRate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.IconEmpRate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.IconEmpRate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IconEmpRate.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
-            this.IconEmpRate.IconColor = System.Drawing.Color.Black;
-            this.IconEmpRate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconEmpRate.IconSize = 36;
-            this.IconEmpRate.Location = new System.Drawing.Point(157, 8);
-            this.IconEmpRate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.IconEmpRate.Name = "IconEmpRate";
-            this.IconEmpRate.Size = new System.Drawing.Size(42, 28);
-            this.IconEmpRate.TabIndex = 72;
-            this.IconEmpRate.UseVisualStyleBackColor = false;
+            this.lblEmpRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblContactNo
             // 
-            this.lblContactNo.AutoSize = true;
-            this.lblContactNo.Font = new System.Drawing.Font("Cambria", 8F, System.Drawing.FontStyle.Bold);
-            this.lblContactNo.Location = new System.Drawing.Point(65, 121);
+            this.lblContactNo.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblContactNo.ForeColor = System.Drawing.Color.Black;
+            this.lblContactNo.Location = new System.Drawing.Point(3, 94);
             this.lblContactNo.Name = "lblContactNo";
-            this.lblContactNo.Size = new System.Drawing.Size(94, 19);
+            this.lblContactNo.Size = new System.Drawing.Size(278, 24);
             this.lblContactNo.TabIndex = 71;
             this.lblContactNo.Text = "Contact No.";
-            // 
-            // iconContact
-            // 
-            this.iconContact.BackColor = System.Drawing.Color.MistyRose;
-            this.iconContact.FlatAppearance.BorderSize = 0;
-            this.iconContact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconContact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconContact.IconChar = FontAwesome.Sharp.IconChar.Phone;
-            this.iconContact.IconColor = System.Drawing.Color.Black;
-            this.iconContact.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconContact.IconSize = 30;
-            this.iconContact.Location = new System.Drawing.Point(17, 115);
-            this.iconContact.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconContact.Name = "iconContact";
-            this.iconContact.Size = new System.Drawing.Size(42, 28);
-            this.iconContact.TabIndex = 70;
-            this.iconContact.UseVisualStyleBackColor = false;
+            this.lblContactNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Cambria", 8F, System.Drawing.FontStyle.Bold);
-            this.lblEmail.Location = new System.Drawing.Point(65, 85);
+            this.lblEmail.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblEmail.ForeColor = System.Drawing.Color.Black;
+            this.lblEmail.Location = new System.Drawing.Point(3, 66);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(51, 19);
+            this.lblEmail.Size = new System.Drawing.Size(278, 24);
             this.lblEmail.TabIndex = 69;
             this.lblEmail.Text = "Email";
-            // 
-            // iconEmail
-            // 
-            this.iconEmail.BackColor = System.Drawing.Color.MistyRose;
-            this.iconEmail.FlatAppearance.BorderSize = 0;
-            this.iconEmail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconEmail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconEmail.IconChar = FontAwesome.Sharp.IconChar.Envelope;
-            this.iconEmail.IconColor = System.Drawing.Color.Black;
-            this.iconEmail.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconEmail.IconSize = 32;
-            this.iconEmail.Location = new System.Drawing.Point(17, 81);
-            this.iconEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconEmail.Name = "iconEmail";
-            this.iconEmail.Size = new System.Drawing.Size(42, 28);
-            this.iconEmail.TabIndex = 68;
-            this.iconEmail.UseVisualStyleBackColor = false;
+            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblJobRole
             // 
-            this.lblJobRole.AutoSize = true;
-            this.lblJobRole.Font = new System.Drawing.Font("Cambria", 8F, System.Drawing.FontStyle.Bold);
-            this.lblJobRole.Location = new System.Drawing.Point(65, 52);
+            this.lblJobRole.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblJobRole.ForeColor = System.Drawing.Color.Black;
+            this.lblJobRole.Location = new System.Drawing.Point(3, 38);
             this.lblJobRole.Name = "lblJobRole";
-            this.lblJobRole.Size = new System.Drawing.Size(69, 19);
+            this.lblJobRole.Size = new System.Drawing.Size(278, 24);
             this.lblJobRole.TabIndex = 66;
             this.lblJobRole.Text = "Job Role";
-            // 
-            // iconIDNumber
-            // 
-            this.iconIDNumber.BackColor = System.Drawing.Color.MistyRose;
-            this.iconIDNumber.FlatAppearance.BorderSize = 0;
-            this.iconIDNumber.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconIDNumber.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconIDNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconIDNumber.IconChar = FontAwesome.Sharp.IconChar.IdCard;
-            this.iconIDNumber.IconColor = System.Drawing.Color.Black;
-            this.iconIDNumber.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconIDNumber.IconSize = 32;
-            this.iconIDNumber.Location = new System.Drawing.Point(17, 8);
-            this.iconIDNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconIDNumber.Name = "iconIDNumber";
-            this.iconIDNumber.Size = new System.Drawing.Size(42, 28);
-            this.iconIDNumber.TabIndex = 65;
-            this.iconIDNumber.UseVisualStyleBackColor = false;
-            // 
-            // iconPosition
-            // 
-            this.iconPosition.BackColor = System.Drawing.Color.MistyRose;
-            this.iconPosition.FlatAppearance.BorderSize = 0;
-            this.iconPosition.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconPosition.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconPosition.IconChar = FontAwesome.Sharp.IconChar.Briefcase;
-            this.iconPosition.IconColor = System.Drawing.Color.Black;
-            this.iconPosition.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPosition.IconSize = 32;
-            this.iconPosition.Location = new System.Drawing.Point(17, 47);
-            this.iconPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconPosition.Name = "iconPosition";
-            this.iconPosition.Size = new System.Drawing.Size(42, 28);
-            this.iconPosition.TabIndex = 63;
-            this.iconPosition.UseVisualStyleBackColor = false;
+            this.lblJobRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Cambria", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(65, 13);
+            this.lblID.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblID.ForeColor = System.Drawing.Color.Black;
+            this.lblID.Location = new System.Drawing.Point(3, 10);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(26, 19);
+            this.lblID.Size = new System.Drawing.Size(278, 24);
             this.lblID.TabIndex = 61;
             this.lblID.Text = "ID";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(0, 200);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(351, 31);
@@ -362,7 +269,7 @@
             // 
             this.btnActiveInactive.AutoRoundedCorners = true;
             this.btnActiveInactive.BackColor = System.Drawing.Color.Transparent;
-            this.btnActiveInactive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.btnActiveInactive.BorderColor = System.Drawing.Color.Green;
             this.btnActiveInactive.BorderRadius = 15;
             this.btnActiveInactive.BorderThickness = 1;
             this.btnActiveInactive.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -372,19 +279,23 @@
             this.btnActiveInactive.FillColor = System.Drawing.Color.White;
             this.btnActiveInactive.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
             this.btnActiveInactive.ForeColor = System.Drawing.Color.Green;
-            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.Green;
             this.btnActiveInactive.HoverState.FillColor = System.Drawing.Color.White;
             this.btnActiveInactive.HoverState.ForeColor = System.Drawing.Color.Green;
             this.btnActiveInactive.Location = new System.Drawing.Point(12, 13);
             this.btnActiveInactive.Name = "btnActiveInactive";
             this.btnActiveInactive.PressedColor = System.Drawing.Color.White;
+            this.btnActiveInactive.ShadowDecoration.BorderRadius = 15;
+            this.btnActiveInactive.ShadowDecoration.Color = System.Drawing.Color.Green;
+            this.btnActiveInactive.ShadowDecoration.Enabled = true;
+            this.btnActiveInactive.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
             this.btnActiveInactive.Size = new System.Drawing.Size(88, 32);
             this.btnActiveInactive.TabIndex = 59;
             // 
             // employeeProfilePicture
             // 
             this.employeeProfilePicture.AutoRoundedCorners = true;
-            this.employeeProfilePicture.BackColor = System.Drawing.Color.White;
+            this.employeeProfilePicture.BackColor = System.Drawing.Color.WhiteSmoke;
             this.employeeProfilePicture.BorderRadius = 56;
             this.employeeProfilePicture.FillColor = System.Drawing.Color.Gainsboro;
             this.employeeProfilePicture.ImageRotate = 0F;
@@ -400,36 +311,56 @@
             this.toolTip1.BackColor = System.Drawing.Color.White;
             this.toolTip1.ForeColor = System.Drawing.Color.Black;
             // 
+            // btnActivate
+            // 
+            this.btnActivate.BackColor = System.Drawing.Color.Transparent;
+            this.btnActivate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.btnActivate.BorderRadius = 3;
+            this.btnActivate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnActivate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnActivate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnActivate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnActivate.FillColor = System.Drawing.Color.Orange;
+            this.btnActivate.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnActivate.ForeColor = System.Drawing.Color.White;
+            this.btnActivate.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnActivate.HoverState.FillColor = System.Drawing.Color.DarkOrange;
+            this.btnActivate.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnActivate.Image = ((System.Drawing.Image)(resources.GetObject("btnActivate.Image")));
+            this.btnActivate.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnActivate.Location = new System.Drawing.Point(299, 13);
+            this.btnActivate.Name = "btnActivate";
+            this.btnActivate.Padding = new System.Windows.Forms.Padding(5);
+            this.btnActivate.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.btnActivate.Size = new System.Drawing.Size(40, 40);
+            this.btnActivate.TabIndex = 77;
+            this.btnActivate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnActivate.Visible = false;
+            this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
+            // 
             // EmployeeListCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.Controls.Add(this.panelTotalEmployee);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.Controls.Add(this.panelEmployeeList);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(17, 0, 0, 0);
             this.Name = "EmployeeListCard";
             this.Size = new System.Drawing.Size(372, 512);
-            this.panelTotalEmployee.ResumeLayout(false);
-            this.panelTotalEmployee.PerformLayout();
+            this.panelEmployeeList.ResumeLayout(false);
+            this.panelEmployeeList.PerformLayout();
             this.EmployeeListCardEmployeeDetailsCard.ResumeLayout(false);
-            this.EmployeeListCardEmployeeDetailsCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Panel panelTotalEmployee;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblName;
-        private FontAwesome.Sharp.IconButton iconPosition;
-        private FontAwesome.Sharp.IconButton iconIDNumber;
         private System.Windows.Forms.Label lblJobRole;
-        private FontAwesome.Sharp.IconButton iconEmail;
         private System.Windows.Forms.Label lblEmail;
-        private FontAwesome.Sharp.IconButton iconContact;
         private System.Windows.Forms.Label lblContactNo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblJoinedDate;
@@ -439,8 +370,9 @@
         public Guna.UI2.WinForms.Guna2Button btnViewProfile;
         public Guna.UI2.WinForms.Guna2Panel EmployeeListCardEmployeeDetailsCard;
         public Guna.UI2.WinForms.Guna2Button btnActiveInactive;
-        private Guna.UI2.WinForms.Guna2PictureBox employeeProfilePicture;
-        private FontAwesome.Sharp.IconButton IconEmpRate;
         private System.Windows.Forms.Label lblEmpRate;
+        public Guna.UI2.WinForms.Guna2Button btnActivate;
+        public Guna.UI2.WinForms.Guna2Panel panelEmployeeList;
+        public Guna.UI2.WinForms.Guna2PictureBox employeeProfilePicture;
     }
 }

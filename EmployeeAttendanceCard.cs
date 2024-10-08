@@ -18,14 +18,14 @@ namespace GUTZ_Capstone_Project
         private string _clockInTime;
         private string _clockOutTime;
         private string _status;
-        private string _currentDate;
+        //private string _currentDate;
 
         public EmployeeAttendanceCard()
         {
             InitializeComponent();
         }
 
-        [Category("Custom Control")]
+        /*[Category("Custom Control")]
         public string CurrentDate
         {
             get => _currentDate;
@@ -34,7 +34,7 @@ namespace GUTZ_Capstone_Project
                 _currentDate = value;
                 lblCurrentDate.Text = value;
             }
-        }
+        }*/
 
         [Category("Custom Control")]
         public Image EmployeeProfilePic

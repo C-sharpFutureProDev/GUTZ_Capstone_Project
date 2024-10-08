@@ -1026,6 +1026,7 @@
             this.txtPrevJobSupervisorOrManager.PasswordChar = '\0';
             this.txtPrevJobSupervisorOrManager.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtPrevJobSupervisorOrManager.PlaceholderText = "";
+            this.txtPrevJobSupervisorOrManager.ReadOnly = true;
             this.txtPrevJobSupervisorOrManager.SelectedText = "";
             this.txtPrevJobSupervisorOrManager.Size = new System.Drawing.Size(612, 44);
             this.txtPrevJobSupervisorOrManager.TabIndex = 192;
@@ -1064,6 +1065,7 @@
             this.txtPrevJobRole.PasswordChar = '\0';
             this.txtPrevJobRole.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtPrevJobRole.PlaceholderText = "";
+            this.txtPrevJobRole.ReadOnly = true;
             this.txtPrevJobRole.SelectedText = "";
             this.txtPrevJobRole.Size = new System.Drawing.Size(610, 141);
             this.txtPrevJobRole.TabIndex = 190;
@@ -1100,6 +1102,7 @@
             this.txtPrevJobTenure.PasswordChar = '\0';
             this.txtPrevJobTenure.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtPrevJobTenure.PlaceholderText = "";
+            this.txtPrevJobTenure.ReadOnly = true;
             this.txtPrevJobTenure.SelectedText = "";
             this.txtPrevJobTenure.Size = new System.Drawing.Size(600, 44);
             this.txtPrevJobTenure.TabIndex = 188;
@@ -1136,6 +1139,7 @@
             this.txtPrevJobCompLoc.PasswordChar = '\0';
             this.txtPrevJobCompLoc.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtPrevJobCompLoc.PlaceholderText = "";
+            this.txtPrevJobCompLoc.ReadOnly = true;
             this.txtPrevJobCompLoc.SelectedText = "";
             this.txtPrevJobCompLoc.Size = new System.Drawing.Size(600, 44);
             this.txtPrevJobCompLoc.TabIndex = 186;
@@ -1172,6 +1176,7 @@
             this.txtPrevJobTitle.PasswordChar = '\0';
             this.txtPrevJobTitle.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtPrevJobTitle.PlaceholderText = "";
+            this.txtPrevJobTitle.ReadOnly = true;
             this.txtPrevJobTitle.SelectedText = "";
             this.txtPrevJobTitle.Size = new System.Drawing.Size(600, 44);
             this.txtPrevJobTitle.TabIndex = 184;
@@ -1208,6 +1213,7 @@
             this.txtPrevCompName.PasswordChar = '\0';
             this.txtPrevCompName.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtPrevCompName.PlaceholderText = "";
+            this.txtPrevCompName.ReadOnly = true;
             this.txtPrevCompName.SelectedText = "";
             this.txtPrevCompName.Size = new System.Drawing.Size(1258, 44);
             this.txtPrevCompName.TabIndex = 182;
@@ -2241,6 +2247,7 @@
             this.txtEmergencyContactPersonPhoneNo.PasswordChar = '\0';
             this.txtEmergencyContactPersonPhoneNo.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtEmergencyContactPersonPhoneNo.PlaceholderText = "";
+            this.txtEmergencyContactPersonPhoneNo.ReadOnly = true;
             this.txtEmergencyContactPersonPhoneNo.SelectedText = "";
             this.txtEmergencyContactPersonPhoneNo.Size = new System.Drawing.Size(552, 44);
             this.txtEmergencyContactPersonPhoneNo.TabIndex = 136;
@@ -2316,6 +2323,7 @@
             this.txtEmergencyContactPerson.PasswordChar = '\0';
             this.txtEmergencyContactPerson.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtEmergencyContactPerson.PlaceholderText = "";
+            this.txtEmergencyContactPerson.ReadOnly = true;
             this.txtEmergencyContactPerson.SelectedText = "";
             this.txtEmergencyContactPerson.Size = new System.Drawing.Size(551, 44);
             this.txtEmergencyContactPerson.TabIndex = 132;
@@ -2363,6 +2371,7 @@
             this.txtBrgyAddress.PasswordChar = '\0';
             this.txtBrgyAddress.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtBrgyAddress.PlaceholderText = "";
+            this.txtBrgyAddress.ReadOnly = true;
             this.txtBrgyAddress.SelectedText = "";
             this.txtBrgyAddress.Size = new System.Drawing.Size(551, 44);
             this.txtBrgyAddress.TabIndex = 129;
@@ -2432,6 +2441,7 @@
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtEmail.PlaceholderText = "";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(300, 44);
             this.txtEmail.TabIndex = 124;
@@ -2457,6 +2467,7 @@
             this.txtContactNumber.PasswordChar = '\0';
             this.txtContactNumber.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtContactNumber.PlaceholderText = "";
+            this.txtContactNumber.ReadOnly = true;
             this.txtContactNumber.SelectedText = "";
             this.txtContactNumber.Size = new System.Drawing.Size(300, 44);
             this.txtContactNumber.TabIndex = 123;
@@ -2526,6 +2537,7 @@
             this.txtAge.PasswordChar = '\0';
             this.txtAge.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtAge.PlaceholderText = "";
+            this.txtAge.ReadOnly = true;
             this.txtAge.SelectedText = "";
             this.txtAge.Size = new System.Drawing.Size(139, 44);
             this.txtAge.TabIndex = 116;
@@ -2606,6 +2618,7 @@
             this.txtMiddleName.PasswordChar = '\0';
             this.txtMiddleName.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtMiddleName.PlaceholderText = "";
+            this.txtMiddleName.ReadOnly = true;
             this.txtMiddleName.SelectedText = "";
             this.txtMiddleName.Size = new System.Drawing.Size(300, 44);
             this.txtMiddleName.TabIndex = 110;
@@ -2642,6 +2655,7 @@
             this.txtLastName.PasswordChar = '\0';
             this.txtLastName.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtLastName.PlaceholderText = "";
+            this.txtLastName.ReadOnly = true;
             this.txtLastName.SelectedText = "";
             this.txtLastName.Size = new System.Drawing.Size(300, 44);
             this.txtLastName.TabIndex = 108;
@@ -2667,6 +2681,7 @@
             this.txtFirstName.PasswordChar = '\0';
             this.txtFirstName.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtFirstName.PlaceholderText = "";
+            this.txtFirstName.ReadOnly = true;
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.Size = new System.Drawing.Size(300, 44);
             this.txtFirstName.TabIndex = 107;
@@ -2788,7 +2803,7 @@
             this.txtWorkingHours.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.txtWorkingHours.BorderRadius = 4;
             this.txtWorkingHours.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWorkingHours.DefaultText = "8 Hours";
+            this.txtWorkingHours.DefaultText = "1 pm  - 5 pm";
             this.txtWorkingHours.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtWorkingHours.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtWorkingHours.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -3208,6 +3223,7 @@
             this.txtEmpLastName.PasswordChar = '\0';
             this.txtEmpLastName.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtEmpLastName.PlaceholderText = "";
+            this.txtEmpLastName.ReadOnly = true;
             this.txtEmpLastName.SelectedText = "";
             this.txtEmpLastName.Size = new System.Drawing.Size(601, 45);
             this.txtEmpLastName.TabIndex = 108;
@@ -3233,6 +3249,7 @@
             this.txtEmpFirstName.PasswordChar = '\0';
             this.txtEmpFirstName.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtEmpFirstName.PlaceholderText = "";
+            this.txtEmpFirstName.ReadOnly = true;
             this.txtEmpFirstName.SelectedText = "";
             this.txtEmpFirstName.Size = new System.Drawing.Size(601, 45);
             this.txtEmpFirstName.TabIndex = 107;

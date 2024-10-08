@@ -30,6 +30,7 @@ namespace GUTZ_Capstone_Project
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnDeactivateEmployee, "Deactivate");
             toolTip.SetToolTip(btnEdit, "Update Record");
+            toolTip.SetToolTip(btnActivate, "Reactivate");
             toolTip.UseAnimation = false;
             toolTip.UseFading = false;
         }
@@ -222,6 +223,44 @@ namespace GUTZ_Capstone_Project
                 else
                 {
                     MessageBox.Show("Failed to delete selected record.",
+                                    "Record Deletion Unsuccessful",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void btnActivate_Click(object sender, EventArgs e)
+        {
+
+            // Display a confirmation message
+            DialogResult result = MessageBox.Show("Are you sure you want to activate employee with ID: '" + _id + "'?",
+                                           "Confirm Deactivation",
+                                           MessageBoxButtons.YesNo,
+                                           MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // SQL command for soft delete with parameterized query
+                string softDeleteRecord = "UPDATE tbl_employee SET is_deleted = 0, deleted_at = NULL WHERE emp_id = @id";
+                var parameters = new Dictionary<string, object>
+                                { { "@id", _id }  };
+
+                // Execute SQL Delete Command
+                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(softDeleteRecord, parameters))
+                {
+                    MessageBox.Show("Selected employee reactivated successfully.",
+                            "Deactivation Successful",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                    // Invoke the EmployeeDeleted event
+                    EmployeeDeleted?.Invoke(this, EventArgs.Empty);
+                    EmployeeDeactivated?.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to reactivate selected record.",
                                     "Record Deletion Unsuccessful",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation);
