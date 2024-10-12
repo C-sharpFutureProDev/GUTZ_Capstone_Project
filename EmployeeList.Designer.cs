@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeList));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cboSearch = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,68 +46,28 @@
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.cboSearch = new Guna.UI2.WinForms.Guna2ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 202);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1914, 774);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // cboSearch
-            // 
-            this.cboSearch.BackColor = System.Drawing.Color.Transparent;
-            this.cboSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.cboSearch.BorderThickness = 2;
-            this.cboSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSearch.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSearch.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
-            this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cboSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.cboSearch.ItemHeight = 35;
-            this.cboSearch.Items.AddRange(new object[] {
-            "SEARCH BY",
-            "ID Number",
-            "Name",
-            "Email Address"});
-            this.cboSearch.Location = new System.Drawing.Point(29, 138);
-            this.cboSearch.Name = "cboSearch";
-            this.cboSearch.ShadowDecoration.BorderRadius = 4;
-            this.cboSearch.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cboSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.cboSearch.Size = new System.Drawing.Size(211, 41);
-            this.cboSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.cboSearch.TabIndex = 56;
-            this.cboSearch.DropDown += new System.EventHandler(this.cboSearch_DropDown);
             // 
             // cboFilter
             // 
             this.cboFilter.AutoRoundedCorners = true;
-            this.cboFilter.BackColor = System.Drawing.Color.Transparent;
+            this.cboFilter.BackColor = System.Drawing.Color.White;
             this.cboFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboFilter.BorderRadius = 19;
             this.cboFilter.BorderThickness = 2;
             this.cboFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFilter.FillColor = System.Drawing.Color.WhiteSmoke;
             this.cboFilter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboFilter.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.cboFilter.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.cboFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cboFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.ItemHeight = 35;
             this.cboFilter.Items.AddRange(new object[] {
-            "FILTER BY",
             "Active",
             "Inactive",
             "Male",
@@ -124,13 +82,12 @@
             this.cboFilter.Size = new System.Drawing.Size(212, 41);
             this.cboFilter.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cboFilter.TabIndex = 58;
-            this.cboFilter.DropDown += new System.EventHandler(this.cboFilter_DropDown);
             this.cboFilter.SelectedIndexChanged += new System.EventHandler(this.cboFilter_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Green;
             this.label1.Location = new System.Drawing.Point(66, 22);
@@ -142,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
             this.label2.Location = new System.Drawing.Point(226, 22);
@@ -153,7 +110,7 @@
             // 
             // iconActive
             // 
-            this.iconActive.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.iconActive.BackColor = System.Drawing.Color.White;
             this.iconActive.FlatAppearance.BorderSize = 0;
             this.iconActive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconActive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -172,7 +129,7 @@
             // 
             // iconInactive
             // 
-            this.iconInactive.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.iconInactive.BackColor = System.Drawing.Color.White;
             this.iconInactive.FlatAppearance.BorderSize = 0;
             this.iconInactive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconInactive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -192,7 +149,7 @@
             // lblActiveEmployee
             // 
             this.lblActiveEmployee.AutoSize = true;
-            this.lblActiveEmployee.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblActiveEmployee.BackColor = System.Drawing.Color.White;
             this.lblActiveEmployee.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActiveEmployee.ForeColor = System.Drawing.Color.Green;
             this.lblActiveEmployee.Location = new System.Drawing.Point(136, 22);
@@ -204,7 +161,7 @@
             // lblInactiveEmployee
             // 
             this.lblInactiveEmployee.AutoSize = true;
-            this.lblInactiveEmployee.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblInactiveEmployee.BackColor = System.Drawing.Color.White;
             this.lblInactiveEmployee.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInactiveEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
             this.lblInactiveEmployee.Location = new System.Drawing.Point(309, 22);
@@ -232,7 +189,7 @@
             this.btnAddNewEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewEmployee.Image")));
             this.btnAddNewEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(29, 29);
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(1355, 12);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(1370, 12);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
             this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.btnAddNewEmployee.Size = new System.Drawing.Size(202, 45);
@@ -243,8 +200,8 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(237)))), ((int)(((byte)(218)))));
+            this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.guna2Panel1.Controls.Add(this.cboSort);
             this.guna2Panel1.Controls.Add(this.guna2Button4);
             this.guna2Panel1.Controls.Add(this.guna2Button3);
@@ -263,9 +220,8 @@
             this.guna2Panel1.Controls.Add(this.cboFilter);
             this.guna2Panel1.Controls.Add(this.cboSearch);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Green;
-            this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Font = new System.Drawing.Font("Symbol", 8.25F);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -277,20 +233,18 @@
             // 
             // cboSort
             // 
-            this.cboSort.BackColor = System.Drawing.Color.Transparent;
+            this.cboSort.BackColor = System.Drawing.Color.White;
             this.cboSort.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSort.BorderThickness = 2;
             this.cboSort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSort.FillColor = System.Drawing.Color.WhiteSmoke;
             this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSort.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.cboSort.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.cboSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cboSort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSort.ItemHeight = 35;
             this.cboSort.Items.AddRange(new object[] {
-            "SORT BY",
             "Non-Tenured",
             "Tenured",
             "ESO",
@@ -304,7 +258,6 @@
             this.cboSort.Size = new System.Drawing.Size(212, 41);
             this.cboSort.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cboSort.TabIndex = 80;
-            this.cboSort.DropDown += new System.EventHandler(this.cboSort_DropDown);
             this.cboSort.SelectedIndexChanged += new System.EventHandler(this.cboSort_SelectedIndexChanged);
             // 
             // guna2Button4
@@ -324,10 +277,10 @@
             this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
             this.guna2Button4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button4.Location = new System.Drawing.Point(947, 83);
+            this.guna2Button4.Location = new System.Drawing.Point(947, 85);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.PressedColor = System.Drawing.Color.Green;
-            this.guna2Button4.Size = new System.Drawing.Size(39, 38);
+            this.guna2Button4.Size = new System.Drawing.Size(37, 37);
             this.guna2Button4.TabIndex = 79;
             this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -348,11 +301,11 @@
             this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
             this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button3.Location = new System.Drawing.Point(947, 139);
+            this.guna2Button3.Location = new System.Drawing.Point(947, 142);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.guna2Button3.PressedColor = System.Drawing.Color.Green;
-            this.guna2Button3.Size = new System.Drawing.Size(38, 38);
+            this.guna2Button3.Size = new System.Drawing.Size(37, 37);
             this.guna2Button3.TabIndex = 78;
             this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -373,10 +326,10 @@
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageSize = new System.Drawing.Size(38, 38);
-            this.btnEdit.Location = new System.Drawing.Point(250, 139);
+            this.btnEdit.Location = new System.Drawing.Point(250, 141);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.PressedColor = System.Drawing.Color.Green;
-            this.btnEdit.Size = new System.Drawing.Size(38, 38);
+            this.btnEdit.Size = new System.Drawing.Size(37, 37);
             this.btnEdit.TabIndex = 77;
             this.btnEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -399,19 +352,19 @@
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefresh.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnRefresh.Location = new System.Drawing.Point(1403, 134);
+            this.btnRefresh.Location = new System.Drawing.Point(1418, 133);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 2, 2, 0);
             this.btnRefresh.Size = new System.Drawing.Size(154, 45);
             this.btnRefresh.TabIndex = 77;
-            this.btnRefresh.Text = "REFRESH";
+            this.btnRefresh.Text = " REFRESH";
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.AutoRoundedCorners = true;
-            this.txtSearch.BackColor = System.Drawing.Color.Transparent;
+            this.txtSearch.BackColor = System.Drawing.Color.White;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtSearch.BorderRadius = 19;
             this.txtSearch.BorderThickness = 2;
@@ -421,12 +374,11 @@
             this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.FillColor = System.Drawing.Color.WhiteSmoke;
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtSearch.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.txtSearch.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.txtSearch.Location = new System.Drawing.Point(298, 139);
+            this.txtSearch.Location = new System.Drawing.Point(297, 139);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
@@ -454,7 +406,7 @@
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -481,7 +433,7 @@
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -497,6 +449,32 @@
             this.guna2Button1.Text = "Import";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // cboSearch
+            // 
+            this.cboSearch.BackColor = System.Drawing.Color.White;
+            this.cboSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSearch.BorderThickness = 2;
+            this.cboSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearch.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSearch.ItemHeight = 35;
+            this.cboSearch.Items.AddRange(new object[] {
+            "ID Number",
+            "Name",
+            "Email Address"});
+            this.cboSearch.Location = new System.Drawing.Point(29, 138);
+            this.cboSearch.Name = "cboSearch";
+            this.cboSearch.ShadowDecoration.BorderRadius = 4;
+            this.cboSearch.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.cboSearch.Size = new System.Drawing.Size(211, 41);
+            this.cboSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cboSearch.TabIndex = 56;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
@@ -507,6 +485,17 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 774);
             this.flowLayoutPanel2.TabIndex = 0;
             this.flowLayoutPanel2.Visible = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 202);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1914, 774);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // EmployeeList
             // 
@@ -530,7 +519,6 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2ComboBox cboSearch;
         private Guna.UI2.WinForms.Guna2ComboBox cboFilter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -541,7 +529,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAddNewEmployee;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         public Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
@@ -550,5 +537,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2ComboBox cboSort;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ComboBox cboSearch;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

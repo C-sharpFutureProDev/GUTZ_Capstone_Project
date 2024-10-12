@@ -398,7 +398,6 @@ namespace GUTZ_Capstone_Project
 
             btnPersonal.FillColor = Color.FromArgb(19, 92, 61);
             btnPersonal.ForeColor = Color.White;
-
         }
 
         private void btnSalary_Click(object sender, EventArgs e)

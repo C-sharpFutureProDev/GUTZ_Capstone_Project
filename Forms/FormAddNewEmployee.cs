@@ -448,7 +448,7 @@ namespace GUTZ_Capstone_Project.Forms
 
         public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
         {
-            MakeReport("HID Digital Persona fingerprint scanner is disconnected!");
+            MakeReport("HID Digital Persona 4500 fingerprint scanner is disconnected!");
         }
 
         public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)

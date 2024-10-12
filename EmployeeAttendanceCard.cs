@@ -18,14 +18,16 @@ namespace GUTZ_Capstone_Project
         private string _clockInTime;
         private string _clockOutTime;
         private string _status;
-        //private string _currentDate;
+        private string _currentDate;
+        private EmployeeAttendance _employeeAttendance;
 
-        public EmployeeAttendanceCard()
+        public EmployeeAttendanceCard(EmployeeAttendance employeeAttendance)
         {
             InitializeComponent();
+            _employeeAttendance = employeeAttendance;
         }
 
-        /*[Category("Custom Control")]
+        [Category("Custom Control")]
         public string CurrentDate
         {
             get => _currentDate;
@@ -34,7 +36,7 @@ namespace GUTZ_Capstone_Project
                 _currentDate = value;
                 lblCurrentDate.Text = value;
             }
-        }*/
+        }
 
         [Category("Custom Control")]
         public Image EmployeeProfilePic
@@ -93,7 +95,18 @@ namespace GUTZ_Capstone_Project
 
         private void btnViewEmployeeAttendanceHistory_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_id);
+            if (_employeeAttendance != null)
+            {
+                _employeeAttendance.timer1.Stop();
+
+                _employeeAttendance.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
+                _employeeAttendance.flowLayoutPanel1.Size = new Size(570, 1000); // Set size if needed
+                _employeeAttendance.flowLayoutPanel2.Visible = true;
+                _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Fill;
+
+                _employeeAttendance.flowLayoutPanel1.Refresh();
+                _employeeAttendance.PerformLayout();
+            }
         }
     }
 }

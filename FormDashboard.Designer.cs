@@ -357,8 +357,8 @@
             this.btnBackToHome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnBackToHome.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBackToHome.ForeColor = System.Drawing.Color.White;
-            this.btnBackToHome.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(100)))), ((int)(((byte)(20)))));
-            this.btnBackToHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(100)))), ((int)(((byte)(20)))));
+            this.btnBackToHome.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(50)))), ((int)(((byte)(10)))));
+            this.btnBackToHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(50)))), ((int)(((byte)(10)))));
             this.btnBackToHome.Image = ((System.Drawing.Image)(resources.GetObject("btnBackToHome.Image")));
             this.btnBackToHome.ImageSize = new System.Drawing.Size(265, 150);
             this.btnBackToHome.Location = new System.Drawing.Point(22, 18);
@@ -558,7 +558,7 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(248)))), ((int)(((byte)(233)))));
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.Controls.Add(this.guna2Panel9);
@@ -570,7 +570,7 @@
             this.guna2Panel1.Controls.Add(this.panelTotalEmployee);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 1);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
@@ -675,7 +675,7 @@
             this.lblCountDown.AutoSize = true;
             this.lblCountDown.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Bold);
             this.lblCountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.lblCountDown.Location = new System.Drawing.Point(17, 123);
+            this.lblCountDown.Location = new System.Drawing.Point(17, 141);
             this.lblCountDown.Name = "lblCountDown";
             this.lblCountDown.Size = new System.Drawing.Size(144, 18);
             this.lblCountDown.TabIndex = 31;
@@ -748,7 +748,7 @@
             this.lblLatePercent.BackColor = System.Drawing.Color.Transparent;
             this.lblLatePercent.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblLatePercent.ForeColor = System.Drawing.Color.Red;
-            this.lblLatePercent.Location = new System.Drawing.Point(230, 121);
+            this.lblLatePercent.Location = new System.Drawing.Point(231, 139);
             this.lblLatePercent.Name = "lblLatePercent";
             this.lblLatePercent.Size = new System.Drawing.Size(34, 19);
             this.lblLatePercent.TabIndex = 33;
@@ -765,7 +765,7 @@
             this.iconLate.IconColor = System.Drawing.Color.Red;
             this.iconLate.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconLate.IconSize = 35;
-            this.iconLate.Location = new System.Drawing.Point(190, 108);
+            this.iconLate.Location = new System.Drawing.Point(191, 126);
             this.iconLate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconLate.Name = "iconLate";
             this.iconLate.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -779,7 +779,7 @@
             this.lblOnTimePercent.BackColor = System.Drawing.Color.Transparent;
             this.lblOnTimePercent.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblOnTimePercent.ForeColor = System.Drawing.Color.Green;
-            this.lblOnTimePercent.Location = new System.Drawing.Point(59, 121);
+            this.lblOnTimePercent.Location = new System.Drawing.Point(60, 139);
             this.lblOnTimePercent.Name = "lblOnTimePercent";
             this.lblOnTimePercent.Size = new System.Drawing.Size(43, 19);
             this.lblOnTimePercent.TabIndex = 30;
@@ -796,7 +796,7 @@
             this.iconOnTime.IconColor = System.Drawing.Color.Green;
             this.iconOnTime.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconOnTime.IconSize = 35;
-            this.iconOnTime.Location = new System.Drawing.Point(20, 108);
+            this.iconOnTime.Location = new System.Drawing.Point(21, 126);
             this.iconOnTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconOnTime.Name = "iconOnTime";
             this.iconOnTime.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -882,7 +882,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label7.Location = new System.Drawing.Point(15, 128);
+            this.label7.Location = new System.Drawing.Point(15, 140);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 18);
             this.label7.TabIndex = 29;
@@ -894,7 +894,7 @@
             this.lblPercentText.BackColor = System.Drawing.Color.Transparent;
             this.lblPercentText.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblPercentText.ForeColor = System.Drawing.Color.Green;
-            this.lblPercentText.Location = new System.Drawing.Point(215, 122);
+            this.lblPercentText.Location = new System.Drawing.Point(216, 140);
             this.lblPercentText.Name = "lblPercentText";
             this.lblPercentText.Size = new System.Drawing.Size(54, 19);
             this.lblPercentText.TabIndex = 28;
@@ -911,7 +911,7 @@
             this.iconIncrease.IconColor = System.Drawing.Color.Green;
             this.iconIncrease.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconIncrease.IconSize = 25;
-            this.iconIncrease.Location = new System.Drawing.Point(180, 108);
+            this.iconIncrease.Location = new System.Drawing.Point(181, 126);
             this.iconIncrease.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconIncrease.Name = "iconIncrease";
             this.iconIncrease.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -1062,11 +1062,11 @@
         private System.Windows.Forms.Label lblCountDown;
         private FontAwesome.Sharp.IconButton iconPayrollPeriod;
         private System.Windows.Forms.Timer timer2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private Guna.UI2.WinForms.Guna2CirclePictureBox iconCurrentLoginAdmin;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
     }
 }
 
