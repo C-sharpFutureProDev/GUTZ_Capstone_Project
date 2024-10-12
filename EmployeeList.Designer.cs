@@ -74,7 +74,7 @@
             "Female",
             "Full Time",
             "Part Time"});
-            this.cboFilter.Location = new System.Drawing.Point(1000, 138);
+            this.cboFilter.Location = new System.Drawing.Point(988, 138);
             this.cboFilter.Name = "cboFilter";
             this.cboFilter.ShadowDecoration.BorderRadius = 4;
             this.cboFilter.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -174,14 +174,13 @@
             // 
             this.btnAddNewEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnAddNewEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnAddNewEmployee.BorderRadius = 1;
-            this.btnAddNewEmployee.BorderThickness = 2;
+            this.btnAddNewEmployee.BorderRadius = 5;
             this.btnAddNewEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddNewEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddNewEmployee.FillColor = System.Drawing.Color.Green;
-            this.btnAddNewEmployee.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnAddNewEmployee.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.btnAddNewEmployee.ForeColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -189,10 +188,10 @@
             this.btnAddNewEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewEmployee.Image")));
             this.btnAddNewEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(29, 29);
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(1370, 12);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(1383, 12);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
             this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.btnAddNewEmployee.Size = new System.Drawing.Size(202, 45);
+            this.btnAddNewEmployee.Size = new System.Drawing.Size(189, 45);
             this.btnAddNewEmployee.TabIndex = 73;
             this.btnAddNewEmployee.Text = "NEW EMPLOYEE";
             this.btnAddNewEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -250,7 +249,7 @@
             "ESO",
             "RKESI",
             "VUIHOC"});
-            this.cboSort.Location = new System.Drawing.Point(1000, 82);
+            this.cboSort.Location = new System.Drawing.Point(988, 78);
             this.cboSort.Name = "cboSort";
             this.cboSort.ShadowDecoration.BorderRadius = 4;
             this.cboSort.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -277,7 +276,7 @@
             this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
             this.guna2Button4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button4.Location = new System.Drawing.Point(947, 85);
+            this.guna2Button4.Location = new System.Drawing.Point(935, 81);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.PressedColor = System.Drawing.Color.Green;
             this.guna2Button4.Size = new System.Drawing.Size(37, 37);
@@ -301,7 +300,7 @@
             this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
             this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button3.Location = new System.Drawing.Point(947, 142);
+            this.guna2Button3.Location = new System.Drawing.Point(935, 142);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.guna2Button3.PressedColor = System.Drawing.Color.Green;
@@ -326,7 +325,7 @@
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageSize = new System.Drawing.Size(38, 38);
-            this.btnEdit.Location = new System.Drawing.Point(250, 141);
+            this.btnEdit.Location = new System.Drawing.Point(262, 140);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.PressedColor = System.Drawing.Color.Green;
             this.btnEdit.Size = new System.Drawing.Size(37, 37);
@@ -337,8 +336,7 @@
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
             this.btnRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnRefresh.BorderRadius = 1;
-            this.btnRefresh.BorderThickness = 2;
+            this.btnRefresh.BorderRadius = 5;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -352,7 +350,7 @@
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefresh.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnRefresh.Location = new System.Drawing.Point(1418, 133);
+            this.btnRefresh.Location = new System.Drawing.Point(1383, 133);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 2, 2, 0);
             this.btnRefresh.Size = new System.Drawing.Size(154, 45);
@@ -378,7 +376,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.txtSearch.Location = new System.Drawing.Point(297, 139);
+            this.txtSearch.Location = new System.Drawing.Point(312, 138);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
@@ -399,8 +397,7 @@
             // 
             this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2Button2.BorderRadius = 1;
-            this.guna2Button2.BorderThickness = 2;
+            this.guna2Button2.BorderRadius = 5;
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -414,7 +411,7 @@
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.ImageSize = new System.Drawing.Size(29, 29);
-            this.guna2Button2.Location = new System.Drawing.Point(947, 12);
+            this.guna2Button2.Location = new System.Drawing.Point(936, 12);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.guna2Button2.Size = new System.Drawing.Size(129, 45);
@@ -426,8 +423,7 @@
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2Button1.BorderRadius = 1;
-            this.guna2Button1.BorderThickness = 2;
+            this.guna2Button1.BorderRadius = 4;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -441,7 +437,7 @@
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageSize = new System.Drawing.Size(29, 29);
-            this.guna2Button1.Location = new System.Drawing.Point(1083, 12);
+            this.guna2Button1.Location = new System.Drawing.Point(1071, 12);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.guna2Button1.Size = new System.Drawing.Size(129, 45);
@@ -466,7 +462,7 @@
             "ID Number",
             "Name",
             "Email Address"});
-            this.cboSearch.Location = new System.Drawing.Point(29, 138);
+            this.cboSearch.Location = new System.Drawing.Point(38, 137);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.ShadowDecoration.BorderRadius = 4;
             this.cboSearch.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));

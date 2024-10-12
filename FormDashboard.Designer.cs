@@ -53,7 +53,6 @@
             this.iconCurrentLoginAdmin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.iconAdminSubMenu = new FontAwesome.Sharp.IconButton();
             this.iconAdminNotification = new FontAwesome.Sharp.IconButton();
-            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
@@ -145,7 +144,7 @@
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLogout.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnLogout.Location = new System.Drawing.Point(18, 589);
+            this.btnLogout.Location = new System.Drawing.Point(22, 589);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 20, 3);
@@ -530,24 +529,11 @@
             this.iconAdminNotification.MouseEnter += new System.EventHandler(this.iconAdminNotification_MouseEnter);
             this.iconAdminNotification.MouseLeave += new System.EventHandler(this.iconAdminNotification_MouseLeave);
             // 
-            // guna2Panel7
-            // 
-            this.guna2Panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
-            this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel7.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(209)))), ((int)(((byte)(239)))));
-            this.guna2Panel7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(10);
-            this.guna2Panel7.Size = new System.Drawing.Size(1594, 1);
-            this.guna2Panel7.TabIndex = 27;
-            // 
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDesktop.Controls.Add(this.guna2Panel1);
-            this.panelDesktop.Controls.Add(this.guna2Panel7);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelDesktop.Location = new System.Drawing.Point(320, 70);
@@ -571,10 +557,10 @@
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 1);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel1.Size = new System.Drawing.Size(1594, 905);
+            this.guna2Panel1.Size = new System.Drawing.Size(1594, 906);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2Panel9
@@ -1038,7 +1024,6 @@
         //private RoundedPictureBoxControl iconCurrentLoginAdmin;
         private FontAwesome.Sharp.IconButton iconAdminNotification;
         private FontAwesome.Sharp.IconButton iconAdminSubMenu;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private System.Windows.Forms.Panel panelDesktop;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel panelTotalEmployee;

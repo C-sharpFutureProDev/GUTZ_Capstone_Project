@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEmployeeAccountName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmployeeFirstName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmployeeLastName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -93,38 +91,14 @@
             this.btnReEnrollFingerPrint = new Guna.UI2.WinForms.Guna2Button();
             this.panelFingerPrintEnrollment = new Guna.UI2.WinForms.Guna2Panel();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnSetSchedule = new Guna.UI2.WinForms.Guna2Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.panelPersonalDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
             this.panelEmploymentDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeFingerprintImage)).BeginInit();
             this.panelFingerPrintEnrollment.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtEmployeeAccountName
-            // 
-            this.txtEmployeeAccountName.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmployeeAccountName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtEmployeeAccountName.BorderRadius = 4;
-            this.txtEmployeeAccountName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmployeeAccountName.DefaultText = "";
-            this.txtEmployeeAccountName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtEmployeeAccountName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtEmployeeAccountName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmployeeAccountName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmployeeAccountName.FocusedState.BorderColor = System.Drawing.Color.Green;
-            this.txtEmployeeAccountName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.txtEmployeeAccountName.ForeColor = System.Drawing.Color.Black;
-            this.txtEmployeeAccountName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtEmployeeAccountName.Location = new System.Drawing.Point(45, 270);
-            this.txtEmployeeAccountName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtEmployeeAccountName.Name = "txtEmployeeAccountName";
-            this.txtEmployeeAccountName.PasswordChar = '\0';
-            this.txtEmployeeAccountName.PlaceholderForeColor = System.Drawing.Color.LightGray;
-            this.txtEmployeeAccountName.PlaceholderText = "e.g. VUIHOC";
-            this.txtEmployeeAccountName.ReadOnly = true;
-            this.txtEmployeeAccountName.SelectedText = "";
-            this.txtEmployeeAccountName.Size = new System.Drawing.Size(259, 40);
-            this.txtEmployeeAccountName.TabIndex = 52;
             // 
             // txtEmployeeFirstName
             // 
@@ -150,18 +124,6 @@
             this.txtEmployeeFirstName.SelectedText = "";
             this.txtEmployeeFirstName.Size = new System.Drawing.Size(255, 40);
             this.txtEmployeeFirstName.TabIndex = 28;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label13.Location = new System.Drawing.Point(41, 235);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(145, 21);
-            this.label13.TabIndex = 51;
-            this.label13.Text = "Account Name:";
             // 
             // label2
             // 
@@ -257,11 +219,10 @@
             "ESO RATE",
             "RKESI RATE",
             "VUIHOC RATE"});
-            this.cboEmployeeRateAccount.Location = new System.Drawing.Point(45, 180);
+            this.cboEmployeeRateAccount.Location = new System.Drawing.Point(45, 179);
             this.cboEmployeeRateAccount.Name = "cboEmployeeRateAccount";
-            this.cboEmployeeRateAccount.Size = new System.Drawing.Size(259, 40);
+            this.cboEmployeeRateAccount.Size = new System.Drawing.Size(251, 40);
             this.cboEmployeeRateAccount.TabIndex = 46;
-            this.cboEmployeeRateAccount.SelectedIndexChanged += new System.EventHandler(this.cboEmployeeRateAccount_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -511,8 +472,7 @@
             // 
             this.btnSaveEmployeeDetails.BackColor = System.Drawing.Color.Transparent;
             this.btnSaveEmployeeDetails.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnSaveEmployeeDetails.BorderRadius = 1;
-            this.btnSaveEmployeeDetails.BorderThickness = 2;
+            this.btnSaveEmployeeDetails.BorderRadius = 5;
             this.btnSaveEmployeeDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveEmployeeDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -525,7 +485,7 @@
             this.btnSaveEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(26, 864);
             this.btnSaveEmployeeDetails.Name = "btnSaveEmployeeDetails";
-            this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(132, 46);
+            this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(132, 48);
             this.btnSaveEmployeeDetails.TabIndex = 57;
             this.btnSaveEmployeeDetails.Text = "SAVE";
             this.btnSaveEmployeeDetails.Click += new System.EventHandler(this.btnSaveEmployeeDetails_Click);
@@ -534,8 +494,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnCancel.BorderRadius = 1;
-            this.btnCancel.BorderThickness = 2;
+            this.btnCancel.BorderRadius = 5;
             this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -548,7 +507,7 @@
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(1339, 864);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(132, 46);
+            this.btnCancel.Size = new System.Drawing.Size(132, 48);
             this.btnCancel.TabIndex = 58;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -557,8 +516,7 @@
             // 
             this.btnResetInputFields.BackColor = System.Drawing.Color.Transparent;
             this.btnResetInputFields.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnResetInputFields.BorderRadius = 1;
-            this.btnResetInputFields.BorderThickness = 2;
+            this.btnResetInputFields.BorderRadius = 5;
             this.btnResetInputFields.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnResetInputFields.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnResetInputFields.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -573,7 +531,7 @@
             this.btnResetInputFields.Name = "btnResetInputFields";
             this.btnResetInputFields.ShadowDecoration.BorderRadius = 5;
             this.btnResetInputFields.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnResetInputFields.Size = new System.Drawing.Size(132, 46);
+            this.btnResetInputFields.Size = new System.Drawing.Size(132, 48);
             this.btnResetInputFields.TabIndex = 59;
             this.btnResetInputFields.Text = "Reset";
             this.btnResetInputFields.Click += new System.EventHandler(this.btnResetInputFields_Click);
@@ -705,14 +663,13 @@
             // 
             this.btnUploadImage.BackColor = System.Drawing.Color.Transparent;
             this.btnUploadImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnUploadImage.BorderRadius = 1;
-            this.btnUploadImage.BorderThickness = 2;
+            this.btnUploadImage.BorderRadius = 5;
             this.btnUploadImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUploadImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnUploadImage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.btnUploadImage.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadImage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnUploadImage.ForeColor = System.Drawing.Color.White;
             this.btnUploadImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnUploadImage.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -972,6 +929,8 @@
             this.panelEmploymentDetails.BorderColor = System.Drawing.Color.Gainsboro;
             this.panelEmploymentDetails.BorderRadius = 8;
             this.panelEmploymentDetails.BorderThickness = 1;
+            this.panelEmploymentDetails.Controls.Add(this.label13);
+            this.panelEmploymentDetails.Controls.Add(this.btnSetSchedule);
             this.panelEmploymentDetails.Controls.Add(this.txtStartDate);
             this.panelEmploymentDetails.Controls.Add(this.txtEndDate);
             this.panelEmploymentDetails.Controls.Add(this.txtHireDate);
@@ -988,10 +947,8 @@
             this.panelEmploymentDetails.Controls.Add(this.dtpEmployeeHiredDate);
             this.panelEmploymentDetails.Controls.Add(this.label9);
             this.panelEmploymentDetails.Controls.Add(this.cboEmploymentType);
-            this.panelEmploymentDetails.Controls.Add(this.label13);
             this.panelEmploymentDetails.Controls.Add(this.label10);
             this.panelEmploymentDetails.Controls.Add(this.cboEmployeeRateAccount);
-            this.panelEmploymentDetails.Controls.Add(this.txtEmployeeAccountName);
             this.panelEmploymentDetails.FillColor = System.Drawing.Color.White;
             this.panelEmploymentDetails.Location = new System.Drawing.Point(26, 407);
             this.panelEmploymentDetails.Margin = new System.Windows.Forms.Padding(0);
@@ -1017,7 +974,7 @@
             this.txtStartDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtStartDate.ForeColor = System.Drawing.Color.Black;
             this.txtStartDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtStartDate.Location = new System.Drawing.Point(45, 360);
+            this.txtStartDate.Location = new System.Drawing.Point(44, 268);
             this.txtStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.PasswordChar = '\0';
@@ -1025,7 +982,7 @@
             this.txtStartDate.PlaceholderText = "MM/DD/YYYY";
             this.txtStartDate.ReadOnly = true;
             this.txtStartDate.SelectedText = "";
-            this.txtStartDate.Size = new System.Drawing.Size(259, 40);
+            this.txtStartDate.Size = new System.Drawing.Size(253, 40);
             this.txtStartDate.TabIndex = 86;
             this.txtStartDate.Click += new System.EventHandler(this.txtStartDate_Click);
             // 
@@ -1044,7 +1001,7 @@
             this.txtEndDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtEndDate.ForeColor = System.Drawing.Color.Black;
             this.txtEndDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtEndDate.Location = new System.Drawing.Point(347, 360);
+            this.txtEndDate.Location = new System.Drawing.Point(45, 357);
             this.txtEndDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.PasswordChar = '\0';
@@ -1052,7 +1009,7 @@
             this.txtEndDate.PlaceholderText = "MM/DD/YYYY";
             this.txtEndDate.ReadOnly = true;
             this.txtEndDate.SelectedText = "";
-            this.txtEndDate.Size = new System.Drawing.Size(260, 40);
+            this.txtEndDate.Size = new System.Drawing.Size(252, 40);
             this.txtEndDate.TabIndex = 85;
             this.txtEndDate.Click += new System.EventHandler(this.txtEndDate_Click);
             // 
@@ -1071,14 +1028,14 @@
             this.txtHireDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtHireDate.ForeColor = System.Drawing.Color.Black;
             this.txtHireDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtHireDate.Location = new System.Drawing.Point(44, 90);
+            this.txtHireDate.Location = new System.Drawing.Point(45, 90);
             this.txtHireDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.txtHireDate.Name = "txtHireDate";
             this.txtHireDate.PasswordChar = '\0';
             this.txtHireDate.PlaceholderForeColor = System.Drawing.Color.LightGray;
             this.txtHireDate.PlaceholderText = "MM/DD/YYYY";
             this.txtHireDate.SelectedText = "";
-            this.txtHireDate.Size = new System.Drawing.Size(260, 40);
+            this.txtHireDate.Size = new System.Drawing.Size(252, 40);
             this.txtHireDate.TabIndex = 83;
             this.txtHireDate.Click += new System.EventHandler(this.txtHireDate_Click);
             // 
@@ -1099,7 +1056,7 @@
             this.cboPositionLevel.Items.AddRange(new object[] {
             "Administrator",
             "ESL Tutor"});
-            this.cboPositionLevel.Location = new System.Drawing.Point(347, 270);
+            this.cboPositionLevel.Location = new System.Drawing.Point(347, 268);
             this.cboPositionLevel.Name = "cboPositionLevel";
             this.cboPositionLevel.Size = new System.Drawing.Size(260, 40);
             this.cboPositionLevel.TabIndex = 82;
@@ -1119,11 +1076,11 @@
             this.dtpEmpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEmpEndDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.dtpEmpEndDate.HoverState.FillColor = System.Drawing.Color.White;
-            this.dtpEmpEndDate.Location = new System.Drawing.Point(347, 360);
+            this.dtpEmpEndDate.Location = new System.Drawing.Point(45, 357);
             this.dtpEmpEndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpEmpEndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpEmpEndDate.Name = "dtpEmpEndDate";
-            this.dtpEmpEndDate.Size = new System.Drawing.Size(251, 40);
+            this.dtpEmpEndDate.Size = new System.Drawing.Size(252, 40);
             this.dtpEmpEndDate.TabIndex = 81;
             this.dtpEmpEndDate.Value = new System.DateTime(2024, 9, 23, 0, 0, 0, 0);
             this.dtpEmpEndDate.Visible = false;
@@ -1135,7 +1092,7 @@
             this.label22.BackColor = System.Drawing.Color.White;
             this.label22.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label22.Location = new System.Drawing.Point(343, 325);
+            this.label22.Location = new System.Drawing.Point(40, 325);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(96, 21);
             this.label22.TabIndex = 80;
@@ -1156,7 +1113,7 @@
             this.dtpEmpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEmpStartDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.dtpEmpStartDate.HoverState.FillColor = System.Drawing.Color.White;
-            this.dtpEmpStartDate.Location = new System.Drawing.Point(45, 360);
+            this.dtpEmpStartDate.Location = new System.Drawing.Point(45, 268);
             this.dtpEmpStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpEmpStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpEmpStartDate.Name = "dtpEmpStartDate";
@@ -1172,7 +1129,7 @@
             this.label21.BackColor = System.Drawing.Color.White;
             this.label21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label21.Location = new System.Drawing.Point(41, 325);
+            this.label21.Location = new System.Drawing.Point(41, 235);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(103, 21);
             this.label21.TabIndex = 78;
@@ -1196,7 +1153,7 @@
             this.label14.BackColor = System.Drawing.Color.White;
             this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label14.Location = new System.Drawing.Point(343, 235);
+            this.label14.Location = new System.Drawing.Point(343, 233);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(142, 21);
             this.label14.TabIndex = 76;
@@ -1219,7 +1176,7 @@
             this.cboWorkArrangement.Items.AddRange(new object[] {
             "Full-Time",
             "Part-Time"});
-            this.cboWorkArrangement.Location = new System.Drawing.Point(347, 180);
+            this.cboWorkArrangement.Location = new System.Drawing.Point(347, 179);
             this.cboWorkArrangement.Name = "cboWorkArrangement";
             this.cboWorkArrangement.Size = new System.Drawing.Size(260, 40);
             this.cboWorkArrangement.TabIndex = 75;
@@ -1230,7 +1187,7 @@
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label12.Location = new System.Drawing.Point(343, 145);
+            this.label12.Location = new System.Drawing.Point(343, 144);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(181, 21);
             this.label12.TabIndex = 74;
@@ -1306,7 +1263,7 @@
             this.lblSampleNeededStatus.BackColor = System.Drawing.Color.White;
             this.lblSampleNeededStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblSampleNeededStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.lblSampleNeededStatus.Location = new System.Drawing.Point(43, 305);
+            this.lblSampleNeededStatus.Location = new System.Drawing.Point(43, 306);
             this.lblSampleNeededStatus.Name = "lblSampleNeededStatus";
             this.lblSampleNeededStatus.Size = new System.Drawing.Size(252, 21);
             this.lblSampleNeededStatus.TabIndex = 59;
@@ -1332,8 +1289,7 @@
             // 
             this.btnStartScan.BackColor = System.Drawing.Color.Transparent;
             this.btnStartScan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnStartScan.BorderRadius = 1;
-            this.btnStartScan.BorderThickness = 2;
+            this.btnStartScan.BorderRadius = 5;
             this.btnStartScan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -1370,7 +1326,7 @@
             this.progressPecentageStatus.BackColor = System.Drawing.Color.White;
             this.progressPecentageStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.progressPecentageStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.progressPecentageStatus.Location = new System.Drawing.Point(678, 305);
+            this.progressPecentageStatus.Location = new System.Drawing.Point(678, 306);
             this.progressPecentageStatus.Name = "progressPecentageStatus";
             this.progressPecentageStatus.Size = new System.Drawing.Size(22, 21);
             this.progressPecentageStatus.TabIndex = 60;
@@ -1380,8 +1336,7 @@
             // 
             this.btnReEnrollFingerPrint.BackColor = System.Drawing.Color.Transparent;
             this.btnReEnrollFingerPrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnReEnrollFingerPrint.BorderRadius = 1;
-            this.btnReEnrollFingerPrint.BorderThickness = 2;
+            this.btnReEnrollFingerPrint.BorderRadius = 5;
             this.btnReEnrollFingerPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnReEnrollFingerPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnReEnrollFingerPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -1438,6 +1393,41 @@
             this.label23.TabIndex = 83;
             this.label23.Text = "Biometrics Details";
             // 
+            // btnSetSchedule
+            // 
+            this.btnSetSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSetSchedule.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnSetSchedule.BorderRadius = 5;
+            this.btnSetSchedule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSetSchedule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnSetSchedule.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnSetSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnSetSchedule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnSetSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnSetSchedule.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSetSchedule.Location = new System.Drawing.Point(347, 357);
+            this.btnSetSchedule.Name = "btnSetSchedule";
+            this.btnSetSchedule.Size = new System.Drawing.Size(260, 40);
+            this.btnSetSchedule.TabIndex = 85;
+            this.btnSetSchedule.Text = "SET CLASS SCHEDULE";
+            this.btnSetSchedule.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSetSchedule.Click += new System.EventHandler(this.btnSetSchedule_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.label13.Location = new System.Drawing.Point(343, 322);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(152, 21);
+            this.label13.TabIndex = 87;
+            this.label13.Text = "Class Schedule:";
+            // 
             // FormAddNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -1473,8 +1463,6 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2TextBox txtEmployeeAccountName;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtEmployeeLastName;
         private System.Windows.Forms.Label label3;
@@ -1538,5 +1526,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtEndDate;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpEmployeeDateOfBirth;
         private Guna.UI2.WinForms.Guna2TextBox txtStartDate;
+        private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2Button btnSetSchedule;
     }
 }

@@ -154,7 +154,7 @@ namespace GUTZ_Capstone_Project
             if (_employeeList != null)
             {
                 // Modify properties
-                _employeeList.flowLayoutPanel1.BackColor = Color.FromArgb(229, 230, 237); // Change background color
+                _employeeList.flowLayoutPanel1.BackColor = Color.FromArgb(19, 92, 61); // Change background color
                 _employeeList.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
                 _employeeList.flowLayoutPanel1.Size = new Size(400, 1000); // Set size if needed
 

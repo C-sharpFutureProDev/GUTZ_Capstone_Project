@@ -48,7 +48,6 @@ namespace GUTZ_Capstone_Project.Forms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             progressPecentageStatus.Text = "[ + {0} + ' %' ]";
-            cboEmployeeRateAccount.SelectedIndexChanged += cboEmployeeRateAccount_SelectedIndexChanged;
         }
 
         // Fixed flicker user interface rendering
@@ -112,6 +111,7 @@ namespace GUTZ_Capstone_Project.Forms
                     progressPecentageStatus.Visible = false;
                     scanningProgressBar.Visible = false;
                     btnStartScan.Visible = false;
+                    btnSetSchedule.Text = "UPDATE SCHEDULE";
 
                     txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
 
@@ -164,20 +164,19 @@ namespace GUTZ_Capstone_Project.Forms
                             break;
                     }
 
-                    txtEmployeeAccountName.Text = dt.Rows[0]["account_name"].ToString();
                     cboWorkArrangement.SelectedItem = dt.Rows[0]["work_arrangement"].ToString();
                     dtpEmpStartDate.Value = Convert.ToDateTime(dt.Rows[0]["start_date"]);
                     txtStartDate.Text = dtpEmpStartDate.Value.ToString("MMMM dd, yyyy");
                     dtpEmpEndDate.Value = Convert.ToDateTime(dt.Rows[0]["end_date"]);
                     string positionLevel = dt.Rows[0]["position_desc"].ToString();
-                    switch (positionLevel) 
+                    switch (positionLevel)
                     {
                         case "ESL Department Head":
                             cboPositionLevel.SelectedIndex = 0;
-                        break;
+                            break;
                         case "ESL Tutor":
                             cboPositionLevel.SelectedIndex = 1;
-                        break;
+                            break;
                     }
                 }
             } // end if
@@ -502,7 +501,6 @@ namespace GUTZ_Capstone_Project.Forms
                  () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmergContact, "Emergency Contact Number"),
                  () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtHireDate, "Hired Date"),
                  () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeRateAccount, "Account Rate"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeAccountName, "Account Name"),
                  () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtStartDate, "Start Date"),
                  () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmploymentType, "Employee Type"),
                  () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboWorkArrangement, "Employee Work Arrangement"),
@@ -821,7 +819,6 @@ namespace GUTZ_Capstone_Project.Forms
             txtEmergContact.Clear();
             txtHireDate.Clear();
             cboEmployeeRateAccount.SelectedItem = null;
-            txtEmployeeAccountName.Clear();
             txtStartDate.Clear();
             txtScannerPrompt.Clear();
             txtCaptureStatusLog.Clear();
@@ -856,26 +853,6 @@ namespace GUTZ_Capstone_Project.Forms
         private void FormEmployeeEnrollment_FormClosing(object sender, FormClosingEventArgs e)
         {
             Stop();
-        }
-
-        private void cboEmployeeRateAccount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cboEmployeeRateAccount.SelectedItem)
-            {
-                case "ESO RATE":
-                    txtEmployeeAccountName.Text = "ESO";
-                    break;
-                case "RKESI RATE":
-                    txtEmployeeAccountName.Text = "RKESI";
-                    break;
-                case "VUIHOC RATE":
-                    txtEmployeeAccountName.Text = "VUIHOC";
-                    break;
-                default:
-                    cboEmployeeRateAccount.SelectedItem = "";
-                    txtEmployeeAccountName.Text = "";
-                    break;
-            }
         }
 
         private void btnReEnrollFingerPrint_Click(object sender, EventArgs e)
@@ -947,5 +924,11 @@ namespace GUTZ_Capstone_Project.Forms
             dtpEmpEndDate.Focus();
         }
         #endregion
+
+        private void btnSetSchedule_Click(object sender, EventArgs e)
+        {
+            EmployeeSchedule employeeSchedule = new EmployeeSchedule();
+            employeeSchedule.ShowDialog();
+        }
     }
 }

@@ -44,7 +44,6 @@ namespace GUTZ_Capstone_Project
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Validate input fields
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("Please enter both username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -56,16 +55,15 @@ namespace GUTZ_Capstone_Project
 
             try
             {
-                // Query the database for the user
                 string sqlLogin = "SELECT emp_id FROM tbl_users WHERE username = @username AND password = @password";
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
                     { "@username", txtUsername.Text },
                     { "@password", txtPassword.Text }
                 };
+
                 DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sqlLogin, parameters);
 
-                // Check if a user is found
                 if (dt.Rows.Count > 0)
                 {
                     currentLoginAdminID = int.Parse(dt.Rows[0]["emp_id"].ToString());
