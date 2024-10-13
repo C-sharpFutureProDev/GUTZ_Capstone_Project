@@ -35,6 +35,10 @@ namespace GUTZ_Capstone_Project.Forms
         private bool isResetButtonClicked = false;
         private bool isImageSelected = false;
         bool isFingerprintReEnrollNeeded = false;
+        private string[] selectedDays;
+        private TimeSpan startTime;
+        private TimeSpan endTime;
+        private bool isScheduleUpdateClicked = false;
 
         public FormAddNewEmployee(string empId_)
         {
@@ -480,34 +484,50 @@ namespace GUTZ_Capstone_Project.Forms
             }
         }
 
+        private void btnSetSchedule_Click(object sender, EventArgs e)
+        {
+            using (var scheduleForm = new EmployeeSchedule(_empId))
+            {
+                if (scheduleForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Retrieve schedule data from ScheduleForm
+                    selectedDays = scheduleForm.SelectedDays;
+                    startTime = scheduleForm.StartTime;
+                    endTime = scheduleForm.EndTime;
+                }
+            }
+
+            isScheduleUpdateClicked = true;
+        }
+
         private void btnSaveEmployeeDetails_Click(object sender, EventArgs e)
         {
-            // Create a list of validation checks foreach required input fields
+
+            // Create a list of validation checks for each required input field
             var validationChecks = new List<Func<bool>>
-            {
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeFirstName, "First Name"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeLastName, "Last Name"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeMiddleIName, "Middle Name"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtDateOfBirth, "Birth Date"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeAge, "Age"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxAsNumber(txtEmployeeAge, "Age"),
-                 () => User_InputsValidatorHelperClass.ValidateGenderSelection(rdbMale, rdbFemale),
-                 () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboCivilStatus, "Civil Status"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeContactNumber, "Contact Number"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeEmail, "Email Address"),
-                 () => User_InputsValidatorHelperClass.ValidateEmailFormat(txtEmployeeEmail),
-                 () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeCityMunicipality, "City/Municipality"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeBrgyAddress, "Barangay Address"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmergContact, "Emergency Contact Number"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtHireDate, "Hired Date"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeRateAccount, "Account Rate"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtStartDate, "Start Date"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmploymentType, "Employee Type"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboWorkArrangement, "Employee Work Arrangement"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboPositionLevel, "Employee Position Level"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEndDate, "End Date"),
-                 () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEndDate, "End Date"),
-            };
+    {
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeFirstName, "First Name"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeLastName, "Last Name"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeMiddleIName, "Middle Name"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtDateOfBirth, "Birth Date"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeAge, "Age"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxAsNumber(txtEmployeeAge, "Age"),
+        () => User_InputsValidatorHelperClass.ValidateGenderSelection(rdbMale, rdbFemale),
+        () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboCivilStatus, "Civil Status"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeContactNumber, "Contact Number"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeEmail, "Email Address"),
+        () => User_InputsValidatorHelperClass.ValidateEmailFormat(txtEmployeeEmail),
+        () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeCityMunicipality, "City/Municipality"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmployeeBrgyAddress, "Barangay Address"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEmergContact, "Emergency Contact Number"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtHireDate, "Hired Date"),
+        () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmployeeRateAccount, "Account Rate"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtStartDate, "Start Date"),
+        () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboEmploymentType, "Employee Type"),
+        () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboWorkArrangement, "Employee Work Arrangement"),
+        () => User_InputsValidatorHelperClass.ValidateGunaComboBoxSelection(cboPositionLevel, "Employee Position Level"),
+        () => User_InputsValidatorHelperClass.ValidateGunaTextBoxInput(txtEndDate, "End Date"),
+    };
 
             // Add profile picture and fingerprint data validation only if adding a new employee
             if (string.IsNullOrEmpty(_empId))
@@ -607,72 +627,72 @@ namespace GUTZ_Capstone_Project.Forms
 
             string sql = "";
 
-            if (_empId == "") // add new employee record
+            if (string.IsNullOrEmpty(_empId)) // Add new employee record
             {
                 sql = @"INSERT INTO tbl_employee (department_id, position_id, account_id, emp_profilePic, f_name, m_name, l_name, b_day,
-                                        age, gender, civil_status, address, email, phone, emerg_contact, hired_date, employment_type, work_arrangement, start_date, end_date) 
-                                 VALUES (@deptID, @posID, @accID, @empProPicPath, @fName, @mName, @lName, @bDay, @age, @gender, @civilStatus, @address, @email, 
-                                        @phone, @emergencyContact, @hiredDate, @employmentType, @workArrangement, @startDate, @endDate )";
+                age, gender, civil_status, address, email, phone, emerg_contact, hired_date, employment_type, work_arrangement, start_date, end_date) 
+             VALUES (@deptID, @posID, @accID, @empProPicPath, @fName, @mName, @lName, @bDay, @age, @gender, @civilStatus, @address, @email, 
+                    @phone, @emergencyContact, @hiredDate, @employmentType, @workArrangement, @startDate, @endDate)";
 
                 var parameterInsert = new Dictionary<string, object>
-                {
-                    { "@deptID", deptID },
-                    { "@posID",  posID },
-                    { "@accID",  accountID },
-                    { "@empProPicPath", employeeProfilePicPath},
-                    { "@fName", fName },
-                    { "@mName", midName },
-                    { "@lName", lName },
-                    { "@bDay", birthDate },
-                    { "@age", age },
-                    { "@gender", gender },
-                    { "@civilStatus", civilStatus },
-                    { "@address", address },
-                    { "@email", email },
-                    { "@phone", contactNo },
-                    { "@emergencyContact", emergencyContactNo },
-                    { "@hiredDate", hiredDate },
-                    { "@employmentType", employmentType },
-                    { "@workArrangement", workArrangement},
-                    { "@startDate", employeeStartDate },
-                    { "@endDate", employeeEndDate }
-                };
+    {
+        { "@deptID", deptID },
+        { "@posID", posID },
+        { "@accID", accountID },
+        { "@empProPicPath", employeeProfilePicPath },
+        { "@fName", fName },
+        { "@mName", midName },
+        { "@lName", lName },
+        { "@bDay", birthDate },
+        { "@age", age },
+        { "@gender", gender },
+        { "@civilStatus", civilStatus },
+        { "@address", address },
+        { "@email", email },
+        { "@phone", contactNo },
+        { "@emergencyContact", emergencyContactNo },
+        { "@hiredDate", hiredDate },
+        { "@employmentType", employmentType },
+        { "@workArrangement", workArrangement },
+        { "@startDate", employeeStartDate },
+        { "@endDate", employeeEndDate }
+    };
 
                 int emp_id = 0;
                 if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(sql, parameterInsert))
                 {
                     DataTable dt = new DataTable();
-                    string selectID = "SELECT emp_id FROM tbl_employee";
+                    string selectID = "SELECT emp_id FROM tbl_employee ORDER BY emp_id DESC LIMIT 1";
                     dt = DB_OperationHelperClass.QueryData(selectID);
                     if (dt.Rows.Count > 0)
                     {
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            emp_id = int.Parse(row["emp_id"].ToString());
-                        }
+                        emp_id = int.Parse(dt.Rows[0]["emp_id"].ToString());
                     }
 
                     string insertIntoFingerprintTable = @"INSERT INTO tbl_fingerprint (fingerprint_data, emp_id)
-                                 VALUES(@FingerprintData, @EmpId)";
+            VALUES(@FingerprintData, @EmpId)";
 
                     var param = new Dictionary<string, object>
-                    {
-                        { "@FingerprintData", fingerprintData as byte[]},
-                        { "@EmpId", emp_id }
-                    };
+        {
+            { "@FingerprintData", fingerprintData as byte[] },
+            { "@EmpId", emp_id }
+        };
                     if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
                     {
                         // Insert into the tbl_profile table
                         string insertIntoProfileTable = @"INSERT INTO tbl_profile (emp_id)
-                                                          VALUES (@EmpId)";
+                                                VALUES (@EmpId)";
 
                         var profileParam = new Dictionary<string, object>
-                        {
-                            { "@EmpId", emp_id }
-                        };
+            {
+                { "@EmpId", emp_id }
+            };
 
                         if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoProfileTable, profileParam))
                         {
+                            // Insert schedule data as a single record
+                            InsertOrUpdateSchedule(emp_id.ToString());
+
                             DialogResult result = MessageBox.Show("New record has been saved successfully. Do you want to add another employee?",
                                 "New Employee Added", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (result == DialogResult.Yes)
@@ -688,61 +708,61 @@ namespace GUTZ_Capstone_Project.Forms
                         }
                         else
                         {
-                            MessageBox.Show("Failed to add new record.", "Failed Adding New Profile!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Failed to add new record.", "Failed Adding New Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
                     else
-                        MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!",
-                               MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    {
+                        MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
-            else // update existing employee record
+            else // Update existing employee record
             {
                 string sqlUpdate;
 
                 if (isImageSelected)
                 {
                     sqlUpdate = @"UPDATE tbl_employee SET department_id = @deptID, position_id = @posID, account_id = @accID, emp_profilePic = @empProPicPath,
-                     f_name = @fName, m_name = @mName, l_name = @lName, b_day = @bDay,
-                     age = @age, civil_status = @civilStatus, gender = @gender, address = @address, email = @email, 
-                     phone = @phone, emerg_contact = @emergencyContact, hired_date = @hiredDate, employment_type = @employmentType, 
-                     work_arrangement = @workArrangement, start_date = @startDate, end_date = @endDate
-                     WHERE emp_id = @empId";
+            f_name = @fName, m_name = @mName, l_name = @lName, b_day = @bDay,
+            age = @age, civil_status = @civilStatus, gender = @gender, address = @address, email = @email, 
+            phone = @phone, emerg_contact = @emergencyContact, hired_date = @hiredDate, employment_type = @employmentType, 
+            work_arrangement = @workArrangement, start_date = @startDate, end_date = @endDate
+            WHERE emp_id = @empId";
                 }
                 else
                 {
                     sqlUpdate = @"UPDATE tbl_employee SET department_id = @deptID, position_id = @posID, account_id = @accID,
-                     f_name = @fName, m_name = @mName, l_name = @lName, b_day = @bDay,
-                     age = @age, civil_status = @civilStatus, gender = @gender, address = @address, email = @email, 
-                     phone = @phone, emerg_contact = @emergencyContact, hired_date = @hiredDate, employment_type = @employmentType, work_arrangement = @workArrangement,
-                     start_date = @startDate, end_date = @endDate
-                     WHERE emp_id = @empId";
+            f_name = @fName, m_name = @mName, l_name = @lName, b_day = @bDay,
+            age = @age, civil_status = @civilStatus, gender = @gender, address = @address, email = @email, 
+            phone = @phone, emerg_contact = @emergencyContact, hired_date = @hiredDate, employment_type = @employmentType, work_arrangement = @workArrangement,
+            start_date = @startDate, end_date = @endDate
+            WHERE emp_id = @empId";
                 }
 
                 var parameterUpdate = new Dictionary<string, object>
-                {
-                    { "@deptID", deptID },
-                    { "@posID",  posID },
-                    { "@accID",  accountID },
-                    { "@fName", fName },
-                    { "@mName", midName },
-                    { "@lName", lName },
-                    { "@bDay", birthDate },
-                    { "@age", age },
-                    { "@civilStatus", civilStatus },
-                    { "@gender", gender },
-                    { "@address", address },
-                    { "@email", email },
-                    { "@phone", contactNo },
-                    { "@emergencyContact", emergencyContactNo},
-                    { "@hiredDate", hiredDate },
-                    { "@employmentType", employmentType },
-                    { "@workArrangement", workArrangement },
-                    { "@startDate", employeeStartDate },
-                    { "@endDate", employeeEndDate },
-                    { "@empId", _empId }
-                };
+    {
+        { "@deptID", deptID },
+        { "@posID", posID },
+        { "@accID", accountID },
+        { "@fName", fName },
+        { "@mName", midName },
+        { "@lName", lName },
+        { "@bDay", birthDate },
+        { "@age", age },
+        { "@civilStatus", civilStatus },
+        { "@gender", gender },
+        { "@address", address },
+        { "@email", email },
+        { "@phone", contactNo },
+        { "@emergencyContact", emergencyContactNo },
+        { "@hiredDate", hiredDate },
+        { "@employmentType", employmentType },
+        { "@workArrangement", workArrangement },
+        { "@startDate", employeeStartDate },
+        { "@endDate", employeeEndDate },
+        { "@empId", _empId }
+    };
 
                 if (isImageSelected)
                 {
@@ -775,13 +795,19 @@ namespace GUTZ_Capstone_Project.Forms
                         string updateFingerprintTable = @"UPDATE tbl_fingerprint SET fingerprint_data = @FingerprintData WHERE emp_id = @EmpId";
 
                         var param = new Dictionary<string, object>
-                        {
-                            { "@FingerprintData", fingerprintDataToUse },
-                            { "@EmpId", _empId }
-                        };
+        {
+            { "@FingerprintData", fingerprintDataToUse },
+            { "@EmpId", _empId }
+        };
 
                         if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateFingerprintTable, param))
                         {
+                            // Only update schedule if the "UPDATE SCHEDULE" button was clicked
+                            if (isScheduleUpdateClicked)
+                            {
+                                InsertOrUpdateSchedule(_empId);
+                            }
+
                             MessageBox.Show($"Employee record for Employee with ID {_empId} has been updated successfully.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
@@ -799,6 +825,29 @@ namespace GUTZ_Capstone_Project.Forms
                 {
                     MessageBox.Show("Failed to update employee record.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+            }
+        }
+
+        private void InsertOrUpdateSchedule(string empId)
+        {
+            // Combine work days into a single string
+            string workDays = string.Join(",", selectedDays);
+
+            string updateScheduleSql = @"UPDATE tbl_schedule 
+                                 SET work_days = @WorkDays, start_time = @StartTime, end_time = @EndTime 
+                                 WHERE emp_id = @EmpId";
+
+            var scheduleParams = new Dictionary<string, object>
+    {
+        { "@EmpId", empId },
+        { "@WorkDays", workDays },
+        { "@StartTime", startTime },
+        { "@EndTime", endTime }
+    };
+
+            if (!DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateScheduleSql, scheduleParams))
+            {
+                MessageBox.Show("Failed to update schedule data.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -924,11 +973,5 @@ namespace GUTZ_Capstone_Project.Forms
             dtpEmpEndDate.Focus();
         }
         #endregion
-
-        private void btnSetSchedule_Click(object sender, EventArgs e)
-        {
-            EmployeeSchedule employeeSchedule = new EmployeeSchedule();
-            employeeSchedule.ShowDialog();
-        }
     }
 }

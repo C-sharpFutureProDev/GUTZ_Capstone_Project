@@ -313,7 +313,7 @@
             this.btnActiveInactive.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnActiveInactive.Location = new System.Drawing.Point(12, 13);
             this.btnActiveInactive.Name = "btnActiveInactive";
-            this.btnActiveInactive.PressedColor = System.Drawing.Color.White;
+            this.btnActiveInactive.PressedColor = System.Drawing.Color.Orange;
             this.btnActiveInactive.PressedDepth = 0;
             this.btnActiveInactive.ShadowDecoration.BorderRadius = 15;
             this.btnActiveInactive.ShadowDecoration.Color = System.Drawing.Color.Green;

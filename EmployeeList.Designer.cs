@@ -180,7 +180,7 @@
             this.btnAddNewEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddNewEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddNewEmployee.FillColor = System.Drawing.Color.Green;
-            this.btnAddNewEmployee.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddNewEmployee.Font = new System.Drawing.Font("Cambria", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnAddNewEmployee.ForeColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -188,12 +188,12 @@
             this.btnAddNewEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewEmployee.Image")));
             this.btnAddNewEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(29, 29);
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(1383, 12);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(1383, 15);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
-            this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.btnAddNewEmployee.Size = new System.Drawing.Size(189, 45);
+            this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnAddNewEmployee.Size = new System.Drawing.Size(189, 42);
             this.btnAddNewEmployee.TabIndex = 73;
-            this.btnAddNewEmployee.Text = "NEW EMPLOYEE";
+            this.btnAddNewEmployee.Text = "New Employee";
             this.btnAddNewEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddNewEmployee.Click += new System.EventHandler(this.btnAddNewEmployee_Click);
             // 
@@ -342,7 +342,7 @@
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefresh.FillColor = System.Drawing.Color.Green;
-            this.btnRefresh.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnRefresh.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -352,10 +352,9 @@
             this.btnRefresh.ImageSize = new System.Drawing.Size(25, 25);
             this.btnRefresh.Location = new System.Drawing.Point(1383, 133);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 2, 2, 0);
-            this.btnRefresh.Size = new System.Drawing.Size(154, 45);
+            this.btnRefresh.Size = new System.Drawing.Size(129, 42);
             this.btnRefresh.TabIndex = 77;
-            this.btnRefresh.Text = " REFRESH";
+            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -411,10 +410,10 @@
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.ImageSize = new System.Drawing.Size(29, 29);
-            this.guna2Button2.Location = new System.Drawing.Point(936, 12);
+            this.guna2Button2.Location = new System.Drawing.Point(936, 15);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.guna2Button2.Size = new System.Drawing.Size(129, 45);
+            this.guna2Button2.Size = new System.Drawing.Size(129, 42);
             this.guna2Button2.TabIndex = 75;
             this.guna2Button2.Text = "Export";
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -437,10 +436,10 @@
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageSize = new System.Drawing.Size(29, 29);
-            this.guna2Button1.Location = new System.Drawing.Point(1071, 12);
+            this.guna2Button1.Location = new System.Drawing.Point(1071, 15);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.guna2Button1.Size = new System.Drawing.Size(129, 45);
+            this.guna2Button1.Size = new System.Drawing.Size(129, 42);
             this.guna2Button1.TabIndex = 74;
             this.guna2Button1.Text = "Import";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

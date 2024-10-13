@@ -68,6 +68,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cboEmploymentType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panelEmploymentDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnSetSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.txtStartDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEndDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtHireDate = new Guna.UI2.WinForms.Guna2TextBox();
@@ -91,8 +93,6 @@
             this.btnReEnrollFingerPrint = new Guna.UI2.WinForms.Guna2Button();
             this.panelFingerPrintEnrollment = new Guna.UI2.WinForms.Guna2Panel();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnSetSchedule = new Guna.UI2.WinForms.Guna2Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.panelPersonalDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
             this.panelEmploymentDetails.SuspendLayout();
@@ -663,7 +663,7 @@
             // 
             this.btnUploadImage.BackColor = System.Drawing.Color.Transparent;
             this.btnUploadImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnUploadImage.BorderRadius = 5;
+            this.btnUploadImage.BorderRadius = 4;
             this.btnUploadImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -676,7 +676,8 @@
             this.btnUploadImage.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnUploadImage.Location = new System.Drawing.Point(1214, 250);
             this.btnUploadImage.Name = "btnUploadImage";
-            this.btnUploadImage.Size = new System.Drawing.Size(197, 44);
+            this.btnUploadImage.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnUploadImage.Size = new System.Drawing.Size(197, 42);
             this.btnUploadImage.TabIndex = 68;
             this.btnUploadImage.Text = "UPLOAD PHOTO";
             this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click_1);
@@ -958,6 +959,41 @@
             this.panelEmploymentDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.panelEmploymentDetails.Size = new System.Drawing.Size(650, 430);
             this.panelEmploymentDetails.TabIndex = 71;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.label13.Location = new System.Drawing.Point(343, 322);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(152, 21);
+            this.label13.TabIndex = 87;
+            this.label13.Text = "Class Schedule:";
+            // 
+            // btnSetSchedule
+            // 
+            this.btnSetSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSetSchedule.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnSetSchedule.BorderRadius = 4;
+            this.btnSetSchedule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSetSchedule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnSetSchedule.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnSetSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnSetSchedule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnSetSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnSetSchedule.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSetSchedule.Location = new System.Drawing.Point(347, 357);
+            this.btnSetSchedule.Name = "btnSetSchedule";
+            this.btnSetSchedule.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnSetSchedule.Size = new System.Drawing.Size(260, 40);
+            this.btnSetSchedule.TabIndex = 85;
+            this.btnSetSchedule.Text = "SET CLASS SCHEDULE";
+            this.btnSetSchedule.Click += new System.EventHandler(this.btnSetSchedule_Click);
             // 
             // txtStartDate
             // 
@@ -1289,7 +1325,7 @@
             // 
             this.btnStartScan.BackColor = System.Drawing.Color.Transparent;
             this.btnStartScan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnStartScan.BorderRadius = 5;
+            this.btnStartScan.BorderRadius = 4;
             this.btnStartScan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -1336,7 +1372,7 @@
             // 
             this.btnReEnrollFingerPrint.BackColor = System.Drawing.Color.Transparent;
             this.btnReEnrollFingerPrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnReEnrollFingerPrint.BorderRadius = 5;
+            this.btnReEnrollFingerPrint.BorderRadius = 4;
             this.btnReEnrollFingerPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnReEnrollFingerPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnReEnrollFingerPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -1392,41 +1428,6 @@
             this.label23.Size = new System.Drawing.Size(181, 24);
             this.label23.TabIndex = 83;
             this.label23.Text = "Biometrics Details";
-            // 
-            // btnSetSchedule
-            // 
-            this.btnSetSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnSetSchedule.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnSetSchedule.BorderRadius = 5;
-            this.btnSetSchedule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSetSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSetSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSetSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSetSchedule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.btnSetSchedule.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btnSetSchedule.ForeColor = System.Drawing.Color.White;
-            this.btnSetSchedule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnSetSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnSetSchedule.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSetSchedule.Location = new System.Drawing.Point(347, 357);
-            this.btnSetSchedule.Name = "btnSetSchedule";
-            this.btnSetSchedule.Size = new System.Drawing.Size(260, 40);
-            this.btnSetSchedule.TabIndex = 85;
-            this.btnSetSchedule.Text = "SET CLASS SCHEDULE";
-            this.btnSetSchedule.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnSetSchedule.Click += new System.EventHandler(this.btnSetSchedule_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label13.Location = new System.Drawing.Point(343, 322);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(152, 21);
-            this.label13.TabIndex = 87;
-            this.label13.Text = "Class Schedule:";
             // 
             // FormAddNewEmployee
             // 
