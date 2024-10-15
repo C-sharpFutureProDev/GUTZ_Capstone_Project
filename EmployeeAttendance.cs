@@ -93,39 +93,46 @@ namespace GUTZ_Capstone_Project
         private void CountAttendance()
         {
             DateTime currentDate = DateTime.Today;
-            DateTime currentTime = DateTime.Now;
-
-            DateTime workingShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 9, 0, 0);
-            DateTime workingShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 17, 0, 0);
-            DateTime gracePeriodEnd = workingShiftStart.AddMinutes(15);
 
             int countWorkingPresent = 0;
             int countWorkingOnTime = 0;
             int countWorkingLate = 0;
 
-            string sqlCountAttendance = $"SELECT * FROM tbl_attendance WHERE DATE(time_in) = '{currentDate:yyyy-MM-dd}'";
+            string sqlCountAttendance = $"SELECT a.*, s.start_time, s.work_days FROM tbl_attendance a " +
+                                         "INNER JOIN tbl_schedule s ON a.emp_id = s.emp_id " +
+                                         $"WHERE DATE(a.time_in) = '{currentDate:yyyy-MM-dd}'";
+
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
 
             foreach (DataRow row in dtAttendance.Rows)
             {
                 DateTime timeIn = (DateTime)row["time_in"];
+                TimeSpan startTime = TimeSpan.Parse(row["start_time"].ToString());
+                string workDays = row["work_days"].ToString();
+                string currentDay = currentDate.DayOfWeek.ToString();
 
-                if (timeIn >= workingShiftStart && timeIn <= workingShiftEnd)
+                // Check if today is a work day for the employee
+                if (workDays.Contains(currentDay))
                 {
                     countWorkingPresent++;
-                    dateOfCurrentAttendanceRecord.Text = currentDate.ToString("dddd, MMM. dd, yyyy");
+
+                    // Define working shift times for the employee
+                    DateTime workingShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, startTime.Hours, startTime.Minutes, 0);
+                    DateTime gracePeriodEnd = workingShiftStart.AddMinutes(15);
+                    DateTime workingShiftEnd = workingShiftStart.AddHours(8); // Assuming 8-hour shifts
 
                     if (timeIn <= gracePeriodEnd)
                     {
                         countWorkingOnTime++;
                     }
-                    else
+                    else if (timeIn > gracePeriodEnd && timeIn <= workingShiftEnd)
                     {
                         countWorkingLate++;
                     }
                 }
             }
 
+            dateOfCurrentAttendanceRecord.Text = currentDate.ToString("dddd, MMM. dd, yyyy");
             btnPresent.Text = countWorkingPresent.ToString();
             btnOnTime.Text = countWorkingOnTime.ToString();
             btnLate.Text = countWorkingLate.ToString();
@@ -254,34 +261,48 @@ namespace GUTZ_Capstone_Project
             int countOnTime = 0;
             int countLate = 0;
 
-            string sqlCountAttendance = $"SELECT emp_id, time_in_status FROM tbl_attendance WHERE DATE(time_in) = '{selectedDate:yyyy-MM-dd}'";
+            string sqlCountAttendance = $"SELECT a.emp_id, a.time_in, s.start_time, s.work_days " +
+                                         "FROM tbl_attendance a " +
+                                         "INNER JOIN tbl_schedule s ON a.emp_id = s.emp_id " +
+                                         $"WHERE DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'";
+
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
 
             foreach (DataRow row in dtAttendance.Rows)
             {
                 string empId = row["emp_id"].ToString();
-                string timeInStatus = row["time_in_status"].ToString();
+                DateTime timeIn = (DateTime)row["time_in"];
+                TimeSpan startTime = TimeSpan.Parse(row["start_time"].ToString());
+                string workDays = row["work_days"].ToString();
+                string currentDay = selectedDate.DayOfWeek.ToString();
 
-                if (timeInStatus == "Present" || timeInStatus == "On Time" || timeInStatus == "Late")
+                // Check if today is a work day for the employee
+                if (workDays.Contains(currentDay))
                 {
                     countPresent++;
-                }
-                if (timeInStatus == "On Time")
-                {
-                    countOnTime++;
-                }
-                if (timeInStatus == "Late")
-                {
-                    countLate++;
 
-                    // Update the existing card color
-                    foreach (EmployeeAttendanceCard card in flowLayoutPanel1.Controls)
+                    // Define working shift times for the employee
+                    DateTime workingShiftStart = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, startTime.Hours, startTime.Minutes, 0);
+                    DateTime gracePeriodEnd = workingShiftStart.AddMinutes(15);
+                    DateTime workingShiftEnd = workingShiftStart.AddHours(8); // Assuming 8-hour shifts
+
+                    if (timeIn <= gracePeriodEnd)
                     {
-                        if (card._id == empId)
+                        countOnTime++;
+                    }
+                    else if (timeIn > gracePeriodEnd && timeIn <= workingShiftEnd)
+                    {
+                        countLate++;
+
+                        // Update the existing card color for late employees
+                        foreach (EmployeeAttendanceCard card in flowLayoutPanel1.Controls)
                         {
-                            card.btnStatus.BorderColor = Color.Red;
-                            card.btnStatus.ForeColor = Color.Red;
-                            card.btnStatus.HoverState.ForeColor = Color.Red;
+                            if (card._id == empId)
+                            {
+                                card.btnStatus.BorderColor = Color.Red;
+                                card.btnStatus.ForeColor = Color.Red;
+                                card.btnStatus.HoverState.ForeColor = Color.Red;
+                            }
                         }
                     }
                 }

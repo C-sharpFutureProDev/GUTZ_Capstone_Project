@@ -352,6 +352,7 @@
             this.btnRefresh.ImageSize = new System.Drawing.Size(25, 25);
             this.btnRefresh.Location = new System.Drawing.Point(1383, 133);
             this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.btnRefresh.Size = new System.Drawing.Size(129, 42);
             this.btnRefresh.TabIndex = 77;
             this.btnRefresh.Text = "Refresh";

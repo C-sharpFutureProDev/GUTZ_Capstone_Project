@@ -1,24 +1,20 @@
-﻿using Org.BouncyCastle.Asn1.Cms;
+﻿using Guna.UI2.WinForms;
+using Org.BouncyCastle.Asn1.Cms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project
 {
     public partial class EmployeeSchedule : Form
     {
-
         public string[] SelectedDays { get; private set; }
         public TimeSpan StartTime { get; private set; }
         public TimeSpan EndTime { get; private set; }
 
         string _empId = "";
+        private bool isModified = false;
 
         public EmployeeSchedule(string _empId_)
         {
@@ -34,78 +30,99 @@ namespace GUTZ_Capstone_Project
             cboEndAMOrPM.SelectedIndex = 0;
         }
 
-        private void EmployeeSchedule_Load(object sender, EventArgs e)
+        // Override the OnFormClosing method
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if(_empId != null)
+            base.OnFormClosing(e);
+
+            if (string.IsNullOrEmpty(_empId))
             {
-                string sql = @"SELECT work_days, start_time, end_time
-                   FROM tbl_schedule
-                   WHERE emp_id = @EmpId";
-
-                var parameters = new Dictionary<string, object>
-    {
-        { "@EmpId", _empId }
-    };
-
-                DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
-
-                if (dt.Rows.Count > 0)
+                // Check if selectedDays is null or empty
+                if (SelectedDays == null || SelectedDays.Length == 0)
                 {
-                    // Assume only one schedule per employee for simplicity
-                    var row = dt.Rows[0];
+                    DialogResult result = MessageBox.Show("No work days selected. Are you sure you want to close?",
+                        "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                    // Populate the checkboxes for work days
-                    string workDays = row["work_days"].ToString();
-                    string[] daysArray = workDays.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                    foreach (var day in daysArray)
+                    if (result == DialogResult.No)
                     {
-                        switch (day.Trim())
-                        {
-                            case "Monday":
-                                chkBoxMonday.Checked = true;
-                                break;
-                            case "Tuesday":
-                                chkBoxTuesday.Checked = true;
-                                break;
-                            case "Wednesday":
-                                chkBoxWednesday.Checked = true;
-                                break;
-                            case "Thursday":
-                                chkBoxThursday.Checked = true;
-                                break;
-                            case "Friday":
-                                chkBoxFriday.Checked = true;
-                                break;
-                        }
-                    }
-
-                    // Populate start and end time
-                    if (TimeSpan.TryParse(row["start_time"].ToString(), out TimeSpan startTime))
-                    {
-                        // Convert to 12-hour format
-                        decimal startHours = (decimal)(startTime.Hours % 12 == 0 ? 12 : startTime.Hours % 12);
-                        StartNumUpDown.Value = startHours + (decimal)(startTime.Minutes / 60.0); // Set up-down value with minutes
-
-                        // Set AM/PM
-                        cboStartAMOrPM.SelectedIndex = startTime.Hours >= 12 ? 1 : 0; // 1 for PM, 0 for AM
-                    }
-
-                    if (TimeSpan.TryParse(row["end_time"].ToString(), out TimeSpan endTime))
-                    {
-                        // Convert to 12-hour format
-                        decimal endHours = (decimal)(endTime.Hours % 12 == 0 ? 12 : endTime.Hours % 12);
-                        EndNumUpDown.Value = endHours + (decimal)(endTime.Minutes / 60.0); // Set up-down value with minutes
-
-                        // Set AM/PM
-                        cboEndAMOrPM.SelectedIndex = endTime.Hours >= 12 ? 1 : 0; // 1 for PM, 0 for AM
+                        e.Cancel = true; // Cancel the closing event
                     }
                 }
             }
         }
 
+        private void EmployeeSchedule_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_empId))
+            {
+                LoadScheduleData();
+            }
+        }
+
+        private void LoadScheduleData()
+        {
+            string sql = @"SELECT work_days, start_time, end_time
+                           FROM tbl_schedule
+                           WHERE emp_id = @EmpId";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@EmpId", _empId }
+            };
+
+            DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
+
+            if (dt.Rows.Count > 0)
+            {
+                var row = dt.Rows[0];
+
+                string workDays = row["work_days"].ToString();
+                string[] daysArray = workDays.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var day in daysArray)
+                {
+                    switch (day.Trim())
+                    {
+                        case "Monday":
+                            chkBoxMonday.Checked = true;
+                            break;
+                        case "Tuesday":
+                            chkBoxTuesday.Checked = true;
+                            break;
+                        case "Wednesday":
+                            chkBoxWednesday.Checked = true;
+                            break;
+                        case "Thursday":
+                            chkBoxThursday.Checked = true;
+                            break;
+                        case "Friday":
+                            chkBoxFriday.Checked = true;
+                            break;
+                    }
+                }
+
+                SetTime(row["start_time"].ToString(), StartNumUpDown, cboStartAMOrPM);
+                SetTime(row["end_time"].ToString(), EndNumUpDown, cboEndAMOrPM);
+            }
+        }
+
+        private void SetTime(string timeString, Guna2NumericUpDown numUpDown, ComboBox amPmComboBox)
+        {
+            if (TimeSpan.TryParse(timeString, out TimeSpan time))
+            {
+                decimal hours = (decimal)(time.Hours % 12 == 0 ? 12 : time.Hours % 12);
+                numUpDown.Value = hours + (decimal)(time.Minutes / 60.0);
+                amPmComboBox.SelectedIndex = time.Hours >= 12 ? 1 : 0;
+            }
+        }
+
         private void btnSaveSchedule_Click(object sender, EventArgs e)
         {
+            if (!ValidateInputs())
+            {
+                return;
+            }
+
             var selectedDaysList = new List<string>();
 
             if (chkBoxMonday.Checked) selectedDaysList.Add("Monday");
@@ -115,35 +132,120 @@ namespace GUTZ_Capstone_Project
             if (chkBoxFriday.Checked) selectedDaysList.Add("Friday");
 
             SelectedDays = selectedDaysList.ToArray();
-
-            // Convert Start Time
-            int startHour = (int)StartNumUpDown.Value;
-            if (cboStartAMOrPM.SelectedIndex == 1 && startHour < 12) // PM selected
-            {
-                startHour += 12;
-            }
-            else if (cboStartAMOrPM.SelectedIndex == 0 && startHour == 12) // AM selected and hour is 12
-            {
-                startHour = 0; // Convert 12 AM to 0 hours
-            }
-            StartTime = new TimeSpan(startHour, 0, 0); // Set minutes and seconds to 0
-
-            // Convert End Time
-            int endHour = (int)EndNumUpDown.Value;
-            if (cboEndAMOrPM.SelectedIndex == 1 && endHour < 12) // PM selected
-            {
-                endHour += 12;
-            }
-            else if (cboEndAMOrPM.SelectedIndex == 0 && endHour == 12) // AM selected and hour is 12
-            {
-                endHour = 0; // Convert 12 AM to 0 hours
-            }
-            EndTime = new TimeSpan(endHour, 0, 0); // Set minutes and seconds to 0
+            StartTime = GetTimeFromControls(StartNumUpDown, cboStartAMOrPM);
+            EndTime = GetTimeFromControls(EndNumUpDown, cboEndAMOrPM);
 
             MessageBox.Show("Schedule saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.DialogResult = DialogResult.OK;
+            isModified = false; // Reset modification flag after saving
             this.Close();
         }
+
+        private bool ValidateInputs()
+        {
+            if (!chkBoxMonday.Checked && !chkBoxTuesday.Checked && !chkBoxWednesday.Checked &&
+                !chkBoxThursday.Checked && !chkBoxFriday.Checked)
+            {
+                MessageBox.Show("Please select at least one working day from Monday to Friday.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (StartNumUpDown.Value == 0)
+            {
+                MessageBox.Show("Please enter a valid start time schedule.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (EndNumUpDown.Value == 0)
+            {
+                MessageBox.Show("Please enter a valid end time schedule.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        private TimeSpan GetTimeFromControls(Guna2NumericUpDown numUpDown, ComboBox amPmComboBox)
+        {
+            int hour = (int)numUpDown.Value;
+            if (amPmComboBox.SelectedIndex == 1 && hour < 12)
+            {
+                hour += 12;
+            }
+            else if (amPmComboBox.SelectedIndex == 0 && hour == 12)
+            {
+                hour = 0;
+            }
+
+            return new TimeSpan(hour, 0, 0);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void EmployeeSchedule_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isModified)
+            {
+                DialogResult result = MessageBox.Show("You have unsaved changes. Would you like to save before closing?",
+                    "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    btnSaveSchedule_Click(sender, e);
+                }
+                else if (result == DialogResult.No)
+                {
+                    MessageBox.Show("No changes were made to the current schedule.", "Current Schedule Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnSaveSchedule_Click(sender, e);
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void chkBoxMonday_CheckedChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
+        private void chkBoxTuesday_CheckedChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
+        private void chkBoxWednesday_CheckedChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
+        private void chkBoxThursday_CheckedChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
+        private void chkBoxFriday_CheckedChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
+        private void StartNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
+        private void EndNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
     }
 }
