@@ -90,7 +90,6 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-
         [Category("Custom Control")]
         public string Contact
         {
@@ -129,14 +128,12 @@ namespace GUTZ_Capstone_Project
             btnViewProfile.FillColor = Color.Green;
             btnViewProfile.ForeColor = Color.White;
             btnViewProfile.Enabled = false;
-            // Additional activation logic if needed
         }
 
         private void DeactivateCard()
         {
             btnViewProfile.FillColor = Color.FromArgb(12, 90, 37); // Reset to default color
             btnViewProfile.Enabled = true;
-            // Additional deactivation logic if needed
         }
 
         private void btnViewProfile_Click(object sender, EventArgs e)
@@ -166,7 +163,7 @@ namespace GUTZ_Capstone_Project
                 _employeeList.flowLayoutPanel2.Controls.Clear();
 
                 // Create and add the EmployeeProfileCard
-                EmployeeProfileCard employeeProfileCard = new EmployeeProfileCard(_id, _employeeList);
+                EmployeeProfile employeeProfileCard = new EmployeeProfile(_id, _employeeList);
                 _employeeList.flowLayoutPanel2.Controls.Add(employeeProfileCard);
                 employeeProfileCard.btnOrganization.FillColor = Color.FromArgb(19, 92, 61);
                 employeeProfileCard.btnOrganization.ForeColor = Color.White;
@@ -206,7 +203,7 @@ namespace GUTZ_Capstone_Project
                 // SQL command for soft delete with parameterized query
                 string softDeleteRecord = "UPDATE tbl_employee SET is_deleted = 1, deleted_at = CURRENT_TIMESTAMP WHERE emp_id = @id";
                 var parameters = new Dictionary<string, object>
-                                { { "@id", _id }  };
+                { { "@id", _id }  };
 
                 // Execute SQL Delete Command
                 if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(softDeleteRecord, parameters))
@@ -232,7 +229,6 @@ namespace GUTZ_Capstone_Project
 
         private void btnActivate_Click(object sender, EventArgs e)
         {
-
             // Display a confirmation message
             DialogResult result = MessageBox.Show("Are you sure you want to activate employee with ID: '" + _id + "'?",
                                            "Confirm Deactivation",
@@ -244,7 +240,7 @@ namespace GUTZ_Capstone_Project
                 // SQL command for soft delete with parameterized query
                 string softDeleteRecord = "UPDATE tbl_employee SET is_deleted = 0, deleted_at = NULL WHERE emp_id = @id";
                 var parameters = new Dictionary<string, object>
-                                { { "@id", _id }  };
+                { { "@id", _id } };
 
                 // Execute SQL Delete Command
                 if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(softDeleteRecord, parameters))

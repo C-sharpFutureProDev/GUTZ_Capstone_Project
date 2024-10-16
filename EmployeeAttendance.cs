@@ -11,14 +11,14 @@ namespace GUTZ_Capstone_Project
     {
         public int id;
         private const string sql = @"SELECT attendance_id, tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
-                                           tbl_employee.m_name, tbl_employee.l_name, 
-                                           CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                                           working_hours, time_in_status, DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                                           DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, time_in, time_out
-                                           FROM tbl_employee
-                                           INNER JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
-                                           WHERE is_deleted = 0 AND DATE(time_in) = CURDATE()
-                                           ORDER BY time_in ASC";
+                                            tbl_employee.m_name, tbl_employee.l_name, 
+                                            CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                            working_hours, time_in_status, DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                            DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, time_in, time_out
+                                            FROM tbl_employee
+                                            INNER JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                                            WHERE is_deleted = 0 AND DATE(time_in) = CURDATE()
+                                            ORDER BY time_in ASC";
 
         public EmployeeAttendance()
         {

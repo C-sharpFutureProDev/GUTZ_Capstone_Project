@@ -35,11 +35,9 @@
             this.dtpEmpSelectDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnViewPastAttendanceRecord = new Guna.UI2.WinForms.Guna2Button();
             this.panelAttendanceManagement = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnExpected = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnLate = new Guna.UI2.WinForms.Guna2Button();
             this.btnOnTime = new Guna.UI2.WinForms.Guna2Button();
             this.btnPresent = new Guna.UI2.WinForms.Guna2Button();
@@ -59,6 +57,7 @@
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.panelAttendanceManagement);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Font = new System.Drawing.Font("Symbol", 8.25F);
@@ -148,11 +147,9 @@
             this.panelAttendanceManagement.BackColor = System.Drawing.Color.Transparent;
             this.panelAttendanceManagement.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.panelAttendanceManagement.BorderRadius = 15;
-            this.panelAttendanceManagement.Controls.Add(this.btnExpected);
             this.panelAttendanceManagement.Controls.Add(this.label4);
             this.panelAttendanceManagement.Controls.Add(this.label2);
             this.panelAttendanceManagement.Controls.Add(this.label3);
-            this.panelAttendanceManagement.Controls.Add(this.label1);
             this.panelAttendanceManagement.Controls.Add(this.btnLate);
             this.panelAttendanceManagement.Controls.Add(this.btnOnTime);
             this.panelAttendanceManagement.Controls.Add(this.btnPresent);
@@ -164,44 +161,14 @@
             this.panelAttendanceManagement.Name = "panelAttendanceManagement";
             this.panelAttendanceManagement.ShadowDecoration.BorderRadius = 15;
             this.panelAttendanceManagement.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.panelAttendanceManagement.Size = new System.Drawing.Size(528, 154);
+            this.panelAttendanceManagement.Size = new System.Drawing.Size(485, 154);
             this.panelAttendanceManagement.TabIndex = 24;
-            // 
-            // btnExpected
-            // 
-            this.btnExpected.BackColor = System.Drawing.Color.Transparent;
-            this.btnExpected.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnExpected.BorderRadius = 8;
-            this.btnExpected.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExpected.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExpected.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExpected.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExpected.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnExpected.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.btnExpected.ForeColor = System.Drawing.Color.White;
-            this.btnExpected.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnExpected.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnExpected.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnExpected.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnExpected.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnExpected.Location = new System.Drawing.Point(1, 61);
-            this.btnExpected.Name = "btnExpected";
-            this.btnExpected.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
-            this.btnExpected.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnExpected.PressedDepth = 0;
-            this.btnExpected.ShadowDecoration.BorderRadius = 8;
-            this.btnExpected.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnExpected.ShadowDecoration.Enabled = true;
-            this.btnExpected.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.btnExpected.Size = new System.Drawing.Size(108, 50);
-            this.btnExpected.TabIndex = 83;
-            this.btnExpected.Text = "100";
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(418, 114);
+            this.label4.Location = new System.Drawing.Point(362, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 26);
             this.label4.TabIndex = 35;
@@ -210,36 +177,25 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Orange;
-            this.label2.Location = new System.Drawing.Point(143, 114);
+            this.label2.Location = new System.Drawing.Point(14, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 26);
+            this.label2.Size = new System.Drawing.Size(108, 26);
             this.label2.TabIndex = 33;
             this.label2.Text = "Present";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(281, 112);
+            this.label3.Location = new System.Drawing.Point(188, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 28);
             this.label3.TabIndex = 34;
             this.label3.Text = "On Time";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.label1.Location = new System.Drawing.Point(3, 112);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 26);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "Expected";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLate
             // 
@@ -256,7 +212,7 @@
             this.btnLate.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnLate.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnLate.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnLate.Location = new System.Drawing.Point(418, 61);
+            this.btnLate.Location = new System.Drawing.Point(362, 61);
             this.btnLate.Margin = new System.Windows.Forms.Padding(5);
             this.btnLate.Name = "btnLate";
             this.btnLate.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
@@ -285,7 +241,7 @@
             this.btnOnTime.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnOnTime.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnOnTime.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnOnTime.Location = new System.Drawing.Point(279, 61);
+            this.btnOnTime.Location = new System.Drawing.Point(188, 61);
             this.btnOnTime.Margin = new System.Windows.Forms.Padding(5);
             this.btnOnTime.Name = "btnOnTime";
             this.btnOnTime.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
@@ -314,7 +270,7 @@
             this.btnPresent.HoverState.FillColor = System.Drawing.Color.Orange;
             this.btnPresent.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnPresent.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnPresent.Location = new System.Drawing.Point(140, 61);
+            this.btnPresent.Location = new System.Drawing.Point(14, 61);
             this.btnPresent.Margin = new System.Windows.Forms.Padding(5);
             this.btnPresent.Name = "btnPresent";
             this.btnPresent.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
@@ -333,7 +289,7 @@
             this.dateOfCurrentAttendanceRecord.AutoSize = true;
             this.dateOfCurrentAttendanceRecord.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
             this.dateOfCurrentAttendanceRecord.ForeColor = System.Drawing.Color.Black;
-            this.dateOfCurrentAttendanceRecord.Location = new System.Drawing.Point(-4, 12);
+            this.dateOfCurrentAttendanceRecord.Location = new System.Drawing.Point(10, 12);
             this.dateOfCurrentAttendanceRecord.Name = "dateOfCurrentAttendanceRecord";
             this.dateOfCurrentAttendanceRecord.Size = new System.Drawing.Size(192, 24);
             this.dateOfCurrentAttendanceRecord.TabIndex = 24;
@@ -402,8 +358,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public Guna.UI2.WinForms.Guna2Button btnViewPastAttendanceRecord;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpEmpSelectDate;
-        private System.Windows.Forms.Label label1;
-        public Guna.UI2.WinForms.Guna2Button btnExpected;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.Timer timer1;
     }

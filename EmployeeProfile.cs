@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project
 {
-    public partial class EmployeeProfileCard : UserControl
+    public partial class EmployeeProfile : UserControl
     {
         private EmployeeList _employeeList;
         string _id = "";
 
-        public EmployeeProfileCard(string _empID, EmployeeList employeeList)
+        public EmployeeProfile(string _empID, EmployeeList employeeList)
         {
             InitializeComponent();
             if (_empID != null)

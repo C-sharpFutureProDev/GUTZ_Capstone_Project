@@ -218,7 +218,8 @@
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.cboFilter);
             this.guna2Panel1.Controls.Add(this.cboSearch);
-            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Green;
+            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Font = new System.Drawing.Font("Symbol", 8.25F);

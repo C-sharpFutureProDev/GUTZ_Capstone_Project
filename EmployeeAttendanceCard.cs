@@ -99,8 +99,8 @@ namespace GUTZ_Capstone_Project
             {
                 _employeeAttendance.timer1.Stop();
 
-                _employeeAttendance.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
-                _employeeAttendance.flowLayoutPanel1.Size = new Size(570, 1000); // Set size if needed
+                _employeeAttendance.flowLayoutPanel1.Dock = DockStyle.Left;
+                _employeeAttendance.flowLayoutPanel1.Size = new Size(570, 1000);
                 _employeeAttendance.flowLayoutPanel2.Visible = true;
                 _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Fill;
 

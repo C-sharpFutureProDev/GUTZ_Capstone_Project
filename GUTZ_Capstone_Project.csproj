@@ -199,11 +199,11 @@
     <Compile Include="EmployeePreviousWorkingExperience.Designer.cs">
       <DependentUpon>EmployeePreviousWorkingExperience.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeProfileCard.cs">
+    <Compile Include="EmployeeProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EmployeeProfileCard.Designer.cs">
-      <DependentUpon>EmployeeProfileCard.cs</DependentUpon>
+    <Compile Include="EmployeeProfile.Designer.cs">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeSchedule.cs">
       <SubType>Form</SubType>
@@ -302,8 +302,8 @@
     <EmbeddedResource Include="EmployeePreviousWorkingExperience.resx">
       <DependentUpon>EmployeePreviousWorkingExperience.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeProfileCard.resx">
-      <DependentUpon>EmployeeProfileCard.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeProfile.resx">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeSchedule.resx">
       <DependentUpon>EmployeeSchedule.cs</DependentUpon>

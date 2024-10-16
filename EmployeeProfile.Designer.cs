@@ -1,6 +1,6 @@
 ﻿namespace GUTZ_Capstone_Project
 {
-    partial class EmployeeProfileCard
+    partial class EmployeeProfile
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeProfileCard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeProfile));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.iconContact = new FontAwesome.Sharp.IconButton();
             this.lblEmpPhoneNo = new System.Windows.Forms.Label();
