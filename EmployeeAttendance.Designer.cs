@@ -31,6 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeAttendance));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblActiveEmployee = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateOfCurrentAttendanceRecord = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.dtpEmpSelectDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnViewPastAttendanceRecord = new Guna.UI2.WinForms.Guna2Button();
@@ -41,7 +51,6 @@
             this.btnLate = new Guna.UI2.WinForms.Guna2Button();
             this.btnOnTime = new Guna.UI2.WinForms.Guna2Button();
             this.btnPresent = new Guna.UI2.WinForms.Guna2Button();
-            this.dateOfCurrentAttendanceRecord = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -53,7 +62,17 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.label7);
+            this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Controls.Add(this.lblActiveEmployee);
+            this.guna2Panel1.Controls.Add(this.label9);
+            this.guna2Panel1.Controls.Add(this.label6);
+            this.guna2Panel1.Controls.Add(this.guna2Button3);
+            this.guna2Panel1.Controls.Add(this.guna2Button2);
+            this.guna2Panel1.Controls.Add(this.guna2Button1);
+            this.guna2Panel1.Controls.Add(this.label5);
+            this.guna2Panel1.Controls.Add(this.dateOfCurrentAttendanceRecord);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.panelAttendanceManagement);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
@@ -69,12 +88,176 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1914, 202);
             this.guna2Panel1.TabIndex = 3;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.label7.Location = new System.Drawing.Point(195, 118);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 21);
+            this.label7.TabIndex = 93;
+            this.label7.Text = "10";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Orange;
+            this.label1.Location = new System.Drawing.Point(195, 161);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 21);
+            this.label1.TabIndex = 92;
+            this.label1.Text = "5";
+            // 
+            // lblActiveEmployee
+            // 
+            this.lblActiveEmployee.AutoSize = true;
+            this.lblActiveEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.lblActiveEmployee.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblActiveEmployee.ForeColor = System.Drawing.Color.Green;
+            this.lblActiveEmployee.Location = new System.Drawing.Point(195, 75);
+            this.lblActiveEmployee.Name = "lblActiveEmployee";
+            this.lblActiveEmployee.Size = new System.Drawing.Size(40, 21);
+            this.lblActiveEmployee.TabIndex = 91;
+            this.lblActiveEmployee.Text = "100";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Orange;
+            this.label9.Location = new System.Drawing.Point(87, 164);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 21);
+            this.label9.TabIndex = 90;
+            this.label9.Text = "On Leave";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Green;
+            this.label6.Location = new System.Drawing.Point(87, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 21);
+            this.label6.TabIndex = 89;
+            this.label6.Text = "Present";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button3.BorderRadius = 2;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.Orange;
+            this.guna2Button3.Font = new System.Drawing.Font("LCD", 11F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.Orange;
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Orange;
+            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
+            this.guna2Button3.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2Button3.Location = new System.Drawing.Point(34, 150);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.guna2Button3.PressedColor = System.Drawing.Color.Orange;
+            this.guna2Button3.PressedDepth = 0;
+            this.guna2Button3.Size = new System.Drawing.Size(38, 35);
+            this.guna2Button3.TabIndex = 85;
+            this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button2.BorderRadius = 2;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button2.Font = new System.Drawing.Font("LCD", 11F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2Button2.Location = new System.Drawing.Point(34, 107);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button2.PressedDepth = 0;
+            this.guna2Button2.Size = new System.Drawing.Size(38, 35);
+            this.guna2Button2.TabIndex = 84;
+            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button1.BorderRadius = 2;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Green;
+            this.guna2Button1.Font = new System.Drawing.Font("LCD", 11F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.Green;
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2Button1.Location = new System.Drawing.Point(34, 64);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.guna2Button1.PressedColor = System.Drawing.Color.Green;
+            this.guna2Button1.PressedDepth = 0;
+            this.guna2Button1.Size = new System.Drawing.Size(38, 35);
+            this.guna2Button1.TabIndex = 83;
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.label5.Location = new System.Drawing.Point(87, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 21);
+            this.label5.TabIndex = 74;
+            this.label5.Text = "Absent";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dateOfCurrentAttendanceRecord
+            // 
+            this.dateOfCurrentAttendanceRecord.AutoSize = true;
+            this.dateOfCurrentAttendanceRecord.BackColor = System.Drawing.Color.Transparent;
+            this.dateOfCurrentAttendanceRecord.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
+            this.dateOfCurrentAttendanceRecord.ForeColor = System.Drawing.Color.Black;
+            this.dateOfCurrentAttendanceRecord.Location = new System.Drawing.Point(30, 26);
+            this.dateOfCurrentAttendanceRecord.Name = "dateOfCurrentAttendanceRecord";
+            this.dateOfCurrentAttendanceRecord.Size = new System.Drawing.Size(192, 24);
+            this.dateOfCurrentAttendanceRecord.TabIndex = 36;
+            this.dateOfCurrentAttendanceRecord.Text = "Attendance Today";
+            // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.White;
             this.guna2Panel2.BorderRadius = 8;
-            this.guna2Panel2.BorderThickness = 1;
             this.guna2Panel2.Controls.Add(this.dtpEmpSelectDate);
             this.guna2Panel2.Controls.Add(this.btnViewPastAttendanceRecord);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
@@ -153,24 +336,23 @@
             this.panelAttendanceManagement.Controls.Add(this.btnLate);
             this.panelAttendanceManagement.Controls.Add(this.btnOnTime);
             this.panelAttendanceManagement.Controls.Add(this.btnPresent);
-            this.panelAttendanceManagement.Controls.Add(this.dateOfCurrentAttendanceRecord);
             this.panelAttendanceManagement.FillColor = System.Drawing.Color.White;
             this.panelAttendanceManagement.ForeColor = System.Drawing.Color.Black;
-            this.panelAttendanceManagement.Location = new System.Drawing.Point(30, 23);
+            this.panelAttendanceManagement.Location = new System.Drawing.Point(687, 26);
             this.panelAttendanceManagement.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelAttendanceManagement.Name = "panelAttendanceManagement";
             this.panelAttendanceManagement.ShadowDecoration.BorderRadius = 15;
             this.panelAttendanceManagement.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.panelAttendanceManagement.Size = new System.Drawing.Size(485, 154);
+            this.panelAttendanceManagement.Size = new System.Drawing.Size(472, 154);
             this.panelAttendanceManagement.TabIndex = 24;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(362, 113);
+            this.label4.Location = new System.Drawing.Point(355, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 26);
+            this.label4.Size = new System.Drawing.Size(103, 26);
             this.label4.TabIndex = 35;
             this.label4.Text = "Late";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -190,7 +372,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(188, 112);
+            this.label3.Location = new System.Drawing.Point(182, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 28);
             this.label3.TabIndex = 34;
@@ -201,7 +383,7 @@
             // 
             this.btnLate.BackColor = System.Drawing.Color.Transparent;
             this.btnLate.BorderColor = System.Drawing.Color.Red;
-            this.btnLate.BorderRadius = 8;
+            this.btnLate.BorderRadius = 5;
             this.btnLate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -212,7 +394,7 @@
             this.btnLate.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnLate.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnLate.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnLate.Location = new System.Drawing.Point(362, 61);
+            this.btnLate.Location = new System.Drawing.Point(350, 61);
             this.btnLate.Margin = new System.Windows.Forms.Padding(5);
             this.btnLate.Name = "btnLate";
             this.btnLate.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
@@ -230,7 +412,7 @@
             // 
             this.btnOnTime.BackColor = System.Drawing.Color.Transparent;
             this.btnOnTime.BorderColor = System.Drawing.Color.Green;
-            this.btnOnTime.BorderRadius = 8;
+            this.btnOnTime.BorderRadius = 5;
             this.btnOnTime.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOnTime.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOnTime.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -241,7 +423,7 @@
             this.btnOnTime.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnOnTime.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnOnTime.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnOnTime.Location = new System.Drawing.Point(188, 61);
+            this.btnOnTime.Location = new System.Drawing.Point(182, 61);
             this.btnOnTime.Margin = new System.Windows.Forms.Padding(5);
             this.btnOnTime.Name = "btnOnTime";
             this.btnOnTime.Padding = new System.Windows.Forms.Padding(15, 5, 10, 3);
@@ -259,7 +441,7 @@
             // 
             this.btnPresent.BackColor = System.Drawing.Color.Transparent;
             this.btnPresent.BorderColor = System.Drawing.Color.Orange;
-            this.btnPresent.BorderRadius = 8;
+            this.btnPresent.BorderRadius = 5;
             this.btnPresent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPresent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPresent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -283,17 +465,6 @@
             this.btnPresent.Size = new System.Drawing.Size(108, 50);
             this.btnPresent.TabIndex = 25;
             this.btnPresent.Text = "0";
-            // 
-            // dateOfCurrentAttendanceRecord
-            // 
-            this.dateOfCurrentAttendanceRecord.AutoSize = true;
-            this.dateOfCurrentAttendanceRecord.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
-            this.dateOfCurrentAttendanceRecord.ForeColor = System.Drawing.Color.Black;
-            this.dateOfCurrentAttendanceRecord.Location = new System.Drawing.Point(10, 12);
-            this.dateOfCurrentAttendanceRecord.Name = "dateOfCurrentAttendanceRecord";
-            this.dateOfCurrentAttendanceRecord.Size = new System.Drawing.Size(192, 24);
-            this.dateOfCurrentAttendanceRecord.TabIndex = 24;
-            this.dateOfCurrentAttendanceRecord.Text = "Attendance Today";
             // 
             // flowLayoutPanel2
             // 
@@ -336,9 +507,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeAttendance_FormClosing);
             this.Load += new System.EventHandler(this.EmployeeAttendance_Load);
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.panelAttendanceManagement.ResumeLayout(false);
-            this.panelAttendanceManagement.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -354,11 +525,20 @@
         private Guna.UI2.WinForms.Guna2Button btnLate;
         private Guna.UI2.WinForms.Guna2Button btnOnTime;
         private Guna.UI2.WinForms.Guna2Button btnPresent;
-        private System.Windows.Forms.Label dateOfCurrentAttendanceRecord;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public Guna.UI2.WinForms.Guna2Button btnViewPastAttendanceRecord;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpEmpSelectDate;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label dateOfCurrentAttendanceRecord;
+        private System.Windows.Forms.Label label5;
+        public Guna.UI2.WinForms.Guna2Button guna2Button1;
+        public Guna.UI2.WinForms.Guna2Button guna2Button3;
+        public Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblActiveEmployee;
     }
 }

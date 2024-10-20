@@ -52,7 +52,7 @@
             // 
             // lblFormLabel
             // 
-            this.lblFormLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.lblFormLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblFormLabel.Font = new System.Drawing.Font("Cambria", 15.5F, System.Drawing.FontStyle.Bold);
             this.lblFormLabel.ForeColor = System.Drawing.Color.White;
             this.lblFormLabel.Location = new System.Drawing.Point(34, 34);

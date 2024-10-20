@@ -325,14 +325,14 @@ namespace GUTZ_Capstone_Project
 
                 // Hide the flow layout panel and the main panel
                 _employeeList.flowLayoutPanel1.Visible = false;
-                _employeeList.guna2Panel1.Visible = false;
+                _employeeList.panelEmployeeListFeatures.Visible = false;
 
                 // Make the minimize button visible and bring it to the front
                 btnMinimize.Visible = true;
                 btnMinimize.BringToFront();
 
                 _employeeList.flowLayoutPanel1.PerformLayout();
-                _employeeList.guna2Panel1.PerformLayout();
+                _employeeList.panelEmployeeListFeatures.PerformLayout();
             }
         }
 
@@ -346,7 +346,7 @@ namespace GUTZ_Capstone_Project
                 btnMinimize.Visible = false;
                 //_employeeList.txtSearch.Clear();
                 _employeeList.flowLayoutPanel1.Visible = true;
-                _employeeList.guna2Panel1.Visible = true;
+                _employeeList.panelEmployeeListFeatures.Visible = true;
             }
         }
 

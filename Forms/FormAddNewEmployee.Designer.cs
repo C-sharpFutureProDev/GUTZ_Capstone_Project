@@ -674,7 +674,7 @@
             this.btnUploadImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnUploadImage.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnUploadImage.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnUploadImage.Location = new System.Drawing.Point(1214, 250);
+            this.btnUploadImage.Location = new System.Drawing.Point(1214, 253);
             this.btnUploadImage.Name = "btnUploadImage";
             this.btnUploadImage.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
             this.btnUploadImage.Size = new System.Drawing.Size(197, 41);

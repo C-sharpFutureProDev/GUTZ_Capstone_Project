@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project
@@ -25,7 +26,11 @@ namespace GUTZ_Capstone_Project
         public EmployeeListCard(EmployeeList employeeList)
         {
             InitializeComponent();
-            _employeeList = employeeList;
+            if (employeeList != null)
+            {
+                _employeeList = employeeList;
+            }
+
             btnViewProfile.Click += btnViewProfile_Click;
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnDeactivateEmployee, "Deactivate");
@@ -150,10 +155,15 @@ namespace GUTZ_Capstone_Project
 
             if (_employeeList != null)
             {
-                // Modify properties
+                foreach (var card in _employeeList.flowLayoutPanel1.Controls.OfType<EmployeeListCard>())
+                {
+                    // Update location for each card's panelEmployeeList
+                    card.panelEmployeeList.Location = new Point(7, 25);
+                }
+
                 _employeeList.flowLayoutPanel1.BackColor = Color.FromArgb(19, 92, 61); // Change background color
                 _employeeList.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
-                _employeeList.flowLayoutPanel1.Size = new Size(400, 1000); // Set size if needed
+                _employeeList.flowLayoutPanel1.Size = new Size(424, 1000); // Set size if needed
 
                 // Show flowLayoutPanel2
                 _employeeList.flowLayoutPanel2.Visible = true;

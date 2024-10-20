@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Web.UI.WebControls.WebParts;
 
 namespace GUTZ_Capstone_Project
 {
@@ -24,11 +27,18 @@ namespace GUTZ_Capstone_Project
         public EmployeeList()
         {
             InitializeComponent();
-            PopulateItems();
+            //PopulateItems();
         }
 
         private void EmployeeList_Load(object sender, EventArgs e)
         {
+            cboSearch.SelectedIndex = 0;
+            cboSort.SelectedIndex = 0;
+            cboFilter.SelectedIndex = 0;
+
+            flowLayoutPanel1.SuspendLayout();
+            PopulateItems();
+            flowLayoutPanel1.ResumeLayout();
             CountActiveAndInactive();
         }
 
@@ -585,8 +595,27 @@ namespace GUTZ_Capstone_Project
             }
         }
 
+        // A field to store default items for cboSearch
+        private readonly string[] defaultSearchItems = { "Search By", "ID Number", "Name", "Email Address" };
+        private readonly string[] defaultSortItems = { "Sort By", "Non-Tenured", "Tenured", "ESO", "RKESI", "VUIHOC" };
+        private readonly string[] defaultFilterItems = { "Filter By", "Active", "Inactive", "Male", "Female", "Full Time", "Part Time" };
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            cboSearch.Items.Clear();
+            cboSearch.Items.AddRange(defaultSearchItems);
+            cboSearch.SelectedIndex = 0;
+
+            cboSort.Items.Clear();
+            cboSort.Items.AddRange(defaultSortItems);
+            cboSort.SelectedIndex = 0;
+
+            cboFilter.Items.Clear();
+            cboFilter.Items.AddRange(defaultFilterItems);
+            cboFilter.SelectedIndex = 0;
+
+            flowLayoutPanel1.SuspendLayout();
+
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.BackColor = Color.FromArgb(19, 92, 61);
             txtSearch.Clear();
@@ -594,6 +623,126 @@ namespace GUTZ_Capstone_Project
             flowLayoutPanel1.Dock = DockStyle.Fill;
 
             PopulateItems();
+
+            flowLayoutPanel1.ResumeLayout();
+        }
+
+        private void ExportEmployeesToCsv()
+        {
+            string sql = @"SELECT 
+                            account_name, 
+                            f_name, 
+                            m_name, 
+                            l_name, 
+                            email, 
+                            phone, 
+                            is_deleted,
+                            start_date, 
+                            end_date
+                            FROM tbl_employee
+                            INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id";
+
+            DataTable employeeData = DB_OperationHelperClass.QueryData(sql);
+
+            if (employeeData.Rows.Count > 0)
+            {
+                ExportToCsv(employeeData);
+            }
+            else
+            {
+                MessageBox.Show("No employee records to export.", "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ExportToCsv(DataTable dataTable)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "CSV Files (*.csv)|*.csv";
+                saveFileDialog.Title = "Save Employee List as CSV";
+                saveFileDialog.FileName = "employee_list.csv";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        StringBuilder csvContent = new StringBuilder();
+
+                        // Adjusted column headers
+                        csvContent.AppendLine("ACCOUNT,TUTOR'S NAME, NAME, EMAIL, Phone Number, Status, Start Date, End Date");
+
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            string account = row["account_name"].ToString() ?? "N/A";
+                            string tutorName = row["f_name"].ToString() ?? "N/A";
+                            string middleInitial = !string.IsNullOrWhiteSpace(row["m_name"].ToString()) ? $"{row["m_name"].ToString()[0]}." : "N/A";
+                            string fullName = $"{tutorName} {middleInitial} {row["l_name"]?.ToString() ?? "N/A"}".Trim();
+                            string email = row["email"].ToString() ?? "N/A";
+                            string phone = row["phone"].ToString() ?? "N/A";
+                            string status = (Convert.ToInt32(row["is_deleted"]) == 0) ? "Active" : "Inactive";
+
+                            string startDate = row["start_date"].ToString();
+                            string formattedStartDate = DateTime.TryParse(startDate, out DateTime start) ? start.ToString("MM/dd/yyyy") : "N/A";
+
+                            string endDate = row["end_date"].ToString();
+                            string formattedEndDate = DateTime.TryParse(endDate, out DateTime end) ? end.ToString("MM/dd/yyyy") : "N/A";
+
+                            csvContent.AppendLine($"{account},{tutorName},{fullName},{email},{phone},{status},{formattedStartDate},{formattedEndDate}");
+                        }
+
+                        File.WriteAllText(saveFileDialog.FileName, csvContent.ToString());
+                        MessageBox.Show("Export successful!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("An error occurred while exporting the data to CSV. Please try again.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExportEmployeesToCsv();
+        }
+
+        private void cboSearch_Click(object sender, EventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+
+            if (comboBox.SelectedIndex == 0)
+            {
+                comboBox.Items.RemoveAt(0);
+                comboBox.SelectedIndex = -1;
+            }
+        }
+
+        private void cboSort_Click(object sender, EventArgs e)
+        {
+
+            ComboBox comboBox = sender as ComboBox;
+
+            // Only remove the placeholder if it's currently selected
+            if (comboBox.SelectedItem.ToString() == "Sort By")
+            {
+                comboBox.Items.RemoveAt(0);
+                comboBox.SelectedIndex = -1; // Clear selection
+            }
+        }
+
+        private void cboFilter_Click(object sender, EventArgs e)
+        {
+
+            ComboBox comboBox = sender as ComboBox;
+
+            // Only remove the placeholder if it's currently selected
+            if (comboBox.SelectedItem.ToString() == "Filter By")
+            {
+                comboBox.Items.RemoveAt(0);
+                comboBox.SelectedIndex = -1; // Clear selection
+            }
         }
     }
 }

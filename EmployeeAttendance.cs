@@ -63,18 +63,17 @@ namespace GUTZ_Capstone_Project
                         ClockOutTime = timeOutFormatted,
                     };
 
-                    if (timeInStatus == "On Time" || timeInStatus == "Late")
-                        employeeAttendanceCard.EmployeeListCardEmployeeDetailsCard.BorderColor = Color.Orange;
-
                     if (timeInStatus == "Late")
                     {
                         employeeAttendanceCard.btnStatus.ForeColor = Color.Red;
+                        employeeAttendanceCard.btnStatus.Text = "LATE";
                         employeeAttendanceCard.btnStatus.HoverState.ForeColor = Color.Red;
                         employeeAttendanceCard.btnStatus.HoverState.BorderColor = Color.Red;
                     }
                     else
                     {
                         employeeAttendanceCard.btnStatus.ForeColor = Color.Green;
+                        employeeAttendanceCard.btnStatus.Text = "ON TIME";
                         employeeAttendanceCard.btnStatus.HoverState.ForeColor = Color.Green;
                         employeeAttendanceCard.btnStatus.HoverState.BorderColor = Color.Green;
                     }
@@ -240,8 +239,20 @@ namespace GUTZ_Capstone_Project
                         ClockOutTime = timeOutFormatted,
                     };
 
-                    if (timeInStatus == "On Time" || timeInStatus == "Late")
-                        employeeAttendanceCard.EmployeeListCardEmployeeDetailsCard.BorderColor = Color.Orange;
+                    if (timeInStatus == "Late")
+                    {
+                        employeeAttendanceCard.btnStatus.ForeColor = Color.Red;
+                        employeeAttendanceCard.btnStatus.Text = "LATE";
+                        employeeAttendanceCard.btnStatus.HoverState.ForeColor = Color.Red;
+                        employeeAttendanceCard.btnStatus.HoverState.BorderColor = Color.Red;
+                    }
+                    else
+                    {
+                        employeeAttendanceCard.btnStatus.ForeColor = Color.Green;
+                        employeeAttendanceCard.btnStatus.Text = "ON TIME";
+                        employeeAttendanceCard.btnStatus.HoverState.ForeColor = Color.Green;
+                        employeeAttendanceCard.btnStatus.HoverState.BorderColor = Color.Green;
+                    }
 
                     flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
                 }

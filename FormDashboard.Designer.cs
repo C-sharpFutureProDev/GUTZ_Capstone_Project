@@ -545,7 +545,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(248)))), ((int)(((byte)(233)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.Controls.Add(this.guna2Panel9);
             this.guna2Panel1.Controls.Add(this.guna2Panel8);
