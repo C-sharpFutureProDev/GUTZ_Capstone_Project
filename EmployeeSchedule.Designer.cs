@@ -53,7 +53,7 @@
             // lblFormLabel
             // 
             this.lblFormLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.lblFormLabel.Font = new System.Drawing.Font("Cambria", 15.5F, System.Drawing.FontStyle.Bold);
+            this.lblFormLabel.Font = new System.Drawing.Font("Roboto", 15F);
             this.lblFormLabel.ForeColor = System.Drawing.Color.White;
             this.lblFormLabel.Location = new System.Drawing.Point(34, 34);
             this.lblFormLabel.Name = "lblFormLabel";
@@ -64,7 +64,7 @@
             // 
             // chkBoxMonday
             // 
-            this.chkBoxMonday.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxMonday.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBoxMonday.Location = new System.Drawing.Point(29, 38);
             this.chkBoxMonday.Name = "chkBoxMonday";
             this.chkBoxMonday.Size = new System.Drawing.Size(145, 39);
@@ -80,7 +80,7 @@
             this.groupBox1.Controls.Add(this.chkBoxWednesday);
             this.groupBox1.Controls.Add(this.chkBoxTuesday);
             this.groupBox1.Controls.Add(this.chkBoxMonday);
-            this.groupBox1.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Roboto", 11F);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.groupBox1.Location = new System.Drawing.Point(34, 95);
             this.groupBox1.Name = "groupBox1";
@@ -91,7 +91,7 @@
             // 
             // chkBoxFriday
             // 
-            this.chkBoxFriday.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxFriday.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBoxFriday.Location = new System.Drawing.Point(29, 226);
             this.chkBoxFriday.Name = "chkBoxFriday";
             this.chkBoxFriday.Size = new System.Drawing.Size(145, 39);
@@ -102,7 +102,7 @@
             // 
             // chkBoxThursday
             // 
-            this.chkBoxThursday.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxThursday.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBoxThursday.Location = new System.Drawing.Point(29, 179);
             this.chkBoxThursday.Name = "chkBoxThursday";
             this.chkBoxThursday.Size = new System.Drawing.Size(145, 39);
@@ -113,7 +113,7 @@
             // 
             // chkBoxWednesday
             // 
-            this.chkBoxWednesday.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxWednesday.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBoxWednesday.Location = new System.Drawing.Point(29, 132);
             this.chkBoxWednesday.Name = "chkBoxWednesday";
             this.chkBoxWednesday.Size = new System.Drawing.Size(145, 39);
@@ -124,7 +124,7 @@
             // 
             // chkBoxTuesday
             // 
-            this.chkBoxTuesday.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxTuesday.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBoxTuesday.Location = new System.Drawing.Point(29, 85);
             this.chkBoxTuesday.Name = "chkBoxTuesday";
             this.chkBoxTuesday.Size = new System.Drawing.Size(145, 39);
@@ -139,7 +139,7 @@
             this.StartNumUpDown.BorderRadius = 4;
             this.StartNumUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.StartNumUpDown.FocusedState.BorderColor = System.Drawing.Color.Green;
-            this.StartNumUpDown.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartNumUpDown.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartNumUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.StartNumUpDown.Location = new System.Drawing.Point(18, 85);
             this.StartNumUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -161,7 +161,7 @@
             this.EndNumUpDown.BorderRadius = 4;
             this.EndNumUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.EndNumUpDown.FocusedState.BorderColor = System.Drawing.Color.Green;
-            this.EndNumUpDown.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndNumUpDown.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EndNumUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.EndNumUpDown.Location = new System.Drawing.Point(18, 168);
             this.EndNumUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -181,11 +181,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.label15.Location = new System.Drawing.Point(14, 55);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(79, 21);
+            this.label15.Size = new System.Drawing.Size(75, 23);
             this.label15.TabIndex = 81;
             this.label15.Text = "Start At:";
             // 
@@ -193,11 +193,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto", 9F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.label1.Location = new System.Drawing.Point(14, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 21);
+            this.label1.Size = new System.Drawing.Size(66, 23);
             this.label1.TabIndex = 82;
             this.label1.Text = "End At:";
             // 
@@ -209,7 +209,7 @@
             this.groupBox2.Controls.Add(this.StartNumUpDown);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.EndNumUpDown);
-            this.groupBox2.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Roboto", 11F);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.groupBox2.Location = new System.Drawing.Point(238, 95);
             this.groupBox2.Name = "groupBox2";
@@ -227,7 +227,7 @@
             this.cboEndAMOrPM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEndAMOrPM.FocusedColor = System.Drawing.Color.Green;
             this.cboEndAMOrPM.FocusedState.BorderColor = System.Drawing.Color.Green;
-            this.cboEndAMOrPM.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.cboEndAMOrPM.Font = new System.Drawing.Font("Roboto", 8.5F, System.Drawing.FontStyle.Bold);
             this.cboEndAMOrPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboEndAMOrPM.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboEndAMOrPM.HoverState.FillColor = System.Drawing.Color.White;
@@ -250,7 +250,7 @@
             this.cboStartAMOrPM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStartAMOrPM.FocusedColor = System.Drawing.Color.Green;
             this.cboStartAMOrPM.FocusedState.BorderColor = System.Drawing.Color.Green;
-            this.cboStartAMOrPM.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.cboStartAMOrPM.Font = new System.Drawing.Font("Roboto", 8.5F, System.Drawing.FontStyle.Bold);
             this.cboStartAMOrPM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboStartAMOrPM.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboStartAMOrPM.HoverState.FillColor = System.Drawing.Color.White;
@@ -274,7 +274,7 @@
             this.btnSaveSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveSchedule.FillColor = System.Drawing.Color.Green;
-            this.btnSaveSchedule.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSaveSchedule.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveSchedule.ForeColor = System.Drawing.Color.White;
             this.btnSaveSchedule.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSaveSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -296,7 +296,7 @@
             this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
-            this.btnClose.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClose.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnClose.HoverState.FillColor = System.Drawing.Color.Red;
@@ -319,7 +319,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblFormLabel);
-            this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EmployeeSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -27,7 +27,6 @@ namespace GUTZ_Capstone_Project
         public EmployeeList()
         {
             InitializeComponent();
-            //PopulateItems();
         }
 
         private void EmployeeList_Load(object sender, EventArgs e)
@@ -71,13 +70,15 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void PopulateItems()
+        private async void PopulateItems()
         {
             try
             {
-                flowLayoutPanel1.Controls.Clear(); // Clear previous items
+                // Clear previous items
+                flowLayoutPanel1.Controls.Clear();
 
-                DataTable dt = DB_OperationHelperClass.QueryData(sql);
+                // Asynchronously retrieve data
+                DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(sql));
 
                 if (dt.Rows.Count == 0)
                 {
@@ -111,7 +112,7 @@ namespace GUTZ_Capstone_Project
                     {
                         EmployeeName = name,
                         ID = id.ToString(),
-                        EmployeeProfilePic = LoadImageAsync(imagePath),
+                        EmployeeProfilePic = await LoadImageAsync(imagePath), // Assume LoadImageAsync is an async method
                         JobRole = jobRole,
                         Email = email,
                         Contact = contactNo,
@@ -135,9 +136,27 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private Image LoadImageAsync(string path)
+        private async Task<Image> LoadImageAsync(string imagePath)
         {
-            return Task.Run(() => Image.FromFile(path)).Result;
+            return await Task.Run(() =>
+            {
+                if (string.IsNullOrEmpty(imagePath) || !File.Exists(imagePath))
+                {
+                    return null;
+                }
+
+                try
+                {
+                    using (var stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                    {
+                        return Image.FromStream(stream);
+                    }
+                }
+                catch
+                {
+                    return null;
+                }
+            });
         }
 
         private void btnAddNewEmployee_Click(object sender, EventArgs e)

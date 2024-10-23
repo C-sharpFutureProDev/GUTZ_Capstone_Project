@@ -68,7 +68,7 @@
             this.panelEmployeeList.Controls.Add(this.btnActiveInactive);
             this.panelEmployeeList.Controls.Add(this.employeeProfilePicture);
             this.panelEmployeeList.FillColor = System.Drawing.Color.MistyRose;
-            this.panelEmployeeList.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panelEmployeeList.ForeColor = System.Drawing.Color.Black;
             this.panelEmployeeList.Location = new System.Drawing.Point(22, 25);
             this.panelEmployeeList.Margin = new System.Windows.Forms.Padding(0);
             this.panelEmployeeList.Name = "panelEmployeeList";
@@ -160,11 +160,11 @@
             // lblJoinedDate
             // 
             this.lblJoinedDate.AutoSize = true;
-            this.lblJoinedDate.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Bold);
+            this.lblJoinedDate.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoinedDate.ForeColor = System.Drawing.Color.Black;
-            this.lblJoinedDate.Location = new System.Drawing.Point(92, 398);
+            this.lblJoinedDate.Location = new System.Drawing.Point(88, 398);
             this.lblJoinedDate.Name = "lblJoinedDate";
-            this.lblJoinedDate.Size = new System.Drawing.Size(75, 18);
+            this.lblJoinedDate.Size = new System.Drawing.Size(73, 20);
             this.lblJoinedDate.TabIndex = 74;
             this.lblJoinedDate.Text = "Hire Date";
             // 
@@ -179,7 +179,7 @@
             this.btnViewProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnViewProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnViewProfile.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
+            this.btnViewProfile.Font = new System.Drawing.Font("Roboto", 7.5F);
             this.btnViewProfile.ForeColor = System.Drawing.Color.White;
             this.btnViewProfile.HoverState.BorderColor = System.Drawing.Color.Green;
             this.btnViewProfile.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
@@ -199,12 +199,12 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 7.5F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(31, 398);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(62, 18);
+            this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 72;
             this.label5.Text = "Joined:";
             // 
@@ -218,8 +218,8 @@
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmail);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblJobRole);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblID);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.SteelBlue;
-            this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.DimGray;
+            this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(34, 220);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
             this.EmployeeListCardEmployeeDetailsCard.ShadowDecoration.BorderRadius = 15;
@@ -230,7 +230,7 @@
             // 
             // lblEmpRate
             // 
-            this.lblEmpRate.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblEmpRate.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblEmpRate.ForeColor = System.Drawing.Color.White;
             this.lblEmpRate.Location = new System.Drawing.Point(3, 122);
             this.lblEmpRate.Name = "lblEmpRate";
@@ -241,7 +241,7 @@
             // 
             // lblContactNo
             // 
-            this.lblContactNo.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblContactNo.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblContactNo.ForeColor = System.Drawing.Color.White;
             this.lblContactNo.Location = new System.Drawing.Point(3, 94);
             this.lblContactNo.Name = "lblContactNo";
@@ -252,7 +252,7 @@
             // 
             // lblEmail
             // 
-            this.lblEmail.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblEmail.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblEmail.ForeColor = System.Drawing.Color.White;
             this.lblEmail.Location = new System.Drawing.Point(3, 66);
             this.lblEmail.Name = "lblEmail";
@@ -263,7 +263,7 @@
             // 
             // lblJobRole
             // 
-            this.lblJobRole.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblJobRole.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
             this.lblJobRole.Location = new System.Drawing.Point(3, 38);
             this.lblJobRole.Name = "lblJobRole";
@@ -274,7 +274,7 @@
             // 
             // lblID
             // 
-            this.lblID.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            this.lblID.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblID.ForeColor = System.Drawing.Color.White;
             this.lblID.Location = new System.Drawing.Point(3, 10);
             this.lblID.Name = "lblID";
@@ -285,7 +285,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Roboto", 13F);
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(0, 177);
             this.lblName.Name = "lblName";
@@ -304,21 +304,21 @@
             this.btnActiveInactive.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnActiveInactive.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnActiveInactive.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnActiveInactive.FillColor = System.Drawing.Color.Green;
-            this.btnActiveInactive.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnActiveInactive.FillColor = System.Drawing.Color.DimGray;
+            this.btnActiveInactive.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActiveInactive.ForeColor = System.Drawing.Color.White;
-            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.btnActiveInactive.HoverState.FillColor = System.Drawing.Color.Green;
+            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnActiveInactive.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnActiveInactive.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnActiveInactive.Location = new System.Drawing.Point(12, 13);
             this.btnActiveInactive.Name = "btnActiveInactive";
-            this.btnActiveInactive.Padding = new System.Windows.Forms.Padding(1, 0, 0, 1);
-            this.btnActiveInactive.PressedColor = System.Drawing.Color.Orange;
+            this.btnActiveInactive.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
+            this.btnActiveInactive.PressedColor = System.Drawing.Color.DimGray;
             this.btnActiveInactive.PressedDepth = 0;
             this.btnActiveInactive.ShadowDecoration.BorderRadius = 15;
             this.btnActiveInactive.ShadowDecoration.Color = System.Drawing.Color.Green;
             this.btnActiveInactive.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.btnActiveInactive.Size = new System.Drawing.Size(90, 32);
+            this.btnActiveInactive.Size = new System.Drawing.Size(97, 32);
             this.btnActiveInactive.TabIndex = 59;
             this.btnActiveInactive.Text = "Status";
             // 

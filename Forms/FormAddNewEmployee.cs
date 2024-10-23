@@ -38,18 +38,15 @@ namespace GUTZ_Capstone_Project.Forms
         private string[] selectedDays;
         private TimeSpan startTime;
         private TimeSpan endTime;
-        private bool isScheduleUpdateClicked = false;
         public bool isButtonSetScheduleClicked = false;
 
         public FormAddNewEmployee(string empId_)
         {
             InitializeComponent();
-
             if (!string.IsNullOrEmpty(empId_))
             {
                 this._empId = empId_;
             }
-
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             progressPecentageStatus.Text = "[ + {0} + ' %' ]";
@@ -499,7 +496,7 @@ namespace GUTZ_Capstone_Project.Forms
                 }
             }
 
-            isScheduleUpdateClicked = true;
+            isButtonSetScheduleClicked = true;
         }
 
         private void UpdateSchedule(string empId)
@@ -577,14 +574,6 @@ namespace GUTZ_Capstone_Project.Forms
             {
                 if (!check())
                     return;
-            }
-
-            // Check if selectedDays is null or empty
-            if (selectedDays == null || selectedDays.Length == 0 || startTime == null || endTime == null || startTime == TimeSpan.Zero || startTime == TimeSpan.Zero)
-            {
-                MessageBox.Show("It seems that there is no working schedule currently set. Please create and set valid working schedule to proceed.", "Schedule Not Set",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             // Get all user input from all the required fields
@@ -667,6 +656,14 @@ namespace GUTZ_Capstone_Project.Forms
 
             if (string.IsNullOrEmpty(_empId)) // Add new employee record
             {
+                // Check if selectedDays is null or empty
+                if (selectedDays == null || selectedDays.Length == 0 || startTime == null || endTime == null || startTime == TimeSpan.Zero || startTime == TimeSpan.Zero)
+                {
+                    MessageBox.Show("It seems that there is no working schedule currently set. Please create and set valid working schedule to proceed.", "Schedule Not Set",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 sql = @"INSERT INTO tbl_employee (department_id, position_id, account_id, emp_profilePic, f_name, m_name, l_name, b_day,
                         age, gender, civil_status, address, email, phone, emerg_contact, hired_date, employment_type, work_arrangement, start_date, end_date) 
                         VALUES (@deptID, @posID, @accID, @empProPicPath, @fName, @mName, @lName, @bDay, @age, @gender, @civilStatus, @address, @email, 
@@ -747,8 +744,8 @@ namespace GUTZ_Capstone_Project.Forms
                                     this.Show();
                                     Start();
                                 }
-                                else
-                                    this.Close();
+
+                                this.Close();
                             }
                         }
                         else
@@ -848,12 +845,14 @@ namespace GUTZ_Capstone_Project.Forms
                         if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateFingerprintTable, param))
                         {
                             // Only update schedule if the "UPDATE SCHEDULE" button was clicked
-                            if (isScheduleUpdateClicked)
+                            if (isButtonSetScheduleClicked == true)
                             {
                                 UpdateSchedule(_empId);
                             }
 
-                            MessageBox.Show($"Employee record for Employee with ID {_empId} has been updated successfully.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Employee record for Employee with ID {_empId} has been updated successfully.", "Update Successful", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             this.Close();
                         }
                         else
