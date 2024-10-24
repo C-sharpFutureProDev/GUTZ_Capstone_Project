@@ -105,7 +105,7 @@ namespace GUTZ_Capstone_Project.Forms
                     btnSaveEmployeeDetails.Text = "SAVE CHANGES";
                     btnSaveEmployeeDetails.Size = new Size(190, 47);
                     btnReEnrollFingerPrint.Visible = true;
-                    btnReEnrollFingerPrint.Location = new Point(250, 360);
+                    btnReEnrollFingerPrint.Location = new Point(248, 360);
                     txtScannerPrompt.Visible = false;
                     employeeFingerprintImage.Visible = false;
                     txtCaptureStatusLog.Visible = false;

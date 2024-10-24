@@ -55,7 +55,7 @@
             // panelEmployeeList
             // 
             this.panelEmployeeList.BackColor = System.Drawing.Color.Transparent;
-            this.panelEmployeeList.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelEmployeeList.BorderColor = System.Drawing.Color.Ivory;
             this.panelEmployeeList.BorderRadius = 15;
             this.panelEmployeeList.Controls.Add(this.btnActivate);
             this.panelEmployeeList.Controls.Add(this.btnEdit);
@@ -67,9 +67,9 @@
             this.panelEmployeeList.Controls.Add(this.lblName);
             this.panelEmployeeList.Controls.Add(this.btnActiveInactive);
             this.panelEmployeeList.Controls.Add(this.employeeProfilePicture);
-            this.panelEmployeeList.FillColor = System.Drawing.Color.MistyRose;
+            this.panelEmployeeList.FillColor = System.Drawing.Color.Ivory;
             this.panelEmployeeList.ForeColor = System.Drawing.Color.Black;
-            this.panelEmployeeList.Location = new System.Drawing.Point(22, 25);
+            this.panelEmployeeList.Location = new System.Drawing.Point(11, 25);
             this.panelEmployeeList.Margin = new System.Windows.Forms.Padding(0);
             this.panelEmployeeList.Name = "panelEmployeeList";
             this.panelEmployeeList.ShadowDecoration.BorderRadius = 15;
@@ -108,24 +108,24 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnEdit.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.BorderRadius = 3;
             this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit.FillColor = System.Drawing.Color.Green;
+            this.btnEdit.FillColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEdit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.Green;
+            this.btnEdit.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageSize = new System.Drawing.Size(30, 30);
             this.btnEdit.Location = new System.Drawing.Point(250, 13);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(5);
-            this.btnEdit.PressedColor = System.Drawing.Color.Green;
+            this.btnEdit.PressedColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.Size = new System.Drawing.Size(40, 40);
             this.btnEdit.TabIndex = 76;
             this.btnEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -172,17 +172,17 @@
             // 
             this.btnViewProfile.AutoRoundedCorners = true;
             this.btnViewProfile.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnViewProfile.BorderColor = System.Drawing.Color.Green;
             this.btnViewProfile.BorderRadius = 16;
             this.btnViewProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnViewProfile.Font = new System.Drawing.Font("Roboto", 7.5F);
+            this.btnViewProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnViewProfile.Font = new System.Drawing.Font("Roboto", 8F);
             this.btnViewProfile.ForeColor = System.Drawing.Color.White;
-            this.btnViewProfile.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.btnViewProfile.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnViewProfile.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnViewProfile.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnViewProfile.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProfile.Image")));
             this.btnViewProfile.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -190,7 +190,8 @@
             this.btnViewProfile.Location = new System.Drawing.Point(188, 389);
             this.btnViewProfile.Name = "btnViewProfile";
             this.btnViewProfile.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnViewProfile.PressedColor = System.Drawing.Color.LightGreen;
+            this.btnViewProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnViewProfile.PressedDepth = 0;
             this.btnViewProfile.Size = new System.Drawing.Size(130, 35);
             this.btnViewProfile.TabIndex = 73;
             this.btnViewProfile.Text = "View Profile";
@@ -211,14 +212,14 @@
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 15;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmpRate);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblContactNo);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmail);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblJobRole);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblID);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.DimGray;
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(34, 220);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
@@ -298,22 +299,22 @@
             // 
             this.btnActiveInactive.AutoRoundedCorners = true;
             this.btnActiveInactive.BackColor = System.Drawing.Color.Transparent;
-            this.btnActiveInactive.BorderColor = System.Drawing.Color.Green;
+            this.btnActiveInactive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnActiveInactive.BorderRadius = 15;
             this.btnActiveInactive.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnActiveInactive.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnActiveInactive.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnActiveInactive.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnActiveInactive.FillColor = System.Drawing.Color.DimGray;
+            this.btnActiveInactive.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnActiveInactive.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActiveInactive.ForeColor = System.Drawing.Color.White;
-            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnActiveInactive.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.Teal;
+            this.btnActiveInactive.HoverState.FillColor = System.Drawing.Color.Teal;
             this.btnActiveInactive.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnActiveInactive.Location = new System.Drawing.Point(12, 13);
             this.btnActiveInactive.Name = "btnActiveInactive";
             this.btnActiveInactive.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
-            this.btnActiveInactive.PressedColor = System.Drawing.Color.DimGray;
+            this.btnActiveInactive.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnActiveInactive.PressedDepth = 0;
             this.btnActiveInactive.ShadowDecoration.BorderRadius = 15;
             this.btnActiveInactive.ShadowDecoration.Color = System.Drawing.Color.Green;
@@ -325,8 +326,9 @@
             // employeeProfilePicture
             // 
             this.employeeProfilePicture.AutoRoundedCorners = true;
-            this.employeeProfilePicture.BackColor = System.Drawing.Color.MistyRose;
+            this.employeeProfilePicture.BackColor = System.Drawing.Color.Ivory;
             this.employeeProfilePicture.BorderRadius = 56;
+            this.employeeProfilePicture.FillColor = System.Drawing.Color.MistyRose;
             this.employeeProfilePicture.ImageRotate = 0F;
             this.employeeProfilePicture.Location = new System.Drawing.Point(117, 55);
             this.employeeProfilePicture.Name = "employeeProfilePicture";
@@ -344,13 +346,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.BackColor = System.Drawing.Color.Teal;
             this.Controls.Add(this.panelEmployeeList);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(17, 0, 0, 0);
             this.Name = "EmployeeListCard";
-            this.Size = new System.Drawing.Size(373, 462);
+            this.Size = new System.Drawing.Size(373, 473);
             this.panelEmployeeList.ResumeLayout(false);
             this.panelEmployeeList.PerformLayout();
             this.EmployeeListCardEmployeeDetailsCard.ResumeLayout(false);

@@ -485,6 +485,7 @@
             this.btnSaveEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(26, 864);
             this.btnSaveEmployeeDetails.Name = "btnSaveEmployeeDetails";
+            this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(132, 44);
             this.btnSaveEmployeeDetails.TabIndex = 57;
             this.btnSaveEmployeeDetails.Text = "SAVE";
@@ -507,7 +508,7 @@
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(1339, 864);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.btnCancel.Size = new System.Drawing.Size(132, 44);
             this.btnCancel.TabIndex = 58;
             this.btnCancel.Text = "Cancel";
@@ -530,7 +531,7 @@
             this.btnResetInputFields.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnResetInputFields.Location = new System.Drawing.Point(544, 864);
             this.btnResetInputFields.Name = "btnResetInputFields";
-            this.btnResetInputFields.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnResetInputFields.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
             this.btnResetInputFields.ShadowDecoration.BorderRadius = 5;
             this.btnResetInputFields.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnResetInputFields.Size = new System.Drawing.Size(132, 44);
@@ -1388,9 +1389,9 @@
             this.btnReEnrollFingerPrint.Location = new System.Drawing.Point(47, 372);
             this.btnReEnrollFingerPrint.Name = "btnReEnrollFingerPrint";
             this.btnReEnrollFingerPrint.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnReEnrollFingerPrint.Size = new System.Drawing.Size(252, 40);
+            this.btnReEnrollFingerPrint.Size = new System.Drawing.Size(275, 40);
             this.btnReEnrollFingerPrint.TabIndex = 61;
-            this.btnReEnrollFingerPrint.Text = "RE-ENROLL FINGERPRINT";
+            this.btnReEnrollFingerPrint.Text = "UPDATE FINGERPRINT DATA";
             this.btnReEnrollFingerPrint.Visible = false;
             this.btnReEnrollFingerPrint.Click += new System.EventHandler(this.btnReEnrollFingerPrint_Click);
             // 

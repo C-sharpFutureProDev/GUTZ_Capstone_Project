@@ -55,12 +55,13 @@
             // cboFilter
             // 
             this.cboFilter.AutoRoundedCorners = true;
-            this.cboFilter.BackColor = System.Drawing.Color.White;
+            this.cboFilter.BackColor = System.Drawing.Color.Ivory;
             this.cboFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboFilter.BorderRadius = 19;
             this.cboFilter.BorderThickness = 2;
             this.cboFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFilter.FillColor = System.Drawing.Color.Ivory;
             this.cboFilter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.Font = new System.Drawing.Font("Roboto", 12F);
@@ -89,7 +90,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.Ivory;
             this.label1.Font = new System.Drawing.Font("Roboto", 10F);
             this.label1.ForeColor = System.Drawing.Color.Green;
             this.label1.Location = new System.Drawing.Point(66, 16);
@@ -101,9 +102,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.BackColor = System.Drawing.Color.Ivory;
             this.label2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
+            this.label2.ForeColor = System.Drawing.Color.Gray;
             this.label2.Location = new System.Drawing.Point(226, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 25);
@@ -112,7 +113,7 @@
             // 
             // iconActive
             // 
-            this.iconActive.BackColor = System.Drawing.Color.White;
+            this.iconActive.BackColor = System.Drawing.Color.Ivory;
             this.iconActive.FlatAppearance.BorderSize = 0;
             this.iconActive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconActive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -131,13 +132,13 @@
             // 
             // iconInactive
             // 
-            this.iconInactive.BackColor = System.Drawing.Color.White;
+            this.iconInactive.BackColor = System.Drawing.Color.Ivory;
             this.iconInactive.FlatAppearance.BorderSize = 0;
             this.iconInactive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconInactive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.iconInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconInactive.IconChar = FontAwesome.Sharp.IconChar.Pause;
-            this.iconInactive.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
+            this.iconInactive.IconColor = System.Drawing.Color.Gray;
             this.iconInactive.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconInactive.IconSize = 30;
             this.iconInactive.Location = new System.Drawing.Point(180, 15);
@@ -151,7 +152,7 @@
             // lblActiveEmployee
             // 
             this.lblActiveEmployee.AutoSize = true;
-            this.lblActiveEmployee.BackColor = System.Drawing.Color.White;
+            this.lblActiveEmployee.BackColor = System.Drawing.Color.Ivory;
             this.lblActiveEmployee.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblActiveEmployee.ForeColor = System.Drawing.Color.Green;
             this.lblActiveEmployee.Location = new System.Drawing.Point(136, 16);
@@ -163,9 +164,9 @@
             // lblInactiveEmployee
             // 
             this.lblInactiveEmployee.AutoSize = true;
-            this.lblInactiveEmployee.BackColor = System.Drawing.Color.White;
+            this.lblInactiveEmployee.BackColor = System.Drawing.Color.Ivory;
             this.lblInactiveEmployee.Font = new System.Drawing.Font("Roboto", 10F);
-            this.lblInactiveEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
+            this.lblInactiveEmployee.ForeColor = System.Drawing.Color.Gray;
             this.lblInactiveEmployee.Location = new System.Drawing.Point(309, 16);
             this.lblInactiveEmployee.Name = "lblInactiveEmployee";
             this.lblInactiveEmployee.Size = new System.Drawing.Size(23, 25);
@@ -202,7 +203,7 @@
             // panelEmployeeListFeatures
             // 
             this.panelEmployeeListFeatures.BackColor = System.Drawing.Color.Gray;
-            this.panelEmployeeListFeatures.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelEmployeeListFeatures.BorderColor = System.Drawing.Color.Ivory;
             this.panelEmployeeListFeatures.Controls.Add(this.cboSort);
             this.panelEmployeeListFeatures.Controls.Add(this.guna2Button4);
             this.panelEmployeeListFeatures.Controls.Add(this.guna2Button3);
@@ -220,10 +221,10 @@
             this.panelEmployeeListFeatures.Controls.Add(this.label1);
             this.panelEmployeeListFeatures.Controls.Add(this.cboFilter);
             this.panelEmployeeListFeatures.Controls.Add(this.cboSearch);
-            this.panelEmployeeListFeatures.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.panelEmployeeListFeatures.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.panelEmployeeListFeatures.CustomBorderColor = System.Drawing.Color.Teal;
+            this.panelEmployeeListFeatures.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.panelEmployeeListFeatures.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEmployeeListFeatures.FillColor = System.Drawing.Color.White;
+            this.panelEmployeeListFeatures.FillColor = System.Drawing.Color.Ivory;
             this.panelEmployeeListFeatures.Font = new System.Drawing.Font("Symbol", 8.25F);
             this.panelEmployeeListFeatures.Location = new System.Drawing.Point(0, 0);
             this.panelEmployeeListFeatures.Name = "panelEmployeeListFeatures";
@@ -235,11 +236,12 @@
             // 
             // cboSort
             // 
-            this.cboSort.BackColor = System.Drawing.Color.White;
+            this.cboSort.BackColor = System.Drawing.Color.Ivory;
             this.cboSort.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSort.BorderThickness = 2;
             this.cboSort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSort.FillColor = System.Drawing.Color.Ivory;
             this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.Font = new System.Drawing.Font("Roboto", 12F);
@@ -367,7 +369,7 @@
             // txtSearch
             // 
             this.txtSearch.AutoRoundedCorners = true;
-            this.txtSearch.BackColor = System.Drawing.Color.White;
+            this.txtSearch.BackColor = System.Drawing.Color.Ivory;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtSearch.BorderRadius = 19;
             this.txtSearch.BorderThickness = 2;
@@ -377,6 +379,7 @@
             this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FillColor = System.Drawing.Color.Ivory;
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.txtSearch.Font = new System.Drawing.Font("Roboto", 11F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -453,11 +456,12 @@
             // 
             // cboSearch
             // 
-            this.cboSearch.BackColor = System.Drawing.Color.White;
+            this.cboSearch.BackColor = System.Drawing.Color.Ivory;
             this.cboSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSearch.BorderThickness = 2;
             this.cboSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearch.FillColor = System.Drawing.Color.Ivory;
             this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearch.Font = new System.Drawing.Font("Roboto", 12F);
@@ -493,7 +497,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Teal;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 202);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -505,7 +509,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1914, 976);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);

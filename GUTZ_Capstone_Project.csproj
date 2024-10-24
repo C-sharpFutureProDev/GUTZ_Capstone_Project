@@ -187,6 +187,12 @@
     <Compile Include="EmployeeList.Designer.cs">
       <DependentUpon>EmployeeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeListCardForAttendanceHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeListCardForAttendanceHistory.Designer.cs">
+      <DependentUpon>EmployeeListCardForAttendanceHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeePersonal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeList.resx">
       <DependentUpon>EmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeListCardForAttendanceHistory.resx">
+      <DependentUpon>EmployeeListCardForAttendanceHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeePersonal.resx">
       <DependentUpon>EmployeePersonal.cs</DependentUpon>
