@@ -221,8 +221,6 @@
             this.panelEmployeeListFeatures.Controls.Add(this.label1);
             this.panelEmployeeListFeatures.Controls.Add(this.cboFilter);
             this.panelEmployeeListFeatures.Controls.Add(this.cboSearch);
-            this.panelEmployeeListFeatures.CustomBorderColor = System.Drawing.Color.Teal;
-            this.panelEmployeeListFeatures.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.panelEmployeeListFeatures.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelEmployeeListFeatures.FillColor = System.Drawing.Color.Ivory;
             this.panelEmployeeListFeatures.Font = new System.Drawing.Font("Symbol", 8.25F);
@@ -269,23 +267,24 @@
             // guna2Button4
             // 
             this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.guna2Button4.BorderColor = System.Drawing.Color.ForestGreen;
             this.guna2Button4.BorderRadius = 4;
             this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.Green;
+            this.guna2Button4.FillColor = System.Drawing.Color.ForestGreen;
             this.guna2Button4.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.Green;
+            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
+            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.ForestGreen;
             this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
             this.guna2Button4.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2Button4.Location = new System.Drawing.Point(935, 81);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.PressedColor = System.Drawing.Color.Green;
+            this.guna2Button4.PressedColor = System.Drawing.Color.ForestGreen;
+            this.guna2Button4.PressedDepth = 0;
             this.guna2Button4.Size = new System.Drawing.Size(37, 37);
             this.guna2Button4.TabIndex = 79;
             this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -293,24 +292,25 @@
             // guna2Button3
             // 
             this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.guna2Button3.BorderColor = System.Drawing.Color.ForestGreen;
             this.guna2Button3.BorderRadius = 4;
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.Green;
+            this.guna2Button3.FillColor = System.Drawing.Color.ForestGreen;
             this.guna2Button3.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Green;
+            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.ForestGreen;
             this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
             this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2Button3.Location = new System.Drawing.Point(935, 142);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.guna2Button3.PressedColor = System.Drawing.Color.Green;
+            this.guna2Button3.PressedColor = System.Drawing.Color.ForestGreen;
+            this.guna2Button3.PressedDepth = 0;
             this.guna2Button3.Size = new System.Drawing.Size(37, 37);
             this.guna2Button3.TabIndex = 78;
             this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -318,23 +318,24 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnEdit.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.BorderRadius = 4;
             this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit.FillColor = System.Drawing.Color.Green;
+            this.btnEdit.FillColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.btnEdit.HoverState.FillColor = System.Drawing.Color.Green;
+            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
+            this.btnEdit.HoverState.FillColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageSize = new System.Drawing.Size(38, 38);
             this.btnEdit.Location = new System.Drawing.Point(261, 140);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.PressedColor = System.Drawing.Color.Green;
+            this.btnEdit.PressedColor = System.Drawing.Color.ForestGreen;
+            this.btnEdit.PressedDepth = 0;
             this.btnEdit.Size = new System.Drawing.Size(37, 37);
             this.btnEdit.TabIndex = 77;
             this.btnEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -342,7 +343,7 @@
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnRefresh.BorderColor = System.Drawing.Color.Green;
             this.btnRefresh.BorderRadius = 5;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -351,7 +352,7 @@
             this.btnRefresh.FillColor = System.Drawing.Color.Green;
             this.btnRefresh.Font = new System.Drawing.Font("Roboto", 10F);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.Green;
             this.btnRefresh.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnRefresh.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
@@ -360,6 +361,7 @@
             this.btnRefresh.Location = new System.Drawing.Point(1385, 133);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnRefresh.PressedColor = System.Drawing.Color.ForestGreen;
             this.btnRefresh.Size = new System.Drawing.Size(129, 42);
             this.btnRefresh.TabIndex = 77;
             this.btnRefresh.Text = "Refresh";
@@ -497,7 +499,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Teal;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 202);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);

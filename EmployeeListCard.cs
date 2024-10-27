@@ -161,7 +161,7 @@ namespace GUTZ_Capstone_Project
                     card.panelEmployeeList.Location = new Point(7, 25);
                 }
 
-                _employeeList.flowLayoutPanel1.BackColor = Color.FromArgb(19, 92, 61); // Change background color
+                _employeeList.flowLayoutPanel1.BackColor = Color.Gray; // Change background color
                 _employeeList.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
                 _employeeList.flowLayoutPanel1.Size = new Size(424, 1000); // Set size if needed
 

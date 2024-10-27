@@ -169,11 +169,23 @@
     <Compile Include="EmployeeAttendanceCard.Designer.cs">
       <DependentUpon>EmployeeAttendanceCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeAttendanceHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeAttendanceHistory.Designer.cs">
+      <DependentUpon>EmployeeAttendanceHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeEducation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmployeeEducation.Designer.cs">
       <DependentUpon>EmployeeEducation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeLeave.Designer.cs">
+      <DependentUpon>EmployeeLeave.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeListCard.cs">
       <SubType>UserControl</SubType>
@@ -293,8 +305,14 @@
     <EmbeddedResource Include="EmployeeAttendanceCard.resx">
       <DependentUpon>EmployeeAttendanceCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeAttendanceHistory.resx">
+      <DependentUpon>EmployeeAttendanceHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeEducation.resx">
       <DependentUpon>EmployeeEducation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeLeave.resx">
+      <DependentUpon>EmployeeLeave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeListCard.resx">
       <DependentUpon>EmployeeListCard.cs</DependentUpon>

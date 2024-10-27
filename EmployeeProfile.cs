@@ -23,9 +23,9 @@ namespace GUTZ_Capstone_Project
             if (_empID != null)
             {
                 this._id = _empID;
+                _employeeList = employeeList;
             }
 
-            _employeeList = employeeList;
             btnMaximize.Click += btnMaximize_Click;
         }
 

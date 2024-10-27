@@ -1300,11 +1300,11 @@
             // 
             this.lblSampleNeededStatus.AutoSize = true;
             this.lblSampleNeededStatus.BackColor = System.Drawing.Color.White;
-            this.lblSampleNeededStatus.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSampleNeededStatus.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.lblSampleNeededStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.lblSampleNeededStatus.Location = new System.Drawing.Point(43, 306);
             this.lblSampleNeededStatus.Name = "lblSampleNeededStatus";
-            this.lblSampleNeededStatus.Size = new System.Drawing.Size(234, 23);
+            this.lblSampleNeededStatus.Size = new System.Drawing.Size(242, 24);
             this.lblSampleNeededStatus.TabIndex = 59;
             this.lblSampleNeededStatus.Text = "[SAMPLE NEEDED STATUS]";
             // 
@@ -1363,11 +1363,11 @@
             // 
             this.progressPecentageStatus.AutoSize = true;
             this.progressPecentageStatus.BackColor = System.Drawing.Color.White;
-            this.progressPecentageStatus.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.progressPecentageStatus.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.progressPecentageStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.progressPecentageStatus.Location = new System.Drawing.Point(678, 306);
             this.progressPecentageStatus.Name = "progressPecentageStatus";
-            this.progressPecentageStatus.Size = new System.Drawing.Size(20, 23);
+            this.progressPecentageStatus.Size = new System.Drawing.Size(20, 24);
             this.progressPecentageStatus.TabIndex = 60;
             this.progressPecentageStatus.Text = "[]";
             // 

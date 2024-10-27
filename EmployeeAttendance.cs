@@ -1,5 +1,6 @@
 ﻿using OfficeOpenXml.VBA;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -131,7 +132,6 @@ namespace GUTZ_Capstone_Project
                     }
                     else
                     {
-                        // Check if the end time of the shift has passed
                         DateTime workingShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, endTime.Hours, endTime.Minutes, 0);
                         if (DateTime.Now > workingShiftEnd)
                         {
@@ -200,16 +200,16 @@ namespace GUTZ_Capstone_Project
                     string scheduleWorkingHours = $"{FormatTime(startTime)} - {FormatTime(endTime)}";
 
 
-                    EmployeeListCardForAttendanceHistory employeeListCardForAttendanceHistory = new EmployeeListCardForAttendanceHistory()
+                    EmployeeListCardForAttendanceHistory employeeListCardForAttendanceHistory = new EmployeeListCardForAttendanceHistory(this)
                     {
                         EmployeeName = name,
                         ID = id.ToString(),
                         EmployeeProfilePic = await LoadImageAsync(imagePath),
                         JobRole = jobRole,
                         WorkDays = row["work_days"].ToString()
-                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(day => day.Trim())
-                    .ToArray(),
+                        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(day => day.Trim())
+                        .ToArray(),
                         ScheduleWorkingHours = scheduleWorkingHours,
                     };
 
@@ -251,14 +251,11 @@ namespace GUTZ_Capstone_Project
 
         private string FormatTime(TimeSpan time)
         {
-            // Determine AM or PM
             string period = time.Hours < 12 ? "AM" : "PM";
 
-            // Convert hour to 12-hour format
             int hour = time.Hours % 12;
-            hour = hour == 0 ? 12 : hour; // Handle the case for midnight and noon
+            hour = hour == 0 ? 12 : hour;
 
-            // Format minutes to always show two digits
             return $"{hour}:{time.Minutes:D2} {period}";
         }
 
@@ -294,27 +291,26 @@ namespace GUTZ_Capstone_Project
             string formattedDate = selectedDate.ToString("yyyy-MM-dd");
             string displayDate = selectedDate.ToString("dddd, MMM. dd, yyyy");
 
-            string sql = $@"SELECT 
-                            attendance_id, 
-                            tbl_employee.emp_id, 
-                            emp_profilePic, 
-                            tbl_employee.f_name, 
-                            tbl_employee.m_name, 
-                            tbl_employee.l_name, 
-                            CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                            working_hours, 
-                            time_in_status, 
-                            DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                            DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
-                            time_in, 
-                            time_out
+            string sql = $@"
+                            SELECT 
+                                tbl_employee.emp_id, 
+                                emp_profilePic, 
+                                f_name, 
+                                m_name, 
+                                l_name, 
+                                CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
+                                time_in_status, 
+                                DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted
                             FROM 
-                            tbl_employee
-                            INNER JOIN 
-                            tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                                tbl_employee
+                            LEFT JOIN 
+                                tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id AND DATE(time_in) = '{formattedDate}'
+                            LEFT JOIN 
+                                tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id AND 
+                                FIND_IN_SET(DAYNAME('{formattedDate}'), tbl_schedule.work_days) > 0
                             WHERE 
-                            is_deleted = 0 
-                            AND DATE(time_in) = '{formattedDate}'";
+                                tbl_employee.is_deleted = 0";
 
             try
             {
@@ -331,25 +327,29 @@ namespace GUTZ_Capstone_Project
 
                 flowLayoutPanel1.Controls.Clear();
 
+                HashSet<string> presentEmployeeIds = new HashSet<string>();
+
                 foreach (DataRow row in dt.Rows)
                 {
-                    int id = int.Parse(row["emp_id"].ToString());
+                    string empId = row["emp_id"].ToString();
+                    presentEmployeeIds.Add(empId);
+
                     string firstName = row["f_name"].ToString();
                     string middleName = row["m_name"].ToString();
                     string lastName = row["l_name"].ToString();
                     string name = string.IsNullOrEmpty(middleName) || middleName == "N/A"
-                                  ? $"{firstName} {lastName}"
-                                  : $"{firstName} {middleName[0]}. {lastName}";
+                        ? $"{firstName} {lastName}"
+                        : $"{firstName} {middleName[0]}. {lastName}";
 
                     string imagePath = row["emp_profilePic"].ToString();
-                    string timeInFormatted = row["time_in_formatted"].ToString();
-                    string timeInStatus = row["time_in_status"].ToString();
-                    string timeOutFormatted = row["time_out_formatted"] != DBNull.Value ? row["time_out_formatted"].ToString() : "Pending";
+                    string timeInFormatted = row["time_in_formatted"] != DBNull.Value ? row["time_in_formatted"].ToString() : "--";
+                    string timeInStatus = row["time_in_status"] != DBNull.Value ? row["time_in_status"].ToString() : "--";
+                    string timeOutFormatted = row["time_out_formatted"] != DBNull.Value ? row["time_out_formatted"].ToString() : "--";
 
                     EmployeeAttendanceCard employeeAttendanceCard = new EmployeeAttendanceCard(this)
                     {
                         CurrentDate = displayDate,
-                        _id = id.ToString(),
+                        _id = empId,
                         EmployeeProfilePic = Image.FromFile(imagePath),
                         EmployeeName = name,
                         ClockInTime = timeInFormatted,
@@ -359,18 +359,34 @@ namespace GUTZ_Capstone_Project
 
                     if (timeInStatus == "Late")
                         employeeAttendanceCard.btnStatus.Text = "LATE";
-                    if (timeInStatus == "On Time" || timeInStatus == "Late")
-                    {
-                        employeeAttendanceCard.btnAttendanceStatus.Visible = true;
-                        employeeAttendanceCard.btnAttendanceStatus.Text = "Present";
-                    }
-                    else
-                    {
-                        employeeAttendanceCard.btnAttendanceStatus.Visible = true;
-                        employeeAttendanceCard.btnAttendanceStatus.Text = "Absent";
-                    }
+
+                    employeeAttendanceCard.btnAttendanceStatus.Visible = true;
+                    employeeAttendanceCard.btnAttendanceStatus.Text = (timeInStatus == "On Time" || timeInStatus == "Late") ? "Present" : "Absent";
+
+                    if (timeInStatus == "--")
+                        employeeAttendanceCard.btnAttendanceStatus.FillColor = Color.FromArgb(255, 107, 107);
 
                     flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
+                }
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string empId = row["emp_id"].ToString();
+                    if (!presentEmployeeIds.Contains(empId))
+                    {
+                        EmployeeAttendanceCard absentCard = new EmployeeAttendanceCard(this)
+                        {
+                            CurrentDate = displayDate,
+                            _id = empId,
+                            EmployeeProfilePic = File.Exists(row["emp_profilePic"].ToString()) ? Image.FromFile(row["emp_profilePic"].ToString()) : null,
+                            EmployeeName = $"{row["f_name"]} {row["m_name"]} {row["l_name"]}",
+                            ClockInTime = "--",
+                            Status = "--",
+                            ClockOutTime = "--"
+                        };
+
+                        flowLayoutPanel1.Controls.Add(absentCard);
+                    }
                 }
             }
             catch (Exception ex)
@@ -388,17 +404,22 @@ namespace GUTZ_Capstone_Project
             int countOnTime = 0;
             int countLate = 0;
             int countClockedOut = 0;
+            int countAbsent = 0;
 
-            string sqlCountAttendance = $"SELECT a.emp_id, a.time_in, a.time_out, s.start_time, s.end_time, s.work_days " +
-                                         "FROM tbl_attendance a " +
-                                         "INNER JOIN tbl_schedule s ON a.emp_id = s.emp_id " +
-                                         $"WHERE DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'";
+            string sqlCountAttendance = $@"SELECT a.emp_id, a.time_in, a.time_out, s.start_time, s.end_time, s.work_days 
+                                                FROM tbl_attendance a 
+                                                INNER JOIN tbl_schedule s ON a.emp_id = s.emp_id 
+                                                WHERE DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'";
 
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
+
+            HashSet<string> presentEmployeeIds = new HashSet<string>();
 
             foreach (DataRow row in dtAttendance.Rows)
             {
                 string empId = row["emp_id"].ToString();
+                presentEmployeeIds.Add(empId);
+
                 DateTime timeIn = (DateTime)row["time_in"];
                 DateTime? timeOut = row["time_out"] as DateTime?;
                 TimeSpan startTime = TimeSpan.Parse(row["start_time"].ToString());
@@ -430,19 +451,34 @@ namespace GUTZ_Capstone_Project
                 }
             }
 
+            string sqlScheduledEmployees = $@"SELECT emp_id, work_days 
+                                                FROM tbl_schedule 
+                                                WHERE FIND_IN_SET(DAYNAME('{selectedDate:yyyy-MM-dd}'), work_days) > 0";
+
+            DataTable dtScheduledEmployees = DB_OperationHelperClass.QueryData(sqlScheduledEmployees);
+
+            foreach (DataRow row in dtScheduledEmployees.Rows)
+            {
+                string empId = row["emp_id"].ToString();
+
+                if (!presentEmployeeIds.Contains(empId))
+                {
+                    countAbsent++;
+                }
+            }
+
             int totalAttendance = countOnTime + countLate;
 
             btnClockIn.Text = countPresent.ToString();
             btnClockOut.Text = countClockedOut.ToString();
             btnTotalAttendance.Text = "Total Attendance: " + totalAttendance.ToString();
+            btnAbsent.Text = countAbsent.ToString();
         }
-
         private void btnViewEmployeeList_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Visible = false;
             flowLayoutPanel2.Visible = true;
             flowLayoutPanel2.Dock = DockStyle.Fill;
-
             flowLayoutPanel2.SuspendLayout();
             PopulateEmployeeList();
             flowLayoutPanel2.ResumeLayout();

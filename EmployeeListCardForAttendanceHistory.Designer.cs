@@ -67,13 +67,13 @@
             // 
             this.btnViewEmployeeAttendanceHistory.AutoRoundedCorners = true;
             this.btnViewEmployeeAttendanceHistory.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewEmployeeAttendanceHistory.BorderColor = System.Drawing.Color.Green;
+            this.btnViewEmployeeAttendanceHistory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeAttendanceHistory.BorderRadius = 16;
             this.btnViewEmployeeAttendanceHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeAttendanceHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeAttendanceHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeAttendanceHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewEmployeeAttendanceHistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnViewEmployeeAttendanceHistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeAttendanceHistory.Font = new System.Drawing.Font("Roboto", 8F);
             this.btnViewEmployeeAttendanceHistory.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeAttendanceHistory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -85,7 +85,7 @@
             this.btnViewEmployeeAttendanceHistory.Location = new System.Drawing.Point(259, 160);
             this.btnViewEmployeeAttendanceHistory.Name = "btnViewEmployeeAttendanceHistory";
             this.btnViewEmployeeAttendanceHistory.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnViewEmployeeAttendanceHistory.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnViewEmployeeAttendanceHistory.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeAttendanceHistory.PressedDepth = 0;
             this.btnViewEmployeeAttendanceHistory.Size = new System.Drawing.Size(185, 35);
             this.btnViewEmployeeAttendanceHistory.TabIndex = 73;
@@ -95,13 +95,13 @@
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.DimGray;
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.ForestGreen;
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 12;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblScheduleWorkingHours);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblWorkingDays);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblJobRole);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblID);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.DimGray;
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.ForestGreen;
             this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(160, 24);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
@@ -184,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.BackColor = System.Drawing.Color.Gray;
             this.Controls.Add(this.panelEmployeeList);
             this.Name = "EmployeeListCardForAttendanceHistory";
             this.Size = new System.Drawing.Size(514, 241);

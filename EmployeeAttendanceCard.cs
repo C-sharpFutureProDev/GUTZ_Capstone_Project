@@ -67,7 +67,7 @@ namespace GUTZ_Capstone_Project
             set
             {
                 _clockInTime = value;
-                btnClockIn.Text = value; // Already formatted
+                btnClockIn.Text = value;
             }
         }
 
@@ -78,7 +78,7 @@ namespace GUTZ_Capstone_Project
             set
             {
                 _clockOutTime = value;
-                btnClockOut.Text = value; // Already formatted
+                btnClockOut.Text = value;
             }
         }
 
@@ -90,22 +90,6 @@ namespace GUTZ_Capstone_Project
             {
                 _status = value;
                 btnStatus.Text = _status;
-            }
-        }
-
-        private void btnViewEmployeeAttendanceHistory_Click(object sender, EventArgs e)
-        {
-            if (_employeeAttendance != null)
-            {
-                _employeeAttendance.timer1.Stop();
-
-                _employeeAttendance.flowLayoutPanel1.Dock = DockStyle.Left;
-                _employeeAttendance.flowLayoutPanel1.Size = new Size(552, 1000);
-                _employeeAttendance.flowLayoutPanel2.Visible = true;
-                _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Fill;
-
-                _employeeAttendance.flowLayoutPanel1.Refresh();
-                _employeeAttendance.PerformLayout();
             }
         }
     }

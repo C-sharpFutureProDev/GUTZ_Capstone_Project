@@ -14,7 +14,10 @@ namespace GUTZ_Capstone_Project
     public partial class EmployeeList : Form
     {
         public int id;
-        string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc,
+        private readonly string[] defaultSearchItems = { "Search By", "ID Number", "Name", "Email Address" };
+        private readonly string[] defaultSortItems = { "Sort By", "Non-Tenured", "Tenured", "ESO", "RKESI", "VUIHOC" };
+        private readonly string[] defaultFilterItems = { "Filter By", "Active", "Inactive", "Male", "Female", "Full Time", "Part Time" };
+        private string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc,
                f_name, m_name, l_name, tbl_employee.department_id, account_name, department_name, 
                DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
                FROM tbl_employee
@@ -56,7 +59,7 @@ namespace GUTZ_Capstone_Project
             }
             else
             {
-                lblActiveEmployee.Text = "0"; // No active employees found
+                lblActiveEmployee.Text = "0";
             }
 
             if (inactiveEmployee.Rows.Count > 0)
@@ -66,7 +69,7 @@ namespace GUTZ_Capstone_Project
             }
             else
             {
-                lblInactiveEmployee.Text = "0"; // No inactive employees found
+                lblInactiveEmployee.Text = "0";
             }
         }
 
@@ -74,10 +77,8 @@ namespace GUTZ_Capstone_Project
         {
             try
             {
-                // Clear previous items
                 flowLayoutPanel1.Controls.Clear();
 
-                // Asynchronously retrieve data
                 DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(sql));
 
                 if (dt.Rows.Count == 0)
@@ -112,7 +113,7 @@ namespace GUTZ_Capstone_Project
                     {
                         EmployeeName = name,
                         ID = id.ToString(),
-                        EmployeeProfilePic = await LoadImageAsync(imagePath), // Assume LoadImageAsync is an async method
+                        EmployeeProfilePic = await LoadImageAsync(imagePath),
                         JobRole = jobRole,
                         Email = email,
                         Contact = contactNo,
@@ -233,7 +234,6 @@ namespace GUTZ_Capstone_Project
                             return;
                     }
 
-                    // Create a parameter dictionary based on the selected search criteria
                     var parameters = new Dictionary<string, object>();
 
                     switch (cboSearch.SelectedIndex)
@@ -249,7 +249,6 @@ namespace GUTZ_Capstone_Project
                             break;
                     }
 
-                    // Execute the query
                     DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(query, parameters);
 
                     flowLayoutPanel1.Controls.Clear();
@@ -279,7 +278,6 @@ namespace GUTZ_Capstone_Project
                             Rate = accountName,
                         };
 
-                        // Set the button text based on the is_deleted status
                         employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
 
                         employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
@@ -400,7 +398,6 @@ namespace GUTZ_Capstone_Project
                         return;
                 }
 
-                // Execute the query
                 DataTable dt = DB_OperationHelperClass.QueryData(query);
 
                 flowLayoutPanel1.Controls.Clear();
@@ -431,7 +428,6 @@ namespace GUTZ_Capstone_Project
                             Rate = accountName,
                         };
 
-                        // Set the button text based on the is_deleted status
                         employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
 
                         employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
@@ -544,7 +540,6 @@ namespace GUTZ_Capstone_Project
                         return;
                 }
 
-                // Execute the query
                 DataTable dt = DB_OperationHelperClass.QueryData(query);
 
                 flowLayoutPanel1.Controls.Clear();
@@ -592,7 +587,6 @@ namespace GUTZ_Capstone_Project
                             employeeControl.btnActivate.Visible = true;
                         }
 
-                        // Set the button text based on the is_deleted status
                         employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
 
                         employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
@@ -614,11 +608,6 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        // A field to store default items for cboSearch
-        private readonly string[] defaultSearchItems = { "Search By", "ID Number", "Name", "Email Address" };
-        private readonly string[] defaultSortItems = { "Sort By", "Non-Tenured", "Tenured", "ESO", "RKESI", "VUIHOC" };
-        private readonly string[] defaultFilterItems = { "Filter By", "Active", "Inactive", "Male", "Female", "Full Time", "Part Time" };
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             cboSearch.Items.Clear();
@@ -636,7 +625,7 @@ namespace GUTZ_Capstone_Project
             flowLayoutPanel1.SuspendLayout();
 
             flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.BackColor = Color.FromArgb(19, 92, 61);
+            flowLayoutPanel1.BackColor = Color.Gray;
             txtSearch.Clear();
             flowLayoutPanel2.Visible = false;
             flowLayoutPanel1.Dock = DockStyle.Fill;
@@ -688,7 +677,6 @@ namespace GUTZ_Capstone_Project
                     {
                         StringBuilder csvContent = new StringBuilder();
 
-                        // Adjusted column headers
                         csvContent.AppendLine("ACCOUNT,TUTOR'S NAME, NAME, EMAIL, Phone Number, Status, Start Date, End Date");
 
                         foreach (DataRow row in dataTable.Rows)
@@ -743,11 +731,10 @@ namespace GUTZ_Capstone_Project
 
             ComboBox comboBox = sender as ComboBox;
 
-            // Only remove the placeholder if it's currently selected
             if (comboBox.SelectedItem.ToString() == "Sort By")
             {
                 comboBox.Items.RemoveAt(0);
-                comboBox.SelectedIndex = -1; // Clear selection
+                comboBox.SelectedIndex = -1;
             }
         }
 
@@ -756,11 +743,10 @@ namespace GUTZ_Capstone_Project
 
             ComboBox comboBox = sender as ComboBox;
 
-            // Only remove the placeholder if it's currently selected
             if (comboBox.SelectedItem.ToString() == "Filter By")
             {
                 comboBox.Items.RemoveAt(0);
-                comboBox.SelectedIndex = -1; // Clear selection
+                comboBox.SelectedIndex = -1;
             }
         }
     }

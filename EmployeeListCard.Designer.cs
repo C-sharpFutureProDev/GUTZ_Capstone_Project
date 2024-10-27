@@ -172,13 +172,13 @@
             // 
             this.btnViewProfile.AutoRoundedCorners = true;
             this.btnViewProfile.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewProfile.BorderColor = System.Drawing.Color.Green;
+            this.btnViewProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewProfile.BorderRadius = 16;
             this.btnViewProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnViewProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewProfile.Font = new System.Drawing.Font("Roboto", 8F);
             this.btnViewProfile.ForeColor = System.Drawing.Color.White;
             this.btnViewProfile.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -190,7 +190,7 @@
             this.btnViewProfile.Location = new System.Drawing.Point(188, 389);
             this.btnViewProfile.Name = "btnViewProfile";
             this.btnViewProfile.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnViewProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnViewProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewProfile.PressedDepth = 0;
             this.btnViewProfile.Size = new System.Drawing.Size(130, 35);
             this.btnViewProfile.TabIndex = 73;
@@ -212,14 +212,14 @@
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.ForestGreen;
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 15;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmpRate);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblContactNo);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmail);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblJobRole);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblID);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.ForestGreen;
             this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(34, 220);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
@@ -299,22 +299,22 @@
             // 
             this.btnActiveInactive.AutoRoundedCorners = true;
             this.btnActiveInactive.BackColor = System.Drawing.Color.Transparent;
-            this.btnActiveInactive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.btnActiveInactive.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnActiveInactive.BorderRadius = 15;
             this.btnActiveInactive.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnActiveInactive.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnActiveInactive.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnActiveInactive.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnActiveInactive.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.btnActiveInactive.FillColor = System.Drawing.Color.ForestGreen;
             this.btnActiveInactive.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActiveInactive.ForeColor = System.Drawing.Color.White;
-            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.Teal;
-            this.btnActiveInactive.HoverState.FillColor = System.Drawing.Color.Teal;
+            this.btnActiveInactive.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
+            this.btnActiveInactive.HoverState.FillColor = System.Drawing.Color.ForestGreen;
             this.btnActiveInactive.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnActiveInactive.Location = new System.Drawing.Point(12, 13);
             this.btnActiveInactive.Name = "btnActiveInactive";
             this.btnActiveInactive.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
-            this.btnActiveInactive.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.btnActiveInactive.PressedColor = System.Drawing.Color.ForestGreen;
             this.btnActiveInactive.PressedDepth = 0;
             this.btnActiveInactive.ShadowDecoration.BorderRadius = 15;
             this.btnActiveInactive.ShadowDecoration.Color = System.Drawing.Color.Green;
@@ -346,7 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.Teal;
+            this.BackColor = System.Drawing.Color.Gray;
             this.Controls.Add(this.panelEmployeeList);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;

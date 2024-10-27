@@ -61,8 +61,6 @@
             this.guna2Panel1.Controls.Add(this.btnTotalOnLeave);
             this.guna2Panel1.Controls.Add(this.btnTotalAttendance);
             this.guna2Panel1.Controls.Add(this.guna2Panel3);
-            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Teal;
-            this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel1.Font = new System.Drawing.Font("Symbol", 8.25F);
@@ -166,12 +164,12 @@
             this.btnTotalOnLeave.FillColor = System.Drawing.Color.Ivory;
             this.btnTotalOnLeave.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotalOnLeave.ForeColor = System.Drawing.Color.Olive;
-            this.btnTotalOnLeave.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnTotalOnLeave.HoverState.FillColor = System.Drawing.Color.White;
-            this.btnTotalOnLeave.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnTotalOnLeave.HoverState.BorderColor = System.Drawing.Color.Ivory;
+            this.btnTotalOnLeave.HoverState.FillColor = System.Drawing.Color.Ivory;
+            this.btnTotalOnLeave.HoverState.ForeColor = System.Drawing.Color.Olive;
             this.btnTotalOnLeave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTotalOnLeave.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnTotalOnLeave.Location = new System.Drawing.Point(302, 153);
+            this.btnTotalOnLeave.Location = new System.Drawing.Point(292, 153);
             this.btnTotalOnLeave.Name = "btnTotalOnLeave";
             this.btnTotalOnLeave.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.btnTotalOnLeave.PressedColor = System.Drawing.Color.Ivory;
@@ -197,7 +195,7 @@
             this.btnTotalAttendance.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnTotalAttendance.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTotalAttendance.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnTotalAttendance.Location = new System.Drawing.Point(32, 153);
+            this.btnTotalAttendance.Location = new System.Drawing.Point(17, 152);
             this.btnTotalAttendance.Name = "btnTotalAttendance";
             this.btnTotalAttendance.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.btnTotalAttendance.PressedColor = System.Drawing.Color.Ivory;
@@ -221,7 +219,7 @@
             this.guna2Panel3.Controls.Add(this.btnAbsent);
             this.guna2Panel3.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Panel3.Location = new System.Drawing.Point(25, 15);
+            this.guna2Panel3.Location = new System.Drawing.Point(10, 15);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 8;
@@ -233,12 +231,12 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(296, 104);
+            this.label2.Location = new System.Drawing.Point(295, 104);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(109, 30);
+            this.label2.Size = new System.Drawing.Size(115, 30);
             this.label2.TabIndex = 94;
             this.label2.Text = "ABSENT";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,12 +244,12 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Roboto", 9F);
+            this.label5.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Green;
             this.label5.Location = new System.Drawing.Point(157, 104);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(110, 30);
+            this.label5.Size = new System.Drawing.Size(115, 30);
             this.label5.TabIndex = 93;
             this.label5.Text = "CLOCK-OUT";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -259,12 +257,12 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9F);
+            this.label1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(19, 104);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(110, 30);
+            this.label1.Size = new System.Drawing.Size(115, 30);
             this.label1.TabIndex = 89;
             this.label1.Text = "CLOCK-IN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -281,10 +279,11 @@
             this.btnClockIn.FillColor = System.Drawing.Color.Orange;
             this.btnClockIn.Font = new System.Drawing.Font("LCD", 13F, System.Drawing.FontStyle.Bold);
             this.btnClockIn.ForeColor = System.Drawing.Color.White;
+            this.btnClockIn.HoverState.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnClockIn.HoverState.FillColor = System.Drawing.Color.Orange;
             this.btnClockIn.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnClockIn.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnClockIn.Location = new System.Drawing.Point(19, 50);
+            this.btnClockIn.Location = new System.Drawing.Point(19, 48);
             this.btnClockIn.Margin = new System.Windows.Forms.Padding(5);
             this.btnClockIn.Name = "btnClockIn";
             this.btnClockIn.Padding = new System.Windows.Forms.Padding(15, 5, 13, 3);
@@ -293,7 +292,7 @@
             this.btnClockIn.ShadowDecoration.BorderRadius = 8;
             this.btnClockIn.ShadowDecoration.Color = System.Drawing.Color.Red;
             this.btnClockIn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.btnClockIn.Size = new System.Drawing.Size(110, 50);
+            this.btnClockIn.Size = new System.Drawing.Size(115, 55);
             this.btnClockIn.TabIndex = 42;
             this.btnClockIn.Text = "0";
             // 
@@ -309,10 +308,11 @@
             this.btnClockOut.FillColor = System.Drawing.Color.Green;
             this.btnClockOut.Font = new System.Drawing.Font("LCD", 13F, System.Drawing.FontStyle.Bold);
             this.btnClockOut.ForeColor = System.Drawing.Color.White;
+            this.btnClockOut.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnClockOut.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnClockOut.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnClockOut.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnClockOut.Location = new System.Drawing.Point(157, 50);
+            this.btnClockOut.Location = new System.Drawing.Point(157, 48);
             this.btnClockOut.Margin = new System.Windows.Forms.Padding(5);
             this.btnClockOut.Name = "btnClockOut";
             this.btnClockOut.Padding = new System.Windows.Forms.Padding(15, 5, 13, 3);
@@ -321,7 +321,7 @@
             this.btnClockOut.ShadowDecoration.BorderRadius = 8;
             this.btnClockOut.ShadowDecoration.Color = System.Drawing.Color.Green;
             this.btnClockOut.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.btnClockOut.Size = new System.Drawing.Size(110, 50);
+            this.btnClockOut.Size = new System.Drawing.Size(115, 55);
             this.btnClockOut.TabIndex = 40;
             this.btnClockOut.Text = "0";
             // 
@@ -340,35 +340,36 @@
             // btnAbsent
             // 
             this.btnAbsent.BackColor = System.Drawing.Color.Transparent;
-            this.btnAbsent.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAbsent.BorderColor = System.Drawing.Color.Red;
             this.btnAbsent.BorderThickness = 4;
             this.btnAbsent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAbsent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAbsent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAbsent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAbsent.FillColor = System.Drawing.Color.Gray;
+            this.btnAbsent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.btnAbsent.Font = new System.Drawing.Font("LCD", 13F, System.Drawing.FontStyle.Bold);
             this.btnAbsent.ForeColor = System.Drawing.Color.White;
-            this.btnAbsent.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btnAbsent.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.btnAbsent.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.btnAbsent.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAbsent.ImageSize = new System.Drawing.Size(35, 32);
-            this.btnAbsent.Location = new System.Drawing.Point(295, 50);
+            this.btnAbsent.Location = new System.Drawing.Point(295, 48);
             this.btnAbsent.Margin = new System.Windows.Forms.Padding(5);
             this.btnAbsent.Name = "btnAbsent";
             this.btnAbsent.Padding = new System.Windows.Forms.Padding(15, 5, 13, 3);
-            this.btnAbsent.PressedColor = System.Drawing.Color.Gray;
+            this.btnAbsent.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.btnAbsent.PressedDepth = 0;
             this.btnAbsent.ShadowDecoration.BorderRadius = 8;
             this.btnAbsent.ShadowDecoration.Color = System.Drawing.Color.Red;
             this.btnAbsent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.btnAbsent.Size = new System.Drawing.Size(110, 50);
+            this.btnAbsent.Size = new System.Drawing.Size(115, 55);
             this.btnAbsent.TabIndex = 45;
             this.btnAbsent.Text = "0";
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Teal;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(1714, 202);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -383,7 +384,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Teal;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 202);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -400,6 +401,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.guna2Panel1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.Name = "EmployeeAttendance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

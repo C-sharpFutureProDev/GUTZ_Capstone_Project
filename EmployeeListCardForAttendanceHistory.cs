@@ -18,10 +18,15 @@ namespace GUTZ_Capstone_Project
         private string _role;
         private string[] _workDays;
         private string _scheduleWorkingHours;
+        private EmployeeAttendance _employeeAttendance;
 
-        public EmployeeListCardForAttendanceHistory()
+        public EmployeeListCardForAttendanceHistory(EmployeeAttendance employeeAttendance)
         {
             InitializeComponent();
+            if (employeeAttendance != null)
+            {
+                _employeeAttendance = employeeAttendance;
+            }
         }
 
         [Category("Custom Control")]
@@ -75,7 +80,7 @@ namespace GUTZ_Capstone_Project
             set
             {
                 _workDays = value;
-                lblWorkingDays.Text = string.Join(", ", value.Select(day => day.Substring(0, 1).ToUpper())); // Display only the first letter
+                lblWorkingDays.Text = string.Join(", ", value.Select(day => day.Substring(0, 1).ToUpper()));
             }
         }
 
@@ -86,13 +91,21 @@ namespace GUTZ_Capstone_Project
             set
             {
                 _scheduleWorkingHours = value;
-                lblScheduleWorkingHours.Text = value; // Display in the label
+                lblScheduleWorkingHours.Text = value;
             }
         }
 
         private void btnViewEmployeeAttendanceHistory_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_id);
+            if(_employeeAttendance != null)
+            {
+                EmployeeAttendanceHistory employeeAttendanceHistory = new EmployeeAttendanceHistory(_id, _employeeAttendance);
+                _employeeAttendance.flowLayoutPanel2.Controls.Clear();
+                _employeeAttendance.flowLayoutPanel2.Visible = true;
+                _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Fill;
+                _employeeAttendance.flowLayoutPanel2.Visible = true;
+                _employeeAttendance.flowLayoutPanel2.Controls.Add(employeeAttendanceHistory);
+            }
         }
     }
 }
