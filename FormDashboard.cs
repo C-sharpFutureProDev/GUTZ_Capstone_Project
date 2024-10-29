@@ -293,7 +293,6 @@ namespace GUTZ_Capstone_Project
             {
                 timer2.Stop();
                 lblCountDown.Text = "Payroll is Due Today";
-                iconPayrollPeriod.BackColor = Color.Red;
             }
             else
             {

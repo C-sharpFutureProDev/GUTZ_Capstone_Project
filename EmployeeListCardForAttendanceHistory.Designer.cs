@@ -95,13 +95,13 @@
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.ForestGreen;
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 12;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblScheduleWorkingHours);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblWorkingDays);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblJobRole);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblID);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.ForestGreen;
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(160, 24);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";

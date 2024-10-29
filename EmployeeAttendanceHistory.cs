@@ -58,8 +58,8 @@ namespace GUTZ_Capstone_Project
         private (DateTime StartDate, string ProfilePicPath, string FirstName, string MiddleName, string LastName) GetEmployeeInfo(string empID)
         {
             string sqlEmployeeInfo = @"SELECT start_date, emp_profilePic, f_name, m_name, l_name 
-                               FROM tbl_employee 
-                               WHERE emp_id = @empId AND is_deleted = 0";
+                                       FROM tbl_employee 
+                                       WHERE emp_id = @empId AND is_deleted = 0";
 
             var parameters = new Dictionary<string, object> { { "@empId", empID } };
             DataTable dtEmployeeInfo = DB_OperationHelperClass.ParameterizedQueryData(sqlEmployeeInfo, parameters);
@@ -82,24 +82,49 @@ namespace GUTZ_Capstone_Project
         private DataTable GetAttendanceRecords(string empID, DateTime startDate)
         {
             string sqlAttendance = @"SELECT attendance_id, tbl_attendance.emp_id, emp_profilePic, time_in_status, 
-                             DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                             DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
-                             time_in, time_out
-                             FROM tbl_attendance
-                             INNER JOIN tbl_employee ON tbl_attendance.emp_id = tbl_employee.emp_id
-                             WHERE tbl_employee.is_deleted = 0 
-                             AND tbl_employee.emp_id = @empId 
-                             AND DATE(tbl_attendance.time_in) >= @startDate";
+                                     DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                     DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                     time_in, time_out
+                                     FROM tbl_attendance
+                                     INNER JOIN tbl_employee ON tbl_attendance.emp_id = tbl_employee.emp_id
+                                     WHERE tbl_employee.is_deleted = 0 
+                                     AND tbl_employee.emp_id = @empId 
+                                     AND DATE(tbl_attendance.time_in) >= @startDate";
 
             var parameters = new Dictionary<string, object>
-    {
-        { "@empId", empID },
-        { "@startDate", startDate }
-    };
+            {
+                { "@empId", empID },
+                { "@startDate", startDate }
+            };
 
             return DB_OperationHelperClass.ParameterizedQueryData(sqlAttendance, parameters);
         }
 
+        private (TimeSpan StartTime, TimeSpan EndTime) GetScheduledTimesForEmployee(string empID)
+        {
+            // Query to retrieve start and end times from the schedule table
+            string sqlSchedule = @"SELECT start_time, end_time 
+                           FROM tbl_schedule 
+                           WHERE emp_id = @empId";
+
+            var parameters = new Dictionary<string, object> { { "@empId", empID } };
+            DataTable dtSchedule = DB_OperationHelperClass.ParameterizedQueryData(sqlSchedule, parameters);
+
+            if (dtSchedule.Rows.Count > 0)
+            {
+                string startTimeString = dtSchedule.Rows[0]["start_time"].ToString();
+                string endTimeString = dtSchedule.Rows[0]["end_time"].ToString();
+
+                TimeSpan startTime = TimeSpan.Parse(startTimeString);
+                TimeSpan endTime = TimeSpan.Parse(endTimeString);
+
+                return (startTime, endTime);
+            }
+
+            throw new InvalidOperationException("Schedule not found for the specified employee.");
+        }
+
+        // Usage in DisplayAttendanceRecords
         private void DisplayAttendanceRecords(DataTable dtAttendance, (DateTime StartDate, string ProfilePicPath, string FirstName, string MiddleName, string LastName) employeeInfo)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -120,6 +145,16 @@ namespace GUTZ_Capstone_Project
                     continue;
                 }
 
+                if (date == DateTime.Today)
+                {
+                    var scheduledTimes = GetScheduledTimesForEmployee(_id);
+
+                    if (DateTime.Now.TimeOfDay < scheduledTimes.EndTime)
+                    {
+                        continue;
+                    }
+                }
+
                 if (attendanceDates.Contains(date))
                 {
                     DataRow row = dtAttendance.AsEnumerable().FirstOrDefault(r => DateTime.Parse(r["time_in"].ToString()).Date == date);
@@ -138,6 +173,7 @@ namespace GUTZ_Capstone_Project
 
             flowLayoutPanel1.ResumeLayout();
         }
+
 
         private EmployeeAttendanceCard CreateAttendanceCard(DataRow row, DateTime date, (DateTime StartDate, string ProfilePicPath, string FirstName, string MiddleName, string LastName) employeeInfo, bool isPresent)
         {

@@ -161,10 +161,10 @@ namespace GUTZ_Capstone_Project
         private async void PopulateEmployeeList()
         {
             string sql = @"SELECT tbl_employee.emp_id, emp_ProfilePic, f_name, m_name, l_name, position_desc, work_days, start_time, end_time
-                    FROM tbl_employee
-                    INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                    INNER JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
-                    WHERE is_deleted = 0";
+                           FROM tbl_employee
+                           INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                           INNER JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
+                           WHERE is_deleted = 0";
 
             try
             {
@@ -291,8 +291,7 @@ namespace GUTZ_Capstone_Project
             string formattedDate = selectedDate.ToString("yyyy-MM-dd");
             string displayDate = selectedDate.ToString("dddd, MMM. dd, yyyy");
 
-            string sql = $@"
-                            SELECT 
+            string sql = $@"SELECT 
                                 tbl_employee.emp_id, 
                                 emp_profilePic, 
                                 f_name, 
@@ -407,9 +406,9 @@ namespace GUTZ_Capstone_Project
             int countAbsent = 0;
 
             string sqlCountAttendance = $@"SELECT a.emp_id, a.time_in, a.time_out, s.start_time, s.end_time, s.work_days 
-                                                FROM tbl_attendance a 
-                                                INNER JOIN tbl_schedule s ON a.emp_id = s.emp_id 
-                                                WHERE DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'";
+                                           FROM tbl_attendance a 
+                                           INNER JOIN tbl_schedule s ON a.emp_id = s.emp_id 
+                                           WHERE DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'";
 
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
 
@@ -452,8 +451,8 @@ namespace GUTZ_Capstone_Project
             }
 
             string sqlScheduledEmployees = $@"SELECT emp_id, work_days 
-                                                FROM tbl_schedule 
-                                                WHERE FIND_IN_SET(DAYNAME('{selectedDate:yyyy-MM-dd}'), work_days) > 0";
+                                              FROM tbl_schedule 
+                                              WHERE FIND_IN_SET(DAYNAME('{selectedDate:yyyy-MM-dd}'), work_days) > 0";
 
             DataTable dtScheduledEmployees = DB_OperationHelperClass.QueryData(sqlScheduledEmployees);
 

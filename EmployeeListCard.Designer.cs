@@ -212,14 +212,14 @@
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.ForestGreen;
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 15;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmpRate);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblContactNo);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblEmail);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblJobRole);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblID);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.ForestGreen;
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.White;
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(34, 220);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
@@ -286,11 +286,11 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Roboto", 13F);
+            this.lblName.Font = new System.Drawing.Font("Roboto", 13.5F);
             this.lblName.ForeColor = System.Drawing.Color.Black;
-            this.lblName.Location = new System.Drawing.Point(0, 177);
+            this.lblName.Location = new System.Drawing.Point(3, 177);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(351, 31);
+            this.lblName.Size = new System.Drawing.Size(345, 31);
             this.lblName.TabIndex = 60;
             this.lblName.Text = "Full Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

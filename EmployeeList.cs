@@ -17,15 +17,16 @@ namespace GUTZ_Capstone_Project
         private readonly string[] defaultSearchItems = { "Search By", "ID Number", "Name", "Email Address" };
         private readonly string[] defaultSortItems = { "Sort By", "Non-Tenured", "Tenured", "ESO", "RKESI", "VUIHOC" };
         private readonly string[] defaultFilterItems = { "Filter By", "Active", "Inactive", "Male", "Female", "Full Time", "Part Time" };
-        private string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc,
-               f_name, m_name, l_name, tbl_employee.department_id, account_name, department_name, 
-               DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
-               FROM tbl_employee
-               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-               INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-               WHERE is_deleted = 0
-               ORDER BY emp_id ASC";
+
+        private string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc, f_name, m_name, l_name, 
+                                      tbl_employee.department_id, account_name, department_name, 
+                                      DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
+                               FROM tbl_employee
+                               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                               INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                               WHERE is_deleted = 0
+                               ORDER BY emp_id ASC";
 
         public EmployeeList()
         {
@@ -175,7 +176,6 @@ namespace GUTZ_Capstone_Project
             {
                 string searchText = txtSearch.Text.Trim();
 
-                // Validate search input
                 if (string.IsNullOrEmpty(searchText))
                 {
                     MessageBox.Show("Please enter a valid search term.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -245,7 +245,7 @@ namespace GUTZ_Capstone_Project
                             parameters.Add("@empName", "%" + searchText + "%");
                             break;
                         case 2: // Employee Email
-                            parameters.Add("@empEmail", searchText); // Remove wildcards for exact match
+                            parameters.Add("@empEmail", searchText);
                             break;
                     }
 
@@ -637,30 +637,16 @@ namespace GUTZ_Capstone_Project
 
         private void ExportEmployeesToCsv()
         {
-            string sql = @"SELECT 
-                            account_name, 
-                            f_name, 
-                            m_name, 
-                            l_name, 
-                            email, 
-                            phone, 
-                            is_deleted,
-                            start_date, 
-                            end_date
-                            FROM tbl_employee
-                            INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id";
+            string sql = @"SELECT account_name, f_name, l_name, email, phone, is_deleted, start_date, end_date
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id";
 
             DataTable employeeData = DB_OperationHelperClass.QueryData(sql);
 
             if (employeeData.Rows.Count > 0)
-            {
                 ExportToCsv(employeeData);
-            }
             else
-            {
-                MessageBox.Show("No employee records to export.", "Information",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                MessageBox.Show("No employee records to export.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ExportToCsv(DataTable dataTable)

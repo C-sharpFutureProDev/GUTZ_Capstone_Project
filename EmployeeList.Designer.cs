@@ -231,6 +231,7 @@
             this.panelEmployeeListFeatures.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
             this.panelEmployeeListFeatures.Size = new System.Drawing.Size(1914, 202);
             this.panelEmployeeListFeatures.TabIndex = 2;
+           
             // 
             // cboSort
             // 

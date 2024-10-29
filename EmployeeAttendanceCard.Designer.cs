@@ -108,7 +108,7 @@
             // EmployeeListCardEmployeeDetailsCard
             // 
             this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.ForestGreen;
+            this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 12;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.btnClockOut);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.btnStatus);
@@ -116,7 +116,7 @@
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblClockOut);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblClockInStatus);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblClockIn);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.ForestGreen;
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(127, 70);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
@@ -136,11 +136,11 @@
             this.btnClockOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnClockOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnClockOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClockOut.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnClockOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockOut.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClockOut.ForeColor = System.Drawing.Color.White;
-            this.btnClockOut.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnClockOut.HoverState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnClockOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.btnClockOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockOut.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnClockOut.Location = new System.Drawing.Point(228, 55);
             this.btnClockOut.Name = "btnClockOut";
@@ -154,17 +154,17 @@
             // btnStatus
             // 
             this.btnStatus.BackColor = System.Drawing.Color.Transparent;
-            this.btnStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
             this.btnStatus.BorderRadius = 4;
             this.btnStatus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStatus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStatus.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnStatus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnStatus.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatus.ForeColor = System.Drawing.Color.White;
-            this.btnStatus.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnStatus.HoverState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.btnStatus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnStatus.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnStatus.Location = new System.Drawing.Point(118, 55);
             this.btnStatus.Name = "btnStatus";
@@ -178,17 +178,17 @@
             // btnClockIn
             // 
             this.btnClockIn.BackColor = System.Drawing.Color.Transparent;
-            this.btnClockIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(217)))), ((int)(((byte)(0)))));
+            this.btnClockIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
             this.btnClockIn.BorderRadius = 4;
             this.btnClockIn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnClockIn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnClockIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnClockIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClockIn.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnClockIn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockIn.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClockIn.ForeColor = System.Drawing.Color.White;
-            this.btnClockIn.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnClockIn.HoverState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnClockIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.btnClockIn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockIn.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnClockIn.Location = new System.Drawing.Point(8, 55);
             this.btnClockIn.Name = "btnClockIn";
