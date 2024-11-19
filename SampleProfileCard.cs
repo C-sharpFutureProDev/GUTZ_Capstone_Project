@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUTZ_Capstone_Project.Forms
+namespace GUTZ_Capstone_Project
 {
-    public partial class FormPayrollManagement : Form
+    public partial class SampleProfileCard : UserControl
     {
-        public FormPayrollManagement()
+        public SampleProfileCard()
         {
             InitializeComponent();
         }
 
-        private void FormPayrollManagement_Load(object sender, EventArgs e)
+        private void SampleProfileCard_Load(object sender, EventArgs e)
         {
 
         }

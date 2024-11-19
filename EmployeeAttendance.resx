@@ -118,21 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnViewEmployeeList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAeJJREFUSEvtlk8vA0EYh9sD0qDSWz+AOFKNuzgTN3FwFV+iOCBoIhHxIQhxk7i4
-        cVOHfoj6exThpJ7f9K3o7kxt69BLn+RJdmZ+8052dnbbVJ8+Pader8/gNl7jI36YulbfFhYt/n8otoj3
-        mJQ7XLDpncPkCbxSpS65xHErlwwmLOO7Zkd4xhIWcNicxnXUWJQ3XLKyYQilcRe/MMoZjlo0hsbwXMEI
-        qrWDaYu2ogE8Rh9a1D/xF8qgb3FxhPEadB644TjawuCdRiGbxRdN9FC2WAM61hr9XkoWc9AexDI+YA33
-        1WfDDtobGGK1GZrCT9flZ8oFDdpaKMq+DTto68CF0Ls/qVDFNcO0bDNt3WWUmg07aOugtaOiULVxHaSb
-        hfWc21FVaA59r0+TgtVz0PZt9Z4NO2i322qtNdsM6qiHWHchg7YOlxbXnYcO1yaGOLTYT7Fb1x2n09dp
-        DF810cMNDli0AR05DD1vfRSSfkAuNMGDaucs2goDedSviw8tnrVoDMZ0p6FFVTNvUT8EMniqtAd9kfRx
-        KOKIqWs909D2nmDGyreHoLZsBX2vTlI0VzX+fEQxmKQPgX5ZQnfjQ7uifyqJD2QQigzhPOrXS6f/CZt/
-        fXStPo0pM2TT+vTpBanUN0YEjrzEjwkhAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAbJJREFUSEutlj0vBFEUhncTnyEkEgpfkUgkSoU/oOI3qIRCLdlYUek0Eg1ajWol
+        ohWNhIRCpVEoKIlEVhCFZDzn3tesGTtryH2SNzv3vOe8xeydO1PIQxRFw6iEjtElmpYVBgLb0QZ6R8YN
+        GpEdBgL70IWlixc0JjsMBLagM0v/Rkl2OAhd89kxz6hTdhgI7EFVS//GruxwELrosxPMyw4HoQc+O8GE
+        7Ezo6UK2Q7tUagyNtoXT9MuuC34R7bvOKDpERVnZ0GTbOE2b7Lrgr/i2mLKsGhRvvZeba406WE+hD+fU
+        sPWUWjwUZp2VnzmN2uwQenDVnzyi5ClCYdtZv7OlEZtpRqeumo2dLK0ayT10juIhrndc9Xe2NeKhMIju
+        nfWTxG3g+t+320Eh1x/L+s45+bnSaA2KZe/FLMuqC36Hb0tQlZ0NTfbwVVx7jocP316KaRKPQCY02nGy
+        ab8qZULPJEpTkR0OQusdwguyw0Hons+OeULdssNggSh9Nq7KDoeF+uyYE9QkOwwEjqNXSxf2jdErOwwE
+        jqKvU/8NraOGr5I/Q+AMso/II7SEBmQ1oFD4BONi/6D1I0olAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnViewPastAttendanceRecord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnViewEmployeeList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAeJJREFUSEvtlk8vA0EYh9sD0qDSWz+AOFKNuzgTN3FwFV+iOCBoIhHxIQhxk7i4

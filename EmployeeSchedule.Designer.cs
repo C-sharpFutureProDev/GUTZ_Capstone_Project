@@ -281,6 +281,7 @@
             this.btnSaveSchedule.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSaveSchedule.Location = new System.Drawing.Point(34, 396);
             this.btnSaveSchedule.Name = "btnSaveSchedule";
+            this.btnSaveSchedule.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.btnSaveSchedule.Size = new System.Drawing.Size(113, 42);
             this.btnSaveSchedule.TabIndex = 80;
             this.btnSaveSchedule.Text = "SAVE";
@@ -303,6 +304,7 @@
             this.btnClose.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(328, 396);
             this.btnClose.Name = "btnClose";
+            this.btnClose.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(113, 42);
             this.btnClose.TabIndex = 81;
             this.btnClose.Text = "Close";

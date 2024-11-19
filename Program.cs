@@ -21,7 +21,7 @@ namespace GUTZ_Capstone_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormLogin());
-            Application.Run(new FormDashboard(1001));
+            Application.Run(new FormDashboard(1001)); // bypass
             //Application.Run(new EmployeeLeave());
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]

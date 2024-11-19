@@ -1,24 +1,28 @@
 ﻿using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project
 {
     public partial class FormLogin : Form
     {
+        private int attemptCount = 0;
+        private bool isLockedOut = false;
+        private int lockoutDuration = 30;
+
         private int currentLoginAdminID;
 
         public FormLogin()
         {
             InitializeComponent();
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+
+            timer2.Interval = 3000;
+            timer2.Tick += timer2_Tick;
+
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(FormLogin_KeyDown);
         }
@@ -40,10 +44,17 @@ namespace GUTZ_Capstone_Project
             iconUsername.Padding = new System.Windows.Forms.Padding(2, 16, 0, 0);
             iconPassword.Padding = new System.Windows.Forms.Padding(2, 16, 0, 0);
             txtPassword.PasswordChar = '•';
+            lblMessage.Text = "";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (isLockedOut)
+            {
+                MessageBox.Show("Please wait before trying again.", "Locked Out", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("Please enter both username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -73,20 +84,52 @@ namespace GUTZ_Capstone_Project
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    attemptCount++;
+
+                    if (attemptCount >= 3)
+                    {
+                        isLockedOut = true;
+                        lockoutDuration = 30;
+                        lblMessage.Text = "Too many attempts. Please wait 30 seconds.";
+                        timer1.Start();
+                    }
+                    else
+                    {
+                        lblMessage.Text = $"Invalid username or password. Attempts left: {3 - attemptCount}";
+                        timer2.Stop();
+                        timer2.Start();
+                    }
+
                     txtUsername.Clear();
                     txtPassword.Clear();
                     txtUsername.Focus();
-                    return;
                 }
             }
             catch
             {
                 MessageBox.Show("An error occurred while processing the login request.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            txtUsername.Clear();
-            txtPassword.Clear();
-            txtUsername.Focus();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (lockoutDuration > 0)
+            {
+                lblMessage.Text = $"Please wait: {lockoutDuration--} seconds left.";
+            }
+            else
+            {
+                timer1.Stop();
+                isLockedOut = false;
+                attemptCount = 0;
+                lblMessage.Text = "You can try logging in again.";
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            lblMessage.Text = "";
+            timer2.Stop();
         }
 
         private void FormLogin_KeyDown(object sender, KeyEventArgs e)
@@ -95,6 +138,12 @@ namespace GUTZ_Capstone_Project
             {
                 Application.Exit();
             }
+        }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Dispose();
+            timer2.Dispose();
         }
     }
 }

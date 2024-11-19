@@ -36,10 +36,8 @@ namespace GUTZ_Capstone_Project
             dueDate = DateTime.Now.AddDays(10);
             timer1.Tick += timer1_Tick;
             timer1.Start();
-            timer2.Tick += timer2_Tick;
-            timer2.Start();
             this.WindowState = FormWindowState.Maximized;
-            originalImage = iconCurrentChildForm.Image; //get the original image icon of the title child form
+            originalImage = iconCurrentChildForm.Image;
             DisplayAdminProfilePic();
         }
 
@@ -120,11 +118,9 @@ namespace GUTZ_Capstone_Project
         {
             SuspendLayout();
 
-            // open only form
             if (currentChildForm != null && !currentChildForm.IsDisposed)
                 currentChildForm.Close();
 
-            // Set the new child form as the current one
             currentChildForm = childForm;
 
             childForm.TopLevel = false;
@@ -250,7 +246,6 @@ namespace GUTZ_Capstone_Project
         private void FormDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Dispose();
-            timer2.Dispose();
         }
 
         private void iconAdminNotification_MouseEnter(object sender, EventArgs e)
@@ -283,21 +278,6 @@ namespace GUTZ_Capstone_Project
         private void iconAdminSubMenu_Click(object sender, EventArgs e)
         {
             this.iconAdminSubMenu.FlatAppearance.BorderColor = Color.FromArgb(12, 90, 37);
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            TimeSpan timeRemaining = dueDate - DateTime.Now;
-
-            if (timeRemaining.TotalSeconds <= 0)
-            {
-                timer2.Stop();
-                lblCountDown.Text = "Payroll is Due Today";
-            }
-            else
-            {
-                lblCountDown.Text = $"{timeRemaining.Days} days {timeRemaining.Hours} hrs {timeRemaining.Minutes} min's {timeRemaining.Seconds} sec's rem.";
-            }
         }
     }
 }

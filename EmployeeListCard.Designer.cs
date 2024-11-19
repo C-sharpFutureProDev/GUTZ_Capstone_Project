@@ -55,7 +55,7 @@
             // panelEmployeeList
             // 
             this.panelEmployeeList.BackColor = System.Drawing.Color.Transparent;
-            this.panelEmployeeList.BorderColor = System.Drawing.Color.Ivory;
+            this.panelEmployeeList.BorderColor = System.Drawing.Color.Beige;
             this.panelEmployeeList.BorderRadius = 15;
             this.panelEmployeeList.Controls.Add(this.btnActivate);
             this.panelEmployeeList.Controls.Add(this.btnEdit);
@@ -162,7 +162,7 @@
             this.lblJoinedDate.AutoSize = true;
             this.lblJoinedDate.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoinedDate.ForeColor = System.Drawing.Color.Black;
-            this.lblJoinedDate.Location = new System.Drawing.Point(88, 398);
+            this.lblJoinedDate.Location = new System.Drawing.Point(86, 398);
             this.lblJoinedDate.Name = "lblJoinedDate";
             this.lblJoinedDate.Size = new System.Drawing.Size(73, 20);
             this.lblJoinedDate.TabIndex = 74;
@@ -202,7 +202,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(31, 398);
+            this.label5.Location = new System.Drawing.Point(29, 398);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label5.Size = new System.Drawing.Size(63, 20);
@@ -286,7 +286,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Roboto", 13.5F);
+            this.lblName.Font = new System.Drawing.Font("Roboto", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(3, 177);
             this.lblName.Name = "lblName";

@@ -157,6 +157,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivePayrollListCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActivePayrollListCard.Designer.cs">
+      <DependentUpon>ActivePayrollListCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,12 +186,6 @@
     </Compile>
     <Compile Include="EmployeeEducation.Designer.cs">
       <DependentUpon>EmployeeEducation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeLeave.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeLeave.Designer.cs">
-      <DependentUpon>EmployeeLeave.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeListCard.cs">
       <SubType>UserControl</SubType>
@@ -266,23 +266,11 @@
     <Compile Include="FormDashboard.Designer.cs">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormAttendanceManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormAttendanceManagement.Designer.cs">
-      <DependentUpon>FormAttendanceManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormAddNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormAddNewEmployee.Designer.cs">
       <DependentUpon>FormAddNewEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormEmployeeManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormEmployeeManagement.Designer.cs">
-      <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormPayrollManagement.cs">
       <SubType>Form</SubType>
@@ -290,15 +278,18 @@
     <Compile Include="Forms\FormPayrollManagement.Designer.cs">
       <DependentUpon>FormPayrollManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormTimeInTimeOut.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormTimeInTimeOut.Designer.cs">
-      <DependentUpon>FormTimeInTimeOut.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleProfileCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleProfileCard.Designer.cs">
+      <DependentUpon>SampleProfileCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_InputsValidatorHelperClass.cs" />
+    <EmbeddedResource Include="ActivePayrollListCard.resx">
+      <DependentUpon>ActivePayrollListCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeAttendance.resx">
       <DependentUpon>EmployeeAttendance.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,9 +301,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeEducation.resx">
       <DependentUpon>EmployeeEducation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeLeave.resx">
-      <DependentUpon>EmployeeLeave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeListCard.resx">
       <DependentUpon>EmployeeListCard.cs</DependentUpon>
@@ -350,20 +338,11 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormAttendanceManagement.resx">
-      <DependentUpon>FormAttendanceManagement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddNewEmployee.resx">
       <DependentUpon>FormAddNewEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormEmployeeManagement.resx">
-      <DependentUpon>FormEmployeeManagement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPayrollManagement.resx">
       <DependentUpon>FormPayrollManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormTimeInTimeOut.resx">
-      <DependentUpon>FormTimeInTimeOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -374,6 +353,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SampleProfileCard.resx">
+      <DependentUpon>SampleProfileCard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

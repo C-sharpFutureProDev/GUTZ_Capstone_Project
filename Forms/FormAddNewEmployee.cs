@@ -23,7 +23,6 @@ namespace GUTZ_Capstone_Project.Forms
 {
     public partial class FormAddNewEmployee : Form, DPFP.Capture.EventHandler
     {
-        // Global variables declaration
         private DPFP.Capture.Capture Capturer;
         private DPFP.Processing.Enrollment Enroller;
         private DPFP.Verification.Verification Verifier = new DPFP.Verification.Verification();
@@ -86,19 +85,23 @@ namespace GUTZ_Capstone_Project.Forms
             if (_empId != null)
             {
                 string sql = @"SELECT emp_profilePic, tbl_account.account_id, account_name, fingerprint_data, f_name, m_name, l_name, b_day, age, gender, civil_status, address, email, phone, emerg_contact, hired_date,
-                                        employment_type, work_arrangement, start_date, end_date, position_desc
-                                        FROM tbl_employee
-                                        INNER JOIN tbl_fingerprint 
+                                      employment_type, work_arrangement, start_date, end_date, position_desc
+                                      FROM tbl_employee
+                                      INNER JOIN tbl_fingerprint 
                                         ON tbl_employee.emp_id = tbl_fingerprint.emp_id
-                                        INNER JOIN tbl_department
+                                      INNER JOIN tbl_department
                                         ON tbl_employee.department_id = tbl_department.department_id
-                                        INNER JOIN tbl_position
+                                      INNER JOIN tbl_position
                                         ON tbl_employee.position_id = tbl_position.position_id
-                                        INNER JOIN tbl_account
+                                      INNER JOIN tbl_account
                                         ON tbl_employee.account_id = tbl_account.account_id
-                                        WHERE tbl_employee.emp_id = '" + _empId + "' AND is_deleted = 0";
+                                      WHERE tbl_employee.emp_id = @empId AND is_deleted = 0";
 
-                DataTable dt = DB_OperationHelperClass.QueryData(sql);
+                var parameters = new Dictionary<string, object>
+                {{ "@empId", _empId }};
+
+
+                DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
                 if (dt.Rows.Count > 0)
                 {
                     lblFormLabel.Text = "Update Existing Record";
@@ -288,9 +291,9 @@ namespace GUTZ_Capstone_Project.Forms
                 {
                     // Verify First logic to check if the fingerprint data is already existing during addition of new record
                     string sql = @"SELECT fingerprint_data, fingerprint_id, tbl_fingerprint.emp_id, l_name 
-                           FROM tbl_fingerprint 
-                           INNER JOIN tbl_employee ON tbl_fingerprint.emp_id = tbl_employee.emp_id
-                           WHERE is_deleted = 0";
+                                   FROM tbl_fingerprint 
+                                   INNER JOIN tbl_employee ON tbl_fingerprint.emp_id = tbl_employee.emp_id
+                                   WHERE is_deleted = 0";
 
                     DataTable dataTable = DB_OperationHelperClass.QueryData(sql);
 
@@ -730,8 +733,8 @@ namespace GUTZ_Capstone_Project.Forms
                             {
                                 { "@EmpId", emp_id },
                                 { "@workDays", workDays },
-                                {  "@startTime", startTime},
-                                {  "@endTime", endTime},
+                                { "@startTime", startTime},
+                                { "@endTime", endTime},
                             };
                             if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertSchedule, paramSched))
                             {
@@ -850,7 +853,7 @@ namespace GUTZ_Capstone_Project.Forms
                                 UpdateSchedule(_empId);
                             }
 
-                            MessageBox.Show($"Employee record for Employee with ID {_empId} has been updated successfully.", "Update Successful", 
+                            MessageBox.Show($"Employee record for Employee with ID {_empId} has been updated successfully.", "Update Successful",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             this.Close();

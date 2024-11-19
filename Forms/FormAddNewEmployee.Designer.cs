@@ -617,15 +617,15 @@
             this.btnSaveEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveEmployeeDetails.FillColor = System.Drawing.Color.Green;
-            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Roboto", 10F);
+            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.btnSaveEmployeeDetails.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSaveEmployeeDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnSaveEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(26, 864);
             this.btnSaveEmployeeDetails.Name = "btnSaveEmployeeDetails";
-            this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(132, 44);
+            this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(130, 45);
             this.btnSaveEmployeeDetails.TabIndex = 57;
             this.btnSaveEmployeeDetails.Text = "SAVE";
             this.btnSaveEmployeeDetails.Click += new System.EventHandler(this.btnSaveEmployeeDetails_Click);
@@ -645,10 +645,10 @@
             this.btnCancel.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnCancel.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(1339, 864);
+            this.btnCancel.Location = new System.Drawing.Point(1341, 864);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Padding = new System.Windows.Forms.Padding(1, 0, 0, 1);
-            this.btnCancel.Size = new System.Drawing.Size(132, 44);
+            this.btnCancel.Size = new System.Drawing.Size(130, 45);
             this.btnCancel.TabIndex = 58;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -668,12 +668,12 @@
             this.btnResetInputFields.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnResetInputFields.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
             this.btnResetInputFields.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnResetInputFields.Location = new System.Drawing.Point(544, 864);
+            this.btnResetInputFields.Location = new System.Drawing.Point(546, 864);
             this.btnResetInputFields.Name = "btnResetInputFields";
             this.btnResetInputFields.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
             this.btnResetInputFields.ShadowDecoration.BorderRadius = 5;
             this.btnResetInputFields.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnResetInputFields.Size = new System.Drawing.Size(132, 44);
+            this.btnResetInputFields.Size = new System.Drawing.Size(130, 45);
             this.btnResetInputFields.TabIndex = 59;
             this.btnResetInputFields.Text = "Reset";
             this.btnResetInputFields.Click += new System.EventHandler(this.btnResetInputFields_Click);
@@ -1319,7 +1319,7 @@
             this.label20.BackColor = System.Drawing.Color.White;
             this.label20.Font = new System.Drawing.Font("Roboto", 11F);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.label20.Location = new System.Drawing.Point(26, 8);
+            this.label20.Location = new System.Drawing.Point(25, 10);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(205, 27);
             this.label20.TabIndex = 75;
@@ -1424,7 +1424,7 @@
             this.txtScannerPrompt.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.txtScannerPrompt.ForeColor = System.Drawing.Color.Black;
             this.txtScannerPrompt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtScannerPrompt.Location = new System.Drawing.Point(47, 37);
+            this.txtScannerPrompt.Location = new System.Drawing.Point(47, 40);
             this.txtScannerPrompt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtScannerPrompt.Name = "txtScannerPrompt";
             this.txtScannerPrompt.PasswordChar = '\0';
@@ -1492,9 +1492,9 @@
             this.employeeFingerprintImage.BorderRadius = 5;
             this.employeeFingerprintImage.FillColor = System.Drawing.Color.Gainsboro;
             this.employeeFingerprintImage.ImageRotate = 0F;
-            this.employeeFingerprintImage.Location = new System.Drawing.Point(47, 76);
+            this.employeeFingerprintImage.Location = new System.Drawing.Point(47, 81);
             this.employeeFingerprintImage.Name = "employeeFingerprintImage";
-            this.employeeFingerprintImage.Size = new System.Drawing.Size(210, 225);
+            this.employeeFingerprintImage.Size = new System.Drawing.Size(210, 220);
             this.employeeFingerprintImage.TabIndex = 57;
             this.employeeFingerprintImage.TabStop = false;
             // 
@@ -1565,7 +1565,7 @@
             this.label23.BackColor = System.Drawing.Color.White;
             this.label23.Font = new System.Drawing.Font("Roboto", 11F);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.label23.Location = new System.Drawing.Point(43, 8);
+            this.label23.Location = new System.Drawing.Point(25, 10);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(188, 27);
             this.label23.TabIndex = 83;

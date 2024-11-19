@@ -40,7 +40,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void LoadProfile()
+        public void LoadProfile()
         {
             if (_id != null)
             {
@@ -353,18 +353,18 @@ namespace GUTZ_Capstone_Project
         private void ResetButtons()
         {
             // Reset button colors and states
-            btnOrganization.FillColor = Color.White;
-            btnOrganization.ForeColor = Color.Green;
-            btnPersonal.FillColor = Color.White;
-            btnPersonal.ForeColor = Color.Green;
-            btnSalary.FillColor = Color.White;
-            btnSalary.ForeColor = Color.Green;
-            btnEducation.FillColor = Color.White;
-            btnEducation.ForeColor = Color.Green;
-            btnExperience.FillColor = Color.White;
-            btnExperience.ForeColor = Color.Green;
-            btnPerformance.FillColor = Color.White;
-            btnPerformance.ForeColor = Color.Green;
+            btnOrganization.FillColor = Color.FromArgb(19, 92, 61);
+            btnOrganization.ForeColor = Color.White;
+            btnPersonal.FillColor = Color.FromArgb(19, 92, 61);
+            btnPersonal.ForeColor = Color.White;
+            btnSalary.FillColor = Color.FromArgb(19, 92, 61);
+            btnSalary.ForeColor = Color.White;
+            btnEducation.FillColor = Color.FromArgb(19, 92, 61);
+            btnEducation.ForeColor = Color.White;
+            btnExperience.FillColor = Color.FromArgb(19, 92, 61);
+            btnExperience.ForeColor = Color.White;
+            btnPerformance.FillColor = Color.FromArgb(19, 92, 61);
+            btnPerformance.ForeColor = Color.White;
 
             // Hide all panels
             panelBasicDetails.Visible = false;
@@ -477,5 +477,6 @@ namespace GUTZ_Capstone_Project
                 employeePreviousWorkingExperience.ShowDialog(this);
             }
         }
+
     }
 }

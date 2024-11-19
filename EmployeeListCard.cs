@@ -34,7 +34,7 @@ namespace GUTZ_Capstone_Project
             btnViewProfile.Click += btnViewProfile_Click;
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnDeactivateEmployee, "Deactivate");
-            toolTip.SetToolTip(btnEdit, "Update Record");
+            toolTip.SetToolTip(btnEdit, "Update Profile");
             toolTip.SetToolTip(btnActivate, "Reactivate");
             toolTip.UseAnimation = false;
             toolTip.UseFading = false;

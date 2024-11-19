@@ -115,9 +115,9 @@
             // 
             this.lblScheduleWorkingHours.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblScheduleWorkingHours.ForeColor = System.Drawing.Color.White;
-            this.lblScheduleWorkingHours.Location = new System.Drawing.Point(3, 94);
+            this.lblScheduleWorkingHours.Location = new System.Drawing.Point(3, 90);
             this.lblScheduleWorkingHours.Name = "lblScheduleWorkingHours";
-            this.lblScheduleWorkingHours.Size = new System.Drawing.Size(265, 24);
+            this.lblScheduleWorkingHours.Size = new System.Drawing.Size(279, 28);
             this.lblScheduleWorkingHours.TabIndex = 71;
             this.lblScheduleWorkingHours.Text = "WorkingHours";
             this.lblScheduleWorkingHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,9 +126,9 @@
             // 
             this.lblWorkingDays.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblWorkingDays.ForeColor = System.Drawing.Color.White;
-            this.lblWorkingDays.Location = new System.Drawing.Point(3, 66);
+            this.lblWorkingDays.Location = new System.Drawing.Point(3, 62);
             this.lblWorkingDays.Name = "lblWorkingDays";
-            this.lblWorkingDays.Size = new System.Drawing.Size(265, 24);
+            this.lblWorkingDays.Size = new System.Drawing.Size(279, 28);
             this.lblWorkingDays.TabIndex = 69;
             this.lblWorkingDays.Text = "Working Days";
             this.lblWorkingDays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,9 +137,9 @@
             // 
             this.lblJobRole.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
-            this.lblJobRole.Location = new System.Drawing.Point(3, 38);
+            this.lblJobRole.Location = new System.Drawing.Point(3, 34);
             this.lblJobRole.Name = "lblJobRole";
-            this.lblJobRole.Size = new System.Drawing.Size(265, 24);
+            this.lblJobRole.Size = new System.Drawing.Size(279, 28);
             this.lblJobRole.TabIndex = 66;
             this.lblJobRole.Text = "Job Role";
             this.lblJobRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,16 +148,16 @@
             // 
             this.lblID.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.lblID.ForeColor = System.Drawing.Color.White;
-            this.lblID.Location = new System.Drawing.Point(3, 10);
+            this.lblID.Location = new System.Drawing.Point(3, 5);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(265, 24);
+            this.lblID.Size = new System.Drawing.Size(279, 28);
             this.lblID.TabIndex = 61;
             this.lblID.Text = "ID";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Roboto", 13F);
+            this.lblName.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(22, 161);
             this.lblName.Name = "lblName";

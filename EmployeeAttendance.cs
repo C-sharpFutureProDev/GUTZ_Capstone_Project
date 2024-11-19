@@ -31,6 +31,17 @@ namespace GUTZ_Capstone_Project
             timer1.Tick += timer1_Tick;
         }
 
+        private void EmployeeAttendance_Load(object sender, EventArgs e)
+        {
+            cboSearch.SelectedIndex = 0;
+            LoadAndRetrieveEmployeeAttendanceData();
+            CountAttendance();
+            flowLayoutPanel2.SuspendLayout();
+            PopulateEmployeeList();
+            flowLayoutPanel2.ResumeLayout();
+            timer1.Start();
+        }
+
         private async void LoadAndRetrieveEmployeeAttendanceData()
         {
             try
@@ -67,8 +78,8 @@ namespace GUTZ_Capstone_Project
                         ClockOutTime = timeOutFormatted,
                     };
 
-                    if (timeInStatus == "Late")
-                        employeeAttendanceCard.btnStatus.Text = "LATE";
+                    employeeAttendanceCard.btnAttendanceStatus.Visible = true;
+                    employeeAttendanceCard.btnAttendanceStatus.Text = (timeInStatus == "On Time" || timeInStatus == "Late") ? "Present" : "Absent";
 
                     flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
                 }
@@ -148,16 +159,6 @@ namespace GUTZ_Capstone_Project
             btnAbsent.Text = countAbsent.ToString();
         }
 
-        private void EmployeeAttendance_Load(object sender, EventArgs e)
-        {
-            LoadAndRetrieveEmployeeAttendanceData();
-            CountAttendance();
-            flowLayoutPanel2.SuspendLayout();
-            PopulateEmployeeList();
-            flowLayoutPanel2.ResumeLayout();
-            timer1.Start();
-        }
-
         private async void PopulateEmployeeList()
         {
             string sql = @"SELECT tbl_employee.emp_id, emp_ProfilePic, f_name, m_name, l_name, position_desc, work_days, start_time, end_time
@@ -198,7 +199,6 @@ namespace GUTZ_Capstone_Project
                     TimeSpan endTime = TimeSpan.Parse(row["end_time"].ToString());
 
                     string scheduleWorkingHours = $"{FormatTime(startTime)} - {FormatTime(endTime)}";
-
 
                     EmployeeListCardForAttendanceHistory employeeListCardForAttendanceHistory = new EmployeeListCardForAttendanceHistory(this)
                     {
@@ -261,11 +261,8 @@ namespace GUTZ_Capstone_Project
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!dtpEmpSelectDate.Visible)
-            {
-                LoadAndRetrieveEmployeeAttendanceData();
-                CountAttendance();
-            }
+            LoadAndRetrieveEmployeeAttendanceData();
+            CountAttendance();
         }
 
         private void EmployeeAttendance_FormClosing(object sender, FormClosingEventArgs e)
@@ -274,15 +271,24 @@ namespace GUTZ_Capstone_Project
             timer1.Dispose();
         }
 
-        private void btnViewPastAttendanceRecord_Click(object sender, EventArgs e)
-        {
-            dtpEmpSelectDate.Visible = true;
-        }
-
         private async void dtpEmpSelectDate_ValueChanged(object sender, EventArgs e)
         {
+            if (!IsToday(dtpEmpSelectDate.Value))
+            {
+                timer1.Stop();
+            }
+            else
+            {
+                timer1.Start();
+            }
+
             await LoadAttendanceDataForSelectedDate();
             CountAttendanceForSelectedDate();
+        }
+
+        private bool IsToday(DateTime date)
+        {
+            return date.Date == DateTime.Today;
         }
 
         private async Task LoadAttendanceDataForSelectedDate()
@@ -291,25 +297,40 @@ namespace GUTZ_Capstone_Project
             string formattedDate = selectedDate.ToString("yyyy-MM-dd");
             string displayDate = selectedDate.ToString("dddd, MMM. dd, yyyy");
 
+            DateTime today = DateTime.Today;
+            if (selectedDate.Date > today)
+            {
+                return;
+            }
+
+            if (selectedDate.DayOfWeek == DayOfWeek.Saturday || selectedDate.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MessageBox.Show(this, "Attendance records are only available for weekdays (Monday to Friday).", "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             string sql = $@"SELECT 
-                                tbl_employee.emp_id, 
-                                emp_profilePic, 
-                                f_name, 
-                                m_name, 
-                                l_name, 
-                                CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                                time_in_status, 
-                                DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                                DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted
-                            FROM 
-                                tbl_employee
-                            LEFT JOIN 
-                                tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id AND DATE(time_in) = '{formattedDate}'
-                            LEFT JOIN 
-                                tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id AND 
-                                FIND_IN_SET(DAYNAME('{formattedDate}'), tbl_schedule.work_days) > 0
-                            WHERE 
-                                tbl_employee.is_deleted = 0";
+                                 tbl_employee.emp_id, 
+                                 emp_profilePic, 
+                                 f_name, 
+                                 m_name, 
+                                 l_name, 
+                                 CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
+                                 time_in_status, 
+                                 DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                 DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted
+                               FROM 
+                                 tbl_employee
+                               LEFT JOIN 
+                                 tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id 
+                                 AND DATE(time_in) = '{formattedDate}' 
+                               LEFT JOIN 
+                                 tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id 
+                                 AND FIND_IN_SET(DAYNAME('{formattedDate}'), tbl_schedule.work_days) > 0
+                               WHERE 
+                                 tbl_employee.is_deleted = 0 
+                                 AND tbl_employee.start_date <= '{formattedDate}'";
 
             try
             {
@@ -326,13 +347,9 @@ namespace GUTZ_Capstone_Project
 
                 flowLayoutPanel1.Controls.Clear();
 
-                HashSet<string> presentEmployeeIds = new HashSet<string>();
-
                 foreach (DataRow row in dt.Rows)
                 {
                     string empId = row["emp_id"].ToString();
-                    presentEmployeeIds.Add(empId);
-
                     string firstName = row["f_name"].ToString();
                     string middleName = row["m_name"].ToString();
                     string lastName = row["l_name"].ToString();
@@ -349,7 +366,7 @@ namespace GUTZ_Capstone_Project
                     {
                         CurrentDate = displayDate,
                         _id = empId,
-                        EmployeeProfilePic = Image.FromFile(imagePath),
+                        EmployeeProfilePic = File.Exists(imagePath) ? Image.FromFile(imagePath) : null,
                         EmployeeName = name,
                         ClockInTime = timeInFormatted,
                         Status = timeInStatus,
@@ -367,26 +384,6 @@ namespace GUTZ_Capstone_Project
 
                     flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
                 }
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    string empId = row["emp_id"].ToString();
-                    if (!presentEmployeeIds.Contains(empId))
-                    {
-                        EmployeeAttendanceCard absentCard = new EmployeeAttendanceCard(this)
-                        {
-                            CurrentDate = displayDate,
-                            _id = empId,
-                            EmployeeProfilePic = File.Exists(row["emp_profilePic"].ToString()) ? Image.FromFile(row["emp_profilePic"].ToString()) : null,
-                            EmployeeName = $"{row["f_name"]} {row["m_name"]} {row["l_name"]}",
-                            ClockInTime = "--",
-                            Status = "--",
-                            ClockOutTime = "--"
-                        };
-
-                        flowLayoutPanel1.Controls.Add(absentCard);
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -397,13 +394,48 @@ namespace GUTZ_Capstone_Project
 
         private void CountAttendanceForSelectedDate()
         {
-            DateTime selectedDate = dtpEmpSelectDate.Value;
-
             int countPresent = 0;
             int countOnTime = 0;
             int countLate = 0;
             int countClockedOut = 0;
             int countAbsent = 0;
+
+            DateTime selectedDate = dtpEmpSelectDate.Value;
+
+            DateTime today = DateTime.Today;
+            if (selectedDate.Date > today)
+            {
+                MessageBox.Show(this, "Attendance counts are only available for past dates.", "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string sqlCheckStartDate = @"SELECT MIN(start_date) AS MinStartDate FROM tbl_employee WHERE is_deleted = 0";
+            DateTime minStartDate;
+
+            try
+            {
+                DataTable dtStartDate = DB_OperationHelperClass.QueryData(sqlCheckStartDate);
+                minStartDate = dtStartDate.Rows.Count > 0 ? Convert.ToDateTime(dtStartDate.Rows[0]["MinStartDate"]) : DateTime.MinValue;
+
+                if (selectedDate < minStartDate)
+                {
+                    MessageBox.Show("No attendance counts available before the earliest employee start date: " + minStartDate.ToString("MMMM dd, yyyy"), "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    btnClockIn.Text = "0";
+                    btnClockOut.Text = "0";
+                    btnTotalAttendance.Text = "Total Attendance: 0";
+                    btnAbsent.Text = "0";
+
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error checking employee start date: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             string sqlCountAttendance = $@"SELECT a.emp_id, a.time_in, a.time_out, s.start_time, s.end_time, s.work_days 
                                            FROM tbl_attendance a 
@@ -413,6 +445,19 @@ namespace GUTZ_Capstone_Project
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
 
             HashSet<string> presentEmployeeIds = new HashSet<string>();
+            HashSet<string> scheduledEmployeeIds = new HashSet<string>();
+
+            string sqlScheduledEmployees = $@"SELECT emp_id, work_days 
+                                              FROM tbl_schedule 
+                                              WHERE FIND_IN_SET('{selectedDate:dddd}', work_days) > 0";
+
+            DataTable dtScheduledEmployees = DB_OperationHelperClass.QueryData(sqlScheduledEmployees);
+
+            foreach (DataRow row in dtScheduledEmployees.Rows)
+            {
+                string empId = row["emp_id"].ToString();
+                scheduledEmployeeIds.Add(empId);
+            }
 
             foreach (DataRow row in dtAttendance.Rows)
             {
@@ -423,43 +468,29 @@ namespace GUTZ_Capstone_Project
                 DateTime? timeOut = row["time_out"] as DateTime?;
                 TimeSpan startTime = TimeSpan.Parse(row["start_time"].ToString());
                 TimeSpan endTime = TimeSpan.Parse(row["end_time"].ToString());
-                string workDays = row["work_days"].ToString();
-                string currentDay = selectedDate.DayOfWeek.ToString();
 
-                if (workDays.Contains(currentDay))
+                countPresent++;
+
+                DateTime workingShiftStart = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, startTime.Hours, startTime.Minutes, 0);
+                DateTime workingShiftEnd = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, endTime.Hours, endTime.Minutes, 0);
+
+                if (timeIn <= workingShiftStart)
                 {
-                    countPresent++;
+                    countOnTime++;
+                }
+                else if (timeIn > workingShiftStart && timeIn <= workingShiftEnd)
+                {
+                    countLate++;
+                }
 
-                    DateTime workingShiftStart = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, startTime.Hours, startTime.Minutes, 0);
-                    DateTime gracePeriodEnd = workingShiftStart.AddMinutes(15);
-                    DateTime workingShiftEnd = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, endTime.Hours, endTime.Minutes, 0);
-
-                    if (timeIn <= gracePeriodEnd)
-                    {
-                        countOnTime++;
-                    }
-                    else if (timeIn > gracePeriodEnd && timeIn <= workingShiftEnd)
-                    {
-                        countLate++;
-                    }
-
-                    if (timeOut.HasValue)
-                    {
-                        countClockedOut++;
-                    }
+                if (timeOut.HasValue)
+                {
+                    countClockedOut++;
                 }
             }
 
-            string sqlScheduledEmployees = $@"SELECT emp_id, work_days 
-                                              FROM tbl_schedule 
-                                              WHERE FIND_IN_SET(DAYNAME('{selectedDate:yyyy-MM-dd}'), work_days) > 0";
-
-            DataTable dtScheduledEmployees = DB_OperationHelperClass.QueryData(sqlScheduledEmployees);
-
-            foreach (DataRow row in dtScheduledEmployees.Rows)
+            foreach (string empId in scheduledEmployeeIds)
             {
-                string empId = row["emp_id"].ToString();
-
                 if (!presentEmployeeIds.Contains(empId))
                 {
                     countAbsent++;
@@ -470,10 +501,12 @@ namespace GUTZ_Capstone_Project
 
             btnClockIn.Text = countPresent.ToString();
             btnClockOut.Text = countClockedOut.ToString();
-            btnTotalAttendance.Text = "Total Attendance: " + totalAttendance.ToString();
             btnAbsent.Text = countAbsent.ToString();
+
+            btnTotalAttendance.Text = "Total Attendance: " + totalAttendance.ToString();
         }
-        private void btnViewEmployeeList_Click(object sender, EventArgs e)
+
+        private void btnViewEmployeeList_Click_1(object sender, EventArgs e)
         {
             flowLayoutPanel1.Visible = false;
             flowLayoutPanel2.Visible = true;
@@ -481,6 +514,12 @@ namespace GUTZ_Capstone_Project
             flowLayoutPanel2.SuspendLayout();
             PopulateEmployeeList();
             flowLayoutPanel2.ResumeLayout();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadAndRetrieveEmployeeAttendanceData();
+            CountAttendance();
         }
     }
 }

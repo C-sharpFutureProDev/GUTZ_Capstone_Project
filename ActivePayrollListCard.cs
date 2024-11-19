@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GUTZ_Capstone_Project
 {
-    public partial class EmployeeLeave : Form
+    public partial class ActivePayrollListCard : UserControl
     {
-        public EmployeeLeave()
+        public ActivePayrollListCard()
         {
             InitializeComponent();
-        }
-
-        private void EmployeeLeave_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

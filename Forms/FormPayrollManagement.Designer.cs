@@ -30,14 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // FormPayrollManagemant
+            // FormPayrollManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1914, 976);
             this.DoubleBuffered = true;
-            this.Name = "FormPayrollManagemant";
+            this.Name = "FormPayrollManagement";
             this.Text = "Payroll Management Section";
+            this.Load += new System.EventHandler(this.FormPayrollManagement_Load);
             this.ResumeLayout(false);
 
         }

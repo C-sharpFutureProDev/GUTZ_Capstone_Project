@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Web.UI.WebControls.WebParts;
+using ZstdSharp.Unsafe;
 
 namespace GUTZ_Capstone_Project
 {
@@ -17,16 +18,17 @@ namespace GUTZ_Capstone_Project
         private readonly string[] defaultSearchItems = { "Search By", "ID Number", "Name", "Email Address" };
         private readonly string[] defaultSortItems = { "Sort By", "Non-Tenured", "Tenured", "ESO", "RKESI", "VUIHOC" };
         private readonly string[] defaultFilterItems = { "Filter By", "Active", "Inactive", "Male", "Female", "Full Time", "Part Time" };
+        private bool isUserInteraction = false;
 
         private string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc, f_name, m_name, l_name, 
                                       tbl_employee.department_id, account_name, department_name, 
                                       DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
-                               FROM tbl_employee
-                               INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                               INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                               INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                               WHERE is_deleted = 0
-                               ORDER BY emp_id ASC";
+                                      FROM tbl_employee
+                                      INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                      WHERE is_deleted = 0
+                                      ORDER BY emp_id ASC";
 
         public EmployeeList()
         {
@@ -38,6 +40,7 @@ namespace GUTZ_Capstone_Project
             cboSearch.SelectedIndex = 0;
             cboSort.SelectedIndex = 0;
             cboFilter.SelectedIndex = 0;
+            isUserInteraction = false;
 
             flowLayoutPanel1.SuspendLayout();
             PopulateItems();
@@ -172,6 +175,9 @@ namespace GUTZ_Capstone_Project
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!isUserInteraction)
+                return;
+
             if (e.KeyCode == Keys.Enter)
             {
                 string searchText = txtSearch.Text.Trim();
@@ -188,7 +194,7 @@ namespace GUTZ_Capstone_Project
 
                     switch (cboSearch.SelectedIndex)
                     {
-                        case 0: // Employee ID
+                        case 0:
                             query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
                                       CONCAT(f_name, ' ', 
                                       CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
@@ -201,7 +207,7 @@ namespace GUTZ_Capstone_Project
                                       WHERE is_deleted = 0 AND emp_id = @empId";
                             break;
 
-                        case 1: // Employee Name
+                        case 1:
                             query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
                                       CONCAT(f_name, ' ', 
                                       CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
@@ -216,7 +222,7 @@ namespace GUTZ_Capstone_Project
                                       l_name) LIKE @empName";
                             break;
 
-                        case 2: // Employee Email
+                        case 2:
                             query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
                                     CONCAT(f_name, ' ',
                                     CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END,
@@ -238,13 +244,13 @@ namespace GUTZ_Capstone_Project
 
                     switch (cboSearch.SelectedIndex)
                     {
-                        case 0: // Employee ID
+                        case 0:
                             parameters.Add("@empId", searchText);
                             break;
-                        case 1: // Employee Name
+                        case 1:
                             parameters.Add("@empName", "%" + searchText + "%");
                             break;
-                        case 2: // Employee Email
+                        case 2:
                             parameters.Add("@empEmail", searchText);
                             break;
                     }
@@ -322,75 +328,78 @@ namespace GUTZ_Capstone_Project
 
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!isUserInteraction)
+                return;
+
             try
             {
                 string query = "";
 
                 switch (cboSort.SelectedIndex)
                 {
-                    case 0: // Non-Tenured
+                    case 0:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             WHERE is_deleted = 0 AND employment_type = 'Non-Tenured'
-                             ORDER BY FullName";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  WHERE is_deleted = 0 AND employment_type = 'Non-Tenured'
+                                  ORDER BY FullName";
                         break;
 
-                    case 1: // Tenured
+                    case 1:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             WHERE is_deleted = 0 AND employment_type = 'Tenured'
-                             ORDER BY FullName";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  WHERE is_deleted = 0 AND employment_type = 'Tenured'
+                                  ORDER BY FullName";
                         break;
 
-                    case 2: // ESO
+                    case 2:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%ESO%'
-                             ORDER BY FullName";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%ESO%'
+                                  ORDER BY FullName";
                         break;
 
-                    case 3: // RKESI
+                    case 3:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%RKESI%'
-                             ORDER BY FullName";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%RKESI%'
+                                  ORDER BY FullName";
                         break;
 
-                    case 4: // VUIHOC
+                    case 4:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%VUIHOC%'
-                             ORDER BY FullName";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%VUIHOC%'
+                                  ORDER BY FullName";
                         break;
 
                     default:
@@ -438,7 +447,7 @@ namespace GUTZ_Capstone_Project
                 }
                 else
                 {
-                    MessageBox.Show("No employees found based on the selected sort criteria.", "Search Result",
+                    MessageBox.Show("No employees found based on the selected sort criteria.", "Result",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -451,88 +460,91 @@ namespace GUTZ_Capstone_Project
 
         private void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!isUserInteraction)
+                return;
+
             try
             {
                 string query = "";
 
                 switch (cboFilter.SelectedIndex)
                 {
-                    case 0: // Active
+                    case 0:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                             WHERE is_deleted = 0";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                  WHERE is_deleted = 0";
                         break;
 
-                    case 1: // Inactive
+                    case 1:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                             WHERE is_deleted = 1";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                  WHERE is_deleted = 1";
                         break;
 
-                    case 2: // Male
+                    case 2:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                             WHERE is_deleted = 0 AND gender = 'Male'";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                  WHERE is_deleted = 0 AND gender = 'Male'";
                         break;
 
-                    case 3: // Female
+                    case 3:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                             WHERE is_deleted = 0 AND gender = 'Female'";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                  WHERE is_deleted = 0 AND gender = 'Female'";
                         break;
 
-                    case 4: // Full Time
+                    case 4:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                             WHERE is_deleted = 0 AND work_arrangement = 'Full-Time'";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                  WHERE is_deleted = 0 AND work_arrangement = 'Full-Time'";
                         break;
 
-                    case 5: // Part Time
+                    case 5:
                         query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
-                             CONCAT(f_name, ' ', 
-                             CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                             l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
-                             DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
-                             FROM tbl_employee
-                             INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
-                             INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                             INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                             WHERE is_deleted = 0 AND work_arrangement = 'Part-Time'";
+                                  CONCAT(f_name, ' ', 
+                                  CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                  l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
+                                  DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
+                                  INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                  INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                  WHERE is_deleted = 0 AND work_arrangement = 'Part-Time'";
                         break;
 
                     default:
@@ -597,7 +609,7 @@ namespace GUTZ_Capstone_Project
                 }
                 else
                 {
-                    MessageBox.Show("No employees found based on the selected filter.", "Search Result",
+                    MessageBox.Show("No employees found based on the selected filter.", "Result",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -610,6 +622,8 @@ namespace GUTZ_Capstone_Project
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            isUserInteraction = false;
+
             cboSearch.Items.Clear();
             cboSearch.Items.AddRange(defaultSearchItems);
             cboSearch.SelectedIndex = 0;
@@ -637,16 +651,21 @@ namespace GUTZ_Capstone_Project
 
         private void ExportEmployeesToCsv()
         {
-            string sql = @"SELECT account_name, f_name, l_name, email, phone, is_deleted, start_date, end_date
-                                  FROM tbl_employee
-                                  INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id";
+            string sql = @"SELECT account_name, f_name, m_name, l_name, email, phone, is_deleted, start_date, end_date
+                           FROM tbl_employee
+                           INNER JOIN tbl_account
+                           ON tbl_employee.account_id = tbl_account.account_id";
 
-            DataTable employeeData = DB_OperationHelperClass.QueryData(sql);
+            DataTable dt = DB_OperationHelperClass.QueryData(sql);
 
-            if (employeeData.Rows.Count > 0)
-                ExportToCsv(employeeData);
+            if (dt.Rows.Count > 0)
+            {
+                ExportToCsv(dt);
+            }
             else
+            {
                 MessageBox.Show("No employee records to export.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void ExportToCsv(DataTable dataTable)
@@ -655,7 +674,7 @@ namespace GUTZ_Capstone_Project
             {
                 saveFileDialog.Filter = "CSV Files (*.csv)|*.csv";
                 saveFileDialog.Title = "Save Employee List as CSV";
-                saveFileDialog.FileName = "employee_list.csv";
+                saveFileDialog.FileName = "GUTZ_employee_list.csv";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -663,33 +682,33 @@ namespace GUTZ_Capstone_Project
                     {
                         StringBuilder csvContent = new StringBuilder();
 
-                        csvContent.AppendLine("ACCOUNT,TUTOR'S NAME, NAME, EMAIL, Phone Number, Status, Start Date, End Date");
+                        csvContent.AppendLine("ACCOUNT,TUTOR'S NAME,NAME,EMAIL,Phone Number,Status,Start Date,End Date");
 
                         foreach (DataRow row in dataTable.Rows)
                         {
-                            string account = row["account_name"].ToString() ?? "N/A";
-                            string tutorName = row["f_name"].ToString() ?? "N/A";
+                            string account = row["account_name"]?.ToString() ?? "N/A";
+                            string tutorName = row["f_name"]?.ToString() ?? "N/A";
                             string middleInitial = !string.IsNullOrWhiteSpace(row["m_name"].ToString()) ? $"{row["m_name"].ToString()[0]}." : "N/A";
                             string fullName = $"{tutorName} {middleInitial} {row["l_name"]?.ToString() ?? "N/A"}".Trim();
-                            string email = row["email"].ToString() ?? "N/A";
-                            string phone = row["phone"].ToString() ?? "N/A";
+                            string email = row["email"]?.ToString() ?? "N/A";
+                            string phone = row["phone"]?.ToString() ?? "N/A";
                             string status = (Convert.ToInt32(row["is_deleted"]) == 0) ? "Active" : "Inactive";
 
-                            string startDate = row["start_date"].ToString();
+                            string startDate = row["start_date"]?.ToString();
                             string formattedStartDate = DateTime.TryParse(startDate, out DateTime start) ? start.ToString("MM/dd/yyyy") : "N/A";
 
-                            string endDate = row["end_date"].ToString();
+                            string endDate = row["end_date"]?.ToString();
                             string formattedEndDate = DateTime.TryParse(endDate, out DateTime end) ? end.ToString("MM/dd/yyyy") : "N/A";
 
-                            csvContent.AppendLine($"{account},{tutorName},{fullName},{email},{phone},{status},{formattedStartDate},{formattedEndDate}");
+                            csvContent.AppendLine($"\"{account}\",\"{tutorName}\",\"{fullName}\",\"{email}\",\"'{phone}\",\"{status}\",\"{formattedStartDate}\",\"{formattedEndDate}\"");
                         }
 
                         File.WriteAllText(saveFileDialog.FileName, csvContent.ToString());
                         MessageBox.Show("Export successful!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred while exporting the data to CSV. Please try again.", "Error",
+                        MessageBox.Show($"An error occurred while exporting the data to CSV: {ex.Message}", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -703,9 +722,10 @@ namespace GUTZ_Capstone_Project
 
         private void cboSearch_Click(object sender, EventArgs e)
         {
+            isUserInteraction = true;
             ComboBox comboBox = sender as ComboBox;
 
-            if (comboBox.SelectedIndex == 0)
+            if (comboBox.SelectedItem.ToString() == "Search By")
             {
                 comboBox.Items.RemoveAt(0);
                 comboBox.SelectedIndex = -1;
@@ -714,7 +734,7 @@ namespace GUTZ_Capstone_Project
 
         private void cboSort_Click(object sender, EventArgs e)
         {
-
+            isUserInteraction = true;
             ComboBox comboBox = sender as ComboBox;
 
             if (comboBox.SelectedItem.ToString() == "Sort By")
@@ -726,7 +746,7 @@ namespace GUTZ_Capstone_Project
 
         private void cboFilter_Click(object sender, EventArgs e)
         {
-
+            isUserInteraction = true;
             ComboBox comboBox = sender as ComboBox;
 
             if (comboBox.SelectedItem.ToString() == "Filter By")

@@ -200,12 +200,12 @@
             // 
             this.lblEmployeeName.AutoSize = true;
             this.lblEmployeeName.BackColor = System.Drawing.Color.Ivory;
-            this.lblEmployeeName.Font = new System.Drawing.Font("Roboto", 15F);
+            this.lblEmployeeName.Font = new System.Drawing.Font("Roboto", 12.5F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeName.ForeColor = System.Drawing.Color.Black;
             this.lblEmployeeName.Location = new System.Drawing.Point(220, 60);
             this.lblEmployeeName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeName.Name = "lblEmployeeName";
-            this.lblEmployeeName.Size = new System.Drawing.Size(233, 37);
+            this.lblEmployeeName.Size = new System.Drawing.Size(199, 31);
             this.lblEmployeeName.TabIndex = 79;
             this.lblEmployeeName.Text = "Employee Name";
             // 
