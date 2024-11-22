@@ -211,12 +211,12 @@ namespace GUTZ_Capstone_Project
             if (result == DialogResult.Yes)
             {
                 // SQL command for soft delete with parameterized query
-                string softDeleteRecord = "UPDATE tbl_employee SET is_deleted = 1, deleted_at = CURRENT_TIMESTAMP WHERE emp_id = @id";
+                string deactivate = "UPDATE tbl_employee SET is_deleted = 1, deleted_at = CURRENT_TIMESTAMP WHERE emp_id = @id";
                 var parameters = new Dictionary<string, object>
                 { { "@id", _id }  };
 
-                // Execute SQL Delete Command
-                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(softDeleteRecord, parameters))
+                // Execute SQL soft delete
+                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(deactivate, parameters))
                 {
                     MessageBox.Show("Selected employee deactivated successfully.",
                             "Deactivation Successful",
@@ -247,13 +247,13 @@ namespace GUTZ_Capstone_Project
 
             if (result == DialogResult.Yes)
             {
-                // SQL command for soft delete with parameterized query
-                string softDeleteRecord = "UPDATE tbl_employee SET is_deleted = 0, deleted_at = NULL WHERE emp_id = @id";
+                // SQL query for update with parameterized query
+                string reactivate = "UPDATE tbl_employee SET is_deleted = 0, deleted_at = NULL WHERE emp_id = @id";
                 var parameters = new Dictionary<string, object>
                 { { "@id", _id } };
 
-                // Execute SQL Delete Command
-                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(softDeleteRecord, parameters))
+                // Execute SQL update
+                if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(reactivate, parameters))
                 {
                     MessageBox.Show("Selected employee reactivated successfully.",
                             "Deactivation Successful",

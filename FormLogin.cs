@@ -20,7 +20,7 @@ namespace GUTZ_Capstone_Project
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
 
-            timer2.Interval = 3000;
+            timer2.Interval = 2000;
             timer2.Tick += timer2_Tick;
 
             this.KeyPreview = true;
@@ -33,6 +33,7 @@ namespace GUTZ_Capstone_Project
             {
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;
+
                 return cp;
             }
         }
@@ -52,6 +53,10 @@ namespace GUTZ_Capstone_Project
             if (isLockedOut)
             {
                 MessageBox.Show("Please wait before trying again.", "Locked Out", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsername.Clear();
+                txtPassword.Clear();
+                txtUsername.Focus();
+
                 return;
             }
 
@@ -61,6 +66,7 @@ namespace GUTZ_Capstone_Project
                 txtUsername.Clear();
                 txtPassword.Clear();
                 txtUsername.Focus();
+
                 return;
             }
 
@@ -89,8 +95,10 @@ namespace GUTZ_Capstone_Project
                     if (attemptCount >= 3)
                     {
                         isLockedOut = true;
+                        btnLogin.Enabled = false;
                         lockoutDuration = 30;
-                        lblMessage.Text = "Too many attempts. Please wait 30 seconds.";
+                        lblMessage.Text = "Too many failed attempts! Please wait 30 seconds.";
+
                         timer1.Start();
                     }
                     else
@@ -122,7 +130,14 @@ namespace GUTZ_Capstone_Project
                 timer1.Stop();
                 isLockedOut = false;
                 attemptCount = 0;
+
                 lblMessage.Text = "You can try logging in again.";
+                txtUsername.Clear();
+                txtPassword.Clear();
+                txtUsername.Focus();
+                btnLogin.Enabled = true;
+
+                timer2.Start();
             }
         }
 

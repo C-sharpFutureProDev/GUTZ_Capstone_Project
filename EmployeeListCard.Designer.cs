@@ -55,7 +55,7 @@
             // panelEmployeeList
             // 
             this.panelEmployeeList.BackColor = System.Drawing.Color.Transparent;
-            this.panelEmployeeList.BorderColor = System.Drawing.Color.Beige;
+            this.panelEmployeeList.BorderColor = System.Drawing.Color.Ivory;
             this.panelEmployeeList.BorderRadius = 15;
             this.panelEmployeeList.Controls.Add(this.btnActivate);
             this.panelEmployeeList.Controls.Add(this.btnEdit);

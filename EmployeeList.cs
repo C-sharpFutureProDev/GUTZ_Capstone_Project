@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Web.UI.WebControls.WebParts;
 using ZstdSharp.Unsafe;
+using Mysqlx.Crud;
 
 namespace GUTZ_Capstone_Project
 {
@@ -19,9 +20,10 @@ namespace GUTZ_Capstone_Project
         private readonly string[] defaultSortItems = { "Sort By", "Non-Tenured", "Tenured", "ESO", "RKESI", "VUIHOC" };
         private readonly string[] defaultFilterItems = { "Filter By", "Active", "Inactive", "Male", "Female", "Full Time", "Part Time" };
         private bool isUserInteraction = false;
+        bool isRefreshing = false;
 
         private string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc, f_name, m_name, l_name, 
-                                      tbl_employee.department_id, account_name, department_name, 
+                                      tbl_employee.department_id, account_name, department_name, work_arrangement,
                                       DATE_FORMAT(hired_date, '%M %d, %Y') AS HiredDate, is_deleted
                                       FROM tbl_employee
                                       INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
@@ -46,24 +48,21 @@ namespace GUTZ_Capstone_Project
             PopulateItems();
             flowLayoutPanel1.ResumeLayout();
             CountActiveAndInactive();
+            CountEmployeeListDetails();
         }
 
-        private void CountActiveAndInactive()
+        public void CountActiveAndInactive()
         {
-            string sqlActive = "SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0";
-            string sqlInactive = "SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 1";
+            string countActive = "SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0";
+            string countInactive = "SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 1";
 
-            DataTable activeEmployee = DB_OperationHelperClass.QueryData(sqlActive);
-            DataTable inactiveEmployee = DB_OperationHelperClass.QueryData(sqlInactive);
+            DataTable activeEmployee = DB_OperationHelperClass.QueryData(countActive);
+            DataTable inactiveEmployee = DB_OperationHelperClass.QueryData(countInactive);
 
             if (activeEmployee.Rows.Count > 0)
             {
                 int activeCount = Convert.ToInt32(activeEmployee.Rows[0][0]);
                 lblActiveEmployee.Text = activeCount.ToString();
-            }
-            else
-            {
-                lblActiveEmployee.Text = "0";
             }
 
             if (inactiveEmployee.Rows.Count > 0)
@@ -71,13 +70,64 @@ namespace GUTZ_Capstone_Project
                 int inactiveCount = Convert.ToInt32(inactiveEmployee.Rows[0][0]);
                 lblInactiveEmployee.Text = inactiveCount.ToString();
             }
-            else
+        }
+
+        public void CountEmployeeListDetails()
+        {
+            string countMale = "SELECT COUNT(*) FROM tbl_employee WHERE gender = '" + "Male" + "'";
+            string countFemale = "SELECT COUNT(*) FROM tbl_employee WHERE gender = '" + "Female" + "'";
+            string countFullTine = "SELECT COUNT(*) FROM tbl_employee WHERE work_arrangement = '" + "Full-Time" + "'";
+            string countPartTime = "SELECT COUNT(*) FROM tbl_employee WHERE work_arrangement = '" + "Part-Time" + "'";
+            string countESO = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 1";
+            string countRKESI = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 2";
+            string countVUIHOC = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 3";
+
+            DataTable maleEmployee = DB_OperationHelperClass.QueryData(countMale);
+            DataTable femaleEmployee = DB_OperationHelperClass.QueryData(countFemale);
+            DataTable fullTimeEmployee = DB_OperationHelperClass.QueryData(countFullTine);
+            DataTable partTimeEmployee = DB_OperationHelperClass.QueryData(countPartTime);
+            DataTable ESO = DB_OperationHelperClass.QueryData(countESO);
+            DataTable RKESI = DB_OperationHelperClass.QueryData(countRKESI);
+            DataTable VUIHOC = DB_OperationHelperClass.QueryData(countVUIHOC);
+
+            if (maleEmployee.Rows.Count > 0)
             {
-                lblInactiveEmployee.Text = "0";
+                int count = Convert.ToInt32(maleEmployee.Rows[0][0]);
+                lblMaleEmployee.Text = count.ToString();
+            }
+            if (femaleEmployee.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(femaleEmployee.Rows[0][0]);
+                lblFemaleEmployee.Text = count.ToString();
+            }
+            if (fullTimeEmployee.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(fullTimeEmployee.Rows[0][0]);
+                lblFullTime.Text = count.ToString();
+            }
+            if (partTimeEmployee.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(partTimeEmployee.Rows[0][0]);
+                lblPartTime.Text = count.ToString();
+            }
+            if (ESO.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(ESO.Rows[0][0]);
+                lblESO.Text = count.ToString();
+            }
+            if (RKESI.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(RKESI.Rows[0][0]);
+                lblRKESI.Text = count.ToString();
+            }
+            if (VUIHOC.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(VUIHOC.Rows[0][0]);
+                lblVUIHOC.Text = count.ToString();
             }
         }
 
-        private async void PopulateItems()
+        public async void PopulateItems()
         {
             try
             {
@@ -106,30 +156,40 @@ namespace GUTZ_Capstone_Project
 
                     string imagePath = row["emp_ProfilePic"].ToString();
                     string jobRole = row["position_desc"].ToString();
-                    string email = row["email"].ToString();
-                    string contactNo = row["phone"].ToString();
                     string joinedDate = row["start_date"].ToString();
-                    string gender = row["gender"].ToString();
                     string accountName = row["account_name"].ToString();
-                    int isDeleted = int.Parse(row["is_deleted"].ToString());
+                    string workingArrangement = row["work_arrangement"].ToString();
 
-                    EmployeeListCard employeeControl = new EmployeeListCard(this)
+                    SampleProfileCard sampleProfileCard = new SampleProfileCard(this)
                     {
-                        EmployeeName = name,
-                        ID = id.ToString(),
                         EmployeeProfilePic = await LoadImageAsync(imagePath),
+                        ID = id.ToString(),
+                        EmployeeName = name,
                         JobRole = jobRole,
-                        Email = email,
-                        Contact = contactNo,
+                        Account = accountName,
                         JoinDate = DateTime.TryParse(joinedDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
-                        Rate = accountName,
                     };
 
-                    employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
-                    employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
-                    employeeControl.EmployeeDeactivated += (s, args) => CountActiveAndInactive();
+                    if (workingArrangement == "Full-Time")
+                    {
+                        sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
+                        sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                        sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                        sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
+                        sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                        sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
+                    }
+                    else if (workingArrangement == "Part-Time")
+                    {
+                        sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
+                        sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                        sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                        sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
+                        sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                        sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
+                    }
 
-                    flowLayoutPanel1.Controls.Add(employeeControl);
+                    flowLayoutPanel1.Controls.Add(sampleProfileCard);
                 }
 
                 flowLayoutPanel1.ResumeLayout();
@@ -147,6 +207,7 @@ namespace GUTZ_Capstone_Project
             {
                 if (string.IsNullOrEmpty(imagePath) || !File.Exists(imagePath))
                 {
+                    MessageBox.Show("No profile picture found.");
                     return null;
                 }
 
@@ -159,6 +220,7 @@ namespace GUTZ_Capstone_Project
                 }
                 catch
                 {
+                    MessageBox.Show("No profile picture found.");
                     return null;
                 }
             });
@@ -169,11 +231,14 @@ namespace GUTZ_Capstone_Project
             using (FormAddNewEmployee formAddNewEmployee = new FormAddNewEmployee(""))
             {
                 formAddNewEmployee.FormClosed += (s, args) => PopulateItems();
-                formAddNewEmployee.ShowDialog(this);
+                formAddNewEmployee.FormClosed += (s, args) => CountActiveAndInactive();
+                formAddNewEmployee.FormClosed += (s, args) => CountEmployeeListDetails();
+
+                formAddNewEmployee.ShowDialog();
             }
         }
 
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        private async void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (!isUserInteraction)
                 return;
@@ -194,8 +259,8 @@ namespace GUTZ_Capstone_Project
 
                     switch (cboSearch.SelectedIndex)
                     {
-                        case 0:
-                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        case 0: // ID
+                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                       CONCAT(f_name, ' ', 
                                       CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                       l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -207,8 +272,8 @@ namespace GUTZ_Capstone_Project
                                       WHERE is_deleted = 0 AND emp_id = @empId";
                             break;
 
-                        case 1:
-                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        case 1: // Name
+                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                       CONCAT(f_name, ' ', 
                                       CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                       l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -219,11 +284,12 @@ namespace GUTZ_Capstone_Project
                                       INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                                       WHERE is_deleted = 0 AND CONCAT(f_name, ' ', 
                                       CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
-                                      l_name) LIKE @empName";
+                                      l_name) LIKE @empName
+                                      ORDER BY emp_id ASC";
                             break;
 
-                        case 2:
-                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        case 2: // Email
+                            query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                     CONCAT(f_name, ' ',
                                     CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END,
                                     l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -261,35 +327,47 @@ namespace GUTZ_Capstone_Project
 
                     if (dt.Rows.Count > 0)
                     {
-                        DataRow row = dt.Rows[0];
-                        id = int.Parse(row["emp_id"].ToString());
-                        string name = row["FullName"].ToString();
-                        string imagePath = row["emp_profilePic"].ToString();
-                        string jobRole = row["position_desc"].ToString();
-                        string email = row["email"].ToString();
-                        string contactNo = row["phone"].ToString();
-                        string joinedDate = row["start_date"].ToString();
-                        string accountName = row["account_name"].ToString();
-                        int isDeleted = int.Parse(row["is_deleted"].ToString());
-
-                        EmployeeListCard employeeControl = new EmployeeListCard(this)
+                        foreach (DataRow row in dt.Rows)
                         {
-                            EmployeeName = name,
-                            ID = id.ToString(),
-                            EmployeeProfilePic = Image.FromFile(imagePath),
-                            JobRole = jobRole,
-                            Email = email,
-                            Contact = contactNo,
-                            JoinDate = DateTime.TryParse(joinedDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
-                            Rate = accountName,
-                        };
+                            string imagePath = row["emp_profilePic"].ToString();
+                            id = int.Parse(row["emp_id"].ToString());
+                            string name = row["FullName"].ToString();
+                            string jobRole = row["position_desc"].ToString();
+                            string accountName = row["account_name"].ToString();
+                            string joinedDate = row["start_date"].ToString();
+                            string workingArrangement = row["work_arrangement"].ToString();
 
-                        employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
+                            SampleProfileCard sampleProfileCard = new SampleProfileCard(this)
+                            {
+                                EmployeeProfilePic = await LoadImageAsync(imagePath),
+                                ID = id.ToString(),
+                                EmployeeName = name,
+                                JobRole = jobRole,
+                                Account = accountName,
+                                JoinDate = DateTime.TryParse(joinedDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
+                            };
 
-                        employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
-                        employeeControl.EmployeeDeactivated += (s, args) => CountActiveAndInactive();
+                            if (workingArrangement == "Full-Time")
+                            {
+                                sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
+                                sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                                sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                                sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
+                                sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                                sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
+                            }
+                            else if (workingArrangement == "Part-Time")
+                            {
+                                sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
+                                sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                                sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                                sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
+                                sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                                sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
+                            }
 
-                        flowLayoutPanel1.Controls.Add(employeeControl);
+                            flowLayoutPanel1.Controls.Add(sampleProfileCard);
+                        }
                     }
                     else
                     {
@@ -320,13 +398,16 @@ namespace GUTZ_Capstone_Project
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtSearch.Text))
+            if (!isRefreshing)
             {
-                PopulateItems();
+                if (string.IsNullOrEmpty(txtSearch.Text))
+                {
+                    PopulateItems();
+                }
             }
         }
 
-        private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!isUserInteraction)
                 return;
@@ -338,7 +419,7 @@ namespace GUTZ_Capstone_Project
                 switch (cboSort.SelectedIndex)
                 {
                     case 0:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
@@ -351,7 +432,7 @@ namespace GUTZ_Capstone_Project
                         break;
 
                     case 1:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
@@ -364,7 +445,7 @@ namespace GUTZ_Capstone_Project
                         break;
 
                     case 2:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
@@ -377,7 +458,7 @@ namespace GUTZ_Capstone_Project
                         break;
 
                     case 3:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
@@ -390,7 +471,7 @@ namespace GUTZ_Capstone_Project
                         break;
 
                     case 4:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, tbl_account.account_name,
@@ -415,34 +496,44 @@ namespace GUTZ_Capstone_Project
                 {
                     foreach (DataRow row in dt.Rows)
                     {
-                        int id = int.Parse(row["emp_id"].ToString());
-                        string name = row["FullName"].ToString();
                         string imagePath = row["emp_profilePic"].ToString();
+                        id = int.Parse(row["emp_id"].ToString());
+                        string name = row["FullName"].ToString();
                         string jobRole = row["position_desc"].ToString();
-                        string email = row["email"].ToString();
-                        string contactNo = row["phone"].ToString();
-                        string joinedDate = row["start_date"].ToString();
                         string accountName = row["account_name"].ToString();
-                        int isDeleted = int.Parse(row["is_deleted"].ToString());
+                        string joinedDate = row["start_date"].ToString();
+                        string workingArrangement = row["work_arrangement"].ToString();
 
-                        EmployeeListCard employeeControl = new EmployeeListCard(this)
+                        SampleProfileCard sampleProfileCard = new SampleProfileCard(this)
                         {
-                            EmployeeName = name,
+                            EmployeeProfilePic = await LoadImageAsync(imagePath),
                             ID = id.ToString(),
-                            EmployeeProfilePic = Image.FromFile(imagePath),
+                            EmployeeName = name,
                             JobRole = jobRole,
-                            Email = email,
-                            Contact = contactNo,
+                            Account = accountName,
                             JoinDate = DateTime.TryParse(joinedDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
-                            Rate = accountName,
                         };
 
-                        employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
+                        if (workingArrangement == "Full-Time")
+                        {
+                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
+                            sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
+                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
+                        }
+                        else if (workingArrangement == "Part-Time")
+                        {
+                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
+                            sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
+                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
+                        }
 
-                        employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
-                        employeeControl.EmployeeDeactivated += (s, args) => CountActiveAndInactive();
-
-                        flowLayoutPanel1.Controls.Add(employeeControl);
+                        flowLayoutPanel1.Controls.Add(sampleProfileCard);
                     }
                 }
                 else
@@ -458,7 +549,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!isUserInteraction)
                 return;
@@ -470,7 +561,7 @@ namespace GUTZ_Capstone_Project
                 switch (cboFilter.SelectedIndex)
                 {
                     case 0:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -479,11 +570,12 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                                  WHERE is_deleted = 0";
+                                  WHERE is_deleted = 0
+                                  ORDER BY FullName";
                         break;
 
                     case 1:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -492,11 +584,12 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                                  WHERE is_deleted = 1";
+                                  WHERE is_deleted = 1
+                                  ORDER BY FullName";
                         break;
 
                     case 2:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -505,11 +598,12 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                                  WHERE is_deleted = 0 AND gender = 'Male'";
+                                  WHERE is_deleted = 0 AND gender = 'Male'
+                                  ORDER BY FullName";
                         break;
 
                     case 3:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -518,11 +612,12 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                                  WHERE is_deleted = 0 AND gender = 'Female'";
+                                  WHERE is_deleted = 0 AND gender = 'Female'
+                                  ORDER BY FullName";
                         break;
 
                     case 4:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -531,11 +626,12 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                                  WHERE is_deleted = 0 AND work_arrangement = 'Full-Time'";
+                                  WHERE is_deleted = 0 AND work_arrangement = 'Full-Time'
+                                  ORDER BY FullName";
                         break;
 
                     case 5:
-                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted,
+                        query = @"SELECT emp_profilePic, tbl_employee.emp_id, email, phone, start_date, is_deleted, work_arrangement,
                                   CONCAT(f_name, ' ', 
                                   CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
                                   l_name) AS FullName, tbl_employee.department_id, position_desc, account_name,
@@ -544,7 +640,8 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_department ON tbl_employee.department_id = tbl_department.department_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
-                                  WHERE is_deleted = 0 AND work_arrangement = 'Part-Time'";
+                                  WHERE is_deleted = 0 AND work_arrangement = 'Part-Time'
+                                  ORDER BY FullName";
                         break;
 
                     default:
@@ -560,51 +657,56 @@ namespace GUTZ_Capstone_Project
                 {
                     foreach (DataRow row in dt.Rows)
                     {
-                        int id = int.Parse(row["emp_id"].ToString());
-                        string name = row["FullName"].ToString();
                         string imagePath = row["emp_profilePic"].ToString();
+                        id = int.Parse(row["emp_id"].ToString());
+                        string name = row["FullName"].ToString();
                         string jobRole = row["position_desc"].ToString();
-                        string email = row["email"].ToString();
-                        string contactNo = row["phone"].ToString();
-                        string joinedDate = row["start_date"].ToString();
                         string accountName = row["account_name"].ToString();
+                        string joinedDate = row["start_date"].ToString();
                         int isDeleted = int.Parse(row["is_deleted"].ToString());
+                        string workingArrangement = row["work_arrangement"].ToString();
 
-                        EmployeeListCard employeeControl = new EmployeeListCard(this)
+                        SampleProfileCard sampleProfileCard = new SampleProfileCard(this)
                         {
-                            EmployeeName = name,
+                            EmployeeProfilePic = await LoadImageAsync(imagePath),
                             ID = id.ToString(),
-                            EmployeeProfilePic = Image.FromFile(imagePath),
+                            EmployeeName = name,
                             JobRole = jobRole,
-                            Email = email,
-                            Contact = contactNo,
+                            Account = accountName,
                             JoinDate = DateTime.TryParse(joinedDate, out DateTime date) ? date.ToString("dd MMM, yyyy") : string.Empty,
-                            Rate = accountName,
                         };
 
                         if (isDeleted == 1)
                         {
-                            employeeControl.panelEmployeeList.FillColor = Color.Gainsboro;
-                            employeeControl.EmployeeListCardEmployeeDetailsCard.FillColor = Color.Gainsboro;
-                            employeeControl.btnViewProfile.Enabled = false;
-                            employeeControl.btnEdit.Enabled = false;
-                            employeeControl.btnActiveInactive.BorderColor = Color.FromArgb(176, 176, 176);
-                            employeeControl.employeeProfilePicture.BackColor = Color.Gainsboro;
-                            employeeControl.btnActiveInactive.ShadowDecoration.Color = Color.FromArgb(176, 176, 176);
-                            employeeControl.btnActiveInactive.FillColor = Color.White;
-                            employeeControl.btnActiveInactive.ForeColor = Color.Black;
-                            employeeControl.btnActiveInactive.HoverState.FillColor = Color.White;
-                            employeeControl.btnActiveInactive.HoverState.BorderColor = Color.FromArgb(176, 176, 176);
-                            employeeControl.btnActiveInactive.HoverState.ForeColor = Color.Black;
-                            employeeControl.btnActivate.Visible = true;
+                            sampleProfileCard.btnActiveOrInactiveStatus.Visible = false;
+                            sampleProfileCard.btnWorkingArrangement.Enabled = false;
+                            sampleProfileCard.btnActiveOrInactiveStatus.ShadowDecoration.Enabled = false;
+                            sampleProfileCard.btnEdit.Enabled = false;
+                            sampleProfileCard.btnDeactivateEmployee.Visible = false;
+                            sampleProfileCard.btnReactivateEmployee.Visible = true;
+                            sampleProfileCard.btnViewEmployeeDetails.Enabled = false;
                         }
 
-                        employeeControl.btnActiveInactive.Text = isDeleted == 0 ? "Active" : "Inactive";
+                        if (workingArrangement == "Full-Time")
+                        {
+                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
+                            sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
+                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
+                        }
+                        else if (workingArrangement == "Part-Time")
+                        {
+                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
+                            sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
+                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
+                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
+                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
+                        }
 
-                        employeeControl.EmployeeDeleted += (s, args) => PopulateItems();
-                        employeeControl.EmployeeDeactivated += (s, args) => CountActiveAndInactive();
-
-                        flowLayoutPanel1.Controls.Add(employeeControl);
+                        flowLayoutPanel1.Controls.Add(sampleProfileCard);
                     }
                 }
                 else
@@ -620,8 +722,9 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        public void RefreshUI()
         {
+            isRefreshing = true;
             isUserInteraction = false;
 
             cboSearch.Items.Clear();
@@ -644,9 +747,15 @@ namespace GUTZ_Capstone_Project
             flowLayoutPanel2.Visible = false;
             flowLayoutPanel1.Dock = DockStyle.Fill;
 
-            PopulateItems();
-
             flowLayoutPanel1.ResumeLayout();
+
+            isRefreshing = false;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshUI();
+            PopulateItems();
         }
 
         private void ExportEmployeesToCsv()
@@ -725,10 +834,15 @@ namespace GUTZ_Capstone_Project
             isUserInteraction = true;
             ComboBox comboBox = sender as ComboBox;
 
-            if (comboBox.SelectedItem.ToString() == "Search By")
+            // Check if comboBox is not null and has a selected item
+            if (comboBox != null)
             {
-                comboBox.Items.RemoveAt(0);
-                comboBox.SelectedIndex = -1;
+                // Ensure there's a selected item before accessing it
+                if (comboBox.SelectedItem != null && comboBox.SelectedItem.ToString() == "Search By")
+                {
+                    comboBox.Items.RemoveAt(0);
+                    comboBox.SelectedIndex = -1; // Reset the selection
+                }
             }
         }
 
@@ -737,10 +851,19 @@ namespace GUTZ_Capstone_Project
             isUserInteraction = true;
             ComboBox comboBox = sender as ComboBox;
 
-            if (comboBox.SelectedItem.ToString() == "Sort By")
+            // Check if comboBox is not null
+            if (comboBox != null)
             {
-                comboBox.Items.RemoveAt(0);
-                comboBox.SelectedIndex = -1;
+                // Ensure there's a selected item before accessing it
+                if (comboBox.SelectedItem != null && comboBox.SelectedItem.ToString() == "Sort By")
+                {
+                    // Remove the first item if it exists
+                    if (comboBox.Items.Count > 0)
+                    {
+                        comboBox.Items.RemoveAt(0);
+                    }
+                    comboBox.SelectedIndex = -1; // Reset the selection
+                }
             }
         }
 
@@ -749,10 +872,19 @@ namespace GUTZ_Capstone_Project
             isUserInteraction = true;
             ComboBox comboBox = sender as ComboBox;
 
-            if (comboBox.SelectedItem.ToString() == "Filter By")
+            // Check if comboBox is not null
+            if (comboBox != null)
             {
-                comboBox.Items.RemoveAt(0);
-                comboBox.SelectedIndex = -1;
+                // Ensure there's a selected item before accessing it
+                if (comboBox.SelectedItem != null && comboBox.SelectedItem.ToString() == "Filter By")
+                {
+                    // Remove the first item if it exists
+                    if (comboBox.Items.Count > 0)
+                    {
+                        comboBox.Items.RemoveAt(0);
+                    }
+                    comboBox.SelectedIndex = -1; // Reset the selection
+                }
             }
         }
     }

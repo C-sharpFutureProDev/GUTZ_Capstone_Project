@@ -176,7 +176,7 @@ namespace GUTZ_Capstone_Project.Forms
                     string positionLevel = dt.Rows[0]["position_desc"].ToString();
                     switch (positionLevel)
                     {
-                        case "ESL Department Head":
+                        case "Administrator":
                             cboPositionLevel.SelectedIndex = 0;
                             break;
                         case "ESL Tutor":

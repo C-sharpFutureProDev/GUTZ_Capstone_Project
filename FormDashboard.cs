@@ -279,5 +279,10 @@ namespace GUTZ_Capstone_Project
         {
             this.iconAdminSubMenu.FlatAppearance.BorderColor = Color.FromArgb(12, 90, 37);
         }
+
+        private void lblPresentForToday_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

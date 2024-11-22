@@ -66,6 +66,12 @@
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panelAttendance = new Guna.UI2.WinForms.Guna2Panel();
             this.lblLatePercent = new System.Windows.Forms.Label();
@@ -82,12 +88,6 @@
             this.lblTotalEmployee = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel5.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -426,7 +426,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(839, 28);
+            this.label1.Location = new System.Drawing.Point(679, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(254, 29);
             this.label1.TabIndex = 12;
@@ -589,15 +589,16 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.Ivory;
             this.guna2Panel2.BorderRadius = 15;
+            this.guna2Panel2.BorderThickness = 15;
             this.guna2Panel2.Controls.Add(this.label11);
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Controls.Add(this.lblOnLeave);
             this.guna2Panel2.Controls.Add(this.label10);
             this.guna2Panel2.Controls.Add(this.guna2Button4);
-            this.guna2Panel2.FillColor = System.Drawing.Color.LightYellow;
+            this.guna2Panel2.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel2.Location = new System.Drawing.Point(684, 38);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 15;
@@ -644,7 +645,7 @@
             // 
             // lblOnLeave
             // 
-            this.lblOnLeave.BackColor = System.Drawing.Color.LightYellow;
+            this.lblOnLeave.BackColor = System.Drawing.Color.Ivory;
             this.lblOnLeave.Font = new System.Drawing.Font("Rockwell", 25F, System.Drawing.FontStyle.Bold);
             this.lblOnLeave.ForeColor = System.Drawing.Color.DarkViolet;
             this.lblOnLeave.Location = new System.Drawing.Point(3, 70);
@@ -697,9 +698,10 @@
             // guna2Panel8
             // 
             this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel8.BorderColor = System.Drawing.Color.LightYellow;
+            this.guna2Panel8.BorderColor = System.Drawing.Color.Ivory;
             this.guna2Panel8.BorderRadius = 15;
-            this.guna2Panel8.FillColor = System.Drawing.Color.LightYellow;
+            this.guna2Panel8.BorderThickness = 15;
+            this.guna2Panel8.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel8.Location = new System.Drawing.Point(1008, 270);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.ShadowDecoration.BorderRadius = 15;
@@ -711,9 +713,10 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.LightYellow;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.Ivory;
             this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.FillColor = System.Drawing.Color.LightYellow;
+            this.guna2Panel3.BorderThickness = 15;
+            this.guna2Panel3.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel3.Location = new System.Drawing.Point(36, 270);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
@@ -725,8 +728,9 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.Ivory;
             this.guna2Panel4.BorderRadius = 15;
+            this.guna2Panel4.BorderThickness = 15;
             this.guna2Panel4.Controls.Add(this.guna2TextBox2);
             this.guna2Panel4.Controls.Add(this.guna2TextBox1);
             this.guna2Panel4.Controls.Add(this.txtUsername);
@@ -734,7 +738,7 @@
             this.guna2Panel4.Controls.Add(this.label13);
             this.guna2Panel4.Controls.Add(this.label6);
             this.guna2Panel4.Controls.Add(this.label4);
-            this.guna2Panel4.FillColor = System.Drawing.Color.LightYellow;
+            this.guna2Panel4.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel4.Location = new System.Drawing.Point(1008, 38);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
@@ -742,6 +746,132 @@
             this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel4.Size = new System.Drawing.Size(555, 192);
             this.guna2Panel4.TabIndex = 1;
+            // 
+            // guna2TextBox2
+            // 
+            this.guna2TextBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.Ivory;
+            this.guna2TextBox2.BorderThickness = 0;
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "40,000";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FillColor = System.Drawing.Color.Ivory;
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.guna2TextBox2.Font = new System.Drawing.Font("Rockwell", 14F);
+            this.guna2TextBox2.ForeColor = System.Drawing.Color.DarkGreen;
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.guna2TextBox2.Location = new System.Drawing.Point(304, 140);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PasswordChar = '\0';
+            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.guna2TextBox2.PlaceholderText = "";
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.ShadowDecoration.BorderRadius = 5;
+            this.guna2TextBox2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.guna2TextBox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2TextBox2.Size = new System.Drawing.Size(185, 34);
+            this.guna2TextBox2.TabIndex = 44;
+            this.guna2TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.Ivory;
+            this.guna2TextBox1.BorderThickness = 0;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "4,000";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FillColor = System.Drawing.Color.Ivory;
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Rockwell", 14F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(304, 96);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.ShadowDecoration.BorderRadius = 5;
+            this.guna2TextBox1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.guna2TextBox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.guna2TextBox1.Size = new System.Drawing.Size(185, 34);
+            this.guna2TextBox1.TabIndex = 43;
+            this.guna2TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BackColor = System.Drawing.Color.Transparent;
+            this.txtUsername.BorderColor = System.Drawing.Color.Ivory;
+            this.txtUsername.BorderThickness = 0;
+            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsername.DefaultText = "44,000";
+            this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.FillColor = System.Drawing.Color.Ivory;
+            this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.txtUsername.Font = new System.Drawing.Font("Rockwell", 14F);
+            this.txtUsername.ForeColor = System.Drawing.Color.DarkGreen;
+            this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.txtUsername.Location = new System.Drawing.Point(304, 52);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.PasswordChar = '\0';
+            this.txtUsername.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.txtUsername.PlaceholderText = "";
+            this.txtUsername.SelectedText = "";
+            this.txtUsername.ShadowDecoration.BorderRadius = 5;
+            this.txtUsername.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.txtUsername.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.txtUsername.Size = new System.Drawing.Size(185, 34);
+            this.txtUsername.TabIndex = 42;
+            this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Rockwell", 13F);
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(57, 145);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(114, 30);
+            this.label14.TabIndex = 41;
+            this.label14.Text = "Net Pay:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Rockwell", 13F);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(57, 103);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(158, 30);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Deductions:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 13F);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(57, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(143, 30);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Gross Pay:";
             // 
             // label4
             // 
@@ -758,8 +888,9 @@
             // panelAttendance
             // 
             this.panelAttendance.BackColor = System.Drawing.Color.Transparent;
-            this.panelAttendance.BorderColor = System.Drawing.Color.White;
+            this.panelAttendance.BorderColor = System.Drawing.Color.Ivory;
             this.panelAttendance.BorderRadius = 15;
+            this.panelAttendance.BorderThickness = 15;
             this.panelAttendance.Controls.Add(this.lblLatePercent);
             this.panelAttendance.Controls.Add(this.iconLate);
             this.panelAttendance.Controls.Add(this.lblOnTimePercent);
@@ -767,7 +898,7 @@
             this.panelAttendance.Controls.Add(this.lblPresentForToday);
             this.panelAttendance.Controls.Add(this.label3);
             this.panelAttendance.Controls.Add(this.guna2Button2);
-            this.panelAttendance.FillColor = System.Drawing.Color.LightYellow;
+            this.panelAttendance.FillColor = System.Drawing.Color.Ivory;
             this.panelAttendance.Location = new System.Drawing.Point(360, 38);
             this.panelAttendance.Name = "panelAttendance";
             this.panelAttendance.ShadowDecoration.BorderRadius = 15;
@@ -790,7 +921,7 @@
             // 
             // iconLate
             // 
-            this.iconLate.BackColor = System.Drawing.Color.LightYellow;
+            this.iconLate.BackColor = System.Drawing.Color.Ivory;
             this.iconLate.FlatAppearance.BorderSize = 0;
             this.iconLate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconLate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -822,7 +953,7 @@
             // 
             // iconOnTime
             // 
-            this.iconOnTime.BackColor = System.Drawing.Color.LightYellow;
+            this.iconOnTime.BackColor = System.Drawing.Color.Ivory;
             this.iconOnTime.FlatAppearance.BorderSize = 0;
             this.iconOnTime.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconOnTime.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -842,7 +973,7 @@
             // 
             // lblPresentForToday
             // 
-            this.lblPresentForToday.BackColor = System.Drawing.Color.LightYellow;
+            this.lblPresentForToday.BackColor = System.Drawing.Color.Ivory;
             this.lblPresentForToday.Font = new System.Drawing.Font("Rockwell", 25F, System.Drawing.FontStyle.Bold);
             this.lblPresentForToday.ForeColor = System.Drawing.Color.Green;
             this.lblPresentForToday.Location = new System.Drawing.Point(3, 70);
@@ -851,6 +982,7 @@
             this.lblPresentForToday.TabIndex = 30;
             this.lblPresentForToday.Text = "25";
             this.lblPresentForToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPresentForToday.Click += new System.EventHandler(this.lblPresentForToday_Click);
             // 
             // label3
             // 
@@ -895,15 +1027,16 @@
             // panelTotalEmployee
             // 
             this.panelTotalEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.panelTotalEmployee.BorderColor = System.Drawing.Color.White;
+            this.panelTotalEmployee.BorderColor = System.Drawing.Color.Ivory;
             this.panelTotalEmployee.BorderRadius = 15;
+            this.panelTotalEmployee.BorderThickness = 15;
             this.panelTotalEmployee.Controls.Add(this.label7);
             this.panelTotalEmployee.Controls.Add(this.lblPercentText);
             this.panelTotalEmployee.Controls.Add(this.iconIncrease);
             this.panelTotalEmployee.Controls.Add(this.lblTotalEmployee);
             this.panelTotalEmployee.Controls.Add(this.label2);
             this.panelTotalEmployee.Controls.Add(this.guna2Button1);
-            this.panelTotalEmployee.FillColor = System.Drawing.Color.LightYellow;
+            this.panelTotalEmployee.FillColor = System.Drawing.Color.Ivory;
             this.panelTotalEmployee.Location = new System.Drawing.Point(36, 38);
             this.panelTotalEmployee.Name = "panelTotalEmployee";
             this.panelTotalEmployee.ShadowDecoration.BorderRadius = 15;
@@ -938,7 +1071,7 @@
             // 
             // iconIncrease
             // 
-            this.iconIncrease.BackColor = System.Drawing.Color.LightYellow;
+            this.iconIncrease.BackColor = System.Drawing.Color.Ivory;
             this.iconIncrease.FlatAppearance.BorderSize = 0;
             this.iconIncrease.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconIncrease.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -958,7 +1091,7 @@
             // 
             // lblTotalEmployee
             // 
-            this.lblTotalEmployee.BackColor = System.Drawing.Color.LightYellow;
+            this.lblTotalEmployee.BackColor = System.Drawing.Color.Ivory;
             this.lblTotalEmployee.Font = new System.Drawing.Font("Rockwell", 25F, System.Drawing.FontStyle.Bold);
             this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.lblTotalEmployee.Location = new System.Drawing.Point(3, 70);
@@ -1007,132 +1140,6 @@
             this.guna2Button1.Size = new System.Drawing.Size(48, 48);
             this.guna2Button1.TabIndex = 28;
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 13F);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(57, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 30);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "Gross Pay:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Rockwell", 13F);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(57, 103);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(158, 30);
-            this.label13.TabIndex = 40;
-            this.label13.Text = "Deductions:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Rockwell", 13F);
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(57, 145);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 30);
-            this.label14.TabIndex = 41;
-            this.label14.Text = "Net Pay:";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.BackColor = System.Drawing.Color.Transparent;
-            this.txtUsername.BorderColor = System.Drawing.Color.LightYellow;
-            this.txtUsername.BorderThickness = 0;
-            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsername.DefaultText = "44,000";
-            this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsername.FillColor = System.Drawing.Color.LightYellow;
-            this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtUsername.Font = new System.Drawing.Font("Rockwell", 14F);
-            this.txtUsername.ForeColor = System.Drawing.Color.DarkGreen;
-            this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtUsername.Location = new System.Drawing.Point(304, 52);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.PasswordChar = '\0';
-            this.txtUsername.PlaceholderForeColor = System.Drawing.Color.LightGray;
-            this.txtUsername.PlaceholderText = "";
-            this.txtUsername.SelectedText = "";
-            this.txtUsername.ShadowDecoration.BorderRadius = 5;
-            this.txtUsername.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.txtUsername.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.txtUsername.Size = new System.Drawing.Size(185, 34);
-            this.txtUsername.TabIndex = 42;
-            this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.LightYellow;
-            this.guna2TextBox1.BorderThickness = 0;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "4,000";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.LightYellow;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Rockwell", 14F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(304, 96);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.LightGray;
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.guna2TextBox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2TextBox1.Size = new System.Drawing.Size(185, 34);
-            this.guna2TextBox1.TabIndex = 43;
-            this.guna2TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // guna2TextBox2
-            // 
-            this.guna2TextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.LightYellow;
-            this.guna2TextBox2.BorderThickness = 0;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "4,000";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.LightYellow;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Rockwell", 14F);
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(304, 140);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.LightGray;
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.guna2TextBox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2TextBox2.Size = new System.Drawing.Size(185, 34);
-            this.guna2TextBox2.TabIndex = 44;
-            this.guna2TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FormDashboard
             // 
