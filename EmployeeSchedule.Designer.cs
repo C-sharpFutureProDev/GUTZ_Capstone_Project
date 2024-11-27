@@ -53,7 +53,7 @@
             // lblFormLabel
             // 
             this.lblFormLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.lblFormLabel.Font = new System.Drawing.Font("Roboto", 15F);
+            this.lblFormLabel.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
             this.lblFormLabel.ForeColor = System.Drawing.Color.White;
             this.lblFormLabel.Location = new System.Drawing.Point(34, 34);
             this.lblFormLabel.Name = "lblFormLabel";
@@ -80,7 +80,7 @@
             this.groupBox1.Controls.Add(this.chkBoxWednesday);
             this.groupBox1.Controls.Add(this.chkBoxTuesday);
             this.groupBox1.Controls.Add(this.chkBoxMonday);
-            this.groupBox1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.groupBox1.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.groupBox1.Location = new System.Drawing.Point(34, 95);
             this.groupBox1.Name = "groupBox1";
@@ -181,25 +181,25 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Roboto", 10F);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.label15.Location = new System.Drawing.Point(14, 55);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 23);
+            this.label15.Size = new System.Drawing.Size(61, 25);
             this.label15.TabIndex = 81;
-            this.label15.Text = "Start At:";
+            this.label15.Text = "Start:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9F);
+            this.label1.Font = new System.Drawing.Font("Roboto", 10F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.label1.Location = new System.Drawing.Point(14, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 23);
+            this.label1.Size = new System.Drawing.Size(50, 25);
             this.label1.TabIndex = 82;
-            this.label1.Text = "End At:";
+            this.label1.Text = "End:";
             // 
             // groupBox2
             // 
@@ -209,7 +209,7 @@
             this.groupBox2.Controls.Add(this.StartNumUpDown);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.EndNumUpDown);
-            this.groupBox2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.groupBox2.Font = new System.Drawing.Font("Rockwell", 11F);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.groupBox2.Location = new System.Drawing.Point(238, 95);
             this.groupBox2.Name = "groupBox2";
@@ -267,22 +267,21 @@
             // btnSaveSchedule
             // 
             this.btnSaveSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnSaveSchedule.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnSaveSchedule.BorderRadius = 5;
+            this.btnSaveSchedule.BorderColor = System.Drawing.Color.Green;
+            this.btnSaveSchedule.BorderRadius = 4;
             this.btnSaveSchedule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveSchedule.FillColor = System.Drawing.Color.Green;
-            this.btnSaveSchedule.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveSchedule.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
             this.btnSaveSchedule.ForeColor = System.Drawing.Color.White;
             this.btnSaveSchedule.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSaveSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnSaveSchedule.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSaveSchedule.Location = new System.Drawing.Point(34, 396);
             this.btnSaveSchedule.Name = "btnSaveSchedule";
-            this.btnSaveSchedule.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.btnSaveSchedule.Size = new System.Drawing.Size(113, 42);
+            this.btnSaveSchedule.Size = new System.Drawing.Size(120, 40);
             this.btnSaveSchedule.TabIndex = 80;
             this.btnSaveSchedule.Text = "SAVE";
             this.btnSaveSchedule.Click += new System.EventHandler(this.btnSaveSchedule_Click);
@@ -290,22 +289,22 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnClose.BorderRadius = 5;
+            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
+            this.btnClose.BorderRadius = 4;
             this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnClose.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnClose.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(328, 396);
+            this.btnClose.Location = new System.Drawing.Point(321, 396);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.btnClose.Size = new System.Drawing.Size(113, 42);
+            this.btnClose.Size = new System.Drawing.Size(120, 40);
             this.btnClose.TabIndex = 81;
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -325,6 +324,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EmployeeSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Class Schedule Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeSchedule_FormClosing);
             this.Load += new System.EventHandler(this.EmployeeSchedule_Load);
             this.groupBox1.ResumeLayout(false);

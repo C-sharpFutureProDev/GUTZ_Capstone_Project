@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml.VBA;
+﻿
+using OfficeOpenXml.VBA;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -95,14 +97,14 @@ namespace GUTZ_Capstone_Project
         private void CountAttendance()
         {
             DateTime currentDate = DateTime.Today;
-
             int countWorkingPresent = 0;
             int countWorkingOnTime = 0;
             int countWorkingLate = 0;
             int countWorkingClockedOut = 0;
             int countAbsent = 0;
 
-            string sqlCountAttendance = $"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out FROM tbl_schedule s " +
+            string sqlCountAttendance = $"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status " +
+                                        $"FROM tbl_schedule s " +
                                         $"LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{currentDate:yyyy-MM-dd}' " +
                                         $"WHERE s.work_days LIKE '%{currentDate.DayOfWeek}%'";
 
@@ -116,6 +118,7 @@ namespace GUTZ_Capstone_Project
                 string workDays = row["work_days"].ToString();
                 DateTime? timeIn = row["time_in"] as DateTime?;
                 DateTime? timeOut = row["time_out"] as DateTime?;
+                string timeInStatus = row["time_in_status"]?.ToString();
 
                 if (workDays.Contains(currentDate.DayOfWeek.ToString()))
                 {
@@ -123,15 +126,11 @@ namespace GUTZ_Capstone_Project
                     {
                         countWorkingPresent++;
 
-                        DateTime workingShiftStart = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, startTime.Hours, startTime.Minutes, 0);
-                        DateTime gracePeriodEnd = workingShiftStart.AddMinutes(15);
-                        DateTime workingShiftEnd = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, endTime.Hours, endTime.Minutes, 0);
-
-                        if (timeIn <= gracePeriodEnd)
+                        if (timeInStatus == "On Time")
                         {
                             countWorkingOnTime++;
                         }
-                        else if (timeIn > gracePeriodEnd && timeIn <= workingShiftEnd)
+                        else if (timeInStatus == "Late")
                         {
                             countWorkingLate++;
                         }
@@ -155,23 +154,54 @@ namespace GUTZ_Capstone_Project
             dateOfCurrentAttendanceRecord.Text = currentDate.ToString("dddd, MMM. dd, yyyy");
             btnClockIn.Text = countWorkingPresent.ToString();
             btnClockOut.Text = countWorkingClockedOut.ToString();
+            lblTotalOnTimeForToday.Text = "On-Time: " + countWorkingOnTime.ToString();
+            lblTotalLateForToday.Text = "Late: " + countWorkingLate.ToString();
             btnTotalAttendance.Text = "Total Attendance: " + countWorkingPresent.ToString();
             btnAbsent.Text = countAbsent.ToString();
         }
 
-        private async void PopulateEmployeeList()
+        public async void PopulateEmployeeList()
         {
-            string sql = @"SELECT tbl_employee.emp_id, emp_ProfilePic, f_name, m_name, l_name, position_desc, work_days, start_time, end_time
-                           FROM tbl_employee
-                           INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                           INNER JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
-                           WHERE is_deleted = 0";
+            string sql = @"
+        SELECT 
+            tbl_employee.emp_id, 
+            emp_ProfilePic, 
+            f_name, 
+            m_name, 
+            l_name, 
+            position_desc, 
+            work_days, 
+            start_time, 
+            end_time,
+            tbl_leave.leave_type, 
+            tbl_leave.start_date AS leave_start_date, 
+            tbl_leave.end_date AS leave_end_date, 
+            tbl_leave.date_requested, 
+            tbl_leave.date_approved 
+        FROM 
+            tbl_employee
+        INNER JOIN 
+            tbl_position ON tbl_employee.position_id = tbl_position.position_id
+        INNER JOIN 
+            tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
+        LEFT JOIN 
+            tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id 
+            AND tbl_leave.end_date >= @today
+        WHERE 
+            tbl_employee.is_deleted = 0
+        ORDER BY 
+            tbl_employee.emp_id ASC";
+
+            var parameterCheckActiveLeave = new Dictionary<string, object>
+    {
+        { "@today", DateTime.Now.Date }
+    };
 
             try
             {
                 flowLayoutPanel2.Controls.Clear();
 
-                DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(sql));
+                DataTable dt = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(sql, parameterCheckActiveLeave));
 
                 if (dt.Rows.Count == 0)
                 {
@@ -206,23 +236,37 @@ namespace GUTZ_Capstone_Project
                         ID = id.ToString(),
                         EmployeeProfilePic = await LoadImageAsync(imagePath),
                         JobRole = jobRole,
-                        WorkDays = row["work_days"].ToString()
+                        WorkDays = workDaysString
                         .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(day => day.Trim())
                         .ToArray(),
                         ScheduleWorkingHours = scheduleWorkingHours,
                     };
 
+                    if (jobRole == "Administrator")
+                    {
+                        employeeListCardForAttendanceHistory.lblJobRole.Text = "ESL Head";
+                    }
+
+                    // Check if the employee is on leave
+                    if (row["leave_type"] != DBNull.Value) // If there's leave info
+                    {
+                        employeeListCardForAttendanceHistory.toolTip1.SetToolTip(employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule, "View Active Leave Schedule");
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.BorderColor = Color.CornflowerBlue;
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.FillColor = Color.CornflowerBlue;
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.HoverState.FillColor = Color.DodgerBlue;
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.HoverState.BorderColor = Color.DodgerBlue;
+                    }
+
                     flowLayoutPanel2.Controls.Add(employeeListCardForAttendanceHistory);
                 }
-
 
                 flowLayoutPanel2.ResumeLayout();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error retrieving employee data: " + ex.Message, "Error",
-                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -373,14 +417,14 @@ namespace GUTZ_Capstone_Project
                         ClockOutTime = timeOutFormatted,
                     };
 
-                    if (timeInStatus == "Late")
-                        employeeAttendanceCard.btnStatus.Text = "LATE";
-
                     employeeAttendanceCard.btnAttendanceStatus.Visible = true;
                     employeeAttendanceCard.btnAttendanceStatus.Text = (timeInStatus == "On Time" || timeInStatus == "Late") ? "Present" : "Absent";
 
                     if (timeInStatus == "--")
+                    {
                         employeeAttendanceCard.btnAttendanceStatus.FillColor = Color.FromArgb(255, 107, 107);
+                        employeeAttendanceCard.btnAttendanceStatus.HoverState.FillColor = Color.FromArgb(255, 107, 107);
+                    }
 
                     flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
                 }
@@ -394,12 +438,6 @@ namespace GUTZ_Capstone_Project
 
         private void CountAttendanceForSelectedDate()
         {
-            int countPresent = 0;
-            int countOnTime = 0;
-            int countLate = 0;
-            int countClockedOut = 0;
-            int countAbsent = 0;
-
             DateTime selectedDate = dtpEmpSelectDate.Value;
 
             DateTime today = DateTime.Today;
@@ -425,6 +463,8 @@ namespace GUTZ_Capstone_Project
 
                     btnClockIn.Text = "0";
                     btnClockOut.Text = "0";
+                    lblTotalOnTimeForToday.Text = "On-Time: 0";
+                    lblTotalLateForToday.Text = "Late: 0";
                     btnTotalAttendance.Text = "Total Attendance: 0";
                     btnAbsent.Text = "0";
 
@@ -437,73 +477,67 @@ namespace GUTZ_Capstone_Project
                 return;
             }
 
-            string sqlCountAttendance = $@"SELECT a.emp_id, a.time_in, a.time_out, s.start_time, s.end_time, s.work_days 
-                                           FROM tbl_attendance a 
-                                           INNER JOIN tbl_schedule s ON a.emp_id = s.emp_id 
-                                           WHERE DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'";
+            int countWorkingPresent = 0;
+            int countWorkingOnTime = 0;
+            int countWorkingLate = 0;
+            int countWorkingClockedOut = 0;
+            int countAbsent = 0;
+
+            string sqlCountAttendance = $@"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status 
+                                           FROM tbl_schedule s
+                                           LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'
+                                           INNER JOIN tbl_employee e ON s.emp_id = e.emp_id
+                                           WHERE FIND_IN_SET('{selectedDate:dddd}', s.work_days) > 0 
+                                           AND e.is_deleted = 0";
 
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
-
-            HashSet<string> presentEmployeeIds = new HashSet<string>();
-            HashSet<string> scheduledEmployeeIds = new HashSet<string>();
-
-            string sqlScheduledEmployees = $@"SELECT emp_id, work_days 
-                                              FROM tbl_schedule 
-                                              WHERE FIND_IN_SET('{selectedDate:dddd}', work_days) > 0";
-
-            DataTable dtScheduledEmployees = DB_OperationHelperClass.QueryData(sqlScheduledEmployees);
-
-            foreach (DataRow row in dtScheduledEmployees.Rows)
-            {
-                string empId = row["emp_id"].ToString();
-                scheduledEmployeeIds.Add(empId);
-            }
 
             foreach (DataRow row in dtAttendance.Rows)
             {
                 string empId = row["emp_id"].ToString();
-                presentEmployeeIds.Add(empId);
-
-                DateTime timeIn = (DateTime)row["time_in"];
-                DateTime? timeOut = row["time_out"] as DateTime?;
                 TimeSpan startTime = TimeSpan.Parse(row["start_time"].ToString());
                 TimeSpan endTime = TimeSpan.Parse(row["end_time"].ToString());
+                string workDays = row["work_days"].ToString();
+                DateTime? timeIn = row["time_in"] as DateTime?;
+                DateTime? timeOut = row["time_out"] as DateTime?;
+                string timeInStatus = row["time_in_status"]?.ToString();
 
-                countPresent++;
-
-                DateTime workingShiftStart = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, startTime.Hours, startTime.Minutes, 0);
-                DateTime workingShiftEnd = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, endTime.Hours, endTime.Minutes, 0);
-
-                if (timeIn <= workingShiftStart)
+                if (timeIn.HasValue)
                 {
-                    countOnTime++;
+                    countWorkingPresent++;
+
+                    if (timeInStatus == "On Time")
+                    {
+                        countWorkingOnTime++;
+                    }
+                    else if (timeInStatus == "Late")
+                    {
+                        countWorkingLate++;
+                    }
+
+                    if (timeOut.HasValue)
+                    {
+                        countWorkingClockedOut++;
+                    }
                 }
-                else if (timeIn > workingShiftStart && timeIn <= workingShiftEnd)
+                else
                 {
-                    countLate++;
-                }
-
-                if (timeOut.HasValue)
-                {
-                    countClockedOut++;
+                    DateTime workingShiftEnd = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, endTime.Hours, endTime.Minutes, 0);
+                    if (DateTime.Now > workingShiftEnd)
+                    {
+                        countAbsent++;
+                    }
                 }
             }
 
-            foreach (string empId in scheduledEmployeeIds)
-            {
-                if (!presentEmployeeIds.Contains(empId))
-                {
-                    countAbsent++;
-                }
-            }
+            int totalAttendance = countWorkingOnTime + countWorkingLate;
 
-            int totalAttendance = countOnTime + countLate;
-
-            btnClockIn.Text = countPresent.ToString();
-            btnClockOut.Text = countClockedOut.ToString();
-            btnAbsent.Text = countAbsent.ToString();
-
+            btnClockIn.Text = countWorkingPresent.ToString();
+            btnClockOut.Text = countWorkingClockedOut.ToString();
+            lblTotalOnTimeForToday.Text = "On-Time: " + countWorkingOnTime.ToString();
+            lblTotalLateForToday.Text = "Late: " + countWorkingLate.ToString();
             btnTotalAttendance.Text = "Total Attendance: " + totalAttendance.ToString();
+            btnAbsent.Text = countAbsent.ToString();
         }
 
         private void btnViewEmployeeList_Click_1(object sender, EventArgs e)

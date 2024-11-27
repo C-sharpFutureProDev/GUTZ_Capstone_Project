@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleProfileCard));
             this.panelEmployeeListCard = new Guna.UI2.WinForms.Guna2Panel();
             this.btnWorkingArrangement = new Guna.UI2.WinForms.Guna2Button();
-            this.lblJoinedDate = new System.Windows.Forms.Label();
             this.btnReactivateEmployee = new Guna.UI2.WinForms.Guna2Button();
+            this.lblJoinedDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.btnActiveOrInactiveStatus = new Guna.UI2.WinForms.Guna2Button();
             this.btnViewEmployeeDetails = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
@@ -46,7 +44,6 @@
             this.lblJobRole = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.employeeProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelEmployeeListCard.SuspendLayout();
             this.panelEmployeeDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
@@ -56,12 +53,11 @@
             // 
             this.panelEmployeeListCard.BackColor = System.Drawing.Color.Transparent;
             this.panelEmployeeListCard.BorderColor = System.Drawing.Color.Ivory;
-            this.panelEmployeeListCard.BorderRadius = 10;
+            this.panelEmployeeListCard.BorderRadius = 12;
             this.panelEmployeeListCard.Controls.Add(this.btnWorkingArrangement);
-            this.panelEmployeeListCard.Controls.Add(this.lblJoinedDate);
             this.panelEmployeeListCard.Controls.Add(this.btnReactivateEmployee);
+            this.panelEmployeeListCard.Controls.Add(this.lblJoinedDate);
             this.panelEmployeeListCard.Controls.Add(this.label5);
-            this.panelEmployeeListCard.Controls.Add(this.guna2Separator1);
             this.panelEmployeeListCard.Controls.Add(this.btnActiveOrInactiveStatus);
             this.panelEmployeeListCard.Controls.Add(this.btnViewEmployeeDetails);
             this.panelEmployeeListCard.Controls.Add(this.btnEdit);
@@ -71,56 +67,46 @@
             this.panelEmployeeListCard.Controls.Add(this.employeeProfilePicture);
             this.panelEmployeeListCard.FillColor = System.Drawing.Color.Ivory;
             this.panelEmployeeListCard.ForeColor = System.Drawing.Color.White;
-            this.panelEmployeeListCard.Location = new System.Drawing.Point(18, 18);
+            this.panelEmployeeListCard.Location = new System.Drawing.Point(25, 18);
             this.panelEmployeeListCard.Name = "panelEmployeeListCard";
             this.panelEmployeeListCard.ShadowDecoration.BorderRadius = 15;
             this.panelEmployeeListCard.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelEmployeeListCard.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.panelEmployeeListCard.Size = new System.Drawing.Size(361, 195);
+            this.panelEmployeeListCard.Size = new System.Drawing.Size(353, 187);
             this.panelEmployeeListCard.TabIndex = 63;
             // 
             // btnWorkingArrangement
             // 
             this.btnWorkingArrangement.BackColor = System.Drawing.Color.Ivory;
-            this.btnWorkingArrangement.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnWorkingArrangement.BorderRadius = 5;
+            this.btnWorkingArrangement.BorderColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.BorderRadius = 4;
             this.btnWorkingArrangement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnWorkingArrangement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnWorkingArrangement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnWorkingArrangement.Font = new System.Drawing.Font("Roboto", 9F);
+            this.btnWorkingArrangement.FillColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.Font = new System.Drawing.Font("Rockwell", 9F);
             this.btnWorkingArrangement.ForeColor = System.Drawing.Color.White;
-            this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.LightYellow;
-            this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.LightYellow;
-            this.btnWorkingArrangement.HoverState.ForeColor = System.Drawing.Color.Ivory;
+            this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnWorkingArrangement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnWorkingArrangement.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnWorkingArrangement.Location = new System.Drawing.Point(123, 8);
+            this.btnWorkingArrangement.Location = new System.Drawing.Point(115, 10);
             this.btnWorkingArrangement.Name = "btnWorkingArrangement";
-            this.btnWorkingArrangement.Padding = new System.Windows.Forms.Padding(3, 0, 0, 2);
-            this.btnWorkingArrangement.PressedColor = System.Drawing.Color.LightYellow;
+            this.btnWorkingArrangement.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnWorkingArrangement.PressedColor = System.Drawing.Color.Teal;
             this.btnWorkingArrangement.PressedDepth = 0;
-            this.btnWorkingArrangement.Size = new System.Drawing.Size(112, 35);
+            this.btnWorkingArrangement.Size = new System.Drawing.Size(115, 35);
             this.btnWorkingArrangement.TabIndex = 88;
-            this.btnWorkingArrangement.Text = "Crizzha";
-            // 
-            // lblJoinedDate
-            // 
-            this.lblJoinedDate.AutoSize = true;
-            this.lblJoinedDate.Font = new System.Drawing.Font("Roboto", 7F);
-            this.lblJoinedDate.ForeColor = System.Drawing.Color.Black;
-            this.lblJoinedDate.Location = new System.Drawing.Point(173, 161);
-            this.lblJoinedDate.Name = "lblJoinedDate";
-            this.lblJoinedDate.Size = new System.Drawing.Size(71, 18);
-            this.lblJoinedDate.TabIndex = 76;
-            this.lblJoinedDate.Text = "Start Date";
+            this.btnWorkingArrangement.Text = "Wrk. Arr.";
             // 
             // btnReactivateEmployee
             // 
             this.btnReactivateEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnReactivateEmployee.BorderColor = System.Drawing.Color.Orange;
             this.btnReactivateEmployee.BorderRadius = 5;
+            this.btnReactivateEmployee.BorderThickness = 5;
             this.btnReactivateEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnReactivateEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnReactivateEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -128,12 +114,12 @@
             this.btnReactivateEmployee.FillColor = System.Drawing.Color.Orange;
             this.btnReactivateEmployee.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnReactivateEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnReactivateEmployee.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnReactivateEmployee.HoverState.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnReactivateEmployee.HoverState.FillColor = System.Drawing.Color.DarkOrange;
             this.btnReactivateEmployee.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnReactivateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnReactivateEmployee.Image")));
             this.btnReactivateEmployee.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnReactivateEmployee.Location = new System.Drawing.Point(310, 8);
+            this.btnReactivateEmployee.Location = new System.Drawing.Point(302, 10);
             this.btnReactivateEmployee.Name = "btnReactivateEmployee";
             this.btnReactivateEmployee.Padding = new System.Windows.Forms.Padding(5);
             this.btnReactivateEmployee.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
@@ -143,26 +129,28 @@
             this.btnReactivateEmployee.Visible = false;
             this.btnReactivateEmployee.Click += new System.EventHandler(this.btnActivate_Click);
             // 
+            // lblJoinedDate
+            // 
+            this.lblJoinedDate.AutoSize = true;
+            this.lblJoinedDate.Font = new System.Drawing.Font("Rockwell", 7F);
+            this.lblJoinedDate.ForeColor = System.Drawing.Color.Black;
+            this.lblJoinedDate.Location = new System.Drawing.Point(161, 153);
+            this.lblJoinedDate.Name = "lblJoinedDate";
+            this.lblJoinedDate.Size = new System.Drawing.Size(69, 17);
+            this.lblJoinedDate.TabIndex = 76;
+            this.lblJoinedDate.Text = "Start Date";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Roboto", 7F);
+            this.label5.Font = new System.Drawing.Font("Rockwell", 7F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(120, 161);
+            this.label5.Location = new System.Drawing.Point(110, 153);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(55, 18);
+            this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 75;
             this.label5.Text = "Joined:";
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.guna2Separator1.Location = new System.Drawing.Point(19, 178);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(90, 10);
-            this.guna2Separator1.TabIndex = 86;
             // 
             // btnActiveOrInactiveStatus
             // 
@@ -181,13 +169,13 @@
             this.btnActiveOrInactiveStatus.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnActiveOrInactiveStatus.Image = ((System.Drawing.Image)(resources.GetObject("btnActiveOrInactiveStatus.Image")));
             this.btnActiveOrInactiveStatus.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnActiveOrInactiveStatus.Location = new System.Drawing.Point(3, 8);
+            this.btnActiveOrInactiveStatus.Location = new System.Drawing.Point(3, 10);
             this.btnActiveOrInactiveStatus.Name = "btnActiveOrInactiveStatus";
             this.btnActiveOrInactiveStatus.PressedColor = System.Drawing.Color.Ivory;
             this.btnActiveOrInactiveStatus.ShadowDecoration.BorderRadius = 5;
             this.btnActiveOrInactiveStatus.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
             this.btnActiveOrInactiveStatus.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.btnActiveOrInactiveStatus.Size = new System.Drawing.Size(52, 35);
+            this.btnActiveOrInactiveStatus.Size = new System.Drawing.Size(55, 35);
             this.btnActiveOrInactiveStatus.TabIndex = 85;
             this.btnActiveOrInactiveStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -209,12 +197,12 @@
             this.btnViewEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeDetails.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnViewEmployeeDetails.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnViewEmployeeDetails.Location = new System.Drawing.Point(265, 154);
+            this.btnViewEmployeeDetails.Location = new System.Drawing.Point(257, 146);
             this.btnViewEmployeeDetails.Name = "btnViewEmployeeDetails";
-            this.btnViewEmployeeDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
+            this.btnViewEmployeeDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnViewEmployeeDetails.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeDetails.PressedDepth = 0;
-            this.btnViewEmployeeDetails.Size = new System.Drawing.Size(80, 30);
+            this.btnViewEmployeeDetails.Size = new System.Drawing.Size(80, 31);
             this.btnViewEmployeeDetails.TabIndex = 84;
             this.btnViewEmployeeDetails.Text = "Details";
             this.btnViewEmployeeDetails.Click += new System.EventHandler(this.btnViewEmployeeDetails_Click);
@@ -224,6 +212,7 @@
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
             this.btnEdit.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.BorderRadius = 5;
+            this.btnEdit.BorderThickness = 5;
             this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -231,12 +220,12 @@
             this.btnEdit.FillColor = System.Drawing.Color.ForestGreen;
             this.btnEdit.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.btnEdit.HoverState.FillColor = System.Drawing.Color.Green;
+            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnEdit.HoverState.FillColor = System.Drawing.Color.DarkGreen;
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnEdit.Location = new System.Drawing.Point(269, 8);
+            this.btnEdit.Location = new System.Drawing.Point(261, 10);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(5);
             this.btnEdit.PressedColor = System.Drawing.Color.ForestGreen;
@@ -250,6 +239,7 @@
             this.btnDeactivateEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnDeactivateEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
             this.btnDeactivateEmployee.BorderRadius = 5;
+            this.btnDeactivateEmployee.BorderThickness = 5;
             this.btnDeactivateEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDeactivateEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDeactivateEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -257,12 +247,12 @@
             this.btnDeactivateEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
             this.btnDeactivateEmployee.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnDeactivateEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnDeactivateEmployee.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnDeactivateEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.btnDeactivateEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.btnDeactivateEmployee.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnDeactivateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnDeactivateEmployee.Image")));
             this.btnDeactivateEmployee.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeactivateEmployee.Location = new System.Drawing.Point(310, 8);
+            this.btnDeactivateEmployee.Location = new System.Drawing.Point(302, 10);
             this.btnDeactivateEmployee.Name = "btnDeactivateEmployee";
             this.btnDeactivateEmployee.Padding = new System.Windows.Forms.Padding(5);
             this.btnDeactivateEmployee.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
@@ -275,62 +265,61 @@
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
             this.lblID.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblID.ForeColor = System.Drawing.Color.Black;
-            this.lblID.Location = new System.Drawing.Point(19, 152);
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.lblID.Location = new System.Drawing.Point(15, 142);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(90, 32);
+            this.lblID.Size = new System.Drawing.Size(87, 35);
             this.lblID.TabIndex = 80;
-            this.lblID.Text = "1001";
-            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblID.Text = "ID No.";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // panelEmployeeDetails
             // 
             this.panelEmployeeDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelEmployeeDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.panelEmployeeDetails.BorderRadius = 8;
-            this.panelEmployeeDetails.BorderThickness = 8;
             this.panelEmployeeDetails.Controls.Add(this.lblEmpRate);
             this.panelEmployeeDetails.Controls.Add(this.lblJobRole);
             this.panelEmployeeDetails.Controls.Add(this.lblName);
             this.panelEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.panelEmployeeDetails.ForeColor = System.Drawing.Color.White;
-            this.panelEmployeeDetails.Location = new System.Drawing.Point(123, 50);
+            this.panelEmployeeDetails.Location = new System.Drawing.Point(115, 54);
             this.panelEmployeeDetails.Name = "panelEmployeeDetails";
             this.panelEmployeeDetails.ShadowDecoration.BorderRadius = 15;
             this.panelEmployeeDetails.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelEmployeeDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.panelEmployeeDetails.Size = new System.Drawing.Size(222, 95);
+            this.panelEmployeeDetails.Size = new System.Drawing.Size(222, 86);
             this.panelEmployeeDetails.TabIndex = 81;
             // 
             // lblEmpRate
             // 
-            this.lblEmpRate.Font = new System.Drawing.Font("Roboto", 10F);
+            this.lblEmpRate.Font = new System.Drawing.Font("Rockwell", 8F, System.Drawing.FontStyle.Bold);
             this.lblEmpRate.ForeColor = System.Drawing.Color.White;
-            this.lblEmpRate.Location = new System.Drawing.Point(3, 63);
+            this.lblEmpRate.Location = new System.Drawing.Point(3, 58);
             this.lblEmpRate.Name = "lblEmpRate";
-            this.lblEmpRate.Size = new System.Drawing.Size(216, 29);
+            this.lblEmpRate.Size = new System.Drawing.Size(216, 24);
             this.lblEmpRate.TabIndex = 64;
             this.lblEmpRate.Text = "Account";
             this.lblEmpRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblJobRole
             // 
-            this.lblJobRole.Font = new System.Drawing.Font("Roboto", 10F);
+            this.lblJobRole.Font = new System.Drawing.Font("Roboto", 8.5F);
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
-            this.lblJobRole.Location = new System.Drawing.Point(2, 34);
+            this.lblJobRole.Location = new System.Drawing.Point(2, 31);
             this.lblJobRole.Name = "lblJobRole";
-            this.lblJobRole.Size = new System.Drawing.Size(216, 29);
+            this.lblJobRole.Size = new System.Drawing.Size(216, 24);
             this.lblJobRole.TabIndex = 63;
             this.lblJobRole.Text = "Role";
             this.lblJobRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Roboto", 10F);
+            this.lblName.Font = new System.Drawing.Font("Roboto", 9F);
             this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(3, 5);
+            this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(216, 29);
+            this.lblName.Size = new System.Drawing.Size(216, 24);
             this.lblName.TabIndex = 62;
             this.lblName.Text = "Full Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -339,12 +328,12 @@
             // 
             this.employeeProfilePicture.AutoRoundedCorners = true;
             this.employeeProfilePicture.BackColor = System.Drawing.Color.Ivory;
-            this.employeeProfilePicture.BorderRadius = 46;
+            this.employeeProfilePicture.BorderRadius = 41;
             this.employeeProfilePicture.FillColor = System.Drawing.Color.MistyRose;
             this.employeeProfilePicture.ImageRotate = 0F;
-            this.employeeProfilePicture.Location = new System.Drawing.Point(15, 50);
+            this.employeeProfilePicture.Location = new System.Drawing.Point(15, 54);
             this.employeeProfilePicture.Name = "employeeProfilePicture";
-            this.employeeProfilePicture.Size = new System.Drawing.Size(94, 95);
+            this.employeeProfilePicture.Size = new System.Drawing.Size(84, 85);
             this.employeeProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.employeeProfilePicture.TabIndex = 79;
             this.employeeProfilePicture.TabStop = false;
@@ -356,7 +345,7 @@
             this.BackColor = System.Drawing.Color.Gray;
             this.Controls.Add(this.panelEmployeeListCard);
             this.Name = "SampleProfileCard";
-            this.Size = new System.Drawing.Size(384, 215);
+            this.Size = new System.Drawing.Size(381, 207);
             this.panelEmployeeListCard.ResumeLayout(false);
             this.panelEmployeeListCard.PerformLayout();
             this.panelEmployeeDetails.ResumeLayout(false);
@@ -369,20 +358,18 @@
 
         public Guna.UI2.WinForms.Guna2Panel panelEmployeeListCard;
         public Guna.UI2.WinForms.Guna2PictureBox employeeProfilePicture;
-        private System.Windows.Forms.Label lblID;
         public Guna.UI2.WinForms.Guna2Panel panelEmployeeDetails;
         public Guna.UI2.WinForms.Guna2Button btnEdit;
         private System.Windows.Forms.Label lblName;
         public Guna.UI2.WinForms.Guna2Button btnViewEmployeeDetails;
-        private System.Windows.Forms.Label lblEmpRate;
-        private System.Windows.Forms.Label lblJobRole;
         public Guna.UI2.WinForms.Guna2Button btnActiveOrInactiveStatus;
-        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         public Guna.UI2.WinForms.Guna2Button btnReactivateEmployee;
         private System.Windows.Forms.Label lblJoinedDate;
         private System.Windows.Forms.Label label5;
         public Guna.UI2.WinForms.Guna2Button btnDeactivateEmployee;
-        private System.Windows.Forms.ToolTip toolTip1;
         public Guna.UI2.WinForms.Guna2Button btnWorkingArrangement;
+        public System.Windows.Forms.Label lblID;
+        public System.Windows.Forms.Label lblEmpRate;
+        public System.Windows.Forms.Label lblJobRole;
     }
 }

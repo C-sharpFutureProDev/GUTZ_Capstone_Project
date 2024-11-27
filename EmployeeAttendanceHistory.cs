@@ -124,7 +124,6 @@ namespace GUTZ_Capstone_Project
             throw new InvalidOperationException("Schedule not found for the specified employee.");
         }
 
-        // Usage in DisplayAttendanceRecords
         private void DisplayAttendanceRecords(DataTable dtAttendance, (DateTime StartDate, string ProfilePicPath, string FirstName, string MiddleName, string LastName) employeeInfo)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -174,7 +173,6 @@ namespace GUTZ_Capstone_Project
             flowLayoutPanel1.ResumeLayout();
         }
 
-
         private EmployeeAttendanceCard CreateAttendanceCard(DataRow row, DateTime date, (DateTime StartDate, string ProfilePicPath, string FirstName, string MiddleName, string LastName) employeeInfo, bool isPresent)
         {
             EmployeeAttendanceCard card = new EmployeeAttendanceCard(_employeeAttendance)
@@ -194,7 +192,7 @@ namespace GUTZ_Capstone_Project
             card.btnAttendanceStatus.Visible = true;
             card.btnAttendanceStatus.Text = isPresent ? "Present" : "Absent";
             card.btnAttendanceStatus.FillColor = isPresent ? Color.ForestGreen : Color.FromArgb(255, 107, 107);
-            card.Size = new Size(480, 259);
+            /*card.Size = new Size(480, 259);
             card.panelEmployeeAttendanceDetails.Location = new Point(22, 24);
             card.btnAttendanceStatus.Location = new Point(320, 10);
             card.panelEmployeeAttendanceDetails.Size = new Size(445, 233);
@@ -204,7 +202,7 @@ namespace GUTZ_Capstone_Project
             card.lblClockOut.Location = new Point(195, 19);
             card.btnClockIn.Location = new Point(1, 55);
             card.btnStatus.Location = new Point(94, 55);
-            card.btnClockOut.Location = new Point(195, 55);
+            card.btnClockOut.Location = new Point(195, 55);*/
 
             return card;
         }

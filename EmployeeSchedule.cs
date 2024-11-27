@@ -66,9 +66,7 @@ namespace GUTZ_Capstone_Project
                            WHERE emp_id = @EmpId";
 
             var parameters = new Dictionary<string, object>
-            {
-                { "@EmpId", _empId }
-            };
+            {{ "@EmpId", _empId }};
 
             DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
 

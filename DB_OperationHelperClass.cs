@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Quartz;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -104,6 +105,39 @@ namespace GUTZ_Capstone_Project
                         }
 
                         cmd.ExecuteNonQuery();
+                    }
+
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("An error encountered while attempting to execute SQL commands to the database." +
+                        "\n" + e.Message, "Failed to execute SQL commands!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+            }
+        }
+
+        public static async Task<bool> ExecuteCRUDSQLQueryAsync(string sql, Dictionary<string, object> parameters)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    await connection.OpenAsync(); // Open the connection asynchronously
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        // Add parameters to the command
+                        foreach (var param in parameters)
+                        {
+                            cmd.Parameters.AddWithValue(param.Key, param.Value);
+                        }
+
+                        await cmd.ExecuteNonQueryAsync(); // Execute the query asynchronously
                     }
 
                     return true;

@@ -106,7 +106,7 @@ namespace GUTZ_Capstone_Project.Forms
                 {
                     lblFormLabel.Text = "Update Existing Record";
                     btnSaveEmployeeDetails.Text = "SAVE CHANGES";
-                    btnSaveEmployeeDetails.Size = new Size(190, 47);
+                    btnSaveEmployeeDetails.Size = new Size(225, 47);
                     btnReEnrollFingerPrint.Visible = true;
                     btnReEnrollFingerPrint.Location = new Point(248, 360);
                     txtScannerPrompt.Visible = false;

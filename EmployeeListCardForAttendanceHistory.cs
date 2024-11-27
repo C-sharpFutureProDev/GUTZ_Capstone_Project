@@ -27,6 +27,9 @@ namespace GUTZ_Capstone_Project
             {
                 _employeeAttendance = employeeAttendance;
             }
+
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnAddEmployeeLeaveSchedule, "Set Leave Schedule");
         }
 
         [Category("Custom Control")]
@@ -97,7 +100,7 @@ namespace GUTZ_Capstone_Project
 
         private void btnViewEmployeeAttendanceHistory_Click(object sender, EventArgs e)
         {
-            if(_employeeAttendance != null)
+            if (_employeeAttendance != null)
             {
                 EmployeeAttendanceHistory employeeAttendanceHistory = new EmployeeAttendanceHistory(_id, _employeeAttendance);
                 _employeeAttendance.flowLayoutPanel2.Controls.Clear();
@@ -105,6 +108,15 @@ namespace GUTZ_Capstone_Project
                 _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Fill;
                 _employeeAttendance.flowLayoutPanel2.Visible = true;
                 _employeeAttendance.flowLayoutPanel2.Controls.Add(employeeAttendanceHistory);
+            }
+        }
+
+        private void btnAddEmployeeLeaveSchedule_Click(object sender, EventArgs e)
+        {
+            if (_employeeAttendance != null)
+            {
+                EmployeeLeave employeeLeave = new EmployeeLeave(_id, _employeeAttendance);
+                employeeLeave.ShowDialog();
             }
         }
     }

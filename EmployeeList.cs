@@ -10,6 +10,7 @@ using System.IO;
 using System.Web.UI.WebControls.WebParts;
 using ZstdSharp.Unsafe;
 using Mysqlx.Crud;
+using System.Windows.Documents;
 
 namespace GUTZ_Capstone_Project
 {
@@ -74,13 +75,13 @@ namespace GUTZ_Capstone_Project
 
         public void CountEmployeeListDetails()
         {
-            string countMale = "SELECT COUNT(*) FROM tbl_employee WHERE gender = '" + "Male" + "'";
-            string countFemale = "SELECT COUNT(*) FROM tbl_employee WHERE gender = '" + "Female" + "'";
-            string countFullTine = "SELECT COUNT(*) FROM tbl_employee WHERE work_arrangement = '" + "Full-Time" + "'";
-            string countPartTime = "SELECT COUNT(*) FROM tbl_employee WHERE work_arrangement = '" + "Part-Time" + "'";
-            string countESO = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 1";
-            string countRKESI = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 2";
-            string countVUIHOC = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 3";
+            string countMale = "SELECT COUNT(*) FROM tbl_employee WHERE gender = '" + "Male" + "' AND is_deleted = 0";
+            string countFemale = "SELECT COUNT(*) FROM tbl_employee WHERE gender = '" + "Female" + "' AND is_deleted = 0";
+            string countFullTine = "SELECT COUNT(*) FROM tbl_employee WHERE work_arrangement = '" + "Full-Time" + "' AND is_deleted = 0";
+            string countPartTime = "SELECT COUNT(*) FROM tbl_employee WHERE work_arrangement = '" + "Part-Time" + "' AND is_deleted = 0";
+            string countESO = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 1 AND is_deleted = 0";
+            string countRKESI = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 2 AND is_deleted = 0";
+            string countVUIHOC = "SELECT COUNT(*) FROM tbl_employee WHERE account_id = 3 AND is_deleted = 0";
 
             DataTable maleEmployee = DB_OperationHelperClass.QueryData(countMale);
             DataTable femaleEmployee = DB_OperationHelperClass.QueryData(countFemale);
@@ -171,26 +172,18 @@ namespace GUTZ_Capstone_Project
                     };
 
                     if (workingArrangement == "Full-Time")
-                    {
-                        sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
                         sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                        sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                        sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
-                        sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                        sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
-                    }
                     else if (workingArrangement == "Part-Time")
-                    {
-                        sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
                         sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                        sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                        sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
-                        sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                        sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
-                    }
 
                     flowLayoutPanel1.Controls.Add(sampleProfileCard);
                 }
+
+                /*for (int i = 1; i <= 100; i++) // Test Purposes
+                {
+                    SampleProfileCard sampleProfileCard = new SampleProfileCard(this);
+                    flowLayoutPanel1.Controls.Add(sampleProfileCard);
+                }*/
 
                 flowLayoutPanel1.ResumeLayout();
             }
@@ -348,23 +341,9 @@ namespace GUTZ_Capstone_Project
                             };
 
                             if (workingArrangement == "Full-Time")
-                            {
-                                sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
                                 sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                                sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                                sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
-                                sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                                sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
-                            }
                             else if (workingArrangement == "Part-Time")
-                            {
-                                sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
                                 sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                                sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                                sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
-                                sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                                sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
-                            }
 
                             flowLayoutPanel1.Controls.Add(sampleProfileCard);
                         }
@@ -428,7 +407,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   WHERE is_deleted = 0 AND employment_type = 'Non-Tenured'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 1:
@@ -441,7 +420,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   WHERE is_deleted = 0 AND employment_type = 'Tenured'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 2:
@@ -454,7 +433,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%ESO%'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 3:
@@ -467,7 +446,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%RKESI%'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 4:
@@ -480,7 +459,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   WHERE is_deleted = 0 AND tbl_account.account_name LIKE '%VUIHOC%'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     default:
@@ -515,23 +494,9 @@ namespace GUTZ_Capstone_Project
                         };
 
                         if (workingArrangement == "Full-Time")
-                        {
-                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
                             sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
-                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
-                        }
                         else if (workingArrangement == "Part-Time")
-                        {
-                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
                             sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
-                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
-                        }
 
                         flowLayoutPanel1.Controls.Add(sampleProfileCard);
                     }
@@ -571,7 +536,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                                   WHERE is_deleted = 0
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 1:
@@ -585,7 +550,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                                   WHERE is_deleted = 1
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 2:
@@ -599,7 +564,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                                   WHERE is_deleted = 0 AND gender = 'Male'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 3:
@@ -613,7 +578,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                                   WHERE is_deleted = 0 AND gender = 'Female'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 4:
@@ -627,7 +592,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                                   WHERE is_deleted = 0 AND work_arrangement = 'Full-Time'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     case 5:
@@ -641,7 +606,7 @@ namespace GUTZ_Capstone_Project
                                   INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                   INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                                   WHERE is_deleted = 0 AND work_arrangement = 'Part-Time'
-                                  ORDER BY FullName";
+                                  ORDER BY emp_id ASC";
                         break;
 
                     default:
@@ -685,26 +650,13 @@ namespace GUTZ_Capstone_Project
                             sampleProfileCard.btnDeactivateEmployee.Visible = false;
                             sampleProfileCard.btnReactivateEmployee.Visible = true;
                             sampleProfileCard.btnViewEmployeeDetails.Enabled = false;
+                            sampleProfileCard.lblID.ForeColor = Color.LightGray;
                         }
 
                         if (workingArrangement == "Full-Time")
-                        {
-                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(76, 175, 80);
                             sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(76, 175, 80);
-                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(76, 175, 80);
-                        }
                         else if (workingArrangement == "Part-Time")
-                        {
-                            sampleProfileCard.btnWorkingArrangement.FillColor = Color.FromArgb(33, 150, 243);
                             sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
-                            sampleProfileCard.btnWorkingArrangement.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.HoverState.FillColor = Color.FromArgb(33, 150, 243);
-                            sampleProfileCard.btnWorkingArrangement.HoverState.ForeColor = Color.White;
-                            sampleProfileCard.btnWorkingArrangement.PressedColor = Color.FromArgb(33, 150, 243);
-                        }
 
                         flowLayoutPanel1.Controls.Add(sampleProfileCard);
                     }

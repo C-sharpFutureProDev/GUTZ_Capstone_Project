@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
@@ -17,6 +18,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace GUTZ_Capstone_Project
 {
@@ -182,6 +184,9 @@ namespace GUTZ_Capstone_Project
         {
             if (currentChildForm != null)
                 Reset();
+
+            countTotalEmployee();
+            CountAttendanceForToday();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -200,6 +205,8 @@ namespace GUTZ_Capstone_Project
         {
             UpdateDateTimeLabel();
             timer1.Start();
+            countTotalEmployee();
+            CountAttendanceForToday();
         }
 
         private void UpdateDateTimeLabel()
@@ -280,9 +287,94 @@ namespace GUTZ_Capstone_Project
             this.iconAdminSubMenu.FlatAppearance.BorderColor = Color.FromArgb(12, 90, 37);
         }
 
-        private void lblPresentForToday_Click(object sender, EventArgs e)
+        private void countTotalEmployee()
         {
+            // Count total active employees
+            string countEmployeeQuery = @"SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0";
+            DataTable dtTotal = DB_OperationHelperClass.QueryData(countEmployeeQuery);
+            int countTotalEmployee = dtTotal.Rows.Count > 0 ? Convert.ToInt32(dtTotal.Rows[0][0]) : 0;
+            lblTotalEmployee.Text = countTotalEmployee.ToString();
 
+            // Count new employees added in the current month using start_date
+            string countNewEmployeesQuery = @"SELECT COUNT(*) 
+                                              FROM tbl_employee 
+                                              WHERE is_deleted = 0 
+                                              AND MONTH(start_date) = MONTH(CURRENT_DATE()) 
+                                              AND YEAR(start_date) = YEAR(CURRENT_DATE())";
+            DataTable dtNew = DB_OperationHelperClass.QueryData(countNewEmployeesQuery);
+            int countNewEmployees = dtNew.Rows.Count > 0 ? Convert.ToInt32(dtNew.Rows[0][0]) : 0;
+
+            // Calculate the percentage of new employees
+            double percentageNewEmployees = countTotalEmployee > 0 ? (double)countNewEmployees / countTotalEmployee * 100 : 0;
+
+            // Display the percentage
+            lblPercentText.Text = $"{percentageNewEmployees}%";
+
+            // Track new employees for the previous month
+            TrackPreviousMonthEmployees();
+        }
+
+        private void TrackPreviousMonthEmployees()
+        {
+            // Count employees added in the previous month
+            string countPreviousMonthQuery = @"SELECT COUNT(*) 
+                                               FROM tbl_employee 
+                                               WHERE is_deleted = 0 
+                                               AND MONTH(start_date) = MONTH(CURRENT_DATE() - INTERVAL 1 MONTH) 
+                                               AND YEAR(start_date) = YEAR(CURRENT_DATE())";
+
+            DataTable dtPreviousMonth = DB_OperationHelperClass.QueryData(countPreviousMonthQuery);
+            int countPreviousMonthEmployees = dtPreviousMonth.Rows.Count > 0 ? Convert.ToInt32(dtPreviousMonth.Rows[0][0]) : 0;
+        }
+
+        private void CountAttendanceForToday()
+        {
+            DateTime currentDate = DateTime.Today;
+            int countWorkingPresent = 0;
+            int countWorkingOnTime = 0;
+            int countWorkingLate = 0;
+
+            string sqlCountAttendance = $"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status " +
+                                        $"FROM tbl_schedule s " +
+                                        $"LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{currentDate:yyyy-MM-dd}' " +
+                                        $"WHERE s.work_days LIKE '%{currentDate.DayOfWeek}%'";
+
+            DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
+
+            HashSet<string> scheduledEmployeeIds = new HashSet<string>();
+
+            foreach (DataRow row in dtAttendance.Rows)
+            {
+                string empId = row["emp_id"].ToString();
+                scheduledEmployeeIds.Add(empId);
+
+                DateTime? timeIn = row["time_in"] as DateTime?;
+                if (timeIn.HasValue)
+                {
+                    countWorkingPresent++;
+
+                    string timeInStatus = row["time_in_status"]?.ToString();
+                    if (timeInStatus == "On Time")
+                    {
+                        countWorkingOnTime++;
+                    }
+                    else if (timeInStatus == "Late")
+                    {
+                        countWorkingLate++;
+                    }
+                }
+            }
+
+            int totalScheduledEmployees = scheduledEmployeeIds.Count;
+            int totalAttendance = countWorkingOnTime + countWorkingLate;
+
+            lblPresentForToday.Text = countWorkingPresent.ToString();
+
+            double onTimePercentage = totalAttendance > 0 ? (countWorkingOnTime * 100.0) / totalAttendance : 0;
+            double latePercentage = totalAttendance > 0 ? (countWorkingLate * 100.0) / totalAttendance : 0;
+
+            lblOnTimeForTodayPercentage.Text = $"{onTimePercentage}%";
+            lblLateForTodayPercentage.Text = $"{latePercentage}%";
         }
     }
 }

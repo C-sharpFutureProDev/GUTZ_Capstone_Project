@@ -146,6 +146,7 @@ namespace GUTZ_Capstone_Project
                     _employeeList.RefreshUI();
                     _employeeList.PopulateItems();
                     _employeeList.CountActiveAndInactive();
+                    _employeeList.CountEmployeeListDetails();
                 }
                 else
                 {
@@ -185,6 +186,7 @@ namespace GUTZ_Capstone_Project
                     _employeeList.RefreshUI();
                     _employeeList.PopulateItems();
                     _employeeList.CountActiveAndInactive();
+                    _employeeList.CountEmployeeListDetails();
                 }
                 else
                 {

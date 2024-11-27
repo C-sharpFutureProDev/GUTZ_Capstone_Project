@@ -50,6 +50,8 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTotalLateForToday = new System.Windows.Forms.Label();
+            this.lblTotalOnTimeForToday = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +59,8 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Black;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Ivory;
+            this.guna2Panel1.Controls.Add(this.lblTotalLateForToday);
+            this.guna2Panel1.Controls.Add(this.lblTotalOnTimeForToday);
             this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.label2);
@@ -115,39 +119,38 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label5.Font = new System.Drawing.Font("Rockwell", 10.5F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(472, 65);
+            this.label5.Location = new System.Drawing.Point(477, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 22);
+            this.label5.Size = new System.Drawing.Size(120, 28);
             this.label5.TabIndex = 116;
-            this.label5.Text = "Absent:";
+            this.label5.Text = "Absent";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label2.Font = new System.Drawing.Font("Rockwell", 10.5F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(184, 65);
+            this.label2.Location = new System.Drawing.Point(189, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 22);
+            this.label2.Size = new System.Drawing.Size(120, 30);
             this.label2.TabIndex = 115;
             this.label2.Text = "Clock-Out:";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label1.Font = new System.Drawing.Font("Rockwell", 10.5F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(40, 65);
+            this.label1.Location = new System.Drawing.Point(45, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 22);
+            this.label1.Size = new System.Drawing.Size(120, 35);
             this.label1.TabIndex = 114;
-            this.label1.Text = "Clock-In:";
+            this.label1.Text = "Clock-IN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClockOut
             // 
@@ -352,25 +355,25 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label7.Font = new System.Drawing.Font("Rockwell", 10.5F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(328, 65);
+            this.label7.Location = new System.Drawing.Point(333, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 22);
+            this.label7.Size = new System.Drawing.Size(120, 28);
             this.label7.TabIndex = 106;
-            this.label7.Text = "On-Leave:";
+            this.label7.Text = "On-Leave";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTotalAttendance
             // 
             this.btnTotalAttendance.AutoSize = true;
             this.btnTotalAttendance.BackColor = System.Drawing.Color.Transparent;
-            this.btnTotalAttendance.Font = new System.Drawing.Font("Rockwell", 11.5F);
+            this.btnTotalAttendance.Font = new System.Drawing.Font("Rockwell", 11F);
             this.btnTotalAttendance.ForeColor = System.Drawing.Color.Black;
-            this.btnTotalAttendance.Location = new System.Drawing.Point(40, 170);
+            this.btnTotalAttendance.Location = new System.Drawing.Point(40, 200);
             this.btnTotalAttendance.Name = "btnTotalAttendance";
-            this.btnTotalAttendance.Size = new System.Drawing.Size(197, 26);
+            this.btnTotalAttendance.Size = new System.Drawing.Size(193, 25);
             this.btnTotalAttendance.TabIndex = 105;
             this.btnTotalAttendance.Text = "Total Attendance:";
             // 
@@ -448,6 +451,30 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1714, 690);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
+            // lblTotalLateForToday
+            // 
+            this.lblTotalLateForToday.AutoSize = true;
+            this.lblTotalLateForToday.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalLateForToday.Font = new System.Drawing.Font("Rockwell", 8.5F);
+            this.lblTotalLateForToday.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblTotalLateForToday.Location = new System.Drawing.Point(185, 168);
+            this.lblTotalLateForToday.Name = "lblTotalLateForToday";
+            this.lblTotalLateForToday.Size = new System.Drawing.Size(47, 20);
+            this.lblTotalLateForToday.TabIndex = 119;
+            this.lblTotalLateForToday.Text = "Late:";
+            // 
+            // lblTotalOnTimeForToday
+            // 
+            this.lblTotalOnTimeForToday.AutoSize = true;
+            this.lblTotalOnTimeForToday.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalOnTimeForToday.Font = new System.Drawing.Font("Rockwell", 8.5F);
+            this.lblTotalOnTimeForToday.ForeColor = System.Drawing.Color.Green;
+            this.lblTotalOnTimeForToday.Location = new System.Drawing.Point(41, 168);
+            this.lblTotalOnTimeForToday.Name = "lblTotalOnTimeForToday";
+            this.lblTotalOnTimeForToday.Size = new System.Drawing.Size(84, 20);
+            this.lblTotalOnTimeForToday.TabIndex = 118;
+            this.lblTotalOnTimeForToday.Text = "On-Time:";
+            // 
             // EmployeeAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -492,5 +519,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label lblTotalLateForToday;
+        private System.Windows.Forms.Label lblTotalOnTimeForToday;
     }
 }

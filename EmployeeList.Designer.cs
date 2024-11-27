@@ -92,7 +92,7 @@
             this.cboFilter.FillColor = System.Drawing.Color.Ivory;
             this.cboFilter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboFilter.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFilter.Font = new System.Drawing.Font("Roboto", 11.5F);
             this.cboFilter.ForeColor = System.Drawing.Color.Black;
             this.cboFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.ItemHeight = 35;
@@ -119,11 +119,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Ivory;
-            this.label1.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.ForestGreen;
             this.label1.Location = new System.Drawing.Point(66, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 25);
+            this.label1.Size = new System.Drawing.Size(74, 22);
             this.label1.TabIndex = 67;
             this.label1.Text = "Active:";
             // 
@@ -131,11 +131,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Ivory;
-            this.label2.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Rockwell", 10F);
             this.label2.ForeColor = System.Drawing.Color.Gray;
             this.label2.Location = new System.Drawing.Point(210, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 25);
+            this.label2.Size = new System.Drawing.Size(88, 22);
             this.label2.TabIndex = 68;
             this.label2.Text = "Inactive:";
             // 
@@ -148,7 +148,7 @@
             this.iconActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconActive.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconActive.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
-            this.iconActive.IconColor = System.Drawing.Color.ForestGreen;
+            this.iconActive.IconColor = System.Drawing.Color.DarkGreen;
             this.iconActive.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconActive.IconSize = 35;
             this.iconActive.Location = new System.Drawing.Point(20, 15);
@@ -170,7 +170,7 @@
             this.iconInactive.IconColor = System.Drawing.Color.Gray;
             this.iconInactive.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconInactive.IconSize = 30;
-            this.iconInactive.Location = new System.Drawing.Point(164, 15);
+            this.iconInactive.Location = new System.Drawing.Point(164, 14);
             this.iconInactive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconInactive.Name = "iconInactive";
             this.iconInactive.Size = new System.Drawing.Size(45, 30);
@@ -181,11 +181,11 @@
             // 
             this.lblActiveEmployee.AutoSize = true;
             this.lblActiveEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblActiveEmployee.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveEmployee.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActiveEmployee.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblActiveEmployee.Location = new System.Drawing.Point(140, 17);
+            this.lblActiveEmployee.Location = new System.Drawing.Point(140, 15);
             this.lblActiveEmployee.Name = "lblActiveEmployee";
-            this.lblActiveEmployee.Size = new System.Drawing.Size(21, 23);
+            this.lblActiveEmployee.Size = new System.Drawing.Size(23, 25);
             this.lblActiveEmployee.TabIndex = 71;
             this.lblActiveEmployee.Text = "0";
             // 
@@ -193,11 +193,11 @@
             // 
             this.lblInactiveEmployee.AutoSize = true;
             this.lblInactiveEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblInactiveEmployee.Font = new System.Drawing.Font("Cambria", 10F);
+            this.lblInactiveEmployee.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblInactiveEmployee.ForeColor = System.Drawing.Color.Gray;
-            this.lblInactiveEmployee.Location = new System.Drawing.Point(298, 17);
+            this.lblInactiveEmployee.Location = new System.Drawing.Point(298, 15);
             this.lblInactiveEmployee.Name = "lblInactiveEmployee";
-            this.lblInactiveEmployee.Size = new System.Drawing.Size(21, 23);
+            this.lblInactiveEmployee.Size = new System.Drawing.Size(23, 25);
             this.lblInactiveEmployee.TabIndex = 72;
             this.lblInactiveEmployee.Text = "0";
             // 
@@ -205,26 +205,25 @@
             // 
             this.btnAddNewEmployee.BackColor = System.Drawing.Color.Transparent;
             this.btnAddNewEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnAddNewEmployee.BorderRadius = 5;
+            this.btnAddNewEmployee.BorderRadius = 4;
             this.btnAddNewEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddNewEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddNewEmployee.FillColor = System.Drawing.Color.Green;
-            this.btnAddNewEmployee.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewEmployee.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.btnAddNewEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnAddNewEmployee.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.DarkGreen;
             this.btnAddNewEmployee.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewEmployee.Image")));
             this.btnAddNewEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(27, 27);
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(1354, 17);
+            this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(1350, 17);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
-            this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.btnAddNewEmployee.Size = new System.Drawing.Size(195, 40);
+            this.btnAddNewEmployee.Size = new System.Drawing.Size(145, 40);
             this.btnAddNewEmployee.TabIndex = 73;
-            this.btnAddNewEmployee.Text = "New Employee";
+            this.btnAddNewEmployee.Text = "Employee";
             this.btnAddNewEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddNewEmployee.Click += new System.EventHandler(this.btnAddNewEmployee_Click);
             // 
@@ -288,7 +287,7 @@
             // lblVUIHOC
             // 
             this.lblVUIHOC.BackColor = System.Drawing.Color.Ivory;
-            this.lblVUIHOC.Font = new System.Drawing.Font("Cambria", 10.5F);
+            this.lblVUIHOC.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblVUIHOC.ForeColor = System.Drawing.Color.MediumPurple;
             this.lblVUIHOC.Location = new System.Drawing.Point(67, 5);
             this.lblVUIHOC.Name = "lblVUIHOC";
@@ -331,7 +330,7 @@
             // lblRKESI
             // 
             this.lblRKESI.BackColor = System.Drawing.Color.Ivory;
-            this.lblRKESI.Font = new System.Drawing.Font("Cambria", 10.5F);
+            this.lblRKESI.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblRKESI.ForeColor = System.Drawing.Color.HotPink;
             this.lblRKESI.Location = new System.Drawing.Point(67, 5);
             this.lblRKESI.Name = "lblRKESI";
@@ -374,7 +373,7 @@
             // lblESO
             // 
             this.lblESO.BackColor = System.Drawing.Color.Ivory;
-            this.lblESO.Font = new System.Drawing.Font("Cambria", 10.5F);
+            this.lblESO.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblESO.ForeColor = System.Drawing.Color.Orange;
             this.lblESO.Location = new System.Drawing.Point(67, 5);
             this.lblESO.Name = "lblESO";
@@ -418,11 +417,11 @@
             // lblPartTime
             // 
             this.lblPartTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblPartTime.Font = new System.Drawing.Font("Cambria", 10.5F);
-            this.lblPartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.lblPartTime.Font = new System.Drawing.Font("Roboto", 10F);
+            this.lblPartTime.ForeColor = System.Drawing.Color.Teal;
             this.lblPartTime.Location = new System.Drawing.Point(113, 5);
             this.lblPartTime.Name = "lblPartTime";
-            this.lblPartTime.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
+            this.lblPartTime.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
             this.lblPartTime.Size = new System.Drawing.Size(53, 30);
             this.lblPartTime.TabIndex = 27;
             this.lblPartTime.Text = "0";
@@ -432,10 +431,10 @@
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.label9.ForeColor = System.Drawing.Color.Teal;
             this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(8, 0, 0, 2);
+            this.label9.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.label9.Size = new System.Drawing.Size(124, 31);
             this.label9.TabIndex = 27;
             this.label9.Text = "Part-Time : ";
@@ -461,11 +460,11 @@
             // lblFullTime
             // 
             this.lblFullTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblFullTime.Font = new System.Drawing.Font("Cambria", 10.5F);
-            this.lblFullTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.lblFullTime.Font = new System.Drawing.Font("Roboto", 10F);
+            this.lblFullTime.ForeColor = System.Drawing.Color.Teal;
             this.lblFullTime.Location = new System.Drawing.Point(113, 5);
             this.lblFullTime.Name = "lblFullTime";
-            this.lblFullTime.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
+            this.lblFullTime.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
             this.lblFullTime.Size = new System.Drawing.Size(53, 30);
             this.lblFullTime.TabIndex = 27;
             this.lblFullTime.Text = "0";
@@ -475,10 +474,10 @@
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.label7.ForeColor = System.Drawing.Color.Teal;
             this.label7.Location = new System.Drawing.Point(3, 5);
             this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(8, 0, 0, 2);
+            this.label7.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.label7.Size = new System.Drawing.Size(124, 31);
             this.label7.TabIndex = 27;
             this.label7.Text = "Full-Time : ";
@@ -505,11 +504,11 @@
             // lblFemaleEmployee
             // 
             this.lblFemaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblFemaleEmployee.Font = new System.Drawing.Font("Cambria", 10.5F);
+            this.lblFemaleEmployee.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblFemaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lblFemaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblFemaleEmployee.Name = "lblFemaleEmployee";
-            this.lblFemaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
+            this.lblFemaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
             this.lblFemaleEmployee.Size = new System.Drawing.Size(53, 30);
             this.lblFemaleEmployee.TabIndex = 27;
             this.lblFemaleEmployee.Text = "0";
@@ -518,11 +517,11 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Rockwell", 9.6F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label5.Location = new System.Drawing.Point(3, 5);
+            this.label5.Location = new System.Drawing.Point(3, 4);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(8, 0, 0, 2);
+            this.label5.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.label5.Size = new System.Drawing.Size(56, 31);
             this.label5.TabIndex = 27;
             this.label5.Text = "F - ";
@@ -535,7 +534,6 @@
             this.panelTotalEmployee.BorderRadius = 5;
             this.panelTotalEmployee.Controls.Add(this.lblMaleEmployee);
             this.panelTotalEmployee.Controls.Add(this.label3);
-            this.panelTotalEmployee.FillColor = System.Drawing.Color.Ivory;
             this.panelTotalEmployee.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTotalEmployee.Location = new System.Drawing.Point(376, 17);
             this.panelTotalEmployee.Name = "panelTotalEmployee";
@@ -548,11 +546,11 @@
             // lblMaleEmployee
             // 
             this.lblMaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblMaleEmployee.Font = new System.Drawing.Font("Cambria", 10.5F);
+            this.lblMaleEmployee.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblMaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lblMaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblMaleEmployee.Name = "lblMaleEmployee";
-            this.lblMaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
+            this.lblMaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
             this.lblMaleEmployee.Size = new System.Drawing.Size(53, 30);
             this.lblMaleEmployee.TabIndex = 27;
             this.lblMaleEmployee.Text = "0";
@@ -561,11 +559,11 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Rockwell", 9.6F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Location = new System.Drawing.Point(3, 4);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(8, 0, 0, 2);
+            this.label3.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.label3.Size = new System.Drawing.Size(56, 31);
             this.label3.TabIndex = 27;
             this.label3.Text = "M - ";
@@ -581,7 +579,7 @@
             this.cboSort.FillColor = System.Drawing.Color.Ivory;
             this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSort.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSort.Font = new System.Drawing.Font("Roboto", 11.5F);
             this.cboSort.ForeColor = System.Drawing.Color.Black;
             this.cboSort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSort.ItemHeight = 35;
@@ -606,8 +604,7 @@
             // guna2Button4
             // 
             this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderColor = System.Drawing.Color.ForestGreen;
-            this.guna2Button4.BorderRadius = 4;
+            this.guna2Button4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -619,7 +616,7 @@
             this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
-            this.guna2Button4.ImageSize = new System.Drawing.Size(27, 27);
+            this.guna2Button4.ImageSize = new System.Drawing.Size(25, 25);
             this.guna2Button4.Location = new System.Drawing.Point(935, 84);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
@@ -631,8 +628,7 @@
             // guna2Button3
             // 
             this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.Color.ForestGreen;
-            this.guna2Button3.BorderRadius = 4;
+            this.guna2Button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -644,7 +640,7 @@
             this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.ImageSize = new System.Drawing.Size(27, 27);
+            this.guna2Button3.ImageSize = new System.Drawing.Size(25, 25);
             this.guna2Button3.Location = new System.Drawing.Point(935, 144);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -657,8 +653,7 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnEdit.BorderRadius = 4;
+            this.btnEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -670,7 +665,7 @@
             this.btnEdit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnEdit.ImageSize = new System.Drawing.Size(30, 34);
             this.btnEdit.Location = new System.Drawing.Point(266, 144);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
@@ -683,25 +678,24 @@
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
             this.btnRefresh.BorderColor = System.Drawing.Color.Green;
-            this.btnRefresh.BorderRadius = 5;
+            this.btnRefresh.BorderRadius = 4;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefresh.FillColor = System.Drawing.Color.Green;
-            this.btnRefresh.Font = new System.Drawing.Font("Roboto", 10F);
+            this.btnRefresh.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.Green;
-            this.btnRefresh.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnRefresh.HoverState.FillColor = System.Drawing.Color.DarkGreen;
             this.btnRefresh.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRefresh.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnRefresh.Location = new System.Drawing.Point(1354, 138);
+            this.btnRefresh.Location = new System.Drawing.Point(1350, 138);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnRefresh.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnRefresh.PressedColor = System.Drawing.Color.ForestGreen;
-            this.btnRefresh.Size = new System.Drawing.Size(129, 40);
+            this.btnRefresh.Size = new System.Drawing.Size(130, 40);
             this.btnRefresh.TabIndex = 77;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -722,7 +716,7 @@
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FillColor = System.Drawing.Color.Ivory;
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtSearch.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Roboto", 11.5F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtSearch.Location = new System.Drawing.Point(309, 136);
@@ -736,7 +730,7 @@
             this.txtSearch.ShadowDecoration.BorderRadius = 4;
             this.txtSearch.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Size = new System.Drawing.Size(360, 41);
+            this.txtSearch.Size = new System.Drawing.Size(353, 41);
             this.txtSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtSearch.TabIndex = 76;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -752,7 +746,7 @@
             this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnExport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnExport.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.btnExport.ForeColor = System.Drawing.Color.White;
             this.btnExport.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnExport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -762,8 +756,8 @@
             this.btnExport.ImageSize = new System.Drawing.Size(25, 25);
             this.btnExport.Location = new System.Drawing.Point(935, 17);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.btnExport.Size = new System.Drawing.Size(129, 40);
+            this.btnExport.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnExport.Size = new System.Drawing.Size(130, 40);
             this.btnExport.TabIndex = 75;
             this.btnExport.Text = "Export";
             this.btnExport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -779,7 +773,7 @@
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Roboto", 10F);
+            this.guna2Button1.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -789,8 +783,8 @@
             this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
             this.guna2Button1.Location = new System.Drawing.Point(1070, 17);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.guna2Button1.Size = new System.Drawing.Size(129, 40);
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.guna2Button1.Size = new System.Drawing.Size(130, 40);
             this.guna2Button1.TabIndex = 74;
             this.guna2Button1.Text = "Import";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -805,7 +799,7 @@
             this.cboSearch.FillColor = System.Drawing.Color.Ivory;
             this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSearch.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSearch.Font = new System.Drawing.Font("Roboto", 11.5F);
             this.cboSearch.ForeColor = System.Drawing.Color.Black;
             this.cboSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSearch.ItemHeight = 35;
@@ -886,7 +880,6 @@
         private System.Windows.Forms.Label lblInactiveEmployee;
         private Guna.UI2.WinForms.Guna2Button btnAddNewEmployee;
         private Guna.UI2.WinForms.Guna2Button btnExport;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         public Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
@@ -899,7 +892,6 @@
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel panelTotalEmployee;
         private System.Windows.Forms.Label lblMaleEmployee;
-        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label lblFemaleEmployee;
         private System.Windows.Forms.Label label5;
@@ -918,5 +910,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label lblRKESI;
         private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label label3;
     }
 }
