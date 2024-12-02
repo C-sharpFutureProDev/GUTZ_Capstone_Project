@@ -57,9 +57,9 @@
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblVUIActiveLeaveCount = new System.Windows.Forms.Label();
+            this.lblRKEActiveLeaveCount = new System.Windows.Forms.Label();
+            this.lblESOActiveLeaveCount = new System.Windows.Forms.Label();
             this.lblOnLeave = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -393,7 +393,7 @@
             this.lblTitleChildForm.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleChildForm.Font = new System.Drawing.Font("Roboto", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleChildForm.ForeColor = System.Drawing.Color.White;
-            this.lblTitleChildForm.Location = new System.Drawing.Point(85, 20);
+            this.lblTitleChildForm.Location = new System.Drawing.Point(75, 20);
             this.lblTitleChildForm.Name = "lblTitleChildForm";
             this.lblTitleChildForm.Size = new System.Drawing.Size(562, 37);
             this.lblTitleChildForm.TabIndex = 4;
@@ -415,7 +415,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(684, 28);
             this.label1.Name = "label1";
@@ -453,7 +453,7 @@
             this.iconCurrentChildForm.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.iconCurrentChildForm.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.iconCurrentChildForm.Image = ((System.Drawing.Image)(resources.GetObject("iconCurrentChildForm.Image")));
-            this.iconCurrentChildForm.ImageSize = new System.Drawing.Size(38, 35);
+            this.iconCurrentChildForm.ImageSize = new System.Drawing.Size(40, 37);
             this.iconCurrentChildForm.Location = new System.Drawing.Point(16, 13);
             this.iconCurrentChildForm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconCurrentChildForm.Name = "iconCurrentChildForm";
@@ -587,9 +587,9 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Ivory;
             this.guna2Panel2.BorderRadius = 12;
-            this.guna2Panel2.Controls.Add(this.label11);
-            this.guna2Panel2.Controls.Add(this.label9);
-            this.guna2Panel2.Controls.Add(this.label8);
+            this.guna2Panel2.Controls.Add(this.lblVUIActiveLeaveCount);
+            this.guna2Panel2.Controls.Add(this.lblRKEActiveLeaveCount);
+            this.guna2Panel2.Controls.Add(this.lblESOActiveLeaveCount);
             this.guna2Panel2.Controls.Add(this.lblOnLeave);
             this.guna2Panel2.Controls.Add(this.label10);
             this.guna2Panel2.Controls.Add(this.guna2Button4);
@@ -602,41 +602,41 @@
             this.guna2Panel2.Size = new System.Drawing.Size(290, 192);
             this.guna2Panel2.TabIndex = 34;
             // 
-            // label11
+            // lblVUIActiveLeaveCount
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.MediumPurple;
-            this.label11.Location = new System.Drawing.Point(200, 150);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 23);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "VUI - 1";
+            this.lblVUIActiveLeaveCount.AutoSize = true;
+            this.lblVUIActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblVUIActiveLeaveCount.ForeColor = System.Drawing.Color.MediumPurple;
+            this.lblVUIActiveLeaveCount.Location = new System.Drawing.Point(200, 150);
+            this.lblVUIActiveLeaveCount.Name = "lblVUIActiveLeaveCount";
+            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(70, 23);
+            this.lblVUIActiveLeaveCount.TabIndex = 36;
+            this.lblVUIActiveLeaveCount.Text = "VUI - 0";
             // 
-            // label9
+            // lblRKEActiveLeaveCount
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.HotPink;
-            this.label9.Location = new System.Drawing.Point(109, 150);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 23);
-            this.label9.TabIndex = 35;
-            this.label9.Text = "RKE - 7";
+            this.lblRKEActiveLeaveCount.AutoSize = true;
+            this.lblRKEActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblRKEActiveLeaveCount.ForeColor = System.Drawing.Color.HotPink;
+            this.lblRKEActiveLeaveCount.Location = new System.Drawing.Point(109, 150);
+            this.lblRKEActiveLeaveCount.Name = "lblRKEActiveLeaveCount";
+            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(79, 23);
+            this.lblRKEActiveLeaveCount.TabIndex = 35;
+            this.lblRKEActiveLeaveCount.Text = "RKE - 0";
             // 
-            // label8
+            // lblESOActiveLeaveCount
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Orange;
-            this.label8.Location = new System.Drawing.Point(21, 150);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 23);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "ESO - 3";
+            this.lblESOActiveLeaveCount.AutoSize = true;
+            this.lblESOActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblESOActiveLeaveCount.ForeColor = System.Drawing.Color.Orange;
+            this.lblESOActiveLeaveCount.Location = new System.Drawing.Point(21, 150);
+            this.lblESOActiveLeaveCount.Name = "lblESOActiveLeaveCount";
+            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(76, 23);
+            this.lblESOActiveLeaveCount.TabIndex = 30;
+            this.lblESOActiveLeaveCount.Text = "ESO - 0";
             // 
             // lblOnLeave
             // 
@@ -1073,9 +1073,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblOnLeave;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblVUIActiveLeaveCount;
+        private System.Windows.Forms.Label lblRKEActiveLeaveCount;
+        private System.Windows.Forms.Label lblESOActiveLeaveCount;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }

@@ -1,23 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing.Drawing2D;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using MySql.Data.MySqlClient;
-using System.Windows.Controls.Primitives;
-using System.Xml.Linq;
 using DPFP;
-using System.Drawing.Text;
 using Org.BouncyCastle.Crypto;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.InteropServices;
-using DPFP.Processing;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -104,6 +92,7 @@ namespace GUTZ_Capstone_Project.Forms
                 DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
                 if (dt.Rows.Count > 0)
                 {
+                    this.Text = "Update Employee Existing Record Form";
                     lblFormLabel.Text = "Update Existing Record";
                     btnSaveEmployeeDetails.Text = "SAVE CHANGES";
                     btnSaveEmployeeDetails.Size = new Size(225, 47);
@@ -325,11 +314,21 @@ namespace GUTZ_Capstone_Project.Forms
                             if (result.Verified)
                             {
                                 isVerified = true;
-                                MessageBox.Show($"Fingerprint matched with employee:\n" +
-                                                $"(Last Name: {l_name})\n" +
-                                                $"(Employee ID: {emp_id})\n" +
-                                                $"(Fingerprint ID: {f_id})",
-                                                "Employee Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                DialogResult resultVerified = MessageBox.Show($"Fingerprint Verified: Matched with employee:\n" +
+                                                                              $"(Last Name: {l_name})\n" +
+                                                                              $"(Employee ID: {emp_id})\n" +
+                                                                              $"(Fingerprint ID: {f_id})",
+                                                                              "Employee Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                // Clear Fingerprint Details
+                                if (resultVerified == DialogResult.OK)
+                                {
+                                    Invoke(new Action(() =>
+                                    {
+                                        employeeFingerprintImage.Image = null;
+                                        txtCaptureStatusLog.Clear();
+                                    }));
+                                }
                                 break;
                             }
                         }
@@ -736,10 +735,12 @@ namespace GUTZ_Capstone_Project.Forms
                                 { "@startTime", startTime},
                                 { "@endTime", endTime},
                             };
+
                             if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertSchedule, paramSched))
                             {
                                 DialogResult result = MessageBox.Show("New record has been saved successfully. Do you want to add another employee?",
                                 "New Employee Added", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
                                 if (result == DialogResult.Yes)
                                 {
                                     Stop();
@@ -747,13 +748,15 @@ namespace GUTZ_Capstone_Project.Forms
                                     this.Show();
                                     Start();
                                 }
-
-                                this.Close();
+                                else
+                                {
+                                    this.Close();
+                                }
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Failed to add new record.", "Failed Adding New Profile!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
                     else

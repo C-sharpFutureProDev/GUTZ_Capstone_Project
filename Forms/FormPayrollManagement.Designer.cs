@@ -38,7 +38,7 @@
             this.ClientSize = new System.Drawing.Size(1914, 976);
             this.DoubleBuffered = true;
             this.Name = "FormPayrollManagement";
-            this.Text = "Payroll Management Section";
+            this.Text = "Payroll Management";
             this.Load += new System.EventHandler(this.FormPayrollManagement_Load);
             this.ResumeLayout(false);
 

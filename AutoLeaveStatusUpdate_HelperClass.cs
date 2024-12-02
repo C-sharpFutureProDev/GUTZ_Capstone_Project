@@ -17,31 +17,37 @@ namespace GUTZ_Capstone_Project
             {
                 try
                 {
+                    // Log the current date for debugging
+                    DateTime currentDate = DateTime.Now.Date;
+                    //Console.WriteLine($"Executing LeaveStatusUpdateJob at {DateTime.Now}. Current Date: {currentDate}");
+
                     // SQL query to update leave status
                     string sql = @"UPDATE tbl_leave 
-                           SET leave_status = 'completed' 
-                           WHERE end_date < @currentDate AND leave_status = 'active'";
+                           SET leave_status = 'Completed' 
+                           WHERE CAST(end_date AS DATE) <= @currentDate AND leave_status = 'Active'";
 
                     var parameters = new Dictionary<string, object>
             {
-                { "@currentDate", DateTime.Now.Date }
+                { "@currentDate", currentDate }
             };
 
                     // Execute the update query asynchronously
                     bool result = await DB_OperationHelperClass.ExecuteCRUDSQLQueryAsync(sql, parameters);
-
+                    
                     if (result)
                     {
+                        //Console.WriteLine("Leave statuses updated successfully.");
                         MessageBox.Show("Leave statuses updated successfully.");
                     }
                     else
                     {
-                        MessageBox.Show("Failed to update leave statuses.");
+                        //Console.WriteLine("No leave statuses were updated. Check the query and data.");
+                        MessageBox.Show("No leave statuses were updated. Check the query and data.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error in LeaveStatusUpdateJob: {ex.Message}");
+                    Console.WriteLine($"Error in LeaveStatusUpdateJob: {ex.Message}");
                 }
             }
         }

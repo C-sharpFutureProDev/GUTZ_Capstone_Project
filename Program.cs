@@ -30,6 +30,8 @@ namespace GUTZ_Capstone_Project
 
             // Run the application
             Application.Run(new FormDashboard(1001)); // bypass
+            //Application.Run(new FormLogin()); // bypass
+
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]
 
@@ -56,7 +58,7 @@ namespace GUTZ_Capstone_Project
 
                 // Schedule the job using the trigger
                 await scheduler.ScheduleJob(job, trigger);
-                Console.WriteLine("Job scheduled successfully.");
+                //Console.WriteLine("Job scheduled successfully.");
             }
             catch (Exception ex)
             {

@@ -175,10 +175,6 @@ namespace GUTZ_Capstone_Project
                 // Create and add the EmployeeProfileCard
                 EmployeeProfile employeeProfileCard = new EmployeeProfile(_id, _employeeList);
                 _employeeList.flowLayoutPanel2.Controls.Add(employeeProfileCard);
-                employeeProfileCard.btnOrganization.FillColor = Color.FromArgb(19, 92, 61);
-                employeeProfileCard.btnOrganization.ForeColor = Color.White;
-                employeeProfileCard.panelMainSubContainer.Size = new Size(1462, 500);
-                employeeProfileCard.panelBasicDetails.Visible = true;
 
                 // Refresh layout
                 _employeeList.flowLayoutPanel1.Refresh();

@@ -173,7 +173,7 @@ namespace GUTZ_Capstone_Project
             work_days, 
             start_time, 
             end_time,
-            tbl_leave.leave_type, 
+            tbl_leave.leave_status, 
             tbl_leave.start_date AS leave_start_date, 
             tbl_leave.end_date AS leave_end_date, 
             tbl_leave.date_requested, 
@@ -227,6 +227,7 @@ namespace GUTZ_Capstone_Project
                     string workDaysString = row["work_days"].ToString();
                     TimeSpan startTime = TimeSpan.Parse(row["start_time"].ToString());
                     TimeSpan endTime = TimeSpan.Parse(row["end_time"].ToString());
+                    string leaveStatus = row["leave_status"].ToString();
 
                     string scheduleWorkingHours = $"{FormatTime(startTime)} - {FormatTime(endTime)}";
 
@@ -249,7 +250,7 @@ namespace GUTZ_Capstone_Project
                     }
 
                     // Check if the employee is on leave
-                    if (row["leave_type"] != DBNull.Value) // If there's leave info
+                    if (leaveStatus == "Active") // If there's leave info
                     {
                         employeeListCardForAttendanceHistory.toolTip1.SetToolTip(employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule, "View Active Leave Schedule");
                         employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.BorderColor = Color.CornflowerBlue;

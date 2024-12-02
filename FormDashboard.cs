@@ -1,24 +1,12 @@
-﻿using FontAwesome.Sharp;
-using GUTZ_Capstone_Project.Forms;
+﻿using GUTZ_Capstone_Project.Forms;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Input;
-using System.Windows.Media.Media3D;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace GUTZ_Capstone_Project
 {
@@ -185,8 +173,10 @@ namespace GUTZ_Capstone_Project
             if (currentChildForm != null)
                 Reset();
 
-            countTotalEmployee();
+            CountTotalEmployee();
             CountAttendanceForToday();
+            CountActiveEmployeeLeave();
+            CountEachAccountActiveLeave();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -205,8 +195,10 @@ namespace GUTZ_Capstone_Project
         {
             UpdateDateTimeLabel();
             timer1.Start();
-            countTotalEmployee();
+            CountTotalEmployee();
             CountAttendanceForToday();
+            CountActiveEmployeeLeave();
+            CountEachAccountActiveLeave();
         }
 
         private void UpdateDateTimeLabel()
@@ -287,7 +279,7 @@ namespace GUTZ_Capstone_Project
             this.iconAdminSubMenu.FlatAppearance.BorderColor = Color.FromArgb(12, 90, 37);
         }
 
-        private void countTotalEmployee()
+        private void CountTotalEmployee()
         {
             // Count total active employees
             string countEmployeeQuery = @"SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0";
@@ -375,6 +367,61 @@ namespace GUTZ_Capstone_Project
 
             lblOnTimeForTodayPercentage.Text = $"{onTimePercentage}%";
             lblLateForTodayPercentage.Text = $"{latePercentage}%";
+        }
+
+        private void CountActiveEmployeeLeave()
+        {
+            string leaveStatus = "Active";
+            string sqlCountActiveLeave = "SELECT COUNT(*) FROM tbl_leave WHERE leave_status = '" + leaveStatus + "'";
+            DataTable countActiveLeave = DB_OperationHelperClass.QueryData(sqlCountActiveLeave);
+
+            if (countActiveLeave.Rows.Count > 0)
+            {
+                int countTotalActiveLeave = countActiveLeave.Rows.Count > 0 ? Convert.ToInt32(countActiveLeave.Rows[0][0]) : 0;
+                lblOnLeave.Text = countTotalActiveLeave.ToString();
+            }
+            else
+            {
+                lblOnLeave.Text = "0";
+            }
+        }
+
+        private void CountEachAccountActiveLeave()
+        {
+            string leaveStatus = "Active";
+            string[] accounts = { "ESO", "RKESI", "VUIHOC" };
+
+            foreach (string account in accounts)
+            {
+                string sqlCountActiveLeave = @"SELECT tbl_employee.emp_id, account_name, leave_status
+                                               FROM tbl_employee
+                                               INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
+                                               INNER JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                                               WHERE leave_status = @leaveStatus AND account_name = @accountName";
+
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@leaveStatus", leaveStatus },
+                    { "@accountName", account }
+                };
+
+                DataTable countActiveLeave = DB_OperationHelperClass.ParameterizedQueryData(sqlCountActiveLeave, parameters);
+
+                int count = countActiveLeave.Rows.Count;
+
+                switch (account)
+                {
+                    case "ESO":
+                        lblESOActiveLeaveCount.Text = $"ESO - {count}";
+                        break;
+                    case "RKESI":
+                        lblRKEActiveLeaveCount.Text = $"RKE - {count}";
+                        break;
+                    case "VUIHOC":
+                        lblVUIActiveLeaveCount.Text = $"VUI - {count}";
+                        break;
+                }
+            }
         }
     }
 }
