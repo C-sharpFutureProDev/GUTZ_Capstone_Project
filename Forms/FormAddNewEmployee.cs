@@ -26,17 +26,25 @@ namespace GUTZ_Capstone_Project.Forms
         private TimeSpan startTime;
         private TimeSpan endTime;
         public bool isButtonSetScheduleClicked = false;
+        public bool IsSuccessful { get; private set; } = false;
 
-        public FormAddNewEmployee(string empId_)
+        EmployeeList _employeeList;
+
+        public FormAddNewEmployee(string empId_, EmployeeList employeeList_)
         {
             InitializeComponent();
             if (!string.IsNullOrEmpty(empId_))
             {
                 this._empId = empId_;
             }
+
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
             progressPecentageStatus.Text = "[ + {0} + ' %' ]";
+
+            IsSuccessful = false;
+            this._employeeList = employeeList_;
         }
 
         // Fixed flicker user interface rendering
@@ -106,6 +114,7 @@ namespace GUTZ_Capstone_Project.Forms
                     scanningProgressBar.Visible = false;
                     btnStartScan.Visible = false;
                     btnSetSchedule.Text = "UPDATE SCHEDULE";
+                    btnResetInputFields.Enabled = false;
 
                     txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
 
@@ -740,6 +749,8 @@ namespace GUTZ_Capstone_Project.Forms
                             {
                                 DialogResult result = MessageBox.Show("New record has been saved successfully. Do you want to add another employee?",
                                 "New Employee Added", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                                IsSuccessful = true;
 
                                 if (result == DialogResult.Yes)
                                 {

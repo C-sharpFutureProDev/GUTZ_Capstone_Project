@@ -243,12 +243,6 @@
     <Compile Include="EmployeeSchedule.Designer.cs">
       <DependentUpon>EmployeeSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEmployee.Designer.cs">
-      <DependentUpon>FormEmployee.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormEmployeeProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +288,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleEmployeeDetailsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleEmployeeDetailsCard.Designer.cs">
+      <DependentUpon>SampleEmployeeDetailsCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="SampleProfileCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -343,9 +343,6 @@
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEmployee.resx">
-      <DependentUpon>FormEmployee.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormEmployeeProfile.resx">
       <DependentUpon>FormEmployeeProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +367,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SampleEmployeeDetailsCard.resx">
+      <DependentUpon>SampleEmployeeDetailsCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SampleProfileCard.resx">
       <DependentUpon>SampleProfileCard.cs</DependentUpon>
     </EmbeddedResource>

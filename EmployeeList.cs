@@ -221,11 +221,18 @@ namespace GUTZ_Capstone_Project
 
         private void btnAddNewEmployee_Click(object sender, EventArgs e)
         {
-            using (FormAddNewEmployee formAddNewEmployee = new FormAddNewEmployee(""))
+            using (FormAddNewEmployee formAddNewEmployee = new FormAddNewEmployee("", this))
             {
-                formAddNewEmployee.FormClosed += (s, args) => PopulateItems();
-                formAddNewEmployee.FormClosed += (s, args) => CountActiveAndInactive();
-                formAddNewEmployee.FormClosed += (s, args) => CountEmployeeListDetails();
+                formAddNewEmployee.FormClosed += (s, args) =>
+                {
+                    // Check if the operation was successful
+                    if (formAddNewEmployee.IsSuccessful)
+                    {
+                        PopulateItems();
+                        CountActiveAndInactive();
+                        CountEmployeeListDetails();
+                    }
+                };
 
                 formAddNewEmployee.ShowDialog();
             }

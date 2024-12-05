@@ -845,9 +845,9 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.label19.Location = new System.Drawing.Point(914, 221);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(191, 25);
+            this.label19.Size = new System.Drawing.Size(226, 25);
             this.label19.TabIndex = 73;
-            this.label19.Text = "Emergency Contact:";
+            this.label19.Text = "Emergency Contact No.:";
             // 
             // cboCivilStatus
             // 
@@ -952,9 +952,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.label7.Location = new System.Drawing.Point(618, 221);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 25);
+            this.label7.Size = new System.Drawing.Size(67, 25);
             this.label7.TabIndex = 61;
-            this.label7.Text = "Email Address:";
+            this.label7.Text = "Email:";
             // 
             // txtEmployeeContactNumber
             // 
@@ -1134,7 +1134,7 @@
             this.txtStartDate.Font = new System.Drawing.Font("Roboto", 9.5F);
             this.txtStartDate.ForeColor = System.Drawing.Color.Black;
             this.txtStartDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtStartDate.Location = new System.Drawing.Point(46, 268);
+            this.txtStartDate.Location = new System.Drawing.Point(45, 268);
             this.txtStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.PasswordChar = '\0';
@@ -1142,7 +1142,7 @@
             this.txtStartDate.PlaceholderText = "MM/DD/YYYY";
             this.txtStartDate.ReadOnly = true;
             this.txtStartDate.SelectedText = "";
-            this.txtStartDate.Size = new System.Drawing.Size(251, 40);
+            this.txtStartDate.Size = new System.Drawing.Size(252, 40);
             this.txtStartDate.TabIndex = 86;
             this.txtStartDate.Click += new System.EventHandler(this.txtStartDate_Click);
             // 
@@ -1273,7 +1273,7 @@
             this.dtpEmpStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpEmpStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpEmpStartDate.Name = "dtpEmpStartDate";
-            this.dtpEmpStartDate.Size = new System.Drawing.Size(251, 40);
+            this.dtpEmpStartDate.Size = new System.Drawing.Size(252, 40);
             this.dtpEmpStartDate.TabIndex = 79;
             this.dtpEmpStartDate.Value = new System.DateTime(2024, 10, 21, 0, 0, 0, 0);
             this.dtpEmpStartDate.Visible = false;

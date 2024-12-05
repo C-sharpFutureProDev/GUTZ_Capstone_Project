@@ -197,12 +197,12 @@
             this.btnViewEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeDetails.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnViewEmployeeDetails.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnViewEmployeeDetails.Location = new System.Drawing.Point(257, 146);
+            this.btnViewEmployeeDetails.Location = new System.Drawing.Point(257, 147);
             this.btnViewEmployeeDetails.Name = "btnViewEmployeeDetails";
-            this.btnViewEmployeeDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnViewEmployeeDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
             this.btnViewEmployeeDetails.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeDetails.PressedDepth = 0;
-            this.btnViewEmployeeDetails.Size = new System.Drawing.Size(80, 31);
+            this.btnViewEmployeeDetails.Size = new System.Drawing.Size(80, 30);
             this.btnViewEmployeeDetails.TabIndex = 84;
             this.btnViewEmployeeDetails.Text = "Details";
             this.btnViewEmployeeDetails.Click += new System.EventHandler(this.btnViewEmployeeDetails_Click);

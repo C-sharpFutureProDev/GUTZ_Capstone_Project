@@ -185,7 +185,7 @@ namespace GUTZ_Capstone_Project
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // Open FormAddNewEmployee for editing with the employee ID
-            using (FormAddNewEmployee formEditEmployee = new FormAddNewEmployee(_id))
+            using (FormAddNewEmployee formEditEmployee = new FormAddNewEmployee(_id, _employeeList))
             {
                 formEditEmployee.FormClosed += (s, args) =>
                 {

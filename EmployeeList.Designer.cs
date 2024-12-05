@@ -133,7 +133,7 @@
             this.label2.BackColor = System.Drawing.Color.Ivory;
             this.label2.Font = new System.Drawing.Font("Rockwell", 10F);
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(210, 16);
+            this.label2.Location = new System.Drawing.Point(212, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 22);
             this.label2.TabIndex = 68;
@@ -170,7 +170,7 @@
             this.iconInactive.IconColor = System.Drawing.Color.Gray;
             this.iconInactive.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconInactive.IconSize = 30;
-            this.iconInactive.Location = new System.Drawing.Point(164, 14);
+            this.iconInactive.Location = new System.Drawing.Point(166, 14);
             this.iconInactive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconInactive.Name = "iconInactive";
             this.iconInactive.Size = new System.Drawing.Size(45, 30);
@@ -195,7 +195,7 @@
             this.lblInactiveEmployee.BackColor = System.Drawing.Color.Ivory;
             this.lblInactiveEmployee.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblInactiveEmployee.ForeColor = System.Drawing.Color.Gray;
-            this.lblInactiveEmployee.Location = new System.Drawing.Point(298, 15);
+            this.lblInactiveEmployee.Location = new System.Drawing.Point(300, 15);
             this.lblInactiveEmployee.Name = "lblInactiveEmployee";
             this.lblInactiveEmployee.Size = new System.Drawing.Size(23, 25);
             this.lblInactiveEmployee.TabIndex = 72;

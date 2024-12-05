@@ -109,7 +109,7 @@ namespace GUTZ_Capstone_Project
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // Open FormAddNewEmployee for edit/update
-            using (FormAddNewEmployee formEditEmployee = new FormAddNewEmployee(_id))
+            using (FormAddNewEmployee formEditEmployee = new FormAddNewEmployee(_id, _employeeList))
             {
                 formEditEmployee.FormClosed += (s, args) => _employeeList.PopulateItems();
                 formEditEmployee.FormClosed += (s, args) => _employeeList.CountActiveAndInactive();
@@ -242,8 +242,13 @@ namespace GUTZ_Capstone_Project
                 // Clear existing controls in flowLayoutPanel2
                 _employeeList.flowLayoutPanel2.Controls.Clear();
 
-                EmployeeProfile employeeProfileCard = new EmployeeProfile(_id, _employeeList);
-                _employeeList.flowLayoutPanel2.Controls.Add(employeeProfileCard);
+                //EmployeeProfile employeeProfileCard = new EmployeeProfile(_id, _employeeList);
+                //employeeProfileCard.btnPersonalDetails.FillColor = Color.FromArgb(107, 144, 128);
+                //employeeProfileCard.btnPersonalDetails.ForeColor = Color.White;
+                //_employeeList.flowLayoutPanel2.Controls.Add(employeeProfileCard);
+
+                SampleEmployeeDetailsCard sampleEmployeeDetailsCard = new SampleEmployeeDetailsCard(_id, _employeeList);
+                _employeeList.flowLayoutPanel2.Controls.Add(sampleEmployeeDetailsCard);
 
                 // Refresh layout
                 _employeeList.flowLayoutPanel1.Refresh();
