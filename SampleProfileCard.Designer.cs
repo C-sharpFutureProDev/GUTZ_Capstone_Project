@@ -293,7 +293,7 @@
             // 
             // lblEmpRate
             // 
-            this.lblEmpRate.Font = new System.Drawing.Font("Rockwell", 8F, System.Drawing.FontStyle.Bold);
+            this.lblEmpRate.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpRate.ForeColor = System.Drawing.Color.White;
             this.lblEmpRate.Location = new System.Drawing.Point(3, 58);
             this.lblEmpRate.Name = "lblEmpRate";

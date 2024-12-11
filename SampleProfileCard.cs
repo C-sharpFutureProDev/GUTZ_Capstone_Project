@@ -36,6 +36,7 @@ namespace GUTZ_Capstone_Project
             toolTip.SetToolTip(btnDeactivateEmployee, "Deactivate");
             toolTip.SetToolTip(btnEdit, "Update Profile");
             toolTip.SetToolTip(btnReactivateEmployee, "Reactivate");
+            toolTip.SetToolTip(btnViewEmployeeDetails, "View Profile Details");
             toolTip.UseAnimation = false;
             toolTip.UseFading = false;
         }

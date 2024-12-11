@@ -185,16 +185,26 @@ namespace GUTZ_Capstone_Project
                         string accountName = dt.Rows[0]["account_name"].ToString();
                         lblEmployeeAccountName.Text = accountName;
 
+                        double ratePerHour = 0;
+
                         if (employmentType == "Tenured")
                         {
-                            double ratePerHour = double.Parse(dt.Rows[0]["tenured_rate"].ToString());
-                            lblEmployeRatePerHour.Text = "₱ " + ratePerHour.ToString("n2");
+                            ratePerHour = double.Parse(dt.Rows[0]["tenured_rate"].ToString());
                         }
                         else if (employmentType == "Non-Tenured")
                         {
-                            double ratePerHour = double.Parse(dt.Rows[0]["non_tenured_rate"].ToString());
-                            lblEmployeRatePerHour.Text = "₱ " + ratePerHour.ToString("n2");
+                            ratePerHour = double.Parse(dt.Rows[0]["non_tenured_rate"].ToString());
                         }
+
+                        // Display rate per hour
+                        lblEmployeRatePerHour.Text = "₱ " + ratePerHour.ToString("n2");
+
+                        // Calculate average monthly salary
+                        int workingDaysInMonth = GetWorkingDaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                        double averageMonthlySalary = ratePerHour * 3 * workingDaysInMonth; // 3 hours a day
+
+                        // Display the average monthly salary
+                        lblEmployeeBasedSalary.Text = "₱ " + averageMonthlySalary.ToString("n2");
                     }
                     else
                     {
@@ -217,8 +227,6 @@ namespace GUTZ_Capstone_Project
                     {
                         lblEmployeeWorkingHours.Text = "Working hours not available";
                     }
-
-
                 }
                 else
                 {
@@ -231,6 +239,25 @@ namespace GUTZ_Capstone_Project
                 MessageBox.Show($"An error occurred while loading employee profile details: {ex.Message}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Helper method to calculate working days in a month excluding weekends
+        private int GetWorkingDaysInMonth(int year, int month)
+        {
+            int workingDays = 0;
+            DateTime firstDayOfMonth = new DateTime(year, month, 1);
+            DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+            for (DateTime date = firstDayOfMonth; date <= lastDayOfMonth; date = date.AddDays(1))
+            {
+                // Check if the day is not Saturday or Sunday
+                if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    workingDays++;
+                }
+            }
+
+            return workingDays;
         }
 
         /*private async Task<Image> LoadImageAsync(string imagePath)

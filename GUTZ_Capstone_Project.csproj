@@ -219,6 +219,12 @@
     <Compile Include="EmployeeListCardForAttendanceHistory.Designer.cs">
       <DependentUpon>EmployeeListCardForAttendanceHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeePastAttendanceHistoryCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeePastAttendanceHistoryCard.Designer.cs">
+      <DependentUpon>EmployeePastAttendanceHistoryCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeePersonal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeListCardForAttendanceHistory.resx">
       <DependentUpon>EmployeeListCardForAttendanceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeePastAttendanceHistoryCard.resx">
+      <DependentUpon>EmployeePastAttendanceHistoryCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeePersonal.resx">
       <DependentUpon>EmployeePersonal.cs</DependentUpon>

@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.employeeProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnSaveEmployeeDetails = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.lblEmployeeFullName = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblLeaveDetailsInformation = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.dtpLeaveRequestDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dtpLeaveApprovedDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -47,23 +46,8 @@
             this.dtpLeaveStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblActiveLeaveStatus = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // employeeProfilePicture
-            // 
-            this.employeeProfilePicture.AutoRoundedCorners = true;
-            this.employeeProfilePicture.BackColor = System.Drawing.Color.White;
-            this.employeeProfilePicture.BorderRadius = 71;
-            this.employeeProfilePicture.FillColor = System.Drawing.Color.MistyRose;
-            this.employeeProfilePicture.ImageRotate = 0F;
-            this.employeeProfilePicture.Location = new System.Drawing.Point(210, 25);
-            this.employeeProfilePicture.Name = "employeeProfilePicture";
-            this.employeeProfilePicture.Size = new System.Drawing.Size(145, 144);
-            this.employeeProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.employeeProfilePicture.TabIndex = 67;
-            this.employeeProfilePicture.TabStop = false;
             // 
             // btnSaveEmployeeDetails
             // 
@@ -75,7 +59,7 @@
             this.btnSaveEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveEmployeeDetails.FillColor = System.Drawing.Color.Green;
-            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Rockwell", 10.5F);
+            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveEmployeeDetails.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnSaveEmployeeDetails.HoverState.FillColor = System.Drawing.Color.DarkGreen;
@@ -98,14 +82,14 @@
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
-            this.btnCancel.Font = new System.Drawing.Font("Rockwell", 10.5F);
+            this.btnCancel.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnCancel.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(402, 587);
+            this.btnCancel.Location = new System.Drawing.Point(401, 587);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 76;
             this.btnCancel.Text = "Cancel";
@@ -116,24 +100,24 @@
             this.lblEmployeeFullName.BackColor = System.Drawing.Color.White;
             this.lblEmployeeFullName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.lblEmployeeFullName.Location = new System.Drawing.Point(41, 175);
+            this.lblEmployeeFullName.Location = new System.Drawing.Point(41, 44);
             this.lblEmployeeFullName.Name = "lblEmployeeFullName";
-            this.lblEmployeeFullName.Size = new System.Drawing.Size(481, 40);
+            this.lblEmployeeFullName.Size = new System.Drawing.Size(480, 40);
             this.lblEmployeeFullName.TabIndex = 77;
-            this.lblEmployeeFullName.Text = "FullName";
-            this.lblEmployeeFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEmployeeFullName.Text = "Employee Name";
+            this.lblEmployeeFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label20
+            // lblLeaveDetailsInformation
             // 
-            this.label20.BackColor = System.Drawing.Color.White;
-            this.label20.Font = new System.Drawing.Font("Roboto", 10.5F, System.Drawing.FontStyle.Bold);
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.label20.Location = new System.Drawing.Point(42, 220);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(225, 37);
-            this.label20.TabIndex = 78;
-            this.label20.Text = "Leave Information:";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblLeaveDetailsInformation.BackColor = System.Drawing.Color.White;
+            this.lblLeaveDetailsInformation.Font = new System.Drawing.Font("Roboto", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblLeaveDetailsInformation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.lblLeaveDetailsInformation.Location = new System.Drawing.Point(41, 220);
+            this.lblLeaveDetailsInformation.Name = "lblLeaveDetailsInformation";
+            this.lblLeaveDetailsInformation.Size = new System.Drawing.Size(226, 37);
+            this.lblLeaveDetailsInformation.TabIndex = 78;
+            this.lblLeaveDetailsInformation.Text = "Set Leave Schedule:";
+            this.lblLeaveDetailsInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label21
             // 
@@ -164,7 +148,7 @@
             this.dtpLeaveRequestDate.Name = "dtpLeaveRequestDate";
             this.dtpLeaveRequestDate.Size = new System.Drawing.Size(212, 40);
             this.dtpLeaveRequestDate.TabIndex = 80;
-            this.dtpLeaveRequestDate.Value = new System.DateTime(2024, 11, 27, 11, 7, 49, 756);
+            this.dtpLeaveRequestDate.Value = new System.DateTime(2024, 12, 2, 0, 0, 0, 0);
             // 
             // dtpLeaveApprovedDate
             // 
@@ -183,7 +167,7 @@
             this.dtpLeaveApprovedDate.Name = "dtpLeaveApprovedDate";
             this.dtpLeaveApprovedDate.Size = new System.Drawing.Size(211, 40);
             this.dtpLeaveApprovedDate.TabIndex = 82;
-            this.dtpLeaveApprovedDate.Value = new System.DateTime(2024, 11, 27, 10, 25, 55, 190);
+            this.dtpLeaveApprovedDate.Value = new System.DateTime(2024, 12, 2, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -290,7 +274,7 @@
             this.dtpLeaveEndDate.Name = "dtpLeaveEndDate";
             this.dtpLeaveEndDate.Size = new System.Drawing.Size(211, 40);
             this.dtpLeaveEndDate.TabIndex = 88;
-            this.dtpLeaveEndDate.Value = new System.DateTime(2024, 11, 27, 10, 25, 55, 190);
+            this.dtpLeaveEndDate.Value = new System.DateTime(2024, 12, 2, 0, 0, 0, 0);
             // 
             // dtpLeaveStartDate
             // 
@@ -309,16 +293,16 @@
             this.dtpLeaveStartDate.Name = "dtpLeaveStartDate";
             this.dtpLeaveStartDate.Size = new System.Drawing.Size(212, 40);
             this.dtpLeaveStartDate.TabIndex = 86;
-            this.dtpLeaveStartDate.Value = new System.DateTime(2024, 11, 27, 11, 7, 49, 756);
+            this.dtpLeaveStartDate.Value = new System.DateTime(2024, 12, 2, 0, 0, 0, 0);
             // 
             // lblActiveLeaveStatus
             // 
             this.lblActiveLeaveStatus.BackColor = System.Drawing.Color.White;
             this.lblActiveLeaveStatus.Font = new System.Drawing.Font("Roboto", 10.5F, System.Drawing.FontStyle.Bold);
             this.lblActiveLeaveStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.lblActiveLeaveStatus.Location = new System.Drawing.Point(297, 220);
+            this.lblActiveLeaveStatus.Location = new System.Drawing.Point(296, 220);
             this.lblActiveLeaveStatus.Name = "lblActiveLeaveStatus";
-            this.lblActiveLeaveStatus.Size = new System.Drawing.Size(224, 37);
+            this.lblActiveLeaveStatus.Size = new System.Drawing.Size(225, 37);
             this.lblActiveLeaveStatus.TabIndex = 86;
             this.lblActiveLeaveStatus.Text = "Status: Active";
             this.lblActiveLeaveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -331,11 +315,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(563, 644);
             this.Controls.Add(this.lblActiveLeaveStatus);
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.lblLeaveDetailsInformation);
             this.Controls.Add(this.lblEmployeeFullName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveEmployeeDetails);
-            this.Controls.Add(this.employeeProfilePicture);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EmployeeLeave";
@@ -343,19 +326,16 @@
             this.Text = "Leave Schedule Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeLeave_FormClosing);
             this.Load += new System.EventHandler(this.EmployeeLeave_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2PictureBox employeeProfilePicture;
         private Guna.UI2.WinForms.Guna2Button btnSaveEmployeeDetails;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private System.Windows.Forms.Label lblEmployeeFullName;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblLeaveDetailsInformation;
         private System.Windows.Forms.Label label21;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpLeaveRequestDate;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpLeaveApprovedDate;

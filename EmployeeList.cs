@@ -45,9 +45,7 @@ namespace GUTZ_Capstone_Project
             cboFilter.SelectedIndex = 0;
             isUserInteraction = false;
 
-            flowLayoutPanel1.SuspendLayout();
             PopulateItems();
-            flowLayoutPanel1.ResumeLayout();
             CountActiveAndInactive();
             CountEmployeeListDetails();
         }
@@ -143,8 +141,6 @@ namespace GUTZ_Capstone_Project
                     return;
                 }
 
-                flowLayoutPanel1.SuspendLayout();
-
                 foreach (DataRow row in dt.Rows)
                 {
                     int id = int.Parse(row["emp_id"].ToString());
@@ -184,8 +180,6 @@ namespace GUTZ_Capstone_Project
                     SampleProfileCard sampleProfileCard = new SampleProfileCard(this);
                     flowLayoutPanel1.Controls.Add(sampleProfileCard);
                 }*/
-
-                flowLayoutPanel1.ResumeLayout();
             }
             catch (Exception ex)
             {
@@ -698,15 +692,11 @@ namespace GUTZ_Capstone_Project
             cboFilter.Items.AddRange(defaultFilterItems);
             cboFilter.SelectedIndex = 0;
 
-            flowLayoutPanel1.SuspendLayout();
-
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.BackColor = Color.Gray;
             txtSearch.Clear();
             flowLayoutPanel2.Visible = false;
             flowLayoutPanel1.Dock = DockStyle.Fill;
-
-            flowLayoutPanel1.ResumeLayout();
 
             isRefreshing = false;
         }

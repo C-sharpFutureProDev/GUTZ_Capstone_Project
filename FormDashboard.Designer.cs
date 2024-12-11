@@ -483,7 +483,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Cambria", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Yellow;
             this.label5.Location = new System.Drawing.Point(1499, 8);
             this.label5.Name = "label5";
@@ -606,11 +606,11 @@
             // 
             this.lblVUIActiveLeaveCount.AutoSize = true;
             this.lblVUIActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Cambria", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblVUIActiveLeaveCount.ForeColor = System.Drawing.Color.MediumPurple;
             this.lblVUIActiveLeaveCount.Location = new System.Drawing.Point(200, 150);
             this.lblVUIActiveLeaveCount.Name = "lblVUIActiveLeaveCount";
-            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(70, 23);
+            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(67, 22);
             this.lblVUIActiveLeaveCount.TabIndex = 36;
             this.lblVUIActiveLeaveCount.Text = "VUI - 0";
             // 
@@ -618,11 +618,11 @@
             // 
             this.lblRKEActiveLeaveCount.AutoSize = true;
             this.lblRKEActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Cambria", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblRKEActiveLeaveCount.ForeColor = System.Drawing.Color.HotPink;
             this.lblRKEActiveLeaveCount.Location = new System.Drawing.Point(109, 150);
             this.lblRKEActiveLeaveCount.Name = "lblRKEActiveLeaveCount";
-            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(79, 23);
+            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(72, 22);
             this.lblRKEActiveLeaveCount.TabIndex = 35;
             this.lblRKEActiveLeaveCount.Text = "RKE - 0";
             // 
@@ -630,18 +630,18 @@
             // 
             this.lblESOActiveLeaveCount.AutoSize = true;
             this.lblESOActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Cambria", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblESOActiveLeaveCount.ForeColor = System.Drawing.Color.Orange;
             this.lblESOActiveLeaveCount.Location = new System.Drawing.Point(21, 150);
             this.lblESOActiveLeaveCount.Name = "lblESOActiveLeaveCount";
-            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(76, 23);
+            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(69, 22);
             this.lblESOActiveLeaveCount.TabIndex = 30;
             this.lblESOActiveLeaveCount.Text = "ESO - 0";
             // 
             // lblOnLeave
             // 
             this.lblOnLeave.BackColor = System.Drawing.Color.Ivory;
-            this.lblOnLeave.Font = new System.Drawing.Font("Rockwell", 28F, System.Drawing.FontStyle.Bold);
+            this.lblOnLeave.Font = new System.Drawing.Font("Cambria", 28F, System.Drawing.FontStyle.Bold);
             this.lblOnLeave.ForeColor = System.Drawing.Color.DarkViolet;
             this.lblOnLeave.Location = new System.Drawing.Point(3, 65);
             this.lblOnLeave.Name = "lblOnLeave";
@@ -654,11 +654,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Rockwell", 10.5F, System.Drawing.FontStyle.Bold);
+            this.label10.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(13, 15);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 25);
+            this.label10.Size = new System.Drawing.Size(103, 26);
             this.label10.TabIndex = 29;
             this.label10.Text = "On Leave";
             // 
@@ -821,7 +821,7 @@
             // lblPresentForToday
             // 
             this.lblPresentForToday.BackColor = System.Drawing.Color.Ivory;
-            this.lblPresentForToday.Font = new System.Drawing.Font("Rockwell", 28F, System.Drawing.FontStyle.Bold);
+            this.lblPresentForToday.Font = new System.Drawing.Font("Cambria", 28F, System.Drawing.FontStyle.Bold);
             this.lblPresentForToday.ForeColor = System.Drawing.Color.Green;
             this.lblPresentForToday.Location = new System.Drawing.Point(3, 65);
             this.lblPresentForToday.Name = "lblPresentForToday";
@@ -834,11 +834,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 10.5F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(13, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 25);
+            this.label3.Size = new System.Drawing.Size(198, 26);
             this.label3.TabIndex = 29;
             this.label3.Text = "Attendance, Today";
             // 
@@ -896,11 +896,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 10.5F);
+            this.label7.Font = new System.Drawing.Font("Cambria", 11F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.label7.Location = new System.Drawing.Point(21, 153);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 23);
+            this.label7.Size = new System.Drawing.Size(118, 26);
             this.label7.TabIndex = 29;
             this.label7.Text = "This Month";
             // 
@@ -939,7 +939,7 @@
             // lblTotalEmployee
             // 
             this.lblTotalEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblTotalEmployee.Font = new System.Drawing.Font("Rockwell", 28F, System.Drawing.FontStyle.Bold);
+            this.lblTotalEmployee.Font = new System.Drawing.Font("Cambria", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.lblTotalEmployee.Location = new System.Drawing.Point(3, 65);
             this.lblTotalEmployee.Name = "lblTotalEmployee";
@@ -952,11 +952,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 10.5F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(13, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 25);
+            this.label2.Size = new System.Drawing.Size(170, 26);
             this.label2.TabIndex = 27;
             this.label2.Text = "Total Employee";
             // 

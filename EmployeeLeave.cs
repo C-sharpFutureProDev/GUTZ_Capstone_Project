@@ -52,11 +52,9 @@ namespace GUTZ_Capstone_Project
 
         private void LoadEmployeeProfile()
         {
-            string sql = "SELECT f_name, m_name, l_name, emp_ProfilePic FROM tbl_employee WHERE emp_id = @empId";
+            string sql = "SELECT f_name, m_name, l_name FROM tbl_employee WHERE emp_id = @empId";
             var parameterGetEmployeeProfilePicture = new Dictionary<string, object>
-    {
-        { "@empId", _id }
-    };
+            {{ "@empId", _id }};
 
             DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameterGetEmployeeProfilePicture);
             if (dt.Rows.Count > 0)
@@ -67,23 +65,23 @@ namespace GUTZ_Capstone_Project
                 string name = string.IsNullOrEmpty(middleName) || middleName == "N/A"
                     ? $"{firstName} {lastName}"
                     : $"{firstName} {middleName[0]}. {lastName}";
-                string image_path = dt.Rows[0]["emp_ProfilePic"].ToString();
 
                 lblEmployeeFullName.Text = name;
-                employeeProfilePicture.Image = System.Drawing.Image.FromFile(image_path);
             }
         }
 
         private void CheckActiveLeave()
         {
+            groupBox1.Text = "Active Leave Details";
+
             string sql = @"SELECT leave_type, start_date, end_date, date_requested, date_approved 
-                   FROM tbl_leave 
-                   WHERE emp_id = @empId AND end_date >= @today";
+                           FROM tbl_leave 
+                           WHERE emp_id = @empId AND end_date >= @today";
             var parameterCheckActiveLeave = new Dictionary<string, object>
-    {
-        { "@empId", _id },
-        { "@today", DateTime.Now.Date }
-    };
+            {
+                { "@empId", _id },
+                { "@today", DateTime.Now.Date }
+            };
 
             DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameterCheckActiveLeave);
             if (dt.Rows.Count > 0)
@@ -96,6 +94,7 @@ namespace GUTZ_Capstone_Project
                 dtpLeaveRequestDate.Value = Convert.ToDateTime(row["date_requested"]);
                 dtpLeaveApprovedDate.Value = Convert.ToDateTime(row["date_approved"]);
 
+                lblLeaveDetailsInformation.Text = "Leave Information:";
                 lblActiveLeaveStatus.Visible = true;
                 btnCancel.Text = "Close";
 
@@ -111,7 +110,7 @@ namespace GUTZ_Capstone_Project
             dtpLeaveEndDate.Enabled = false;
             dtpLeaveRequestDate.Enabled = false;
             dtpLeaveApprovedDate.Enabled = false;
-            btnSaveEmployeeDetails.Enabled = false; // Disable save button
+            btnSaveEmployeeDetails.Enabled = false;
         }
 
 
@@ -131,15 +130,15 @@ namespace GUTZ_Capstone_Project
                                        VALUES (@empId, @dateRequested, @dateApproved, @leaveType, @startDate, @endDate, @createdAt)";
 
                 var parameterInsert = new Dictionary<string, object>
-        {
-            { "@empId", _id },
-            { "@dateRequested", leaveRequestDate },
-            { "@dateApproved", leaveApprovedDate },
-            { "@leaveType", leaveType },
-            { "@startDate", leaveStartDate },
-            { "@endDate", leaveEndDate },
-            { "@createdAt", createdAt },
-        };
+                {
+                    { "@empId", _id },
+                    { "@dateRequested", leaveRequestDate },
+                    { "@dateApproved", leaveApprovedDate },
+                    { "@leaveType", leaveType },
+                    { "@startDate", leaveStartDate },
+                    { "@endDate", leaveEndDate },
+                    { "@createdAt", createdAt },
+                };
 
                 if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertLeaveSchedule, parameterInsert))
                 {

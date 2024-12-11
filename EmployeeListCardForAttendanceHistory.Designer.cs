@@ -92,7 +92,7 @@
             this.lblJobRole.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblJobRole.PressedColor = System.Drawing.Color.Teal;
             this.lblJobRole.PressedDepth = 0;
-            this.lblJobRole.Size = new System.Drawing.Size(115, 35);
+            this.lblJobRole.Size = new System.Drawing.Size(130, 35);
             this.lblJobRole.TabIndex = 89;
             this.lblJobRole.Text = "Role";
             // 

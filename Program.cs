@@ -29,20 +29,20 @@ namespace GUTZ_Capstone_Project
             StartScheduler().GetAwaiter().GetResult();
 
             // Run the application
-            Application.Run(new FormDashboard(1001)); // bypass
-            //Application.Run(new FormLogin()); // bypass
-
+            //Application.Run(new FormDashboard(1001)); // bypass
+            Application.Run(new FormLogin());
         }
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
 
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
 
         private static async Task StartScheduler()
         {
+            IScheduler scheduler = null;
             try
             {
                 // Create a new scheduler
-                IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
+                scheduler = await StdSchedulerFactory.GetDefaultScheduler();
                 await scheduler.Start();
 
                 // Define the job and tie it to the LeaveStatusUpdateJob class
@@ -50,19 +50,40 @@ namespace GUTZ_Capstone_Project
                     .WithIdentity("leaveStatusUpdateJob")
                     .Build();
 
-                // Trigger the job to run every day at a specific time (e.g., 12:00 AM)
-                ITrigger trigger = TriggerBuilder.Create()
-                .WithIdentity("leaveStatusUpdateTrigger")
-                .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(0, 0)) // Runs daily at 12:00 AM
-                .Build();
+                // Trigger the job to run immediately
+                ITrigger immediateTrigger = TriggerBuilder.Create()
+                    .WithIdentity("immediateTrigger")
+                    .StartNow() // Trigger immediately
+                    .Build();
 
-                // Schedule the job using the trigger
-                await scheduler.ScheduleJob(job, trigger);
-                //Console.WriteLine("Job scheduled successfully.");
+                // Schedule the job using the immediate trigger
+                await scheduler.ScheduleJob(job, immediateTrigger);
+
+                // Trigger the job to run daily at 12:00 AM
+                ITrigger dailyTrigger = TriggerBuilder.Create()
+                    .WithIdentity("leaveStatusUpdateTrigger")
+                    .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(0, 0)) // Runs daily at 12:00 AM
+                    .Build();
+
+                // Schedule the daily job
+                await scheduler.ScheduleJob(job, dailyTrigger);
+
+                Console.WriteLine("Jobs scheduled successfully.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error starting scheduler: {ex.Message}");
+            }
+            finally
+            {
+                // Optionally, handle scheduler shutdown gracefully when the application exits
+                Application.ApplicationExit += async (s, e) =>
+                {
+                    if (scheduler != null)
+                    {
+                        await scheduler.Shutdown();
+                    }
+                };
             }
         }
     }
