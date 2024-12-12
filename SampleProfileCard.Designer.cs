@@ -85,7 +85,7 @@
             this.btnWorkingArrangement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnWorkingArrangement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnWorkingArrangement.FillColor = System.Drawing.Color.Teal;
-            this.btnWorkingArrangement.Font = new System.Drawing.Font("Rockwell", 9F);
+            this.btnWorkingArrangement.Font = new System.Drawing.Font("Arial", 9.5F);
             this.btnWorkingArrangement.ForeColor = System.Drawing.Color.White;
             this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.Teal;
             this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.Teal;
@@ -97,7 +97,7 @@
             this.btnWorkingArrangement.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnWorkingArrangement.PressedColor = System.Drawing.Color.Teal;
             this.btnWorkingArrangement.PressedDepth = 0;
-            this.btnWorkingArrangement.Size = new System.Drawing.Size(115, 35);
+            this.btnWorkingArrangement.Size = new System.Drawing.Size(120, 35);
             this.btnWorkingArrangement.TabIndex = 88;
             this.btnWorkingArrangement.Text = "Wrk. Arr.";
             // 
@@ -132,23 +132,23 @@
             // lblJoinedDate
             // 
             this.lblJoinedDate.AutoSize = true;
-            this.lblJoinedDate.Font = new System.Drawing.Font("Rockwell", 7F);
+            this.lblJoinedDate.Font = new System.Drawing.Font("Arial", 7.5F);
             this.lblJoinedDate.ForeColor = System.Drawing.Color.Black;
             this.lblJoinedDate.Location = new System.Drawing.Point(161, 153);
             this.lblJoinedDate.Name = "lblJoinedDate";
-            this.lblJoinedDate.Size = new System.Drawing.Size(69, 17);
+            this.lblJoinedDate.Size = new System.Drawing.Size(74, 17);
             this.lblJoinedDate.TabIndex = 76;
             this.lblJoinedDate.Text = "Start Date";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 7F);
+            this.label5.Font = new System.Drawing.Font("Arial", 7.5F);
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(110, 153);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(55, 17);
+            this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 75;
             this.label5.Text = "Joined:";
             // 
@@ -190,7 +190,7 @@
             this.btnViewEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnViewEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnViewEmployeeDetails.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewEmployeeDetails.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewEmployeeDetails.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnViewEmployeeDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -199,7 +199,7 @@
             this.btnViewEmployeeDetails.ImageSize = new System.Drawing.Size(17, 17);
             this.btnViewEmployeeDetails.Location = new System.Drawing.Point(257, 147);
             this.btnViewEmployeeDetails.Name = "btnViewEmployeeDetails";
-            this.btnViewEmployeeDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
+            this.btnViewEmployeeDetails.Padding = new System.Windows.Forms.Padding(2, 2, 0, 1);
             this.btnViewEmployeeDetails.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeDetails.PressedDepth = 0;
             this.btnViewEmployeeDetails.Size = new System.Drawing.Size(80, 30);
@@ -264,7 +264,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblID.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.lblID.Location = new System.Drawing.Point(15, 142);
             this.lblID.Name = "lblID";
@@ -293,7 +293,7 @@
             // 
             // lblEmpRate
             // 
-            this.lblEmpRate.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpRate.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmpRate.ForeColor = System.Drawing.Color.White;
             this.lblEmpRate.Location = new System.Drawing.Point(3, 58);
             this.lblEmpRate.Name = "lblEmpRate";
@@ -304,7 +304,7 @@
             // 
             // lblJobRole
             // 
-            this.lblJobRole.Font = new System.Drawing.Font("Roboto", 8.5F);
+            this.lblJobRole.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
             this.lblJobRole.Location = new System.Drawing.Point(2, 31);
             this.lblJobRole.Name = "lblJobRole";
@@ -315,7 +315,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";

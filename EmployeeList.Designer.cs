@@ -92,7 +92,7 @@
             this.cboFilter.FillColor = System.Drawing.Color.Ivory;
             this.cboFilter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboFilter.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.cboFilter.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.ItemHeight = 35;
@@ -222,7 +222,7 @@
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(25, 25);
             this.btnAddNewEmployee.Location = new System.Drawing.Point(1350, 17);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
-            this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 2, 0, 1);
             this.btnAddNewEmployee.Size = new System.Drawing.Size(145, 40);
             this.btnAddNewEmployee.TabIndex = 73;
             this.btnAddNewEmployee.Text = "Employee";
@@ -289,7 +289,7 @@
             // lblVUIHOC
             // 
             this.lblVUIHOC.BackColor = System.Drawing.Color.Ivory;
-            this.lblVUIHOC.Font = new System.Drawing.Font("Cambria", 11F);
+            this.lblVUIHOC.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVUIHOC.ForeColor = System.Drawing.Color.MediumPurple;
             this.lblVUIHOC.Location = new System.Drawing.Point(67, 5);
             this.lblVUIHOC.Name = "lblVUIHOC";
@@ -302,7 +302,7 @@
             // label15
             // 
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.MediumPurple;
             this.label15.Location = new System.Drawing.Point(3, 5);
             this.label15.Name = "label15";
@@ -332,7 +332,7 @@
             // lblRKESI
             // 
             this.lblRKESI.BackColor = System.Drawing.Color.Ivory;
-            this.lblRKESI.Font = new System.Drawing.Font("Cambria", 11F);
+            this.lblRKESI.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRKESI.ForeColor = System.Drawing.Color.HotPink;
             this.lblRKESI.Location = new System.Drawing.Point(67, 5);
             this.lblRKESI.Name = "lblRKESI";
@@ -345,7 +345,7 @@
             // label13
             // 
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.HotPink;
             this.label13.Location = new System.Drawing.Point(3, 5);
             this.label13.Name = "label13";
@@ -375,7 +375,7 @@
             // lblESO
             // 
             this.lblESO.BackColor = System.Drawing.Color.Ivory;
-            this.lblESO.Font = new System.Drawing.Font("Cambria", 11F);
+            this.lblESO.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblESO.ForeColor = System.Drawing.Color.Orange;
             this.lblESO.Location = new System.Drawing.Point(67, 5);
             this.lblESO.Name = "lblESO";
@@ -388,7 +388,7 @@
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold);
+            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Orange;
             this.label11.Location = new System.Drawing.Point(3, 5);
             this.label11.Name = "label11";
@@ -419,7 +419,7 @@
             // lblPartTime
             // 
             this.lblPartTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblPartTime.Font = new System.Drawing.Font("Cambria", 11F);
+            this.lblPartTime.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPartTime.ForeColor = System.Drawing.Color.Teal;
             this.lblPartTime.Location = new System.Drawing.Point(113, 5);
             this.lblPartTime.Name = "lblPartTime";
@@ -432,7 +432,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Teal;
             this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
@@ -462,7 +462,7 @@
             // lblFullTime
             // 
             this.lblFullTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblFullTime.Font = new System.Drawing.Font("Cambria", 11F);
+            this.lblFullTime.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullTime.ForeColor = System.Drawing.Color.Teal;
             this.lblFullTime.Location = new System.Drawing.Point(113, 5);
             this.lblFullTime.Name = "lblFullTime";
@@ -475,7 +475,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Teal;
             this.label7.Location = new System.Drawing.Point(3, 5);
             this.label7.Name = "label7";
@@ -506,7 +506,7 @@
             // lblFemaleEmployee
             // 
             this.lblFemaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblFemaleEmployee.Font = new System.Drawing.Font("Cambria", 11F);
+            this.lblFemaleEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFemaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lblFemaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblFemaleEmployee.Name = "lblFemaleEmployee";
@@ -519,7 +519,7 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 9.6F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label5.Location = new System.Drawing.Point(3, 4);
             this.label5.Name = "label5";
@@ -548,7 +548,7 @@
             // lblMaleEmployee
             // 
             this.lblMaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblMaleEmployee.Font = new System.Drawing.Font("Cambria", 11F);
+            this.lblMaleEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lblMaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblMaleEmployee.Name = "lblMaleEmployee";
@@ -561,7 +561,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 9.6F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label3.Location = new System.Drawing.Point(3, 4);
             this.label3.Name = "label3";
@@ -581,7 +581,7 @@
             this.cboSort.FillColor = System.Drawing.Color.Ivory;
             this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSort.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.cboSort.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboSort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSort.ItemHeight = 35;
@@ -695,7 +695,7 @@
             this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefresh.Location = new System.Drawing.Point(1350, 138);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Padding = new System.Windows.Forms.Padding(4, 0, 0, 1);
+            this.btnRefresh.Padding = new System.Windows.Forms.Padding(4, 2, 0, 1);
             this.btnRefresh.PressedColor = System.Drawing.Color.ForestGreen;
             this.btnRefresh.Size = new System.Drawing.Size(130, 40);
             this.btnRefresh.TabIndex = 77;
@@ -718,7 +718,7 @@
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FillColor = System.Drawing.Color.Ivory;
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtSearch.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.txtSearch.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtSearch.Location = new System.Drawing.Point(309, 136);
@@ -758,7 +758,7 @@
             this.btnExport.ImageSize = new System.Drawing.Size(25, 25);
             this.btnExport.Location = new System.Drawing.Point(935, 17);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
+            this.btnExport.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
             this.btnExport.Size = new System.Drawing.Size(130, 40);
             this.btnExport.TabIndex = 75;
             this.btnExport.Text = "Export";
@@ -785,7 +785,7 @@
             this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
             this.guna2Button1.Location = new System.Drawing.Point(1070, 17);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
             this.guna2Button1.Size = new System.Drawing.Size(130, 40);
             this.guna2Button1.TabIndex = 74;
             this.guna2Button1.Text = "Import";
@@ -801,7 +801,7 @@
             this.cboSearch.FillColor = System.Drawing.Color.Ivory;
             this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSearch.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.cboSearch.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSearch.ItemHeight = 35;

@@ -29,8 +29,8 @@ namespace GUTZ_Capstone_Project
             StartScheduler().GetAwaiter().GetResult();
 
             // Run the application
-            //Application.Run(new FormDashboard(1001)); // bypass
-            Application.Run(new FormLogin());
+            Application.Run(new FormDashboard(1001)); // bypass
+            //Application.Run(new FormLogin());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

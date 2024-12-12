@@ -66,7 +66,7 @@
             this.btnSaveEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(41, 587);
             this.btnSaveEmployeeDetails.Name = "btnSaveEmployeeDetails";
-            this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(5, 1, 0, 0);
+            this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(5, 3, 0, 0);
             this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(120, 40);
             this.btnSaveEmployeeDetails.TabIndex = 75;
             this.btnSaveEmployeeDetails.Text = "SAVE";
@@ -89,7 +89,7 @@
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(401, 587);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 3, 0, 0);
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 76;
             this.btnCancel.Text = "Cancel";

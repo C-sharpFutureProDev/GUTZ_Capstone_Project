@@ -571,9 +571,9 @@
             this.label38.Location = new System.Drawing.Point(15, 7);
             this.label38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(166, 23);
+            this.label38.Size = new System.Drawing.Size(233, 23);
             this.label38.TabIndex = 119;
-            this.label38.Text = "Based Salary (Avg.)";
+            this.label38.Text = "Based Salary (Avg.) / Month";
             // 
             // guna2Panel11
             // 

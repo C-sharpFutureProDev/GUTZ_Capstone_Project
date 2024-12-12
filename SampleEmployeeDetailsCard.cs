@@ -204,7 +204,7 @@ namespace GUTZ_Capstone_Project
                         double averageMonthlySalary = ratePerHour * 3 * workingDaysInMonth; // 3 hours a day
 
                         // Display the average monthly salary
-                        lblEmployeeBasedSalary.Text = "₱ " + averageMonthlySalary.ToString("n2");
+                        lblEmployeeBasedSalary.Text = "₱ " + averageMonthlySalary.ToString("n2") + " / Month";
                     }
                     else
                     {

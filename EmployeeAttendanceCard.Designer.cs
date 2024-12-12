@@ -166,26 +166,26 @@
             // btnAttendanceStatus
             // 
             this.btnAttendanceStatus.BackColor = System.Drawing.Color.Transparent;
-            this.btnAttendanceStatus.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnAttendanceStatus.BorderRadius = 4;
+            this.btnAttendanceStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAttendanceStatus.BorderRadius = 5;
             this.btnAttendanceStatus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAttendanceStatus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAttendanceStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAttendanceStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAttendanceStatus.FillColor = System.Drawing.Color.ForestGreen;
-            this.btnAttendanceStatus.Font = new System.Drawing.Font("Rockwell", 9F);
+            this.btnAttendanceStatus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAttendanceStatus.Font = new System.Drawing.Font("Arial", 9F);
             this.btnAttendanceStatus.ForeColor = System.Drawing.Color.White;
-            this.btnAttendanceStatus.HoverState.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnAttendanceStatus.HoverState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnAttendanceStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAttendanceStatus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnAttendanceStatus.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAttendanceStatus.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAttendanceStatus.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnAttendanceStatus.Location = new System.Drawing.Point(227, 12);
+            this.btnAttendanceStatus.Location = new System.Drawing.Point(229, 12);
             this.btnAttendanceStatus.Name = "btnAttendanceStatus";
-            this.btnAttendanceStatus.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
-            this.btnAttendanceStatus.PressedColor = System.Drawing.Color.ForestGreen;
+            this.btnAttendanceStatus.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnAttendanceStatus.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnAttendanceStatus.PressedDepth = 0;
-            this.btnAttendanceStatus.Size = new System.Drawing.Size(112, 35);
+            this.btnAttendanceStatus.Size = new System.Drawing.Size(110, 35);
             this.btnAttendanceStatus.TabIndex = 76;
             this.btnAttendanceStatus.Text = "Status";
             this.btnAttendanceStatus.Visible = false;
@@ -193,12 +193,12 @@
             // lblCurrentDate
             // 
             this.lblCurrentDate.AutoSize = true;
-            this.lblCurrentDate.Font = new System.Drawing.Font("Rockwell", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentDate.Font = new System.Drawing.Font("Arial", 8.5F);
             this.lblCurrentDate.ForeColor = System.Drawing.Color.Black;
             this.lblCurrentDate.Location = new System.Drawing.Point(11, 12);
             this.lblCurrentDate.Name = "lblCurrentDate";
             this.lblCurrentDate.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.lblCurrentDate.Size = new System.Drawing.Size(134, 19);
+            this.lblCurrentDate.Size = new System.Drawing.Size(132, 19);
             this.lblCurrentDate.TabIndex = 75;
             this.lblCurrentDate.Text = "Attendance Date";
             // 
@@ -333,12 +333,12 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Sans Serif Collection", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(10, 44);
             this.lblName.Name = "lblName";
             this.lblName.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.lblName.Size = new System.Drawing.Size(232, 30);
+            this.lblName.Size = new System.Drawing.Size(213, 30);
             this.lblName.TabIndex = 60;
             this.lblName.Text = "Full Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

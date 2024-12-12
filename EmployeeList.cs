@@ -235,7 +235,11 @@ namespace GUTZ_Capstone_Project
         private async void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (!isUserInteraction)
+            {
+                MessageBox.Show("Please choose any of available search criteria");
+                txtSearch.Clear();
                 return;
+            }
 
             if (e.KeyCode == Keys.Enter)
             {

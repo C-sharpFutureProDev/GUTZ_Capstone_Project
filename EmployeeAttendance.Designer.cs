@@ -272,7 +272,7 @@
             this.btnAbsent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.btnAbsent.Size = new System.Drawing.Size(150, 68);
             this.btnAbsent.TabIndex = 45;
-            this.btnAbsent.Text = "1000";
+            this.btnAbsent.Text = "10000";
             this.btnAbsent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnClockIn
@@ -304,7 +304,7 @@
             this.btnClockIn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.btnClockIn.Size = new System.Drawing.Size(150, 68);
             this.btnClockIn.TabIndex = 42;
-            this.btnClockIn.Text = "1000";
+            this.btnClockIn.Text = "10000";
             this.btnClockIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnClockOut
@@ -336,7 +336,7 @@
             this.btnClockOut.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.btnClockOut.Size = new System.Drawing.Size(150, 68);
             this.btnClockOut.TabIndex = 40;
-            this.btnClockOut.Text = "1000";
+            this.btnClockOut.Text = "10000";
             this.btnClockOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnOnLeave
@@ -368,7 +368,7 @@
             this.btnOnLeave.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.btnOnLeave.Size = new System.Drawing.Size(150, 68);
             this.btnOnLeave.TabIndex = 117;
-            this.btnOnLeave.Text = "1000";
+            this.btnOnLeave.Text = "10000";
             this.btnOnLeave.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cboFilter
