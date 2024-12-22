@@ -93,7 +93,7 @@
             this.cboFilter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.cboFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.ItemHeight = 35;
             this.cboFilter.Items.AddRange(new object[] {
@@ -220,7 +220,7 @@
             this.btnAddNewEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewEmployee.Image")));
             this.btnAddNewEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddNewEmployee.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnAddNewEmployee.Location = new System.Drawing.Point(1350, 17);
+            this.btnAddNewEmployee.Location = new System.Drawing.Point(1395, 17);
             this.btnAddNewEmployee.Name = "btnAddNewEmployee";
             this.btnAddNewEmployee.Padding = new System.Windows.Forms.Padding(0, 2, 0, 1);
             this.btnAddNewEmployee.Size = new System.Drawing.Size(145, 40);
@@ -272,29 +272,28 @@
             // guna2Panel6
             // 
             this.guna2Panel6.BackColor = System.Drawing.Color.Ivory;
-            this.guna2Panel6.BorderColor = System.Drawing.Color.Ivory;
-            this.guna2Panel6.BorderRadius = 5;
+            this.guna2Panel6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel6.Controls.Add(this.lblVUIHOC);
             this.guna2Panel6.Controls.Add(this.label15);
             this.guna2Panel6.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel6.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Panel6.Location = new System.Drawing.Point(757, 109);
+            this.guna2Panel6.Location = new System.Drawing.Point(742, 109);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel6.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.guna2Panel6.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel6.Size = new System.Drawing.Size(125, 40);
+            this.guna2Panel6.Size = new System.Drawing.Size(140, 40);
             this.guna2Panel6.TabIndex = 29;
             // 
             // lblVUIHOC
             // 
             this.lblVUIHOC.BackColor = System.Drawing.Color.Ivory;
-            this.lblVUIHOC.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVUIHOC.ForeColor = System.Drawing.Color.MediumPurple;
+            this.lblVUIHOC.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblVUIHOC.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblVUIHOC.Location = new System.Drawing.Point(67, 5);
             this.lblVUIHOC.Name = "lblVUIHOC";
-            this.lblVUIHOC.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
-            this.lblVUIHOC.Size = new System.Drawing.Size(53, 30);
+            this.lblVUIHOC.Padding = new System.Windows.Forms.Padding(5, 2, 0, 0);
+            this.lblVUIHOC.Size = new System.Drawing.Size(70, 30);
             this.lblVUIHOC.TabIndex = 27;
             this.lblVUIHOC.Text = "0";
             this.lblVUIHOC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -303,7 +302,7 @@
             // 
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.MediumPurple;
+            this.label15.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label15.Location = new System.Drawing.Point(3, 5);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -315,29 +314,28 @@
             // guna2Panel5
             // 
             this.guna2Panel5.BackColor = System.Drawing.Color.Ivory;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.Ivory;
-            this.guna2Panel5.BorderRadius = 5;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel5.Controls.Add(this.lblRKESI);
             this.guna2Panel5.Controls.Add(this.label13);
             this.guna2Panel5.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel5.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Panel5.Location = new System.Drawing.Point(757, 63);
+            this.guna2Panel5.Location = new System.Drawing.Point(742, 63);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel5.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.guna2Panel5.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel5.Size = new System.Drawing.Size(125, 40);
+            this.guna2Panel5.Size = new System.Drawing.Size(140, 40);
             this.guna2Panel5.TabIndex = 29;
             // 
             // lblRKESI
             // 
             this.lblRKESI.BackColor = System.Drawing.Color.Ivory;
-            this.lblRKESI.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRKESI.ForeColor = System.Drawing.Color.HotPink;
+            this.lblRKESI.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblRKESI.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblRKESI.Location = new System.Drawing.Point(67, 5);
             this.lblRKESI.Name = "lblRKESI";
-            this.lblRKESI.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
-            this.lblRKESI.Size = new System.Drawing.Size(53, 30);
+            this.lblRKESI.Padding = new System.Windows.Forms.Padding(5, 2, 0, 0);
+            this.lblRKESI.Size = new System.Drawing.Size(70, 30);
             this.lblRKESI.TabIndex = 27;
             this.lblRKESI.Text = "0";
             this.lblRKESI.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -346,7 +344,7 @@
             // 
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.HotPink;
+            this.label13.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label13.Location = new System.Drawing.Point(3, 5);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -358,29 +356,28 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.Ivory;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.Ivory;
-            this.guna2Panel4.BorderRadius = 5;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel4.Controls.Add(this.lblESO);
             this.guna2Panel4.Controls.Add(this.label11);
             this.guna2Panel4.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel4.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Panel4.Location = new System.Drawing.Point(757, 17);
+            this.guna2Panel4.Location = new System.Drawing.Point(742, 17);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel4.Size = new System.Drawing.Size(125, 40);
+            this.guna2Panel4.Size = new System.Drawing.Size(140, 40);
             this.guna2Panel4.TabIndex = 28;
             // 
             // lblESO
             // 
             this.lblESO.BackColor = System.Drawing.Color.Ivory;
-            this.lblESO.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblESO.ForeColor = System.Drawing.Color.Orange;
+            this.lblESO.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblESO.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblESO.Location = new System.Drawing.Point(67, 5);
             this.lblESO.Name = "lblESO";
-            this.lblESO.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
-            this.lblESO.Size = new System.Drawing.Size(53, 30);
+            this.lblESO.Padding = new System.Windows.Forms.Padding(5, 2, 0, 0);
+            this.lblESO.Size = new System.Drawing.Size(70, 30);
             this.lblESO.TabIndex = 27;
             this.lblESO.Text = "0";
             this.lblESO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,7 +386,7 @@
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Orange;
+            this.label11.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label11.Location = new System.Drawing.Point(3, 5);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -401,30 +398,29 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Ivory;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.Ivory;
-            this.guna2Panel3.BorderRadius = 5;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel3.Controls.Add(this.lblPartTime);
             this.guna2Panel3.Controls.Add(this.label9);
             this.guna2Panel3.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel3.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Panel3.ForeColor = System.Drawing.Color.Teal;
-            this.guna2Panel3.Location = new System.Drawing.Point(535, 63);
+            this.guna2Panel3.Location = new System.Drawing.Point(534, 63);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel3.Size = new System.Drawing.Size(171, 40);
+            this.guna2Panel3.Size = new System.Drawing.Size(190, 40);
             this.guna2Panel3.TabIndex = 82;
             // 
             // lblPartTime
             // 
             this.lblPartTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblPartTime.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartTime.ForeColor = System.Drawing.Color.Teal;
+            this.lblPartTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPartTime.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblPartTime.Location = new System.Drawing.Point(113, 5);
             this.lblPartTime.Name = "lblPartTime";
-            this.lblPartTime.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
-            this.lblPartTime.Size = new System.Drawing.Size(53, 30);
+            this.lblPartTime.Padding = new System.Windows.Forms.Padding(5, 2, 0, 0);
+            this.lblPartTime.Size = new System.Drawing.Size(74, 30);
             this.lblPartTime.TabIndex = 27;
             this.lblPartTime.Text = "0";
             this.lblPartTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -433,7 +429,7 @@
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Teal;
+            this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -445,29 +441,28 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Ivory;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.Ivory;
-            this.guna2Panel2.BorderRadius = 5;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel2.Controls.Add(this.lblFullTime);
             this.guna2Panel2.Controls.Add(this.label7);
             this.guna2Panel2.FillColor = System.Drawing.Color.Ivory;
             this.guna2Panel2.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Panel2.Location = new System.Drawing.Point(535, 17);
+            this.guna2Panel2.Location = new System.Drawing.Point(534, 17);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel2.Size = new System.Drawing.Size(171, 40);
+            this.guna2Panel2.Size = new System.Drawing.Size(190, 40);
             this.guna2Panel2.TabIndex = 81;
             // 
             // lblFullTime
             // 
             this.lblFullTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblFullTime.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullTime.ForeColor = System.Drawing.Color.Teal;
+            this.lblFullTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblFullTime.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblFullTime.Location = new System.Drawing.Point(113, 5);
             this.lblFullTime.Name = "lblFullTime";
-            this.lblFullTime.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
-            this.lblFullTime.Size = new System.Drawing.Size(53, 30);
+            this.lblFullTime.Padding = new System.Windows.Forms.Padding(5, 2, 0, 0);
+            this.lblFullTime.Size = new System.Drawing.Size(74, 30);
             this.lblFullTime.TabIndex = 27;
             this.lblFullTime.Text = "0";
             this.lblFullTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -476,7 +471,7 @@
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Teal;
+            this.label7.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label7.Location = new System.Drawing.Point(3, 5);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -488,8 +483,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Ivory;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Ivory;
-            this.guna2Panel1.BorderRadius = 5;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel1.Controls.Add(this.lblFemaleEmployee);
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.FillColor = System.Drawing.Color.Ivory;
@@ -500,18 +494,18 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel1.Size = new System.Drawing.Size(108, 40);
+            this.guna2Panel1.Size = new System.Drawing.Size(140, 40);
             this.guna2Panel1.TabIndex = 28;
             // 
             // lblFemaleEmployee
             // 
             this.lblFemaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblFemaleEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFemaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblFemaleEmployee.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblFemaleEmployee.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblFemaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblFemaleEmployee.Name = "lblFemaleEmployee";
-            this.lblFemaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
-            this.lblFemaleEmployee.Size = new System.Drawing.Size(53, 30);
+            this.lblFemaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.lblFemaleEmployee.Size = new System.Drawing.Size(86, 30);
             this.lblFemaleEmployee.TabIndex = 27;
             this.lblFemaleEmployee.Text = "0";
             this.lblFemaleEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -520,7 +514,7 @@
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label5.Location = new System.Drawing.Point(3, 4);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -532,8 +526,7 @@
             // panelTotalEmployee
             // 
             this.panelTotalEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.panelTotalEmployee.BorderColor = System.Drawing.Color.Ivory;
-            this.panelTotalEmployee.BorderRadius = 5;
+            this.panelTotalEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panelTotalEmployee.Controls.Add(this.lblMaleEmployee);
             this.panelTotalEmployee.Controls.Add(this.label3);
             this.panelTotalEmployee.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -542,18 +535,18 @@
             this.panelTotalEmployee.ShadowDecoration.BorderRadius = 15;
             this.panelTotalEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.panelTotalEmployee.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.panelTotalEmployee.Size = new System.Drawing.Size(108, 40);
+            this.panelTotalEmployee.Size = new System.Drawing.Size(140, 40);
             this.panelTotalEmployee.TabIndex = 3;
             // 
             // lblMaleEmployee
             // 
             this.lblMaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblMaleEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblMaleEmployee.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblMaleEmployee.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblMaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblMaleEmployee.Name = "lblMaleEmployee";
-            this.lblMaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 1);
-            this.lblMaleEmployee.Size = new System.Drawing.Size(53, 30);
+            this.lblMaleEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.lblMaleEmployee.Size = new System.Drawing.Size(86, 30);
             this.lblMaleEmployee.TabIndex = 27;
             this.lblMaleEmployee.Text = "0";
             this.lblMaleEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -562,7 +555,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label3.Location = new System.Drawing.Point(3, 4);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -582,7 +575,7 @@
             this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.cboSort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSort.ItemHeight = 35;
             this.cboSort.Items.AddRange(new object[] {
@@ -606,7 +599,8 @@
             // guna2Button4
             // 
             this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button4.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.guna2Button4.BorderRadius = 1;
             this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -630,7 +624,8 @@
             // guna2Button3
             // 
             this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button3.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.guna2Button3.BorderRadius = 1;
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -655,7 +650,8 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnEdit.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.btnEdit.BorderRadius = 1;
             this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -668,7 +664,7 @@
             this.btnEdit.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageSize = new System.Drawing.Size(30, 34);
-            this.btnEdit.Location = new System.Drawing.Point(266, 144);
+            this.btnEdit.Location = new System.Drawing.Point(266, 142);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnEdit.PressedDepth = 0;
@@ -679,24 +675,25 @@
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.BorderColor = System.Drawing.Color.Green;
+            this.btnRefresh.BorderColor = System.Drawing.Color.Coral;
             this.btnRefresh.BorderRadius = 4;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.FillColor = System.Drawing.Color.Green;
+            this.btnRefresh.FillColor = System.Drawing.Color.Coral;
             this.btnRefresh.Font = new System.Drawing.Font("Arial", 10F);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnRefresh.HoverState.FillColor = System.Drawing.Color.DarkGreen;
+            this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.Tomato;
+            this.btnRefresh.HoverState.FillColor = System.Drawing.Color.Tomato;
             this.btnRefresh.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRefresh.Location = new System.Drawing.Point(1350, 138);
+            this.btnRefresh.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnRefresh.Location = new System.Drawing.Point(1410, 137);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Padding = new System.Windows.Forms.Padding(4, 2, 0, 1);
-            this.btnRefresh.PressedColor = System.Drawing.Color.ForestGreen;
+            this.btnRefresh.Padding = new System.Windows.Forms.Padding(1, 2, 0, 1);
+            this.btnRefresh.PressedColor = System.Drawing.Color.Salmon;
             this.btnRefresh.Size = new System.Drawing.Size(130, 40);
             this.btnRefresh.TabIndex = 77;
             this.btnRefresh.Text = "Refresh";
@@ -719,7 +716,7 @@
             this.txtSearch.FillColor = System.Drawing.Color.Ivory;
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.txtSearch.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtSearch.Location = new System.Drawing.Point(309, 136);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
@@ -747,11 +744,11 @@
             this.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnExport.FillColor = System.Drawing.Color.Green;
             this.btnExport.Font = new System.Drawing.Font("Arial", 10F);
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnExport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnExport.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnExport.HoverState.FillColor = System.Drawing.Color.DarkGreen;
             this.btnExport.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
             this.btnExport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -759,6 +756,7 @@
             this.btnExport.Location = new System.Drawing.Point(935, 17);
             this.btnExport.Name = "btnExport";
             this.btnExport.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
+            this.btnExport.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
             this.btnExport.Size = new System.Drawing.Size(130, 40);
             this.btnExport.TabIndex = 75;
             this.btnExport.Text = "Export";
@@ -774,11 +772,11 @@
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Green;
             this.guna2Button1.Font = new System.Drawing.Font("Arial", 10F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.DarkGreen;
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -786,6 +784,7 @@
             this.guna2Button1.Location = new System.Drawing.Point(1070, 17);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
+            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
             this.guna2Button1.Size = new System.Drawing.Size(130, 40);
             this.guna2Button1.TabIndex = 74;
             this.guna2Button1.Text = "Import";
@@ -802,7 +801,7 @@
             this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearch.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.cboSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSearch.ItemHeight = 35;
             this.cboSearch.Items.AddRange(new object[] {

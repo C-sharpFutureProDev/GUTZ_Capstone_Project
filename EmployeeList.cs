@@ -172,6 +172,11 @@ namespace GUTZ_Capstone_Project
                     else if (workingArrangement == "Part-Time")
                         sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
 
+                    if(jobRole == "Administrator")
+                    {
+                        sampleProfileCard.lblEmpRate.Text = "";
+                    }
+
                     flowLayoutPanel1.Controls.Add(sampleProfileCard);
                 }
 

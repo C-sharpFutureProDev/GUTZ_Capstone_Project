@@ -55,6 +55,7 @@ namespace GUTZ_Capstone_Project
         {
             if (!string.IsNullOrEmpty(_empId))
             {
+                lblFormLabel.Text = "UPDATE CLASS SCHEDULE";
                 LoadScheduleData();
             }
         }
@@ -62,11 +63,13 @@ namespace GUTZ_Capstone_Project
         private void LoadScheduleData()
         {
             string sql = @"SELECT work_days, start_time, end_time
-                           FROM tbl_schedule
-                           WHERE emp_id = @EmpId";
+                   FROM tbl_schedule
+                   WHERE emp_id = @EmpId";
 
             var parameters = new Dictionary<string, object>
-            {{ "@EmpId", _empId }};
+            {
+                { "@EmpId", _empId }
+            };
 
             DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
 
@@ -99,18 +102,21 @@ namespace GUTZ_Capstone_Project
                     }
                 }
 
-                SetTime(row["start_time"].ToString(), StartNumUpDown, cboStartAMOrPM);
-                SetTime(row["end_time"].ToString(), EndNumUpDown, cboEndAMOrPM);
+                // Set start and end times with minutes
+                SetTime(row["start_time"].ToString(), StartNumUpDown, StartMinutesNumUpDown, cboStartAMOrPM);
+                SetTime(row["end_time"].ToString(), EndNumUpDown, EndMinutesNumUpDown, cboEndAMOrPM);
             }
         }
 
-        private void SetTime(string timeString, Guna2NumericUpDown numUpDown, ComboBox amPmComboBox)
+        private void SetTime(string timeString, Guna2NumericUpDown numUpDown, Guna2NumericUpDown minutesNumUpDown, ComboBox amPmComboBox)
         {
             if (TimeSpan.TryParse(timeString, out TimeSpan time))
             {
                 decimal hours = (decimal)(time.Hours % 12 == 0 ? 12 : time.Hours % 12);
-                numUpDown.Value = hours + (decimal)(time.Minutes / 60.0);
-                amPmComboBox.SelectedIndex = time.Hours >= 12 ? 1 : 0;
+                numUpDown.Value = hours; // Set hours
+                minutesNumUpDown.Value = time.Minutes; // Set minutes
+
+                amPmComboBox.SelectedIndex = time.Hours >= 12 ? 1 : 0; // AM/PM selection
             }
         }
 
@@ -130,8 +136,8 @@ namespace GUTZ_Capstone_Project
             if (chkBoxFriday.Checked) selectedDaysList.Add("Friday");
 
             SelectedDays = selectedDaysList.ToArray();
-            StartTime = GetTimeFromControls(StartNumUpDown, cboStartAMOrPM);
-            EndTime = GetTimeFromControls(EndNumUpDown, cboEndAMOrPM);
+            StartTime = GetTimeFromControls(StartNumUpDown, StartMinutesNumUpDown, cboStartAMOrPM);
+            EndTime = GetTimeFromControls(EndNumUpDown, EndMinutesNumUpDown, cboEndAMOrPM);
 
             MessageBox.Show("Schedule saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -150,14 +156,14 @@ namespace GUTZ_Capstone_Project
                 return false;
             }
 
-            if (StartNumUpDown.Value == 0)
+            if (StartNumUpDown.Value == 0 && StartMinutesNumUpDown.Value == 0)
             {
                 MessageBox.Show("Please enter a valid start time schedule.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            if (EndNumUpDown.Value == 0)
+            if (EndNumUpDown.Value == 0 && EndMinutesNumUpDown.Value == 0)
             {
                 MessageBox.Show("Please enter a valid end time schedule.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -167,19 +173,21 @@ namespace GUTZ_Capstone_Project
             return true;
         }
 
-        private TimeSpan GetTimeFromControls(Guna2NumericUpDown numUpDown, ComboBox amPmComboBox)
+        private TimeSpan GetTimeFromControls(Guna2NumericUpDown numUpDown, Guna2NumericUpDown minutesNumUpDown, ComboBox amPmComboBox)
         {
             int hour = (int)numUpDown.Value;
+            int minutes = (int)minutesNumUpDown.Value;
+
             if (amPmComboBox.SelectedIndex == 1 && hour < 12)
             {
-                hour += 12;
+                hour += 12; // Convert PM hour to 24-hour format
             }
             else if (amPmComboBox.SelectedIndex == 0 && hour == 12)
             {
-                hour = 0;
+                hour = 0; // Convert 12 AM to 0 hours
             }
 
-            return new TimeSpan(hour, 0, 0);
+            return new TimeSpan(hour, minutes, 0); // Return TimeSpan with hours and minutes
         }
 
         private void btnClose_Click(object sender, EventArgs e)

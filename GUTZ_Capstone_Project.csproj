@@ -267,6 +267,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -294,6 +300,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleAdminProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleAdminProfile.Designer.cs">
+      <DependentUpon>SampleAdminProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleEmployeeAttendanceReportCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleEmployeeAttendanceReportCard.Designer.cs">
+      <DependentUpon>SampleEmployeeAttendanceReportCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="SampleEmployeeDetailsCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -361,6 +379,9 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddNewEmployee.resx">
       <DependentUpon>FormAddNewEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +397,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SampleAdminProfile.resx">
+      <DependentUpon>SampleAdminProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleEmployeeAttendanceReportCard.resx">
+      <DependentUpon>SampleEmployeeAttendanceReportCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SampleEmployeeDetailsCard.resx">
       <DependentUpon>SampleEmployeeDetailsCard.cs</DependentUpon>
     </EmbeddedResource>

@@ -167,6 +167,7 @@
             this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSettings.Enabled = false;
             this.btnSettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnSettings.Font = new System.Drawing.Font("Arial", 11F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
@@ -197,6 +198,7 @@
             this.btnGenerateReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGenerateReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnGenerateReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGenerateReports.Enabled = false;
             this.btnGenerateReports.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnGenerateReports.Font = new System.Drawing.Font("Arial", 11F);
             this.btnGenerateReports.ForeColor = System.Drawing.Color.White;
@@ -227,6 +229,7 @@
             this.btnPayrollManagement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPayrollManagement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPayrollManagement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPayrollManagement.Enabled = false;
             this.btnPayrollManagement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnPayrollManagement.Font = new System.Drawing.Font("Arial", 11F);
             this.btnPayrollManagement.ForeColor = System.Drawing.Color.White;
@@ -495,7 +498,6 @@
             // 
             // iconCurrentLoginAdmin
             // 
-            this.iconCurrentLoginAdmin.FillColor = System.Drawing.Color.MistyRose;
             this.iconCurrentLoginAdmin.ImageRotate = 0F;
             this.iconCurrentLoginAdmin.Location = new System.Drawing.Point(1389, 10);
             this.iconCurrentLoginAdmin.Name = "iconCurrentLoginAdmin";
@@ -606,11 +608,11 @@
             // 
             this.lblVUIActiveLeaveCount.AutoSize = true;
             this.lblVUIActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblVUIActiveLeaveCount.ForeColor = System.Drawing.Color.MediumPurple;
-            this.lblVUIActiveLeaveCount.Location = new System.Drawing.Point(200, 150);
+            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVUIActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblVUIActiveLeaveCount.Location = new System.Drawing.Point(204, 150);
             this.lblVUIActiveLeaveCount.Name = "lblVUIActiveLeaveCount";
-            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(72, 23);
+            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(64, 21);
             this.lblVUIActiveLeaveCount.TabIndex = 36;
             this.lblVUIActiveLeaveCount.Text = "VUI - 0";
             // 
@@ -618,11 +620,11 @@
             // 
             this.lblRKEActiveLeaveCount.AutoSize = true;
             this.lblRKEActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblRKEActiveLeaveCount.ForeColor = System.Drawing.Color.HotPink;
-            this.lblRKEActiveLeaveCount.Location = new System.Drawing.Point(109, 150);
+            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRKEActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblRKEActiveLeaveCount.Location = new System.Drawing.Point(112, 150);
             this.lblRKEActiveLeaveCount.Name = "lblRKEActiveLeaveCount";
-            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(80, 23);
+            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(73, 21);
             this.lblRKEActiveLeaveCount.TabIndex = 35;
             this.lblRKEActiveLeaveCount.Text = "RKE - 0";
             // 
@@ -630,22 +632,22 @@
             // 
             this.lblESOActiveLeaveCount.AutoSize = true;
             this.lblESOActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblESOActiveLeaveCount.ForeColor = System.Drawing.Color.Orange;
+            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblESOActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblESOActiveLeaveCount.Location = new System.Drawing.Point(21, 150);
             this.lblESOActiveLeaveCount.Name = "lblESOActiveLeaveCount";
-            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(82, 23);
+            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(74, 21);
             this.lblESOActiveLeaveCount.TabIndex = 30;
             this.lblESOActiveLeaveCount.Text = "ESO - 0";
             // 
             // lblOnLeave
             // 
             this.lblOnLeave.BackColor = System.Drawing.Color.Ivory;
-            this.lblOnLeave.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
-            this.lblOnLeave.ForeColor = System.Drawing.Color.DarkViolet;
+            this.lblOnLeave.Font = new System.Drawing.Font("Arial", 28.8F, System.Drawing.FontStyle.Bold);
+            this.lblOnLeave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblOnLeave.Location = new System.Drawing.Point(3, 65);
             this.lblOnLeave.Name = "lblOnLeave";
-            this.lblOnLeave.Size = new System.Drawing.Size(284, 54);
+            this.lblOnLeave.Size = new System.Drawing.Size(284, 62);
             this.lblOnLeave.TabIndex = 34;
             this.lblOnLeave.Text = "ITGTBG";
             this.lblOnLeave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -655,7 +657,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.label10.Location = new System.Drawing.Point(13, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 26);
@@ -666,14 +668,14 @@
             // 
             this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.guna2Button4.BorderRadius = 4;
+            this.guna2Button4.BorderRadius = 2;
             this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
+            this.guna2Button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.White;
@@ -758,13 +760,13 @@
             // 
             this.lblLateForTodayPercentage.BackColor = System.Drawing.Color.Transparent;
             this.lblLateForTodayPercentage.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblLateForTodayPercentage.ForeColor = System.Drawing.Color.Red;
+            this.lblLateForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblLateForTodayPercentage.Location = new System.Drawing.Point(210, 150);
             this.lblLateForTodayPercentage.Name = "lblLateForTodayPercentage";
             this.lblLateForTodayPercentage.Size = new System.Drawing.Size(70, 25);
             this.lblLateForTodayPercentage.TabIndex = 33;
             this.lblLateForTodayPercentage.Text = "0%";
-            this.lblLateForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLateForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // iconLate
             // 
@@ -775,9 +777,9 @@
             this.iconLate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconLate.Font = new System.Drawing.Font("Roboto", 10.5F);
             this.iconLate.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
-            this.iconLate.IconColor = System.Drawing.Color.Red;
+            this.iconLate.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.iconLate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconLate.IconSize = 37;
+            this.iconLate.IconSize = 40;
             this.iconLate.Location = new System.Drawing.Point(170, 141);
             this.iconLate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconLate.Name = "iconLate";
@@ -790,13 +792,13 @@
             // 
             this.lblOnTimeForTodayPercentage.BackColor = System.Drawing.Color.Transparent;
             this.lblOnTimeForTodayPercentage.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblOnTimeForTodayPercentage.ForeColor = System.Drawing.Color.Green;
+            this.lblOnTimeForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblOnTimeForTodayPercentage.Location = new System.Drawing.Point(62, 150);
             this.lblOnTimeForTodayPercentage.Name = "lblOnTimeForTodayPercentage";
             this.lblOnTimeForTodayPercentage.Size = new System.Drawing.Size(70, 25);
             this.lblOnTimeForTodayPercentage.TabIndex = 30;
             this.lblOnTimeForTodayPercentage.Text = "0%";
-            this.lblOnTimeForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOnTimeForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // iconOnTime
             // 
@@ -807,10 +809,10 @@
             this.iconOnTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconOnTime.Font = new System.Drawing.Font("Roboto", 10F);
             this.iconOnTime.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
-            this.iconOnTime.IconColor = System.Drawing.Color.Green;
+            this.iconOnTime.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.iconOnTime.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconOnTime.IconSize = 37;
-            this.iconOnTime.Location = new System.Drawing.Point(18, 141);
+            this.iconOnTime.IconSize = 40;
+            this.iconOnTime.Location = new System.Drawing.Point(21, 141);
             this.iconOnTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconOnTime.Name = "iconOnTime";
             this.iconOnTime.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -821,11 +823,11 @@
             // lblPresentForToday
             // 
             this.lblPresentForToday.BackColor = System.Drawing.Color.Ivory;
-            this.lblPresentForToday.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
-            this.lblPresentForToday.ForeColor = System.Drawing.Color.Green;
+            this.lblPresentForToday.Font = new System.Drawing.Font("Arial", 28.8F, System.Drawing.FontStyle.Bold);
+            this.lblPresentForToday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblPresentForToday.Location = new System.Drawing.Point(3, 65);
             this.lblPresentForToday.Name = "lblPresentForToday";
-            this.lblPresentForToday.Size = new System.Drawing.Size(284, 54);
+            this.lblPresentForToday.Size = new System.Drawing.Size(284, 62);
             this.lblPresentForToday.TabIndex = 30;
             this.lblPresentForToday.Text = "OCS";
             this.lblPresentForToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -835,7 +837,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.label3.Location = new System.Drawing.Point(13, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(202, 26);
@@ -846,14 +848,14 @@
             // 
             this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.guna2Button2.BorderRadius = 4;
+            this.guna2Button2.BorderRadius = 2;
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
+            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.White;
@@ -897,7 +899,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial", 10F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.label7.Location = new System.Drawing.Point(21, 153);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 23);
@@ -908,7 +910,7 @@
             // 
             this.lblPercentText.BackColor = System.Drawing.Color.Transparent;
             this.lblPercentText.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblPercentText.ForeColor = System.Drawing.Color.Green;
+            this.lblPercentText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblPercentText.Location = new System.Drawing.Point(210, 150);
             this.lblPercentText.Name = "lblPercentText";
             this.lblPercentText.Size = new System.Drawing.Size(70, 25);
@@ -924,8 +926,9 @@
             this.iconIncrease.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.iconIncrease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconIncrease.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconIncrease.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.iconIncrease.IconChar = FontAwesome.Sharp.IconChar.ArrowUp;
-            this.iconIncrease.IconColor = System.Drawing.Color.Green;
+            this.iconIncrease.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.iconIncrease.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconIncrease.IconSize = 26;
             this.iconIncrease.Location = new System.Drawing.Point(180, 142);
@@ -939,11 +942,11 @@
             // lblTotalEmployee
             // 
             this.lblTotalEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblTotalEmployee.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.lblTotalEmployee.Font = new System.Drawing.Font("Arial", 28.8F, System.Drawing.FontStyle.Bold);
+            this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.lblTotalEmployee.Location = new System.Drawing.Point(3, 65);
             this.lblTotalEmployee.Name = "lblTotalEmployee";
-            this.lblTotalEmployee.Size = new System.Drawing.Size(284, 54);
+            this.lblTotalEmployee.Size = new System.Drawing.Size(284, 62);
             this.lblTotalEmployee.TabIndex = 27;
             this.lblTotalEmployee.Text = "GUTZ";
             this.lblTotalEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -953,7 +956,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.label2.Location = new System.Drawing.Point(13, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 26);
@@ -964,14 +967,14 @@
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.guna2Button1.BorderRadius = 4;
+            this.guna2Button1.BorderRadius = 2;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;

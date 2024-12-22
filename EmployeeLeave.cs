@@ -52,7 +52,7 @@ namespace GUTZ_Capstone_Project
 
         private void LoadEmployeeProfile()
         {
-            string sql = "SELECT f_name, m_name, l_name FROM tbl_employee WHERE emp_id = @empId";
+            string sql = "SELECT emp_id, emp_profilePic, f_name, m_name, l_name FROM tbl_employee WHERE emp_id = @empId";
             var parameterGetEmployeeProfilePicture = new Dictionary<string, object>
             {{ "@empId", _id }};
 
@@ -66,7 +66,12 @@ namespace GUTZ_Capstone_Project
                     ? $"{firstName} {lastName}"
                     : $"{firstName} {middleName[0]}. {lastName}";
 
-                lblEmployeeFullName.Text = name;
+                string empID = dt.Rows[0]["emp_id"].ToString();
+                string imagePath = dt.Rows[0]["emp_profilePic"].ToString();
+
+                employeeProfilePicture.Image = Image.FromFile(imagePath);
+                lblEmployeeFullName.Text = "Name: " + name;
+                lblID.Text = "ID: " + empID;
             }
         }
 

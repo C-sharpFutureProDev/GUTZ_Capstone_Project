@@ -215,6 +215,42 @@ namespace GUTZ_Capstone_Project
 
         private void btnViewEmployeeDetails_Click(object sender, EventArgs e)
         {
+            /*if (_activeCard != null && _activeCard != this)
+            {
+                // Reset the previous active card
+                _activeCard.DeactivateCard();
+            }
+
+            // Set the current card as active
+            _activeCard = this;
+            ActivateCard();
+
+            if (_employeeList != null)
+            {
+                foreach (var card in _employeeList.flowLayoutPanel1.Controls.OfType<SampleProfileCard>())
+                {
+                    // Update location for each card's
+                    card.panelEmployeeListCard.Location = new Point(12, 20);
+                }
+
+                _employeeList.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
+                _employeeList.flowLayoutPanel1.Size = new Size(410, 0); // Set size if needed
+
+                // Show flowLayoutPanel2
+                _employeeList.flowLayoutPanel2.Visible = true;
+                _employeeList.flowLayoutPanel2.Dock = DockStyle.Fill;
+
+                // Clear existing controls in flowLayoutPanel2
+                _employeeList.flowLayoutPanel2.Controls.Clear();
+
+                SampleEmployeeDetailsCard sampleEmployeeDetailsCard = new SampleEmployeeDetailsCard(_id, _employeeList);
+                _employeeList.flowLayoutPanel2.Controls.Add(sampleEmployeeDetailsCard);
+
+                // Refresh layout
+                _employeeList.flowLayoutPanel1.Refresh();
+                _employeeList.PerformLayout();
+            }*/
+
             if (_activeCard != null && _activeCard != this)
             {
                 // Reset the previous active card
@@ -243,13 +279,47 @@ namespace GUTZ_Capstone_Project
                 // Clear existing controls in flowLayoutPanel2
                 _employeeList.flowLayoutPanel2.Controls.Clear();
 
-                //EmployeeProfile employeeProfileCard = new EmployeeProfile(_id, _employeeList);
-                //employeeProfileCard.btnPersonalDetails.FillColor = Color.FromArgb(107, 144, 128);
-                //employeeProfileCard.btnPersonalDetails.ForeColor = Color.White;
-                //_employeeList.flowLayoutPanel2.Controls.Add(employeeProfileCard);
+                // Query to check if the employee is an admin
+                string query = @"SELECT tbl_employee.position_id, position_type 
+                                        FROM tbl_employee 
+                                 INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id 
+                                 WHERE emp_id = '" + _id + "'";
 
-                SampleEmployeeDetailsCard sampleEmployeeDetailsCard = new SampleEmployeeDetailsCard(_id, _employeeList);
-                _employeeList.flowLayoutPanel2.Controls.Add(sampleEmployeeDetailsCard);
+                DataTable result = DB_OperationHelperClass.QueryData(query);
+
+                /*if (result != null && result.Rows.Count > 0)
+                {
+                    DataRow row = result.Rows[0];
+                    int positionId = Convert.ToInt32(row["position_id"]);
+                    string positionType = row["position_type"].ToString();
+
+                    if (positionId == 1101 && positionType == "Administrator")
+                    {
+                        // Display SampleAdminProfile for admin
+                        SampleAdminProfile sampleAdminProfile = new SampleAdminProfile();
+                        _employeeList.flowLayoutPanel2.Controls.Add(sampleAdminProfile);
+                    }
+                    else
+                    {
+                        // Display SampleEmployeeDetailsCard for regular employee
+                        SampleEmployeeDetailsCard sampleEmployeeDetailsCard = new SampleEmployeeDetailsCard(_id, _employeeList);
+                        _employeeList.flowLayoutPanel2.Controls.Add(sampleEmployeeDetailsCard);
+                    }
+                }*/
+
+                if (result != null && result.Rows.Count > 0)
+                {
+                    DataRow row = result.Rows[0];
+                    int positionId = Convert.ToInt32(row["position_id"]);
+                    string positionType = row["position_type"].ToString();
+
+                    // Display profile details card based on specified condition
+                    var cardToAdd = (positionId == 1101 && positionType == "Administrator")
+                        ? (Control)new SampleAdminProfile()
+                        : new SampleEmployeeDetailsCard(_id, _employeeList);
+
+                    _employeeList.flowLayoutPanel2.Controls.Add(cardToAdd);
+                }
 
                 // Refresh layout
                 _employeeList.flowLayoutPanel1.Refresh();

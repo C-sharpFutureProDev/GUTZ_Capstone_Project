@@ -42,7 +42,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void DisplayAdminProfilePic()
+        private void DisplayAdminProfilePic() // Set to actual administrator
         {
             string sql = "SELECT emp_profilePic FROM tbl_employee WHERE emp_id = @id";
             var parameters = new Dictionary<string, object> { { "@id", id } };
@@ -215,20 +215,17 @@ namespace GUTZ_Capstone_Project
 
         private int GetWeekNumberInMonth(DateTime date)
         {
-            // Calculate the week number within the current month
+            // Get the first day of the month
             DateTime firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
-            DateTime lastDayOfMonth = new DateTime(date.Year, date.Month, daysInMonth);
 
-            // Get the week number of the first day of the month
-            int firstWeekNumberOfMonth = GetWeekNumber(firstDayOfMonth);
-
-            // Adjust the week number based on the day of the month
+            // Calculate the week number based on the first day of the month
             int weekNumberInMonth = ((date.Day - 1) / 7) + 1;
 
-            // If the last day of the month is in the first week of the next month, use the week number of the last day of the previous month
-            if (GetWeekNumber(lastDayOfMonth) == 1 && firstWeekNumberOfMonth > 1)
-                weekNumberInMonth = firstWeekNumberOfMonth;
+            // Check if the first day of the month is not in the first week
+            if (firstDayOfMonth.DayOfWeek != DayOfWeek.Sunday && weekNumberInMonth > 1)
+            {
+                weekNumberInMonth--;
+            }
 
             return weekNumberInMonth;
         }

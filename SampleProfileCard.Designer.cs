@@ -79,7 +79,7 @@
             // 
             this.btnWorkingArrangement.BackColor = System.Drawing.Color.Ivory;
             this.btnWorkingArrangement.BorderColor = System.Drawing.Color.Teal;
-            this.btnWorkingArrangement.BorderRadius = 4;
+            this.btnWorkingArrangement.BorderRadius = 3;
             this.btnWorkingArrangement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -132,23 +132,23 @@
             // lblJoinedDate
             // 
             this.lblJoinedDate.AutoSize = true;
-            this.lblJoinedDate.Font = new System.Drawing.Font("Arial", 7.5F);
-            this.lblJoinedDate.ForeColor = System.Drawing.Color.Black;
-            this.lblJoinedDate.Location = new System.Drawing.Point(161, 153);
+            this.lblJoinedDate.Font = new System.Drawing.Font("Arial", 7F);
+            this.lblJoinedDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblJoinedDate.Location = new System.Drawing.Point(161, 154);
             this.lblJoinedDate.Name = "lblJoinedDate";
-            this.lblJoinedDate.Size = new System.Drawing.Size(74, 17);
+            this.lblJoinedDate.Size = new System.Drawing.Size(71, 16);
             this.lblJoinedDate.TabIndex = 76;
             this.lblJoinedDate.Text = "Start Date";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 7.5F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(110, 153);
+            this.label5.Font = new System.Drawing.Font("Arial", 7F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(110, 154);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 75;
             this.label5.Text = "Joined:";
             // 
@@ -265,10 +265,10 @@
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
             this.lblID.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(15, 142);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(87, 35);
+            this.lblID.Size = new System.Drawing.Size(85, 35);
             this.lblID.TabIndex = 80;
             this.lblID.Text = "ID No.";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -293,7 +293,7 @@
             // 
             // lblEmpRate
             // 
-            this.lblEmpRate.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmpRate.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblEmpRate.ForeColor = System.Drawing.Color.White;
             this.lblEmpRate.Location = new System.Drawing.Point(3, 58);
             this.lblEmpRate.Name = "lblEmpRate";
@@ -333,7 +333,7 @@
             this.employeeProfilePicture.ImageRotate = 0F;
             this.employeeProfilePicture.Location = new System.Drawing.Point(15, 54);
             this.employeeProfilePicture.Name = "employeeProfilePicture";
-            this.employeeProfilePicture.Size = new System.Drawing.Size(84, 85);
+            this.employeeProfilePicture.Size = new System.Drawing.Size(85, 85);
             this.employeeProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.employeeProfilePicture.TabIndex = 79;
             this.employeeProfilePicture.TabStop = false;

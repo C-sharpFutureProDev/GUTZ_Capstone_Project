@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeListCardForAttendanceHistory));
             this.panelEmployeeList = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnUpdateSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.lblJobRole = new Guna.UI2.WinForms.Guna2Button();
             this.lblID = new System.Windows.Forms.Label();
             this.btnAddEmployeeLeaveSchedule = new Guna.UI2.WinForms.Guna2Button();
@@ -52,6 +53,7 @@
             this.panelEmployeeList.BackColor = System.Drawing.Color.Transparent;
             this.panelEmployeeList.BorderColor = System.Drawing.Color.LightYellow;
             this.panelEmployeeList.BorderRadius = 12;
+            this.panelEmployeeList.Controls.Add(this.btnUpdateSchedule);
             this.panelEmployeeList.Controls.Add(this.lblJobRole);
             this.panelEmployeeList.Controls.Add(this.lblID);
             this.panelEmployeeList.Controls.Add(this.btnAddEmployeeLeaveSchedule);
@@ -70,17 +72,44 @@
             this.panelEmployeeList.Size = new System.Drawing.Size(353, 187);
             this.panelEmployeeList.TabIndex = 2;
             // 
+            // btnUpdateSchedule
+            // 
+            this.btnUpdateSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdateSchedule.BorderColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdateSchedule.BorderRadius = 5;
+            this.btnUpdateSchedule.BorderThickness = 5;
+            this.btnUpdateSchedule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdateSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdateSchedule.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdateSchedule.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateSchedule.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnUpdateSchedule.HoverState.FillColor = System.Drawing.Color.DarkGreen;
+            this.btnUpdateSchedule.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateSchedule.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateSchedule.Image")));
+            this.btnUpdateSchedule.ImageSize = new System.Drawing.Size(22, 23);
+            this.btnUpdateSchedule.Location = new System.Drawing.Point(254, 10);
+            this.btnUpdateSchedule.Name = "btnUpdateSchedule";
+            this.btnUpdateSchedule.Padding = new System.Windows.Forms.Padding(5);
+            this.btnUpdateSchedule.PressedColor = System.Drawing.Color.Green;
+            this.btnUpdateSchedule.Size = new System.Drawing.Size(35, 35);
+            this.btnUpdateSchedule.TabIndex = 90;
+            this.btnUpdateSchedule.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUpdateSchedule.Click += new System.EventHandler(this.btnUpdateSchedule_Click);
+            // 
             // lblJobRole
             // 
             this.lblJobRole.BackColor = System.Drawing.Color.Transparent;
             this.lblJobRole.BorderColor = System.Drawing.Color.Teal;
-            this.lblJobRole.BorderRadius = 4;
+            this.lblJobRole.BorderRadius = 3;
             this.lblJobRole.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.lblJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.lblJobRole.FillColor = System.Drawing.Color.Teal;
-            this.lblJobRole.Font = new System.Drawing.Font("Rockwell", 9F);
+            this.lblJobRole.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
             this.lblJobRole.HoverState.BorderColor = System.Drawing.Color.Teal;
             this.lblJobRole.HoverState.FillColor = System.Drawing.Color.Teal;
@@ -92,15 +121,15 @@
             this.lblJobRole.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblJobRole.PressedColor = System.Drawing.Color.Teal;
             this.lblJobRole.PressedDepth = 0;
-            this.lblJobRole.Size = new System.Drawing.Size(130, 35);
+            this.lblJobRole.Size = new System.Drawing.Size(127, 35);
             this.lblJobRole.TabIndex = 89;
-            this.lblJobRole.Text = "Role";
+            this.lblJobRole.Text = "ESL Admin";
             // 
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Rockwell", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.lblID.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(18, 143);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(85, 35);
@@ -111,25 +140,25 @@
             // btnAddEmployeeLeaveSchedule
             // 
             this.btnAddEmployeeLeaveSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddEmployeeLeaveSchedule.BorderColor = System.Drawing.Color.DarkViolet;
+            this.btnAddEmployeeLeaveSchedule.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnAddEmployeeLeaveSchedule.BorderRadius = 5;
             this.btnAddEmployeeLeaveSchedule.BorderThickness = 5;
             this.btnAddEmployeeLeaveSchedule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddEmployeeLeaveSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddEmployeeLeaveSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddEmployeeLeaveSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddEmployeeLeaveSchedule.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnAddEmployeeLeaveSchedule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnAddEmployeeLeaveSchedule.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnAddEmployeeLeaveSchedule.ForeColor = System.Drawing.Color.White;
-            this.btnAddEmployeeLeaveSchedule.HoverState.BorderColor = System.Drawing.Color.Indigo;
-            this.btnAddEmployeeLeaveSchedule.HoverState.FillColor = System.Drawing.Color.Indigo;
+            this.btnAddEmployeeLeaveSchedule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
+            this.btnAddEmployeeLeaveSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.btnAddEmployeeLeaveSchedule.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddEmployeeLeaveSchedule.Image = ((System.Drawing.Image)(resources.GetObject("btnAddEmployeeLeaveSchedule.Image")));
-            this.btnAddEmployeeLeaveSchedule.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnAddEmployeeLeaveSchedule.Location = new System.Drawing.Point(298, 10);
+            this.btnAddEmployeeLeaveSchedule.ImageSize = new System.Drawing.Size(27, 26);
+            this.btnAddEmployeeLeaveSchedule.Location = new System.Drawing.Point(296, 10);
             this.btnAddEmployeeLeaveSchedule.Name = "btnAddEmployeeLeaveSchedule";
             this.btnAddEmployeeLeaveSchedule.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAddEmployeeLeaveSchedule.PressedColor = System.Drawing.Color.DarkViolet;
+            this.btnAddEmployeeLeaveSchedule.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(128)))), ((int)(((byte)(200)))));
             this.btnAddEmployeeLeaveSchedule.Size = new System.Drawing.Size(35, 35);
             this.btnAddEmployeeLeaveSchedule.TabIndex = 87;
             this.btnAddEmployeeLeaveSchedule.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -286,5 +315,6 @@
         private System.Windows.Forms.Label lblID;
         public Guna.UI2.WinForms.Guna2Button lblJobRole;
         public System.Windows.Forms.ToolTip toolTip1;
+        public Guna.UI2.WinForms.Guna2Button btnUpdateSchedule;
     }
 }

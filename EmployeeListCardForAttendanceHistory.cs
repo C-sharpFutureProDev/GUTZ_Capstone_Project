@@ -30,6 +30,7 @@ namespace GUTZ_Capstone_Project
 
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnAddEmployeeLeaveSchedule, "Set Leave Schedule");
+            toolTip.SetToolTip(btnUpdateSchedule, "Update Schedule");
         }
 
         [Category("Custom Control")]
@@ -117,6 +118,15 @@ namespace GUTZ_Capstone_Project
             {
                 EmployeeLeave employeeLeave = new EmployeeLeave(_id, _employeeAttendance);
                 employeeLeave.ShowDialog();
+            }
+        }
+
+        private void btnUpdateSchedule_Click(object sender, EventArgs e)
+        {
+            if (_employeeAttendance != null)
+            {
+                EmployeeSchedule employeeSchedule = new EmployeeSchedule(_id);
+                employeeSchedule.ShowDialog();
             }
         }
     }

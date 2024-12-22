@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml.VBA;
+﻿using K4os.Compression.LZ4.Internal;
+using OfficeOpenXml.VBA;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,8 +16,6 @@ namespace GUTZ_Capstone_Project
     public partial class EmployeeAttendance : Form
     {
         public int id;
-        private bool isUserInteraction = false;
-        private readonly string[] defaultFilterItems = { "Filter By", "On-Time", "Late", "Absent", "On-Leave" };
 
         private const string sql = @"SELECT attendance_id, tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, tbl_employee.m_name, tbl_employee.l_name, 
                                             CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
@@ -27,6 +26,11 @@ namespace GUTZ_Capstone_Project
                                      WHERE is_deleted = 0 AND DATE(time_in) = CURDATE()
                                      ORDER BY time_in ASC";
 
+        private bool IsReportForToday = false; // Flag to determine if the selected date is today
+        private bool isUserInteracting = false; // Flag to track user interaction
+        private DateTime previousDatePickerValue = DateTime.Today; // Holds the previous value
+        private bool isEmployeeListViewActive = false; // Tracks whether the Employee List view is active
+
         public EmployeeAttendance()
         {
             InitializeComponent();
@@ -36,13 +40,15 @@ namespace GUTZ_Capstone_Project
 
         private void EmployeeAttendance_Load(object sender, EventArgs e)
         {
-            cboSearch.SelectedIndex = 0;
             cboFilter.SelectedIndex = 0;
             LoadAndRetrieveEmployeeAttendanceData();
             CountAttendance();
             CountForRealTimeOnLeave();
             PopulateEmployeeList();
             timer1.Start();
+            lblAttendanceSummaryDate.Text = "Real-Time Attendance Summary Today - " + DateTime.Now.ToString("dddd MMMM dd, yyyy");
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnViewAnDownloadReport, "View and Download Report");
         }
 
         /// <summary>
@@ -88,8 +94,10 @@ namespace GUTZ_Capstone_Project
                         ClockOutTime = timeOutFormatted,
                     };
 
-                    employeeAttendanceCard.btnAttendanceStatus.Visible = true;
-                    employeeAttendanceCard.btnAttendanceStatus.Text = (timeInStatus == "On Time" || timeInStatus == "Late") ? "Present" : "Absent";
+                    if (timeInStatus == "On Time" || timeInStatus == "Late")
+                        employeeAttendanceCard.btnPresentMark.Visible = true;
+                    else
+                        employeeAttendanceCard.btnAbsentMark.Visible = true;
 
                     flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
                 }
@@ -114,15 +122,19 @@ namespace GUTZ_Capstone_Project
         {
             DateTime currentDate = DateTime.Today;
             int countWorkingPresent = 0;
-            int countWorkingOnTime = 0;
-            int countWorkingLate = 0;
             int countWorkingClockedOut = 0;
             int countAbsent = 0;
+            int countOnTime = 0;
+            int countLate = 0;
+            TimeSpan totalWorkingHours = TimeSpan.Zero;
 
-            string sqlCountAttendance = $"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status " +
-                                        $"FROM tbl_schedule s " +
-                                        $"LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{currentDate:yyyy-MM-dd}' " +
-                                        $"WHERE s.work_days LIKE '%{currentDate.DayOfWeek}%'";
+            // Get total scheduled employees for today
+            int totalScheduledEmployees = CountScheduledEmployeesForToday();
+
+            string sqlCountAttendance = $"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status, a.working_hours " +
+                                          $"FROM tbl_schedule s " +
+                                          $"LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{currentDate:yyyy-MM-dd}' " +
+                                          $"WHERE s.work_days LIKE '%{currentDate.DayOfWeek}%'";
 
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
 
@@ -135,25 +147,28 @@ namespace GUTZ_Capstone_Project
                 DateTime? timeIn = row["time_in"] as DateTime?;
                 DateTime? timeOut = row["time_out"] as DateTime?;
                 string timeInStatus = row["time_in_status"]?.ToString();
+                TimeSpan workingHours = row["working_hours"] != DBNull.Value ? TimeSpan.Parse(row["working_hours"].ToString()) : TimeSpan.Zero;
 
                 if (workDays.Contains(currentDate.DayOfWeek.ToString()))
                 {
                     if (timeIn.HasValue)
                     {
                         countWorkingPresent++;
-
-                        if (timeInStatus == "On Time")
-                        {
-                            countWorkingOnTime++;
-                        }
-                        else if (timeInStatus == "Late")
-                        {
-                            countWorkingLate++;
-                        }
+                        totalWorkingHours += workingHours; // Accumulate working hours
 
                         if (timeOut.HasValue)
                         {
                             countWorkingClockedOut++;
+                        }
+
+                        // Increment on-time or late counters based on timeInStatus
+                        if (timeInStatus == "On Time")
+                        {
+                            countOnTime++;
+                        }
+                        else if (timeInStatus == "Late")
+                        {
+                            countLate++;
                         }
                     }
                     else
@@ -167,15 +182,44 @@ namespace GUTZ_Capstone_Project
                 }
             }
 
-            dateOfCurrentAttendanceRecord.Text = "Today - " + currentDate.ToString("MMM. dd, yyyy");
+            // Calculate attendance percentage
+            double attendancePercentage = totalScheduledEmployees > 0 ? (double)countWorkingPresent / totalScheduledEmployees * 100 : 0;
+
+            // Display results
+            dateOfCurrentAttendanceRecord.Text = "Real-Time Attendance Today - " + currentDate.ToString("dddd MMMM dd, yyyy");
             btnClockIn.Text = countWorkingPresent.ToString();
             btnClockOut.Text = countWorkingClockedOut.ToString();
-            //lblTotalOnTimeForToday.Text = "On-Time: " + countWorkingOnTime.ToString();
-            //lblTotalLateForToday.Text = "Late: " + countWorkingLate.ToString();
             btnTotalAttendance.Text = "Total Attendance: " + countWorkingPresent.ToString();
             btnAbsent.Text = countAbsent.ToString();
+            lblScheduledEmployee.Text = "Expected (Today): " + totalScheduledEmployees.ToString();
+            lblOnTimeEmployee.Text = "On-Time (Today): " + countOnTime.ToString();
+            lblLateEmployee.Text = "Late (Today): " + countLate.ToString();
+
+            lblScheduledEmployeeToday.Text = countWorkingPresent.ToString() + "/" + totalScheduledEmployees.ToString();
+
+            // Display attendance percentage
+            lblAttendancePercentage.Text = $"{attendancePercentage:F0}%";
+
+            // Display accumulated working hours
+            lblTutoringHours.Text = $"{totalWorkingHours.Hours}h : {totalWorkingHours.Minutes}m";
         }
 
+        // Method to count scheduled employees for today
+        private int CountScheduledEmployeesForToday()
+        {
+            string countScheduledEmployee = @"SELECT COUNT(*) FROM tbl_employee e
+                                              INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
+                                              LEFT JOIN tbl_leave l ON e.emp_id = l.emp_id AND l.leave_status = 'Active'
+                                              WHERE FIND_IN_SET(DAYNAME(CURDATE()), s.work_days) > 0
+                                              AND (l.leave_status IS NULL OR l.leave_status <> 'Active')
+                                              AND e.is_deleted = 0
+                                              AND e.start_date <= CURDATE()"; // Added condition to check start_date
+
+            DataTable dt = DB_OperationHelperClass.QueryData(countScheduledEmployee);
+            return dt.Rows.Count > 0 ? Convert.ToInt32(dt.Rows[0][0]) : 0;
+        }
+
+        // Method to count employees who are currently on active leave
         private void CountForRealTimeOnLeave()
         {
             string leaveStatus = "Active";
@@ -274,10 +318,11 @@ namespace GUTZ_Capstone_Project
                     if (leaveStatus == "Active")
                     {
                         employeeListCardForAttendanceHistory.toolTip1.SetToolTip(employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule, "View Active Leave Schedule");
-                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.BorderColor = Color.CornflowerBlue;
-                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.FillColor = Color.CornflowerBlue;
-                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.HoverState.FillColor = Color.DodgerBlue;
-                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.HoverState.BorderColor = Color.DodgerBlue;
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.BorderColor = Color.FromArgb(0, 122, 255);
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.FillColor = Color.FromArgb(0, 122, 255);
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.HoverState.FillColor = Color.FromArgb(0, 91, 181);
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.HoverState.BorderColor = Color.FromArgb(0, 91, 181);
+                        employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.Image = Image.FromFile("C:/GUTZ/Icons/icons8-leave-24.png");
                     }
 
                     flowLayoutPanel2.Controls.Add(employeeListCardForAttendanceHistory);
@@ -357,19 +402,46 @@ namespace GUTZ_Capstone_Project
 
         private async void dtpEmpSelectDate_ValueChanged(object sender, EventArgs e)
         {
-            if (!IsToday(dtpEmpSelectDate.Value))
+            btnViewEmployeeList.Enabled = false;
+
+            // Mark that the user has interacted with the DateTimePicker
+            if (!isUserInteracting)
             {
-                timer1.Stop();
+                isUserInteracting = true;
+            }
+
+            // Update the previous value to the current value before any further changes
+            previousDatePickerValue = dtpEmpSelectDate.Value;
+
+            // Check if the selected date is today and update flags accordingly
+            if (IsToday(dtpEmpSelectDate.Value))
+            {
+                timer1.Start();
+                IsReportForToday = true; // Set the report flag to today
             }
             else
             {
-                timer1.Start();
+                timer1.Stop();
+                IsReportForToday = false; // Set the report flag to a date other than today
             }
 
+            // Update UI visibility and load data for the selected date
             flowLayoutPanel1.Visible = true;
             flowLayoutPanel2.Visible = false;
+
+            // Asynchronous call to load attendance data and count
             await LoadAttendanceDataForSelectedDate();
             CountAttendanceForSelectedDate();
+        }
+
+        private void SwitchToAttendanceView()
+        {
+            // Switch back to Attendance View
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel2.Visible = false;
+
+            // Reset the Employee List view flag
+            isEmployeeListViewActive = false;
         }
 
         /// <summary>
@@ -398,8 +470,13 @@ namespace GUTZ_Capstone_Project
         private async Task LoadAttendanceDataForSelectedDate()
         {
             DateTime selectedDate = dtpEmpSelectDate.Value;
+            lblAttendanceSummaryDate.Text = "Attendance Summary - " + selectedDate.ToString("dddd, MMMM dd, yyyy");
+            lblExpectedClockIn.Text = "Clocked-In (Total)";
+            lblAttendancePercent.Text = "Attendance % (Total)";
+            lblAccumulatedTutoringHours.Text = "Tutoring Hours (Accum.)";
+
             string formattedDate = selectedDate.ToString("yyyy-MM-dd");
-            string displayDate = selectedDate.ToString("dddd, MMM. dd, yyyy");
+            string displayDate = "Attendance Record - " + selectedDate.ToString("dddd, MMMM dd, yyyy");
 
             DateTime today = DateTime.Today;
             if (selectedDate.Date > today)
@@ -420,9 +497,13 @@ namespace GUTZ_Capstone_Project
                 return;
             }
 
-            string sql = $@"SELECT tbl_employee.emp_id, emp_profilePic, f_name, m_name, l_name, CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
-                                time_in_status, DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted, DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted,
-                                tbl_leave.leave_status, tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date
+            string sql = $@"SELECT tbl_employee.emp_id, emp_profilePic, f_name, m_name, l_name, 
+                                   CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, 
+                                   time_in_status, DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted, 
+                                   DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted,
+                                   tbl_schedule.emp_id AS scheduled_emp_id,
+                                   tbl_leave.leave_status, tbl_leave.start_date AS leave_start_date, 
+                                   tbl_leave.end_date AS leave_end_date
                             FROM tbl_employee
                             LEFT JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id AND DATE(time_in) = '{formattedDate}' 
                             LEFT JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id AND FIND_IN_SET(DAYNAME('{formattedDate}'), tbl_schedule.work_days) > 0
@@ -464,6 +545,7 @@ namespace GUTZ_Capstone_Project
                     string leaveStartDateStr = row["leave_start_date"].ToString();
                     string leaveEndDateStr = row["leave_end_date"].ToString();
                     string leaveStatus = row["leave_status"].ToString();
+                    bool isScheduled = row["scheduled_emp_id"] != DBNull.Value;
 
                     DateTime leaveStartDate;
                     DateTime leaveEndDate;
@@ -487,29 +569,36 @@ namespace GUTZ_Capstone_Project
                         ClockOutTime = timeOutFormatted,
                     };
 
+                    bool isOnLeave = leaveStatus == "Active" || leaveStatus == "Completed";
+
                     // Adjust attendance status based on leave status
-                    if (leaveStatus == "Active" || leaveStatus == "Completed")
+                    if (isOnLeave)
                     {
-                        employeeAttendanceCard.EmployeeAttendanceDetails.Visible = false;
                         employeeAttendanceCard.EmployeeLeaveDetails.Visible = true;
+                        employeeAttendanceCard.btnAbsentMark.Visible = false;
+                        employeeAttendanceCard.btnLeaveMark.Visible = true;
                         employeeAttendanceCard.lblLeaveStartDate.Text = leaveStartDate.ToString("MMM. dd, yyyy");
                         employeeAttendanceCard.lblEndDate.Text = leaveEndDate.ToString("MMM. dd, yyyy");
                         employeeAttendanceCard.lblLeaveStatus.Text = leaveStatus;
-                        employeeAttendanceCard.btnAttendanceStatus.Visible = true;
-                        employeeAttendanceCard.btnAttendanceStatus.Text = "On Leave";
-                        employeeAttendanceCard.btnAttendanceStatus.FillColor = Color.FromArgb(74, 144, 226);
-                        employeeAttendanceCard.btnAttendanceStatus.HoverState.FillColor = Color.FromArgb(74, 144, 226);
                     }
-                    else
+                    else if (isScheduled)
                     {
-                        employeeAttendanceCard.btnAttendanceStatus.Visible = true;
-                        employeeAttendanceCard.btnAttendanceStatus.Text = (timeInStatus == "On Time" || timeInStatus == "Late") ? "Present" : "Absent";
+                        // Only mark as absent if the employee is scheduled to work
+                        if (timeInStatus == "On Time" || timeInStatus == "Late")
+                            employeeAttendanceCard.btnPresentMark.Visible = true;
+                        else
+                            employeeAttendanceCard.btnPresentMark.Visible = false;
 
                         if (timeInStatus == "--")
                         {
-                            employeeAttendanceCard.btnAttendanceStatus.FillColor = Color.FromArgb(255, 107, 107);
-                            employeeAttendanceCard.btnAttendanceStatus.HoverState.FillColor = Color.FromArgb(255, 107, 107);
+                            employeeAttendanceCard.btnAbsentMark.Visible = true;
+                            employeeAttendanceCard.btnStatus.Text = "Absent";
                         }
+                    }
+                    else
+                    {
+                        // Employee was not scheduled, do not display or mark as absent
+                        continue; // Skip adding this employee card
                     }
 
                     flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
@@ -550,7 +639,7 @@ namespace GUTZ_Capstone_Project
             DateTime today = DateTime.Today;
 
             // Ensure the selected date is in the past
-            if (selectedDate.Date > today)
+            if (selectedDate.Date >= today)
             {
                 MessageBox.Show(this, "Attendance counts are only available for past dates.", "Information",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -565,15 +654,23 @@ namespace GUTZ_Capstone_Project
             }
 
             int countWorkingPresent = 0;
-            int countWorkingOnTime = 0;
-            int countWorkingLate = 0;
             int countWorkingClockedOut = 0;
             int countAbsent = 0;
             int countOnLeave = 0;
-            int totalEmployees = 0;
+            int countOnTime = 0;
+            int countLate = 0;
+            TimeSpan totalWorkingHours = TimeSpan.Zero;
+            int totalScheduledEmployees = 0;
 
-            // SQL query to retrieve past attendance records considering specific employees' start date
-            string sqlCountAttendance = $@"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status, e.start_date
+            // SQL query to count scheduled employees for the selected date
+            string sqlCountScheduledEmployees = $@"SELECT COUNT(*) FROM tbl_employee e
+                                                   INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
+                                                   WHERE FIND_IN_SET('{selectedDate:dddd}', s.work_days) > 0
+                                                   AND e.is_deleted = 0
+                                                   AND e.start_date <= '{selectedDate:yyyy-MM-dd}'";
+
+            // SQL query to retrieve past attendance records, considering employee start_date
+            string sqlCountAttendance = $@"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status, a.working_hours, e.start_date
                                            FROM tbl_schedule s
                                            LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'
                                            INNER JOIN tbl_employee e ON s.emp_id = e.emp_id
@@ -588,65 +685,75 @@ namespace GUTZ_Capstone_Project
 
             try
             {
+                // Count scheduled employees
+                DataTable dtScheduledEmployees = DB_OperationHelperClass.QueryData(sqlCountScheduledEmployees);
+                totalScheduledEmployees = dtScheduledEmployees.Rows.Count > 0 ? Convert.ToInt32(dtScheduledEmployees.Rows[0][0]) : 0;
+
                 // Count on-leave employees
                 DataTable dtOnLeave = DB_OperationHelperClass.QueryData(sqlCountOnLeave);
-                if (dtOnLeave.Rows.Count > 0)
-                {
-                    countOnLeave = Convert.ToInt32(dtOnLeave.Rows[0][0]);
-                }
+                countOnLeave = dtOnLeave.Rows.Count > 0 ? Convert.ToInt32(dtOnLeave.Rows[0][0]) : 0;
 
                 // Get attendance records
                 DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
-                totalEmployees = dtAttendance.Rows.Count; // Total employees for the selected date
 
                 foreach (DataRow row in dtAttendance.Rows)
                 {
                     string empId = row["emp_id"].ToString();
-                    TimeSpan startTime = TimeSpan.Parse(row["start_time"].ToString());
-                    TimeSpan endTime = TimeSpan.Parse(row["end_time"].ToString());
-                    string workDays = row["work_days"].ToString();
                     DateTime? timeIn = row["time_in"] as DateTime?;
-                    DateTime? timeOut = row["time_out"] as DateTime?;
+                    TimeSpan workingHours = row["working_hours"] != DBNull.Value ? TimeSpan.Parse(row["working_hours"].ToString()) : TimeSpan.Zero;
                     string timeInStatus = row["time_in_status"]?.ToString();
-                    DateTime employeeStartDate = Convert.ToDateTime(row["start_date"]);
 
-                    // Count attendance on or before the selected date
-                    if (employeeStartDate <= selectedDate)
+                    // Count attendance for employees whose start date is on or before the selected date
+                    if (Convert.ToDateTime(row["start_date"]) <= selectedDate)
                     {
                         if (timeIn.HasValue)
                         {
-                            countWorkingPresent++; // count present
+                            countWorkingPresent++;
+                            totalWorkingHours += workingHours; // Accumulate working hours
 
+                            // Check if the employee clocked out
+                            if (row["time_out"] != DBNull.Value)
+                            {
+                                countWorkingClockedOut++;
+                            }
+
+                            // Increment on-time or late counters based on timeInStatus
                             if (timeInStatus == "On Time")
                             {
-                                countWorkingOnTime++; // count on-time
+                                countOnTime++;
                             }
                             else if (timeInStatus == "Late")
                             {
-                                countWorkingLate++; // count late
-                            }
-
-                            if (timeOut.HasValue)
-                            {
-                                countWorkingClockedOut++; // count clocked-out 
+                                countLate++;
                             }
                         }
                     }
                 }
 
                 // Calculate absent employees
-                countAbsent = totalEmployees - countWorkingPresent - countOnLeave;
+                countAbsent = totalScheduledEmployees - countWorkingPresent - countOnLeave;
 
-                int totalAttendance = countWorkingOnTime + countWorkingLate;
+                // Calculate attendance percentage
+                double attendancePercentage = totalScheduledEmployees > 0 ? (double)countWorkingPresent / totalScheduledEmployees * 100 : 0;
 
                 // Display attendance count
                 btnClockIn.Text = countWorkingPresent.ToString();
                 btnClockOut.Text = countWorkingClockedOut.ToString();
-                //lblTotalOnTimeForToday.Text = "On-Time: " + countWorkingOnTime.ToString();
-                //lblTotalLateForToday.Text = "Late: " + countWorkingLate.ToString();
-                btnTotalAttendance.Text = "Total Attendance: " + totalAttendance.ToString();
+                btnTotalAttendance.Text = "Total Attendance: " + countWorkingPresent.ToString();
                 btnAbsent.Text = countAbsent.ToString();
-                btnOnLeave.Text = countOnLeave.ToString(); // Display on-leave count
+                btnOnLeave.Text = countOnLeave.ToString();
+                lblOnTimeEmployee.Text = "On-Time: " + countOnTime.ToString();
+                lblLateEmployee.Text = "Late: " + countLate.ToString();
+                lblScheduledEmployee.Text = "Expected: " + totalScheduledEmployees.ToString();
+
+                // Display scheduled employees minus on leave
+                lblScheduledEmployeeToday.Text = countWorkingPresent + "/" + (totalScheduledEmployees - countOnLeave).ToString();
+
+                // Display attendance percentage
+                lblAttendancePercentage.Text = $"{attendancePercentage:F0}%";
+
+                // Display accumulated working hours
+                lblTutoringHours.Text = $"{totalWorkingHours.Hours}h : {totalWorkingHours.Minutes}m";
             }
             catch (Exception ex)
             {
@@ -659,18 +766,32 @@ namespace GUTZ_Capstone_Project
         {
             btnClockIn.Text = "0";
             btnClockOut.Text = "0";
-            //lblTotalOnTimeForToday.Text = "On-Time: 0";
-            //lblTotalLateForToday.Text = "Late: 0";
             btnTotalAttendance.Text = "Total Attendance: 0";
             btnAbsent.Text = "0";
             btnOnLeave.Text = "0";
+            lblScheduledEmployeeToday.Text = "0/0";
+            lblAttendancePercentage.Text = "0%";
+            lblTutoringHours.Text = "0";
+            lblScheduledEmployee.Text = "Expected: 0";
+            lblOnTimeEmployee.Text = "On-Time: 0";
+            lblLateEmployee.Text = "Late: 0";
         }
 
         private void btnViewEmployeeList_Click_1(object sender, EventArgs e)
         {
+            dtpEmpSelectDate.Enabled = false;
+            lblSelectDate.Enabled = false;
+            pastdtpBottomBorder.FillColor = Color.Gainsboro;
+
+            // Switch to Employee List view
             flowLayoutPanel1.Visible = false;
             flowLayoutPanel2.Visible = true;
             flowLayoutPanel2.Dock = DockStyle.Fill;
+
+            // Track that the Employee List view is active
+            isEmployeeListViewActive = true;
+
+            // Populate the Employee List
             PopulateEmployeeList();
         }
 
@@ -678,6 +799,10 @@ namespace GUTZ_Capstone_Project
         {
             flowLayoutPanel1.Visible = true;
             flowLayoutPanel2.Visible = false;
+            lblAttendanceSummaryDate.Text = "Real-Time Attendance Summary Today - " + DateTime.Now.ToString("dddd MMMM dd, yyyy");
+            lblExpectedClockIn.Text = "Clocked-In (Today)";
+            lblAttendancePercent.Text = "Attendance % (Today)";
+            lblAccumulatedTutoringHours.Text = "Tutoring Hours (Today)";
             LoadAndRetrieveEmployeeAttendanceData();
             CountAttendance();
             CountForRealTimeOnLeave();
@@ -686,9 +811,6 @@ namespace GUTZ_Capstone_Project
         private void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             timer1.Stop();
-            if (!isUserInteraction)
-                return;
-
             try
             {
                 string query = "";
@@ -698,65 +820,68 @@ namespace GUTZ_Capstone_Project
                 {
                     case 0: // On-Time
                         query = @"SELECT attendance_id, tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
-                                         tbl_employee.m_name, tbl_employee.l_name, leave_status, tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
+                                         tbl_employee.m_name, tbl_employee.l_name, leave_status, 
+                                         tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
                                          CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
                                          working_hours, time_in_status, 
                                          DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                                         DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, time_in, time_out
+                                         DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                         time_in, time_out
                                   FROM tbl_employee
                                   INNER JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
                                   LEFT JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                                  LEFT JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
-                                  WHERE tbl_employee.is_deleted = 0 
-                                  AND DATE(tbl_attendance.time_in) = CURDATE() 
-                                  AND tbl_attendance.time_in_status = 'On Time'
+                                  WHERE tbl_employee.is_deleted = 0 AND DATE(tbl_attendance.time_in) = CURDATE() AND tbl_attendance.time_in_status = 'On Time'
                                   ORDER BY time_in ASC";
                         break;
 
                     case 1: // Late
                         query = @"SELECT attendance_id, tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
-                                         tbl_employee.m_name, tbl_employee.l_name, leave_status,  tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
+                                         tbl_employee.m_name, tbl_employee.l_name, leave_status, 
+                                         tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
                                          CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
                                          working_hours, time_in_status, 
                                          DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                                         DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, time_in, time_out
+                                         DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                         time_in, time_out
                                   FROM tbl_employee
                                   INNER JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
                                   LEFT JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                                  LEFT JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
-                                  WHERE tbl_employee.is_deleted = 0 
-                                  AND DATE(tbl_attendance.time_in) = CURDATE() 
-                                  AND tbl_attendance.time_in_status = 'Late'
+                                  WHERE tbl_employee.is_deleted = 0 AND DATE(tbl_attendance.time_in) = CURDATE() AND tbl_attendance.time_in_status = 'Late'
                                   ORDER BY time_in ASC";
                         break;
 
                     case 2: // Absent
                         query = @"SELECT tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
-                                         tbl_employee.m_name, tbl_employee.l_name, leave_status, time_in_status,  tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
-                                         CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName,
-                                         DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                                         DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, time_in, time_out
+                                         tbl_employee.m_name, tbl_employee.l_name, leave_status, 
+                                         tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
+                                         CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                         NULL AS time_in_formatted,
+                                         NULL AS time_in_status,
+                                         NULL AS time_out_formatted, 
+                                         NULL AS time_in, NULL AS time_out
                                   FROM tbl_employee
                                   LEFT JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                                  LEFT JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                                  LEFT JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id AND DATE(tbl_attendance.time_in) = CURDATE()
                                   LEFT JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
-                                  WHERE tbl_employee.is_deleted = 0 
-                                  AND (tbl_attendance.time_in IS NULL OR DATE(tbl_attendance.time_in) <> CURDATE()) 
-                                  AND TIME(NOW()) > tbl_schedule.end_time
+                                  WHERE tbl_employee.is_deleted = 0 AND tbl_attendance.time_in IS NULL AND TIME(NOW()) > tbl_schedule.end_time
                                   ORDER BY tbl_employee.f_name ASC";
                         break;
 
                     case 3: // On Leave
-                        query = $@"SELECT tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, tbl_employee.m_name, tbl_employee.l_name, 
-                                          CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                                          l.start_date, l.end_date, l.leave_status, time_in_status,  l.start_date AS leave_start_date, l.end_date AS leave_end_date,
-                                          DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                                          DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, time_in, time_out
-                                   FROM tbl_employee
-                                   INNER JOIN tbl_leave AS l ON tbl_employee.emp_id = l.emp_id 
-                                   LEFT JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
-                                   WHERE tbl_employee.is_deleted = 0 AND l.leave_status = 'Active' AND l.start_date <= CURDATE() AND l.end_date >= CURDATE()
-                                   ORDER BY tbl_employee.f_name ASC";
+                        query = @"SELECT DISTINCT tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
+                                                  tbl_employee.m_name, tbl_employee.l_name, 
+                                                  CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                                  l.start_date AS leave_start_date, 
+                                                  l.end_date AS leave_end_date, 
+                                                  l.leave_status,
+                                                  NULL AS time_in_formatted, -- Placeholder for consistency
+                                                  'On Leave' AS time_in_status, -- Explicit status
+                                                  NULL AS time_out_formatted, 
+                                                  NULL AS time_in, NULL AS time_out
+                                  FROM tbl_employee
+                                  INNER JOIN tbl_leave AS l ON tbl_employee.emp_id = l.emp_id
+                                  WHERE tbl_employee.is_deleted = 0 AND l.leave_status = 'Active' AND l.start_date <= CURDATE() AND l.end_date >= CURDATE()
+                                  ORDER BY tbl_employee.f_name ASC";
                         break;
 
                     default:
@@ -780,12 +905,25 @@ namespace GUTZ_Capstone_Project
                             : $"{firstName} {middleName[0]}. {lastName}";
 
                         string imagePath = row["emp_profilePic"].ToString();
-                        string timeInFormatted = row["time_in_formatted"] != DBNull.Value ? row["time_in_formatted"].ToString() : "--";
-                        string timeInStatus = row["time_in_status"] != DBNull.Value ? row["time_in_status"].ToString() : "Absent"; // Default for absent
-                        string timeOutFormatted = row["time_out_formatted"] != DBNull.Value ? row["time_out_formatted"].ToString() : "--";
-                        string leaveStartDateStr = row["leave_start_date"].ToString();
-                        string leaveEndDateStr = row["leave_end_date"].ToString();
-                        string leaveStatus = row["leave_status"].ToString();
+                        string timeInFormatted = row.Table.Columns.Contains("time_in_formatted") && row["time_in_formatted"] != DBNull.Value
+                            ? row["time_in_formatted"].ToString()
+                            : "--";
+                        string timeInStatus = row.Table.Columns.Contains("time_in_status") && row["time_in_status"] != DBNull.Value
+                            ? row["time_in_status"].ToString()
+                            : "Absent"; // Default to "Absent"
+                        string timeOutFormatted = row.Table.Columns.Contains("time_out_formatted") && row["time_out_formatted"] != DBNull.Value
+                            ? row["time_out_formatted"].ToString()
+                            : "--";
+
+                        string leaveStartDateStr = row["leave_start_date"] != DBNull.Value
+                            ? row["leave_start_date"].ToString()
+                            : "--";
+                        string leaveEndDateStr = row["leave_end_date"] != DBNull.Value
+                            ? row["leave_end_date"].ToString()
+                            : "--";
+                        string leaveStatus = row.Table.Columns.Contains("leave_status") && row["leave_status"] != DBNull.Value
+                            ? row["leave_status"].ToString()
+                            : "";
 
                         DateTime leaveStartDate;
                         DateTime leaveEndDate;
@@ -810,24 +948,40 @@ namespace GUTZ_Capstone_Project
                             ClockOutTime = timeOutFormatted,
                         };
 
-                        employeeAttendanceCard.btnAttendanceStatus.Visible = true;
-                        employeeAttendanceCard.btnAttendanceStatus.Text = (timeInStatus == "On Time" || timeInStatus == "Late") ? "Present" : "Absent";
-                        employeeAttendanceCard.btnClockOut.Text = (timeInStatus == "On Time" || timeInStatus == "Late") ? "Pending" : timeOutFormatted;
-
-                        // Adjust attendance status based on leave status
-                        if (leaveStatus == "Active")
+                        if (timeInStatus == "On Time")
                         {
-                            employeeAttendanceCard.EmployeeAttendanceDetails.Visible = false;
-                            employeeAttendanceCard.EmployeeLeaveDetails.Visible = true;
-                            employeeAttendanceCard.lblLeaveStartDate.Text = leaveStartDate.ToString("MMM. dd, yyyy");
-                            employeeAttendanceCard.lblEndDate.Text = leaveEndDate.ToString("MMM. dd, yyyy");
-                            employeeAttendanceCard.lblLeaveStatus.Text = leaveStatus;
-                            employeeAttendanceCard.btnAttendanceStatus.Visible = true;
-                            employeeAttendanceCard.btnAttendanceStatus.Text = "On Leave";
-                            employeeAttendanceCard.btnAttendanceStatus.FillColor = Color.FromArgb(74, 144, 226);
-                            employeeAttendanceCard.btnAttendanceStatus.HoverState.FillColor = Color.FromArgb(74, 144, 226);
+                            if (timeOutFormatted == "--")
+                                employeeAttendanceCard.btnClockOut.Text = "Pending";
+                            else
+                                employeeAttendanceCard.btnClockOut.Text = timeOutFormatted;
+
+                            employeeAttendanceCard.btnPresentMark.Visible = true;
+                        }
+                        else if (timeInStatus == "Late")
+                        {
+                            if (timeOutFormatted == "--")
+                                employeeAttendanceCard.btnClockOut.Text = "Pending";
+                            else
+                                employeeAttendanceCard.btnClockOut.Text = timeOutFormatted;
+
+                            employeeAttendanceCard.btnPresentMark.Visible = true;
+                        }
+                        else
+                        {
+                            employeeAttendanceCard.btnAbsentMark.Visible = true;
+                            employeeAttendanceCard.btnClockIn.Text = timeInFormatted;
+                            employeeAttendanceCard.btnClockOut.Text = timeInFormatted;
                         }
 
+                        if (timeInStatus == "On Leave")
+                        {
+                            employeeAttendanceCard.btnAbsentMark.Visible = false;
+                            employeeAttendanceCard.btnLeaveMark.Visible = true;
+                            employeeAttendanceCard.EmployeeLeaveDetails.Visible = true;
+                            employeeAttendanceCard.lblLeaveStartDate.Text = formattedLeaveStartDate;
+                            employeeAttendanceCard.lblEndDate.Text = formattedLeaveEndDate;
+                            employeeAttendanceCard.lblLeaveStatus.Text = leaveStatus;
+                        }
 
                         flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
                     }
@@ -845,35 +999,49 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void cboFilter_Click(object sender, EventArgs e)
-        {
-            isUserInteraction = true;
-            ComboBox comboBox = sender as ComboBox;
-
-            // Check if comboBox is not null
-            if (comboBox != null)
-            {
-                // Ensure there's a selected item before accessing it
-                if (comboBox.SelectedItem != null && comboBox.SelectedItem.ToString() == "Filter By")
-                {
-                    // Remove the first item if it exists
-                    if (comboBox.Items.Count > 0)
-                    {
-                        comboBox.Items.RemoveAt(0);
-                    }
-                    comboBox.SelectedIndex = -1; // Reset the selection
-                }
-            }
-        }
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            RefreshUI();
-            isUserInteraction = false;
+            btnViewEmployeeList.Enabled = true;
+            dtpEmpSelectDate.Enabled = true;
+            pastdtpBottomBorder.FillColor = Color.FromArgb(64, 64, 64);
 
-            cboFilter.Items.Clear();
-            cboFilter.Items.AddRange(defaultFilterItems);
+            // If the Employee List view is active, simply refresh the Employee List UI
+            if (isEmployeeListViewActive)
+            {
+                SwitchToAttendanceView();
+                return;
+            }
+
+            // If the user interacted with the DateTimePicker, reset it to the previous value
+            if (isUserInteracting)
+            {
+                dtpEmpSelectDate.Value = previousDatePickerValue;
+            }
+
+            // Reset flags if refreshing based on the previous date
+            IsReportForToday = IsToday(previousDatePickerValue); // Check if the previous value is today
+            isUserInteracting = false;
+
+            // Refresh the user interface
+            RefreshUI();
+
+            // Reload attendance data for the previous date
+            LoadAndRetrieveEmployeeAttendanceData();
+
+            // Reset the filter combo box to its default value
             cboFilter.SelectedIndex = 0;
+
+            // Update the visibility of UI elements
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel2.Visible = false;
+        }
+
+        private void btnViewAnDownloadReport_Click(object sender, EventArgs e)
+        {
+            DateTime dateToDisplay = isUserInteracting ? previousDatePickerValue : DateTime.Today;
+
+            FormReport formReport = new FormReport(dateToDisplay);
+            formReport.ShowDialog();
         }
     }
 }

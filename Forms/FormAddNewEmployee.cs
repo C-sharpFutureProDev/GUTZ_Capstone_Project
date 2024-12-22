@@ -26,6 +26,7 @@ namespace GUTZ_Capstone_Project.Forms
         private TimeSpan startTime;
         private TimeSpan endTime;
         public bool isButtonSetScheduleClicked = false;
+
         public bool IsSuccessful { get; private set; } = false;
 
         EmployeeList _employeeList;
@@ -516,16 +517,15 @@ namespace GUTZ_Capstone_Project.Forms
             {
                 string workDays = string.Join(",", selectedDays);
 
-                string updateScheduleSql = @"UPDATE tbl_schedule 
-                                             SET work_days = @WorkDays, start_time = @StartTime, end_time = @EndTime 
+                string updateScheduleSql = @"UPDATE tbl_schedule SET work_days = @WorkDays, start_time = @StartTime, end_time = @EndTime 
                                              WHERE emp_id = @EmpId";
 
                 var scheduleParams = new Dictionary<string, object>
                 {
                     { "@EmpId", empId },
                     { "@WorkDays", workDays },
-                    { "@StartTime", startTime },
-                    { "@EndTime", endTime }
+                    { "@StartTime", startTime.ToString(@"hh\:mm") }, // Format as HH:mm
+                    { "@EndTime", endTime.ToString(@"hh\:mm") }      // Format as HH:mm
                 };
 
                 if (!DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateScheduleSql, scheduleParams))
@@ -733,16 +733,17 @@ namespace GUTZ_Capstone_Project.Forms
                         };
                         if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoProfileTable, profileParam))
                         {
+
                             string workDays = string.Join(",", selectedDays);
                             string insertSchedule = @"INSERT INTO tbl_schedule (emp_id, work_days, start_time, end_time)
-                                                      VALUES (@EmpId, @workDays, @startTime, @endTime)";
+                                                                        VALUES (@EmpId, @workDays, @startTime, @endTime)";
 
                             var paramSched = new Dictionary<string, object>
                             {
                                 { "@EmpId", emp_id },
                                 { "@workDays", workDays },
-                                { "@startTime", startTime},
-                                { "@endTime", endTime},
+                                { "@startTime", startTime.ToString(@"hh\:mm") },
+                                { "@endTime", endTime.ToString(@"hh\:mm") },
                             };
 
                             if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertSchedule, paramSched))

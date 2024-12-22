@@ -13,10 +13,10 @@ namespace GUTZ_Capstone_Project
     internal class DB_OperationHelperClass
     {
         // connection string for MAMP and SQLyog
-        //private static string connectionString = $"SERVER=localhost;UID=root;PWD=root;DATABASE=attendancepayrolldb;";
+        private static string connectionString = $"SERVER=localhost;UID=root;PWD=root;DATABASE=attendancepayrolldb;";
 
         // connection string for XAMPP and SQLyog
-        private static string connectionString = $"SERVER=localhost;UID=root;PWD='';DATABASE=attendancepayrolldb;";
+        //private static string connectionString = $"SERVER=localhost;UID=root;PWD='';DATABASE=attendancepayrolldb;";
 
         // Method: Execute SELECT query to retrieve data from the Database
         public static DataTable QueryData(string sql)
