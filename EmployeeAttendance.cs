@@ -1,5 +1,5 @@
 ﻿using K4os.Compression.LZ4.Internal;
-using OfficeOpenXml.VBA;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,7 +40,7 @@ namespace GUTZ_Capstone_Project
 
         private void EmployeeAttendance_Load(object sender, EventArgs e)
         {
-            cboFilter.SelectedIndex = 0;
+            //cboFilter.SelectedIndex = 0;
             LoadAndRetrieveEmployeeAttendanceData();
             CountAttendance();
             CountForRealTimeOnLeave();
@@ -470,13 +470,13 @@ namespace GUTZ_Capstone_Project
         private async Task LoadAttendanceDataForSelectedDate()
         {
             DateTime selectedDate = dtpEmpSelectDate.Value;
-            lblAttendanceSummaryDate.Text = "Attendance Summary - " + selectedDate.ToString("dddd, MMMM dd, yyyy");
+            lblAttendanceSummaryDate.Text = "Attendance Summary - " + selectedDate.ToString("dddd MMMM dd, yyyy");
             lblExpectedClockIn.Text = "Clocked-In (Total)";
             lblAttendancePercent.Text = "Attendance % (Total)";
             lblAccumulatedTutoringHours.Text = "Tutoring Hours (Accum.)";
 
             string formattedDate = selectedDate.ToString("yyyy-MM-dd");
-            string displayDate = "Attendance Record - " + selectedDate.ToString("dddd, MMMM dd, yyyy");
+            string displayDate = "Attendance Record - " + selectedDate.ToString("dddd MMMM dd, yyyy");
 
             DateTime today = DateTime.Today;
             if (selectedDate.Date > today)
@@ -560,7 +560,7 @@ namespace GUTZ_Capstone_Project
 
                     EmployeeAttendanceCard employeeAttendanceCard = new EmployeeAttendanceCard(this)
                     {
-                        CurrentDate = displayDate,
+                        CurrentDate = selectedDate.ToString("dddd MMMM dd, yyyy"),
                         _id = empId,
                         EmployeeProfilePic = File.Exists(imagePath) ? Image.FromFile(imagePath) : null,
                         EmployeeName = name,
@@ -744,7 +744,7 @@ namespace GUTZ_Capstone_Project
                 btnOnLeave.Text = countOnLeave.ToString();
                 lblOnTimeEmployee.Text = "On-Time: " + countOnTime.ToString();
                 lblLateEmployee.Text = "Late: " + countLate.ToString();
-                lblScheduledEmployee.Text = "Expected: " + totalScheduledEmployees.ToString();
+                lblScheduledEmployee.Text = "Expected: " + (totalScheduledEmployees - countOnLeave).ToString();
 
                 // Display scheduled employees minus on leave
                 lblScheduledEmployeeToday.Text = countWorkingPresent + "/" + (totalScheduledEmployees - countOnLeave).ToString();
@@ -1029,7 +1029,7 @@ namespace GUTZ_Capstone_Project
             LoadAndRetrieveEmployeeAttendanceData();
 
             // Reset the filter combo box to its default value
-            cboFilter.SelectedIndex = 0;
+            //cboFilter.SelectedIndex = 0;
 
             // Update the visibility of UI elements
             flowLayoutPanel1.Visible = true;

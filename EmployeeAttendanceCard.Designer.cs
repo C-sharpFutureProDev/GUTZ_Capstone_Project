@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeAttendanceCard));
             this.panelEmployeeAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnLeaveMark = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPresentMark = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAbsentMark = new Guna.UI2.WinForms.Guna2Button();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.EmployeeAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.EmployeeLeaveDetails = new Guna.UI2.WinForms.Guna2Panel();
@@ -47,9 +50,6 @@
             this.lblClockIn = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.employeeProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnAbsentMark = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPresentMark = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLeaveMark = new Guna.UI2.WinForms.Guna2Button();
             this.panelEmployeeAttendanceDetails.SuspendLayout();
             this.EmployeeAttendanceDetails.SuspendLayout();
             this.EmployeeLeaveDetails.SuspendLayout();
@@ -77,6 +77,81 @@
             this.panelEmployeeAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.panelEmployeeAttendanceDetails.Size = new System.Drawing.Size(355, 187);
             this.panelEmployeeAttendanceDetails.TabIndex = 2;
+            // 
+            // btnLeaveMark
+            // 
+            this.btnLeaveMark.BackColor = System.Drawing.Color.Transparent;
+            this.btnLeaveMark.BorderColor = System.Drawing.Color.Ivory;
+            this.btnLeaveMark.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLeaveMark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLeaveMark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLeaveMark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLeaveMark.FillColor = System.Drawing.Color.Ivory;
+            this.btnLeaveMark.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnLeaveMark.ForeColor = System.Drawing.Color.White;
+            this.btnLeaveMark.HoverState.BorderColor = System.Drawing.Color.Ivory;
+            this.btnLeaveMark.HoverState.FillColor = System.Drawing.Color.Ivory;
+            this.btnLeaveMark.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnLeaveMark.Image = ((System.Drawing.Image)(resources.GetObject("btnLeaveMark.Image")));
+            this.btnLeaveMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnLeaveMark.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnLeaveMark.Location = new System.Drawing.Point(267, 7);
+            this.btnLeaveMark.Name = "btnLeaveMark";
+            this.btnLeaveMark.PressedColor = System.Drawing.Color.Ivory;
+            this.btnLeaveMark.PressedDepth = 0;
+            this.btnLeaveMark.Size = new System.Drawing.Size(72, 67);
+            this.btnLeaveMark.TabIndex = 82;
+            this.btnLeaveMark.Visible = false;
+            // 
+            // btnPresentMark
+            // 
+            this.btnPresentMark.BackColor = System.Drawing.Color.Transparent;
+            this.btnPresentMark.BorderColor = System.Drawing.Color.Ivory;
+            this.btnPresentMark.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPresentMark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPresentMark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPresentMark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPresentMark.FillColor = System.Drawing.Color.Ivory;
+            this.btnPresentMark.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnPresentMark.ForeColor = System.Drawing.Color.White;
+            this.btnPresentMark.HoverState.BorderColor = System.Drawing.Color.Ivory;
+            this.btnPresentMark.HoverState.FillColor = System.Drawing.Color.Ivory;
+            this.btnPresentMark.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnPresentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnPresentMark.Image")));
+            this.btnPresentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnPresentMark.ImageSize = new System.Drawing.Size(60, 45);
+            this.btnPresentMark.Location = new System.Drawing.Point(267, 7);
+            this.btnPresentMark.Name = "btnPresentMark";
+            this.btnPresentMark.PressedColor = System.Drawing.Color.Ivory;
+            this.btnPresentMark.PressedDepth = 0;
+            this.btnPresentMark.Size = new System.Drawing.Size(72, 67);
+            this.btnPresentMark.TabIndex = 81;
+            this.btnPresentMark.Visible = false;
+            // 
+            // btnAbsentMark
+            // 
+            this.btnAbsentMark.BackColor = System.Drawing.Color.Transparent;
+            this.btnAbsentMark.BorderColor = System.Drawing.Color.Ivory;
+            this.btnAbsentMark.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAbsentMark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAbsentMark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAbsentMark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAbsentMark.FillColor = System.Drawing.Color.Ivory;
+            this.btnAbsentMark.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnAbsentMark.ForeColor = System.Drawing.Color.White;
+            this.btnAbsentMark.HoverState.BorderColor = System.Drawing.Color.Ivory;
+            this.btnAbsentMark.HoverState.FillColor = System.Drawing.Color.Ivory;
+            this.btnAbsentMark.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnAbsentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnAbsentMark.Image")));
+            this.btnAbsentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnAbsentMark.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnAbsentMark.Location = new System.Drawing.Point(267, 7);
+            this.btnAbsentMark.Name = "btnAbsentMark";
+            this.btnAbsentMark.PressedColor = System.Drawing.Color.Ivory;
+            this.btnAbsentMark.PressedDepth = 0;
+            this.btnAbsentMark.Size = new System.Drawing.Size(72, 67);
+            this.btnAbsentMark.TabIndex = 80;
+            this.btnAbsentMark.Visible = false;
             // 
             // lblCurrentDate
             // 
@@ -335,81 +410,6 @@
             this.employeeProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.employeeProfilePicture.TabIndex = 50;
             this.employeeProfilePicture.TabStop = false;
-            // 
-            // btnAbsentMark
-            // 
-            this.btnAbsentMark.BackColor = System.Drawing.Color.Transparent;
-            this.btnAbsentMark.BorderColor = System.Drawing.Color.Ivory;
-            this.btnAbsentMark.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAbsentMark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAbsentMark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAbsentMark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAbsentMark.FillColor = System.Drawing.Color.Ivory;
-            this.btnAbsentMark.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.btnAbsentMark.ForeColor = System.Drawing.Color.White;
-            this.btnAbsentMark.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnAbsentMark.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnAbsentMark.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnAbsentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnAbsentMark.Image")));
-            this.btnAbsentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnAbsentMark.ImageSize = new System.Drawing.Size(40, 45);
-            this.btnAbsentMark.Location = new System.Drawing.Point(267, 7);
-            this.btnAbsentMark.Name = "btnAbsentMark";
-            this.btnAbsentMark.PressedColor = System.Drawing.Color.Ivory;
-            this.btnAbsentMark.PressedDepth = 0;
-            this.btnAbsentMark.Size = new System.Drawing.Size(72, 67);
-            this.btnAbsentMark.TabIndex = 80;
-            this.btnAbsentMark.Visible = false;
-            // 
-            // btnPresentMark
-            // 
-            this.btnPresentMark.BackColor = System.Drawing.Color.Transparent;
-            this.btnPresentMark.BorderColor = System.Drawing.Color.Ivory;
-            this.btnPresentMark.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPresentMark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPresentMark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPresentMark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPresentMark.FillColor = System.Drawing.Color.Ivory;
-            this.btnPresentMark.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.btnPresentMark.ForeColor = System.Drawing.Color.White;
-            this.btnPresentMark.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnPresentMark.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnPresentMark.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnPresentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnPresentMark.Image")));
-            this.btnPresentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnPresentMark.ImageSize = new System.Drawing.Size(65, 50);
-            this.btnPresentMark.Location = new System.Drawing.Point(267, 7);
-            this.btnPresentMark.Name = "btnPresentMark";
-            this.btnPresentMark.PressedColor = System.Drawing.Color.Ivory;
-            this.btnPresentMark.PressedDepth = 0;
-            this.btnPresentMark.Size = new System.Drawing.Size(72, 67);
-            this.btnPresentMark.TabIndex = 81;
-            this.btnPresentMark.Visible = false;
-            // 
-            // btnLeaveMark
-            // 
-            this.btnLeaveMark.BackColor = System.Drawing.Color.Transparent;
-            this.btnLeaveMark.BorderColor = System.Drawing.Color.Ivory;
-            this.btnLeaveMark.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLeaveMark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLeaveMark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLeaveMark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLeaveMark.FillColor = System.Drawing.Color.Ivory;
-            this.btnLeaveMark.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.btnLeaveMark.ForeColor = System.Drawing.Color.White;
-            this.btnLeaveMark.HoverState.BorderColor = System.Drawing.Color.Ivory;
-            this.btnLeaveMark.HoverState.FillColor = System.Drawing.Color.Ivory;
-            this.btnLeaveMark.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnLeaveMark.Image = ((System.Drawing.Image)(resources.GetObject("btnLeaveMark.Image")));
-            this.btnLeaveMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnLeaveMark.ImageSize = new System.Drawing.Size(40, 38);
-            this.btnLeaveMark.Location = new System.Drawing.Point(267, 7);
-            this.btnLeaveMark.Name = "btnLeaveMark";
-            this.btnLeaveMark.PressedColor = System.Drawing.Color.Ivory;
-            this.btnLeaveMark.PressedDepth = 0;
-            this.btnLeaveMark.Size = new System.Drawing.Size(72, 67);
-            this.btnLeaveMark.TabIndex = 82;
-            this.btnLeaveMark.Visible = false;
             // 
             // EmployeeAttendanceCard
             // 

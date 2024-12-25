@@ -124,7 +124,7 @@
   <data name="btnViewEmployeeList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAtlJREFUSEvtlklrFFEURo1DAtE4xCGiENBtVHBauBCELELixgguTBDi2o0uhCBR
+        DAAACwwBP0AiyAAAAtlJREFUSEvtlklrFFEURo1DAtE4xCGiENBtVHBauBCELELixgguTBDi2o0uhCBR
         4hAUIioo/gHd6MIBMQYXguAUV8GIw0YFFXHCEUe0PN97t9qqriGxE3rlgUP3u+97t7pfVVf1uP9kEQTB
         EtyJl/AxfjAfYR924WKLjx6aNeFNHCk3sMmW/zssXojn1KlEtHaBtRsZLFiPH7W6iDe4G1fgTJyBK3EP
         vsZi1KPV2uZDsBt/a1URZ3GaxRIwpw+hTDHq1W2xdAgcctEkZ3C8xTIhMwHTDi4OWiwOE/v9fIJXONVi
@@ -142,7 +142,7 @@
   <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAbJJREFUSEutlj0vBFEUhncTnyEkEgpfkUgkSoU/oOI3qIRCLdlYUek0Eg1ajWol
+        DAAACwwBP0AiyAAAAbJJREFUSEutlj0vBFEUhncTnyEkEgpfkUgkSoU/oOI3qIRCLdlYUek0Eg1ajWol
         ohWNhIRCpVEoKIlEVhCFZDzn3tesGTtryH2SNzv3vOe8xeydO1PIQxRFw6iEjtElmpYVBgLb0QZ6R8YN
         GpEdBgL70IWlixc0JjsMBLagM0v/Rkl2OAhd89kxz6hTdhgI7EFVS//GruxwELrosxPMyw4HoQc+O8GE
         7Ezo6UK2Q7tUagyNtoXT9MuuC34R7bvOKDpERVnZ0GTbOE2b7Lrgr/i2mLKsGhRvvZeba406WE+hD+fU
@@ -206,7 +206,7 @@
   <data name="btnOnLeave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAABD9JREFUaEPtmVuITVEYx8eM0USilDzgQUkkIyWlcfckxYsHDyiPSnmjKB6Ekvsl
+        DAAACwwBP0AiyAAABD9JREFUaEPtmVuITVEYx8eM0USilDzgQUkkIyWlcfckxYsHDyiPSnmjKB6Ekvsl
         L1KKckvyKAp5GLfcLw+8KFKGGbnmMv7ft/5n77P3/tY++8wsZ87U/OrfOfv7/9c3e3XOmr32Pg0D1Bvd
         3d3t0G1oIkv9E0ygxCdoCcv9DzeHiD/QZmgQ7QjUbkkgxU3afQ9PKM1laAQjiitnod338HwsnkDRusH7
         a1pNQbvv4fn46IKWM9cE7ZJiOdqkHuD55PEXkgk0Mr8S+gop2qQe4PkUIVo3eG2FXktRm9QDcjJV8AKa

@@ -60,15 +60,16 @@ namespace GUTZ_Capstone_Project
                 await scheduler.ScheduleJob(job, immediateTrigger);
 
                 // Trigger the job to run daily at 12:00 AM
-                ITrigger dailyTrigger = TriggerBuilder.Create()
+                /*ITrigger dailyTrigger = TriggerBuilder.Create()
                     .WithIdentity("leaveStatusUpdateTrigger")
                     .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(0, 0)) // Runs daily at 12:00 AM
                     .Build();
 
                 // Schedule the daily job
                 await scheduler.ScheduleJob(job, dailyTrigger);
+                */
 
-                Console.WriteLine("Jobs scheduled successfully.");
+                //Console.WriteLine("Jobs scheduled successfully.");
             }
             catch (Exception ex)
             {
