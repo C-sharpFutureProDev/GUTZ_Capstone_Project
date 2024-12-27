@@ -78,24 +78,24 @@
             // btnWorkingArrangement
             // 
             this.btnWorkingArrangement.BackColor = System.Drawing.Color.Ivory;
-            this.btnWorkingArrangement.BorderColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.btnWorkingArrangement.BorderRadius = 3;
             this.btnWorkingArrangement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnWorkingArrangement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnWorkingArrangement.FillColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.btnWorkingArrangement.Font = new System.Drawing.Font("Arial", 9.5F);
             this.btnWorkingArrangement.ForeColor = System.Drawing.Color.White;
-            this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.Teal;
-            this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.btnWorkingArrangement.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnWorkingArrangement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnWorkingArrangement.ImageSize = new System.Drawing.Size(17, 17);
             this.btnWorkingArrangement.Location = new System.Drawing.Point(115, 10);
             this.btnWorkingArrangement.Name = "btnWorkingArrangement";
             this.btnWorkingArrangement.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnWorkingArrangement.PressedColor = System.Drawing.Color.Teal;
+            this.btnWorkingArrangement.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.btnWorkingArrangement.PressedDepth = 0;
             this.btnWorkingArrangement.Size = new System.Drawing.Size(120, 35);
             this.btnWorkingArrangement.TabIndex = 88;
@@ -182,18 +182,18 @@
             // btnViewEmployeeDetails
             // 
             this.btnViewEmployeeDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnViewEmployeeDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnViewEmployeeDetails.BorderRadius = 5;
-            this.btnViewEmployeeDetails.BorderThickness = 5;
+            this.btnViewEmployeeDetails.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnViewEmployeeDetails.BorderRadius = 4;
+            this.btnViewEmployeeDetails.BorderThickness = 4;
             this.btnViewEmployeeDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnViewEmployeeDetails.FillColor = System.Drawing.Color.DarkCyan;
             this.btnViewEmployeeDetails.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewEmployeeDetails.ForeColor = System.Drawing.Color.White;
-            this.btnViewEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.btnViewEmployeeDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnViewEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.Teal;
+            this.btnViewEmployeeDetails.HoverState.FillColor = System.Drawing.Color.Teal;
             this.btnViewEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeDetails.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnViewEmployeeDetails.ImageSize = new System.Drawing.Size(17, 17);

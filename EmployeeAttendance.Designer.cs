@@ -46,7 +46,7 @@
             this.lblTextFilterPastAttendanceRecord = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSelectDate = new System.Windows.Forms.Label();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.panelEmployeeDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblScheduledEmployee = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.lblExpectedClockIn = new System.Windows.Forms.Label();
             this.lblAttendanceSummaryDate = new System.Windows.Forms.Label();
             this.dateOfCurrentAttendanceRecord = new System.Windows.Forms.Label();
-            this.guna2Panel1.SuspendLayout();
+            this.panelAttendanceDetails.SuspendLayout();
             this.panelEmployeeDetails.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -394,36 +394,36 @@
             this.lblSelectDate.Text = "Select Date:";
             this.lblSelectDate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // guna2Panel1
+            // panelAttendanceDetails
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Ivory;
-            this.guna2Panel1.Controls.Add(this.panelEmployeeDetails);
-            this.guna2Panel1.Controls.Add(this.lblSelectDate);
-            this.guna2Panel1.Controls.Add(this.label3);
-            this.guna2Panel1.Controls.Add(this.lblTextFilterPastAttendanceRecord);
-            this.guna2Panel1.Controls.Add(this.pastdtpBottomBorder);
-            this.guna2Panel1.Controls.Add(this.cboFilter);
-            this.guna2Panel1.Controls.Add(this.btnOnLeave);
-            this.guna2Panel1.Controls.Add(this.btnClockOut);
-            this.guna2Panel1.Controls.Add(this.btnViewEmployeeList);
-            this.guna2Panel1.Controls.Add(this.btnClockIn);
-            this.guna2Panel1.Controls.Add(this.btnRefresh);
-            this.guna2Panel1.Controls.Add(this.btnAbsent);
-            this.guna2Panel1.Controls.Add(this.btnTotalAttendance);
-            this.guna2Panel1.Controls.Add(this.dateOfCurrentAttendanceRecord);
-            this.guna2Panel1.Controls.Add(this.dtpEmpSelectDate);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.Ivory;
-            this.guna2Panel1.Font = new System.Drawing.Font("Symbol", 8.25F);
-            this.guna2Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.BorderRadius = 1;
-            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Green;
-            this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.guna2Panel1.Size = new System.Drawing.Size(1914, 290);
-            this.guna2Panel1.TabIndex = 3;
+            this.panelAttendanceDetails.BackColor = System.Drawing.Color.Black;
+            this.panelAttendanceDetails.BorderColor = System.Drawing.Color.Ivory;
+            this.panelAttendanceDetails.Controls.Add(this.panelEmployeeDetails);
+            this.panelAttendanceDetails.Controls.Add(this.lblSelectDate);
+            this.panelAttendanceDetails.Controls.Add(this.label3);
+            this.panelAttendanceDetails.Controls.Add(this.lblTextFilterPastAttendanceRecord);
+            this.panelAttendanceDetails.Controls.Add(this.pastdtpBottomBorder);
+            this.panelAttendanceDetails.Controls.Add(this.cboFilter);
+            this.panelAttendanceDetails.Controls.Add(this.btnOnLeave);
+            this.panelAttendanceDetails.Controls.Add(this.btnClockOut);
+            this.panelAttendanceDetails.Controls.Add(this.btnViewEmployeeList);
+            this.panelAttendanceDetails.Controls.Add(this.btnClockIn);
+            this.panelAttendanceDetails.Controls.Add(this.btnRefresh);
+            this.panelAttendanceDetails.Controls.Add(this.btnAbsent);
+            this.panelAttendanceDetails.Controls.Add(this.btnTotalAttendance);
+            this.panelAttendanceDetails.Controls.Add(this.dateOfCurrentAttendanceRecord);
+            this.panelAttendanceDetails.Controls.Add(this.dtpEmpSelectDate);
+            this.panelAttendanceDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAttendanceDetails.FillColor = System.Drawing.Color.Ivory;
+            this.panelAttendanceDetails.Font = new System.Drawing.Font("Symbol", 8.25F);
+            this.panelAttendanceDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelAttendanceDetails.Location = new System.Drawing.Point(0, 0);
+            this.panelAttendanceDetails.Name = "panelAttendanceDetails";
+            this.panelAttendanceDetails.ShadowDecoration.BorderRadius = 1;
+            this.panelAttendanceDetails.ShadowDecoration.Color = System.Drawing.Color.Green;
+            this.panelAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.panelAttendanceDetails.Size = new System.Drawing.Size(1914, 290);
+            this.panelAttendanceDetails.TabIndex = 3;
             // 
             // panelEmployeeDetails
             // 
@@ -717,7 +717,7 @@
             this.ClientSize = new System.Drawing.Size(1914, 976);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.panelAttendanceDetails);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.Name = "EmployeeAttendance";
@@ -725,7 +725,7 @@
             this.Text = "Employee Attendance";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeAttendance_FormClosing);
             this.Load += new System.EventHandler(this.EmployeeAttendance_Load);
-            this.guna2Panel1.ResumeLayout(false);
+            this.panelAttendanceDetails.ResumeLayout(false);
             this.panelEmployeeDetails.ResumeLayout(false);
             this.guna2Panel7.ResumeLayout(false);
             this.guna2Panel6.ResumeLayout(false);
@@ -754,7 +754,7 @@
         private System.Windows.Forms.Label label3;
         public Guna.UI2.WinForms.Guna2Button btnViewEmployeeList;
         private System.Windows.Forms.Label lblSelectDate;
-        public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        public Guna.UI2.WinForms.Guna2Panel panelAttendanceDetails;
         public Guna.UI2.WinForms.Guna2Panel panelEmployeeDetails;
         private System.Windows.Forms.Label lblAttendanceSummaryDate;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;

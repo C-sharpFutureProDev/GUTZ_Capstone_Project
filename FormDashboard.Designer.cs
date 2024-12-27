@@ -167,7 +167,6 @@
             this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSettings.Enabled = false;
             this.btnSettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnSettings.Font = new System.Drawing.Font("Arial", 11F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
@@ -198,7 +197,6 @@
             this.btnGenerateReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGenerateReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnGenerateReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGenerateReports.Enabled = false;
             this.btnGenerateReports.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnGenerateReports.Font = new System.Drawing.Font("Arial", 11F);
             this.btnGenerateReports.ForeColor = System.Drawing.Color.White;
@@ -229,7 +227,6 @@
             this.btnPayrollManagement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPayrollManagement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPayrollManagement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPayrollManagement.Enabled = false;
             this.btnPayrollManagement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnPayrollManagement.Font = new System.Drawing.Font("Arial", 11F);
             this.btnPayrollManagement.ForeColor = System.Drawing.Color.White;

@@ -76,7 +76,6 @@ namespace GUTZ_Capstone_Project
         private void ComputeAverageTimeIn()
         {
             string averageTimeIn = string.Empty;
-
             string averageTimeInQuery = $@"SELECT SEC_TO_TIME(AVG(TIME_TO_SEC(TIME(time_in)))) AS AverageTime
                                            FROM tbl_attendance
                                            WHERE DATE(time_in) = '{_reportDate:yyyy-MM-dd}'";

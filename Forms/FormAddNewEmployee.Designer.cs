@@ -1352,10 +1352,10 @@
             // 
             this.lblFormLabel.AutoSize = true;
             this.lblFormLabel.BackColor = System.Drawing.Color.White;
-            this.lblFormLabel.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormLabel.Font = new System.Drawing.Font("Imprint MT Shadow", 16F, System.Drawing.FontStyle.Bold);
             this.lblFormLabel.Location = new System.Drawing.Point(21, 8);
             this.lblFormLabel.Name = "lblFormLabel";
-            this.lblFormLabel.Size = new System.Drawing.Size(339, 35);
+            this.lblFormLabel.Size = new System.Drawing.Size(352, 38);
             this.lblFormLabel.TabIndex = 53;
             this.lblFormLabel.Text = "New Employee Record";
             // 

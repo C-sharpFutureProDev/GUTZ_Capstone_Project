@@ -15,8 +15,8 @@ namespace GUTZ_Capstone_Project
         public string _id;
         private string _clockInTime;
         private string _clockOutTime;
+        private string _attendanceDate;
         private string _status;
-        private string _currentDate;
         private EmployeeAttendance _employeeAttendance;
 
         public EmployeePastAttendanceHistoryCard(EmployeeAttendance employeeAttendance)
@@ -28,11 +28,21 @@ namespace GUTZ_Capstone_Project
         [Category("Custom Control")]
         public string AttendanceDate
         {
-            get => _currentDate;
+            get => _attendanceDate;
             set
             {
-                _currentDate = value;
+                _attendanceDate = value;
                 lblPastAttendanceDate.Text = value;
+            }
+        }
+
+        [Category("Custom Control")]
+        public string ID
+        {
+            get => _id;
+            set
+            {
+                _id = value;
             }
         }
 
@@ -43,7 +53,7 @@ namespace GUTZ_Capstone_Project
             set
             {
                 _clockInTime = value;
-                btnClockIn.Text = value;
+                lblTimeIn.Text = value;
             }
         }
 
@@ -54,7 +64,7 @@ namespace GUTZ_Capstone_Project
             set
             {
                 _clockOutTime = value;
-                btnClockOut.Text = value;
+                lblTimeOut.Text = value;
             }
         }
 
@@ -65,7 +75,6 @@ namespace GUTZ_Capstone_Project
             set
             {
                 _status = value;
-                btnStatus.Text = _status;
             }
         }
     }

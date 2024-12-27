@@ -95,7 +95,7 @@
             this.btnLeaveMark.Image = ((System.Drawing.Image)(resources.GetObject("btnLeaveMark.Image")));
             this.btnLeaveMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnLeaveMark.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnLeaveMark.Location = new System.Drawing.Point(267, 7);
+            this.btnLeaveMark.Location = new System.Drawing.Point(275, 7);
             this.btnLeaveMark.Name = "btnLeaveMark";
             this.btnLeaveMark.PressedColor = System.Drawing.Color.Ivory;
             this.btnLeaveMark.PressedDepth = 0;
@@ -120,7 +120,7 @@
             this.btnPresentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnPresentMark.Image")));
             this.btnPresentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnPresentMark.ImageSize = new System.Drawing.Size(60, 45);
-            this.btnPresentMark.Location = new System.Drawing.Point(267, 7);
+            this.btnPresentMark.Location = new System.Drawing.Point(280, 7);
             this.btnPresentMark.Name = "btnPresentMark";
             this.btnPresentMark.PressedColor = System.Drawing.Color.Ivory;
             this.btnPresentMark.PressedDepth = 0;
@@ -145,7 +145,7 @@
             this.btnAbsentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnAbsentMark.Image")));
             this.btnAbsentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAbsentMark.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnAbsentMark.Location = new System.Drawing.Point(267, 7);
+            this.btnAbsentMark.Location = new System.Drawing.Point(280, 7);
             this.btnAbsentMark.Name = "btnAbsentMark";
             this.btnAbsentMark.PressedColor = System.Drawing.Color.Ivory;
             this.btnAbsentMark.PressedDepth = 0;

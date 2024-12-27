@@ -131,10 +131,34 @@ namespace GUTZ_Capstone_Project
             // Get total scheduled employees for today
             int totalScheduledEmployees = CountScheduledEmployeesForToday();
 
-            string sqlCountAttendance = $"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status, a.working_hours " +
+            /*string sqlCountAttendance = $"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status, a.working_hours " +
                                           $"FROM tbl_schedule s " +
                                           $"LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{currentDate:yyyy-MM-dd}' " +
-                                          $"WHERE s.work_days LIKE '%{currentDate.DayOfWeek}%'";
+                                          $"WHERE s.work_days LIKE '%{currentDate.DayOfWeek}%'";*/
+
+            string sqlCountAttendance = $@"SELECT 
+                                                s.emp_id, 
+                                                s.start_time, 
+                                                s.end_time, 
+                                                s.work_days, 
+                                                a.time_in, 
+                                                a.time_out, 
+                                                a.time_in_status, 
+                                                a.working_hours 
+                                            FROM 
+                                                tbl_schedule s
+                                            LEFT JOIN 
+                                                tbl_attendance a 
+                                                ON a.emp_id = s.emp_id 
+                                                AND DATE(a.time_in) = '{currentDate:yyyy-MM-dd}'
+                                            LEFT JOIN 
+                                                tbl_leave l
+                                                ON l.emp_id = s.emp_id
+                                                AND l.leave_status = 'Active'
+                                                AND '{currentDate:yyyy-MM-dd}' BETWEEN l.start_date AND l.end_date
+                                            WHERE 
+                                                s.work_days LIKE '%{currentDate.DayOfWeek}%'
+                                                AND l.emp_id IS NULL";
 
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
 
@@ -810,7 +834,7 @@ namespace GUTZ_Capstone_Project
 
         private void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            timer1.Stop();
+            /*timer1.Stop();
             try
             {
                 string query = "";
@@ -910,7 +934,7 @@ namespace GUTZ_Capstone_Project
                             : "--";
                         string timeInStatus = row.Table.Columns.Contains("time_in_status") && row["time_in_status"] != DBNull.Value
                             ? row["time_in_status"].ToString()
-                            : "Absent"; // Default to "Absent"
+                            : "Absent";
                         string timeOutFormatted = row.Table.Columns.Contains("time_out_formatted") && row["time_out_formatted"] != DBNull.Value
                             ? row["time_out_formatted"].ToString()
                             : "--";
@@ -971,6 +995,189 @@ namespace GUTZ_Capstone_Project
                             employeeAttendanceCard.btnAbsentMark.Visible = true;
                             employeeAttendanceCard.btnClockIn.Text = timeInFormatted;
                             employeeAttendanceCard.btnClockOut.Text = timeInFormatted;
+                        }
+
+                        if (timeInStatus == "On Leave")
+                        {
+                            employeeAttendanceCard.btnAbsentMark.Visible = false;
+                            employeeAttendanceCard.btnLeaveMark.Visible = true;
+                            employeeAttendanceCard.EmployeeLeaveDetails.Visible = true;
+                            employeeAttendanceCard.lblLeaveStartDate.Text = formattedLeaveStartDate;
+                            employeeAttendanceCard.lblEndDate.Text = formattedLeaveEndDate;
+                            employeeAttendanceCard.lblLeaveStatus.Text = leaveStatus;
+                        }
+
+                        flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No employees found based on the selected filter.", "Result",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while filtering attendance records: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+
+            timer1.Stop();
+            try
+            {
+                string query = "";
+                DateTime currentAttendanceDate = DateTime.Today; // Use today's date for filtering
+
+                switch (cboFilter.SelectedIndex)
+                {
+                    case 0: // On-Time
+                        query = @"SELECT attendance_id, tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
+                                 tbl_employee.m_name, tbl_employee.l_name, leave_status, 
+                                 tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
+                                 CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                 working_hours, time_in_status, 
+                                 DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                 DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                 time_in, time_out
+                          FROM tbl_employee
+                          INNER JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                          LEFT JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                          WHERE tbl_employee.is_deleted = 0 AND DATE(tbl_attendance.time_in) = CURDATE() AND tbl_attendance.time_in_status = 'On Time'
+                          ORDER BY time_in ASC";
+                        break;
+
+                    case 1: // Late
+                        query = @"SELECT attendance_id, tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
+                                 tbl_employee.m_name, tbl_employee.l_name, leave_status, 
+                                 tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
+                                 CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                 working_hours, time_in_status, 
+                                 DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                 DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                 time_in, time_out
+                          FROM tbl_employee
+                          INNER JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                          LEFT JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                          WHERE tbl_employee.is_deleted = 0 AND DATE(tbl_attendance.time_in) = CURDATE() AND tbl_attendance.time_in_status = 'Late'
+                          ORDER BY time_in ASC";
+                        break;
+
+                    case 2: // Absent
+                        query = @"SELECT tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
+                                 tbl_employee.m_name, tbl_employee.l_name, leave_status, 
+                                 tbl_leave.start_date AS leave_start_date, tbl_leave.end_date AS leave_end_date,
+                                 CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                 NULL AS time_in_formatted,
+                                 NULL AS time_in_status,
+                                 NULL AS time_out_formatted, 
+                                 NULL AS time_in, NULL AS time_out
+                          FROM tbl_employee
+                          LEFT JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                          LEFT JOIN tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id AND DATE(tbl_attendance.time_in) = CURDATE()
+                          LEFT JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
+                          WHERE tbl_employee.is_deleted = 0 
+                                AND tbl_attendance.time_in IS NULL 
+                                AND TIME(NOW()) > tbl_schedule.end_time 
+                                AND (tbl_leave.leave_status IS NULL OR tbl_leave.leave_status != 'Active') -- Exclude active leaves
+                          ORDER BY tbl_employee.f_name ASC";
+                        break;
+
+                    case 3: // On Leave
+                        query = @"SELECT DISTINCT tbl_employee.emp_id, emp_profilePic, tbl_employee.f_name, 
+                                          tbl_employee.m_name, tbl_employee.l_name, 
+                                          CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                          l.start_date AS leave_start_date, 
+                                          l.end_date AS leave_end_date, 
+                                          l.leave_status,
+                                          NULL AS time_in_formatted, -- Placeholder for consistency
+                                          'On Leave' AS time_in_status, -- Explicit status
+                                          NULL AS time_out_formatted, 
+                                          NULL AS time_in, NULL AS time_out
+                          FROM tbl_employee
+                          INNER JOIN tbl_leave AS l ON tbl_employee.emp_id = l.emp_id
+                          WHERE tbl_employee.is_deleted = 0 AND l.leave_status = 'Active' AND l.start_date <= CURDATE() AND l.end_date >= CURDATE()
+                          ORDER BY tbl_employee.f_name ASC";
+                        break;
+
+                    default:
+                        MessageBox.Show("Please select a valid filter criterion.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                }
+
+                DataTable dt = DB_OperationHelperClass.QueryData(query);
+                flowLayoutPanel1.Controls.Clear();
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string empId = row["emp_id"].ToString();
+                        string firstName = row["f_name"].ToString();
+                        string middleName = row["m_name"].ToString();
+                        string lastName = row["l_name"].ToString();
+                        string name = string.IsNullOrEmpty(middleName) || middleName == "N/A"
+                            ? $"{firstName} {lastName}"
+                            : $"{firstName} {middleName[0]}. {lastName}";
+
+                        string imagePath = row["emp_profilePic"].ToString();
+                        string timeInFormatted = row.Table.Columns.Contains("time_in_formatted") && row["time_in_formatted"] != DBNull.Value
+                            ? row["time_in_formatted"].ToString()
+                            : "--";
+                        string timeInStatus = row.Table.Columns.Contains("time_in_status") && row["time_in_status"] != DBNull.Value
+                            ? row["time_in_status"].ToString()
+                            : "Absent";
+                        string timeOutFormatted = row.Table.Columns.Contains("time_out_formatted") && row["time_out_formatted"] != DBNull.Value
+                            ? row["time_out_formatted"].ToString()
+                            : "--";
+
+                        string leaveStartDateStr = row["leave_start_date"] != DBNull.Value
+                            ? row["leave_start_date"].ToString()
+                            : "--";
+                        string leaveEndDateStr = row["leave_end_date"] != DBNull.Value
+                            ? row["leave_end_date"].ToString()
+                            : "--";
+                        string leaveStatus = row.Table.Columns.Contains("leave_status") && row["leave_status"] != DBNull.Value
+                            ? row["leave_status"].ToString()
+                            : "";
+
+                        DateTime leaveStartDate;
+                        DateTime leaveEndDate;
+
+                        string formattedLeaveStartDate = DateTime.TryParse(leaveStartDateStr, out leaveStartDate)
+                            ? leaveStartDate.ToString("MMM dd, yyyy")
+                            : "--";
+
+                        string formattedLeaveEndDate = DateTime.TryParse(leaveEndDateStr, out leaveEndDate)
+                            ? leaveEndDate.ToString("MMM dd, yyyy")
+                            : "--";
+
+                        // Create attendance card
+                        EmployeeAttendanceCard employeeAttendanceCard = new EmployeeAttendanceCard(this)
+                        {
+                            CurrentDate = currentAttendanceDate.ToString("dddd, MMM. dd, yyyy"),
+                            _id = empId,
+                            EmployeeProfilePic = File.Exists(imagePath) ? Image.FromFile(imagePath) : null,
+                            EmployeeName = name,
+                            ClockInTime = timeInFormatted,
+                            Status = timeInStatus,
+                            ClockOutTime = timeOutFormatted,
+                        };
+
+                        if (timeInStatus == "On Time")
+                        {
+                            employeeAttendanceCard.btnClockOut.Text = timeOutFormatted == "--" ? "Pending" : timeOutFormatted;
+                            employeeAttendanceCard.btnPresentMark.Visible = true;
+                        }
+                        else if (timeInStatus == "Late")
+                        {
+                            employeeAttendanceCard.btnClockOut.Text = timeOutFormatted == "--" ? "Pending" : timeOutFormatted;
+                            employeeAttendanceCard.btnPresentMark.Visible = true;
+                        }
+                        else
+                        {
+                            employeeAttendanceCard.btnAbsentMark.Visible = true;
+                            employeeAttendanceCard.btnClockIn.Text = timeInFormatted;
+                            employeeAttendanceCard.btnClockOut.Text = timeOutFormatted;
                         }
 
                         if (timeInStatus == "On Leave")

@@ -105,6 +105,7 @@ namespace GUTZ_Capstone_Project
             {
                 EmployeeAttendanceHistory employeeAttendanceHistory = new EmployeeAttendanceHistory(_id, _employeeAttendance);
                 _employeeAttendance.flowLayoutPanel2.Controls.Clear();
+                _employeeAttendance.panelAttendanceDetails.Visible = false;
                 _employeeAttendance.flowLayoutPanel2.Visible = true;
                 _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Fill;
                 _employeeAttendance.flowLayoutPanel2.Visible = true;

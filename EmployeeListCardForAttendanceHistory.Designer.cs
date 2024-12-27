@@ -90,7 +90,7 @@
             this.btnUpdateSchedule.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnUpdateSchedule.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateSchedule.Image")));
             this.btnUpdateSchedule.ImageSize = new System.Drawing.Size(22, 23);
-            this.btnUpdateSchedule.Location = new System.Drawing.Point(254, 10);
+            this.btnUpdateSchedule.Location = new System.Drawing.Point(255, 10);
             this.btnUpdateSchedule.Name = "btnUpdateSchedule";
             this.btnUpdateSchedule.Padding = new System.Windows.Forms.Padding(5);
             this.btnUpdateSchedule.PressedColor = System.Drawing.Color.Green;
@@ -102,24 +102,24 @@
             // lblJobRole
             // 
             this.lblJobRole.BackColor = System.Drawing.Color.Transparent;
-            this.lblJobRole.BorderColor = System.Drawing.Color.Teal;
+            this.lblJobRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblJobRole.BorderRadius = 3;
             this.lblJobRole.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.lblJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.lblJobRole.FillColor = System.Drawing.Color.Teal;
+            this.lblJobRole.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblJobRole.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
-            this.lblJobRole.HoverState.BorderColor = System.Drawing.Color.Teal;
-            this.lblJobRole.HoverState.FillColor = System.Drawing.Color.Teal;
+            this.lblJobRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.lblJobRole.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblJobRole.HoverState.ForeColor = System.Drawing.Color.White;
             this.lblJobRole.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.lblJobRole.ImageSize = new System.Drawing.Size(17, 17);
             this.lblJobRole.Location = new System.Drawing.Point(120, 10);
             this.lblJobRole.Name = "lblJobRole";
             this.lblJobRole.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblJobRole.PressedColor = System.Drawing.Color.Teal;
+            this.lblJobRole.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblJobRole.PressedDepth = 0;
             this.lblJobRole.Size = new System.Drawing.Size(127, 35);
             this.lblJobRole.TabIndex = 89;
@@ -132,7 +132,7 @@
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(18, 143);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(85, 35);
+            this.lblID.Size = new System.Drawing.Size(85, 38);
             this.lblID.TabIndex = 88;
             this.lblID.Text = "ID No.";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -155,7 +155,7 @@
             this.btnAddEmployeeLeaveSchedule.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAddEmployeeLeaveSchedule.Image = ((System.Drawing.Image)(resources.GetObject("btnAddEmployeeLeaveSchedule.Image")));
             this.btnAddEmployeeLeaveSchedule.ImageSize = new System.Drawing.Size(27, 26);
-            this.btnAddEmployeeLeaveSchedule.Location = new System.Drawing.Point(296, 10);
+            this.btnAddEmployeeLeaveSchedule.Location = new System.Drawing.Point(298, 10);
             this.btnAddEmployeeLeaveSchedule.Name = "btnAddEmployeeLeaveSchedule";
             this.btnAddEmployeeLeaveSchedule.Padding = new System.Windows.Forms.Padding(5);
             this.btnAddEmployeeLeaveSchedule.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(128)))), ((int)(((byte)(200)))));
@@ -193,30 +193,30 @@
             // 
             // btnViewEmployeeAttendanceHistory
             // 
+            this.btnViewEmployeeAttendanceHistory.AutoRoundedCorners = true;
             this.btnViewEmployeeAttendanceHistory.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewEmployeeAttendanceHistory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnViewEmployeeAttendanceHistory.BorderRadius = 5;
-            this.btnViewEmployeeAttendanceHistory.BorderThickness = 5;
+            this.btnViewEmployeeAttendanceHistory.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnViewEmployeeAttendanceHistory.BorderRadius = 16;
             this.btnViewEmployeeAttendanceHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeAttendanceHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeAttendanceHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeAttendanceHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewEmployeeAttendanceHistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnViewEmployeeAttendanceHistory.Font = new System.Drawing.Font("Roboto", 8F);
+            this.btnViewEmployeeAttendanceHistory.FillColor = System.Drawing.Color.DarkCyan;
+            this.btnViewEmployeeAttendanceHistory.Font = new System.Drawing.Font("Arial", 8.5F);
             this.btnViewEmployeeAttendanceHistory.ForeColor = System.Drawing.Color.White;
-            this.btnViewEmployeeAttendanceHistory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
-            this.btnViewEmployeeAttendanceHistory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.btnViewEmployeeAttendanceHistory.HoverState.BorderColor = System.Drawing.Color.Teal;
+            this.btnViewEmployeeAttendanceHistory.HoverState.FillColor = System.Drawing.Color.Teal;
             this.btnViewEmployeeAttendanceHistory.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeAttendanceHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnViewEmployeeAttendanceHistory.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnViewEmployeeAttendanceHistory.Location = new System.Drawing.Point(221, 147);
+            this.btnViewEmployeeAttendanceHistory.Location = new System.Drawing.Point(120, 146);
             this.btnViewEmployeeAttendanceHistory.Name = "btnViewEmployeeAttendanceHistory";
-            this.btnViewEmployeeAttendanceHistory.Padding = new System.Windows.Forms.Padding(3, 0, 0, 1);
+            this.btnViewEmployeeAttendanceHistory.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.btnViewEmployeeAttendanceHistory.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeAttendanceHistory.PressedDepth = 0;
-            this.btnViewEmployeeAttendanceHistory.Size = new System.Drawing.Size(112, 31);
+            this.btnViewEmployeeAttendanceHistory.Size = new System.Drawing.Size(213, 35);
             this.btnViewEmployeeAttendanceHistory.TabIndex = 73;
-            this.btnViewEmployeeAttendanceHistory.Text = "Attendance";
+            this.btnViewEmployeeAttendanceHistory.Text = "Attendance History";
             this.btnViewEmployeeAttendanceHistory.Click += new System.EventHandler(this.btnViewEmployeeAttendanceHistory_Click);
             // 
             // EmployeeListCardEmployeeDetailsCard
@@ -239,7 +239,7 @@
             // 
             // lblScheduleWorkingHours
             // 
-            this.lblScheduleWorkingHours.Font = new System.Drawing.Font("Roboto", 8.5F);
+            this.lblScheduleWorkingHours.Font = new System.Drawing.Font("Arial", 9F);
             this.lblScheduleWorkingHours.ForeColor = System.Drawing.Color.White;
             this.lblScheduleWorkingHours.Location = new System.Drawing.Point(3, 58);
             this.lblScheduleWorkingHours.Name = "lblScheduleWorkingHours";
@@ -251,7 +251,7 @@
             // 
             // lblWorkingDays
             // 
-            this.lblWorkingDays.Font = new System.Drawing.Font("Roboto", 8.5F);
+            this.lblWorkingDays.Font = new System.Drawing.Font("Arial", 9F);
             this.lblWorkingDays.ForeColor = System.Drawing.Color.White;
             this.lblWorkingDays.Location = new System.Drawing.Point(3, 31);
             this.lblWorkingDays.Name = "lblWorkingDays";
@@ -263,7 +263,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";
