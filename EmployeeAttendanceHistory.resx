@@ -118,10 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBackToAttendanceForm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAAk1JREFUaEPtl71rFUEcRV9MQBMSCwMKsRGsJCo2Fjax0PgHqAiSRizEJk1AtIyV
+        WlhoZZpArIOaysZY2PiB9loYgoWFIIhfCVGznt+8G4mP7HPdnX27o3PgFJmdvXMHXnZnG5FIJBKJRCL/
+        OEmS7MYXOK+h8KD8YXyHDg2HBb3P4YrbgdClMKDvZpx2zVvQlPpD1yF84lpvgKbVG3oewreucQqaWl/o
+        OIZfXds2aHr9oFs3XnUtM6Db6gW9BnHeNczOB3yJj3AWJ/EYblVsZ2HhfbiAvviBz3Act2mZcmGhE/gJ
+        y2IZb+MuLekXgrvwMq5iJ1jCazigCsUhrB/vYBW8wv2qUgyCnrrI6viCp1QnP4Skvq07yHccU6V8EDCA
+        dy2tYmwzJ1UrHwTYP/tFtEdllXzGYdXKDyFlP36zYC/VPlXKDyH2QnxtiRVyRXWKQVCeI4pP7KOt+E/M
+        IKgHb1hqRnpxO9p3/EE8jhfwFtqT8bcvygzMqoofCDyLdrRoi6anwhTbqH3nX8c3+CfswbNXt/uBQK8f
+        Vky3p+QRvI/tjkVTusUfhO7E1FOApv013Go/Qzsdb8RH7NdUfxC6BWdshVY0JRfcvgkv4TfLaqH48SUN
+        wifQ3sS/0KVCEHMU7aW4nmldLgcWGMX3binQcGGIGkE75q9h/5tdulwOLGCP2uf4QENeIO8MrueALoUH
+        5e819+A4r+HwoPweXDvE3tRwmLCBueY+kocaChM2cLq5j2RRQ2HCBnY095EsaShc2IQdYx7rz0gk8n/R
+        aPwEbYf82t4d/zoAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnDownloadAttendanceHistoryRecords.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAQhJREFUSEu9lk0KwjAUhEWl6p30FD2MO7fWW7hx40oQ/DlQ9RJCnJdMNrXtS1+K
+        DAAACwwBP0AiyAAAAQhJREFUSEu9lk0KwjAUhEWl6p30FD2MO7fWW7hx40oQ/DlQ9RJCnJdMNrXtS1+K
         HwxS+3WGLgqZaDjnCuSAvJAmNVIhBXU7LNKoqNtBSdubNHlTt8MiFep22KNC3Q57VKjbYY8KdTvsUaFu
         hz0q1O2wR4W6HfaoUE8Dfol8/JN5SEfJ2l9wc4qcxczkgsxY244IyElsIzdkwbp+IFrH7siSNWnggaFj
         w0cieDB17IHYRiIo0MbyRyIo6hp7Imkjwdc/OCgydvRy4IqseLuToKKfv0lfNjT5zrbIDpnz717geQYN

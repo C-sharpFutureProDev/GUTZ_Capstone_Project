@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using ZstdSharp.Unsafe;
 
 namespace GUTZ_Capstone_Project
 {
@@ -16,6 +19,7 @@ namespace GUTZ_Capstone_Project
     {
         private string _id = "";
         private EmployeeAttendance _employeeAttendance;
+        private Timer monthChangeTimer;
 
         public EmployeeAttendanceHistory(string empID, EmployeeAttendance employeeAttendance)
         {
@@ -24,7 +28,6 @@ namespace GUTZ_Capstone_Project
             {
                 _id = empID;
             }
-
             _employeeAttendance = employeeAttendance;
         }
 
@@ -337,7 +340,7 @@ namespace GUTZ_Capstone_Project
                 else if (isOnLeave)
                 {
                     employeePastAttendanceHistoryCard.btnLeaveMark.Visible = true;
-                    employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(74, 144, 226);
+                    employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(240, 248, 255);
                     employeePastAttendanceHistoryCard.lblClockIn.Location = new Point(12, 10);
                     employeePastAttendanceHistoryCard.lblClockOut.Location = new Point(119, 10);
                     employeePastAttendanceHistoryCard.lblClockIn.Text = "Start Date";
@@ -351,6 +354,7 @@ namespace GUTZ_Capstone_Project
                 else if (workDaysSet.Contains(date.DayOfWeek.ToString()))
                 {
                     employeePastAttendanceHistoryCard.btnAbsentMark.Visible = true;
+                    employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(255, 240, 240);
                     employeePastAttendanceHistoryCard.lblTimeIn.TextAlign = ContentAlignment.MiddleCenter;
                 }
 
@@ -359,16 +363,40 @@ namespace GUTZ_Capstone_Project
             }
         }
 
+        private void MonthChangeTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateComboBoxToCurrentMonth();
+        }
+
+        private void UpdateComboBoxToCurrentMonth()
+        {
+            int currentMonth = DateTime.Now.Month;
+            cboFilterMonth.SelectedIndex = currentMonth - 1;
+        }
+
         private void EmployeeAttendanceHistory_Load(object sender, EventArgs e)
         {
+            // Populate the year ComboBox with the current year and previous 10 years
+            int currentYear = DateTime.Now.Year;
+            for (int year = currentYear; year >= currentYear - 5; year--)
+            {
+                cboFilterYear.Items.Add(year);
+            }
+
+            // Set the current year as the default selected item
+            cboFilterYear.SelectedItem = currentYear;
+            UpdateComboBoxToCurrentMonth();
+
+            monthChangeTimer = new Timer();
+            monthChangeTimer.Interval = 3600000;
+            monthChangeTimer.Tick += MonthChangeTimer_Tick;
+            monthChangeTimer.Start();
+
             CountTotalAttendance(_id);
             ComputeAverageTimeIn(_id);
             ComputeAverageTimeOut(_id);
             RetrieveAndDisplayEmployeeAttendanceHistory(_id);
             ComputeAttendancePercentage(_id);
-
-            cboFilterYear.SelectedIndex = 0;
-            cboFilterMonth.SelectedIndex = 0;
 
             try
             {
@@ -406,6 +434,17 @@ namespace GUTZ_Capstone_Project
             // Prepare to retrieve attendance data
             StringBuilder csvData = new StringBuilder();
             csvData.AppendLine("Date,Clock In,Clock Out,Status"); // CSV Header
+
+            // Retrieve selected month and year from the combo boxes
+            if (cboFilterMonth.SelectedItem == null || cboFilterYear.SelectedItem == null)
+            {
+                MessageBox.Show("Please select both month and year.", "Selection Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string month = cboFilterMonth.SelectedItem.ToString();
+            int selectedMonth = DateTime.ParseExact(month, "MMMM", CultureInfo.InvariantCulture).Month;
+            int selectedYear = (int)cboFilterYear.SelectedItem;
 
             string employeeSql = $"SELECT start_date FROM tbl_employee WHERE emp_id = '{_id}'";
             DateTime startDate;
@@ -458,10 +497,10 @@ namespace GUTZ_Capstone_Project
                 bool isOnLeave = leavePeriods.Any(leave => date >= leave.start && date <= leave.end);
 
                 string attendanceSql = $@"SELECT time_in, DATE_FORMAT(time_in, '%h:%i %p') as time_in_formatted, 
-                                           time_out, DATE_FORMAT(time_out, '%h:%i %p') as time_out_formatted, 
-                                           time_in_status 
-                                           FROM tbl_attendance 
-                                           WHERE emp_id = '{_id}' AND DATE(time_in) = DATE('{date:yyyy-MM-dd}')";
+                                    time_out, DATE_FORMAT(time_out, '%h:%i %p') as time_out_formatted, 
+                                    time_in_status 
+                                    FROM tbl_attendance 
+                                    WHERE emp_id = '{_id}' AND DATE(time_in) = DATE('{date:yyyy-MM-dd}')";
 
                 DataTable attendanceDt = DB_OperationHelperClass.QueryData(attendanceSql);
 
@@ -497,15 +536,16 @@ namespace GUTZ_Capstone_Project
             DialogResult result = MessageBox.Show($"Do you want to download the attendance history for employee with ID: {_id}?", "Download Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                SaveAttendanceHistoryToCsv(_id, csvData.ToString());
+                string formattedMonth = new DateTime(selectedYear, selectedMonth, 1).ToString("MMMM");
+                SaveAttendanceHistoryToCsv(_id, csvData.ToString(), formattedMonth, selectedYear);
             }
         }
 
-        private void SaveAttendanceHistoryToCsv(string employeeId, string csvContent)
+        private void SaveAttendanceHistoryToCsv(string employeeId, string csvContent, string month, int year)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.FileName = $"AttendanceHistory_{employeeId}.csv";
+                saveFileDialog.FileName = $"AttendanceHistory_{employeeId}_{month}_{year}.csv"; // Include month and year in the filename
                 saveFileDialog.Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -514,6 +554,171 @@ namespace GUTZ_Capstone_Project
                     MessageBox.Show("Attendance history downloaded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void cboFilterMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string month = cboFilterMonth.SelectedItem.ToString();
+            int selectedMonth = DateTime.ParseExact(month, "MMMM", CultureInfo.InvariantCulture).Month;
+
+            // Check if a year is selected
+            if (cboFilterYear.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a year.", "Year Not Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Exit if no year is selected
+            }
+
+            int selectedYear = (int)cboFilterYear.SelectedItem; // Safe to access now
+
+            FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear); // Call the method with month and year
+        }
+
+        private void FilterAndDisplayEmployeeAttendanceHistory(string id, int selectedMonth, int selectedYear)
+        {
+            string employeeSql = $"SELECT start_date FROM tbl_employee WHERE emp_id = '{id}'";
+            DateTime startDate;
+
+            try
+            {
+                DataTable employeeDt = DB_OperationHelperClass.QueryData(employeeSql);
+                if (employeeDt.Rows.Count > 0)
+                {
+                    startDate = Convert.ToDateTime(employeeDt.Rows[0]["start_date"]);
+                }
+                else
+                {
+                    MessageBox.Show($"No employee found with ID: {id}", "No Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving employee data.", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string scheduledSql = $"SELECT work_days FROM tbl_schedule WHERE emp_id = '{id}'";
+            DataTable scheduledDt = DB_OperationHelperClass.QueryData(scheduledSql);
+
+            if (scheduledDt.Rows.Count == 0)
+            {
+                MessageBox.Show("No scheduled work days found for this employee.", "No Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Create a set of workdays for quick lookup
+            HashSet<string> workDaysSet = new HashSet<string>(scheduledDt.Rows[0]["work_days"].ToString().Split(','));
+
+            DateTime date = new DateTime(selectedYear, selectedMonth, 1); // Start of the selected month
+            DateTime endDate = date.AddMonths(1).AddDays(-1); // Last day of the selected month
+            DateTime currentDate = DateTime.Now.Date; // Current date without time
+
+            string leaveSql = $"SELECT start_date, end_date FROM tbl_leave WHERE emp_id = '{id}' AND (leave_status = 'Active' OR leave_status = 'Completed')";
+            DataTable leaveDt = DB_OperationHelperClass.QueryData(leaveSql);
+            List<(DateTime start, DateTime end)> leavePeriods = new List<(DateTime, DateTime)>();
+
+            foreach (DataRow row in leaveDt.Rows)
+            {
+                DateTime leaveStart = Convert.ToDateTime(row["start_date"]);
+                DateTime leaveEnd = Convert.ToDateTime(row["end_date"]);
+                leavePeriods.Add((leaveStart, leaveEnd));
+            }
+
+            bool hasAttendanceRecords = false;
+
+            // Loop through each date in the selected month
+            while (date <= endDate && date <= currentDate) // Ensure we do not exceed the current date
+            {
+                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    date = date.AddDays(1);
+                    continue;
+                }
+
+                bool isOnLeave = leavePeriods.Any(leave => date >= leave.start && date <= leave.end);
+
+                string attendanceSql = $@"SELECT time_in, DATE_FORMAT(time_in, '%h:%i %p') as time_in_formatted, 
+                                   time_out, DATE_FORMAT(time_out, '%h:%i %p') as time_out_formatted, 
+                                   time_in_status 
+                                   FROM tbl_attendance 
+                                   WHERE emp_id = '{id}' AND DATE(time_in) = DATE('{date:yyyy-MM-dd}')";
+
+                DataTable attendanceDt = DB_OperationHelperClass.QueryData(attendanceSql);
+
+                EmployeePastAttendanceHistoryCard employeePastAttendanceHistoryCard = new EmployeePastAttendanceHistoryCard(_employeeAttendance)
+                {
+                    AttendanceDate = date.ToString("ddd. MMM. dd, yyyy"),
+                    ID = id,
+                    ClockInTime = "--",
+                    ClockOutTime = "--",
+                    Status = "--",
+                };
+
+                if (attendanceDt.Rows.Count > 0)
+                {
+                    hasAttendanceRecords = true; // Found attendance records
+                    employeePastAttendanceHistoryCard.ClockInTime = attendanceDt.Rows[0]["time_in_formatted"].ToString();
+                    employeePastAttendanceHistoryCard.ClockOutTime = attendanceDt.Rows[0]["time_out_formatted"].ToString();
+                    employeePastAttendanceHistoryCard.Status = attendanceDt.Rows[0]["time_in_status"].ToString();
+
+                    if (attendanceDt.Rows[0]["time_in_status"].ToString() == "On Time" || attendanceDt.Rows[0]["time_in_status"].ToString() == "Late")
+                    {
+                        employeePastAttendanceHistoryCard.btnPresentMark.Visible = true;
+                    }
+                }
+                else if (isOnLeave)
+                {
+                    employeePastAttendanceHistoryCard.btnLeaveMark.Visible = true;
+                    employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(240, 248, 255);
+                    employeePastAttendanceHistoryCard.lblClockIn.Location = new Point(12, 10);
+                    employeePastAttendanceHistoryCard.lblClockOut.Location = new Point(119, 10);
+                    employeePastAttendanceHistoryCard.lblClockIn.Text = "Start Date";
+                    employeePastAttendanceHistoryCard.lblClockOut.Text = "End Date";
+
+                    var leavePeriod = leavePeriods.FirstOrDefault(leave => date >= leave.start && date <= leave.end);
+
+                    employeePastAttendanceHistoryCard.lblTimeIn.Text = leavePeriod.start.ToString("M/dd/yyyy");
+                    employeePastAttendanceHistoryCard.lblTimeOut.Text = leavePeriod.end.ToString("M/dd/yyyy");
+                }
+                else if (workDaysSet.Contains(date.DayOfWeek.ToString()))
+                {
+                    employeePastAttendanceHistoryCard.btnAbsentMark.Visible = true;
+                    employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(255, 240, 240);
+                    employeePastAttendanceHistoryCard.lblTimeIn.TextAlign = ContentAlignment.MiddleCenter;
+                }
+
+                flowLayoutPanel1.Controls.Add(employeePastAttendanceHistoryCard);
+                date = date.AddDays(1);
+            }
+
+            if (!hasAttendanceRecords)
+            {
+                flowLayoutPanel1.Controls.Clear();
+                MessageBox.Show($"No Attendance History for the selected month and year for employee with ID: {id}", "No Records", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnDownloadAttendanceHistoryRecords.Enabled = false;
+            }
+            else
+            {
+                btnDownloadAttendanceHistoryRecords.Enabled= true;
+            }
+        }
+
+        private void btnBackToAttendanceForm_Click(object sender, EventArgs e)
+        {
+            if (monthChangeTimer != null)
+            {
+                monthChangeTimer.Stop();
+                monthChangeTimer.Dispose();
+                monthChangeTimer = null;
+                //MessageBox.Show("Timer STOP");
+            }
+
+            _employeeAttendance.flowLayoutPanel2.Visible = false;
+            _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Right;
+            _employeeAttendance.panelAttendanceDetails.Visible = true;
+            _employeeAttendance.flowLayoutPanel1.Visible = true;
+            _employeeAttendance.flowLayoutPanel1.Dock = DockStyle.Fill;
+            _employeeAttendance?.ViewEmployeeList(); // access the exposed btnViewEmployeeList from the EmployeeAttendance Form
         }
     }
 }

@@ -128,14 +128,14 @@
             // 
             // EmployeeListCardEmployeeDetailsCard
             // 
-            this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.White;
+            this.EmployeeListCardEmployeeDetailsCard.BackColor = System.Drawing.Color.Transparent;
             this.EmployeeListCardEmployeeDetailsCard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.EmployeeListCardEmployeeDetailsCard.BorderRadius = 8;
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblTimeOut);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblTimeIn);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblClockOut);
             this.EmployeeListCardEmployeeDetailsCard.Controls.Add(this.lblClockIn);
-            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.EmployeeListCardEmployeeDetailsCard.FillColor = System.Drawing.Color.Honeydew;
             this.EmployeeListCardEmployeeDetailsCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.EmployeeListCardEmployeeDetailsCard.Location = new System.Drawing.Point(15, 42);
             this.EmployeeListCardEmployeeDetailsCard.Name = "EmployeeListCardEmployeeDetailsCard";
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.Controls.Add(this.panelEmployeeAttendanceDetails);
             this.Name = "EmployeePastAttendanceHistoryCard";
             this.Size = new System.Drawing.Size(283, 147);

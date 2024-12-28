@@ -202,14 +202,14 @@ namespace GUTZ_Capstone_Project
 
         private void ActivateCard()
         {
-            btnViewEmployeeDetails.FillColor = Color.Green;
+            btnViewEmployeeDetails.FillColor = Color.DarkCyan;
             btnViewEmployeeDetails.ForeColor = Color.White;
             btnViewEmployeeDetails.Enabled = false;
         }
 
         private void DeactivateCard()
         {
-            btnViewEmployeeDetails.FillColor = Color.FromArgb(12, 90, 37); // Reset to default color
+            btnViewEmployeeDetails.FillColor = Color.DarkCyan; // Reset to default color
             btnViewEmployeeDetails.Enabled = true;
         }
 

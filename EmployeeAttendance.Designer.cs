@@ -750,7 +750,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboFilter;
         private Guna.UI2.WinForms.Guna2Separator pastdtpBottomBorder;
         private System.Windows.Forms.Label lblTextFilterPastAttendanceRecord;
-        private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private System.Windows.Forms.Label label3;
         public Guna.UI2.WinForms.Guna2Button btnViewEmployeeList;
         private System.Windows.Forms.Label lblSelectDate;
@@ -774,5 +773,6 @@
         public Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private System.Windows.Forms.Label lblLateEmployee;
         private System.Windows.Forms.Label dateOfCurrentAttendanceRecord;
+        public Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

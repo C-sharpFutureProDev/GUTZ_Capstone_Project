@@ -62,20 +62,20 @@
             this.panelEmployeeAttendanceDetails.BorderColor = System.Drawing.Color.Ivory;
             this.panelEmployeeAttendanceDetails.BorderRadius = 12;
             this.panelEmployeeAttendanceDetails.Controls.Add(this.btnLeaveMark);
-            this.panelEmployeeAttendanceDetails.Controls.Add(this.btnPresentMark);
             this.panelEmployeeAttendanceDetails.Controls.Add(this.btnAbsentMark);
             this.panelEmployeeAttendanceDetails.Controls.Add(this.lblCurrentDate);
+            this.panelEmployeeAttendanceDetails.Controls.Add(this.btnPresentMark);
             this.panelEmployeeAttendanceDetails.Controls.Add(this.EmployeeAttendanceDetails);
             this.panelEmployeeAttendanceDetails.Controls.Add(this.lblName);
             this.panelEmployeeAttendanceDetails.Controls.Add(this.employeeProfilePicture);
             this.panelEmployeeAttendanceDetails.FillColor = System.Drawing.Color.Ivory;
-            this.panelEmployeeAttendanceDetails.Location = new System.Drawing.Point(25, 20);
+            this.panelEmployeeAttendanceDetails.Location = new System.Drawing.Point(38, 20);
             this.panelEmployeeAttendanceDetails.Margin = new System.Windows.Forms.Padding(0);
             this.panelEmployeeAttendanceDetails.Name = "panelEmployeeAttendanceDetails";
             this.panelEmployeeAttendanceDetails.ShadowDecoration.BorderRadius = 15;
             this.panelEmployeeAttendanceDetails.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
             this.panelEmployeeAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.panelEmployeeAttendanceDetails.Size = new System.Drawing.Size(355, 187);
+            this.panelEmployeeAttendanceDetails.Size = new System.Drawing.Size(331, 165);
             this.panelEmployeeAttendanceDetails.TabIndex = 2;
             // 
             // btnLeaveMark
@@ -94,12 +94,12 @@
             this.btnLeaveMark.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnLeaveMark.Image = ((System.Drawing.Image)(resources.GetObject("btnLeaveMark.Image")));
             this.btnLeaveMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnLeaveMark.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnLeaveMark.Location = new System.Drawing.Point(275, 7);
+            this.btnLeaveMark.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnLeaveMark.Location = new System.Drawing.Point(270, 12);
             this.btnLeaveMark.Name = "btnLeaveMark";
             this.btnLeaveMark.PressedColor = System.Drawing.Color.Ivory;
             this.btnLeaveMark.PressedDepth = 0;
-            this.btnLeaveMark.Size = new System.Drawing.Size(72, 67);
+            this.btnLeaveMark.Size = new System.Drawing.Size(57, 50);
             this.btnLeaveMark.TabIndex = 82;
             this.btnLeaveMark.Visible = false;
             // 
@@ -119,12 +119,12 @@
             this.btnPresentMark.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnPresentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnPresentMark.Image")));
             this.btnPresentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnPresentMark.ImageSize = new System.Drawing.Size(60, 45);
-            this.btnPresentMark.Location = new System.Drawing.Point(280, 7);
+            this.btnPresentMark.ImageSize = new System.Drawing.Size(47, 38);
+            this.btnPresentMark.Location = new System.Drawing.Point(270, 12);
             this.btnPresentMark.Name = "btnPresentMark";
             this.btnPresentMark.PressedColor = System.Drawing.Color.Ivory;
             this.btnPresentMark.PressedDepth = 0;
-            this.btnPresentMark.Size = new System.Drawing.Size(72, 67);
+            this.btnPresentMark.Size = new System.Drawing.Size(57, 50);
             this.btnPresentMark.TabIndex = 81;
             this.btnPresentMark.Visible = false;
             // 
@@ -144,12 +144,12 @@
             this.btnAbsentMark.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAbsentMark.Image = ((System.Drawing.Image)(resources.GetObject("btnAbsentMark.Image")));
             this.btnAbsentMark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnAbsentMark.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnAbsentMark.Location = new System.Drawing.Point(280, 7);
+            this.btnAbsentMark.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAbsentMark.Location = new System.Drawing.Point(270, 12);
             this.btnAbsentMark.Name = "btnAbsentMark";
             this.btnAbsentMark.PressedColor = System.Drawing.Color.Ivory;
             this.btnAbsentMark.PressedDepth = 0;
-            this.btnAbsentMark.Size = new System.Drawing.Size(72, 67);
+            this.btnAbsentMark.Size = new System.Drawing.Size(57, 50);
             this.btnAbsentMark.TabIndex = 80;
             this.btnAbsentMark.Visible = false;
             // 
@@ -157,18 +157,19 @@
             // 
             this.lblCurrentDate.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblCurrentDate.ForeColor = System.Drawing.Color.Gray;
-            this.lblCurrentDate.Location = new System.Drawing.Point(11, 12);
+            this.lblCurrentDate.Location = new System.Drawing.Point(10, 12);
             this.lblCurrentDate.Name = "lblCurrentDate";
             this.lblCurrentDate.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.lblCurrentDate.Size = new System.Drawing.Size(227, 35);
+            this.lblCurrentDate.Size = new System.Drawing.Size(227, 20);
             this.lblCurrentDate.TabIndex = 75;
             this.lblCurrentDate.Text = "Attendance Date";
+            this.lblCurrentDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // EmployeeAttendanceDetails
             // 
             this.EmployeeAttendanceDetails.BackColor = System.Drawing.Color.Transparent;
             this.EmployeeAttendanceDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.EmployeeAttendanceDetails.BorderRadius = 8;
+            this.EmployeeAttendanceDetails.BorderRadius = 7;
             this.EmployeeAttendanceDetails.Controls.Add(this.EmployeeLeaveDetails);
             this.EmployeeAttendanceDetails.Controls.Add(this.btnClockOut);
             this.EmployeeAttendanceDetails.Controls.Add(this.btnStatus);
@@ -178,13 +179,13 @@
             this.EmployeeAttendanceDetails.Controls.Add(this.lblClockIn);
             this.EmployeeAttendanceDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.EmployeeAttendanceDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.EmployeeAttendanceDetails.Location = new System.Drawing.Point(112, 80);
+            this.EmployeeAttendanceDetails.Location = new System.Drawing.Point(98, 70);
             this.EmployeeAttendanceDetails.Name = "EmployeeAttendanceDetails";
             this.EmployeeAttendanceDetails.ShadowDecoration.BorderRadius = 15;
             this.EmployeeAttendanceDetails.ShadowDecoration.Color = System.Drawing.Color.MistyRose;
             this.EmployeeAttendanceDetails.ShadowDecoration.Enabled = true;
             this.EmployeeAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.EmployeeAttendanceDetails.Size = new System.Drawing.Size(227, 95);
+            this.EmployeeAttendanceDetails.Size = new System.Drawing.Size(220, 77);
             this.EmployeeAttendanceDetails.TabIndex = 62;
             // 
             // EmployeeLeaveDetails
@@ -206,74 +207,74 @@
             this.EmployeeLeaveDetails.ShadowDecoration.Color = System.Drawing.Color.MistyRose;
             this.EmployeeLeaveDetails.ShadowDecoration.Enabled = true;
             this.EmployeeLeaveDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.EmployeeLeaveDetails.Size = new System.Drawing.Size(227, 95);
+            this.EmployeeLeaveDetails.Size = new System.Drawing.Size(220, 77);
             this.EmployeeLeaveDetails.TabIndex = 81;
             this.EmployeeLeaveDetails.Visible = false;
             // 
             // lblLeaveStatus
             // 
-            this.lblLeaveStatus.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLeaveStatus.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
             this.lblLeaveStatus.ForeColor = System.Drawing.Color.White;
-            this.lblLeaveStatus.Location = new System.Drawing.Point(91, 64);
+            this.lblLeaveStatus.Location = new System.Drawing.Point(91, 52);
             this.lblLeaveStatus.Name = "lblLeaveStatus";
-            this.lblLeaveStatus.Size = new System.Drawing.Size(133, 30);
+            this.lblLeaveStatus.Size = new System.Drawing.Size(120, 20);
             this.lblLeaveStatus.TabIndex = 85;
             this.lblLeaveStatus.Text = "Leave Status";
             this.lblLeaveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 64);
+            this.label5.Location = new System.Drawing.Point(3, 52);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(92, 30);
+            this.label5.Size = new System.Drawing.Size(92, 20);
             this.label5.TabIndex = 84;
             this.label5.Text = "Status:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEndDate
             // 
-            this.lblEndDate.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndDate.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
             this.lblEndDate.ForeColor = System.Drawing.Color.White;
-            this.lblEndDate.Location = new System.Drawing.Point(91, 34);
+            this.lblEndDate.Location = new System.Drawing.Point(91, 32);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(133, 30);
+            this.lblEndDate.Size = new System.Drawing.Size(120, 20);
             this.lblEndDate.TabIndex = 83;
             this.lblEndDate.Text = "End Date";
             this.lblEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblLeaveStartDate
             // 
-            this.lblLeaveStartDate.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLeaveStartDate.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
             this.lblLeaveStartDate.ForeColor = System.Drawing.Color.White;
-            this.lblLeaveStartDate.Location = new System.Drawing.Point(91, 4);
+            this.lblLeaveStartDate.Location = new System.Drawing.Point(91, 5);
             this.lblLeaveStartDate.Name = "lblLeaveStartDate";
-            this.lblLeaveStartDate.Size = new System.Drawing.Size(133, 30);
+            this.lblLeaveStartDate.Size = new System.Drawing.Size(120, 20);
             this.lblLeaveStartDate.TabIndex = 82;
             this.lblLeaveStartDate.Text = "Start Date";
             this.lblLeaveStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 34);
+            this.label1.Location = new System.Drawing.Point(3, 31);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(92, 30);
+            this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 81;
             this.label1.Text = "End Date:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 4);
+            this.label3.Location = new System.Drawing.Point(3, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 30);
+            this.label3.Size = new System.Drawing.Size(92, 20);
             this.label3.TabIndex = 80;
             this.label3.Text = "Start Date:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -288,16 +289,16 @@
             this.btnClockOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnClockOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnClockOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.btnClockOut.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClockOut.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnClockOut.ForeColor = System.Drawing.Color.White;
             this.btnClockOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockOut.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnClockOut.Location = new System.Drawing.Point(47, 56);
+            this.btnClockOut.Location = new System.Drawing.Point(42, 40);
             this.btnClockOut.Name = "btnClockOut";
             this.btnClockOut.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
             this.btnClockOut.PressedDepth = 0;
-            this.btnClockOut.Size = new System.Drawing.Size(102, 35);
+            this.btnClockOut.Size = new System.Drawing.Size(102, 30);
             this.btnClockOut.TabIndex = 79;
             this.btnClockOut.Text = "Pending";
             this.btnClockOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -312,16 +313,16 @@
             this.btnStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnStatus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.btnStatus.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatus.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnStatus.ForeColor = System.Drawing.Color.White;
             this.btnStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnStatus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnStatus.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnStatus.Location = new System.Drawing.Point(134, 56);
+            this.btnStatus.Location = new System.Drawing.Point(130, 40);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
             this.btnStatus.PressedDepth = 0;
-            this.btnStatus.Size = new System.Drawing.Size(90, 35);
+            this.btnStatus.Size = new System.Drawing.Size(87, 30);
             this.btnStatus.TabIndex = 78;
             this.btnStatus.Text = "Status";
             // 
@@ -335,64 +336,64 @@
             this.btnClockIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnClockIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnClockIn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.btnClockIn.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClockIn.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.btnClockIn.ForeColor = System.Drawing.Color.White;
             this.btnClockIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockIn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
             this.btnClockIn.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnClockIn.Location = new System.Drawing.Point(44, 5);
+            this.btnClockIn.Location = new System.Drawing.Point(39, 5);
             this.btnClockIn.Name = "btnClockIn";
             this.btnClockIn.Padding = new System.Windows.Forms.Padding(3, 1, 0, 0);
             this.btnClockIn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
             this.btnClockIn.PressedDepth = 0;
-            this.btnClockIn.Size = new System.Drawing.Size(102, 39);
+            this.btnClockIn.Size = new System.Drawing.Size(102, 32);
             this.btnClockIn.TabIndex = 77;
             this.btnClockIn.Text = "Pending";
             this.btnClockIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lblClockOut
             // 
-            this.lblClockOut.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClockOut.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblClockOut.ForeColor = System.Drawing.Color.White;
-            this.lblClockOut.Location = new System.Drawing.Point(3, 56);
+            this.lblClockOut.Location = new System.Drawing.Point(3, 40);
             this.lblClockOut.Name = "lblClockOut";
-            this.lblClockOut.Size = new System.Drawing.Size(50, 35);
+            this.lblClockOut.Size = new System.Drawing.Size(45, 30);
             this.lblClockOut.TabIndex = 76;
             this.lblClockOut.Text = "OUT";
             this.lblClockOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblClockInStatus
             // 
-            this.lblClockInStatus.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClockInStatus.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblClockInStatus.ForeColor = System.Drawing.Color.White;
-            this.lblClockInStatus.Location = new System.Drawing.Point(144, 7);
+            this.lblClockInStatus.Location = new System.Drawing.Point(140, 7);
             this.lblClockInStatus.Name = "lblClockInStatus";
             this.lblClockInStatus.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblClockInStatus.Size = new System.Drawing.Size(75, 37);
+            this.lblClockInStatus.Size = new System.Drawing.Size(75, 30);
             this.lblClockInStatus.TabIndex = 75;
             this.lblClockInStatus.Text = "STATUS";
             this.lblClockInStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblClockIn
             // 
-            this.lblClockIn.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClockIn.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblClockIn.ForeColor = System.Drawing.Color.White;
             this.lblClockIn.Location = new System.Drawing.Point(3, 7);
             this.lblClockIn.Name = "lblClockIn";
             this.lblClockIn.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.lblClockIn.Size = new System.Drawing.Size(35, 37);
+            this.lblClockIn.Size = new System.Drawing.Size(35, 30);
             this.lblClockIn.TabIndex = 74;
             this.lblClockIn.Text = "IN";
             this.lblClockIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblName.Location = new System.Drawing.Point(10, 44);
+            this.lblName.Location = new System.Drawing.Point(10, 40);
             this.lblName.Name = "lblName";
             this.lblName.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.lblName.Size = new System.Drawing.Size(228, 30);
+            this.lblName.Size = new System.Drawing.Size(250, 25);
             this.lblName.TabIndex = 60;
             this.lblName.Text = "Full Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -401,12 +402,12 @@
             // 
             this.employeeProfilePicture.AutoRoundedCorners = true;
             this.employeeProfilePicture.BackColor = System.Drawing.Color.Ivory;
-            this.employeeProfilePicture.BorderRadius = 41;
+            this.employeeProfilePicture.BorderRadius = 36;
             this.employeeProfilePicture.FillColor = System.Drawing.Color.MistyRose;
             this.employeeProfilePicture.ImageRotate = 0F;
-            this.employeeProfilePicture.Location = new System.Drawing.Point(15, 85);
+            this.employeeProfilePicture.Location = new System.Drawing.Point(14, 70);
             this.employeeProfilePicture.Name = "employeeProfilePicture";
-            this.employeeProfilePicture.Size = new System.Drawing.Size(85, 85);
+            this.employeeProfilePicture.Size = new System.Drawing.Size(75, 75);
             this.employeeProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.employeeProfilePicture.TabIndex = 50;
             this.employeeProfilePicture.TabStop = false;
@@ -420,7 +421,7 @@
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.Name = "EmployeeAttendanceCard";
-            this.Size = new System.Drawing.Size(382, 208);
+            this.Size = new System.Drawing.Size(380, 194);
             this.panelEmployeeAttendanceDetails.ResumeLayout(false);
             this.EmployeeAttendanceDetails.ResumeLayout(false);
             this.EmployeeLeaveDetails.ResumeLayout(false);

@@ -102,24 +102,24 @@
             // lblJobRole
             // 
             this.lblJobRole.BackColor = System.Drawing.Color.Transparent;
-            this.lblJobRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.lblJobRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.lblJobRole.BorderRadius = 3;
             this.lblJobRole.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.lblJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.lblJobRole.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblJobRole.Font = new System.Drawing.Font("Arial", 9.5F);
-            this.lblJobRole.ForeColor = System.Drawing.Color.White;
-            this.lblJobRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblJobRole.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblJobRole.HoverState.ForeColor = System.Drawing.Color.White;
+            this.lblJobRole.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.lblJobRole.Font = new System.Drawing.Font("Arial", 9F);
+            this.lblJobRole.ForeColor = System.Drawing.Color.Black;
+            this.lblJobRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.lblJobRole.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.lblJobRole.HoverState.ForeColor = System.Drawing.Color.Black;
             this.lblJobRole.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.lblJobRole.ImageSize = new System.Drawing.Size(17, 17);
             this.lblJobRole.Location = new System.Drawing.Point(120, 10);
             this.lblJobRole.Name = "lblJobRole";
             this.lblJobRole.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblJobRole.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.lblJobRole.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.lblJobRole.PressedDepth = 0;
             this.lblJobRole.Size = new System.Drawing.Size(127, 35);
             this.lblJobRole.TabIndex = 89;
@@ -196,7 +196,7 @@
             this.btnViewEmployeeAttendanceHistory.AutoRoundedCorners = true;
             this.btnViewEmployeeAttendanceHistory.BackColor = System.Drawing.Color.Transparent;
             this.btnViewEmployeeAttendanceHistory.BorderColor = System.Drawing.Color.DarkCyan;
-            this.btnViewEmployeeAttendanceHistory.BorderRadius = 16;
+            this.btnViewEmployeeAttendanceHistory.BorderRadius = 15;
             this.btnViewEmployeeAttendanceHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeAttendanceHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeAttendanceHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -214,7 +214,7 @@
             this.btnViewEmployeeAttendanceHistory.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.btnViewEmployeeAttendanceHistory.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnViewEmployeeAttendanceHistory.PressedDepth = 0;
-            this.btnViewEmployeeAttendanceHistory.Size = new System.Drawing.Size(213, 35);
+            this.btnViewEmployeeAttendanceHistory.Size = new System.Drawing.Size(213, 33);
             this.btnViewEmployeeAttendanceHistory.TabIndex = 73;
             this.btnViewEmployeeAttendanceHistory.Text = "Attendance History";
             this.btnViewEmployeeAttendanceHistory.Click += new System.EventHandler(this.btnViewEmployeeAttendanceHistory_Click);
@@ -277,7 +277,7 @@
             this.employeeProfilePicture.AutoRoundedCorners = true;
             this.employeeProfilePicture.BackColor = System.Drawing.Color.Ivory;
             this.employeeProfilePicture.BorderRadius = 41;
-            this.employeeProfilePicture.FillColor = System.Drawing.Color.MistyRose;
+            this.employeeProfilePicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.employeeProfilePicture.ImageRotate = 0F;
             this.employeeProfilePicture.Location = new System.Drawing.Point(18, 55);
             this.employeeProfilePicture.Name = "employeeProfilePicture";
