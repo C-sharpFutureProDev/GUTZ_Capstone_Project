@@ -110,7 +110,7 @@
             this.lblJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.lblJobRole.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.lblJobRole.Font = new System.Drawing.Font("Arial", 9F);
-            this.lblJobRole.ForeColor = System.Drawing.Color.Black;
+            this.lblJobRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblJobRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.lblJobRole.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.lblJobRole.HoverState.ForeColor = System.Drawing.Color.Black;
@@ -292,6 +292,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Gray;
             this.Controls.Add(this.panelEmployeeList);
+            this.DoubleBuffered = true;
             this.Name = "EmployeeListCardForAttendanceHistory";
             this.Size = new System.Drawing.Size(381, 208);
             this.panelEmployeeList.ResumeLayout(false);

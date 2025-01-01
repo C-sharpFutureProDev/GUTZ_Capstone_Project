@@ -103,7 +103,7 @@ namespace GUTZ_Capstone_Project
                         : "Date not available";
 
                     string startDate = dt.Rows[0]["start_date"].ToString();
-                    lblEmployeeStartDate.Text = DateTime.TryParse(startDate, out DateTime dateStarted)
+                    EmployeeStartDate.Text = DateTime.TryParse(startDate, out DateTime dateStarted)
                         ? dateStarted.ToString("MMMM dd, yyyy")
                         : "Date not available";
 

@@ -229,6 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.Controls.Add(this.panelEmployeeAttendanceDetails);
+            this.DoubleBuffered = true;
             this.Name = "EmployeePastAttendanceHistoryCard";
             this.Size = new System.Drawing.Size(283, 147);
             this.panelEmployeeAttendanceDetails.ResumeLayout(false);

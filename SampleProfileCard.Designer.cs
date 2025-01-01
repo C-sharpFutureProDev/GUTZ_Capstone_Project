@@ -86,7 +86,7 @@
             this.btnWorkingArrangement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnWorkingArrangement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.btnWorkingArrangement.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnWorkingArrangement.ForeColor = System.Drawing.Color.Black;
+            this.btnWorkingArrangement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.btnWorkingArrangement.HoverState.ForeColor = System.Drawing.Color.Black;
@@ -343,6 +343,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Gray;
             this.Controls.Add(this.panelEmployeeListCard);
+            this.DoubleBuffered = true;
             this.Name = "SampleProfileCard";
             this.Size = new System.Drawing.Size(381, 207);
             this.panelEmployeeListCard.ResumeLayout(false);

@@ -146,6 +146,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.EmployeeAttendanceDetails);
+            this.DoubleBuffered = true;
             this.Name = "SampleEmployeeAttendanceReportCard";
             this.Size = new System.Drawing.Size(1249, 49);
             this.EmployeeAttendanceDetails.ResumeLayout(false);

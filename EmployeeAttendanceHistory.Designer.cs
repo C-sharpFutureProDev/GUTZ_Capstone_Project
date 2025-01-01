@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeAttendanceHistory));
             this.panelEmploymentDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnBackToAttendanceForm = new Guna.UI2.WinForms.Guna2Button();
@@ -59,6 +61,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panelEmploymentDetails.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
@@ -73,11 +77,9 @@
             this.panelEmploymentDetails.BackColor = System.Drawing.Color.Gray;
             this.panelEmploymentDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.panelEmploymentDetails.BorderRadius = 10;
-            this.panelEmploymentDetails.Controls.Add(this.label8);
-            this.panelEmploymentDetails.Controls.Add(this.label6);
+            this.panelEmploymentDetails.Controls.Add(this.lblStartDate);
+            this.panelEmploymentDetails.Controls.Add(this.label9);
             this.panelEmploymentDetails.Controls.Add(this.btnBackToAttendanceForm);
-            this.panelEmploymentDetails.Controls.Add(this.cboFilterYear);
-            this.panelEmploymentDetails.Controls.Add(this.cboFilterMonth);
             this.panelEmploymentDetails.Controls.Add(this.guna2Panel4);
             this.panelEmploymentDetails.Controls.Add(this.btnDownloadAttendanceHistoryRecords);
             this.panelEmploymentDetails.Controls.Add(this.lblEmployeeEmail);
@@ -92,7 +94,7 @@
             this.panelEmploymentDetails.Controls.Add(this.guna2Panel3);
             this.panelEmploymentDetails.Controls.Add(this.guna2Panel2);
             this.panelEmploymentDetails.Controls.Add(this.guna2Panel1);
-            this.panelEmploymentDetails.FillColor = System.Drawing.Color.White;
+            this.panelEmploymentDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panelEmploymentDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelEmploymentDetails.Location = new System.Drawing.Point(37, 21);
             this.panelEmploymentDetails.Margin = new System.Windows.Forms.Padding(0);
@@ -103,13 +105,39 @@
             this.panelEmploymentDetails.Size = new System.Drawing.Size(1517, 300);
             this.panelEmploymentDetails.TabIndex = 72;
             // 
+            // lblStartDate
+            // 
+            this.lblStartDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.lblStartDate.Font = new System.Drawing.Font("Arial", 8.5F);
+            this.lblStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblStartDate.Location = new System.Drawing.Point(1175, 143);
+            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(276, 27);
+            this.lblStartDate.TabIndex = 131;
+            this.lblStartDate.Text = "Start Date";
+            this.lblStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.label9.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(1169, 110);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(282, 26);
+            this.label9.TabIndex = 130;
+            this.label9.Text = "Start Date";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label8.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(906, 48);
+            this.label8.Location = new System.Drawing.Point(1234, 30);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 22);
@@ -120,10 +148,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label6.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(746, 49);
+            this.label6.Location = new System.Drawing.Point(1074, 30);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 22);
@@ -133,10 +161,10 @@
             // 
             // btnBackToAttendanceForm
             // 
-            this.btnBackToAttendanceForm.BackColor = System.Drawing.Color.White;
+            this.btnBackToAttendanceForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.btnBackToAttendanceForm.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.btnBackToAttendanceForm.BorderRadius = 4;
-            this.btnBackToAttendanceForm.BorderThickness = 4;
+            this.btnBackToAttendanceForm.BorderRadius = 5;
+            this.btnBackToAttendanceForm.BorderThickness = 5;
             this.btnBackToAttendanceForm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnBackToAttendanceForm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnBackToAttendanceForm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -149,28 +177,29 @@
             this.btnBackToAttendanceForm.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnBackToAttendanceForm.Image = ((System.Drawing.Image)(resources.GetObject("btnBackToAttendanceForm.Image")));
             this.btnBackToAttendanceForm.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnBackToAttendanceForm.Location = new System.Drawing.Point(1361, 27);
+            this.btnBackToAttendanceForm.Location = new System.Drawing.Point(1371, 27);
             this.btnBackToAttendanceForm.Name = "btnBackToAttendanceForm";
             this.btnBackToAttendanceForm.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnBackToAttendanceForm.Size = new System.Drawing.Size(90, 44);
+            this.btnBackToAttendanceForm.Size = new System.Drawing.Size(80, 44);
             this.btnBackToAttendanceForm.TabIndex = 127;
             this.btnBackToAttendanceForm.Click += new System.EventHandler(this.btnBackToAttendanceForm_Click);
             // 
             // cboFilterYear
             // 
-            this.cboFilterYear.BackColor = System.Drawing.Color.White;
+            this.cboFilterYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.cboFilterYear.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.cboFilterYear.BorderRadius = 5;
             this.cboFilterYear.BorderThickness = 0;
             this.cboFilterYear.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFilterYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFilterYear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.cboFilterYear.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilterYear.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilterYear.Font = new System.Drawing.Font("Arial", 9F);
             this.cboFilterYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboFilterYear.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboFilterYear.ItemHeight = 25;
-            this.cboFilterYear.Location = new System.Drawing.Point(807, 40);
+            this.cboFilterYear.Location = new System.Drawing.Point(1135, 23);
             this.cboFilterYear.Name = "cboFilterYear";
             this.cboFilterYear.ShadowDecoration.BorderRadius = 4;
             this.cboFilterYear.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -181,12 +210,13 @@
             // 
             // cboFilterMonth
             // 
-            this.cboFilterMonth.BackColor = System.Drawing.Color.White;
+            this.cboFilterMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.cboFilterMonth.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.cboFilterMonth.BorderRadius = 5;
             this.cboFilterMonth.BorderThickness = 0;
             this.cboFilterMonth.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFilterMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFilterMonth.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.cboFilterMonth.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilterMonth.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilterMonth.Font = new System.Drawing.Font("Arial", 9F);
@@ -206,21 +236,21 @@
             "October",
             "November",
             "December"});
-            this.cboFilterMonth.Location = new System.Drawing.Point(981, 40);
+            this.cboFilterMonth.Location = new System.Drawing.Point(1309, 22);
             this.cboFilterMonth.Name = "cboFilterMonth";
             this.cboFilterMonth.ShadowDecoration.BorderRadius = 4;
             this.cboFilterMonth.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cboFilterMonth.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.cboFilterMonth.Size = new System.Drawing.Size(135, 31);
+            this.cboFilterMonth.Size = new System.Drawing.Size(140, 31);
             this.cboFilterMonth.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cboFilterMonth.TabIndex = 125;
             this.cboFilterMonth.SelectedIndexChanged += new System.EventHandler(this.cboFilterMonth_SelectedIndexChanged);
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.White;
+            this.guna2Panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.guna2Panel4.BorderRadius = 11;
+            this.guna2Panel4.BorderRadius = 10;
             this.guna2Panel4.Controls.Add(this.lblEmployeeAttPerfPercemtage);
             this.guna2Panel4.Controls.Add(this.label10);
             this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
@@ -261,10 +291,10 @@
             // 
             // btnDownloadAttendanceHistoryRecords
             // 
-            this.btnDownloadAttendanceHistoryRecords.BackColor = System.Drawing.Color.White;
+            this.btnDownloadAttendanceHistoryRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.btnDownloadAttendanceHistoryRecords.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.btnDownloadAttendanceHistoryRecords.BorderRadius = 4;
-            this.btnDownloadAttendanceHistoryRecords.BorderThickness = 4;
+            this.btnDownloadAttendanceHistoryRecords.BorderRadius = 5;
+            this.btnDownloadAttendanceHistoryRecords.BorderThickness = 5;
             this.btnDownloadAttendanceHistoryRecords.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDownloadAttendanceHistoryRecords.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDownloadAttendanceHistoryRecords.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -287,72 +317,75 @@
             // 
             // lblEmployeeEmail
             // 
-            this.lblEmployeeEmail.BackColor = System.Drawing.Color.White;
-            this.lblEmployeeEmail.Font = new System.Drawing.Font("Arial Narrow", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.lblEmployeeEmail.Font = new System.Drawing.Font("Arial", 8.5F);
             this.lblEmployeeEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblEmployeeEmail.Location = new System.Drawing.Point(793, 143);
+            this.lblEmployeeEmail.Location = new System.Drawing.Point(797, 143);
             this.lblEmployeeEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeEmail.Name = "lblEmployeeEmail";
             this.lblEmployeeEmail.Size = new System.Drawing.Size(282, 27);
             this.lblEmployeeEmail.TabIndex = 85;
             this.lblEmployeeEmail.Text = "sample@gmail.com";
+            this.lblEmployeeEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label5.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(791, 110);
+            this.label5.Location = new System.Drawing.Point(792, 110);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(291, 26);
+            this.label5.Size = new System.Drawing.Size(290, 26);
             this.label5.TabIndex = 84;
             this.label5.Text = "Email Address";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblEmployeePhoneNumber
             // 
-            this.lblEmployeePhoneNumber.BackColor = System.Drawing.Color.White;
-            this.lblEmployeePhoneNumber.Font = new System.Drawing.Font("Arial Narrow", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeePhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.lblEmployeePhoneNumber.Font = new System.Drawing.Font("Arial", 8.5F);
             this.lblEmployeePhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblEmployeePhoneNumber.Location = new System.Drawing.Point(415, 143);
+            this.lblEmployeePhoneNumber.Location = new System.Drawing.Point(420, 143);
             this.lblEmployeePhoneNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeePhoneNumber.Name = "lblEmployeePhoneNumber";
             this.lblEmployeePhoneNumber.Size = new System.Drawing.Size(273, 27);
             this.lblEmployeePhoneNumber.TabIndex = 83;
             this.lblEmployeePhoneNumber.Text = "09xxxxxxxxx";
+            this.lblEmployeePhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label3.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(414, 110);
+            this.label3.Location = new System.Drawing.Point(415, 110);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(296, 26);
+            this.label3.Size = new System.Drawing.Size(295, 26);
             this.label3.TabIndex = 82;
             this.label3.Text = "Phone Number";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblEmployeeJobRole
             // 
-            this.lblEmployeeJobRole.BackColor = System.Drawing.Color.White;
-            this.lblEmployeeJobRole.Font = new System.Drawing.Font("Arial Narrow", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeJobRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.lblEmployeeJobRole.Font = new System.Drawing.Font("Arial", 8.5F);
             this.lblEmployeeJobRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblEmployeeJobRole.Location = new System.Drawing.Point(200, 143);
+            this.lblEmployeeJobRole.Location = new System.Drawing.Point(205, 143);
             this.lblEmployeeJobRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeJobRole.Name = "lblEmployeeJobRole";
             this.lblEmployeeJobRole.Size = new System.Drawing.Size(160, 27);
             this.lblEmployeeJobRole.TabIndex = 81;
-            this.lblEmployeeJobRole.Text = "ESL Tutor";
+            this.lblEmployeeJobRole.Text = "Role";
+            this.lblEmployeeJobRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(199, 110);
+            this.label1.Location = new System.Drawing.Point(198, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 26);
@@ -362,7 +395,7 @@
             // 
             // lblEmployeeName
             // 
-            this.lblEmployeeName.BackColor = System.Drawing.Color.White;
+            this.lblEmployeeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.lblEmployeeName.Font = new System.Drawing.Font("Arial", 12.5F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblEmployeeName.Location = new System.Drawing.Point(189, 65);
@@ -375,20 +408,20 @@
             // 
             // label15
             // 
-            this.label15.BackColor = System.Drawing.Color.White;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.label15.Font = new System.Drawing.Font("Imprint MT Shadow", 15.5F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.label15.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label15.Location = new System.Drawing.Point(35, 15);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(662, 37);
             this.label15.TabIndex = 78;
-            this.label15.Text = "Employee Attendance History";
+            this.label15.Text = "Employee Details";
             // 
             // employeeProfilePicture
             // 
             this.employeeProfilePicture.AutoRoundedCorners = true;
-            this.employeeProfilePicture.BackColor = System.Drawing.Color.White;
+            this.employeeProfilePicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.employeeProfilePicture.BorderRadius = 51;
             this.employeeProfilePicture.FillColor = System.Drawing.Color.MistyRose;
             this.employeeProfilePicture.ImageRotate = 0F;
@@ -401,9 +434,9 @@
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.guna2Panel3.BorderRadius = 11;
+            this.guna2Panel3.BorderRadius = 10;
             this.guna2Panel3.Controls.Add(this.label4);
             this.guna2Panel3.Controls.Add(this.lblEmployeeAveTimeOut);
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
@@ -444,9 +477,9 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.guna2Panel2.BorderRadius = 11;
+            this.guna2Panel2.BorderRadius = 10;
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.lblEmployeeAveTimeIn);
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
@@ -475,7 +508,7 @@
             // lblEmployeeAveTimeIn
             // 
             this.lblEmployeeAveTimeIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeAveTimeIn.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeAveTimeIn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeAveTimeIn.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeAveTimeIn.Location = new System.Drawing.Point(4, 45);
             this.lblEmployeeAveTimeIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -487,9 +520,9 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.guna2Panel1.BorderRadius = 11;
+            this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.Controls.Add(this.lblEmployeeTotalAttendance);
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
@@ -531,10 +564,16 @@
             // guna2Panel5
             // 
             this.guna2Panel5.BackColor = System.Drawing.Color.Gray;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.guna2Panel5.BorderRadius = 10;
+            this.guna2Panel5.Controls.Add(this.label12);
+            this.guna2Panel5.Controls.Add(this.label11);
             this.guna2Panel5.Controls.Add(this.flowLayoutPanel1);
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
+            this.guna2Panel5.Controls.Add(this.cboFilterYear);
+            this.guna2Panel5.Controls.Add(this.label8);
+            this.guna2Panel5.Controls.Add(this.cboFilterMonth);
+            this.guna2Panel5.Controls.Add(this.label6);
+            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.guna2Panel5.Location = new System.Drawing.Point(37, 333);
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel5.Name = "guna2Panel5";
@@ -548,10 +587,36 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 15);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 65);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1491, 500);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1491, 450);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.label11.Font = new System.Drawing.Font("Imprint MT Shadow", 15.5F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label11.Location = new System.Drawing.Point(29, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(668, 37);
+            this.label11.TabIndex = 132;
+            this.label11.Text = "Attendance History";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.label12.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.label12.Location = new System.Drawing.Point(1001, 30);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 22);
+            this.label12.TabIndex = 132;
+            this.label12.Text = "Filter:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // EmployeeAttendanceHistory
             // 
@@ -566,13 +631,13 @@
             this.Size = new System.Drawing.Size(1570, 889);
             this.Load += new System.EventHandler(this.EmployeeAttendanceHistory_Load);
             this.panelEmploymentDetails.ResumeLayout(false);
-            this.panelEmploymentDetails.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -609,5 +674,9 @@
         private Guna.UI2.WinForms.Guna2Button btnBackToAttendanceForm;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

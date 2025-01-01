@@ -86,7 +86,6 @@
             this.cboFilter.BackColor = System.Drawing.Color.Ivory;
             this.cboFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboFilter.BorderRadius = 19;
-            this.cboFilter.BorderThickness = 2;
             this.cboFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFilter.FillColor = System.Drawing.Color.Ivory;
@@ -568,7 +567,6 @@
             // 
             this.cboSort.BackColor = System.Drawing.Color.Ivory;
             this.cboSort.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.cboSort.BorderThickness = 2;
             this.cboSort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSort.FillColor = System.Drawing.Color.Ivory;
@@ -706,7 +704,6 @@
             this.txtSearch.BackColor = System.Drawing.Color.Ivory;
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtSearch.BorderRadius = 19;
-            this.txtSearch.BorderThickness = 2;
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSearch.DefaultText = "";
             this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -729,7 +726,7 @@
             this.txtSearch.ShadowDecoration.BorderRadius = 4;
             this.txtSearch.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Size = new System.Drawing.Size(353, 41);
+            this.txtSearch.Size = new System.Drawing.Size(335, 41);
             this.txtSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtSearch.TabIndex = 76;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -794,7 +791,6 @@
             // 
             this.cboSearch.BackColor = System.Drawing.Color.Ivory;
             this.cboSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.cboSearch.BorderThickness = 2;
             this.cboSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearch.FillColor = System.Drawing.Color.Ivory;

@@ -43,10 +43,12 @@
             this.btnOnLeave = new Guna.UI2.WinForms.Guna2Button();
             this.cboFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pastdtpBottomBorder = new Guna.UI2.WinForms.Guna2Separator();
-            this.lblTextFilterPastAttendanceRecord = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTextFilterAttendanceRecord = new System.Windows.Forms.Label();
+            this.lblTextViewPastAttendanceRecord = new System.Windows.Forms.Label();
             this.lblSelectDate = new System.Windows.Forms.Label();
             this.panelAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboFilterPastAttendance = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.toggleSwitchViewPastAttendanceRecord = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.panelEmployeeDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblScheduledEmployee = new System.Windows.Forms.Label();
@@ -104,9 +106,10 @@
             // 
             // btnViewEmployeeList
             // 
+            this.btnViewEmployeeList.AutoRoundedCorners = true;
             this.btnViewEmployeeList.BackColor = System.Drawing.Color.Transparent;
             this.btnViewEmployeeList.BorderColor = System.Drawing.Color.Teal;
-            this.btnViewEmployeeList.BorderRadius = 9;
+            this.btnViewEmployeeList.BorderRadius = 19;
             this.btnViewEmployeeList.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeList.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeList.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -123,16 +126,17 @@
             this.btnViewEmployeeList.Name = "btnViewEmployeeList";
             this.btnViewEmployeeList.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnViewEmployeeList.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnViewEmployeeList.Size = new System.Drawing.Size(496, 42);
+            this.btnViewEmployeeList.Size = new System.Drawing.Size(496, 41);
             this.btnViewEmployeeList.TabIndex = 109;
             this.btnViewEmployeeList.Text = "See Employee List";
             this.btnViewEmployeeList.Click += new System.EventHandler(this.btnViewEmployeeList_Click_1);
             // 
             // btnRefresh
             // 
+            this.btnRefresh.AutoRoundedCorners = true;
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
             this.btnRefresh.BorderColor = System.Drawing.Color.Coral;
-            this.btnRefresh.BorderRadius = 9;
+            this.btnRefresh.BorderRadius = 19;
             this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -149,7 +153,7 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnRefresh.PressedColor = System.Drawing.Color.Salmon;
-            this.btnRefresh.Size = new System.Drawing.Size(253, 42);
+            this.btnRefresh.Size = new System.Drawing.Size(253, 41);
             this.btnRefresh.TabIndex = 112;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -158,7 +162,6 @@
             // 
             this.dtpEmpSelectDate.BackColor = System.Drawing.Color.Transparent;
             this.dtpEmpSelectDate.BorderColor = System.Drawing.Color.Ivory;
-            this.dtpEmpSelectDate.BorderThickness = 1;
             this.dtpEmpSelectDate.Checked = true;
             this.dtpEmpSelectDate.CustomFormat = "MMMM dd, yyyy";
             this.dtpEmpSelectDate.FillColor = System.Drawing.Color.Ivory;
@@ -173,9 +176,10 @@
             this.dtpEmpSelectDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpEmpSelectDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpEmpSelectDate.Name = "dtpEmpSelectDate";
-            this.dtpEmpSelectDate.Size = new System.Drawing.Size(247, 40);
+            this.dtpEmpSelectDate.Size = new System.Drawing.Size(250, 40);
             this.dtpEmpSelectDate.TabIndex = 82;
-            this.dtpEmpSelectDate.Value = new System.DateTime(2024, 12, 19, 0, 0, 0, 0);
+            this.dtpEmpSelectDate.Value = new System.DateTime(2024, 12, 20, 0, 0, 0, 0);
+            this.dtpEmpSelectDate.Visible = false;
             this.dtpEmpSelectDate.ValueChanged += new System.EventHandler(this.dtpEmpSelectDate_ValueChanged);
             // 
             // btnTotalAttendance
@@ -196,6 +200,7 @@
             this.btnAbsent.BackColor = System.Drawing.Color.Transparent;
             this.btnAbsent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
             this.btnAbsent.BorderRadius = 8;
+            this.btnAbsent.BorderThickness = 8;
             this.btnAbsent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAbsent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAbsent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -203,7 +208,7 @@
             this.btnAbsent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
             this.btnAbsent.Font = new System.Drawing.Font("Arial", 18.5F, System.Drawing.FontStyle.Bold);
             this.btnAbsent.ForeColor = System.Drawing.Color.White;
-            this.btnAbsent.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.btnAbsent.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
             this.btnAbsent.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
             this.btnAbsent.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnAbsent.Image = ((System.Drawing.Image)(resources.GetObject("btnAbsent.Image")));
@@ -228,6 +233,7 @@
             this.btnClockIn.BackColor = System.Drawing.Color.Transparent;
             this.btnClockIn.BorderColor = System.Drawing.Color.Orange;
             this.btnClockIn.BorderRadius = 8;
+            this.btnClockIn.BorderThickness = 8;
             this.btnClockIn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnClockIn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnClockIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -235,7 +241,7 @@
             this.btnClockIn.FillColor = System.Drawing.Color.Orange;
             this.btnClockIn.Font = new System.Drawing.Font("Arial", 18.5F, System.Drawing.FontStyle.Bold);
             this.btnClockIn.ForeColor = System.Drawing.Color.White;
-            this.btnClockIn.HoverState.BorderColor = System.Drawing.Color.DarkOrange;
+            this.btnClockIn.HoverState.BorderColor = System.Drawing.Color.Orange;
             this.btnClockIn.HoverState.FillColor = System.Drawing.Color.Orange;
             this.btnClockIn.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnClockIn.Image = ((System.Drawing.Image)(resources.GetObject("btnClockIn.Image")));
@@ -260,6 +266,7 @@
             this.btnClockOut.BackColor = System.Drawing.Color.Transparent;
             this.btnClockOut.BorderColor = System.Drawing.Color.Green;
             this.btnClockOut.BorderRadius = 8;
+            this.btnClockOut.BorderThickness = 8;
             this.btnClockOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnClockOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnClockOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -267,7 +274,7 @@
             this.btnClockOut.FillColor = System.Drawing.Color.Green;
             this.btnClockOut.Font = new System.Drawing.Font("Arial", 18.5F, System.Drawing.FontStyle.Bold);
             this.btnClockOut.ForeColor = System.Drawing.Color.White;
-            this.btnClockOut.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnClockOut.HoverState.BorderColor = System.Drawing.Color.Green;
             this.btnClockOut.HoverState.FillColor = System.Drawing.Color.Green;
             this.btnClockOut.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnClockOut.Image = ((System.Drawing.Image)(resources.GetObject("btnClockOut.Image")));
@@ -292,6 +299,7 @@
             this.btnOnLeave.BackColor = System.Drawing.Color.Transparent;
             this.btnOnLeave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnOnLeave.BorderRadius = 8;
+            this.btnOnLeave.BorderThickness = 8;
             this.btnOnLeave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOnLeave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOnLeave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -299,7 +307,7 @@
             this.btnOnLeave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnOnLeave.Font = new System.Drawing.Font("Arial", 18.5F, System.Drawing.FontStyle.Bold);
             this.btnOnLeave.ForeColor = System.Drawing.Color.White;
-            this.btnOnLeave.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnOnLeave.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnOnLeave.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnOnLeave.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnOnLeave.Image = ((System.Drawing.Image)(resources.GetObject("btnOnLeave.Image")));
@@ -323,7 +331,6 @@
             // 
             this.cboFilter.BackColor = System.Drawing.Color.Ivory;
             this.cboFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.cboFilter.BorderThickness = 2;
             this.cboFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFilter.FillColor = System.Drawing.Color.Ivory;
@@ -334,6 +341,7 @@
             this.cboFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboFilter.ItemHeight = 35;
             this.cboFilter.Items.AddRange(new object[] {
+            "ALL",
             "On-Time",
             "Late",
             "Absent",
@@ -351,57 +359,60 @@
             // pastdtpBottomBorder
             // 
             this.pastdtpBottomBorder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.pastdtpBottomBorder.FillThickness = 2;
             this.pastdtpBottomBorder.Location = new System.Drawing.Point(514, 269);
             this.pastdtpBottomBorder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pastdtpBottomBorder.Name = "pastdtpBottomBorder";
-            this.pastdtpBottomBorder.Size = new System.Drawing.Size(247, 2);
+            this.pastdtpBottomBorder.Size = new System.Drawing.Size(247, 1);
             this.pastdtpBottomBorder.TabIndex = 127;
+            this.pastdtpBottomBorder.Visible = false;
             // 
-            // lblTextFilterPastAttendanceRecord
+            // lblTextFilterAttendanceRecord
             // 
-            this.lblTextFilterPastAttendanceRecord.BackColor = System.Drawing.Color.Transparent;
-            this.lblTextFilterPastAttendanceRecord.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTextFilterPastAttendanceRecord.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTextFilterPastAttendanceRecord.Location = new System.Drawing.Point(26, 183);
-            this.lblTextFilterPastAttendanceRecord.Name = "lblTextFilterPastAttendanceRecord";
-            this.lblTextFilterPastAttendanceRecord.Size = new System.Drawing.Size(361, 45);
-            this.lblTextFilterPastAttendanceRecord.TabIndex = 128;
-            this.lblTextFilterPastAttendanceRecord.Text = "Filter (Today\'s) Attendance Record:";
-            this.lblTextFilterPastAttendanceRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextFilterAttendanceRecord.BackColor = System.Drawing.Color.Transparent;
+            this.lblTextFilterAttendanceRecord.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTextFilterAttendanceRecord.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTextFilterAttendanceRecord.Location = new System.Drawing.Point(26, 183);
+            this.lblTextFilterAttendanceRecord.Name = "lblTextFilterAttendanceRecord";
+            this.lblTextFilterAttendanceRecord.Size = new System.Drawing.Size(361, 45);
+            this.lblTextFilterAttendanceRecord.TabIndex = 128;
+            this.lblTextFilterAttendanceRecord.Text = "Filter (Today\'s) Attendance Record:";
+            this.lblTextFilterAttendanceRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lblTextViewPastAttendanceRecord
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(396, 183);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(365, 45);
-            this.label3.TabIndex = 130;
-            this.label3.Text = "View (Past) Attendance Record:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextViewPastAttendanceRecord.BackColor = System.Drawing.Color.Transparent;
+            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextViewPastAttendanceRecord.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTextViewPastAttendanceRecord.Location = new System.Drawing.Point(406, 183);
+            this.lblTextViewPastAttendanceRecord.Name = "lblTextViewPastAttendanceRecord";
+            this.lblTextViewPastAttendanceRecord.Size = new System.Drawing.Size(355, 45);
+            this.lblTextViewPastAttendanceRecord.TabIndex = 130;
+            this.lblTextViewPastAttendanceRecord.Text = "View (Past) Attendance Record:";
+            this.lblTextViewPastAttendanceRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSelectDate
             // 
             this.lblSelectDate.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectDate.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSelectDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.lblSelectDate.Location = new System.Drawing.Point(396, 231);
+            this.lblSelectDate.Location = new System.Drawing.Point(406, 231);
             this.lblSelectDate.Name = "lblSelectDate";
-            this.lblSelectDate.Size = new System.Drawing.Size(112, 40);
+            this.lblSelectDate.Size = new System.Drawing.Size(102, 40);
             this.lblSelectDate.TabIndex = 133;
             this.lblSelectDate.Text = "Select Date:";
             this.lblSelectDate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblSelectDate.Visible = false;
             // 
             // panelAttendanceDetails
             // 
             this.panelAttendanceDetails.BackColor = System.Drawing.Color.Black;
             this.panelAttendanceDetails.BorderColor = System.Drawing.Color.Ivory;
+            this.panelAttendanceDetails.Controls.Add(this.cboFilterPastAttendance);
+            this.panelAttendanceDetails.Controls.Add(this.toggleSwitchViewPastAttendanceRecord);
             this.panelAttendanceDetails.Controls.Add(this.panelEmployeeDetails);
             this.panelAttendanceDetails.Controls.Add(this.lblSelectDate);
-            this.panelAttendanceDetails.Controls.Add(this.label3);
-            this.panelAttendanceDetails.Controls.Add(this.lblTextFilterPastAttendanceRecord);
+            this.panelAttendanceDetails.Controls.Add(this.lblTextViewPastAttendanceRecord);
+            this.panelAttendanceDetails.Controls.Add(this.lblTextFilterAttendanceRecord);
             this.panelAttendanceDetails.Controls.Add(this.pastdtpBottomBorder);
             this.panelAttendanceDetails.Controls.Add(this.cboFilter);
             this.panelAttendanceDetails.Controls.Add(this.btnOnLeave);
@@ -425,11 +436,62 @@
             this.panelAttendanceDetails.Size = new System.Drawing.Size(1914, 290);
             this.panelAttendanceDetails.TabIndex = 3;
             // 
+            // cboFilterPastAttendance
+            // 
+            this.cboFilterPastAttendance.BackColor = System.Drawing.Color.Ivory;
+            this.cboFilterPastAttendance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.cboFilterPastAttendance.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboFilterPastAttendance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFilterPastAttendance.FillColor = System.Drawing.Color.Ivory;
+            this.cboFilterPastAttendance.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboFilterPastAttendance.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboFilterPastAttendance.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.cboFilterPastAttendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboFilterPastAttendance.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboFilterPastAttendance.ItemHeight = 35;
+            this.cboFilterPastAttendance.Items.AddRange(new object[] {
+            "On-Time",
+            "Late",
+            "Absent",
+            "On-Leave"});
+            this.cboFilterPastAttendance.Location = new System.Drawing.Point(30, 230);
+            this.cboFilterPastAttendance.Name = "cboFilterPastAttendance";
+            this.cboFilterPastAttendance.ShadowDecoration.BorderRadius = 4;
+            this.cboFilterPastAttendance.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboFilterPastAttendance.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.cboFilterPastAttendance.Size = new System.Drawing.Size(271, 41);
+            this.cboFilterPastAttendance.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cboFilterPastAttendance.TabIndex = 135;
+            this.cboFilterPastAttendance.Visible = false;
+            this.cboFilterPastAttendance.SelectedIndexChanged += new System.EventHandler(this.cboFilterPastAttendance_SelectedIndexChanged);
+            // 
+            // toggleSwitchViewPastAttendanceRecord
+            // 
+            this.toggleSwitchViewPastAttendanceRecord.AutoRoundedCorners = true;
+            this.toggleSwitchViewPastAttendanceRecord.BackColor = System.Drawing.Color.Ivory;
+            this.toggleSwitchViewPastAttendanceRecord.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSwitchViewPastAttendanceRecord.CheckedState.BorderRadius = 14;
+            this.toggleSwitchViewPastAttendanceRecord.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSwitchViewPastAttendanceRecord.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSwitchViewPastAttendanceRecord.CheckedState.InnerBorderRadius = 10;
+            this.toggleSwitchViewPastAttendanceRecord.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleSwitchViewPastAttendanceRecord.Location = new System.Drawing.Point(699, 189);
+            this.toggleSwitchViewPastAttendanceRecord.Name = "toggleSwitchViewPastAttendanceRecord";
+            this.toggleSwitchViewPastAttendanceRecord.Size = new System.Drawing.Size(65, 30);
+            this.toggleSwitchViewPastAttendanceRecord.TabIndex = 0;
+            this.toggleSwitchViewPastAttendanceRecord.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSwitchViewPastAttendanceRecord.UncheckedState.BorderRadius = 14;
+            this.toggleSwitchViewPastAttendanceRecord.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSwitchViewPastAttendanceRecord.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSwitchViewPastAttendanceRecord.UncheckedState.InnerBorderRadius = 10;
+            this.toggleSwitchViewPastAttendanceRecord.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleSwitchViewPastAttendanceRecord.CheckedChanged += new System.EventHandler(this.toggleSwitchViewPastAttendanceRecord_CheckedChanged);
+            // 
             // panelEmployeeDetails
             // 
             this.panelEmployeeDetails.BackColor = System.Drawing.Color.Transparent;
             this.panelEmployeeDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.panelEmployeeDetails.BorderRadius = 13;
+            this.panelEmployeeDetails.BorderRadius = 12;
             this.panelEmployeeDetails.Controls.Add(this.guna2Panel7);
             this.panelEmployeeDetails.Controls.Add(this.guna2Panel6);
             this.panelEmployeeDetails.Controls.Add(this.guna2Panel5);
@@ -584,7 +646,7 @@
             this.lblTutoringHours.Name = "lblTutoringHours";
             this.lblTutoringHours.Size = new System.Drawing.Size(224, 45);
             this.lblTutoringHours.TabIndex = 143;
-            this.lblTutoringHours.Text = "GAR!";
+            this.lblTutoringHours.Text = "0h : 0m";
             this.lblTutoringHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAccumulatedTutoringHours
@@ -627,7 +689,7 @@
             this.lblAttendancePercentage.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.lblAttendancePercentage.Size = new System.Drawing.Size(224, 45);
             this.lblAttendancePercentage.TabIndex = 144;
-            this.lblAttendancePercentage.Text = "NALANG";
+            this.lblAttendancePercentage.Text = "0.00%";
             this.lblAttendancePercentage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAttendancePercent
@@ -669,7 +731,7 @@
             this.lblScheduledEmployeeToday.Name = "lblScheduledEmployeeToday";
             this.lblScheduledEmployeeToday.Size = new System.Drawing.Size(224, 45);
             this.lblScheduledEmployeeToday.TabIndex = 143;
-            this.lblScheduledEmployeeToday.Text = "KONTI";
+            this.lblScheduledEmployeeToday.Text = "0";
             this.lblScheduledEmployeeToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblExpectedClockIn
@@ -749,8 +811,8 @@
         private Guna.UI2.WinForms.Guna2Button btnOnLeave;
         private Guna.UI2.WinForms.Guna2ComboBox cboFilter;
         private Guna.UI2.WinForms.Guna2Separator pastdtpBottomBorder;
-        private System.Windows.Forms.Label lblTextFilterPastAttendanceRecord;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTextFilterAttendanceRecord;
+        private System.Windows.Forms.Label lblTextViewPastAttendanceRecord;
         public Guna.UI2.WinForms.Guna2Button btnViewEmployeeList;
         private System.Windows.Forms.Label lblSelectDate;
         public Guna.UI2.WinForms.Guna2Panel panelAttendanceDetails;
@@ -774,5 +836,7 @@
         private System.Windows.Forms.Label lblLateEmployee;
         private System.Windows.Forms.Label dateOfCurrentAttendanceRecord;
         public Guna.UI2.WinForms.Guna2Button btnRefresh;
+        private Guna.UI2.WinForms.Guna2ComboBox cboFilterPastAttendance;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitchViewPastAttendanceRecord;
     }
 }
