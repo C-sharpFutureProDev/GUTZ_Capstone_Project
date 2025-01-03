@@ -228,7 +228,7 @@
             this.lblLateEmployee.Name = "lblLateEmployee";
             this.lblLateEmployee.Size = new System.Drawing.Size(144, 30);
             this.lblLateEmployee.TabIndex = 159;
-            this.lblLateEmployee.Text = "100";
+            this.lblLateEmployee.Text = "0";
             this.lblLateEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel12
@@ -256,7 +256,7 @@
             this.lblOnTimeEmployee.Name = "lblOnTimeEmployee";
             this.lblOnTimeEmployee.Size = new System.Drawing.Size(144, 30);
             this.lblOnTimeEmployee.TabIndex = 159;
-            this.lblOnTimeEmployee.Text = "100";
+            this.lblOnTimeEmployee.Text = "0";
             this.lblOnTimeEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel7
@@ -284,7 +284,7 @@
             this.lblExpectedEmployee.Name = "lblExpectedEmployee";
             this.lblExpectedEmployee.Size = new System.Drawing.Size(144, 30);
             this.lblExpectedEmployee.TabIndex = 159;
-            this.lblExpectedEmployee.Text = "100";
+            this.lblExpectedEmployee.Text = "0";
             this.lblExpectedEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel10
@@ -312,6 +312,7 @@
             this.lblAverageTimeIn.Name = "lblAverageTimeIn";
             this.lblAverageTimeIn.Size = new System.Drawing.Size(194, 30);
             this.lblAverageTimeIn.TabIndex = 159;
+            this.lblAverageTimeIn.Text = "00:00 PM";
             this.lblAverageTimeIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
@@ -339,6 +340,7 @@
             this.lblAverageTimeOut.Name = "lblAverageTimeOut";
             this.lblAverageTimeOut.Size = new System.Drawing.Size(194, 30);
             this.lblAverageTimeOut.TabIndex = 160;
+            this.lblAverageTimeOut.Text = "00:00 PM";
             this.lblAverageTimeOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel11
@@ -366,6 +368,7 @@
             this.lblAverageTutoringHours.Name = "lblAverageTutoringHours";
             this.lblAverageTutoringHours.Size = new System.Drawing.Size(194, 30);
             this.lblAverageTutoringHours.TabIndex = 161;
+            this.lblAverageTutoringHours.Text = "0h:0m";
             this.lblAverageTutoringHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10

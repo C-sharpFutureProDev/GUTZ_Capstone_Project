@@ -803,7 +803,7 @@
             this.cboSearch.Items.AddRange(new object[] {
             "Search By",
             "ID Number",
-            "Name",
+            "Employee Name",
             "Email Address"});
             this.cboSearch.Location = new System.Drawing.Point(38, 137);
             this.cboSearch.Name = "cboSearch";

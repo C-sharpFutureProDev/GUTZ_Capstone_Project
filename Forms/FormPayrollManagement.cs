@@ -19,7 +19,11 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void FormPayrollManagement_Load(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < 10; i++)
+            {
+                SampleEmployeePayrollCard card = new SampleEmployeePayrollCard();
+                flowLayoutPanel1.Controls.Add(card);
+            }
         }
     }
 }

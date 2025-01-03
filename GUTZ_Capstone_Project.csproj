@@ -321,6 +321,12 @@
     <Compile Include="SampleEmployeeDetailsCard.Designer.cs">
       <DependentUpon>SampleEmployeeDetailsCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="SampleEmployeePayrollCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleEmployeePayrollCard.Designer.cs">
+      <DependentUpon>SampleEmployeePayrollCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="SampleProfileCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -408,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SampleEmployeeDetailsCard.resx">
       <DependentUpon>SampleEmployeeDetailsCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleEmployeePayrollCard.resx">
+      <DependentUpon>SampleEmployeePayrollCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SampleProfileCard.resx">
       <DependentUpon>SampleProfileCard.cs</DependentUpon>

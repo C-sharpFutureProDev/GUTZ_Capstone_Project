@@ -230,12 +230,12 @@
             // 
             this.label46.AutoSize = true;
             this.label46.BackColor = System.Drawing.Color.Teal;
-            this.label46.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label46.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label46.ForeColor = System.Drawing.Color.White;
             this.label46.Location = new System.Drawing.Point(15, 7);
             this.label46.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(76, 23);
+            this.label46.Size = new System.Drawing.Size(67, 22);
             this.label46.TabIndex = 124;
             this.label46.Text = "Benefits";
             // 
@@ -272,12 +272,12 @@
             // 
             this.label45.AutoSize = true;
             this.label45.BackColor = System.Drawing.Color.Teal;
-            this.label45.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label45.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label45.ForeColor = System.Drawing.Color.White;
             this.label45.Location = new System.Drawing.Point(15, 7);
             this.label45.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(185, 23);
+            this.label45.Size = new System.Drawing.Size(162, 22);
             this.label45.TabIndex = 123;
             this.label45.Text = "Working Arrangement";
             // 
@@ -314,12 +314,12 @@
             // 
             this.label44.AutoSize = true;
             this.label44.BackColor = System.Drawing.Color.Teal;
-            this.label44.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label44.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label44.ForeColor = System.Drawing.Color.White;
             this.label44.Location = new System.Drawing.Point(15, 7);
             this.label44.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(155, 23);
+            this.label44.Size = new System.Drawing.Size(133, 22);
             this.label44.TabIndex = 122;
             this.label44.Text = "Employment Type";
             // 
@@ -356,12 +356,12 @@
             // 
             this.label43.AutoSize = true;
             this.label43.BackColor = System.Drawing.Color.Teal;
-            this.label43.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label43.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label43.ForeColor = System.Drawing.Color.White;
             this.label43.Location = new System.Drawing.Point(15, 7);
             this.label43.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(82, 23);
+            this.label43.Size = new System.Drawing.Size(72, 22);
             this.label43.TabIndex = 123;
             this.label43.Text = "End Date";
             // 
@@ -398,12 +398,12 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Teal;
-            this.label9.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label9.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(15, 7);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 23);
+            this.label9.Size = new System.Drawing.Size(78, 22);
             this.label9.TabIndex = 122;
             this.label9.Text = "Start Date";
             // 
@@ -440,12 +440,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Teal;
-            this.label1.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(15, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 23);
+            this.label1.Size = new System.Drawing.Size(73, 22);
             this.label1.TabIndex = 121;
             this.label1.Text = "Hire Date";
             // 
@@ -482,12 +482,12 @@
             // 
             this.label42.AutoSize = true;
             this.label42.BackColor = System.Drawing.Color.Teal;
-            this.label42.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label42.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label42.ForeColor = System.Drawing.Color.White;
             this.label42.Location = new System.Drawing.Point(15, 7);
             this.label42.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(64, 23);
+            this.label42.Size = new System.Drawing.Size(57, 22);
             this.label42.TabIndex = 119;
             this.label42.Text = "Except";
             // 
@@ -524,12 +524,12 @@
             // 
             this.label40.AutoSize = true;
             this.label40.BackColor = System.Drawing.Color.Teal;
-            this.label40.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label40.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label40.ForeColor = System.Drawing.Color.White;
             this.label40.Location = new System.Drawing.Point(15, 7);
             this.label40.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(101, 23);
+            this.label40.Size = new System.Drawing.Size(87, 22);
             this.label40.TabIndex = 119;
             this.label40.Text = "Rate / Hour";
             // 
@@ -566,12 +566,12 @@
             // 
             this.label38.AutoSize = true;
             this.label38.BackColor = System.Drawing.Color.Teal;
-            this.label38.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label38.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label38.ForeColor = System.Drawing.Color.White;
             this.label38.Location = new System.Drawing.Point(15, 7);
             this.label38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(233, 23);
+            this.label38.Size = new System.Drawing.Size(202, 22);
             this.label38.TabIndex = 119;
             this.label38.Text = "Based Salary (Avg.) / Month";
             // 
@@ -608,12 +608,12 @@
             // 
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.Teal;
-            this.label36.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label36.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label36.ForeColor = System.Drawing.Color.White;
             this.label36.Location = new System.Drawing.Point(15, 7);
             this.label36.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(47, 23);
+            this.label36.Size = new System.Drawing.Size(41, 22);
             this.label36.TabIndex = 119;
             this.label36.Text = "Rate";
             // 
@@ -650,12 +650,12 @@
             // 
             this.label34.AutoSize = true;
             this.label34.BackColor = System.Drawing.Color.Teal;
-            this.label34.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label34.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label34.ForeColor = System.Drawing.Color.White;
             this.label34.Location = new System.Drawing.Point(15, 7);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(127, 23);
+            this.label34.Size = new System.Drawing.Size(114, 22);
             this.label34.TabIndex = 119;
             this.label34.Text = "Working Hours";
             // 
@@ -692,12 +692,12 @@
             // 
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.Teal;
-            this.label32.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label32.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label32.ForeColor = System.Drawing.Color.White;
             this.label32.Location = new System.Drawing.Point(15, 7);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(119, 23);
+            this.label32.Size = new System.Drawing.Size(106, 22);
             this.label32.TabIndex = 119;
             this.label32.Text = "Working Days";
             // 
@@ -798,12 +798,12 @@
             // 
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label17.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(15, 7);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 23);
+            this.label17.Size = new System.Drawing.Size(76, 22);
             this.label17.TabIndex = 122;
             this.label17.Text = "Added by";
             // 
@@ -905,12 +905,12 @@
             // 
             this.label28.AutoSize = true;
             this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label28.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label28.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label28.ForeColor = System.Drawing.Color.White;
             this.label28.Location = new System.Drawing.Point(15, 7);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(134, 23);
+            this.label28.Size = new System.Drawing.Size(120, 22);
             this.label28.TabIndex = 119;
             this.label28.Text = "Job Description";
             // 
@@ -973,12 +973,12 @@
             // 
             this.label26.AutoSize = true;
             this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label26.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label26.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label26.ForeColor = System.Drawing.Color.White;
             this.label26.Location = new System.Drawing.Point(15, 7);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(130, 23);
+            this.label26.Size = new System.Drawing.Size(112, 22);
             this.label26.TabIndex = 119;
             this.label26.Text = "Phone Number";
             // 
@@ -1041,12 +1041,12 @@
             // 
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label24.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label24.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(15, 7);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(124, 23);
+            this.label24.Size = new System.Drawing.Size(109, 22);
             this.label24.TabIndex = 119;
             this.label24.Text = "Email Address";
             // 
@@ -1109,12 +1109,12 @@
             // 
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label20.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label20.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(15, 7);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(110, 23);
+            this.label20.Size = new System.Drawing.Size(95, 22);
             this.label20.TabIndex = 119;
             this.label20.Text = "Employee ID";
             // 
@@ -1177,12 +1177,12 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label14.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label14.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(15, 7);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 23);
+            this.label14.Size = new System.Drawing.Size(73, 22);
             this.label14.TabIndex = 119;
             this.label14.Text = "Starts on";
             // 
@@ -1245,12 +1245,12 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label12.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(15, 7);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 23);
+            this.label12.Size = new System.Drawing.Size(77, 22);
             this.label12.TabIndex = 119;
             this.label12.Text = "Added on";
             // 
@@ -1314,12 +1314,12 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label10.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(15, 7);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 23);
+            this.label10.Size = new System.Drawing.Size(90, 22);
             this.label10.TabIndex = 119;
             this.label10.Text = "Department";
             // 
@@ -1395,12 +1395,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.label8.Font = new System.Drawing.Font("Roboto", 8.8F);
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 8.5F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(15, 7);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 23);
+            this.label8.Size = new System.Drawing.Size(41, 22);
             this.label8.TabIndex = 119;
             this.label8.Text = "Role";
             // 

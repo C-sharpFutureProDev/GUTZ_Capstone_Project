@@ -47,9 +47,12 @@
             this.lblTextViewPastAttendanceRecord = new System.Windows.Forms.Label();
             this.lblSelectDate = new System.Windows.Forms.Label();
             this.panelAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboSearchEmployee = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnIconSearch = new Guna.UI2.WinForms.Guna2Button();
             this.cboFilterPastAttendance = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.toggleSwitchViewPastAttendanceRecord = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.panelEmployeeDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelAttendanceSummary = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblScheduledEmployee = new System.Windows.Forms.Label();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -69,7 +72,7 @@
             this.lblAttendanceSummaryDate = new System.Windows.Forms.Label();
             this.dateOfCurrentAttendanceRecord = new System.Windows.Forms.Label();
             this.panelAttendanceDetails.SuspendLayout();
-            this.panelEmployeeDetails.SuspendLayout();
+            this.panelAttendanceSummary.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -124,7 +127,7 @@
             this.btnViewEmployeeList.ImageSize = new System.Drawing.Size(26, 27);
             this.btnViewEmployeeList.Location = new System.Drawing.Point(806, 17);
             this.btnViewEmployeeList.Name = "btnViewEmployeeList";
-            this.btnViewEmployeeList.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnViewEmployeeList.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
             this.btnViewEmployeeList.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnViewEmployeeList.Size = new System.Drawing.Size(496, 41);
             this.btnViewEmployeeList.TabIndex = 109;
@@ -151,7 +154,7 @@
             this.btnRefresh.ImageSize = new System.Drawing.Size(25, 24);
             this.btnRefresh.Location = new System.Drawing.Point(1323, 17);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnRefresh.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
             this.btnRefresh.PressedColor = System.Drawing.Color.Salmon;
             this.btnRefresh.Size = new System.Drawing.Size(253, 41);
             this.btnRefresh.TabIndex = 112;
@@ -407,9 +410,12 @@
             // 
             this.panelAttendanceDetails.BackColor = System.Drawing.Color.Black;
             this.panelAttendanceDetails.BorderColor = System.Drawing.Color.Ivory;
+            this.panelAttendanceDetails.Controls.Add(this.cboSearchEmployee);
+            this.panelAttendanceDetails.Controls.Add(this.btnIconSearch);
             this.panelAttendanceDetails.Controls.Add(this.cboFilterPastAttendance);
+            this.panelAttendanceDetails.Controls.Add(this.txtSearch);
             this.panelAttendanceDetails.Controls.Add(this.toggleSwitchViewPastAttendanceRecord);
-            this.panelAttendanceDetails.Controls.Add(this.panelEmployeeDetails);
+            this.panelAttendanceDetails.Controls.Add(this.panelAttendanceSummary);
             this.panelAttendanceDetails.Controls.Add(this.lblSelectDate);
             this.panelAttendanceDetails.Controls.Add(this.lblTextViewPastAttendanceRecord);
             this.panelAttendanceDetails.Controls.Add(this.lblTextFilterAttendanceRecord);
@@ -436,6 +442,59 @@
             this.panelAttendanceDetails.Size = new System.Drawing.Size(1914, 290);
             this.panelAttendanceDetails.TabIndex = 3;
             // 
+            // cboSearchEmployee
+            // 
+            this.cboSearchEmployee.BackColor = System.Drawing.Color.Ivory;
+            this.cboSearchEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSearchEmployee.BorderThickness = 0;
+            this.cboSearchEmployee.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSearchEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearchEmployee.FillColor = System.Drawing.Color.Ivory;
+            this.cboSearchEmployee.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSearchEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.cboSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSearchEmployee.ItemHeight = 35;
+            this.cboSearchEmployee.Items.AddRange(new object[] {
+            "ID Number",
+            "Employee Name"});
+            this.cboSearchEmployee.Location = new System.Drawing.Point(30, 230);
+            this.cboSearchEmployee.Name = "cboSearchEmployee";
+            this.cboSearchEmployee.ShadowDecoration.BorderRadius = 4;
+            this.cboSearchEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSearchEmployee.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.cboSearchEmployee.Size = new System.Drawing.Size(271, 41);
+            this.cboSearchEmployee.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cboSearchEmployee.TabIndex = 78;
+            this.cboSearchEmployee.Visible = false;
+            // 
+            // btnIconSearch
+            // 
+            this.btnIconSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnIconSearch.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.btnIconSearch.BorderRadius = 1;
+            this.btnIconSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnIconSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnIconSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnIconSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnIconSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnIconSearch.ForeColor = System.Drawing.Color.White;
+            this.btnIconSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnIconSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnIconSearch.Image")));
+            this.btnIconSearch.ImageSize = new System.Drawing.Size(30, 34);
+            this.btnIconSearch.Location = new System.Drawing.Point(313, 235);
+            this.btnIconSearch.Name = "btnIconSearch";
+            this.btnIconSearch.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.PressedDepth = 0;
+            this.btnIconSearch.Size = new System.Drawing.Size(35, 35);
+            this.btnIconSearch.TabIndex = 80;
+            this.btnIconSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnIconSearch.Visible = false;
+            // 
             // cboFilterPastAttendance
             // 
             this.cboFilterPastAttendance.BackColor = System.Drawing.Color.Ivory;
@@ -450,6 +509,7 @@
             this.cboFilterPastAttendance.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboFilterPastAttendance.ItemHeight = 35;
             this.cboFilterPastAttendance.Items.AddRange(new object[] {
+            "ALL",
             "On-Time",
             "Late",
             "Absent",
@@ -464,6 +524,41 @@
             this.cboFilterPastAttendance.TabIndex = 135;
             this.cboFilterPastAttendance.Visible = false;
             this.cboFilterPastAttendance.SelectedIndexChanged += new System.EventHandler(this.cboFilterPastAttendance_SelectedIndexChanged);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.AutoRoundedCorners = true;
+            this.txtSearch.BackColor = System.Drawing.Color.Ivory;
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.txtSearch.BorderRadius = 19;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FillColor = System.Drawing.Color.Ivory;
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtSearch.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.txtSearch.Location = new System.Drawing.Point(360, 229);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.txtSearch.PlaceholderText = "Search Employee";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.ShadowDecoration.BorderRadius = 4;
+            this.txtSearch.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Size = new System.Drawing.Size(404, 41);
+            this.txtSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtSearch.TabIndex = 79;
+            this.txtSearch.Visible = false;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // toggleSwitchViewPastAttendanceRecord
             // 
@@ -487,28 +582,28 @@
             this.toggleSwitchViewPastAttendanceRecord.UncheckedState.InnerColor = System.Drawing.Color.White;
             this.toggleSwitchViewPastAttendanceRecord.CheckedChanged += new System.EventHandler(this.toggleSwitchViewPastAttendanceRecord_CheckedChanged);
             // 
-            // panelEmployeeDetails
+            // panelAttendanceSummary
             // 
-            this.panelEmployeeDetails.BackColor = System.Drawing.Color.Transparent;
-            this.panelEmployeeDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.panelEmployeeDetails.BorderRadius = 12;
-            this.panelEmployeeDetails.Controls.Add(this.guna2Panel7);
-            this.panelEmployeeDetails.Controls.Add(this.guna2Panel6);
-            this.panelEmployeeDetails.Controls.Add(this.guna2Panel5);
-            this.panelEmployeeDetails.Controls.Add(this.btnViewAnDownloadReport);
-            this.panelEmployeeDetails.Controls.Add(this.guna2Panel4);
-            this.panelEmployeeDetails.Controls.Add(this.guna2Panel3);
-            this.panelEmployeeDetails.Controls.Add(this.guna2Panel2);
-            this.panelEmployeeDetails.Controls.Add(this.lblAttendanceSummaryDate);
-            this.panelEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.panelEmployeeDetails.ForeColor = System.Drawing.Color.White;
-            this.panelEmployeeDetails.Location = new System.Drawing.Point(806, 67);
-            this.panelEmployeeDetails.Name = "panelEmployeeDetails";
-            this.panelEmployeeDetails.ShadowDecoration.BorderRadius = 15;
-            this.panelEmployeeDetails.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelEmployeeDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.panelEmployeeDetails.Size = new System.Drawing.Size(770, 203);
-            this.panelEmployeeDetails.TabIndex = 134;
+            this.panelAttendanceSummary.BackColor = System.Drawing.Color.Transparent;
+            this.panelAttendanceSummary.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.panelAttendanceSummary.BorderRadius = 15;
+            this.panelAttendanceSummary.Controls.Add(this.guna2Panel7);
+            this.panelAttendanceSummary.Controls.Add(this.guna2Panel6);
+            this.panelAttendanceSummary.Controls.Add(this.guna2Panel5);
+            this.panelAttendanceSummary.Controls.Add(this.btnViewAnDownloadReport);
+            this.panelAttendanceSummary.Controls.Add(this.guna2Panel4);
+            this.panelAttendanceSummary.Controls.Add(this.guna2Panel3);
+            this.panelAttendanceSummary.Controls.Add(this.guna2Panel2);
+            this.panelAttendanceSummary.Controls.Add(this.lblAttendanceSummaryDate);
+            this.panelAttendanceSummary.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.panelAttendanceSummary.ForeColor = System.Drawing.Color.White;
+            this.panelAttendanceSummary.Location = new System.Drawing.Point(806, 67);
+            this.panelAttendanceSummary.Name = "panelAttendanceSummary";
+            this.panelAttendanceSummary.ShadowDecoration.BorderRadius = 15;
+            this.panelAttendanceSummary.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelAttendanceSummary.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.panelAttendanceSummary.Size = new System.Drawing.Size(770, 203);
+            this.panelAttendanceSummary.TabIndex = 134;
             // 
             // guna2Panel7
             // 
@@ -788,7 +883,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeAttendance_FormClosing);
             this.Load += new System.EventHandler(this.EmployeeAttendance_Load);
             this.panelAttendanceDetails.ResumeLayout(false);
-            this.panelEmployeeDetails.ResumeLayout(false);
+            this.panelAttendanceSummary.ResumeLayout(false);
             this.guna2Panel7.ResumeLayout(false);
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
@@ -816,7 +911,7 @@
         public Guna.UI2.WinForms.Guna2Button btnViewEmployeeList;
         private System.Windows.Forms.Label lblSelectDate;
         public Guna.UI2.WinForms.Guna2Panel panelAttendanceDetails;
-        public Guna.UI2.WinForms.Guna2Panel panelEmployeeDetails;
+        public Guna.UI2.WinForms.Guna2Panel panelAttendanceSummary;
         private System.Windows.Forms.Label lblAttendanceSummaryDate;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label lblExpectedClockIn;
@@ -838,5 +933,8 @@
         public Guna.UI2.WinForms.Guna2Button btnRefresh;
         private Guna.UI2.WinForms.Guna2ComboBox cboFilterPastAttendance;
         private Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitchViewPastAttendanceRecord;
+        private Guna.UI2.WinForms.Guna2ComboBox cboSearchEmployee;
+        private Guna.UI2.WinForms.Guna2Button btnIconSearch;
+        public Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }
 }

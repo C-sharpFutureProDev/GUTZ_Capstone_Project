@@ -179,12 +179,6 @@ namespace GUTZ_Capstone_Project
 
                     flowLayoutPanel1.Controls.Add(sampleProfileCard);
                 }
-
-                /*for (int i = 1; i <= 100; i++) // Test Purposes
-                {
-                    SampleProfileCard sampleProfileCard = new SampleProfileCard(this);
-                    flowLayoutPanel1.Controls.Add(sampleProfileCard);
-                }*/
             }
             catch (Exception ex)
             {
@@ -241,7 +235,7 @@ namespace GUTZ_Capstone_Project
         {
             if (!isUserInteraction)
             {
-                MessageBox.Show("Please choose any of available search criteria");
+                MessageBox.Show("Please choose any of available search criteria.");
                 txtSearch.Clear();
                 return;
             }

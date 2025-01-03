@@ -162,31 +162,50 @@ namespace GUTZ_Capstone_Project
 
         private void CountScheduledToWorkEmployee()
         {
-            int count = 0;
+            int scheduledCount = 0;
+            int onLeaveCount = 0;
 
-            string countScheduledEmployee = $@"SELECT COUNT(*) FROM tbl_employee e
-                                               INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
-                                               LEFT JOIN tbl_leave l ON e.emp_id = l.emp_id AND l.leave_status = 'Active'
-                                               WHERE FIND_IN_SET(DAYNAME(CURDATE()), s.work_days) > 0
-                                               AND (l.leave_status IS NULL OR l.leave_status <> 'Active')
-                                               AND e.is_deleted = 0
-                                               AND e.start_date <= '{_reportDate:yyyy-MM-dd}'";
+            // Count scheduled employees based on _reportDate
+            string countScheduledEmployee = $@"SELECT COUNT(*) 
+                                        FROM tbl_employee e
+                                        INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
+                                        WHERE FIND_IN_SET(DAYNAME('{_reportDate:yyyy-MM-dd}'), s.work_days) > 0
+                                        AND e.is_deleted = 0
+                                        AND e.start_date <= '{_reportDate:yyyy-MM-dd}'";
+
+            // Count employees on leave based on _reportDate
+            string countOnLeave = $@"SELECT COUNT(*) 
+                              FROM tbl_employee e
+                              INNER JOIN tbl_leave l ON e.emp_id = l.emp_id 
+                              WHERE l.leave_status IN ('Active', 'Completed')
+                              AND '{_reportDate:yyyy-MM-dd}' BETWEEN l.start_date AND l.end_date
+                              AND e.is_deleted = 0";
 
             try
             {
-                DataTable dt = DB_OperationHelperClass.QueryData(countScheduledEmployee);
-
-                if (dt.Rows.Count > 0 && dt.Rows[0][0] != DBNull.Value)
+                // Get scheduled employee count
+                DataTable dtScheduled = DB_OperationHelperClass.QueryData(countScheduledEmployee);
+                if (dtScheduled.Rows.Count > 0 && dtScheduled.Rows[0][0] != DBNull.Value)
                 {
-                    count = Convert.ToInt32(dt.Rows[0][0]);
+                    scheduledCount = Convert.ToInt32(dtScheduled.Rows[0][0]);
+                }
+
+                // Get on leave employee count
+                DataTable dtOnLeave = DB_OperationHelperClass.QueryData(countOnLeave);
+                if (dtOnLeave.Rows.Count > 0 && dtOnLeave.Rows[0][0] != DBNull.Value)
+                {
+                    onLeaveCount = Convert.ToInt32(dtOnLeave.Rows[0][0]);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error displaying scheduled employee count: {ex.Message}");
+                return; // Exit early if there's an error
             }
 
-            lblExpectedEmployee.Text = count.ToString();
+            // Calculate expected employees scheduled to work
+            int expectedEmployees = scheduledCount - onLeaveCount;
+            lblExpectedEmployee.Text = expectedEmployees.ToString();
         }
 
         private int CountScheduledEmployeesForDate(DateTime date)
