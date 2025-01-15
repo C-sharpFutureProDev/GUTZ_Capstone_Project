@@ -725,8 +725,8 @@ namespace GUTZ_Capstone_Project.Forms
                     };
                     if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
                     {
-                        string insertIntoProfileTable = @"INSERT INTO tbl_profile (emp_id)
-                                                          VALUES (@EmpId)";
+                        string insertIntoProfileTable = @"INSERT INTO tbl_profile (emp_id) 
+                                                          VALUES (@EmpId)"; // tbl_wage
                         var profileParam = new Dictionary<string, object>
                         {
                             { "@EmpId", emp_id }

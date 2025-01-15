@@ -63,8 +63,8 @@ namespace GUTZ_Capstone_Project
         private void LoadScheduleData()
         {
             string sql = @"SELECT work_days, start_time, end_time
-                   FROM tbl_schedule
-                   WHERE emp_id = @EmpId";
+                           FROM tbl_schedule
+                           WHERE emp_id = @EmpId";
 
             var parameters = new Dictionary<string, object>
             {
@@ -142,6 +142,7 @@ namespace GUTZ_Capstone_Project
             MessageBox.Show("Schedule saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.DialogResult = DialogResult.OK;
+
             isModified = false; // Reset modification flag after saving
             this.Close();
         }

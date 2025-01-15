@@ -30,7 +30,7 @@ namespace GUTZ_Capstone_Project
 
             // Run the application
             Application.Run(new FormDashboard(1001)); // bypass
-            //Application.Run(new FormLogin());
+           //Application.Run(new FormLogin());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -45,31 +45,32 @@ namespace GUTZ_Capstone_Project
                 scheduler = await StdSchedulerFactory.GetDefaultScheduler();
                 await scheduler.Start();
 
-                // Define the job and tie it to the LeaveStatusUpdateJob class
-                IJobDetail job = JobBuilder.Create<AutoLeaveStatusUpdate_HelperClass.LeaveStatusUpdateJob>()
+                // Schedule LeaveStatusUpdateJob
+                IJobDetail leaveJob = JobBuilder.Create<AutoLeaveStatusUpdate_HelperClass.LeaveStatusUpdateJob>()
                     .WithIdentity("leaveStatusUpdateJob")
                     .Build();
 
-                // Trigger the job to run immediately
-                ITrigger immediateTrigger = TriggerBuilder.Create()
-                    .WithIdentity("immediateTrigger")
+                ITrigger leaveTrigger = TriggerBuilder.Create()
+                    .WithIdentity("leaveStatusUpdateTrigger")
                     .StartNow() // Trigger immediately
                     .Build();
 
-                // Schedule the job using the immediate trigger
-                await scheduler.ScheduleJob(job, immediateTrigger);
+                await scheduler.ScheduleJob(leaveJob, leaveTrigger);
 
-                // Trigger the job to run daily at 12:00 AM
-                /*ITrigger dailyTrigger = TriggerBuilder.Create()
-                    .WithIdentity("leaveStatusUpdateTrigger")
-                    .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(0, 0)) // Runs daily at 12:00 AM
+                // Schedule PayrollStatusUpdateJob
+                /*IJobDetail payrollJob = JobBuilder.Create<AutoPayrollAndWageUpdate_HelperClass.PayrollStatusUpdateJob>()
+                    .WithIdentity("payrollStatusUpdateJob")
                     .Build();
 
-                // Schedule the daily job
-                await scheduler.ScheduleJob(job, dailyTrigger);
+                ITrigger payrollTrigger = TriggerBuilder.Create()
+                    .WithIdentity("payrollStatusUpdateTrigger")
+                    .StartNow() // Trigger immediately
+                    .Build();
+
+                await scheduler.ScheduleJob(payrollJob, payrollTrigger);
                 */
 
-                //Console.WriteLine("Jobs scheduled successfully.");
+                Console.WriteLine("Jobs scheduled successfully.");
             }
             catch (Exception ex)
             {
@@ -77,7 +78,6 @@ namespace GUTZ_Capstone_Project
             }
             finally
             {
-                // Optionally, handle scheduler shutdown gracefully when the application exits
                 Application.ApplicationExit += async (s, e) =>
                 {
                     if (scheduler != null)

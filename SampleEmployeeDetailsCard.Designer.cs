@@ -786,7 +786,7 @@
             this.lblOnboardingPersonel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblOnboardingPersonel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.lblOnboardingPersonel.ForeColor = System.Drawing.Color.White;
-            this.lblOnboardingPersonel.Location = new System.Drawing.Point(19, 40);
+            this.lblOnboardingPersonel.Location = new System.Drawing.Point(15, 40);
             this.lblOnboardingPersonel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblOnboardingPersonel.Name = "lblOnboardingPersonel";
             this.lblOnboardingPersonel.Size = new System.Drawing.Size(234, 30);
@@ -893,7 +893,7 @@
             this.lblEmployeeJobDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeeJobDescription.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeJobDescription.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeJobDescription.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeeJobDescription.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeJobDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeJobDescription.Name = "lblEmployeeJobDescription";
             this.lblEmployeeJobDescription.Size = new System.Drawing.Size(234, 30);
@@ -961,7 +961,7 @@
             this.lblEmployeePhoneNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeePhoneNo.Font = new System.Drawing.Font("Roboto", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblEmployeePhoneNo.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeePhoneNo.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeePhoneNo.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeePhoneNo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeePhoneNo.Name = "lblEmployeePhoneNo";
             this.lblEmployeePhoneNo.Size = new System.Drawing.Size(234, 30);
@@ -1029,7 +1029,7 @@
             this.lblEmployeeEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeeEmail.Font = new System.Drawing.Font("Roboto", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeEmail.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeEmail.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeeEmail.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeEmail.Name = "lblEmployeeEmail";
             this.lblEmployeeEmail.Size = new System.Drawing.Size(234, 30);
@@ -1097,7 +1097,7 @@
             this.lblEmployeeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeeID.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeID.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeID.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeeID.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeID.Name = "lblEmployeeID";
             this.lblEmployeeID.Size = new System.Drawing.Size(234, 30);
@@ -1165,7 +1165,7 @@
             this.lblEmployeeStartDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeeStartDate.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeStartDate.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeStartDate.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeeStartDate.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeStartDate.Name = "lblEmployeeStartDate";
             this.lblEmployeeStartDate.Size = new System.Drawing.Size(234, 30);
@@ -1233,7 +1233,7 @@
             this.lblEmployeeOnboardingDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeeOnboardingDate.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeOnboardingDate.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeOnboardingDate.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeeOnboardingDate.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeOnboardingDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeOnboardingDate.Name = "lblEmployeeOnboardingDate";
             this.lblEmployeeOnboardingDate.Size = new System.Drawing.Size(234, 30);
@@ -1302,7 +1302,7 @@
             this.lblEmployeeDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeeDepartment.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeDepartment.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeDepartment.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeeDepartment.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeDepartment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeDepartment.Name = "lblEmployeeDepartment";
             this.lblEmployeeDepartment.Size = new System.Drawing.Size(234, 30);
@@ -1383,7 +1383,7 @@
             this.lblEmployeeRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.lblEmployeeRole.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeRole.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeRole.Location = new System.Drawing.Point(19, 40);
+            this.lblEmployeeRole.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeRole.Name = "lblEmployeeRole";
             this.lblEmployeeRole.Size = new System.Drawing.Size(234, 30);

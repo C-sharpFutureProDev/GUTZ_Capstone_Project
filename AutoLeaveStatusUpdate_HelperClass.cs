@@ -33,14 +33,11 @@ namespace GUTZ_Capstone_Project
 
                     if (result)
                     {
-                        // Log success message
-                        //Console.WriteLine("Leave statuses updated successfully.");
-                        //MessageBox.Show("Leave statuses updated successfully.");
+                        // cut payroll implementation
                     }
                     else
                     {
-                        // Log no records updated
-                        //Console.WriteLine("No leave statuses were updated. Check the query and data.");
+                        //  log failed automated payroll cut
                     }
                 }
                 catch (Exception ex)

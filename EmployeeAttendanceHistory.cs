@@ -17,7 +17,7 @@ namespace GUTZ_Capstone_Project
 {
     public partial class EmployeeAttendanceHistory : UserControl
     {
-        private string _id = "";
+        private string _id = string.Empty;
         private EmployeeAttendance _employeeAttendance;
         private Timer monthChangeTimer;
         private ToolTip ToolTip = new ToolTip();
@@ -25,7 +25,7 @@ namespace GUTZ_Capstone_Project
         public EmployeeAttendanceHistory(string empID, EmployeeAttendance employeeAttendance)
         {
             InitializeComponent();
-            if (empID != null)
+            if (!string.IsNullOrEmpty(empID))
             {
                 _id = empID;
             }

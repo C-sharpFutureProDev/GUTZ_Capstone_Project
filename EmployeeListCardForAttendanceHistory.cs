@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUTZ_Capstone_Project.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -126,8 +127,45 @@ namespace GUTZ_Capstone_Project
         {
             if (_employeeAttendance != null)
             {
+                // Create an instance of EmployeeSchedule and pass the employee ID
                 EmployeeSchedule employeeSchedule = new EmployeeSchedule(_id);
-                employeeSchedule.ShowDialog();
+
+                // Show the dialog and check the result
+                if (employeeSchedule.ShowDialog() == DialogResult.OK)
+                {
+                    // Retrieve the selected days and times from the employeeSchedule form
+                    string[] selectedDays = employeeSchedule.SelectedDays;
+                    TimeSpan startTime = employeeSchedule.StartTime;
+                    TimeSpan endTime = employeeSchedule.EndTime;
+
+                    // Update the schedule in the database
+                    UpdateScheduleInDatabase(_id, selectedDays, startTime, endTime);
+
+                    // Refresh the attendance list after updating the schedule
+                    _employeeAttendance.ViewEmployeeList();
+                }
+            }
+        }
+
+        // Method to update the schedule in the database
+        private void UpdateScheduleInDatabase(string empId, string[] selectedDays, TimeSpan startTime, TimeSpan endTime)
+        {
+            string workDays = string.Join(",", selectedDays);
+
+            string updateScheduleSql = @"UPDATE tbl_schedule SET work_days = @WorkDays, start_time = @StartTime, end_time = @EndTime 
+                                 WHERE emp_id = @EmpId";
+
+            var scheduleParams = new Dictionary<string, object>
+            {
+                { "@EmpId", empId },
+                { "@WorkDays", workDays },
+                { "@StartTime", startTime.ToString(@"hh\:mm") },
+                { "@EndTime", endTime.ToString(@"hh\:mm") }
+            };
+
+            if (!DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateScheduleSql, scheduleParams))
+            {
+                MessageBox.Show("Failed to update schedule data.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

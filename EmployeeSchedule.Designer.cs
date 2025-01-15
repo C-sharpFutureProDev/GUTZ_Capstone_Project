@@ -65,7 +65,7 @@
             // lblFormLabel
             // 
             this.lblFormLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblFormLabel.Font = new System.Drawing.Font("Arial", 12.5F, System.Drawing.FontStyle.Bold);
+            this.lblFormLabel.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormLabel.ForeColor = System.Drawing.Color.White;
             this.lblFormLabel.Location = new System.Drawing.Point(30, 29);
             this.lblFormLabel.Name = "lblFormLabel";
@@ -94,7 +94,7 @@
             this.groupBox1.Controls.Add(this.chkBoxWednesday);
             this.groupBox1.Controls.Add(this.chkBoxTuesday);
             this.groupBox1.Controls.Add(this.chkBoxMonday);
-            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Gray;
             this.groupBox1.Location = new System.Drawing.Point(30, 95);
             this.groupBox1.Name = "groupBox1";
@@ -236,7 +236,7 @@
             this.groupBox2.Controls.Add(this.StartNumUpDown);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.EndNumUpDown);
-            this.groupBox2.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.groupBox2.ForeColor = System.Drawing.Color.Gray;
             this.groupBox2.Location = new System.Drawing.Point(30, 202);
             this.groupBox2.Name = "groupBox2";
@@ -335,9 +335,9 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(18, 64);
+            this.label4.Location = new System.Drawing.Point(18, 69);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 31);
+            this.label4.Size = new System.Drawing.Size(70, 26);
             this.label4.TabIndex = 89;
             this.label4.Text = "HRS.:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -441,7 +441,7 @@
             this.btnSaveSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveSchedule.FillColor = System.Drawing.Color.Green;
-            this.btnSaveSchedule.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveSchedule.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.btnSaveSchedule.ForeColor = System.Drawing.Color.White;
             this.btnSaveSchedule.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSaveSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
@@ -463,7 +463,7 @@
             this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
-            this.btnClose.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnClose.HoverState.FillColor = System.Drawing.Color.Red;

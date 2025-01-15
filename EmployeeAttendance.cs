@@ -75,7 +75,7 @@ namespace GUTZ_Capstone_Project
         {
             cboFilter.SelectedIndex = 0;
             cboSearchEmployee.SelectedIndex = 0;
-            LoadAndRetrieveEmployeeAttendanceData();
+            //LoadAndRetrieveEmployeeAttendanceData();
             CountAttendance();
             CountForRealTimeOnLeave();
             PopulateEmployeeList();
@@ -319,15 +319,8 @@ namespace GUTZ_Capstone_Project
             string sqlCountActiveLeave = "SELECT COUNT(*) FROM tbl_leave WHERE leave_status = '" + leaveStatus + "'";
             DataTable countActiveLeave = DB_OperationHelperClass.QueryData(sqlCountActiveLeave);
 
-            if (countActiveLeave.Rows.Count > 0)
-            {
-                int countTotalActiveLeave = countActiveLeave.Rows.Count > 0 ? Convert.ToInt32(countActiveLeave.Rows[0][0]) : 0;
-                btnOnLeave.Text = countTotalActiveLeave.ToString();
-            }
-            else
-            {
-                btnOnLeave.Text = "0";
-            }
+            int countTotalActiveLeave = countActiveLeave.Rows.Count > 0 ? Convert.ToInt32(countActiveLeave.Rows[0][0]) : 0;
+            btnOnLeave.Text = countTotalActiveLeave.ToString();
         }
 
         /// <summary>
@@ -726,7 +719,7 @@ namespace GUTZ_Capstone_Project
         /// on time, late, clocked out, and absent. The results are displayed in the UI. 
         /// If the selected date is in the future, an informational message is shown.
         /// </remarks>
-        private void CountAttendanceForSelectedDate()
+        private void CountAttendanceForSelectedDate() // need fixed
         {
             DateTime selectedDate = dtpEmpSelectDate.Value;
             DateTime today = DateTime.Today;
@@ -1040,34 +1033,34 @@ namespace GUTZ_Capstone_Project
         private void LoadOnTimeAttendanceData()
         {
             string query = @"SELECT 
-                        attendance_id, 
-                        tbl_employee.emp_id, 
-                        emp_profilePic, 
-                        tbl_employee.f_name, 
-                        tbl_employee.m_name, 
-                        tbl_employee.l_name, 
-                        tbl_leave.leave_status, 
-                        tbl_leave.start_date AS leave_start_date, 
-                        tbl_leave.end_date AS leave_end_date,
-                        CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                        working_hours, 
-                        time_in_status, 
-                        DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                        DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
-                        time_in, 
-                        time_out
-                    FROM 
-                        tbl_employee
-                    INNER JOIN 
-                        tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
-                    LEFT JOIN 
-                        tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                    WHERE 
-                        tbl_employee.is_deleted = 0 
-                        AND DATE(tbl_attendance.time_in) = CURDATE() 
-                        AND tbl_attendance.time_in_status = 'On Time'
-                    ORDER BY 
-                        time_in DESC";
+                                attendance_id, 
+                                tbl_employee.emp_id, 
+                                emp_profilePic, 
+                                tbl_employee.f_name, 
+                                tbl_employee.m_name, 
+                                tbl_employee.l_name, 
+                                tbl_leave.leave_status, 
+                                tbl_leave.start_date AS leave_start_date, 
+                                tbl_leave.end_date AS leave_end_date,
+                                CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                working_hours, 
+                                time_in_status, 
+                                DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                time_in, 
+                                time_out
+                            FROM 
+                                tbl_employee
+                            INNER JOIN 
+                                tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                            LEFT JOIN 
+                                tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                            WHERE 
+                                tbl_employee.is_deleted = 0 
+                                AND DATE(tbl_attendance.time_in) = CURDATE() 
+                                AND tbl_attendance.time_in_status = 'On Time'
+                            ORDER BY 
+                                time_in DESC";
 
             LoadAttendanceData(query);
         }
@@ -1075,34 +1068,34 @@ namespace GUTZ_Capstone_Project
         private void LoadLateAttendanceData()
         {
             string query = @"SELECT 
-                        attendance_id, 
-                        tbl_employee.emp_id, 
-                        emp_profilePic, 
-                        tbl_employee.f_name, 
-                        tbl_employee.m_name, 
-                        tbl_employee.l_name, 
-                        tbl_leave.leave_status, 
-                        tbl_leave.start_date AS leave_start_date, 
-                        tbl_leave.end_date AS leave_end_date,
-                        CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                        working_hours, 
-                        time_in_status, 
-                        DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                        DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
-                        time_in, 
-                        time_out
-                    FROM 
-                        tbl_employee
-                    INNER JOIN 
-                        tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
-                    LEFT JOIN 
-                        tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                    WHERE 
-                        tbl_employee.is_deleted = 0 
-                        AND DATE(tbl_attendance.time_in) = CURDATE() 
-                        AND tbl_attendance.time_in_status = 'Late'
-                    ORDER BY 
-                        time_in DESC";
+                                attendance_id, 
+                                tbl_employee.emp_id, 
+                                emp_profilePic, 
+                                tbl_employee.f_name, 
+                                tbl_employee.m_name, 
+                                tbl_employee.l_name, 
+                                tbl_leave.leave_status, 
+                                tbl_leave.start_date AS leave_start_date, 
+                                tbl_leave.end_date AS leave_end_date,
+                                CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                working_hours, 
+                                time_in_status, 
+                                DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                time_in, 
+                                time_out
+                            FROM 
+                                tbl_employee
+                            INNER JOIN 
+                                tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                            LEFT JOIN 
+                                tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                            WHERE 
+                                tbl_employee.is_deleted = 0 
+                                AND DATE(tbl_attendance.time_in) = CURDATE() 
+                                AND tbl_attendance.time_in_status = 'Late'
+                            ORDER BY 
+                                time_in DESC";
 
             LoadAttendanceData(query);
         }
@@ -1110,37 +1103,37 @@ namespace GUTZ_Capstone_Project
         private void LoadAbsentAttendanceData()
         {
             string query = @"SELECT 
-                        tbl_employee.emp_id, 
-                        emp_profilePic, 
-                        tbl_employee.f_name, 
-                        tbl_employee.m_name, 
-                        tbl_employee.l_name, 
-                        leave_status, 
-                        tbl_leave.start_date AS leave_start_date, 
-                        tbl_leave.end_date AS leave_end_date,
-                        CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                        NULL AS time_in_formatted,
-                        NULL AS time_in_status,
-                        NULL AS time_out_formatted, 
-                        NULL AS time_in, 
-                        NULL AS time_out
-                    FROM 
-                        tbl_employee
-                    LEFT JOIN 
-                        tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                    LEFT JOIN 
-                        tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id 
-                        AND DATE(tbl_attendance.time_in) = CURDATE()
-                    LEFT JOIN 
-                        tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
-                    WHERE 
-                        tbl_employee.is_deleted = 0 
-                        AND tbl_attendance.time_in IS NULL
-                        AND FIND_IN_SET(DAYNAME(CURDATE()), tbl_schedule.work_days) > 0 
-                        AND TIME(NOW()) > tbl_schedule.end_time 
-                        AND (tbl_leave.leave_status IS NULL OR tbl_leave.leave_status = 'Active') 
-                    ORDER BY 
-                        tbl_employee.f_name ASC";
+                                tbl_employee.emp_id, 
+                                emp_profilePic, 
+                                tbl_employee.f_name, 
+                                tbl_employee.m_name, 
+                                tbl_employee.l_name, 
+                                leave_status, 
+                                tbl_leave.start_date AS leave_start_date, 
+                                tbl_leave.end_date AS leave_end_date,
+                                CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                NULL AS time_in_formatted,
+                                NULL AS time_in_status,
+                                NULL AS time_out_formatted, 
+                                NULL AS time_in, 
+                                NULL AS time_out
+                            FROM 
+                                tbl_employee
+                            LEFT JOIN 
+                                tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                            LEFT JOIN 
+                                tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id 
+                                AND DATE(tbl_attendance.time_in) = CURDATE()
+                            LEFT JOIN 
+                                tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
+                            WHERE 
+                                tbl_employee.is_deleted = 0 
+                                AND tbl_attendance.time_in IS NULL
+                                AND FIND_IN_SET(DAYNAME(CURDATE()), tbl_schedule.work_days) > 0 
+                                AND TIME(NOW()) > tbl_schedule.end_time 
+                                AND (tbl_leave.leave_status IS NULL OR tbl_leave.leave_status = 'Active') 
+                            ORDER BY 
+                                tbl_employee.f_name ASC";
 
             LoadAttendanceData(query);
         }
@@ -1148,31 +1141,31 @@ namespace GUTZ_Capstone_Project
         private void LoadOnLeaveAttendanceData()
         {
             string query = @"SELECT DISTINCT 
-                        tbl_employee.emp_id, 
-                        emp_profilePic, 
-                        tbl_employee.f_name, 
-                        tbl_employee.m_name, 
-                        tbl_employee.l_name, 
-                        CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                        l.start_date AS leave_start_date, 
-                        l.end_date AS leave_end_date, 
-                        l.leave_status,
-                        NULL AS time_in_formatted, 
-                        'On Leave' AS time_in_status, 
-                        NULL AS time_out_formatted, 
-                        NULL AS time_in, 
-                        NULL AS time_out
-                    FROM 
-                        tbl_employee
-                    INNER JOIN 
-                        tbl_leave AS l ON tbl_employee.emp_id = l.emp_id
-                    WHERE 
-                        tbl_employee.is_deleted = 0 
-                        AND l.leave_status = 'Active' 
-                        AND l.start_date <= CURDATE() 
-                        AND l.end_date >= CURDATE()
-                    ORDER BY 
-                        tbl_employee.f_name ASC";
+                                        tbl_employee.emp_id, 
+                                        emp_profilePic, 
+                                        tbl_employee.f_name, 
+                                        tbl_employee.m_name, 
+                                        tbl_employee.l_name, 
+                                        CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                        l.start_date AS leave_start_date, 
+                                        l.end_date AS leave_end_date, 
+                                        l.leave_status,
+                                        NULL AS time_in_formatted, 
+                                        'On Leave' AS time_in_status, 
+                                        NULL AS time_out_formatted, 
+                                        NULL AS time_in, 
+                                        NULL AS time_out
+                                    FROM 
+                                        tbl_employee
+                                    INNER JOIN 
+                                        tbl_leave AS l ON tbl_employee.emp_id = l.emp_id
+                                    WHERE 
+                                        tbl_employee.is_deleted = 0 
+                                        AND l.leave_status = 'Active' 
+                                        AND l.start_date <= CURDATE() 
+                                        AND l.end_date >= CURDATE()
+                                    ORDER BY 
+                                        tbl_employee.f_name ASC";
 
             LoadAttendanceData(query);
         }
@@ -1321,7 +1314,7 @@ namespace GUTZ_Capstone_Project
 
         private void btnViewAnDownloadReport_Click(object sender, EventArgs e)
         {
-            DateTime dateToDisplay = isUserInteracting ? previousDatePickerValue : selectedDate;
+            DateTime dateToDisplay = isUserInteracting ? selectedDate : DateTime.Now.Date;
 
             FormReport formReport = new FormReport(dateToDisplay);
             formReport.ShowDialog();
@@ -1329,6 +1322,8 @@ namespace GUTZ_Capstone_Project
 
         private void toggleSwitchViewPastAttendanceRecord_CheckedChanged(object sender, EventArgs e)
         {
+            isUserInteracting = true;
+
             flowLayoutPanel1.Controls.Clear();
             bool isChecked = toggleSwitchViewPastAttendanceRecord.Checked;
 
@@ -1404,128 +1399,128 @@ namespace GUTZ_Capstone_Project
                 case 1: // On-Time
                     query = $@"SELECT 
                             attendance_id, 
-                            tbl_employee.emp_id, 
-                            emp_profilePic, 
-                            tbl_employee.f_name, 
-                            tbl_employee.m_name, 
-                            tbl_employee.l_name, 
-                            leave_status, 
-                            tbl_leave.start_date AS leave_start_date, 
-                            tbl_leave.end_date AS leave_end_date,
-                            CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                            working_hours, 
-                            time_in_status, 
-                            DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                            DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
-                            time_in, 
-                            time_out
-                        FROM 
-                            tbl_employee
-                        INNER JOIN 
-                            tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
-                        LEFT JOIN 
-                            tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                        WHERE 
-                            tbl_employee.is_deleted = 0 
-                            AND DATE(tbl_attendance.time_in) = '{selectedDate:yyyy-MM-dd}' 
-                            AND tbl_attendance.time_in_status = 'On Time'
-                        ORDER BY 
-                            time_in ASC";
+                                        tbl_employee.emp_id, 
+                                        emp_profilePic, 
+                                        tbl_employee.f_name, 
+                                        tbl_employee.m_name, 
+                                        tbl_employee.l_name, 
+                                        leave_status, 
+                                        tbl_leave.start_date AS leave_start_date, 
+                                        tbl_leave.end_date AS leave_end_date,
+                                        CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                        working_hours, 
+                                        time_in_status, 
+                                        DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                        DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                        time_in, 
+                                        time_out
+                                    FROM 
+                                        tbl_employee
+                                    INNER JOIN 
+                                        tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                                    LEFT JOIN 
+                                        tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                                    WHERE 
+                                        tbl_employee.is_deleted = 0 
+                                        AND DATE(tbl_attendance.time_in) = '{selectedDate:yyyy-MM-dd}' 
+                                        AND tbl_attendance.time_in_status = 'On Time'
+                                    ORDER BY 
+                                        time_in ASC";
                     break;
 
                 case 2: // Late
                     query = $@"SELECT 
-                            attendance_id, 
-                            tbl_employee.emp_id, 
-                            emp_profilePic, 
-                            tbl_employee.f_name, 
-                            tbl_employee.m_name, 
-                            tbl_employee.l_name, 
-                            leave_status, 
-                            tbl_leave.start_date AS leave_start_date, 
-                            tbl_leave.end_date AS leave_end_date,
-                            CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                            working_hours, 
-                            time_in_status, 
-                            DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
-                            DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
-                            time_in, 
-                            time_out
-                        FROM 
-                            tbl_employee
-                        INNER JOIN 
-                            tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
-                        LEFT JOIN 
-                            tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                        WHERE 
-                            tbl_employee.is_deleted = 0 
-                            AND DATE(tbl_attendance.time_in) = '{selectedDate:yyyy-MM-dd}' 
-                            AND tbl_attendance.time_in_status = 'Late'
-                        ORDER BY 
-                            time_in ASC";
+                                    attendance_id, 
+                                    tbl_employee.emp_id, 
+                                    emp_profilePic, 
+                                    tbl_employee.f_name, 
+                                    tbl_employee.m_name, 
+                                    tbl_employee.l_name, 
+                                    leave_status, 
+                                    tbl_leave.start_date AS leave_start_date, 
+                                    tbl_leave.end_date AS leave_end_date,
+                                    CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                    working_hours, 
+                                    time_in_status, 
+                                    DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                    DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted, 
+                                    time_in, 
+                                    time_out
+                                FROM 
+                                    tbl_employee
+                                INNER JOIN 
+                                    tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id
+                                LEFT JOIN 
+                                    tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                                WHERE 
+                                    tbl_employee.is_deleted = 0 
+                                    AND DATE(tbl_attendance.time_in) = '{selectedDate:yyyy-MM-dd}' 
+                                    AND tbl_attendance.time_in_status = 'Late'
+                                ORDER BY 
+                                    time_in ASC";
                     break;
 
                 case 3: // Absent
                     query = $@"SELECT 
-                            tbl_employee.emp_id, 
-                            emp_profilePic, 
-                            tbl_employee.f_name, 
-                            tbl_employee.m_name, 
-                            tbl_employee.l_name, 
-                            leave_status, 
-                            tbl_leave.start_date AS leave_start_date, 
-                            tbl_leave.end_date AS leave_end_date,
-                            CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                            NULL AS time_in_formatted,
-                            NULL AS time_in_status,
-                            NULL AS time_out_formatted, 
-                            NULL AS time_in, 
-                            NULL AS time_out
-                        FROM 
-                            tbl_employee
-                        LEFT JOIN 
-                            tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                        LEFT JOIN 
-                            tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id 
-                            AND DATE(tbl_attendance.time_in) = '{selectedDate:yyyy-MM-dd}'
-                        LEFT JOIN 
-                            tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
-                        WHERE 
-                            tbl_employee.is_deleted = 0 
-                            AND tbl_attendance.time_in IS NULL 
-                            AND FIND_IN_SET(DAYNAME('{selectedDate:yyyy-MM-dd}'), tbl_schedule.work_days) > 0 
-                            AND (tbl_leave.leave_status IS NULL OR tbl_leave.leave_status != 'Active')
-                        ORDER BY 
-                            tbl_employee.f_name ASC";
+                                    tbl_employee.emp_id, 
+                                    emp_profilePic, 
+                                    tbl_employee.f_name, 
+                                    tbl_employee.m_name, 
+                                    tbl_employee.l_name, 
+                                    leave_status, 
+                                    tbl_leave.start_date AS leave_start_date, 
+                                    tbl_leave.end_date AS leave_end_date,
+                                    CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                    NULL AS time_in_formatted,
+                                    NULL AS time_in_status,
+                                    NULL AS time_out_formatted, 
+                                    NULL AS time_in, 
+                                    NULL AS time_out
+                                FROM 
+                                    tbl_employee
+                                LEFT JOIN 
+                                    tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
+                                LEFT JOIN 
+                                    tbl_attendance ON tbl_employee.emp_id = tbl_attendance.emp_id 
+                                    AND DATE(tbl_attendance.time_in) = '{selectedDate:yyyy-MM-dd}'
+                                LEFT JOIN 
+                                    tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
+                                WHERE 
+                                    tbl_employee.is_deleted = 0 
+                                    AND tbl_attendance.time_in IS NULL 
+                                    AND FIND_IN_SET(DAYNAME('{selectedDate:yyyy-MM-dd}'), tbl_schedule.work_days) > 0 
+                                    AND (tbl_leave.leave_status IS NULL OR tbl_leave.leave_status != 'Active')
+                                ORDER BY 
+                                    tbl_employee.f_name ASC";
                     break;
 
                 case 4: // On Leave
                     query = $@"SELECT DISTINCT 
-                            tbl_employee.emp_id, 
-                            emp_profilePic, 
-                            tbl_employee.f_name, 
-                            tbl_employee.m_name, 
-                            tbl_employee.l_name, 
-                            CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
-                            l.start_date AS leave_start_date, 
-                            l.end_date AS leave_end_date, 
-                            l.leave_status,
-                            NULL AS time_in_formatted, 
-                            'On Leave' AS time_in_status, 
-                            NULL AS time_out_formatted, 
-                            NULL AS time_in, 
-                            NULL AS time_out
-                        FROM 
-                            tbl_employee
-                        INNER JOIN 
-                            tbl_leave AS l ON tbl_employee.emp_id = l.emp_id
-                        WHERE 
-                            tbl_employee.is_deleted = 0 
-                            AND l.leave_status IN ('Active', 'Completed')
-                            AND l.start_date <= '{selectedDate:yyyy-MM-dd}' 
-                            AND l.end_date >= '{selectedDate:yyyy-MM-dd}'
-                        ORDER BY 
-                            tbl_employee.f_name ASC";
+                                            tbl_employee.emp_id, 
+                                            emp_profilePic, 
+                                            tbl_employee.f_name, 
+                                            tbl_employee.m_name, 
+                                            tbl_employee.l_name, 
+                                            CONCAT(tbl_employee.f_name, ' ', LEFT(tbl_employee.m_name, 1), '. ', tbl_employee.l_name) AS FullName, 
+                                            l.start_date AS leave_start_date, 
+                                            l.end_date AS leave_end_date, 
+                                            l.leave_status,
+                                            NULL AS time_in_formatted, 
+                                            'On Leave' AS time_in_status, 
+                                            NULL AS time_out_formatted, 
+                                            NULL AS time_in, 
+                                            NULL AS time_out
+                                        FROM 
+                                            tbl_employee
+                                        INNER JOIN 
+                                            tbl_leave AS l ON tbl_employee.emp_id = l.emp_id
+                                        WHERE 
+                                            tbl_employee.is_deleted = 0 
+                                            AND l.leave_status IN ('Active', 'Completed')
+                                            AND l.start_date <= '{selectedDate:yyyy-MM-dd}' 
+                                            AND l.end_date >= '{selectedDate:yyyy-MM-dd}'
+                                        ORDER BY 
+                                            tbl_employee.f_name ASC";
                     break;
 
                 default:
@@ -1803,4 +1798,3 @@ namespace GUTZ_Capstone_Project
         }
     }
 }
-

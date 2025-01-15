@@ -362,8 +362,8 @@ namespace GUTZ_Capstone_Project
             double onTimePercentage = totalAttendance > 0 ? (countWorkingOnTime * 100.0) / totalAttendance : 0;
             double latePercentage = totalAttendance > 0 ? (countWorkingLate * 100.0) / totalAttendance : 0;
 
-            lblOnTimeForTodayPercentage.Text = $"{onTimePercentage}%";
-            lblLateForTodayPercentage.Text = $"{latePercentage}%";
+            lblOnTimeForTodayPercentage.Text = $"{onTimePercentage:n2}%";
+            lblLateForTodayPercentage.Text = $"{latePercentage:n2}%";
         }
 
         private void CountActiveEmployeeLeave()

@@ -97,6 +97,11 @@ namespace GUTZ_Capstone_Project
                         ? dateAdded.ToString("MMMM dd, yyyy")
                         : "Date not available";
 
+                    string startsOn = dt.Rows[0]["start_date"].ToString();
+                    lblEmployeeStartDate.Text = DateTime.TryParse(startsOn, out DateTime dateStartsOn)
+                        ? dateStartsOn.ToString("MMMM dd, yyyy")
+                        : "Date not available";
+
                     string hireDate = dt.Rows[0]["hired_date"].ToString();
                     lblEmployeeHireDate.Text = DateTime.TryParse(hireDate, out DateTime dateHired)
                         ? dateHired.ToString("MMMM dd, yyyy")

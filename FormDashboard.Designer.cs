@@ -280,7 +280,7 @@
             // 
             // btnEmployee
             // 
-            this.btnEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmployee.BackColor = System.Drawing.Color.Snow;
             this.btnEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnEmployee.BorderRadius = 5;
             this.btnEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -574,7 +574,7 @@
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Gray;
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.Gray;
-            this.guna2Panel1.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Panel1.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
@@ -605,11 +605,11 @@
             // 
             this.lblVUIActiveLeaveCount.AutoSize = true;
             this.lblVUIActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVUIActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblVUIActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblVUIActiveLeaveCount.Location = new System.Drawing.Point(204, 150);
             this.lblVUIActiveLeaveCount.Name = "lblVUIActiveLeaveCount";
-            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(64, 21);
+            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(65, 25);
             this.lblVUIActiveLeaveCount.TabIndex = 36;
             this.lblVUIActiveLeaveCount.Text = "VUI - 0";
             // 
@@ -617,11 +617,11 @@
             // 
             this.lblRKEActiveLeaveCount.AutoSize = true;
             this.lblRKEActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRKEActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.lblRKEActiveLeaveCount.Location = new System.Drawing.Point(112, 150);
+            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblRKEActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRKEActiveLeaveCount.Location = new System.Drawing.Point(113, 150);
             this.lblRKEActiveLeaveCount.Name = "lblRKEActiveLeaveCount";
-            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(73, 21);
+            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(72, 25);
             this.lblRKEActiveLeaveCount.TabIndex = 35;
             this.lblRKEActiveLeaveCount.Text = "RKE - 0";
             // 
@@ -629,19 +629,19 @@
             // 
             this.lblESOActiveLeaveCount.AutoSize = true;
             this.lblESOActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblESOActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblESOActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblESOActiveLeaveCount.Location = new System.Drawing.Point(21, 150);
             this.lblESOActiveLeaveCount.Name = "lblESOActiveLeaveCount";
-            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(74, 21);
+            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(73, 25);
             this.lblESOActiveLeaveCount.TabIndex = 30;
             this.lblESOActiveLeaveCount.Text = "ESO - 0";
             // 
             // lblOnLeave
             // 
             this.lblOnLeave.BackColor = System.Drawing.Color.Ivory;
-            this.lblOnLeave.Font = new System.Drawing.Font("Arial", 28.8F, System.Drawing.FontStyle.Bold);
-            this.lblOnLeave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblOnLeave.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblOnLeave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblOnLeave.Location = new System.Drawing.Point(3, 65);
             this.lblOnLeave.Name = "lblOnLeave";
             this.lblOnLeave.Size = new System.Drawing.Size(284, 62);
@@ -653,11 +653,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(13, 15);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 26);
+            this.label10.Size = new System.Drawing.Size(102, 26);
             this.label10.TabIndex = 29;
             this.label10.Text = "On Leave";
             // 
@@ -756,11 +756,11 @@
             // lblLateForTodayPercentage
             // 
             this.lblLateForTodayPercentage.BackColor = System.Drawing.Color.Transparent;
-            this.lblLateForTodayPercentage.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblLateForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.lblLateForTodayPercentage.Location = new System.Drawing.Point(210, 150);
+            this.lblLateForTodayPercentage.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblLateForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLateForTodayPercentage.Location = new System.Drawing.Point(200, 150);
             this.lblLateForTodayPercentage.Name = "lblLateForTodayPercentage";
-            this.lblLateForTodayPercentage.Size = new System.Drawing.Size(70, 25);
+            this.lblLateForTodayPercentage.Size = new System.Drawing.Size(80, 25);
             this.lblLateForTodayPercentage.TabIndex = 33;
             this.lblLateForTodayPercentage.Text = "0%";
             this.lblLateForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -777,7 +777,7 @@
             this.iconLate.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.iconLate.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconLate.IconSize = 40;
-            this.iconLate.Location = new System.Drawing.Point(170, 141);
+            this.iconLate.Location = new System.Drawing.Point(160, 141);
             this.iconLate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconLate.Name = "iconLate";
             this.iconLate.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -788,14 +788,14 @@
             // lblOnTimeForTodayPercentage
             // 
             this.lblOnTimeForTodayPercentage.BackColor = System.Drawing.Color.Transparent;
-            this.lblOnTimeForTodayPercentage.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblOnTimeForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblOnTimeForTodayPercentage.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblOnTimeForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblOnTimeForTodayPercentage.Location = new System.Drawing.Point(62, 150);
             this.lblOnTimeForTodayPercentage.Name = "lblOnTimeForTodayPercentage";
-            this.lblOnTimeForTodayPercentage.Size = new System.Drawing.Size(70, 25);
+            this.lblOnTimeForTodayPercentage.Size = new System.Drawing.Size(80, 25);
             this.lblOnTimeForTodayPercentage.TabIndex = 30;
             this.lblOnTimeForTodayPercentage.Text = "0%";
-            this.lblOnTimeForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblOnTimeForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // iconOnTime
             // 
@@ -820,8 +820,8 @@
             // lblPresentForToday
             // 
             this.lblPresentForToday.BackColor = System.Drawing.Color.Ivory;
-            this.lblPresentForToday.Font = new System.Drawing.Font("Arial", 28.8F, System.Drawing.FontStyle.Bold);
-            this.lblPresentForToday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblPresentForToday.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblPresentForToday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPresentForToday.Location = new System.Drawing.Point(3, 65);
             this.lblPresentForToday.Name = "lblPresentForToday";
             this.lblPresentForToday.Size = new System.Drawing.Size(284, 62);
@@ -833,11 +833,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(13, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 26);
+            this.label3.Size = new System.Drawing.Size(185, 26);
             this.label3.TabIndex = 29;
             this.label3.Text = "Attendance, Today";
             // 
@@ -895,20 +895,20 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial", 10F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.Location = new System.Drawing.Point(21, 153);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 23);
+            this.label7.Size = new System.Drawing.Size(101, 25);
             this.label7.TabIndex = 29;
             this.label7.Text = "This Month";
             // 
             // lblPercentText
             // 
             this.lblPercentText.BackColor = System.Drawing.Color.Transparent;
-            this.lblPercentText.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblPercentText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.lblPercentText.Location = new System.Drawing.Point(210, 150);
+            this.lblPercentText.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblPercentText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPercentText.Location = new System.Drawing.Point(205, 150);
             this.lblPercentText.Name = "lblPercentText";
             this.lblPercentText.Size = new System.Drawing.Size(70, 25);
             this.lblPercentText.TabIndex = 28;
@@ -928,7 +928,7 @@
             this.iconIncrease.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.iconIncrease.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconIncrease.IconSize = 26;
-            this.iconIncrease.Location = new System.Drawing.Point(180, 142);
+            this.iconIncrease.Location = new System.Drawing.Point(170, 142);
             this.iconIncrease.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconIncrease.Name = "iconIncrease";
             this.iconIncrease.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -939,8 +939,8 @@
             // lblTotalEmployee
             // 
             this.lblTotalEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblTotalEmployee.Font = new System.Drawing.Font("Arial", 28.8F, System.Drawing.FontStyle.Bold);
-            this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.lblTotalEmployee.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblTotalEmployee.Location = new System.Drawing.Point(3, 65);
             this.lblTotalEmployee.Name = "lblTotalEmployee";
             this.lblTotalEmployee.Size = new System.Drawing.Size(284, 62);
@@ -952,11 +952,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(13, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 26);
+            this.label2.Size = new System.Drawing.Size(156, 26);
             this.label2.TabIndex = 27;
             this.label2.Text = "Total Employee";
             // 
