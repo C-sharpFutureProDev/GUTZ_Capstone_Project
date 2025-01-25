@@ -39,7 +39,6 @@
             this.btnActiveOrInactiveStatus = new Guna.UI2.WinForms.Guna2Button();
             this.btnEmploymentType = new Guna.UI2.WinForms.Guna2Button();
             this.panelEmployeeListCard = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnWorkingArrangement = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
             this.panelEmployeeDetails.SuspendLayout();
             this.panelEmployeeListCard.SuspendLayout();
@@ -102,7 +101,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";
@@ -114,7 +113,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblID.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(15, 142);
             this.lblID.Name = "lblID";
@@ -128,24 +127,24 @@
             this.btnViewPayrollHistory.AutoRoundedCorners = true;
             this.btnViewPayrollHistory.BackColor = System.Drawing.Color.Ivory;
             this.btnViewPayrollHistory.BorderColor = System.Drawing.Color.DarkCyan;
-            this.btnViewPayrollHistory.BorderRadius = 14;
+            this.btnViewPayrollHistory.BorderRadius = 15;
             this.btnViewPayrollHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewPayrollHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewPayrollHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewPayrollHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewPayrollHistory.FillColor = System.Drawing.Color.DarkCyan;
+            this.btnViewPayrollHistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnViewPayrollHistory.Font = new System.Drawing.Font("Times New Roman", 8.5F);
             this.btnViewPayrollHistory.ForeColor = System.Drawing.Color.White;
-            this.btnViewPayrollHistory.HoverState.BorderColor = System.Drawing.Color.Teal;
-            this.btnViewPayrollHistory.HoverState.FillColor = System.Drawing.Color.Teal;
+            this.btnViewPayrollHistory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnViewPayrollHistory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.btnViewPayrollHistory.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewPayrollHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnViewPayrollHistory.Image")));
             this.btnViewPayrollHistory.ImageSize = new System.Drawing.Size(19, 19);
-            this.btnViewPayrollHistory.Location = new System.Drawing.Point(115, 147);
+            this.btnViewPayrollHistory.Location = new System.Drawing.Point(115, 146);
             this.btnViewPayrollHistory.Name = "btnViewPayrollHistory";
             this.btnViewPayrollHistory.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
-            this.btnViewPayrollHistory.PressedColor = System.Drawing.Color.Teal;
-            this.btnViewPayrollHistory.Size = new System.Drawing.Size(222, 30);
+            this.btnViewPayrollHistory.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnViewPayrollHistory.Size = new System.Drawing.Size(222, 33);
             this.btnViewPayrollHistory.TabIndex = 84;
             this.btnViewPayrollHistory.Text = "Payroll History";
             // 
@@ -180,25 +179,24 @@
             // 
             this.btnEmploymentType.BackColor = System.Drawing.Color.Ivory;
             this.btnEmploymentType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnEmploymentType.BorderRadius = 3;
             this.btnEmploymentType.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEmploymentType.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEmploymentType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmploymentType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmploymentType.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnEmploymentType.Font = new System.Drawing.Font("Times New Roman", 8.5F);
+            this.btnEmploymentType.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.btnEmploymentType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnEmploymentType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
             this.btnEmploymentType.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
             this.btnEmploymentType.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnEmploymentType.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnEmploymentType.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnEmploymentType.Location = new System.Drawing.Point(215, 10);
+            this.btnEmploymentType.Location = new System.Drawing.Point(115, 10);
             this.btnEmploymentType.Name = "btnEmploymentType";
             this.btnEmploymentType.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnEmploymentType.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
             this.btnEmploymentType.PressedDepth = 0;
-            this.btnEmploymentType.Size = new System.Drawing.Size(122, 35);
+            this.btnEmploymentType.Size = new System.Drawing.Size(130, 35);
             this.btnEmploymentType.TabIndex = 88;
             this.btnEmploymentType.Text = "Type";
             // 
@@ -207,7 +205,6 @@
             this.panelEmployeeListCard.BackColor = System.Drawing.Color.Gray;
             this.panelEmployeeListCard.BorderColor = System.Drawing.Color.Ivory;
             this.panelEmployeeListCard.BorderRadius = 12;
-            this.panelEmployeeListCard.Controls.Add(this.btnWorkingArrangement);
             this.panelEmployeeListCard.Controls.Add(this.btnEmploymentType);
             this.panelEmployeeListCard.Controls.Add(this.btnActiveOrInactiveStatus);
             this.panelEmployeeListCard.Controls.Add(this.btnViewPayrollHistory);
@@ -223,32 +220,6 @@
             this.panelEmployeeListCard.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.panelEmployeeListCard.Size = new System.Drawing.Size(353, 187);
             this.panelEmployeeListCard.TabIndex = 64;
-            // 
-            // btnWorkingArrangement
-            // 
-            this.btnWorkingArrangement.BackColor = System.Drawing.Color.Ivory;
-            this.btnWorkingArrangement.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnWorkingArrangement.BorderRadius = 3;
-            this.btnWorkingArrangement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnWorkingArrangement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnWorkingArrangement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnWorkingArrangement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnWorkingArrangement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnWorkingArrangement.Font = new System.Drawing.Font("Times New Roman", 8.5F);
-            this.btnWorkingArrangement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnWorkingArrangement.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnWorkingArrangement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnWorkingArrangement.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnWorkingArrangement.Location = new System.Drawing.Point(115, 10);
-            this.btnWorkingArrangement.Name = "btnWorkingArrangement";
-            this.btnWorkingArrangement.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnWorkingArrangement.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnWorkingArrangement.PressedDepth = 0;
-            this.btnWorkingArrangement.Size = new System.Drawing.Size(102, 35);
-            this.btnWorkingArrangement.TabIndex = 89;
-            this.btnWorkingArrangement.Text = "Wrk. Arr.";
             // 
             // EmployeeListCardForPayrollHistory
             // 
@@ -277,6 +248,5 @@
         public Guna.UI2.WinForms.Guna2Button btnActiveOrInactiveStatus;
         public Guna.UI2.WinForms.Guna2Button btnEmploymentType;
         public Guna.UI2.WinForms.Guna2Panel panelEmployeeListCard;
-        public Guna.UI2.WinForms.Guna2Button btnWorkingArrangement;
     }
 }

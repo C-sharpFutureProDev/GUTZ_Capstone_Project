@@ -202,14 +202,14 @@ namespace GUTZ_Capstone_Project
                         }
 
                         // Display rate per hour
-                        lblEmployeRatePerHour.Text = "₱ " + ratePerHour.ToString("n2");
+                        lblEmployeRatePerHour.Text = "₱" + ratePerHour.ToString("n2");
 
                         // Calculate average monthly salary
                         int workingDaysInMonth = GetWorkingDaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
                         double averageMonthlySalary = ratePerHour * 3 * workingDaysInMonth; // 3 hours a day
 
                         // Display the average monthly salary
-                        lblEmployeeBasedSalary.Text = "₱ " + averageMonthlySalary.ToString("n2") + " / Month";
+                        lblEmployeeBasedSalary.Text = "₱" + averageMonthlySalary.ToString("n2") + " / Month";
                     }
                     else
                     {
@@ -250,6 +250,7 @@ namespace GUTZ_Capstone_Project
         private int GetWorkingDaysInMonth(int year, int month)
         {
             int workingDays = 0;
+
             DateTime firstDayOfMonth = new DateTime(year, month, 1);
             DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
 
@@ -296,16 +297,12 @@ namespace GUTZ_Capstone_Project
         {
             if (_employeeList != null)
             {
-                // Disable auto-scrolling
-                //_employeeList.flowLayoutPanel2.AutoScroll = false;
-
                 // Hide the flow layout panel and the main panel
                 _employeeList.flowLayoutPanel1.Visible = false;
                 _employeeList.panelEmployeeListFeatures.Visible = false;
 
                 // Make the minimize button visible and bring it to the front
                 btnMinimize.Visible = true;
-                //btnMinimize.BringToFront();
                 btnMaximize.Visible = false;
 
                 _employeeList.flowLayoutPanel1.PerformLayout();
@@ -319,10 +316,7 @@ namespace GUTZ_Capstone_Project
             {
                 // Enabled auto-scrolling
                 _employeeList.flowLayoutPanel2.AutoScroll = true;
-
-                //btnMinimize.Visible = false;
                 btnMaximize.Visible = true;
-                //_employeeList.txtSearch.Clear();
                 _employeeList.flowLayoutPanel1.Visible = true;
                 _employeeList.panelEmployeeListFeatures.Visible = true;
             }

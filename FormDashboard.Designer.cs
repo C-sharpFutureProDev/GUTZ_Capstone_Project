@@ -57,9 +57,6 @@
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblVUIActiveLeaveCount = new System.Windows.Forms.Label();
-            this.lblRKEActiveLeaveCount = new System.Windows.Forms.Label();
-            this.lblESOActiveLeaveCount = new System.Windows.Forms.Label();
             this.lblOnLeave = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -67,17 +64,10 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelAttendance = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblLateForTodayPercentage = new System.Windows.Forms.Label();
-            this.iconLate = new FontAwesome.Sharp.IconButton();
-            this.lblOnTimeForTodayPercentage = new System.Windows.Forms.Label();
-            this.iconOnTime = new FontAwesome.Sharp.IconButton();
             this.lblPresentForToday = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panelTotalEmployee = new Guna.UI2.WinForms.Guna2Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblPercentText = new System.Windows.Forms.Label();
-            this.iconIncrease = new FontAwesome.Sharp.IconButton();
             this.lblTotalEmployee = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -139,7 +129,7 @@
             this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnLogout.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Font = new System.Drawing.Font("Arial Black", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
@@ -154,7 +144,7 @@
             this.btnLogout.ShadowDecoration.Enabled = true;
             this.btnLogout.Size = new System.Drawing.Size(280, 58);
             this.btnLogout.TabIndex = 27;
-            this.btnLogout.Text = "Sign out";
+            this.btnLogout.Text = "Sign-out";
             this.btnLogout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -288,7 +278,7 @@
             this.btnEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployee.Font = new System.Drawing.Font("Arial", 11F);
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
             this.btnEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnEmployee.HoverState.ForeColor = System.Drawing.Color.White;
@@ -586,9 +576,6 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Ivory;
             this.guna2Panel2.BorderRadius = 12;
-            this.guna2Panel2.Controls.Add(this.lblVUIActiveLeaveCount);
-            this.guna2Panel2.Controls.Add(this.lblRKEActiveLeaveCount);
-            this.guna2Panel2.Controls.Add(this.lblESOActiveLeaveCount);
             this.guna2Panel2.Controls.Add(this.lblOnLeave);
             this.guna2Panel2.Controls.Add(this.label10);
             this.guna2Panel2.Controls.Add(this.guna2Button4);
@@ -601,48 +588,12 @@
             this.guna2Panel2.Size = new System.Drawing.Size(290, 192);
             this.guna2Panel2.TabIndex = 34;
             // 
-            // lblVUIActiveLeaveCount
-            // 
-            this.lblVUIActiveLeaveCount.AutoSize = true;
-            this.lblVUIActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblVUIActiveLeaveCount.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.lblVUIActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblVUIActiveLeaveCount.Location = new System.Drawing.Point(204, 150);
-            this.lblVUIActiveLeaveCount.Name = "lblVUIActiveLeaveCount";
-            this.lblVUIActiveLeaveCount.Size = new System.Drawing.Size(65, 25);
-            this.lblVUIActiveLeaveCount.TabIndex = 36;
-            this.lblVUIActiveLeaveCount.Text = "VUI - 0";
-            // 
-            // lblRKEActiveLeaveCount
-            // 
-            this.lblRKEActiveLeaveCount.AutoSize = true;
-            this.lblRKEActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblRKEActiveLeaveCount.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.lblRKEActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblRKEActiveLeaveCount.Location = new System.Drawing.Point(113, 150);
-            this.lblRKEActiveLeaveCount.Name = "lblRKEActiveLeaveCount";
-            this.lblRKEActiveLeaveCount.Size = new System.Drawing.Size(72, 25);
-            this.lblRKEActiveLeaveCount.TabIndex = 35;
-            this.lblRKEActiveLeaveCount.Text = "RKE - 0";
-            // 
-            // lblESOActiveLeaveCount
-            // 
-            this.lblESOActiveLeaveCount.AutoSize = true;
-            this.lblESOActiveLeaveCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblESOActiveLeaveCount.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.lblESOActiveLeaveCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblESOActiveLeaveCount.Location = new System.Drawing.Point(21, 150);
-            this.lblESOActiveLeaveCount.Name = "lblESOActiveLeaveCount";
-            this.lblESOActiveLeaveCount.Size = new System.Drawing.Size(73, 25);
-            this.lblESOActiveLeaveCount.TabIndex = 30;
-            this.lblESOActiveLeaveCount.Text = "ESO - 0";
-            // 
             // lblOnLeave
             // 
             this.lblOnLeave.BackColor = System.Drawing.Color.Ivory;
-            this.lblOnLeave.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblOnLeave.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
             this.lblOnLeave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblOnLeave.Location = new System.Drawing.Point(3, 65);
+            this.lblOnLeave.Location = new System.Drawing.Point(3, 85);
             this.lblOnLeave.Name = "lblOnLeave";
             this.lblOnLeave.Size = new System.Drawing.Size(284, 62);
             this.lblOnLeave.TabIndex = 34;
@@ -653,11 +604,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(13, 15);
+            this.label10.Location = new System.Drawing.Point(13, 17);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 26);
+            this.label10.Size = new System.Drawing.Size(111, 26);
             this.label10.TabIndex = 29;
             this.label10.Text = "On Leave";
             // 
@@ -737,10 +688,6 @@
             this.panelAttendance.BackColor = System.Drawing.Color.Transparent;
             this.panelAttendance.BorderColor = System.Drawing.Color.Ivory;
             this.panelAttendance.BorderRadius = 12;
-            this.panelAttendance.Controls.Add(this.lblLateForTodayPercentage);
-            this.panelAttendance.Controls.Add(this.iconLate);
-            this.panelAttendance.Controls.Add(this.lblOnTimeForTodayPercentage);
-            this.panelAttendance.Controls.Add(this.iconOnTime);
             this.panelAttendance.Controls.Add(this.lblPresentForToday);
             this.panelAttendance.Controls.Add(this.label3);
             this.panelAttendance.Controls.Add(this.guna2Button2);
@@ -753,76 +700,12 @@
             this.panelAttendance.Size = new System.Drawing.Size(290, 192);
             this.panelAttendance.TabIndex = 1;
             // 
-            // lblLateForTodayPercentage
-            // 
-            this.lblLateForTodayPercentage.BackColor = System.Drawing.Color.Transparent;
-            this.lblLateForTodayPercentage.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.lblLateForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblLateForTodayPercentage.Location = new System.Drawing.Point(200, 150);
-            this.lblLateForTodayPercentage.Name = "lblLateForTodayPercentage";
-            this.lblLateForTodayPercentage.Size = new System.Drawing.Size(80, 25);
-            this.lblLateForTodayPercentage.TabIndex = 33;
-            this.lblLateForTodayPercentage.Text = "0%";
-            this.lblLateForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // iconLate
-            // 
-            this.iconLate.BackColor = System.Drawing.Color.Ivory;
-            this.iconLate.FlatAppearance.BorderSize = 0;
-            this.iconLate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconLate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconLate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconLate.Font = new System.Drawing.Font("Roboto", 10.5F);
-            this.iconLate.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
-            this.iconLate.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.iconLate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconLate.IconSize = 40;
-            this.iconLate.Location = new System.Drawing.Point(160, 141);
-            this.iconLate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconLate.Name = "iconLate";
-            this.iconLate.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.iconLate.Size = new System.Drawing.Size(38, 38);
-            this.iconLate.TabIndex = 32;
-            this.iconLate.UseVisualStyleBackColor = false;
-            // 
-            // lblOnTimeForTodayPercentage
-            // 
-            this.lblOnTimeForTodayPercentage.BackColor = System.Drawing.Color.Transparent;
-            this.lblOnTimeForTodayPercentage.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.lblOnTimeForTodayPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblOnTimeForTodayPercentage.Location = new System.Drawing.Point(62, 150);
-            this.lblOnTimeForTodayPercentage.Name = "lblOnTimeForTodayPercentage";
-            this.lblOnTimeForTodayPercentage.Size = new System.Drawing.Size(80, 25);
-            this.lblOnTimeForTodayPercentage.TabIndex = 30;
-            this.lblOnTimeForTodayPercentage.Text = "0%";
-            this.lblOnTimeForTodayPercentage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // iconOnTime
-            // 
-            this.iconOnTime.BackColor = System.Drawing.Color.Ivory;
-            this.iconOnTime.FlatAppearance.BorderSize = 0;
-            this.iconOnTime.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconOnTime.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconOnTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconOnTime.Font = new System.Drawing.Font("Roboto", 10F);
-            this.iconOnTime.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
-            this.iconOnTime.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.iconOnTime.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconOnTime.IconSize = 40;
-            this.iconOnTime.Location = new System.Drawing.Point(21, 141);
-            this.iconOnTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconOnTime.Name = "iconOnTime";
-            this.iconOnTime.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.iconOnTime.Size = new System.Drawing.Size(38, 38);
-            this.iconOnTime.TabIndex = 31;
-            this.iconOnTime.UseVisualStyleBackColor = false;
-            // 
             // lblPresentForToday
             // 
             this.lblPresentForToday.BackColor = System.Drawing.Color.Ivory;
-            this.lblPresentForToday.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblPresentForToday.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
             this.lblPresentForToday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPresentForToday.Location = new System.Drawing.Point(3, 65);
+            this.lblPresentForToday.Location = new System.Drawing.Point(3, 85);
             this.lblPresentForToday.Name = "lblPresentForToday";
             this.lblPresentForToday.Size = new System.Drawing.Size(284, 62);
             this.lblPresentForToday.TabIndex = 30;
@@ -833,11 +716,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(13, 15);
+            this.label3.Location = new System.Drawing.Point(13, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 26);
+            this.label3.Size = new System.Drawing.Size(203, 26);
             this.label3.TabIndex = 29;
             this.label3.Text = "Attendance, Today";
             // 
@@ -876,9 +759,6 @@
             this.panelTotalEmployee.BackColor = System.Drawing.Color.Transparent;
             this.panelTotalEmployee.BorderColor = System.Drawing.Color.Ivory;
             this.panelTotalEmployee.BorderRadius = 12;
-            this.panelTotalEmployee.Controls.Add(this.label7);
-            this.panelTotalEmployee.Controls.Add(this.lblPercentText);
-            this.panelTotalEmployee.Controls.Add(this.iconIncrease);
             this.panelTotalEmployee.Controls.Add(this.lblTotalEmployee);
             this.panelTotalEmployee.Controls.Add(this.label2);
             this.panelTotalEmployee.Controls.Add(this.guna2Button1);
@@ -891,57 +771,12 @@
             this.panelTotalEmployee.Size = new System.Drawing.Size(290, 192);
             this.panelTotalEmployee.TabIndex = 0;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(21, 153);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 25);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "This Month";
-            // 
-            // lblPercentText
-            // 
-            this.lblPercentText.BackColor = System.Drawing.Color.Transparent;
-            this.lblPercentText.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.lblPercentText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPercentText.Location = new System.Drawing.Point(205, 150);
-            this.lblPercentText.Name = "lblPercentText";
-            this.lblPercentText.Size = new System.Drawing.Size(70, 25);
-            this.lblPercentText.TabIndex = 28;
-            this.lblPercentText.Text = "0%";
-            this.lblPercentText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // iconIncrease
-            // 
-            this.iconIncrease.BackColor = System.Drawing.Color.Ivory;
-            this.iconIncrease.FlatAppearance.BorderSize = 0;
-            this.iconIncrease.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconIncrease.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconIncrease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconIncrease.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconIncrease.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.iconIncrease.IconChar = FontAwesome.Sharp.IconChar.ArrowUp;
-            this.iconIncrease.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.iconIncrease.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconIncrease.IconSize = 26;
-            this.iconIncrease.Location = new System.Drawing.Point(170, 142);
-            this.iconIncrease.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iconIncrease.Name = "iconIncrease";
-            this.iconIncrease.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.iconIncrease.Size = new System.Drawing.Size(38, 38);
-            this.iconIncrease.TabIndex = 27;
-            this.iconIncrease.UseVisualStyleBackColor = false;
-            // 
             // lblTotalEmployee
             // 
             this.lblTotalEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblTotalEmployee.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblTotalEmployee.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
             this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotalEmployee.Location = new System.Drawing.Point(3, 65);
+            this.lblTotalEmployee.Location = new System.Drawing.Point(3, 85);
             this.lblTotalEmployee.Name = "lblTotalEmployee";
             this.lblTotalEmployee.Size = new System.Drawing.Size(284, 62);
             this.lblTotalEmployee.TabIndex = 27;
@@ -952,11 +787,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(13, 15);
+            this.label2.Location = new System.Drawing.Point(13, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 26);
+            this.label2.Size = new System.Drawing.Size(171, 26);
             this.label2.TabIndex = 27;
             this.label2.Text = "Total Employee";
             // 
@@ -1058,14 +893,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotalEmployee;
-        private FontAwesome.Sharp.IconButton iconIncrease;
-        private System.Windows.Forms.Label lblPercentText;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblPresentForToday;
-        private FontAwesome.Sharp.IconButton iconOnTime;
-        private FontAwesome.Sharp.IconButton iconLate;
-        private System.Windows.Forms.Label lblOnTimeForTodayPercentage;
-        private System.Windows.Forms.Label lblLateForTodayPercentage;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2CirclePictureBox iconCurrentLoginAdmin;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
@@ -1073,9 +901,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblOnLeave;
-        private System.Windows.Forms.Label lblVUIActiveLeaveCount;
-        private System.Windows.Forms.Label lblRKEActiveLeaveCount;
-        private System.Windows.Forms.Label lblESOActiveLeaveCount;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }

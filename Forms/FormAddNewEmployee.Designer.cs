@@ -129,7 +129,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(31, 135);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label2.Name = "label2";
@@ -166,7 +166,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(32, 221);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label3.Name = "label3";
@@ -224,11 +224,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label10.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(41, 145);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(206, 23);
+            this.label10.Size = new System.Drawing.Size(220, 24);
             this.label10.TabIndex = 45;
             this.label10.Text = "Choose Account Rate:";
             // 
@@ -237,7 +237,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(324, 222);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label5.Name = "label5";
@@ -249,11 +249,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label9.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Location = new System.Drawing.Point(41, 55);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 23);
+            this.label9.Size = new System.Drawing.Size(116, 24);
             this.label9.TabIndex = 43;
             this.label9.Text = "Hired Date:";
             // 
@@ -261,12 +261,12 @@
             // 
             this.rdbFemale.AutoSize = true;
             this.rdbFemale.BackColor = System.Drawing.Color.White;
-            this.rdbFemale.Font = new System.Drawing.Font("Arial", 10F);
-            this.rdbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.rdbFemale.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.rdbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rdbFemale.Location = new System.Drawing.Point(482, 269);
             this.rdbFemale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.rdbFemale.Name = "rdbFemale";
-            this.rdbFemale.Size = new System.Drawing.Size(100, 27);
+            this.rdbFemale.Size = new System.Drawing.Size(104, 28);
             this.rdbFemale.TabIndex = 58;
             this.rdbFemale.TabStop = true;
             this.rdbFemale.Text = "Female";
@@ -276,12 +276,12 @@
             // 
             this.rdbMale.AutoSize = true;
             this.rdbMale.BackColor = System.Drawing.Color.White;
-            this.rdbMale.Font = new System.Drawing.Font("Arial", 10F);
-            this.rdbMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
+            this.rdbMale.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.rdbMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rdbMale.Location = new System.Drawing.Point(328, 269);
             this.rdbMale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.rdbMale.Name = "rdbMale";
-            this.rdbMale.Size = new System.Drawing.Size(78, 27);
+            this.rdbMale.Size = new System.Drawing.Size(80, 28);
             this.rdbMale.TabIndex = 57;
             this.rdbMale.TabStop = true;
             this.rdbMale.Text = "Male";
@@ -292,7 +292,7 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.White;
             this.label17.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label17.Location = new System.Drawing.Point(914, 135);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(106, 24);
@@ -339,7 +339,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.White;
             this.label16.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label16.Location = new System.Drawing.Point(914, 49);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(180, 24);
@@ -603,22 +603,22 @@
             // btnSaveEmployeeDetails
             // 
             this.btnSaveEmployeeDetails.BackColor = System.Drawing.Color.Ivory;
-            this.btnSaveEmployeeDetails.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnSaveEmployeeDetails.BorderRadius = 4;
+            this.btnSaveEmployeeDetails.BorderColor = System.Drawing.Color.Green;
+            this.btnSaveEmployeeDetails.BorderRadius = 5;
             this.btnSaveEmployeeDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveEmployeeDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveEmployeeDetails.FillColor = System.Drawing.Color.Green;
-            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Times New Roman", 11.5F, System.Drawing.FontStyle.Bold);
             this.btnSaveEmployeeDetails.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnSaveEmployeeDetails.HoverState.FillColor = System.Drawing.Color.DarkGreen;
             this.btnSaveEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(27, 864);
+            this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(26, 840);
             this.btnSaveEmployeeDetails.Name = "btnSaveEmployeeDetails";
-            this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(1, 3, 0, 0);
-            this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(115, 40);
+            this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(120, 40);
             this.btnSaveEmployeeDetails.TabIndex = 57;
             this.btnSaveEmployeeDetails.Text = "Save";
             this.btnSaveEmployeeDetails.Click += new System.EventHandler(this.btnSaveEmployeeDetails_Click);
@@ -626,22 +626,22 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Ivory;
-            this.btnCancel.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnCancel.BorderRadius = 4;
+            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
+            this.btnCancel.BorderRadius = 5;
             this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 11.5F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.MistyRose;
+            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.Red;
             this.btnCancel.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(1356, 864);
+            this.btnCancel.Location = new System.Drawing.Point(1347, 840);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(1, 3, 0, 1);
-            this.btnCancel.Size = new System.Drawing.Size(115, 40);
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 58;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -649,24 +649,24 @@
             // btnResetInputFields
             // 
             this.btnResetInputFields.BackColor = System.Drawing.Color.Ivory;
-            this.btnResetInputFields.BorderColor = System.Drawing.Color.MistyRose;
-            this.btnResetInputFields.BorderRadius = 4;
+            this.btnResetInputFields.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btnResetInputFields.BorderRadius = 5;
             this.btnResetInputFields.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnResetInputFields.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnResetInputFields.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnResetInputFields.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnResetInputFields.FillColor = System.Drawing.Color.CornflowerBlue;
-            this.btnResetInputFields.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnResetInputFields.Font = new System.Drawing.Font("Times New Roman", 11.5F);
             this.btnResetInputFields.ForeColor = System.Drawing.Color.White;
-            this.btnResetInputFields.HoverState.BorderColor = System.Drawing.Color.MistyRose;
+            this.btnResetInputFields.HoverState.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnResetInputFields.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
             this.btnResetInputFields.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnResetInputFields.Location = new System.Drawing.Point(561, 864);
+            this.btnResetInputFields.Location = new System.Drawing.Point(556, 840);
             this.btnResetInputFields.Name = "btnResetInputFields";
-            this.btnResetInputFields.Padding = new System.Windows.Forms.Padding(2, 3, 0, 1);
+            this.btnResetInputFields.Padding = new System.Windows.Forms.Padding(2, 1, 0, 0);
             this.btnResetInputFields.ShadowDecoration.BorderRadius = 5;
             this.btnResetInputFields.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnResetInputFields.Size = new System.Drawing.Size(115, 40);
+            this.btnResetInputFields.Size = new System.Drawing.Size(120, 40);
             this.btnResetInputFields.TabIndex = 59;
             this.btnResetInputFields.Text = "Reset";
             this.btnResetInputFields.Click += new System.EventHandler(this.btnResetInputFields_Click);
@@ -714,7 +714,7 @@
             this.panelPersonalDetails.ShadowDecoration.BorderRadius = 15;
             this.panelPersonalDetails.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
             this.panelPersonalDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.panelPersonalDetails.Size = new System.Drawing.Size(1444, 325);
+            this.panelPersonalDetails.Size = new System.Drawing.Size(1440, 320);
             this.panelPersonalDetails.TabIndex = 59;
             // 
             // txtEmployeeAge
@@ -770,11 +770,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label15.Location = new System.Drawing.Point(25, 10);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(170, 24);
+            this.label15.Size = new System.Drawing.Size(159, 21);
             this.label15.TabIndex = 72;
             this.label15.Text = "Personal Details:";
             // 
@@ -842,7 +842,7 @@
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.White;
             this.label19.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label19.Location = new System.Drawing.Point(914, 221);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(238, 24);
@@ -876,7 +876,7 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.White;
             this.label18.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label18.Location = new System.Drawing.Point(618, 49);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label18.Name = "label18";
@@ -912,7 +912,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Location = new System.Drawing.Point(618, 135);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 24);
@@ -948,7 +948,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.Location = new System.Drawing.Point(618, 221);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 24);
@@ -984,7 +984,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label11.Location = new System.Drawing.Point(324, 49);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(134, 24);
@@ -996,7 +996,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(324, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 24);
@@ -1008,7 +1008,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Arial", 10.5F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(32, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label1.Name = "label1";
@@ -1020,11 +1020,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label6.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label6.Location = new System.Drawing.Point(343, 55);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(173, 23);
+            this.label6.Size = new System.Drawing.Size(180, 24);
             this.label6.TabIndex = 72;
             this.label6.Text = "Employment Type:";
             // 
@@ -1075,7 +1075,7 @@
             this.panelEmploymentDetails.Controls.Add(this.label10);
             this.panelEmploymentDetails.Controls.Add(this.cboEmployeeRateAccount);
             this.panelEmploymentDetails.FillColor = System.Drawing.Color.White;
-            this.panelEmploymentDetails.Location = new System.Drawing.Point(26, 407);
+            this.panelEmploymentDetails.Location = new System.Drawing.Point(26, 390);
             this.panelEmploymentDetails.Margin = new System.Windows.Forms.Padding(0);
             this.panelEmploymentDetails.Name = "panelEmploymentDetails";
             this.panelEmploymentDetails.ShadowDecoration.BorderRadius = 15;
@@ -1088,11 +1088,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label13.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label13.Location = new System.Drawing.Point(343, 322);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(151, 23);
+            this.label13.Size = new System.Drawing.Size(161, 24);
             this.label13.TabIndex = 87;
             this.label13.Text = "Class Schedule:";
             // 
@@ -1246,11 +1246,11 @@
             // 
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.White;
-            this.label22.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label22.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label22.Location = new System.Drawing.Point(40, 325);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(98, 23);
+            this.label22.Size = new System.Drawing.Size(103, 24);
             this.label22.TabIndex = 80;
             this.label22.Text = "End Date:";
             // 
@@ -1282,11 +1282,11 @@
             // 
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.White;
-            this.label21.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label21.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label21.Location = new System.Drawing.Point(41, 235);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(107, 23);
+            this.label21.Size = new System.Drawing.Size(112, 24);
             this.label21.TabIndex = 78;
             this.label21.Text = "Start Date:";
             // 
@@ -1294,23 +1294,23 @@
             // 
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.White;
-            this.label20.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label20.Location = new System.Drawing.Point(25, 10);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(197, 24);
+            this.label20.Size = new System.Drawing.Size(194, 21);
             this.label20.TabIndex = 75;
-            this.label20.Text = "Employment Details";
+            this.label20.Text = "Employment Details:";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.White;
-            this.label14.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label14.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label14.Location = new System.Drawing.Point(343, 233);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(137, 23);
+            this.label14.Size = new System.Drawing.Size(149, 24);
             this.label14.TabIndex = 76;
             this.label14.Text = "Position Level:";
             // 
@@ -1339,11 +1339,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.label12.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label12.Location = new System.Drawing.Point(343, 144);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(181, 23);
+            this.label12.Size = new System.Drawing.Size(189, 24);
             this.label12.TabIndex = 74;
             this.label12.Text = "Work Arrangement:";
             // 
@@ -1352,6 +1352,7 @@
             this.lblFormLabel.AutoSize = true;
             this.lblFormLabel.BackColor = System.Drawing.Color.White;
             this.lblFormLabel.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblFormLabel.Location = new System.Drawing.Point(21, 8);
             this.lblFormLabel.Name = "lblFormLabel";
             this.lblFormLabel.Size = new System.Drawing.Size(324, 36);
@@ -1412,11 +1413,11 @@
             // 
             this.lblSampleNeededStatus.AutoSize = true;
             this.lblSampleNeededStatus.BackColor = System.Drawing.Color.White;
-            this.lblSampleNeededStatus.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSampleNeededStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.lblSampleNeededStatus.Location = new System.Drawing.Point(43, 306);
+            this.lblSampleNeededStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblSampleNeededStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSampleNeededStatus.Location = new System.Drawing.Point(43, 308);
             this.lblSampleNeededStatus.Name = "lblSampleNeededStatus";
-            this.lblSampleNeededStatus.Size = new System.Drawing.Size(268, 23);
+            this.lblSampleNeededStatus.Size = new System.Drawing.Size(252, 21);
             this.lblSampleNeededStatus.TabIndex = 59;
             this.lblSampleNeededStatus.Text = "[SAMPLE NEEDED STATUS]";
             // 
@@ -1426,7 +1427,7 @@
             this.scanningProgressBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.scanningProgressBar.BorderThickness = 1;
             this.scanningProgressBar.FillColor = System.Drawing.Color.White;
-            this.scanningProgressBar.Location = new System.Drawing.Point(47, 335);
+            this.scanningProgressBar.Location = new System.Drawing.Point(47, 337);
             this.scanningProgressBar.Name = "scanningProgressBar";
             this.scanningProgressBar.ProgressColor = System.Drawing.Color.Green;
             this.scanningProgressBar.ProgressColor2 = System.Drawing.Color.Green;
@@ -1450,11 +1451,11 @@
             // 
             this.progressPecentageStatus.AutoSize = true;
             this.progressPecentageStatus.BackColor = System.Drawing.Color.White;
-            this.progressPecentageStatus.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressPecentageStatus.Font = new System.Drawing.Font("Arial", 10.5F);
             this.progressPecentageStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.progressPecentageStatus.Location = new System.Drawing.Point(678, 306);
             this.progressPecentageStatus.Name = "progressPecentageStatus";
-            this.progressPecentageStatus.Size = new System.Drawing.Size(22, 23);
+            this.progressPecentageStatus.Size = new System.Drawing.Size(22, 24);
             this.progressPecentageStatus.TabIndex = 60;
             this.progressPecentageStatus.Text = "[]";
             // 
@@ -1497,26 +1498,26 @@
             this.panelFingerPrintEnrollment.Controls.Add(this.txtScannerPrompt);
             this.panelFingerPrintEnrollment.Controls.Add(this.txtCaptureStatusLog);
             this.panelFingerPrintEnrollment.FillColor = System.Drawing.Color.White;
-            this.panelFingerPrintEnrollment.Location = new System.Drawing.Point(711, 407);
+            this.panelFingerPrintEnrollment.Location = new System.Drawing.Point(711, 390);
             this.panelFingerPrintEnrollment.Margin = new System.Windows.Forms.Padding(0);
             this.panelFingerPrintEnrollment.Name = "panelFingerPrintEnrollment";
             this.panelFingerPrintEnrollment.ShadowDecoration.BorderRadius = 15;
             this.panelFingerPrintEnrollment.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
             this.panelFingerPrintEnrollment.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.panelFingerPrintEnrollment.Size = new System.Drawing.Size(760, 430);
+            this.panelFingerPrintEnrollment.Size = new System.Drawing.Size(756, 430);
             this.panelFingerPrintEnrollment.TabIndex = 69;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.White;
-            this.label23.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label23.Location = new System.Drawing.Point(25, 10);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(181, 24);
+            this.label23.Size = new System.Drawing.Size(177, 21);
             this.label23.TabIndex = 83;
-            this.label23.Text = "Biometrics Details";
+            this.label23.Text = "Biometrics Details:";
             // 
             // btnStartScan
             // 
@@ -1546,7 +1547,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1499, 932);
+            this.ClientSize = new System.Drawing.Size(1494, 904);
             this.Controls.Add(this.panelEmploymentDetails);
             this.Controls.Add(this.panelFingerPrintEnrollment);
             this.Controls.Add(this.panelPersonalDetails);
@@ -1555,7 +1556,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveEmployeeDetails);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.Font = new System.Drawing.Font("Arial", 10F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormAddNewEmployee";

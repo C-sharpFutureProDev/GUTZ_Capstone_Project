@@ -1,6 +1,7 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+//using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -21,6 +22,8 @@ namespace GUTZ_Capstone_Project
             _reportDate = reportDate;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnDownLoadAttendanceReport, "Download Attendance Report");
         }
 
         // Fixed flicker issue on controls rendering
@@ -167,19 +170,19 @@ namespace GUTZ_Capstone_Project
 
             // Count scheduled employees based on _reportDate
             string countScheduledEmployee = $@"SELECT COUNT(*) 
-                                        FROM tbl_employee e
-                                        INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
-                                        WHERE FIND_IN_SET(DAYNAME('{_reportDate:yyyy-MM-dd}'), s.work_days) > 0
-                                        AND e.is_deleted = 0
-                                        AND e.start_date <= '{_reportDate:yyyy-MM-dd}'";
+                                               FROM tbl_employee e
+                                               INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
+                                               WHERE FIND_IN_SET(DAYNAME('{_reportDate:yyyy-MM-dd}'), s.work_days) > 0
+                                               AND e.is_deleted = 0
+                                               AND e.start_date <= '{_reportDate:yyyy-MM-dd}'";
 
             // Count employees on leave based on _reportDate
             string countOnLeave = $@"SELECT COUNT(*) 
-                              FROM tbl_employee e
-                              INNER JOIN tbl_leave l ON e.emp_id = l.emp_id 
-                              WHERE l.leave_status IN ('Active', 'Completed')
-                              AND '{_reportDate:yyyy-MM-dd}' BETWEEN l.start_date AND l.end_date
-                              AND e.is_deleted = 0";
+                                     FROM tbl_employee e
+                                     INNER JOIN tbl_leave l ON e.emp_id = l.emp_id 
+                                     WHERE l.leave_status IN ('Active', 'Completed')
+                                     AND '{_reportDate:yyyy-MM-dd}' BETWEEN l.start_date AND l.end_date
+                                     AND e.is_deleted = 0";
 
             try
             {
@@ -632,44 +635,44 @@ namespace GUTZ_Capstone_Project
         private void btnDownLoadAttendanceReport_Click(object sender, EventArgs e)
         {
             string sql = $@"SELECT 
-                             e.emp_id, 
-                             e.f_name, 
-                             e.m_name, 
-                             e.l_name, 
-                             a.time_in, 
-                             a.time_out, 
-                             a.time_in_status, 
-                             a.late_time, 
-                             CASE 
-                                 WHEN a.time_in IS NULL AND a.time_out IS NULL THEN '--'
-                                 ELSE a.working_hours 
-                             END AS working_hours_formatted,
-                             CASE 
-                                 WHEN a.time_in IS NULL THEN '--' 
-                                 ELSE DATE_FORMAT(a.time_in, '%h:%i %p') 
-                             END AS time_in_formatted,
-                             CASE 
-                                 WHEN a.time_out IS NULL THEN '--' 
-                                 ELSE DATE_FORMAT(a.time_out, '%h:%i %p') 
-                             END AS time_out_formatted,
-                             CASE 
-                                 WHEN a.time_in IS NULL THEN 'Absent' 
-                                 ELSE a.time_in_status
-                             END AS final_time_in_status,
-                             l.leave_status
-                         FROM 
-                              tbl_employee e
-                         LEFT JOIN 
-                              tbl_schedule s ON e.emp_id = s.emp_id
-                         LEFT JOIN 
-                              tbl_attendance a ON e.emp_id = a.emp_id AND DATE(a.time_in) = '{_reportDate:yyyy-MM-dd}'
-                         LEFT JOIN 
-                              tbl_leave l ON e.emp_id = l.emp_id 
-                              AND DATE('{_reportDate:yyyy-MM-dd}') BETWEEN l.start_date AND l.end_date
-                         WHERE 
-                             s.work_days LIKE '%{_reportDate:dddd}%'
-                         ORDER BY 
-                             e.emp_id";
+                                e.emp_id, 
+                                e.f_name, 
+                                e.m_name, 
+                                e.l_name, 
+                                a.time_in, 
+                                a.time_out, 
+                                a.time_in_status, 
+                                a.late_time, 
+                                CASE 
+                                    WHEN a.time_in IS NULL AND a.time_out IS NULL THEN '--'
+                                    ELSE a.working_hours 
+                                END AS working_hours_formatted,
+                                CASE 
+                                    WHEN a.time_in IS NULL THEN '--' 
+                                    ELSE DATE_FORMAT(a.time_in, '%h:%i %p') 
+                                END AS time_in_formatted,
+                                CASE 
+                                    WHEN a.time_out IS NULL THEN '--' 
+                                    ELSE DATE_FORMAT(a.time_out, '%h:%i %p') 
+                                END AS time_out_formatted,
+                                CASE 
+                                    WHEN a.time_in IS NULL THEN 'Absent' 
+                                    ELSE a.time_in_status
+                                END AS final_time_in_status,
+                                l.leave_status
+                            FROM 
+                                 tbl_employee e
+                            LEFT JOIN 
+                                 tbl_schedule s ON e.emp_id = s.emp_id
+                            LEFT JOIN 
+                                 tbl_attendance a ON e.emp_id = a.emp_id AND DATE(a.time_in) = '{_reportDate:yyyy-MM-dd}'
+                            LEFT JOIN 
+                                 tbl_leave l ON e.emp_id = l.emp_id 
+                                 AND DATE('{_reportDate:yyyy-MM-dd}') BETWEEN l.start_date AND l.end_date
+                            WHERE 
+                                s.work_days LIKE '%{_reportDate:dddd}%'
+                            ORDER BY 
+                                e.emp_id";
 
             DataTable dt = DB_OperationHelperClass.QueryData(sql);
 
@@ -682,38 +685,68 @@ namespace GUTZ_Capstone_Project
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 string formattedDate = _reportDate.ToString("yyyy-MM-dd");
-                saveFileDialog.FileName = $"AttendanceReport_{formattedDate}.csv";
-                saveFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+                saveFileDialog.FileName = $"AttendanceReport_{formattedDate}.xlsx";
+                saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
                 saveFileDialog.Title = "Save an Attendance Report";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
+                        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+                        using (ExcelPackage package = new ExcelPackage())
                         {
-                            sw.WriteLine("ID,Full Name,Time In,Time Out,Status,Late Time,Tutoring Hours");
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Attendance Report");
 
-                            foreach (DataRow row in dt.Rows)
+                            // Add title header
+                            worksheet.Cells[1, 1].Value = "Attendance Report";
+                            worksheet.Cells[1, 1, 1, 7].Merge = true; // Merge across columns
+                            worksheet.Cells[1, 1].Style.Font.Bold = true;
+                            worksheet.Cells[1, 1].Style.Font.Size = 16;
+                            worksheet.Cells[1, 1].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                            // Add column headers
+                            worksheet.Cells[2, 1].Value = "ID";
+                            worksheet.Cells[2, 2].Value = "Full Name";
+                            worksheet.Cells[2, 3].Value = "Time In";
+                            worksheet.Cells[2, 4].Value = "Time Out";
+                            worksheet.Cells[2, 5].Value = "Status";
+                            worksheet.Cells[2, 6].Value = "Late Time";
+                            worksheet.Cells[2, 7].Value = "Tutoring Hours";
+
+                            // Style header row
+                            using (var range = worksheet.Cells[2, 1, 2, 7])
                             {
-                                string id = row["emp_id"].ToString();
-                                string firstName = row["f_name"].ToString();
-                                string middleName = row["m_name"].ToString();
-                                string lastName = row["l_name"].ToString();
-
-                                string fullName = string.IsNullOrEmpty(middleName) || middleName == "N/A"
-                                    ? $"{firstName} {lastName}"
-                                    : $"{firstName} {middleName[0]}. {lastName}";
-
-                                string timeInFormatted = row["time_in_formatted"].ToString();
-                                string timeOutFormatted = row["time_out_formatted"].ToString();
-                                string timeInStatus = row["final_time_in_status"].ToString();
-                                string lateTime = row["late_time"]?.ToString() ?? "--";
-                                string workingHours = row["working_hours_formatted"]?.ToString() ?? "--";
-
-                                string line = $"{id},{fullName},{timeInFormatted},{timeOutFormatted},{timeInStatus},{lateTime},{workingHours}";
-                                sw.WriteLine(line);
+                                range.Style.Font.Bold = true;
+                                range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                                range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 123, 255)); // Header background color
+                                range.Style.Font.Color.SetColor(System.Drawing.Color.White); // Header text color
                             }
+
+                            // Populate data
+                            for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                DataRow row = dt.Rows[i];
+                                string middleName = row["m_name"].ToString();
+                                string fullName = string.IsNullOrEmpty(middleName) || middleName == "N/A"
+                                    ? $"{row["f_name"]} {row["l_name"]}"
+                                    : $"{row["f_name"]} {middleName[0]}. {row["l_name"]}";
+
+                                worksheet.Cells[i + 3, 1].Value = row["emp_id"].ToString();
+                                worksheet.Cells[i + 3, 2].Value = fullName;
+                                worksheet.Cells[i + 3, 3].Value = row["time_in_formatted"].ToString();
+                                worksheet.Cells[i + 3, 4].Value = row["time_out_formatted"].ToString();
+                                worksheet.Cells[i + 3, 5].Value = row["final_time_in_status"].ToString();
+                                worksheet.Cells[i + 3, 6].Value = row["late_time"]?.ToString() ?? "--";
+                                worksheet.Cells[i + 3, 7].Value = row["working_hours_formatted"]?.ToString() ?? "--";
+                            }
+
+                            worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(); // Auto-fit columns
+
+                            // Save the Excel file
+                            FileInfo fi = new FileInfo(saveFileDialog.FileName);
+                            package.SaveAs(fi);
                         }
 
                         MessageBox.Show("Attendance report downloaded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -25,11 +25,13 @@ namespace GUTZ_Capstone_Project.Forms
 
         private async void PopulateEmployeeList()
         {
-            string sql = @"SELECT emp_id, emp_profilePic, work_arrangement, f_name, m_name, l_name, account_name, tenured_rate, non_tenured_rate, employment_type
+            string sql = @"SELECT emp_id, position_desc, emp_profilePic, work_arrangement, f_name, m_name, l_name, account_name, tenured_rate, non_tenured_rate, employment_type
                            FROM tbl_employee
+                           INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                            INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
                            INNER JOIN tbl_rates ON tbl_rates.account_id = tbl_account.account_id
-                           WHERE is_deleted = 0";
+                           WHERE is_deleted = 0
+                           ORDER BY emp_id ASC";
 
             DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(sql));
 
@@ -57,8 +59,8 @@ namespace GUTZ_Capstone_Project.Forms
 
                         string imagePath = row["emp_ProfilePic"].ToString();
                         string accountName = row["account_name"].ToString();
-                        string workArrangement = row["work_arrangement"].ToString();
                         string employmentType = row["employment_type"].ToString();
+                        string jobRole = row["position_desc"].ToString();
                         string ratePerHour = string.Empty;
 
                         if (employmentType == "Tenured")
@@ -73,9 +75,13 @@ namespace GUTZ_Capstone_Project.Forms
                             EmployeeName = name,
                             Account = accountName,
                             EmploymentType = employmentType,
-                            WorkingArrangement = workArrangement,
-                            RatePerHour = "₱ " + ratePerHour + " / Hour",
+                            RatePerHour = "₱" + ratePerHour + " / Hour",
                         };
+
+                        if (jobRole == "Administrator")
+                        {
+                            employeeListCardForPayrollHistory.Hide();
+                        }
 
                         flowLayoutPanel2.Controls.Add(employeeListCardForPayrollHistory);
                     }
@@ -95,7 +101,8 @@ namespace GUTZ_Capstone_Project.Forms
                            FROM tbl_employee 
                            INNER JOIN tbl_wage ON tbl_wage.emp_id = tbl_employee.emp_id
                            INNER JOIN tbl_payroll ON tbl_payroll.payroll_id = tbl_wage.payroll_id
-                           WHERE is_deleted = 0 AND payroll_status = 'In-Progress'";
+                           WHERE is_deleted = 0 AND payroll_status = 'In-Progress'
+                           ORDER BY emp_id ASC";
 
             DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(sql));
 
@@ -170,15 +177,6 @@ namespace GUTZ_Capstone_Project.Forms
                     // Compute and display the individual payroll for this employee
                     ComputeIndividualPayroll(id);
                 }
-
-                // Remove any obsolete cards (cards for employees not in the current payroll list)
-                foreach (var card in flowLayoutPanel1.Controls.OfType<SampleEmployeePayrollCard>().ToList())
-                {
-                    if (!existingEmployeeIds.Contains(card.ID))
-                    {
-                        flowLayoutPanel1.Controls.Remove(card);
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -192,10 +190,10 @@ namespace GUTZ_Capstone_Project.Forms
         {
             try
             {
+                // Retrieve the payroll start and end dates
                 string startDate = string.Empty;
                 string endDate = string.Empty;
 
-                // Retrieve the payroll start and end dates
                 string query = "SELECT pay_start_date, pay_end_date FROM tbl_payroll WHERE payroll_status = @status";
                 var parameters = new Dictionary<string, object>
                 {
@@ -212,74 +210,80 @@ namespace GUTZ_Capstone_Project.Forms
 
                 if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(endDate))
                 {
-                    // Query to calculate total working hours, late time, deductions, and wages for the employee
-                    string payrollQuery = @"SELECT 
-                                                tbl_attendance.emp_id, 
-                                                employment_type, 
-                                                tbl_employee.account_id, 
-                                                f_name, 
-                                                m_name, 
-                                                l_name, 
-                                                tenured_rate, 
-                                                non_tenured_rate, 
-                                                SEC_TO_TIME(SUM(TIME_TO_SEC(working_hours))) AS TotalWorkingHours, 
-                                                SEC_TO_TIME(SUM(TIME_TO_SEC(late_time))) AS TotalLateTime
-                                             FROM 
-                                                tbl_attendance
-                                             INNER JOIN 
-                                                tbl_employee ON tbl_attendance.emp_id = tbl_employee.emp_id
-                                             INNER JOIN 
-                                                tbl_rates ON tbl_employee.account_id = tbl_rates.account_id
-                                             WHERE 
-                                                tbl_attendance.emp_id = @employeeId 
-                                                AND time_in >= @startDate 
-                                                AND time_out <= @endDate
-                                             GROUP BY 
-                                                tbl_attendance.emp_id, 
-                                                employment_type, 
-                                                tbl_employee.account_id, 
-                                                f_name, 
-                                                m_name, 
-                                                l_name, 
-                                                tenured_rate, 
-                                                non_tenured_rate";
+                    // SQL query to retrieve attendance records for the employee within the payroll period
+                    string attendanceQuery = @"SELECT time_in, time_out, time_in_status 
+                                               FROM tbl_attendance
+                                               WHERE emp_id = @employeeId 
+                                               AND time_in >= @startDate 
+                                               AND time_out <= @endDate";
 
-                    var payrollParameters = new Dictionary<string, object>
+                    var attendanceParameters = new Dictionary<string, object>
                     {
                         { "@employeeId", employeeId },
                         { "@startDate", DateTime.Parse(startDate) },
                         { "@endDate", DateTime.Parse(endDate) }
                     };
 
-                    DataTable dtPayroll = DB_OperationHelperClass.ParameterizedQueryData(payrollQuery, payrollParameters);
+                    DataTable dtAttendance = DB_OperationHelperClass.ParameterizedQueryData(attendanceQuery, attendanceParameters);
 
-                    if (dtPayroll.Rows.Count > 0)
+                    TimeSpan totalWorkingTime = TimeSpan.Zero;
+                    TimeSpan totalLateTime = TimeSpan.Zero;
+
+                    foreach (DataRow row in dtAttendance.Rows)
                     {
-                        // Retrieve the employee's details
-                        DataRow row = dtPayroll.Rows[0];
-                        string firstName = row["f_name"].ToString();
-                        string middleName = row["m_name"].ToString();
-                        string lastName = row["l_name"].ToString();
+                        DateTime? timeIn = row["time_in"] as DateTime?;
+                        DateTime? timeOut = row["time_out"] as DateTime?;
+                        string timeInStatus = row["time_in_status"]?.ToString();
+
+                        if (timeIn.HasValue && timeOut.HasValue)
+                        {
+                            // Calculate working time (time_out - time_in)
+                            TimeSpan workingTime = timeOut.Value - timeIn.Value;
+                            totalWorkingTime += workingTime;
+
+                            // Calculate late time based on time_in_status
+                            if (timeInStatus == "Late")
+                            {
+                                // Assuming "Late" means the employee was late for the entire duration of their shift.
+                                // You can adjust this logic based on your requirements.
+                                totalLateTime += workingTime;
+                            }
+                        }
+                    }
+
+                    // Format working hours and late time
+                    decimal workingHoursDecimal = (decimal)totalWorkingTime.TotalHours;
+                    string formattedLateTime = totalLateTime.TotalMinutes < 60
+                        ? $"{totalLateTime.TotalMinutes:F0}m" // Display as minutes if less than 60
+                        : $"{totalLateTime.TotalHours:F2}h"; // Display as hours otherwise
+
+                    // Retrieve the employee's rate per hour
+                    string rateQuery = @"SELECT employment_type, tenured_rate, non_tenured_rate, f_name, m_name, l_name
+                                         FROM tbl_employee
+                                         INNER JOIN tbl_rates ON tbl_employee.account_id = tbl_rates.account_id
+                                         WHERE emp_id = @employeeId";
+
+                    var rateParameters = new Dictionary<string, object>
+                    {
+                        { "@employeeId", employeeId }
+                    };
+
+                    DataTable dtRate = DB_OperationHelperClass.ParameterizedQueryData(rateQuery, rateParameters);
+
+                    if (dtRate.Rows.Count > 0)
+                    {
+                        DataRow rateRow = dtRate.Rows[0];
+
+                        string firstName = rateRow["f_name"].ToString();
+                        string middleName = rateRow["m_name"].ToString();
+                        string lastName = rateRow["l_name"].ToString();
                         string name = string.IsNullOrEmpty(middleName) || middleName == "N/A"
                             ? $"{firstName} {lastName}"
                             : $"{firstName} {middleName[0]}. {lastName}";
 
-                        // Parse working hours and late time using TimeSpan
-                        TimeSpan totalWorkingHours = TimeSpan.Parse(row["TotalWorkingHours"].ToString());
-                        TimeSpan totalLateTime = TimeSpan.Parse(row["TotalLateTime"].ToString());
-
-                        // Format working hours as a decimal (e.g., 3.52h)
-                        decimal workingHoursDecimal = (decimal)totalWorkingHours.TotalHours;
-
-                        // Format late time based on its value (minutes or hours)
-                        string formattedLateTime = totalLateTime.TotalMinutes < 60
-                            ? $"{totalLateTime.TotalMinutes:F0}m" // Display as minutes if less than 60
-                            : $"{totalLateTime.TotalHours:F2}h"; // Display as hours otherwise
-
-                        // Determine the rate per hour
-                        decimal ratePerHour = row["employment_type"].ToString() == "Tenured"
-                            ? Convert.ToDecimal(row["tenured_rate"])
-                            : Convert.ToDecimal(row["non_tenured_rate"]);
+                        decimal ratePerHour = rateRow["employment_type"].ToString() == "Tenured"
+                            ? Convert.ToDecimal(rateRow["tenured_rate"])
+                            : Convert.ToDecimal(rateRow["non_tenured_rate"]);
 
                         // Compute deductions
                         decimal lateTimeHours = (decimal)totalLateTime.TotalHours;
@@ -299,16 +303,12 @@ namespace GUTZ_Capstone_Project.Forms
                                 card.EmployeeName = name;
                                 card.TutoringHours = $"{Math.Round(workingHoursDecimal, 2):F2}h"; // Working hours rounded to 2 decimal places
                                 card.LateTime = formattedLateTime; // Late time with proper format (minutes or hours)
-                                card.Deductions = $"₱ {totalDeductions:n2}"; // Total deductions rounded
-                                card.Wage = $"₱ {netWages:n2}"; // Net wages after deductions rounded
+                                card.Deductions = $"₱{totalDeductions:n2}"; // Total deductions rounded
+                                card.Wage = $"₱{netWages:n2}"; // Net wages after deductions rounded
                                 break;
                             }
                         }
                     }
-                    /*else
-                    {
-                        MessageBox.Show($"No payroll data found for employee ID {employeeId}.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }*/
                 }
                 else
                 {
@@ -402,18 +402,11 @@ namespace GUTZ_Capstone_Project.Forms
                         //long seconds = totalSeconds % 60; // Remaining seconds
 
                         // Format as HH:MM:SS
-                        //string totalWorkingTime = $"{hours:D2}h : {minutes:D2}m : {seconds:D2}s";
+                        //string totalWorkingTime = $"{hours:D2}h : {minutes:D2}m : {seconds:D2}s"; // with seconds
                         string totalWorkingTime = $"{hours:D2}h : {minutes:D2}m";
 
-                        // Display the result
-                        lblTotalTutoringHours.Text = totalWorkingTime;
+                        lblTotalTutoringHours.Text = totalWorkingTime; // display result
                     }
-                    /*else
-                    {
-                        string message = "No attendance records found for the specified date range.";
-                        string caption = "No Records Found";
-                        MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }*/
                 }
                 else
                 {
@@ -516,7 +509,7 @@ namespace GUTZ_Capstone_Project.Forms
                     }
 
                     // Display the total deductions
-                    lblTotalDeductions.Text = $"₱ {totalDeductions:n2}";
+                    lblTotalDeductions.Text = $"₱{totalDeductions:n2}";
                 }
                 else
                 {
@@ -558,53 +551,52 @@ namespace GUTZ_Capstone_Project.Forms
                 // Check if start and end dates were retrieved
                 if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(endDate))
                 {
-                    // Query to retrieve working hours
-                    string wageQuery = @"SELECT 
-                                            tbl_attendance.emp_id, 
-                                            employment_type, 
-                                            tbl_employee.account_id, 
-                                            tenured_rate, 
-                                            non_tenured_rate, 
-                                            SUM(TIME_TO_SEC(working_hours)) / 3600.0 AS TotalWorkingHours 
-                                         FROM 
-                                            tbl_attendance
-                                         INNER JOIN 
-                                            tbl_employee ON tbl_attendance.emp_id = tbl_employee.emp_id
-                                         INNER JOIN 
-                                            tbl_rates ON tbl_employee.account_id = tbl_rates.account_id
-                                         WHERE 
-                                            tbl_attendance.work_shift = 'SCHEDULED' 
-                                            AND time_in >= @startDate 
-                                            AND time_out <= @endDate
-                                         GROUP BY 
-                                            tbl_attendance.emp_id, 
-                                            employment_type, 
-                                            tbl_employee.account_id, 
-                                            tenured_rate, 
-                                            non_tenured_rate";
+                    // Query to retrieve attendance records and employee rates for the payroll period
+                    string attendanceQuery = @"SELECT 
+                                           a.emp_id, 
+                                           a.time_in, 
+                                           a.time_out, 
+                                           e.employment_type, 
+                                           r.tenured_rate, 
+                                           r.non_tenured_rate 
+                                       FROM 
+                                           tbl_attendance a
+                                       INNER JOIN 
+                                           tbl_employee e ON a.emp_id = e.emp_id
+                                       INNER JOIN 
+                                           tbl_rates r ON e.account_id = r.account_id
+                                       WHERE 
+                                           a.time_in >= @startDate 
+                                           AND a.time_out <= @endDate";
 
-                    var wageParameters = new Dictionary<string, object>
+                    var attendanceParameters = new Dictionary<string, object>
                     {
                         { "@startDate", DateTime.Parse(startDate) },
                         { "@endDate", DateTime.Parse(endDate) }
                     };
 
-                    DataTable dtWages = DB_OperationHelperClass.ParameterizedQueryData(wageQuery, wageParameters);
+                    DataTable dtAttendance = DB_OperationHelperClass.ParameterizedQueryData(attendanceQuery, attendanceParameters);
 
                     decimal totalWages = 0;
 
-                    // Calculate total wages based on working hours and employee rate
-                    foreach (DataRow row in dtWages.Rows)
+                    // Calculate total wages dynamically
+                    foreach (DataRow row in dtAttendance.Rows)
                     {
-                        if (row["TotalWorkingHours"] != DBNull.Value)
+                        DateTime? timeIn = row["time_in"] as DateTime?;
+                        DateTime? timeOut = row["time_out"] as DateTime?;
+                        if (timeIn.HasValue && timeOut.HasValue)
                         {
-                            decimal workingHours = Convert.ToDecimal(row["TotalWorkingHours"]); // Total working hours
+                            // Calculate working hours for this record
+                            TimeSpan workingTime = timeOut.Value - timeIn.Value;
+                            decimal workingHours = (decimal)workingTime.TotalHours;
+
+                            // Determine the rate per hour based on employment type
                             decimal ratePerHour = row["employment_type"].ToString() == "Tenured"
                                 ? Convert.ToDecimal(row["tenured_rate"])
-                                : Convert.ToDecimal(row["non_tenured_rate"]); // Use the appropriate rate based on employment_type
+                                : Convert.ToDecimal(row["non_tenured_rate"]);
 
-                            // Calculate the wage for this employee
-                            decimal employeeWage = workingHours * ratePerHour;
+                            // Calculate the wage for this record
+                            decimal employeeWage = Math.Round(workingHours * ratePerHour, 2);
 
                             // Accumulate the total wages
                             totalWages += employeeWage;
@@ -612,7 +604,7 @@ namespace GUTZ_Capstone_Project.Forms
                     }
 
                     // Display the total wages
-                    lblTotalWages.Text = $"₱ {totalWages:n2}";
+                    lblTotalWages.Text = $"₱{totalWages:n2}";
                 }
                 else
                 {
@@ -739,15 +731,6 @@ namespace GUTZ_Capstone_Project.Forms
             }
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            if (string.IsNullOrEmpty(txtSearch.Text))
-            {
-                PopulateActivePayrollList();
-            }
-        }
-
         private void btnViewEmployeeList_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Visible = false;
@@ -759,19 +742,10 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            timer1.Start();
             txtSearch.Clear();
-            flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel2.Controls.Clear();
             flowLayoutPanel2.Visible = false;
             flowLayoutPanel1.Visible = true;
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            PopulateActivePayrollList();
-        }
-
-        private void btnViewPayrollDetails_Click(object sender, EventArgs e)
-        {
-
         }
 
         private async void btnCutPayroll_Click(object sender, EventArgs e)
@@ -965,16 +939,18 @@ namespace GUTZ_Capstone_Project.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Update the existing UI without recreating it
             PopulateActivePayrollList();
-
-            // Recompute totals and update labels
             ComputeTotalTutoringHours();
             ComputeTotalDeductions();
             ComputeTotalWages();
         }
 
         private void FormPayrollManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             timer1.Stop();
         }

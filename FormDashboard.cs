@@ -17,11 +17,12 @@ namespace GUTZ_Capstone_Project
         private Form currentChildForm;
         private System.Drawing.Color _originalIconColor;
         private DateTime dueDate;
-        private int id;
+        private string id;
 
-        public FormDashboard(int id)
+        public FormDashboard(string id)
         {
             InitializeComponent();
+
             this.id = id;
             dueDate = DateTime.Now.AddDays(10);
             timer1.Tick += timer1_Tick;
@@ -29,6 +30,7 @@ namespace GUTZ_Capstone_Project
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image;
             DisplayAdminProfilePic();
+            btnPayrollManagement.Click += btnPayrollManagement_Click;
         }
 
         // Fixed flicker issue on controls rendering
@@ -45,6 +47,7 @@ namespace GUTZ_Capstone_Project
         private void DisplayAdminProfilePic() // Set to actual administrator
         {
             string sql = "SELECT emp_profilePic FROM tbl_employee WHERE emp_id = @id";
+
             var parameters = new Dictionary<string, object> { { "@id", id } };
             try
             {
@@ -155,7 +158,7 @@ namespace GUTZ_Capstone_Project
         private void btnPayrollManagement_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new FormPayrollManagement());
+            OpenChildForm(new FormEmployeePayrollManagement());
         }
 
         private void btnGenerateReports_Click(object sender, EventArgs e)
@@ -176,7 +179,6 @@ namespace GUTZ_Capstone_Project
             CountTotalEmployee();
             CountAttendanceForToday();
             CountActiveEmployeeLeave();
-            CountEachAccountActiveLeave();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -198,7 +200,6 @@ namespace GUTZ_Capstone_Project
             CountTotalEmployee();
             CountAttendanceForToday();
             CountActiveEmployeeLeave();
-            CountEachAccountActiveLeave();
         }
 
         private void UpdateDateTimeLabel()
@@ -228,15 +229,6 @@ namespace GUTZ_Capstone_Project
             }
 
             return weekNumberInMonth;
-        }
-
-        private int GetWeekNumber(DateTime date)
-        {
-            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(date);
-            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
-                date = date.AddDays(3);
-
-            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
 
         private void FormDashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -281,6 +273,7 @@ namespace GUTZ_Capstone_Project
             // Count total active employees
             string countEmployeeQuery = @"SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0";
             DataTable dtTotal = DB_OperationHelperClass.QueryData(countEmployeeQuery);
+
             int countTotalEmployee = dtTotal.Rows.Count > 0 ? Convert.ToInt32(dtTotal.Rows[0][0]) : 0;
             lblTotalEmployee.Text = countTotalEmployee.ToString();
 
@@ -295,25 +288,6 @@ namespace GUTZ_Capstone_Project
 
             // Calculate the percentage of new employees
             double percentageNewEmployees = countTotalEmployee > 0 ? (double)countNewEmployees / countTotalEmployee * 100 : 0;
-
-            // Display the percentage
-            lblPercentText.Text = $"{percentageNewEmployees}%";
-
-            // Track new employees for the previous month
-            TrackPreviousMonthEmployees();
-        }
-
-        private void TrackPreviousMonthEmployees()
-        {
-            // Count employees added in the previous month
-            string countPreviousMonthQuery = @"SELECT COUNT(*) 
-                                               FROM tbl_employee 
-                                               WHERE is_deleted = 0 
-                                               AND MONTH(start_date) = MONTH(CURRENT_DATE() - INTERVAL 1 MONTH) 
-                                               AND YEAR(start_date) = YEAR(CURRENT_DATE())";
-
-            DataTable dtPreviousMonth = DB_OperationHelperClass.QueryData(countPreviousMonthQuery);
-            int countPreviousMonthEmployees = dtPreviousMonth.Rows.Count > 0 ? Convert.ToInt32(dtPreviousMonth.Rows[0][0]) : 0;
         }
 
         private void CountAttendanceForToday()
@@ -361,15 +335,13 @@ namespace GUTZ_Capstone_Project
 
             double onTimePercentage = totalAttendance > 0 ? (countWorkingOnTime * 100.0) / totalAttendance : 0;
             double latePercentage = totalAttendance > 0 ? (countWorkingLate * 100.0) / totalAttendance : 0;
-
-            lblOnTimeForTodayPercentage.Text = $"{onTimePercentage:n2}%";
-            lblLateForTodayPercentage.Text = $"{latePercentage:n2}%";
         }
 
         private void CountActiveEmployeeLeave()
         {
             string leaveStatus = "Active";
             string sqlCountActiveLeave = "SELECT COUNT(*) FROM tbl_leave WHERE leave_status = '" + leaveStatus + "'";
+
             DataTable countActiveLeave = DB_OperationHelperClass.QueryData(sqlCountActiveLeave);
 
             if (countActiveLeave.Rows.Count > 0)
@@ -380,44 +352,6 @@ namespace GUTZ_Capstone_Project
             else
             {
                 lblOnLeave.Text = "0";
-            }
-        }
-
-        private void CountEachAccountActiveLeave()
-        {
-            string leaveStatus = "Active";
-            string[] accounts = { "ESO", "RKESI", "VUIHOC" };
-
-            foreach (string account in accounts)
-            {
-                string sqlCountActiveLeave = @"SELECT tbl_employee.emp_id, account_name, leave_status
-                                               FROM tbl_employee
-                                               INNER JOIN tbl_account ON tbl_employee.account_id = tbl_account.account_id
-                                               INNER JOIN tbl_leave ON tbl_employee.emp_id = tbl_leave.emp_id
-                                               WHERE leave_status = @leaveStatus AND account_name = @accountName";
-
-                var parameters = new Dictionary<string, object>
-                {
-                    { "@leaveStatus", leaveStatus },
-                    { "@accountName", account }
-                };
-
-                DataTable countActiveLeave = DB_OperationHelperClass.ParameterizedQueryData(sqlCountActiveLeave, parameters);
-
-                int count = countActiveLeave.Rows.Count;
-
-                switch (account)
-                {
-                    case "ESO":
-                        lblESOActiveLeaveCount.Text = $"ESO - {count}";
-                        break;
-                    case "RKESI":
-                        lblRKEActiveLeaveCount.Text = $"RKE - {count}";
-                        break;
-                    case "VUIHOC":
-                        lblVUIActiveLeaveCount.Text = $"VUI - {count}";
-                        break;
-                }
             }
         }
     }

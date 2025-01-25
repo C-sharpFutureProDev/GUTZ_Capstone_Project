@@ -110,7 +110,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnUpdateEmployeeProfileImage = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.employeeProfileImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -181,7 +180,6 @@
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel6);
             this.panelEmployeeProfileDetails.Controls.Add(this.label4);
             this.panelEmployeeProfileDetails.Controls.Add(this.label3);
-            this.panelEmployeeProfileDetails.Controls.Add(this.btnUpdateEmployeeProfileImage);
             this.panelEmployeeProfileDetails.Controls.Add(this.label2);
             this.panelEmployeeProfileDetails.Controls.Add(this.employeeProfileImage);
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel2);
@@ -216,7 +214,7 @@
             // lblEmployeeBenefits
             // 
             this.lblEmployeeBenefits.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeBenefits.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeBenefits.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeBenefits.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeBenefits.Location = new System.Drawing.Point(19, 40);
             this.lblEmployeeBenefits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -258,7 +256,7 @@
             // lblEmployeeWorkingArrangement
             // 
             this.lblEmployeeWorkingArrangement.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeWorkingArrangement.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeWorkingArrangement.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeWorkingArrangement.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeWorkingArrangement.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeWorkingArrangement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -300,7 +298,7 @@
             // lblEmployeeEmploymenType
             // 
             this.lblEmployeeEmploymenType.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeEmploymenType.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeEmploymenType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeEmploymenType.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeEmploymenType.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeEmploymenType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -342,7 +340,7 @@
             // lblEmployeeEndDate
             // 
             this.lblEmployeeEndDate.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeEndDate.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeEndDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeEndDate.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeEndDate.Location = new System.Drawing.Point(16, 40);
             this.lblEmployeeEndDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -384,7 +382,7 @@
             // EmployeeStartDate
             // 
             this.EmployeeStartDate.BackColor = System.Drawing.Color.Teal;
-            this.EmployeeStartDate.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.EmployeeStartDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.EmployeeStartDate.ForeColor = System.Drawing.Color.White;
             this.EmployeeStartDate.Location = new System.Drawing.Point(16, 40);
             this.EmployeeStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -426,7 +424,7 @@
             // lblEmployeeHireDate
             // 
             this.lblEmployeeHireDate.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeHireDate.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeHireDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeHireDate.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeHireDate.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeHireDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -468,7 +466,7 @@
             // lblHolidays
             // 
             this.lblHolidays.BackColor = System.Drawing.Color.Teal;
-            this.lblHolidays.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblHolidays.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblHolidays.ForeColor = System.Drawing.Color.White;
             this.lblHolidays.Location = new System.Drawing.Point(19, 40);
             this.lblHolidays.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -510,7 +508,7 @@
             // lblEmployeRatePerHour
             // 
             this.lblEmployeRatePerHour.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeRatePerHour.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeRatePerHour.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeRatePerHour.ForeColor = System.Drawing.Color.White;
             this.lblEmployeRatePerHour.Location = new System.Drawing.Point(19, 40);
             this.lblEmployeRatePerHour.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -552,7 +550,7 @@
             // lblEmployeeBasedSalary
             // 
             this.lblEmployeeBasedSalary.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeBasedSalary.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeBasedSalary.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeBasedSalary.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeBasedSalary.Location = new System.Drawing.Point(19, 40);
             this.lblEmployeeBasedSalary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -594,7 +592,7 @@
             // lblEmployeeAccountName
             // 
             this.lblEmployeeAccountName.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeAccountName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeAccountName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeAccountName.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeAccountName.Location = new System.Drawing.Point(19, 40);
             this.lblEmployeeAccountName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -636,7 +634,7 @@
             // lblEmployeeWorkingHours
             // 
             this.lblEmployeeWorkingHours.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeWorkingHours.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeWorkingHours.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeWorkingHours.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeWorkingHours.Location = new System.Drawing.Point(19, 40);
             this.lblEmployeeWorkingHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -678,7 +676,7 @@
             // lblEmployeeWorkingDays
             // 
             this.lblEmployeeWorkingDays.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeWorkingDays.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeWorkingDays.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeWorkingDays.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeWorkingDays.Location = new System.Drawing.Point(19, 40);
             this.lblEmployeeWorkingDays.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -705,11 +703,11 @@
             // 
             this.label30.AutoSize = true;
             this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label30.Font = new System.Drawing.Font("Britannic Bold", 17F);
+            this.label30.Font = new System.Drawing.Font("Times New Roman", 15.5F, System.Drawing.FontStyle.Bold);
             this.label30.ForeColor = System.Drawing.Color.Teal;
             this.label30.Location = new System.Drawing.Point(82, 10);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(267, 37);
+            this.label30.Size = new System.Drawing.Size(236, 36);
             this.label30.TabIndex = 130;
             this.label30.Text = "Employee Profile";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -784,7 +782,7 @@
             // lblOnboardingPersonel
             // 
             this.lblOnboardingPersonel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblOnboardingPersonel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblOnboardingPersonel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblOnboardingPersonel.ForeColor = System.Drawing.Color.White;
             this.lblOnboardingPersonel.Location = new System.Drawing.Point(15, 40);
             this.lblOnboardingPersonel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -810,8 +808,8 @@
             // label22
             // 
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label22.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.label22.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label22.Location = new System.Drawing.Point(793, 537);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label22.Name = "label22";
@@ -823,8 +821,8 @@
             // label21
             // 
             this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label21.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.label21.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label21.Location = new System.Drawing.Point(1171, 537);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label21.Name = "label21";
@@ -836,8 +834,8 @@
             // label18
             // 
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label18.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.label18.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label18.Location = new System.Drawing.Point(89, 537);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label18.Name = "label18";
@@ -891,7 +889,7 @@
             // lblEmployeeJobDescription
             // 
             this.lblEmployeeJobDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeJobDescription.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeJobDescription.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeJobDescription.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeJobDescription.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeJobDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -959,7 +957,7 @@
             // lblEmployeePhoneNo
             // 
             this.lblEmployeePhoneNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeePhoneNo.Font = new System.Drawing.Font("Roboto", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeePhoneNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeePhoneNo.ForeColor = System.Drawing.Color.White;
             this.lblEmployeePhoneNo.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeePhoneNo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -1027,7 +1025,7 @@
             // lblEmployeeEmail
             // 
             this.lblEmployeeEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeEmail.Font = new System.Drawing.Font("Roboto", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeEmail.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeEmail.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeEmail.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -1095,7 +1093,7 @@
             // lblEmployeeID
             // 
             this.lblEmployeeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeID.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeID.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeID.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeID.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -1163,7 +1161,7 @@
             // lblEmployeeStartDate
             // 
             this.lblEmployeeStartDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeStartDate.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeStartDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeStartDate.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeStartDate.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeStartDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -1231,7 +1229,7 @@
             // lblEmployeeOnboardingDate
             // 
             this.lblEmployeeOnboardingDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeOnboardingDate.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeOnboardingDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeOnboardingDate.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeOnboardingDate.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeOnboardingDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -1300,7 +1298,7 @@
             // lblEmployeeDepartment
             // 
             this.lblEmployeeDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeDepartment.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeDepartment.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeDepartment.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeDepartment.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeDepartment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -1326,8 +1324,8 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.label6.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label6.Location = new System.Drawing.Point(411, 187);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label6.Name = "label6";
@@ -1381,7 +1379,7 @@
             // lblEmployeeRole
             // 
             this.lblEmployeeRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
-            this.lblEmployeeRole.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeRole.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeRole.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeRole.Location = new System.Drawing.Point(15, 40);
             this.lblEmployeeRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
@@ -1407,8 +1405,8 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.label4.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(1171, 187);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label4.Name = "label4";
@@ -1420,8 +1418,8 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label3.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.label3.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(789, 187);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label3.Name = "label3";
@@ -1430,36 +1428,11 @@
             this.label3.Text = "DEPARTMENT";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnUpdateEmployeeProfileImage
-            // 
-            this.btnUpdateEmployeeProfileImage.AutoRoundedCorners = true;
-            this.btnUpdateEmployeeProfileImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.btnUpdateEmployeeProfileImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(191)))), ((int)(((byte)(178)))));
-            this.btnUpdateEmployeeProfileImage.BorderRadius = 22;
-            this.btnUpdateEmployeeProfileImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdateEmployeeProfileImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdateEmployeeProfileImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnUpdateEmployeeProfileImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUpdateEmployeeProfileImage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(191)))), ((int)(((byte)(178)))));
-            this.btnUpdateEmployeeProfileImage.Font = new System.Drawing.Font("Roboto", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btnUpdateEmployeeProfileImage.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateEmployeeProfileImage.HoverState.BorderColor = System.Drawing.Color.Teal;
-            this.btnUpdateEmployeeProfileImage.HoverState.FillColor = System.Drawing.Color.Teal;
-            this.btnUpdateEmployeeProfileImage.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateEmployeeProfileImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUpdateEmployeeProfileImage.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUpdateEmployeeProfileImage.Location = new System.Drawing.Point(88, 467);
-            this.btnUpdateEmployeeProfileImage.Name = "btnUpdateEmployeeProfileImage";
-            this.btnUpdateEmployeeProfileImage.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(144)))), ((int)(((byte)(128)))));
-            this.btnUpdateEmployeeProfileImage.Size = new System.Drawing.Size(216, 47);
-            this.btnUpdateEmployeeProfileImage.TabIndex = 116;
-            this.btnUpdateEmployeeProfileImage.Text = "Edit Profile Image";
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.label2.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(89, 187);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label2.Name = "label2";
@@ -1505,9 +1478,9 @@
             // lblEmployeeActiveStatus
             // 
             this.lblEmployeeActiveStatus.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeActiveStatus.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployeeActiveStatus.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeActiveStatus.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeActiveStatus.Location = new System.Drawing.Point(881, 12);
+            this.lblEmployeeActiveStatus.Location = new System.Drawing.Point(885, 12);
             this.lblEmployeeActiveStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.lblEmployeeActiveStatus.Name = "lblEmployeeActiveStatus";
             this.lblEmployeeActiveStatus.Size = new System.Drawing.Size(136, 96);
@@ -1518,9 +1491,9 @@
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.Teal;
-            this.label16.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(796, 12);
+            this.label16.Location = new System.Drawing.Point(795, 12);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(94, 96);
@@ -1608,11 +1581,11 @@
             // lblEmployeeFullName
             // 
             this.lblEmployeeFullName.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeFullName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeFullName.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeFullName.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeFullName.Location = new System.Drawing.Point(135, 12);
             this.lblEmployeeFullName.Name = "lblEmployeeFullName";
-            this.lblEmployeeFullName.Size = new System.Drawing.Size(347, 96);
+            this.lblEmployeeFullName.Size = new System.Drawing.Size(515, 96);
             this.lblEmployeeFullName.TabIndex = 79;
             this.lblEmployeeFullName.Text = "Full Name";
             this.lblEmployeeFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1695,7 +1668,6 @@
         private Guna.UI2.WinForms.Guna2Panel panelEmployeeProfileDetails;
         private Guna.UI2.WinForms.Guna2PictureBox employeeProfileImage;
         private System.Windows.Forms.Label label2;
-        public Guna.UI2.WinForms.Guna2Button btnUpdateEmployeeProfileImage;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;

@@ -12,7 +12,7 @@ namespace GUTZ_Capstone_Project
         private bool isLockedOut = false;
         private int lockoutDuration = 30;
 
-        private int currentLoginAdminID;
+        private string currentLoginAdminID;
 
         public FormLogin()
         {
@@ -83,7 +83,7 @@ namespace GUTZ_Capstone_Project
 
                 if (dt.Rows.Count > 0)
                 {
-                    currentLoginAdminID = int.Parse(dt.Rows[0]["emp_id"].ToString());
+                    currentLoginAdminID = dt.Rows[0]["emp_id"].ToString();
                     FormLoading formLoading = new FormLoading(currentLoginAdminID);
                     formLoading.Show();
                     this.Hide();

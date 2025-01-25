@@ -15,8 +15,8 @@ namespace GUTZ_Capstone_Project
     {
         //private FormLogin formLogin;
         private FormDashboard formDashboard;
-        private int id;
-        public FormLoading(int id)
+        private string id;
+        public FormLoading(string id)
         {
             InitializeComponent();
             this.Size = new Size(575, 30);

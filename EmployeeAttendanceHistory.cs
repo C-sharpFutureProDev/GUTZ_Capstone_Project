@@ -1,6 +1,6 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -220,9 +220,10 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void EmployeeAttendanceHistory_Load(object sender, EventArgs e)
+        private async void EmployeeAttendanceHistory_Load(object sender, EventArgs e)
         {
             int currentYear = DateTime.Now.Year;
+
             for (int year = currentYear; year >= currentYear - 6; year--)
             {
                 cboFilterYear.Items.Add(year);
@@ -236,9 +237,13 @@ namespace GUTZ_Capstone_Project
             monthChangeTimer.Tick += MonthChangeTimer_Tick;
             monthChangeTimer.Start();
 
+            await LoadEmployeeDataAsync();
             ComputeTotalAttendanceMetrics(_id);
             FilterAndDisplayEmployeeAttendanceHistory(_id, DateTime.Now.Month, currentYear);
+        }
 
+        private async Task LoadEmployeeDataAsync()
+        {
             try
             {
                 string employeeSql = @"SELECT emp_ProfilePic, CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, phone, email, position_desc, start_date
@@ -246,10 +251,10 @@ namespace GUTZ_Capstone_Project
                                        INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
                                        WHERE emp_id = @empId";
 
-                var paramID = new Dictionary<string, object>
-                {{ "@empId", _id }};
+                var paramID = new Dictionary<string, object> { { "@empId", _id } };
 
-                DataTable employeeDt = DB_OperationHelperClass.ParameterizedQueryData(employeeSql, paramID);
+                DataTable employeeDt = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(employeeSql, paramID));
+
                 if (employeeDt.Rows.Count > 0)
                 {
                     string image_path = employeeDt.Rows[0]["emp_ProfilePic"].ToString();
@@ -274,10 +279,6 @@ namespace GUTZ_Capstone_Project
 
         private void btnDownloadAttendanceHistoryRecords_Click(object sender, EventArgs e)
         {
-            // Prepare to retrieve attendance data
-            StringBuilder csvData = new StringBuilder();
-            csvData.AppendLine("Date,Clock In,Clock Out,Status"); // CSV File Header
-
             // Retrieve selected month and year from the combo boxes
             if (cboFilterMonth.SelectedItem == null || cboFilterYear.SelectedItem == null)
             {
@@ -289,65 +290,57 @@ namespace GUTZ_Capstone_Project
             int selectedMonth = DateTime.ParseExact(month, "MMMM", CultureInfo.InvariantCulture).Month;
             int selectedYear = (int)cboFilterYear.SelectedItem;
 
-            string employeeSql = $"SELECT start_date FROM tbl_employee WHERE emp_id = '{_id}'";
-            DateTime startDate;
+            int totalAttendance = 0;
+            int totalLate = 0;
+            int totalAbsent = 0;
 
-            try
-            {
-                DataTable employeeDt = DB_OperationHelperClass.QueryData(employeeSql);
-                if (employeeDt.Rows.Count > 0)
-                {
-                    startDate = Convert.ToDateTime(employeeDt.Rows[0]["start_date"]);
-                }
-                else
-                {
-                    MessageBox.Show($"No employee found with ID: {_id}", "No Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while retrieving employee data.", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            DateTime currentDate = DateTime.Now;
-            DateTime date = startDate;
-
+            // Retrieve work days set for this employee
             string scheduledSql = $"SELECT work_days FROM tbl_schedule WHERE emp_id = '{_id}'";
             DataTable scheduledDt = DB_OperationHelperClass.QueryData(scheduledSql);
-
             HashSet<string> workDaysSet = new HashSet<string>(scheduledDt.Rows[0]["work_days"].ToString().Split(','));
 
-            string leaveSql = $"SELECT start_date, end_date FROM tbl_leave WHERE emp_id = '{_id}' AND (leave_status = 'Active' OR leave_status = 'Completed')";
-            DataTable leaveDt = DB_OperationHelperClass.QueryData(leaveSql);
+            // Set the first day of the selected month and the last day of the month
+            DateTime firstDate = new DateTime(selectedYear, selectedMonth, 1);
+            DateTime lastDate = firstDate.AddMonths(1).AddDays(-1); // Last day of the selected month
 
-            List<(DateTime start, DateTime end)> leavePeriods = new List<(DateTime, DateTime)>();
+            // Prepare to create Excel data
+            DataTable attendanceDataTable = new DataTable();
+            attendanceDataTable.Columns.Add("Date");
+            attendanceDataTable.Columns.Add("Clock In");
+            attendanceDataTable.Columns.Add("Clock Out");
+            attendanceDataTable.Columns.Add("Status");
 
-            foreach (DataRow row in leaveDt.Rows)
+            // Loop through the selected month to count attendance and absences
+            for (DateTime date = firstDate; date <= lastDate; date = date.AddDays(1))
             {
-                DateTime leaveStart = Convert.ToDateTime(row["start_date"]);
-                DateTime leaveEnd = Convert.ToDateTime(row["end_date"]);
-                leavePeriods.Add((leaveStart, leaveEnd));
-            }
-
-            while (date <= currentDate)
-            {
-                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                // Only consider past dates
+                if (date.Date >= DateTime.Today)
                 {
-                    date = date.AddDays(1);
-                    continue;
+                    continue; // Skip future dates
                 }
 
-                bool isOnLeave = leavePeriods.Any(leave => date >= leave.start && date <= leave.end);
+                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    continue; // Skip weekends
+                }
 
-                string attendanceSql = $@"SELECT time_in, DATE_FORMAT(time_in, '%h:%i %p') as time_in_formatted, 
-                                          time_out, DATE_FORMAT(time_out, '%h:%i %p') as time_out_formatted, 
-                                          time_in_status 
-                                          FROM tbl_attendance 
-                                          WHERE emp_id = '{_id}' AND DATE(time_in) = DATE('{date:yyyy-MM-dd}')";
+                // Check if the employee was scheduled to work on this day
+                bool isScheduled = workDaysSet.Contains(date.DayOfWeek.ToString());
 
-                DataTable attendanceDt = DB_OperationHelperClass.QueryData(attendanceSql);
+                // Attendance data retrieval for that date
+                string sql = $@"SELECT
+                                     time_in,
+                                     DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
+                                     time_out,
+                                     DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted,
+                                     time_in_status
+                                 FROM
+                                     tbl_attendance
+                                 WHERE
+                                     emp_id = '{_id}' AND 
+                                     DATE(time_in) = DATE('{date:yyyy-MM-dd}')";
+
+                DataTable attendanceDt = DB_OperationHelperClass.QueryData(sql);
 
                 string clockIn = "--";
                 string clockOut = "--";
@@ -355,48 +348,101 @@ namespace GUTZ_Capstone_Project
 
                 if (attendanceDt.Rows.Count > 0)
                 {
+                    // Employee clocked in
                     clockIn = attendanceDt.Rows[0]["time_in_formatted"].ToString();
                     clockOut = attendanceDt.Rows[0]["time_out_formatted"].ToString();
                     status = attendanceDt.Rows[0]["time_in_status"].ToString();
+                    totalAttendance++;
+
+                    if (status == "Late") totalLate++;
                 }
-                else if (isOnLeave)
+                else if (isScheduled)
                 {
-                    var leavePeriod = leavePeriods.FirstOrDefault(leave => date >= leave.start && date <= leave.end);
-                    clockIn = leavePeriod.start.ToString("M/dd/yyyy");
-                    clockOut = leavePeriod.end.ToString("M/dd/yyyy");
-                    status = "On Leave";
-                }
-                else if (workDaysSet.Contains(date.DayOfWeek.ToString()))
-                {
+                    // If scheduled but no clock-in record, count as absent
                     status = "Absent";
+                    totalAbsent++;
                 }
 
-                // Append the attendance record to the CSV data
-                csvData.AppendLine($"{date:yyyy-MM-dd},{clockIn},{clockOut},{status}");
-
-                date = date.AddDays(1);
+                // Add attendance record to the DataTable
+                attendanceDataTable.Rows.Add($"{date:yyyy-MM-dd}", clockIn, clockOut, status);
             }
 
-            // Show confirmation before downloading
-            DialogResult result = MessageBox.Show($"Do you want to download the attendance history for employee with ID: {_id}?", "Download Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Do you want to download the attendance history for employee with ID: {_id} for {month} {selectedYear}?", "Download Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                string formattedMonth = new DateTime(selectedYear, selectedMonth, 1).ToString("MMMM");
-                SaveAttendanceHistoryToCsv(_id, csvData.ToString(), formattedMonth, selectedYear);
+                ExportAttendanceHistoryToExcel(attendanceDataTable, selectedMonth, selectedYear, totalAttendance, totalLate, totalAbsent);
             }
         }
 
-        private void SaveAttendanceHistoryToCsv(string employeeId, string csvContent, string month, int year)
+        private void ExportAttendanceHistoryToExcel(DataTable attendanceDataTable, int month, int year, int totalAttendance, int totalLate, int totalAbsent)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.FileName = $"AttendanceHistory_{employeeId}_{month}_{year}.csv"; // Include month and year in the filename
-                saveFileDialog.Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*";
+                saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                saveFileDialog.Title = "Save Attendance History as Excel File";
+                saveFileDialog.FileName = $"AttendanceHistory_{_id}_{new DateTime(year, month, 1):MMMM}_{year}.xlsx";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllText(saveFileDialog.FileName, csvContent);
-                    MessageBox.Show("Attendance history downloaded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+                        using (ExcelPackage package = new ExcelPackage())
+                        {
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Attendance History");
+
+                            // Add primary header
+                            worksheet.Cells["A1:D1"].Merge = true;
+                            worksheet.Cells["A1"].Value = "Attendance History";
+                            worksheet.Cells["A1"].Style.Font.Bold = true;
+                            worksheet.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                            worksheet.Cells["A1"].Style.Font.Size = 16; // Adjusted font size
+                            worksheet.Cells["A1"].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.None; // No background color
+                            worksheet.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.Black); // Black text color
+
+                            // Define headers
+                            worksheet.Cells[2, 1].Value = "Date";
+                            worksheet.Cells[2, 2].Value = "Clock In";
+                            worksheet.Cells[2, 3].Value = "Clock Out";
+                            worksheet.Cells[2, 4].Value = "Status";
+
+                            // Customize header row with blue background and white text
+                            worksheet.Cells["A2:D2"].Style.Font.Bold = true; // Make header bold
+                            worksheet.Cells["A2:D2"].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid; // Solid fill
+                            worksheet.Cells["A2:D2"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 123, 255)); // Blue background color
+                            worksheet.Cells["A2:D2"].Style.Font.Color.SetColor(System.Drawing.Color.White); // Set font color to white
+                            worksheet.Cells["A2:D2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left; // Left align
+
+                            // Populate data with alternating row colors
+                            for (int i = 0; i < attendanceDataTable.Rows.Count; i++)
+                            {
+                                DataRow row = attendanceDataTable.Rows[i];
+                                worksheet.Cells[i + 3, 1].Value = row["Date"];
+                                worksheet.Cells[i + 3, 2].Value = row["Clock In"];
+                                worksheet.Cells[i + 3, 3].Value = row["Clock Out"];
+                                worksheet.Cells[i + 3, 4].Value = row["Status"];
+
+                                // Set alternating row colors for better readability
+                                if (i % 2 == 0)
+                                {
+                                    worksheet.Cells[i + 3, 1, i + 3, 4].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                                    worksheet.Cells[i + 3, 1, i + 3, 4].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(248, 249, 250)); // Light gray
+                                }
+                            }
+
+                            worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(); // Auto-fit columns
+
+                            FileInfo fi = new FileInfo(saveFileDialog.FileName);
+                            package.SaveAs(fi);
+                        }
+
+                        MessageBox.Show("Attendance history downloaded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while exporting the data to Excel: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -617,7 +663,7 @@ namespace GUTZ_Capstone_Project
             FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear);
         }
 
-        private void FilterAndDisplayEmployeeAttendanceHistory(string id, int selectedMonth, int selectedYear)
+        private async void FilterAndDisplayEmployeeAttendanceHistory(string id, int selectedMonth, int selectedYear)
         {
             flowLayoutPanel1.Controls.Clear();
 
@@ -626,7 +672,8 @@ namespace GUTZ_Capstone_Project
 
             try
             {
-                DataTable employeeDt = DB_OperationHelperClass.QueryData(employeeSql);
+                DataTable employeeDt = await Task.Run(() => DB_OperationHelperClass.QueryData(employeeSql));
+
                 if (employeeDt.Rows.Count > 0)
                 {
                     startDate = Convert.ToDateTime(employeeDt.Rows[0]["start_date"]);
@@ -792,7 +839,6 @@ namespace GUTZ_Capstone_Project
             _employeeAttendance.panelAttendanceDetails.Visible = true;
             _employeeAttendance.flowLayoutPanel1.Visible = true;
             _employeeAttendance.flowLayoutPanel1.Dock = DockStyle.Fill;
-
             _employeeAttendance?.ViewEmployeeList(); // access the exposed btnViewEmployeeList_Click event from the EmployeeAttendance Form
         }
     }

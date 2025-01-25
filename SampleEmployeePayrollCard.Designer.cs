@@ -98,26 +98,24 @@
             // 
             this.btnCutPayroll.AutoRoundedCorners = true;
             this.btnCutPayroll.BackColor = System.Drawing.Color.Ivory;
-            this.btnCutPayroll.BorderColor = System.Drawing.Color.Orange;
+            this.btnCutPayroll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnCutPayroll.BorderRadius = 21;
-            this.btnCutPayroll.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.btnCutPayroll.BorderThickness = 1;
             this.btnCutPayroll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCutPayroll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCutPayroll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCutPayroll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCutPayroll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(102)))));
+            this.btnCutPayroll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnCutPayroll.Font = new System.Drawing.Font("Arial", 11F);
-            this.btnCutPayroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCutPayroll.HoverState.BorderColor = System.Drawing.Color.Orange;
-            this.btnCutPayroll.HoverState.FillColor = System.Drawing.Color.Orange;
+            this.btnCutPayroll.ForeColor = System.Drawing.Color.White;
+            this.btnCutPayroll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnCutPayroll.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.btnCutPayroll.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnCutPayroll.Image = ((System.Drawing.Image)(resources.GetObject("btnCutPayroll.Image")));
             this.btnCutPayroll.ImageSize = new System.Drawing.Size(30, 32);
             this.btnCutPayroll.Location = new System.Drawing.Point(25, 430);
             this.btnCutPayroll.Name = "btnCutPayroll";
             this.btnCutPayroll.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
-            this.btnCutPayroll.PressedColor = System.Drawing.Color.Orange;
+            this.btnCutPayroll.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCutPayroll.Size = new System.Drawing.Size(433, 45);
             this.btnCutPayroll.TabIndex = 131;
             this.btnCutPayroll.Text = "Cut Payroll";
@@ -332,7 +330,7 @@
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.Ivory;
-            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Arial Black", 11F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblName.Location = new System.Drawing.Point(113, 46);
             this.lblName.Name = "lblName";

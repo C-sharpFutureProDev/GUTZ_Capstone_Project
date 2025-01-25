@@ -66,10 +66,10 @@
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnExport = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.cboSearch = new Guna.UI2.WinForms.Guna2ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panelEmployeeListFeatures.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -295,6 +295,7 @@
             this.lblVUIHOC.Size = new System.Drawing.Size(70, 30);
             this.lblVUIHOC.TabIndex = 27;
             this.lblVUIHOC.Text = "0";
+            this.lblVUIHOC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label15
             // 
@@ -307,6 +308,7 @@
             this.label15.Size = new System.Drawing.Size(68, 31);
             this.label15.TabIndex = 27;
             this.label15.Text = "VUI - ";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel5
             // 
@@ -335,6 +337,7 @@
             this.lblRKESI.Size = new System.Drawing.Size(70, 30);
             this.lblRKESI.TabIndex = 27;
             this.lblRKESI.Text = "0";
+            this.lblRKESI.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
             // 
@@ -347,7 +350,7 @@
             this.label13.Size = new System.Drawing.Size(68, 31);
             this.label13.TabIndex = 27;
             this.label13.Text = "RKE - ";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel4
             // 
@@ -376,6 +379,7 @@
             this.lblESO.Size = new System.Drawing.Size(70, 30);
             this.lblESO.TabIndex = 27;
             this.lblESO.Text = "0";
+            this.lblESO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
@@ -388,7 +392,7 @@
             this.label11.Size = new System.Drawing.Size(68, 31);
             this.label11.TabIndex = 27;
             this.label11.Text = "ESO - ";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel3
             // 
@@ -418,6 +422,7 @@
             this.lblPartTime.Size = new System.Drawing.Size(74, 30);
             this.lblPartTime.TabIndex = 27;
             this.lblPartTime.Text = "0";
+            this.lblPartTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -430,6 +435,7 @@
             this.label9.Size = new System.Drawing.Size(124, 31);
             this.label9.TabIndex = 27;
             this.label9.Text = "Part-Time : ";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel2
             // 
@@ -458,6 +464,7 @@
             this.lblFullTime.Size = new System.Drawing.Size(74, 30);
             this.lblFullTime.TabIndex = 27;
             this.lblFullTime.Text = "0";
+            this.lblFullTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -470,7 +477,7 @@
             this.label7.Size = new System.Drawing.Size(124, 31);
             this.label7.TabIndex = 27;
             this.label7.Text = "Full-Time : ";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel1
             // 
@@ -500,6 +507,7 @@
             this.lblFemaleEmployee.Size = new System.Drawing.Size(86, 30);
             this.lblFemaleEmployee.TabIndex = 27;
             this.lblFemaleEmployee.Text = "0";
+            this.lblFemaleEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -512,7 +520,7 @@
             this.label5.Size = new System.Drawing.Size(56, 31);
             this.label5.TabIndex = 27;
             this.label5.Text = "F - ";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelTotalEmployee
             // 
@@ -540,6 +548,7 @@
             this.lblMaleEmployee.Size = new System.Drawing.Size(86, 30);
             this.lblMaleEmployee.TabIndex = 27;
             this.lblMaleEmployee.Text = "0";
+            this.lblMaleEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -552,7 +561,7 @@
             this.label3.Size = new System.Drawing.Size(56, 31);
             this.label3.TabIndex = 27;
             this.label3.Text = "M - ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cboSort
             // 
@@ -751,33 +760,6 @@
             this.btnExport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2Button1.BorderRadius = 4;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Green;
-            this.guna2Button1.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.DarkGreen;
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2Button1.Location = new System.Drawing.Point(1070, 17);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
-            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
-            this.guna2Button1.Size = new System.Drawing.Size(130, 40);
-            this.guna2Button1.TabIndex = 74;
-            this.guna2Button1.Text = "Import";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // cboSearch
             // 
             this.cboSearch.BackColor = System.Drawing.Color.Ivory;
@@ -827,6 +809,33 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1914, 773);
             this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.guna2Button1.BorderRadius = 4;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Green;
+            this.guna2Button1.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.DarkGreen;
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2Button1.Location = new System.Drawing.Point(1070, 17);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
+            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
+            this.guna2Button1.Size = new System.Drawing.Size(130, 40);
+            this.guna2Button1.TabIndex = 74;
+            this.guna2Button1.Text = "Import";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // EmployeeList
             // 
@@ -898,7 +907,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label lblRKESI;
         private System.Windows.Forms.Label label13;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

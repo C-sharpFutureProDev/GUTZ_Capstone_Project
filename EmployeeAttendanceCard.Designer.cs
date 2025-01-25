@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeAttendanceCard));
             this.panelEmployeeAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnLeaveMark = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAbsentMark = new Guna.UI2.WinForms.Guna2Button();
-            this.lblCurrentDate = new System.Windows.Forms.Label();
-            this.btnPresentMark = new Guna.UI2.WinForms.Guna2Button();
-            this.EmployeeAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.EmployeeLeaveDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.lblLeaveStatus = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,6 +37,11 @@
             this.lblLeaveStartDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnLeaveMark = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAbsentMark = new Guna.UI2.WinForms.Guna2Button();
+            this.lblCurrentDate = new System.Windows.Forms.Label();
+            this.btnPresentMark = new Guna.UI2.WinForms.Guna2Button();
+            this.EmployeeAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.btnClockOut = new Guna.UI2.WinForms.Guna2Button();
             this.btnStatus = new Guna.UI2.WinForms.Guna2Button();
             this.btnClockIn = new Guna.UI2.WinForms.Guna2Button();
@@ -51,8 +51,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.employeeProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelEmployeeAttendanceDetails.SuspendLayout();
-            this.EmployeeAttendanceDetails.SuspendLayout();
             this.EmployeeLeaveDetails.SuspendLayout();
+            this.EmployeeAttendanceDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +78,96 @@
             this.panelEmployeeAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.panelEmployeeAttendanceDetails.Size = new System.Drawing.Size(331, 165);
             this.panelEmployeeAttendanceDetails.TabIndex = 2;
+            // 
+            // EmployeeLeaveDetails
+            // 
+            this.EmployeeLeaveDetails.BackColor = System.Drawing.Color.Transparent;
+            this.EmployeeLeaveDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
+            this.EmployeeLeaveDetails.BorderRadius = 8;
+            this.EmployeeLeaveDetails.Controls.Add(this.lblLeaveStatus);
+            this.EmployeeLeaveDetails.Controls.Add(this.label5);
+            this.EmployeeLeaveDetails.Controls.Add(this.lblEndDate);
+            this.EmployeeLeaveDetails.Controls.Add(this.lblLeaveStartDate);
+            this.EmployeeLeaveDetails.Controls.Add(this.label1);
+            this.EmployeeLeaveDetails.Controls.Add(this.label3);
+            this.EmployeeLeaveDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
+            this.EmployeeLeaveDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.EmployeeLeaveDetails.Location = new System.Drawing.Point(98, 70);
+            this.EmployeeLeaveDetails.Name = "EmployeeLeaveDetails";
+            this.EmployeeLeaveDetails.ShadowDecoration.BorderRadius = 15;
+            this.EmployeeLeaveDetails.ShadowDecoration.Color = System.Drawing.Color.MistyRose;
+            this.EmployeeLeaveDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
+            this.EmployeeLeaveDetails.Size = new System.Drawing.Size(220, 77);
+            this.EmployeeLeaveDetails.TabIndex = 81;
+            this.EmployeeLeaveDetails.Visible = false;
+            // 
+            // lblLeaveStatus
+            // 
+            this.lblLeaveStatus.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
+            this.lblLeaveStatus.ForeColor = System.Drawing.Color.White;
+            this.lblLeaveStatus.Location = new System.Drawing.Point(91, 52);
+            this.lblLeaveStatus.Name = "lblLeaveStatus";
+            this.lblLeaveStatus.Size = new System.Drawing.Size(120, 20);
+            this.lblLeaveStatus.TabIndex = 85;
+            this.lblLeaveStatus.Text = "Leave Status";
+            this.lblLeaveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(3, 52);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.label5.Size = new System.Drawing.Size(92, 20);
+            this.label5.TabIndex = 84;
+            this.label5.Text = "Status:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
+            this.lblEndDate.ForeColor = System.Drawing.Color.White;
+            this.lblEndDate.Location = new System.Drawing.Point(91, 32);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(120, 20);
+            this.lblEndDate.TabIndex = 83;
+            this.lblEndDate.Text = "End Date";
+            this.lblEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLeaveStartDate
+            // 
+            this.lblLeaveStartDate.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
+            this.lblLeaveStartDate.ForeColor = System.Drawing.Color.White;
+            this.lblLeaveStartDate.Location = new System.Drawing.Point(91, 5);
+            this.lblLeaveStartDate.Name = "lblLeaveStartDate";
+            this.lblLeaveStartDate.Size = new System.Drawing.Size(120, 20);
+            this.lblLeaveStartDate.TabIndex = 82;
+            this.lblLeaveStartDate.Text = "Start Date";
+            this.lblLeaveStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 31);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(92, 20);
+            this.label1.TabIndex = 81;
+            this.label1.Text = "End Date:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 20);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Start Date:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLeaveMark
             // 
@@ -186,96 +276,6 @@
             this.EmployeeAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.EmployeeAttendanceDetails.Size = new System.Drawing.Size(220, 77);
             this.EmployeeAttendanceDetails.TabIndex = 62;
-            // 
-            // EmployeeLeaveDetails
-            // 
-            this.EmployeeLeaveDetails.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeLeaveDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.EmployeeLeaveDetails.BorderRadius = 8;
-            this.EmployeeLeaveDetails.Controls.Add(this.lblLeaveStatus);
-            this.EmployeeLeaveDetails.Controls.Add(this.label5);
-            this.EmployeeLeaveDetails.Controls.Add(this.lblEndDate);
-            this.EmployeeLeaveDetails.Controls.Add(this.lblLeaveStartDate);
-            this.EmployeeLeaveDetails.Controls.Add(this.label1);
-            this.EmployeeLeaveDetails.Controls.Add(this.label3);
-            this.EmployeeLeaveDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(226)))));
-            this.EmployeeLeaveDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.EmployeeLeaveDetails.Location = new System.Drawing.Point(98, 70);
-            this.EmployeeLeaveDetails.Name = "EmployeeLeaveDetails";
-            this.EmployeeLeaveDetails.ShadowDecoration.BorderRadius = 15;
-            this.EmployeeLeaveDetails.ShadowDecoration.Color = System.Drawing.Color.MistyRose;
-            this.EmployeeLeaveDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.EmployeeLeaveDetails.Size = new System.Drawing.Size(220, 77);
-            this.EmployeeLeaveDetails.TabIndex = 81;
-            this.EmployeeLeaveDetails.Visible = false;
-            // 
-            // lblLeaveStatus
-            // 
-            this.lblLeaveStatus.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
-            this.lblLeaveStatus.ForeColor = System.Drawing.Color.White;
-            this.lblLeaveStatus.Location = new System.Drawing.Point(91, 52);
-            this.lblLeaveStatus.Name = "lblLeaveStatus";
-            this.lblLeaveStatus.Size = new System.Drawing.Size(120, 20);
-            this.lblLeaveStatus.TabIndex = 85;
-            this.lblLeaveStatus.Text = "Leave Status";
-            this.lblLeaveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 52);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(92, 20);
-            this.label5.TabIndex = 84;
-            this.label5.Text = "Status:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblEndDate
-            // 
-            this.lblEndDate.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
-            this.lblEndDate.ForeColor = System.Drawing.Color.White;
-            this.lblEndDate.Location = new System.Drawing.Point(91, 32);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(120, 20);
-            this.lblEndDate.TabIndex = 83;
-            this.lblEndDate.Text = "End Date";
-            this.lblEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLeaveStartDate
-            // 
-            this.lblLeaveStartDate.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
-            this.lblLeaveStartDate.ForeColor = System.Drawing.Color.White;
-            this.lblLeaveStartDate.Location = new System.Drawing.Point(91, 5);
-            this.lblLeaveStartDate.Name = "lblLeaveStartDate";
-            this.lblLeaveStartDate.Size = new System.Drawing.Size(120, 20);
-            this.lblLeaveStartDate.TabIndex = 82;
-            this.lblLeaveStartDate.Text = "Start Date";
-            this.lblLeaveStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 31);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(92, 20);
-            this.label1.TabIndex = 81;
-            this.label1.Text = "End Date:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 8F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
-            this.label3.TabIndex = 80;
-            this.label3.Text = "Start Date:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClockOut
             // 
@@ -422,8 +422,8 @@
             this.Name = "EmployeeAttendanceCard";
             this.Size = new System.Drawing.Size(380, 194);
             this.panelEmployeeAttendanceDetails.ResumeLayout(false);
-            this.EmployeeAttendanceDetails.ResumeLayout(false);
             this.EmployeeLeaveDetails.ResumeLayout(false);
+            this.EmployeeAttendanceDetails.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).EndInit();
             this.ResumeLayout(false);
 

@@ -11,6 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using ZstdSharp.Unsafe;
 using Mysqlx.Crud;
 using System.Windows.Documents;
+using OfficeOpenXml;
 
 namespace GUTZ_Capstone_Project
 {
@@ -20,8 +21,11 @@ namespace GUTZ_Capstone_Project
         private readonly string[] defaultSearchItems = { "Search By", "ID Number", "Name", "Email Address" };
         private readonly string[] defaultSortItems = { "Sort By", "Non-Tenured", "Tenured", "ESO", "RKESI", "VUIHOC" };
         private readonly string[] defaultFilterItems = { "Filter By", "Active", "Inactive", "Male", "Female", "Full Time", "Part Time" };
+
         private bool isUserInteraction = false;
         bool isRefreshing = false;
+        public bool IsSearching = false;
+        public bool IsSearchingAgain = false;
 
         private string sql = @"SELECT emp_profilePic, tbl_employee.emp_id, gender, email, phone, start_date, position_desc, f_name, m_name, l_name, 
                                       tbl_employee.department_id, account_name, department_name, work_arrangement,
@@ -172,10 +176,8 @@ namespace GUTZ_Capstone_Project
                     else if (workingArrangement == "Part-Time")
                         sampleProfileCard.btnWorkingArrangement.Text = workingArrangement;
 
-                    if(jobRole == "Administrator")
-                    {
-                        sampleProfileCard.lblEmpRate.Text = "";
-                    }
+                    if (jobRole == "Administrator")
+                        sampleProfileCard.Hide();
 
                     flowLayoutPanel1.Controls.Add(sampleProfileCard);
                 }
@@ -235,7 +237,7 @@ namespace GUTZ_Capstone_Project
         {
             if (!isUserInteraction)
             {
-                MessageBox.Show("Please choose any of available search criteria.");
+                MessageBox.Show("Please choose any of available search criteria.", "No Search Criteria Chosen", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtSearch.Clear();
                 return;
             }
@@ -381,6 +383,7 @@ namespace GUTZ_Capstone_Project
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            IsSearching = true;
             if (!isRefreshing)
             {
                 if (string.IsNullOrEmpty(txtSearch.Text))
@@ -707,21 +710,23 @@ namespace GUTZ_Capstone_Project
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshUI();
+            IsSearching = false;
             PopulateItems();
         }
 
-        private void ExportEmployeesToCsv()
+        private void ExportEmployeesToExcel()
         {
             string sql = @"SELECT account_name, f_name, m_name, l_name, email, phone, is_deleted, start_date, end_date
                            FROM tbl_employee
                            INNER JOIN tbl_account
-                           ON tbl_employee.account_id = tbl_account.account_id";
+                           ON tbl_employee.account_id = tbl_account.account_id
+                           WHERE is_deleted = 0 OR is_deleted = 1";
 
             DataTable dt = DB_OperationHelperClass.QueryData(sql);
 
             if (dt.Rows.Count > 0)
             {
-                ExportToCsv(dt);
+                ExportToExcel(dt);
             }
             else
             {
@@ -729,47 +734,104 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void ExportToCsv(DataTable dataTable)
+        private void ExportToExcel(DataTable dataTable)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.Filter = "CSV Files (*.csv)|*.csv";
-                saveFileDialog.Title = "Save Employee List as CSV";
-                saveFileDialog.FileName = "GUTZ_employee_list.csv";
+                saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                saveFileDialog.Title = "Save Employee List as Excel File";
+                saveFileDialog.FileName = "GUTZ_employee_list.xlsx";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        StringBuilder csvContent = new StringBuilder();
+                        // Set the LicenseContext for EPPlus
+                        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-                        csvContent.AppendLine("ACCOUNT,TUTOR'S NAME,NAME,EMAIL,Phone Number,Status,Start Date,End Date");
-
-                        foreach (DataRow row in dataTable.Rows)
+                        using (ExcelPackage package = new ExcelPackage())
                         {
-                            string account = row["account_name"]?.ToString() ?? "N/A";
-                            string tutorName = row["f_name"]?.ToString() ?? "N/A";
-                            string middleInitial = !string.IsNullOrWhiteSpace(row["m_name"].ToString()) ? $"{row["m_name"].ToString()[0]}." : "N/A";
-                            string fullName = $"{tutorName} {middleInitial} {row["l_name"]?.ToString() ?? "N/A"}".Trim();
-                            string email = row["email"]?.ToString() ?? "N/A";
-                            string phone = row["phone"]?.ToString() ?? "N/A";
-                            string status = (Convert.ToInt32(row["is_deleted"]) == 0) ? "Active" : "Inactive";
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Employee List");
 
-                            string startDate = row["start_date"]?.ToString();
-                            string formattedStartDate = DateTime.TryParse(startDate, out DateTime start) ? start.ToString("MM/dd/yyyy") : "N/A";
+                            // Add primary header
+                            worksheet.Cells["A1:H1"].Merge = true; // Merge cells A1 to H1
+                            worksheet.Cells["A1:H1"].Style.Font.Bold = true;
+                            worksheet.Cells["A1"].Value = "GUTZ Employee List"; // Set primary header text
+                            worksheet.Cells["A1"].Style.Font.Size = 16; // Set font size
+                            worksheet.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // Center align
 
-                            string endDate = row["end_date"]?.ToString();
-                            string formattedEndDate = DateTime.TryParse(endDate, out DateTime end) ? end.ToString("MM/dd/yyyy") : "N/A";
+                            // Define headers
+                            worksheet.Cells[2, 1].Value = "ACCOUNT";
+                            worksheet.Cells[2, 2].Value = "TUTOR'S NAME";
+                            worksheet.Cells[2, 3].Value = "NAME";
+                            worksheet.Cells[2, 4].Value = "EMAIL";
+                            worksheet.Cells[2, 5].Value = "Phone Number";
+                            worksheet.Cells[2, 6].Value = "Status";
+                            worksheet.Cells[2, 7].Value = "Start Date";
+                            worksheet.Cells[2, 8].Value = "End Date";
 
-                            csvContent.AppendLine($"\"{account}\",\"{tutorName}\",\"{fullName}\",\"{email}\",\"'{phone}\",\"{status}\",\"{formattedStartDate}\",\"{formattedEndDate}\"");
+                            // Set left alignment for each header cell and apply color
+                            for (int col = 1; col <= 8; col++)
+                            {
+                                worksheet.Cells[2, col].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+                            }
+
+                            // Customize header row with blue color
+                            worksheet.Cells["A2:H2"].Style.Font.Bold = true; // Make header bold
+                            worksheet.Cells["A2:H2"].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid; // Solid fill
+                            worksheet.Cells["A2:H2"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 123, 255)); // Blue background color
+                            worksheet.Cells["A2:H2"].Style.Font.Color.SetColor(System.Drawing.Color.White); // Set font color to white
+
+                            // Populate data
+                            for (int i = 0; i < dataTable.Rows.Count; i++)
+                            {
+                                DataRow row = dataTable.Rows[i];
+
+                                string account = row["account_name"]?.ToString() ?? "N/A";
+                                string tutorName = row["f_name"]?.ToString() ?? "N/A";
+                                string middleInitial = !string.IsNullOrWhiteSpace(row["m_name"].ToString()) ? $"{row["m_name"].ToString()[0]}." : "N/A";
+                                string fullName = $"{tutorName} {middleInitial} {row["l_name"]?.ToString() ?? "N/A"}".Trim();
+                                string email = row["email"]?.ToString() ?? "N/A";
+                                string phone = row["phone"]?.ToString() ?? "N/A";
+                                string status = (Convert.ToInt32(row["is_deleted"]) == 0) ? "Active" : "Inactive";
+
+                                string startDate = row["start_date"]?.ToString();
+                                string formattedStartDate = DateTime.TryParse(startDate, out DateTime start) ? start.ToString("MM/dd/yyyy") : "N/A";
+
+                                string endDate = row["end_date"]?.ToString();
+                                string formattedEndDate = DateTime.TryParse(endDate, out DateTime end) ? end.ToString("MM/dd/yyyy") : "N/A";
+
+                                // Write row to Excel
+                                worksheet.Cells[i + 3, 1].Value = account;
+                                worksheet.Cells[i + 3, 2].Value = tutorName;
+                                worksheet.Cells[i + 3, 3].Value = fullName;
+                                worksheet.Cells[i + 3, 4].Value = email;
+                                worksheet.Cells[i + 3, 5].Value = phone;
+                                worksheet.Cells[i + 3, 6].Value = status;
+                                worksheet.Cells[i + 3, 7].Value = formattedStartDate;
+                                worksheet.Cells[i + 3, 8].Value = formattedEndDate;
+
+                                // Set alternating row colors for better readability
+                                if (i % 2 == 0)
+                                {
+                                    worksheet.Cells[i + 3, 1, i + 3, 8].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                                    worksheet.Cells[i + 3, 1, i + 3, 8].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(248, 249, 250)); // Light gray
+                                }
+                            }
+
+                            // Auto-fit columns
+                            worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                            // Save the Excel file
+                            FileInfo fi = new FileInfo(saveFileDialog.FileName);
+                            package.SaveAs(fi);
                         }
 
-                        File.WriteAllText(saveFileDialog.FileName, csvContent.ToString());
                         MessageBox.Show("Export successful!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while exporting the data to CSV: {ex.Message}", "Error",
+                        MessageBox.Show($"An error occurred while exporting the data to Excel: {ex.Message}", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -778,7 +840,7 @@ namespace GUTZ_Capstone_Project
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            ExportEmployeesToCsv();
+            ExportEmployeesToExcel();
         }
 
         private void cboSearch_Click(object sender, EventArgs e)

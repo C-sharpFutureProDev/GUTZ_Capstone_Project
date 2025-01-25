@@ -183,7 +183,7 @@ namespace GUTZ_Capstone_Project.Forms
                             break;
                     }
                 }
-            } // end if
+            }
             else
             {
                 MessageBox.Show("No records found to update.", "No Records Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -273,11 +273,6 @@ namespace GUTZ_Capstone_Project.Forms
                     SetPrompt("Can't terminate capturer!");
                 }
             }
-        }
-
-        private void UpdateStatus(int FAR)
-        {
-            SetStatus(String.Format("False Accept Rate (FAR) = {0}", FAR));
         }
 
         protected void Process(DPFP.Sample Sample)
@@ -725,11 +720,12 @@ namespace GUTZ_Capstone_Project.Forms
                     };
                     if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
                     {
-                        string insertIntoProfileTable = @"INSERT INTO tbl_profile (emp_id) 
-                                                          VALUES (@EmpId)"; // tbl_wage
+                        string insertIntoProfileTable = @"INSERT INTO tbl_wage (emp_id, status) 
+                                                          VALUES (@EmpId, @Status)"; // tbl_wage - need adjustment for payroll id
                         var profileParam = new Dictionary<string, object>
                         {
-                            { "@EmpId", emp_id }
+                            { "@EmpId", emp_id },
+                            { "@Status", "In-Progress" }
                         };
                         if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoProfileTable, profileParam))
                         {
@@ -795,8 +791,8 @@ namespace GUTZ_Capstone_Project.Forms
                     sqlUpdate = @"UPDATE tbl_employee SET department_id = @deptID, position_id = @posID, account_id = @accID,
                                   f_name = @fName, m_name = @mName, l_name = @lName, b_day = @bDay,
                                   age = @age, civil_status = @civilStatus, gender = @gender, address = @address, email = @email, 
-                                  phone = @phone, emerg_contact = @emergencyContact, hired_date = @hiredDate, employment_type = @employmentType, work_arrangement = @workArrangement,
-                                  start_date = @startDate, end_date = @endDate
+                                  phone = @phone, emerg_contact = @emergencyContact, hired_date = @hiredDate, employment_type = @employmentType, 
+                                  work_arrangement = @workArrangement, start_date = @startDate, end_date = @endDate
                                   WHERE emp_id = @empId";
                 }
 
@@ -829,24 +825,24 @@ namespace GUTZ_Capstone_Project.Forms
                     parameterUpdate.Add("@empProPicPath", employeeProfilePicPath);
                 }
 
-                // Check if there is new fingerprint data
-                byte[] newFingerprintData = fingerprintData as byte[];
-                byte[] existingFingerprintData = null;
-
-                if (newFingerprintData == null || newFingerprintData.Length == 0)
-                {
-                    // Retrieve existing fingerprint data from the database
-                    string getFingerprintSql = @"SELECT fingerprint_data FROM tbl_fingerprint WHERE emp_id = @EmpId";
-                    var param = new Dictionary<string, object> { { "@EmpId", _empId } };
-                    DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(getFingerprintSql, param);
-                    if (dt.Rows.Count > 0)
-                    {
-                        existingFingerprintData = (byte[])dt.Rows[0]["fingerprint_data"];
-                    }
-                }
-
                 if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(sqlUpdate, parameterUpdate))
                 {
+                    // Check if there is new fingerprint data
+                    byte[] newFingerprintData = fingerprintData as byte[];
+                    byte[] existingFingerprintData = null;
+
+                    if (newFingerprintData == null || newFingerprintData.Length == 0)
+                    {
+                        // Retrieve existing fingerprint data from the database
+                        string getFingerprintSql = @"SELECT fingerprint_data FROM tbl_fingerprint WHERE emp_id = @EmpId";
+                        var param = new Dictionary<string, object> { { "@EmpId", _empId } };
+                        DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(getFingerprintSql, param);
+                        if (dt.Rows.Count > 0)
+                        {
+                            existingFingerprintData = (byte[])dt.Rows[0]["fingerprint_data"];
+                        }
+                    }
+
                     // Use new fingerprint data if available; otherwise, use existing data
                     byte[] fingerprintDataToUse = newFingerprintData ?? existingFingerprintData;
 
@@ -868,10 +864,27 @@ namespace GUTZ_Capstone_Project.Forms
                                 UpdateSchedule(_empId);
                             }
 
-                            MessageBox.Show($"Employee record for Employee with ID {_empId} has been updated successfully.", "Update Successful",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Update attendance_id in the attendance table if the last name is updated
+                            string newAttendanceId = $"{_empId}-{lName}";
+                            string updateAttendanceSql = @"UPDATE tbl_attendance SET attendance_id = @NewAttendanceId WHERE emp_id = @EmpId";
 
-                            this.Close();
+                            var attendanceParam = new Dictionary<string, object>
+                            {
+                                { "@NewAttendanceId", newAttendanceId },
+                                { "@EmpId", _empId }
+                            };
+
+                            if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateAttendanceSql, attendanceParam))
+                            {
+                                MessageBox.Show($"Employee record (including attendance ID) for Employee with ID {_empId} has been updated successfully.",
+                                    "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to update attendance ID.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                         else
                         {

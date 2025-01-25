@@ -62,7 +62,7 @@
             this.btnSaveEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveEmployeeDetails.FillColor = System.Drawing.Color.Green;
-            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnSaveEmployeeDetails.ForeColor = System.Drawing.Color.White;
             this.btnSaveEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnSaveEmployeeDetails.HoverState.FillColor = System.Drawing.Color.DarkGreen;
@@ -72,7 +72,7 @@
             this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(5, 3, 0, 0);
             this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(110, 40);
             this.btnSaveEmployeeDetails.TabIndex = 75;
-            this.btnSaveEmployeeDetails.Text = "SAVE";
+            this.btnSaveEmployeeDetails.Text = "Save";
             this.btnSaveEmployeeDetails.Click += new System.EventHandler(this.btnSaveEmployeeDetails_Click);
             // 
             // btnCancel
@@ -85,7 +85,7 @@
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(58)))));
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 10.5F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnCancel.HoverState.FillColor = System.Drawing.Color.Red;
@@ -101,7 +101,7 @@
             // lblEmployeeFullName
             // 
             this.lblEmployeeFullName.BackColor = System.Drawing.Color.White;
-            this.lblEmployeeFullName.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployeeFullName.Font = new System.Drawing.Font("Arial Black", 11F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblEmployeeFullName.Location = new System.Drawing.Point(37, 27);
             this.lblEmployeeFullName.Name = "lblEmployeeFullName";
@@ -316,13 +316,13 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.White;
-            this.lblID.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(37, 71);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(233, 37);
             this.lblID.TabIndex = 87;
-            this.lblID.Text = "ID: 1001";
+            this.lblID.Text = "ID: Number";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // employeeProfilePicture

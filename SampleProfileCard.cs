@@ -251,6 +251,7 @@ namespace GUTZ_Capstone_Project
                 _employeeList.PerformLayout();
             }*/
 
+
             if (_activeCard != null && _activeCard != this)
             {
                 // Reset the previous active card
@@ -270,7 +271,11 @@ namespace GUTZ_Capstone_Project
                 }
 
                 _employeeList.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
-                _employeeList.flowLayoutPanel1.Size = new Size(410, 0); // Set size if needed
+
+                if (_employeeList.IsSearching == true)
+                    _employeeList.flowLayoutPanel1.Size = new Size(376, 0);
+                else
+                    _employeeList.flowLayoutPanel1.Size = new Size(410, 0); // Set size if needed
 
                 // Show flowLayoutPanel2
                 _employeeList.flowLayoutPanel2.Visible = true;
@@ -315,8 +320,8 @@ namespace GUTZ_Capstone_Project
 
                     // Display profile details card based on specified condition
                     var cardToAdd = (positionId == 1101 && positionType == "Administrator")
-                        ? (Control)new SampleAdminProfile()
-                        : new SampleEmployeeDetailsCard(_id, _employeeList);
+                        ? (Control)new SampleAdminProfile() // admin
+                        : new SampleEmployeeDetailsCard(_id, _employeeList); // employee
 
                     _employeeList.flowLayoutPanel2.Controls.Add(cardToAdd);
                 }

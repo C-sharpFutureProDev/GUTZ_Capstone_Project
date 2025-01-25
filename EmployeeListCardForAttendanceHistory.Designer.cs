@@ -62,6 +62,7 @@
             this.panelEmployeeList.Controls.Add(this.EmployeeListCardEmployeeDetailsCard);
             this.panelEmployeeList.Controls.Add(this.employeeProfilePicture);
             this.panelEmployeeList.FillColor = System.Drawing.Color.Ivory;
+            this.panelEmployeeList.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.panelEmployeeList.ForeColor = System.Drawing.Color.Black;
             this.panelEmployeeList.Location = new System.Drawing.Point(27, 20);
             this.panelEmployeeList.Margin = new System.Windows.Forms.Padding(0);
@@ -103,7 +104,6 @@
             // 
             this.lblJobRole.BackColor = System.Drawing.Color.Ivory;
             this.lblJobRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.lblJobRole.BorderRadius = 3;
             this.lblJobRole.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.lblJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -123,12 +123,12 @@
             this.lblJobRole.PressedDepth = 0;
             this.lblJobRole.Size = new System.Drawing.Size(127, 35);
             this.lblJobRole.TabIndex = 89;
-            this.lblJobRole.Text = "ESL Admin";
+            this.lblJobRole.Text = "Job Role";
             // 
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblID.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(18, 143);
             this.lblID.Name = "lblID";
@@ -201,18 +201,18 @@
             this.btnViewEmployeeAttendanceHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeAttendanceHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeAttendanceHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewEmployeeAttendanceHistory.FillColor = System.Drawing.Color.DarkCyan;
+            this.btnViewEmployeeAttendanceHistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnViewEmployeeAttendanceHistory.Font = new System.Drawing.Font("Times New Roman", 8.5F);
             this.btnViewEmployeeAttendanceHistory.ForeColor = System.Drawing.Color.White;
-            this.btnViewEmployeeAttendanceHistory.HoverState.BorderColor = System.Drawing.Color.Teal;
-            this.btnViewEmployeeAttendanceHistory.HoverState.FillColor = System.Drawing.Color.Teal;
+            this.btnViewEmployeeAttendanceHistory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnViewEmployeeAttendanceHistory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.btnViewEmployeeAttendanceHistory.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeAttendanceHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnViewEmployeeAttendanceHistory.Image")));
             this.btnViewEmployeeAttendanceHistory.ImageSize = new System.Drawing.Size(19, 19);
             this.btnViewEmployeeAttendanceHistory.Location = new System.Drawing.Point(120, 146);
             this.btnViewEmployeeAttendanceHistory.Name = "btnViewEmployeeAttendanceHistory";
             this.btnViewEmployeeAttendanceHistory.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnViewEmployeeAttendanceHistory.PressedColor = System.Drawing.Color.Teal;
+            this.btnViewEmployeeAttendanceHistory.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnViewEmployeeAttendanceHistory.PressedDepth = 0;
             this.btnViewEmployeeAttendanceHistory.Size = new System.Drawing.Size(213, 33);
             this.btnViewEmployeeAttendanceHistory.TabIndex = 73;
@@ -240,7 +240,7 @@
             // lblScheduleWorkingHours
             // 
             this.lblScheduleWorkingHours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.lblScheduleWorkingHours.Font = new System.Drawing.Font("Arial", 9F);
+            this.lblScheduleWorkingHours.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblScheduleWorkingHours.ForeColor = System.Drawing.Color.White;
             this.lblScheduleWorkingHours.Location = new System.Drawing.Point(3, 58);
             this.lblScheduleWorkingHours.Name = "lblScheduleWorkingHours";
@@ -253,7 +253,7 @@
             // lblWorkingDays
             // 
             this.lblWorkingDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.lblWorkingDays.Font = new System.Drawing.Font("Arial", 9F);
+            this.lblWorkingDays.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblWorkingDays.ForeColor = System.Drawing.Color.White;
             this.lblWorkingDays.Location = new System.Drawing.Point(3, 31);
             this.lblWorkingDays.Name = "lblWorkingDays";
@@ -266,7 +266,7 @@
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";

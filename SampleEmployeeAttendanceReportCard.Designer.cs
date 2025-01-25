@@ -42,8 +42,9 @@
             // EmployeeAttendanceDetails
             // 
             this.EmployeeAttendanceDetails.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeeAttendanceDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.EmployeeAttendanceDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.EmployeeAttendanceDetails.BorderRadius = 5;
+            this.EmployeeAttendanceDetails.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.EmployeeAttendanceDetails.BorderThickness = 1;
             this.EmployeeAttendanceDetails.Controls.Add(this.lblComputedTutoringHours);
             this.EmployeeAttendanceDetails.Controls.Add(this.lblLateTime);
@@ -144,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.Controls.Add(this.EmployeeAttendanceDetails);
             this.DoubleBuffered = true;
             this.Name = "SampleEmployeeAttendanceReportCard";

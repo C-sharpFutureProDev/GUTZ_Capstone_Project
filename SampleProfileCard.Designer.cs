@@ -67,7 +67,7 @@
             this.panelEmployeeListCard.Controls.Add(this.employeeProfilePicture);
             this.panelEmployeeListCard.FillColor = System.Drawing.Color.Ivory;
             this.panelEmployeeListCard.ForeColor = System.Drawing.Color.White;
-            this.panelEmployeeListCard.Location = new System.Drawing.Point(25, 18);
+            this.panelEmployeeListCard.Location = new System.Drawing.Point(27, 18);
             this.panelEmployeeListCard.Name = "panelEmployeeListCard";
             this.panelEmployeeListCard.ShadowDecoration.BorderRadius = 15;
             this.panelEmployeeListCard.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -79,7 +79,6 @@
             // 
             this.btnWorkingArrangement.BackColor = System.Drawing.Color.Ivory;
             this.btnWorkingArrangement.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnWorkingArrangement.BorderRadius = 3;
             this.btnWorkingArrangement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnWorkingArrangement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -182,25 +181,25 @@
             // btnViewEmployeeDetails
             // 
             this.btnViewEmployeeDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnViewEmployeeDetails.BorderColor = System.Drawing.Color.DarkCyan;
-            this.btnViewEmployeeDetails.BorderRadius = 4;
-            this.btnViewEmployeeDetails.BorderThickness = 4;
+            this.btnViewEmployeeDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnViewEmployeeDetails.BorderRadius = 5;
+            this.btnViewEmployeeDetails.BorderThickness = 5;
             this.btnViewEmployeeDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewEmployeeDetails.FillColor = System.Drawing.Color.DarkCyan;
+            this.btnViewEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnViewEmployeeDetails.Font = new System.Drawing.Font("Times New Roman", 8.5F);
             this.btnViewEmployeeDetails.ForeColor = System.Drawing.Color.White;
-            this.btnViewEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.Teal;
-            this.btnViewEmployeeDetails.HoverState.FillColor = System.Drawing.Color.Teal;
+            this.btnViewEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnViewEmployeeDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.btnViewEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeDetails.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnViewEmployeeDetails.ImageSize = new System.Drawing.Size(17, 17);
             this.btnViewEmployeeDetails.Location = new System.Drawing.Point(257, 147);
             this.btnViewEmployeeDetails.Name = "btnViewEmployeeDetails";
             this.btnViewEmployeeDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 1);
-            this.btnViewEmployeeDetails.PressedColor = System.Drawing.Color.Teal;
+            this.btnViewEmployeeDetails.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnViewEmployeeDetails.Size = new System.Drawing.Size(80, 30);
             this.btnViewEmployeeDetails.TabIndex = 84;
             this.btnViewEmployeeDetails.Text = "Details";
@@ -263,7 +262,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblID.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(15, 142);
             this.lblID.Name = "lblID";
@@ -303,7 +302,7 @@
             // 
             // lblJobRole
             // 
-            this.lblJobRole.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJobRole.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
             this.lblJobRole.Location = new System.Drawing.Point(2, 31);
             this.lblJobRole.Name = "lblJobRole";
@@ -314,7 +313,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";

@@ -17,23 +17,11 @@ namespace GUTZ_Capstone_Project
         private Image _image;
         private string _account;
         private string _employmentType;
-        private string _workingArrangement;
         private string _ratePerHour;
 
         public EmployeeListCardForPayrollHistory()
         {
             InitializeComponent();
-        }
-
-        [Category("Custom Control")]
-        public string WorkingArrangement
-        {
-            get => _workingArrangement;
-            set
-            {
-                _workingArrangement = value;
-                btnWorkingArrangement.Text = value;
-            }
         }
 
         [Category("Custom Control")]
