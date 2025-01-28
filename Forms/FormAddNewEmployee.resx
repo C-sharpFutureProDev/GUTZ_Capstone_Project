@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnImportEmployeeDetails.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAARtJREFUSEvdlbFtAkEQRa8CAy1ACCnkSFRgCbfizCKkDWzXQeDADWCRm9iWoABr
+        +f/2b3J7I2YBB/CkH9zMn/mIg93q/gghdKFX6AB5oZczHa2xkfFcVlpjA1P65J/Q0il6yV5rbGQkC5VO
+        Au9LHAl/KtnISEoCxtAP9KaSDTcLMwC9HjTSYxn16khrAOp96Lt2hPCosh8NkiwAtQG0q7uR6wXgubl8
+        Dc1aNIXs/wOaiWbANpZdfGksRwZyScBGYzkykEu+ogeN5aCZ8LzkJ7X8aJBkAQR1hqSf6VxlPxokrQEE
+        vQ401GMZ9eqIGdAE3gn0C72rZMPNoiSg6LBLx/UH9OwUvcR1XP/7hcMXuIJKrsw9xJnTV+aNUVVH+Ns4
+        dpLWZngAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

@@ -119,9 +119,9 @@ namespace GUTZ_Capstone_Project
 
                     // Retrieve the administrator's name
                     string sqlAdmin = @"SELECT f_name, m_name, l_name 
-                                FROM tbl_employee
-                                INNER JOIN tbl_position ON tbl_position.position_id = tbl_employee.position_id
-                                WHERE position_type = @administrator";
+                                        FROM tbl_employee
+                                        INNER JOIN tbl_position ON tbl_position.position_id = tbl_employee.position_id
+                                        WHERE position_type = @administrator";
 
                     var adminParameters = new Dictionary<string, object>
                     {
@@ -148,10 +148,10 @@ namespace GUTZ_Capstone_Project
                     }
 
                     string employmentType = dt.Rows[0]["employment_type"].ToString();
-                    lblEmployeeEmploymenType.Text = employmentType + " - " + "Inbound";
+                    lblEmployeeEmploymenType.Text = employmentType + " - " + "Office Based";
 
                     string work_arrangement = dt.Rows[0]["work_arrangement"].ToString();
-                    lblEmployeeWorkingArrangement.Text = work_arrangement + " - " + "Inbound";
+                    lblEmployeeWorkingArrangement.Text = work_arrangement + " - " + "Office Based";
 
                     string workDaysString = dt.Rows[0]["work_days"].ToString();
                     if (!string.IsNullOrEmpty(workDaysString))
@@ -320,6 +320,46 @@ namespace GUTZ_Capstone_Project
                 _employeeList.flowLayoutPanel1.Visible = true;
                 _employeeList.panelEmployeeListFeatures.Visible = true;
             }
+        }
+
+        private void guna2Panel18_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel21_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel19_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel22_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel20_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel23_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel17_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel16_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

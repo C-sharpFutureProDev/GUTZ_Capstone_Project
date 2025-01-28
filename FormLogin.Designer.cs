@@ -86,8 +86,8 @@
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnLogin.Font = new System.Drawing.Font("Cambria", 22F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(100)))), ((int)(((byte)(20)))));
-            this.btnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(100)))), ((int)(((byte)(20)))));
+            this.btnLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(50)))), ((int)(((byte)(10)))));
+            this.btnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(50)))), ((int)(((byte)(10)))));
             this.btnLogin.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(69, 505);
             this.btnLogin.Name = "btnLogin";
@@ -156,14 +156,14 @@
             this.GUTZLoginLOGO.HoverState.ForeColor = System.Drawing.Color.White;
             this.GUTZLoginLOGO.Image = ((System.Drawing.Image)(resources.GetObject("GUTZLoginLOGO.Image")));
             this.GUTZLoginLOGO.ImageSize = new System.Drawing.Size(340, 220);
-            this.GUTZLoginLOGO.Location = new System.Drawing.Point(69, 67);
+            this.GUTZLoginLOGO.Location = new System.Drawing.Point(69, 65);
             this.GUTZLoginLOGO.Name = "GUTZLoginLOGO";
             this.GUTZLoginLOGO.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.GUTZLoginLOGO.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.GUTZLoginLOGO.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.GUTZLoginLOGO.ShadowDecoration.Enabled = true;
             this.GUTZLoginLOGO.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(8);
-            this.GUTZLoginLOGO.Size = new System.Drawing.Size(359, 135);
+            this.GUTZLoginLOGO.Size = new System.Drawing.Size(359, 140);
             this.GUTZLoginLOGO.TabIndex = 33;
             // 
             // txtUsername
@@ -199,6 +199,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Ivory;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.Controls.Add(this.lblMessage);
             this.guna2Panel1.Controls.Add(this.txtUsername);
             this.guna2Panel1.Controls.Add(this.txtPassword);

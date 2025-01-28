@@ -151,6 +151,8 @@
             // 
             this.panelEmployeeProfileDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.panelEmployeeProfileDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
+            this.panelEmployeeProfileDetails.BorderRadius = 10;
+            this.panelEmployeeProfileDetails.BorderThickness = 10;
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel23);
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel22);
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel21);
@@ -198,8 +200,9 @@
             // guna2Panel23
             // 
             this.guna2Panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel23.BorderRadius = 12;
+            this.guna2Panel23.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel23.BorderRadius = 10;
+            this.guna2Panel23.BorderThickness = 10;
             this.guna2Panel23.Controls.Add(this.lblEmployeeBenefits);
             this.guna2Panel23.Controls.Add(this.label46);
             this.guna2Panel23.FillColor = System.Drawing.Color.Teal;
@@ -210,6 +213,7 @@
             this.guna2Panel23.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel23.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel23.TabIndex = 140;
+            this.guna2Panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel23_Paint);
             // 
             // lblEmployeeBenefits
             // 
@@ -240,8 +244,9 @@
             // guna2Panel22
             // 
             this.guna2Panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel22.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel22.BorderRadius = 12;
+            this.guna2Panel22.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel22.BorderRadius = 10;
+            this.guna2Panel22.BorderThickness = 10;
             this.guna2Panel22.Controls.Add(this.lblEmployeeWorkingArrangement);
             this.guna2Panel22.Controls.Add(this.label45);
             this.guna2Panel22.FillColor = System.Drawing.Color.Teal;
@@ -252,6 +257,7 @@
             this.guna2Panel22.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel22.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel22.TabIndex = 139;
+            this.guna2Panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel22_Paint);
             // 
             // lblEmployeeWorkingArrangement
             // 
@@ -282,8 +288,9 @@
             // guna2Panel21
             // 
             this.guna2Panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel21.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel21.BorderRadius = 12;
+            this.guna2Panel21.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel21.BorderRadius = 10;
+            this.guna2Panel21.BorderThickness = 10;
             this.guna2Panel21.Controls.Add(this.lblEmployeeEmploymenType);
             this.guna2Panel21.Controls.Add(this.label44);
             this.guna2Panel21.FillColor = System.Drawing.Color.Teal;
@@ -294,6 +301,7 @@
             this.guna2Panel21.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel21.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel21.TabIndex = 135;
+            this.guna2Panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel21_Paint);
             // 
             // lblEmployeeEmploymenType
             // 
@@ -324,8 +332,9 @@
             // guna2Panel20
             // 
             this.guna2Panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel20.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel20.BorderRadius = 12;
+            this.guna2Panel20.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel20.BorderRadius = 10;
+            this.guna2Panel20.BorderThickness = 10;
             this.guna2Panel20.Controls.Add(this.lblEmployeeEndDate);
             this.guna2Panel20.Controls.Add(this.label43);
             this.guna2Panel20.FillColor = System.Drawing.Color.Teal;
@@ -336,6 +345,7 @@
             this.guna2Panel20.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel20.Size = new System.Drawing.Size(319, 80);
             this.guna2Panel20.TabIndex = 138;
+            this.guna2Panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel20_Paint);
             // 
             // lblEmployeeEndDate
             // 
@@ -366,8 +376,9 @@
             // guna2Panel19
             // 
             this.guna2Panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel19.BorderRadius = 12;
+            this.guna2Panel19.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel19.BorderRadius = 10;
+            this.guna2Panel19.BorderThickness = 10;
             this.guna2Panel19.Controls.Add(this.EmployeeStartDate);
             this.guna2Panel19.Controls.Add(this.label9);
             this.guna2Panel19.FillColor = System.Drawing.Color.Teal;
@@ -378,6 +389,7 @@
             this.guna2Panel19.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel19.Size = new System.Drawing.Size(319, 80);
             this.guna2Panel19.TabIndex = 137;
+            this.guna2Panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel19_Paint);
             // 
             // EmployeeStartDate
             // 
@@ -408,8 +420,9 @@
             // guna2Panel18
             // 
             this.guna2Panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel18.BorderRadius = 12;
+            this.guna2Panel18.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel18.BorderRadius = 10;
+            this.guna2Panel18.BorderThickness = 10;
             this.guna2Panel18.Controls.Add(this.lblEmployeeHireDate);
             this.guna2Panel18.Controls.Add(this.label1);
             this.guna2Panel18.FillColor = System.Drawing.Color.Teal;
@@ -420,6 +433,7 @@
             this.guna2Panel18.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel18.Size = new System.Drawing.Size(318, 80);
             this.guna2Panel18.TabIndex = 134;
+            this.guna2Panel18.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel18_Paint);
             // 
             // lblEmployeeHireDate
             // 
@@ -450,8 +464,9 @@
             // guna2Panel17
             // 
             this.guna2Panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel17.BorderRadius = 12;
+            this.guna2Panel17.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel17.BorderRadius = 10;
+            this.guna2Panel17.BorderThickness = 10;
             this.guna2Panel17.Controls.Add(this.lblHolidays);
             this.guna2Panel17.Controls.Add(this.label42);
             this.guna2Panel17.FillColor = System.Drawing.Color.Teal;
@@ -462,6 +477,7 @@
             this.guna2Panel17.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel17.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel17.TabIndex = 135;
+            this.guna2Panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel17_Paint);
             // 
             // lblHolidays
             // 
@@ -492,8 +508,9 @@
             // guna2Panel14
             // 
             this.guna2Panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel14.BorderRadius = 12;
+            this.guna2Panel14.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel14.BorderRadius = 10;
+            this.guna2Panel14.BorderThickness = 10;
             this.guna2Panel14.Controls.Add(this.lblEmployeRatePerHour);
             this.guna2Panel14.Controls.Add(this.label40);
             this.guna2Panel14.FillColor = System.Drawing.Color.Teal;
@@ -534,8 +551,9 @@
             // guna2Panel13
             // 
             this.guna2Panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel13.BorderRadius = 12;
+            this.guna2Panel13.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel13.BorderRadius = 10;
+            this.guna2Panel13.BorderThickness = 10;
             this.guna2Panel13.Controls.Add(this.lblEmployeeBasedSalary);
             this.guna2Panel13.Controls.Add(this.label38);
             this.guna2Panel13.FillColor = System.Drawing.Color.Teal;
@@ -576,8 +594,9 @@
             // guna2Panel11
             // 
             this.guna2Panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel11.BorderRadius = 12;
+            this.guna2Panel11.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel11.BorderRadius = 10;
+            this.guna2Panel11.BorderThickness = 10;
             this.guna2Panel11.Controls.Add(this.lblEmployeeAccountName);
             this.guna2Panel11.Controls.Add(this.label36);
             this.guna2Panel11.FillColor = System.Drawing.Color.Teal;
@@ -618,8 +637,9 @@
             // guna2Panel16
             // 
             this.guna2Panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel16.BorderRadius = 12;
+            this.guna2Panel16.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel16.BorderRadius = 10;
+            this.guna2Panel16.BorderThickness = 10;
             this.guna2Panel16.Controls.Add(this.lblEmployeeWorkingHours);
             this.guna2Panel16.Controls.Add(this.label34);
             this.guna2Panel16.FillColor = System.Drawing.Color.Teal;
@@ -630,6 +650,7 @@
             this.guna2Panel16.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel16.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel16.TabIndex = 134;
+            this.guna2Panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel16_Paint);
             // 
             // lblEmployeeWorkingHours
             // 
@@ -660,8 +681,9 @@
             // guna2Panel15
             // 
             this.guna2Panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.guna2Panel15.BorderRadius = 12;
+            this.guna2Panel15.BorderColor = System.Drawing.Color.Teal;
+            this.guna2Panel15.BorderRadius = 10;
+            this.guna2Panel15.BorderThickness = 10;
             this.guna2Panel15.Controls.Add(this.lblEmployeeWorkingDays);
             this.guna2Panel15.Controls.Add(this.label32);
             this.guna2Panel15.FillColor = System.Drawing.Color.Teal;
@@ -740,8 +762,9 @@
             // guna2Panel8
             // 
             this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel8.BorderRadius = 12;
+            this.guna2Panel8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel8.BorderRadius = 10;
+            this.guna2Panel8.BorderThickness = 10;
             this.guna2Panel8.Controls.Add(this.guna2Button10);
             this.guna2Panel8.Controls.Add(this.lblOnboardingPersonel);
             this.guna2Panel8.Controls.Add(this.label17);
@@ -847,8 +870,9 @@
             // guna2Panel12
             // 
             this.guna2Panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel12.BorderRadius = 12;
+            this.guna2Panel12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel12.BorderRadius = 10;
+            this.guna2Panel12.BorderThickness = 10;
             this.guna2Panel12.Controls.Add(this.guna2Button8);
             this.guna2Panel12.Controls.Add(this.lblEmployeeJobDescription);
             this.guna2Panel12.Controls.Add(this.label28);
@@ -915,8 +939,9 @@
             // guna2Panel10
             // 
             this.guna2Panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel10.BorderRadius = 12;
+            this.guna2Panel10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel10.BorderRadius = 10;
+            this.guna2Panel10.BorderThickness = 10;
             this.guna2Panel10.Controls.Add(this.guna2Button7);
             this.guna2Panel10.Controls.Add(this.lblEmployeePhoneNo);
             this.guna2Panel10.Controls.Add(this.label26);
@@ -983,8 +1008,9 @@
             // guna2Panel9
             // 
             this.guna2Panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel9.BorderRadius = 12;
+            this.guna2Panel9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel9.BorderRadius = 10;
+            this.guna2Panel9.BorderThickness = 10;
             this.guna2Panel9.Controls.Add(this.guna2Button6);
             this.guna2Panel9.Controls.Add(this.lblEmployeeEmail);
             this.guna2Panel9.Controls.Add(this.label24);
@@ -1051,8 +1077,9 @@
             // guna2Panel7
             // 
             this.guna2Panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
+            this.guna2Panel7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
             this.guna2Panel7.BorderRadius = 12;
+            this.guna2Panel7.BorderThickness = 12;
             this.guna2Panel7.Controls.Add(this.guna2Button9);
             this.guna2Panel7.Controls.Add(this.lblEmployeeID);
             this.guna2Panel7.Controls.Add(this.label20);
@@ -1119,8 +1146,9 @@
             // guna2Panel5
             // 
             this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel5.BorderRadius = 12;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel5.BorderRadius = 10;
+            this.guna2Panel5.BorderThickness = 10;
             this.guna2Panel5.Controls.Add(this.guna2Button5);
             this.guna2Panel5.Controls.Add(this.lblEmployeeStartDate);
             this.guna2Panel5.Controls.Add(this.label14);
@@ -1187,8 +1215,9 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel4.BorderRadius = 12;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel4.BorderRadius = 10;
+            this.guna2Panel4.BorderThickness = 10;
             this.guna2Panel4.Controls.Add(this.guna2Button4);
             this.guna2Panel4.Controls.Add(this.lblEmployeeOnboardingDate);
             this.guna2Panel4.Controls.Add(this.label12);
@@ -1255,8 +1284,9 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel3.BorderRadius = 12;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel3.BorderRadius = 10;
+            this.guna2Panel3.BorderThickness = 10;
             this.guna2Panel3.Controls.Add(this.guna2Button3);
             this.guna2Panel3.Controls.Add(this.lblEmployeeDepartment);
             this.guna2Panel3.Controls.Add(this.label10);
@@ -1337,8 +1367,9 @@
             // guna2Panel6
             // 
             this.guna2Panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(248)))));
-            this.guna2Panel6.BorderRadius = 12;
+            this.guna2Panel6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.guna2Panel6.BorderRadius = 10;
+            this.guna2Panel6.BorderThickness = 10;
             this.guna2Panel6.Controls.Add(this.guna2Button2);
             this.guna2Panel6.Controls.Add(this.lblEmployeeRole);
             this.guna2Panel6.Controls.Add(this.label8);
@@ -1456,8 +1487,9 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
+            this.guna2Panel2.BorderColor = System.Drawing.Color.Teal;
             this.guna2Panel2.BorderRadius = 12;
+            this.guna2Panel2.BorderThickness = 12;
             this.guna2Panel2.Controls.Add(this.lblEmployeeActiveStatus);
             this.guna2Panel2.Controls.Add(this.label16);
             this.guna2Panel2.Controls.Add(this.btnDeactivateEmployee);
@@ -1609,6 +1641,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.Controls.Add(this.panelEmployeeProfileDetails);
+            this.DoubleBuffered = true;
             this.Name = "SampleEmployeeDetailsCard";
             this.Size = new System.Drawing.Size(1580, 900);
             this.Load += new System.EventHandler(this.SampleEmployeeDetailsCard_Load);

@@ -839,6 +839,8 @@ namespace GUTZ_Capstone_Project
             _employeeAttendance.panelAttendanceDetails.Visible = true;
             _employeeAttendance.flowLayoutPanel1.Visible = true;
             _employeeAttendance.flowLayoutPanel1.Dock = DockStyle.Fill;
+            _employeeAttendance.isReturningFromHistory = true;
+            _employeeAttendance.txtSearch.Clear();
             _employeeAttendance?.ViewEmployeeList(); // access the exposed btnViewEmployeeList_Click event from the EmployeeAttendance Form
         }
     }

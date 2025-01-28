@@ -312,6 +312,7 @@
             this.btnCutPayroll.Size = new System.Drawing.Size(544, 40);
             this.btnCutPayroll.TabIndex = 115;
             this.btnCutPayroll.Text = "Cut Current Payroll";
+            this.btnCutPayroll.Click += new System.EventHandler(this.btnCutPayroll_Click);
             // 
             // lblPayDate
             // 

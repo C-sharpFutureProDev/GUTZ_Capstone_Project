@@ -550,20 +550,24 @@ namespace GUTZ_Capstone_Project
                     {
                         DateTime? timeIn = row["time_in"] as DateTime?;
                         DateTime? timeOut = row["time_out"] as DateTime?;
-                        string timeInStatus = row["time_in_status"]?.ToString();
 
                         if (timeIn.HasValue && timeOut.HasValue)
                         {
-                            // Calculate working time (time_out - time_in)
-                            TimeSpan workingTime = timeOut.Value - timeIn.Value;
-                            totalWorkingTime += workingTime;
+                            // Retrieve the scheduled times for this employee
+                            var (scheduledStartTime, scheduledEndTime) = GetScheduledStartAndEndTimes(employeeId, timeIn.Value.Date);
 
-                            // Calculate late time based on time_in_status
-                            if (timeInStatus == "Late")
+                            if (scheduledStartTime.HasValue && scheduledEndTime.HasValue)
                             {
-                                // Assuming "Late" means the employee was late for the entire duration of their shift.
-                                // You can adjust this logic based on your requirements.
-                                totalLateTime += workingTime;
+                                // Calculate working time (time_out - time_in)
+                                TimeSpan workingTime = timeOut.Value - timeIn.Value;
+                                totalWorkingTime += workingTime;
+
+                                // Calculate late time based on scheduled start time
+                                if (timeIn.Value > scheduledStartTime.Value)
+                                {
+                                    TimeSpan lateDuration = timeIn.Value - scheduledStartTime.Value;
+                                    totalLateTime += lateDuration;
+                                }
                             }
                         }
                     }
@@ -572,13 +576,13 @@ namespace GUTZ_Capstone_Project
                     decimal workingHoursDecimal = (decimal)totalWorkingTime.TotalHours;
                     string formattedLateTime = totalLateTime.TotalMinutes < 60
                         ? $"{totalLateTime.TotalMinutes:F0}m" // Display as minutes if less than 60
-                        : $"{totalLateTime.TotalHours:F2}h"; // Display as hours otherwise
+                        : $"{totalLateTime.TotalHours:F2}h";  // Display as hours otherwise
 
                     // Retrieve the employee's rate per hour
                     string rateQuery = @"SELECT employment_type, tenured_rate, non_tenured_rate, f_name, m_name, l_name
-                                         FROM tbl_employee
-                                         INNER JOIN tbl_rates ON tbl_employee.account_id = tbl_rates.account_id
-                                         WHERE emp_id = @employeeId";
+                                 FROM tbl_employee
+                                 INNER JOIN tbl_rates ON tbl_employee.account_id = tbl_rates.account_id
+                                 WHERE emp_id = @employeeId";
 
                     var rateParameters = new Dictionary<string, object>
                     {
@@ -638,6 +642,39 @@ namespace GUTZ_Capstone_Project
                 string caption = "Error";
                 MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Method to fetch the scheduled start and end times for the employee
+        private (DateTime? StartTime, DateTime? EndTime) GetScheduledStartAndEndTimes(string employeeId, DateTime attendanceDate)
+        {
+            string query = @"SELECT work_days, start_time, end_time 
+                             FROM tbl_schedule 
+                             WHERE emp_id = @employeeId";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@employeeId", employeeId }
+            };
+
+            DataTable dtSchedule = DB_OperationHelperClass.ParameterizedQueryData(query, parameters);
+
+            foreach (DataRow row in dtSchedule.Rows)
+            {
+                string workDays = row["work_days"].ToString();
+                if (workDays.Contains(attendanceDate.DayOfWeek.ToString())) // Check if attendanceDate is a workday
+                {
+                    DateTime startTime = DateTime.Parse(row["start_time"].ToString());
+                    DateTime endTime = DateTime.Parse(row["end_time"].ToString());
+
+                    // Combine the start time with the attendance date
+                    DateTime scheduledStartTime = attendanceDate.Date.Add(startTime.TimeOfDay);
+                    DateTime scheduledEndTime = attendanceDate.Date.Add(endTime.TimeOfDay);
+
+                    return (scheduledStartTime, scheduledEndTime);
+                }
+            }
+
+            return (null, null); // No schedule found for the given day
         }
 
         private void FormEmployeePayrollManagement_Load(object sender, EventArgs e)
@@ -712,6 +749,11 @@ namespace GUTZ_Capstone_Project
         {
             timer1.Stop();
             timer1.Dispose();
+        }
+
+        private void btnCutPayroll_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

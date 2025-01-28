@@ -187,7 +187,7 @@
             this.dtpEmpSelectDate.Name = "dtpEmpSelectDate";
             this.dtpEmpSelectDate.Size = new System.Drawing.Size(231, 40);
             this.dtpEmpSelectDate.TabIndex = 82;
-            this.dtpEmpSelectDate.Value = new System.DateTime(2025, 1, 10, 0, 0, 0, 0);
+            this.dtpEmpSelectDate.Value = new System.DateTime(2024, 12, 16, 0, 0, 0, 0);
             this.dtpEmpSelectDate.Visible = false;
             this.dtpEmpSelectDate.ValueChanged += new System.EventHandler(this.dtpEmpSelectDate_ValueChanged);
             // 
@@ -670,6 +670,7 @@
             this.btnViewAnDownloadReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnViewAnDownloadReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewAnDownloadReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewAnDownloadReport.Enabled = false;
             this.btnViewAnDownloadReport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnViewAnDownloadReport.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
             this.btnViewAnDownloadReport.ForeColor = System.Drawing.Color.White;
@@ -821,7 +822,7 @@
             this.lblAttendanceSummaryDate.BackColor = System.Drawing.Color.White;
             this.lblAttendanceSummaryDate.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblAttendanceSummaryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblAttendanceSummaryDate.Location = new System.Drawing.Point(21, 12);
+            this.lblAttendanceSummaryDate.Location = new System.Drawing.Point(17, 12);
             this.lblAttendanceSummaryDate.Name = "lblAttendanceSummaryDate";
             this.lblAttendanceSummaryDate.Size = new System.Drawing.Size(636, 37);
             this.lblAttendanceSummaryDate.TabIndex = 142;
@@ -929,7 +930,7 @@
             this.dateOfCurrentAttendanceRecord.BackColor = System.Drawing.Color.White;
             this.dateOfCurrentAttendanceRecord.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
             this.dateOfCurrentAttendanceRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dateOfCurrentAttendanceRecord.Location = new System.Drawing.Point(14, 5);
+            this.dateOfCurrentAttendanceRecord.Location = new System.Drawing.Point(13, 5);
             this.dateOfCurrentAttendanceRecord.Name = "dateOfCurrentAttendanceRecord";
             this.dateOfCurrentAttendanceRecord.Size = new System.Drawing.Size(700, 32);
             this.dateOfCurrentAttendanceRecord.TabIndex = 36;

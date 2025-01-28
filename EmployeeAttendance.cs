@@ -62,7 +62,8 @@ namespace GUTZ_Capstone_Project
         private bool IsReportForToday = false; // Flag to determine if the selected date is today
         private bool isUserInteracting = false; // Flag to track user interaction to the dtpSelectedDate
         private DateTime previousDatePickerValue = DateTime.Today; // Holds the previous value of the dtpSelectedDate
-        private bool isEmployeeListViewActive = false; // Tracks whether the Employee List view is active
+        public bool isEmployeeListViewActive = false; // Tracks whether the Employee List view is active
+        public bool isReturningFromHistory = false; // Flag to track navigation
 
         public EmployeeAttendance()
         {
@@ -484,7 +485,7 @@ namespace GUTZ_Capstone_Project
             timer1.Dispose();
         }
 
-        private void dtpEmpSelectDate_ValueChanged(object sender, EventArgs e)
+        private void dtpEmpSelectDate_ValueChanged(object sender, EventArgs e) // need fixed
         {
             btnViewEmployeeList.Enabled = false;
 
@@ -924,6 +925,8 @@ namespace GUTZ_Capstone_Project
         // Exposed btnViewEmployeeList button click event
         public void ViewEmployeeList()
         {
+            isReturningFromHistory = false;
+            txtSearch.Clear();
             btnViewEmployeeList_Click_1(this, EventArgs.Empty); // Simulate Refresh button click
         }
 
@@ -1299,6 +1302,7 @@ namespace GUTZ_Capstone_Project
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            isReturningFromHistory = false;
             cboSearchEmployee.Visible = false;
             btnIconSearch.Visible = false;
             txtSearch.Visible = false;
@@ -1320,15 +1324,15 @@ namespace GUTZ_Capstone_Project
                 return;
             }
 
+            // Reset flags if refreshing based on the previous date
+            IsReportForToday = IsToday(previousDatePickerValue); // Check if the previous value is today
+            isUserInteracting = false;
+
             // If the user interacted with the DateTimePicker, reset it to the previous value
             if (isUserInteracting)
             {
                 dtpEmpSelectDate.Value = previousDatePickerValue;
             }
-
-            // Reset flags if refreshing based on the previous date
-            IsReportForToday = IsToday(previousDatePickerValue); // Check if the previous value is today
-            isUserInteracting = false;
 
             // Refresh the user interface
             RefreshUI();
@@ -1344,7 +1348,7 @@ namespace GUTZ_Capstone_Project
             flowLayoutPanel2.Visible = false;
         }
 
-        private void btnViewAnDownloadReport_Click(object sender, EventArgs e)
+        private void btnViewAnDownloadReport_Click(object sender, EventArgs e) // need fixed
         {
             DateTime dateToDisplay = isUserInteracting ? selectedDate : DateTime.Now.Date;
 
@@ -1788,14 +1792,18 @@ namespace GUTZ_Capstone_Project
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtSearch.Text))
+            if (!isReturningFromHistory) // Only execute if not returning from history
             {
-                PopulateEmployeeList();
+                if (string.IsNullOrEmpty(txtSearch.Text))
+                {
+                    PopulateEmployeeList();
+                }
             }
         }
 
-        private void toggleSwitchViewPastAttendanceRecord_CheckedChanged(object sender, EventArgs e)
+        private void toggleSwitchViewPastAttendanceRecord_CheckedChanged(object sender, EventArgs e) // need fixed
         {
+            btnViewAnDownloadReport.Enabled = true;
             isUserInteracting = true;
             bool isChecked = toggleSwitchViewPastAttendanceRecord.Checked;
 
@@ -1817,6 +1825,7 @@ namespace GUTZ_Capstone_Project
                 lblTextFilterAttendanceRecord.Text = "Filter (Today's) Attendance Record:";
 
                 // Hide past filters
+                btnViewAnDownloadReport.Enabled = false;
                 btnViewEmployeeList.Enabled = true;
                 cboFilterPastAttendance.Visible = false;
                 lblSelectDate.Visible = false;

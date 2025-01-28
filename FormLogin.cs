@@ -11,7 +11,6 @@ namespace GUTZ_Capstone_Project
         private int attemptCount = 0;
         private bool isLockedOut = false;
         private int lockoutDuration = 30;
-
         private string currentLoginAdminID;
 
         public FormLogin()
@@ -98,7 +97,6 @@ namespace GUTZ_Capstone_Project
                         btnLogin.Enabled = false;
                         lockoutDuration = 30;
                         lblMessage.Text = "Too many failed attempts! Please wait 30 seconds.";
-
                         timer1.Start();
                     }
                     else
@@ -157,6 +155,8 @@ namespace GUTZ_Capstone_Project
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            timer1.Stop();
+            timer2.Stop();
             timer1.Dispose();
             timer2.Dispose();
         }

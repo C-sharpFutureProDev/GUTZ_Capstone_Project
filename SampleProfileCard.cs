@@ -209,7 +209,7 @@ namespace GUTZ_Capstone_Project
 
         private void DeactivateCard()
         {
-            btnViewEmployeeDetails.FillColor = Color.DarkCyan; // Reset to default color
+            btnViewEmployeeDetails.FillColor = Color.FromArgb(0, 121, 107); // Reset to default color
             btnViewEmployeeDetails.Enabled = true;
         }
 

@@ -53,9 +53,9 @@
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTotalWages = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.panelAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -318,7 +318,7 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Arial Black", 11F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(9, 6);
+            this.label4.Location = new System.Drawing.Point(11, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(573, 33);
             this.label4.TabIndex = 115;
@@ -409,6 +409,59 @@
             this.label16.Text = "Wages (Cumulative)";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelAttendanceDetails
+            // 
+            this.panelAttendanceDetails.BackColor = System.Drawing.Color.White;
+            this.panelAttendanceDetails.BorderColor = System.Drawing.Color.White;
+            this.panelAttendanceDetails.Controls.Add(this.btnSearch);
+            this.panelAttendanceDetails.Controls.Add(this.txtSearch);
+            this.panelAttendanceDetails.Controls.Add(this.guna2Panel9);
+            this.panelAttendanceDetails.Controls.Add(this.guna2Panel8);
+            this.panelAttendanceDetails.Controls.Add(this.guna2Panel2);
+            this.panelAttendanceDetails.Controls.Add(this.btnRefresh);
+            this.panelAttendanceDetails.Controls.Add(this.btnViewEmployeeList);
+            this.panelAttendanceDetails.Controls.Add(this.guna2Panel4);
+            this.panelAttendanceDetails.Controls.Add(this.guna2Panel1);
+            this.panelAttendanceDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAttendanceDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.panelAttendanceDetails.Font = new System.Drawing.Font("Symbol", 8.25F);
+            this.panelAttendanceDetails.ForeColor = System.Drawing.Color.White;
+            this.panelAttendanceDetails.Location = new System.Drawing.Point(0, 0);
+            this.panelAttendanceDetails.Name = "panelAttendanceDetails";
+            this.panelAttendanceDetails.ShadowDecoration.BorderRadius = 1;
+            this.panelAttendanceDetails.ShadowDecoration.Color = System.Drawing.Color.Green;
+            this.panelAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.panelAttendanceDetails.Size = new System.Drawing.Size(1914, 310);
+            this.panelAttendanceDetails.TabIndex = 4;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.AutoRoundedCorners = true;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnSearch.BorderRadius = 19;
+            this.btnSearch.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnSearch.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnSearch.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnSearch.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageSize = new System.Drawing.Size(26, 27);
+            this.btnSearch.Location = new System.Drawing.Point(344, 255);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnSearch.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSearch.Size = new System.Drawing.Size(165, 40);
+            this.btnSearch.TabIndex = 139;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
@@ -441,59 +494,6 @@
             this.txtSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtSearch.TabIndex = 138;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.AutoRoundedCorners = true;
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnSearch.BorderRadius = 19;
-            this.btnSearch.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnSearch.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
-            this.btnSearch.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
-            this.btnSearch.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageSize = new System.Drawing.Size(26, 27);
-            this.btnSearch.Location = new System.Drawing.Point(344, 255);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.btnSearch.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSearch.Size = new System.Drawing.Size(165, 40);
-            this.btnSearch.TabIndex = 139;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // panelAttendanceDetails
-            // 
-            this.panelAttendanceDetails.BackColor = System.Drawing.Color.White;
-            this.panelAttendanceDetails.BorderColor = System.Drawing.Color.White;
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel9);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel8);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel2);
-            this.panelAttendanceDetails.Controls.Add(this.btnSearch);
-            this.panelAttendanceDetails.Controls.Add(this.btnRefresh);
-            this.panelAttendanceDetails.Controls.Add(this.txtSearch);
-            this.panelAttendanceDetails.Controls.Add(this.btnViewEmployeeList);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel4);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel1);
-            this.panelAttendanceDetails.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAttendanceDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.panelAttendanceDetails.Font = new System.Drawing.Font("Symbol", 8.25F);
-            this.panelAttendanceDetails.ForeColor = System.Drawing.Color.White;
-            this.panelAttendanceDetails.Location = new System.Drawing.Point(0, 0);
-            this.panelAttendanceDetails.Name = "panelAttendanceDetails";
-            this.panelAttendanceDetails.ShadowDecoration.BorderRadius = 1;
-            this.panelAttendanceDetails.ShadowDecoration.Color = System.Drawing.Color.Green;
-            this.panelAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.panelAttendanceDetails.Size = new System.Drawing.Size(1914, 310);
-            this.panelAttendanceDetails.TabIndex = 4;
             // 
             // FormPayrollManagement
             // 
@@ -543,8 +543,8 @@
         public Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private System.Windows.Forms.Label lblTotalWages;
         private System.Windows.Forms.Label label16;
-        public Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        public Guna.UI2.WinForms.Guna2Button btnSearch;
         public Guna.UI2.WinForms.Guna2Panel panelAttendanceDetails;
+        public Guna.UI2.WinForms.Guna2Button btnSearch;
+        public Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }
 }

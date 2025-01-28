@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddNewEmployee));
             this.txtEmployeeFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmployeeLastName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -93,6 +94,7 @@
             this.panelFingerPrintEnrollment = new Guna.UI2.WinForms.Guna2Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.btnStartScan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnImportEmployeeDetails = new Guna.UI2.WinForms.Guna2Button();
             this.panelPersonalDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
             this.panelEmploymentDetails.SuspendLayout();
@@ -609,15 +611,16 @@
             this.btnSaveEmployeeDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSaveEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSaveEmployeeDetails.FillColor = System.Drawing.Color.Green;
+            this.btnSaveEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
             this.btnSaveEmployeeDetails.Font = new System.Drawing.Font("Times New Roman", 11.5F, System.Drawing.FontStyle.Bold);
             this.btnSaveEmployeeDetails.ForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnSaveEmployeeDetails.HoverState.FillColor = System.Drawing.Color.DarkGreen;
+            this.btnSaveEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(136)))), ((int)(((byte)(51)))));
+            this.btnSaveEmployeeDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(136)))), ((int)(((byte)(51)))));
             this.btnSaveEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(26, 840);
+            this.btnSaveEmployeeDetails.Location = new System.Drawing.Point(26, 850);
             this.btnSaveEmployeeDetails.Name = "btnSaveEmployeeDetails";
             this.btnSaveEmployeeDetails.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.btnSaveEmployeeDetails.PressedColor = System.Drawing.Color.Green;
             this.btnSaveEmployeeDetails.Size = new System.Drawing.Size(120, 40);
             this.btnSaveEmployeeDetails.TabIndex = 57;
             this.btnSaveEmployeeDetails.Text = "Save";
@@ -638,9 +641,10 @@
             this.btnCancel.HoverState.BorderColor = System.Drawing.Color.Red;
             this.btnCancel.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(1347, 840);
+            this.btnCancel.Location = new System.Drawing.Point(1347, 850);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.btnCancel.PressedColor = System.Drawing.Color.Red;
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 58;
             this.btnCancel.Text = "Cancel";
@@ -655,15 +659,16 @@
             this.btnResetInputFields.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnResetInputFields.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnResetInputFields.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnResetInputFields.FillColor = System.Drawing.Color.CornflowerBlue;
+            this.btnResetInputFields.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.btnResetInputFields.Font = new System.Drawing.Font("Times New Roman", 11.5F);
             this.btnResetInputFields.ForeColor = System.Drawing.Color.White;
-            this.btnResetInputFields.HoverState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnResetInputFields.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnResetInputFields.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(173)))), ((int)(((byte)(51)))));
+            this.btnResetInputFields.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(173)))), ((int)(((byte)(51)))));
             this.btnResetInputFields.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnResetInputFields.Location = new System.Drawing.Point(556, 840);
+            this.btnResetInputFields.Location = new System.Drawing.Point(556, 850);
             this.btnResetInputFields.Name = "btnResetInputFields";
             this.btnResetInputFields.Padding = new System.Windows.Forms.Padding(2, 1, 0, 0);
+            this.btnResetInputFields.PressedColor = System.Drawing.Color.Yellow;
             this.btnResetInputFields.ShadowDecoration.BorderRadius = 5;
             this.btnResetInputFields.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnResetInputFields.Size = new System.Drawing.Size(120, 40);
@@ -708,7 +713,7 @@
             this.panelPersonalDetails.FillColor = System.Drawing.Color.White;
             this.panelPersonalDetails.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.panelPersonalDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.panelPersonalDetails.Location = new System.Drawing.Point(27, 50);
+            this.panelPersonalDetails.Location = new System.Drawing.Point(27, 65);
             this.panelPersonalDetails.Margin = new System.Windows.Forms.Padding(0);
             this.panelPersonalDetails.Name = "panelPersonalDetails";
             this.panelPersonalDetails.ShadowDecoration.BorderRadius = 15;
@@ -823,15 +828,16 @@
             this.btnUploadImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUploadImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUploadImage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnUploadImage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
             this.btnUploadImage.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.btnUploadImage.ForeColor = System.Drawing.Color.White;
-            this.btnUploadImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnUploadImage.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnUploadImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
+            this.btnUploadImage.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnUploadImage.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnUploadImage.Location = new System.Drawing.Point(1214, 254);
             this.btnUploadImage.Name = "btnUploadImage";
             this.btnUploadImage.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
+            this.btnUploadImage.PressedColor = System.Drawing.Color.Gray;
             this.btnUploadImage.Size = new System.Drawing.Size(197, 40);
             this.btnUploadImage.TabIndex = 68;
             this.btnUploadImage.Text = "UPLOAD PHOTO";
@@ -1075,7 +1081,7 @@
             this.panelEmploymentDetails.Controls.Add(this.label10);
             this.panelEmploymentDetails.Controls.Add(this.cboEmployeeRateAccount);
             this.panelEmploymentDetails.FillColor = System.Drawing.Color.White;
-            this.panelEmploymentDetails.Location = new System.Drawing.Point(26, 390);
+            this.panelEmploymentDetails.Location = new System.Drawing.Point(26, 400);
             this.panelEmploymentDetails.Margin = new System.Windows.Forms.Padding(0);
             this.panelEmploymentDetails.Name = "panelEmploymentDetails";
             this.panelEmploymentDetails.ShadowDecoration.BorderRadius = 15;
@@ -1105,16 +1111,16 @@
             this.btnSetSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSetSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSetSchedule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSetSchedule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnSetSchedule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
             this.btnSetSchedule.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.btnSetSchedule.ForeColor = System.Drawing.Color.White;
-            this.btnSetSchedule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnSetSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnSetSchedule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
+            this.btnSetSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnSetSchedule.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSetSchedule.Location = new System.Drawing.Point(347, 357);
             this.btnSetSchedule.Name = "btnSetSchedule";
             this.btnSetSchedule.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.btnSetSchedule.PressedColor = System.Drawing.Color.Salmon;
+            this.btnSetSchedule.PressedColor = System.Drawing.Color.Gray;
             this.btnSetSchedule.Size = new System.Drawing.Size(260, 40);
             this.btnSetSchedule.TabIndex = 85;
             this.btnSetSchedule.Text = "SET CLASS SCHEDULE";
@@ -1353,7 +1359,7 @@
             this.lblFormLabel.BackColor = System.Drawing.Color.White;
             this.lblFormLabel.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblFormLabel.Location = new System.Drawing.Point(21, 8);
+            this.lblFormLabel.Location = new System.Drawing.Point(21, 15);
             this.lblFormLabel.Name = "lblFormLabel";
             this.lblFormLabel.Size = new System.Drawing.Size(324, 36);
             this.lblFormLabel.TabIndex = 53;
@@ -1468,15 +1474,16 @@
             this.btnReEnrollFingerPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnReEnrollFingerPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnReEnrollFingerPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnReEnrollFingerPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnReEnrollFingerPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
             this.btnReEnrollFingerPrint.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.btnReEnrollFingerPrint.ForeColor = System.Drawing.Color.White;
-            this.btnReEnrollFingerPrint.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnReEnrollFingerPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnReEnrollFingerPrint.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
+            this.btnReEnrollFingerPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnReEnrollFingerPrint.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnReEnrollFingerPrint.Location = new System.Drawing.Point(47, 372);
             this.btnReEnrollFingerPrint.Name = "btnReEnrollFingerPrint";
             this.btnReEnrollFingerPrint.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
+            this.btnReEnrollFingerPrint.PressedColor = System.Drawing.Color.Gray;
             this.btnReEnrollFingerPrint.Size = new System.Drawing.Size(290, 40);
             this.btnReEnrollFingerPrint.TabIndex = 61;
             this.btnReEnrollFingerPrint.Text = "UPDATE FINGERPRINT DATA";
@@ -1498,7 +1505,7 @@
             this.panelFingerPrintEnrollment.Controls.Add(this.txtScannerPrompt);
             this.panelFingerPrintEnrollment.Controls.Add(this.txtCaptureStatusLog);
             this.panelFingerPrintEnrollment.FillColor = System.Drawing.Color.White;
-            this.panelFingerPrintEnrollment.Location = new System.Drawing.Point(711, 390);
+            this.panelFingerPrintEnrollment.Location = new System.Drawing.Point(711, 400);
             this.panelFingerPrintEnrollment.Margin = new System.Windows.Forms.Padding(0);
             this.panelFingerPrintEnrollment.Name = "panelFingerPrintEnrollment";
             this.panelFingerPrintEnrollment.ShadowDecoration.BorderRadius = 15;
@@ -1528,19 +1535,47 @@
             this.btnStartScan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStartScan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnStartScan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStartScan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnStartScan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
             this.btnStartScan.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartScan.ForeColor = System.Drawing.Color.White;
-            this.btnStartScan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnStartScan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
+            this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnStartScan.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnStartScan.Location = new System.Drawing.Point(567, 372);
             this.btnStartScan.Name = "btnStartScan";
             this.btnStartScan.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.btnStartScan.PressedColor = System.Drawing.Color.Gray;
             this.btnStartScan.Size = new System.Drawing.Size(160, 40);
             this.btnStartScan.TabIndex = 57;
             this.btnStartScan.Text = "START SCAN";
             this.btnStartScan.Click += new System.EventHandler(this.btnStartScan_Click);
+            // 
+            // btnImportEmployeeDetails
+            // 
+            this.btnImportEmployeeDetails.AutoRoundedCorners = true;
+            this.btnImportEmployeeDetails.BackColor = System.Drawing.Color.Transparent;
+            this.btnImportEmployeeDetails.BorderColor = System.Drawing.Color.Green;
+            this.btnImportEmployeeDetails.BorderRadius = 19;
+            this.btnImportEmployeeDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnImportEmployeeDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnImportEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnImportEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnImportEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnImportEmployeeDetails.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.btnImportEmployeeDetails.ForeColor = System.Drawing.Color.White;
+            this.btnImportEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(217)))));
+            this.btnImportEmployeeDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(217)))));
+            this.btnImportEmployeeDetails.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnImportEmployeeDetails.Image = ((System.Drawing.Image)(resources.GetObject("btnImportEmployeeDetails.Image")));
+            this.btnImportEmployeeDetails.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnImportEmployeeDetails.Location = new System.Drawing.Point(649, 13);
+            this.btnImportEmployeeDetails.Name = "btnImportEmployeeDetails";
+            this.btnImportEmployeeDetails.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
+            this.btnImportEmployeeDetails.PressedColor = System.Drawing.Color.Blue;
+            this.btnImportEmployeeDetails.Size = new System.Drawing.Size(818, 40);
+            this.btnImportEmployeeDetails.TabIndex = 75;
+            this.btnImportEmployeeDetails.Text = "Import Employee Details as CSV or Excel";
+            this.btnImportEmployeeDetails.Click += new System.EventHandler(this.btnImportEmployeeDetails_Click);
             // 
             // FormAddNewEmployee
             // 
@@ -1548,6 +1583,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1494, 904);
+            this.Controls.Add(this.btnImportEmployeeDetails);
             this.Controls.Add(this.panelEmploymentDetails);
             this.Controls.Add(this.panelFingerPrintEnrollment);
             this.Controls.Add(this.panelPersonalDetails);
@@ -1643,5 +1679,6 @@
         private Guna.UI2.WinForms.Guna2Button btnSetSchedule;
         private Guna.UI2.WinForms.Guna2TextBox txtEmployeeAge;
         private Guna.UI2.WinForms.Guna2Button btnStartScan;
+        private Guna.UI2.WinForms.Guna2Button btnImportEmployeeDetails;
     }
 }

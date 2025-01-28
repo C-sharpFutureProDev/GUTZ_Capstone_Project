@@ -6,6 +6,10 @@ using System.Windows.Forms;
 using System.IO;
 using DPFP;
 using Org.BouncyCastle.Crypto;
+using OfficeOpenXml;
+using System.Formats.Asn1;
+using CsvHelper;
+using System.Linq;
 
 namespace GUTZ_Capstone_Project.Forms
 {
@@ -101,6 +105,7 @@ namespace GUTZ_Capstone_Project.Forms
                 DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
                 if (dt.Rows.Count > 0)
                 {
+                    btnImportEmployeeDetails.Visible = false;
                     this.Text = "Update Employee Existing Record Form";
                     lblFormLabel.Text = "Update Existing Record";
                     btnSaveEmployeeDetails.Text = "SAVE CHANGES";
@@ -1025,5 +1030,206 @@ namespace GUTZ_Capstone_Project.Forms
             dtpEmpEndDate.Focus();
         }
         #endregion
+
+        private void btnImportEmployeeDetails_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "CSV Files (*.csv)|*.csv|Excel Files (*.xlsx)|*.xlsx";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    string fileExtension = Path.GetExtension(filePath);
+
+                    if (fileExtension.Equals(".csv", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ImportFromCsv(filePath);
+                    }
+                    else if (fileExtension.Equals(".xlsx", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ImportFromExcel(filePath);
+                    }
+                }
+            }
+        }
+
+        private void ImportFromCsv(string filePath)
+        {
+            try
+            {
+                using (var reader = new StreamReader(filePath))
+                using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture))
+                {
+                    var records = csv.GetRecords<Employee>().ToList(); // Read records from CSV
+                    if (records.Any())
+                    {
+                        var employee = records.First(); // Import the first record
+                        PopulateFields(employee);
+                    }
+                    else
+                    {
+                        MessageBox.Show("The CSV file is empty or does not contain any records.", "Data Import Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (FileNotFoundException fnfEx)
+            {
+                MessageBox.Show($"File not found: {fnfEx.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (CsvHelperException csvEx)
+            {
+                MessageBox.Show($"CSV file format error: {csvEx.Message}", "CSV Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ImportFromExcel(string filePath)
+        {
+            try
+            {
+                // Set the license context
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // or LicenseContext.Commercial if applicable
+
+                FileInfo fileInfo = new FileInfo(filePath);
+                using (var package = new ExcelPackage(fileInfo))
+                {
+                    var worksheet = package.Workbook.Worksheets.FirstOrDefault(); // Get the first worksheet
+
+                    // Check if the worksheet is null or has no data
+                    if (worksheet == null || worksheet.Dimension == null || worksheet.Dimension.Rows <= 1)
+                    {
+                        MessageBox.Show("The Excel file is empty or does not contain any data.", "Data Import Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    int rows = worksheet.Dimension.Rows;
+
+                    // Only process if there are rows beyond the header
+                    if (rows > 1) // Assuming row 1 is the header
+                    {
+                        var employee = new Employee
+                        {
+                            FirstName = worksheet.Cells[2, 1].Text, // Column A
+                            LastName = worksheet.Cells[2, 2].Text, // Column B
+                            MiddleName = string.IsNullOrEmpty(worksheet.Cells[2, 3].Text) ? "N/A" : worksheet.Cells[2, 3].Text, // Column C
+                            DateOfBirth = FormatDate(worksheet.Cells[2, 4].Text), // Column D
+                            Age = worksheet.Cells[2, 5].Text, // Column E
+                            Gender = worksheet.Cells[2, 6].Text, // Column F
+                            CivilStatus = worksheet.Cells[2, 7].Text, // Column G
+                            ContactNumber = FormatContactNumber(worksheet.Cells[2, 8].Text), // Column H
+                            Email = worksheet.Cells[2, 9].Text, // Column I
+                            CityMunicipality = worksheet.Cells[2, 10].Text, // Column J
+                            BrgyAddress = worksheet.Cells[2, 11].Text, // Column K
+                            EmergencyContact = worksheet.Cells[2, 12].Text, // Column L
+                            HireDate = FormatDate(worksheet.Cells[2, 13].Text), // Column M
+                            RateAccount = worksheet.Cells[2, 14].Text, // Column N
+                            StartDate = FormatDate(worksheet.Cells[2, 15].Text), // Column O
+                            EndDate = FormatDate(worksheet.Cells[2, 16].Text), // Column P
+                            EmploymentType = worksheet.Cells[2, 17].Text, // Column Q
+                            WorkArrangement = worksheet.Cells[2, 18].Text, // Column R
+                            PositionLevel = worksheet.Cells[2, 19].Text // Column S
+                        };
+
+                        PopulateFields(employee);
+                    }
+                }
+            }
+            catch (FileNotFoundException fnfEx)
+            {
+                MessageBox.Show($"File not found: {fnfEx.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FormatException formatEx)
+            {
+                MessageBox.Show($"Data format error: {formatEx.Message}", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string FormatContactNumber(string contactNumber)
+        {
+            // Ensure the contact number starts with '0'
+            return contactNumber.StartsWith("0") ? contactNumber : "0" + contactNumber;
+        }
+
+        private string FormatDate(string dateValue)
+        {
+            // Check if the input is a serial date number
+            if (double.TryParse(dateValue, out double serialDate))
+            {
+                // Convert the serial date to a DateTime
+                DateTime date = DateTime.FromOADate(serialDate);
+                return date.ToString("MMMM dd, yyyy"); // Format to "October 23, 2024"
+            }
+
+            // Try to parse the date and format it correctly
+            if (DateTime.TryParse(dateValue, out DateTime dateParsed))
+            {
+                return dateParsed.ToString("MMMM dd, yyyy"); // Format to "October 23, 2024"
+            }
+
+            return "Invalid Date"; // Handle invalid dates
+        }
+
+        private void PopulateFields(Employee employee)
+        {
+            txtEmployeeFirstName.Text = employee.FirstName ?? "N/A";
+            txtEmployeeLastName.Text = employee.LastName ?? "N/A";
+            txtEmployeeMiddleIName.Text = string.IsNullOrEmpty(employee.MiddleName) ? "N/A" : employee.MiddleName;
+            txtDateOfBirth.Text = employee.DateOfBirth;
+            txtEmployeeAge.Text = employee.Age;
+
+            // Set gender radio buttons
+            if (employee.Gender.Equals("Male", StringComparison.OrdinalIgnoreCase))
+            {
+                rdbMale.Checked = true;
+            }
+            else if (employee.Gender.Equals("Female", StringComparison.OrdinalIgnoreCase))
+            {
+                rdbFemale.Checked = true;
+            }
+
+            cboCivilStatus.SelectedItem = employee.CivilStatus;
+            txtEmployeeContactNumber.Text = employee.ContactNumber;
+            txtEmployeeEmail.Text = employee.Email;
+            cboEmployeeCityMunicipality.SelectedItem = employee.CityMunicipality;
+            txtEmployeeBrgyAddress.Text = employee.BrgyAddress;
+            txtEmergContact.Text = employee.EmergencyContact;
+            txtHireDate.Text = employee.HireDate;
+            cboEmployeeRateAccount.SelectedItem = employee.RateAccount;
+            txtStartDate.Text = employee.StartDate;
+            txtEndDate.Text = employee.EndDate;
+            cboEmploymentType.SelectedItem = employee.EmploymentType;
+            cboWorkArrangement.SelectedItem = employee.WorkArrangement;
+            cboPositionLevel.SelectedItem = employee.PositionLevel;
+        }
+
+        public class Employee
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string MiddleName { get; set; }
+            public string DateOfBirth { get; set; }
+            public string Age { get; set; }
+            public string Gender { get; set; }
+            public string CivilStatus { get; set; }
+            public string ContactNumber { get; set; }
+            public string Email { get; set; }
+            public string CityMunicipality { get; set; }
+            public string BrgyAddress { get; set; }
+            public string EmergencyContact { get; set; }
+            public string HireDate { get; set; }
+            public string RateAccount { get; set; }
+            public string StartDate { get; set; }
+            public string EndDate { get; set; }
+            public string EmploymentType { get; set; }
+            public string WorkArrangement { get; set; }
+            public string PositionLevel { get; set; }
+        }
     }
 }

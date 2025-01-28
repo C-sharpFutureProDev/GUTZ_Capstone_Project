@@ -30,7 +30,7 @@ namespace GUTZ_Capstone_Project
 
             // Run the application
             Application.Run(new FormDashboard("1026")); // bypass
-           //Application.Run(new FormLogin());
+            //Application.Run(new FormLogin());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
