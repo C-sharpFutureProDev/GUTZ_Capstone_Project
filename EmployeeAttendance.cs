@@ -10,14 +10,14 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GUTZ_Capstone_Project.Forms.FormAddNewEmployee;
 
 namespace GUTZ_Capstone_Project
 {
     public partial class EmployeeAttendance : Form
     {
         public int id;
-        DateTime selectedDate;
-
+        private DateTime selectedDate;
         private const string sql = @"SELECT 
                                         tbl_employee.emp_id, 
                                         emp_profilePic, 
@@ -68,6 +68,7 @@ namespace GUTZ_Capstone_Project
         public EmployeeAttendance()
         {
             InitializeComponent();
+            selectedDate = dtpEmpSelectDate.Value;
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
         }
@@ -351,7 +352,7 @@ namespace GUTZ_Capstone_Project
 
             try
             {
-                flowLayoutPanel2.Controls.Clear();
+                flowLayoutPanel3.Controls.Clear();
 
                 DataTable dt = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(sql, parameterCheckActiveLeave));
 
@@ -410,7 +411,7 @@ namespace GUTZ_Capstone_Project
                         employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.Image = Image.FromFile("C:/GUTZ/Icons/icons8-leave-24.png");
                     }
 
-                    flowLayoutPanel2.Controls.Add(employeeListCardForAttendanceHistory);
+                    flowLayoutPanel3.Controls.Add(employeeListCardForAttendanceHistory);
                 }
             }
             catch (Exception ex)
@@ -487,6 +488,9 @@ namespace GUTZ_Capstone_Project
 
         private void dtpEmpSelectDate_ValueChanged(object sender, EventArgs e) // need fixed
         {
+            // Prevent duplicate calls if the toggle is off
+            if (!toggleSwitchViewPastAttendanceRecord.Checked) return;
+
             btnViewEmployeeList.Enabled = false;
 
             // Mark that the user has interacted with the DateTimePicker
@@ -511,8 +515,9 @@ namespace GUTZ_Capstone_Project
             }
 
             // Update UI visibility and load data for the selected date
-            flowLayoutPanel1.Visible = true;
-            flowLayoutPanel2.Visible = false;
+            flowLayoutPanel1.Visible = false;
+            flowLayoutPanel2.Visible = true;
+            flowLayoutPanel2.Dock = DockStyle.Fill;
 
             // Asynchronous call to load attendance data and count
             LoadAttendanceDataForSelectedDate();
@@ -566,8 +571,11 @@ namespace GUTZ_Capstone_Project
             DateTime today = DateTime.Today;
             if (selectedDate.Date > today)
             {
-                dateOfCurrentAttendanceRecord.Text = displayDate;
-                ResetAttendanceDisplay();
+                MessageBox.Show(this, "Attendance counts are only available for past dates.", "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ResetAttendanceCounts();
+                flowLayoutPanel2.Controls.Clear();
                 return;
             }
 
@@ -577,8 +585,8 @@ namespace GUTZ_Capstone_Project
                 MessageBox.Show(this, "Attendance records are only available for weekdays (Monday to Friday).", "Information",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Reset all attendance UI elements
-                ResetAttendanceDisplay();
+                dateOfCurrentAttendanceRecord.Text = displayDate;
+                flowLayoutPanel2.Controls.Clear();
                 return;
             }
 
@@ -617,7 +625,7 @@ namespace GUTZ_Capstone_Project
 
             try
             {
-                flowLayoutPanel1.Controls.Clear();
+                flowLayoutPanel2.Controls.Clear();
 
                 DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(sql));
                 dateOfCurrentAttendanceRecord.Text = displayDate;
@@ -626,7 +634,7 @@ namespace GUTZ_Capstone_Project
                 {
                     MessageBox.Show(this, "No attendance records found for the selected date.", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ResetAttendanceDisplay();
+                    ResetAttendanceCounts();
                     return;
                 }
 
@@ -687,7 +695,7 @@ namespace GUTZ_Capstone_Project
                     {
                         CurrentDate = selectedDate.ToString("dddd MMMM dd, yyyy"),
                         _id = empId,
-                        EmployeeProfilePic = File.Exists(imagePath) ? Image.FromFile(imagePath) : null,
+                        EmployeeProfilePic = await LoadImageAsync(imagePath),
                         EmployeeName = name,
                         ClockInTime = timeInFormatted,
                         Status = timeInStatus,
@@ -722,11 +730,12 @@ namespace GUTZ_Capstone_Project
                     }
                     else
                     {
-                        // Employee was not scheduled, do not display or mark as absent
-                        continue; // Skip adding this employee card
+                        continue; // was not scheduled, do not display or mark as absent and skip adding this employee card
                     }
 
-                    flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
+                    CountAttendanceForSelectedDate();
+
+                    flowLayoutPanel2.Controls.Add(employeeAttendanceCard);
                 }
             }
             catch (Exception ex)
@@ -734,19 +743,6 @@ namespace GUTZ_Capstone_Project
                 MessageBox.Show("Error retrieving employee attendance records: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        // Method to reset attendance display
-        private void ResetAttendanceDisplay()
-        {
-            btnClockIn.Text = "0";
-            btnClockOut.Text = "0";
-            //lblTotalOnTimeForToday.Text = "On-Time: 0";
-            //lblTotalLateForToday.Text = "Late: 0";
-            btnTotalAttendance.Text = "Total Attendance: 0";
-            btnAbsent.Text = "0";
-            btnOnLeave.Text = "0";
-            flowLayoutPanel1.Controls.Clear();
         }
 
         /// <summary>
@@ -763,21 +759,6 @@ namespace GUTZ_Capstone_Project
             DateTime selectedDate = dtpEmpSelectDate.Value;
             DateTime today = DateTime.Today;
 
-            // Ensure the selected date is in the past
-            if (selectedDate.Date >= today)
-            {
-                MessageBox.Show(this, "Attendance counts are only available for past dates.", "Information",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // Check for non-working days
-            if (selectedDate.DayOfWeek == DayOfWeek.Saturday || selectedDate.DayOfWeek == DayOfWeek.Sunday)
-            {
-                ResetAttendanceCounts();
-                return;
-            }
-
             int countWorkingPresent = 0;
             int countWorkingClockedOut = 0;
             int countAbsent = 0;
@@ -789,24 +770,24 @@ namespace GUTZ_Capstone_Project
 
             // SQL query to count scheduled employees for the selected date
             string sqlCountScheduledEmployees = $@"SELECT COUNT(*) FROM tbl_employee e
-                                            INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
-                                            WHERE FIND_IN_SET('{selectedDate:dddd}', s.work_days) > 0
-                                            AND e.is_deleted = 0
-                                            AND e.start_date <= '{selectedDate:yyyy-MM-dd}'";
+                                                   INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
+                                                   WHERE FIND_IN_SET('{selectedDate:dddd}', s.work_days) > 0
+                                                   AND e.is_deleted = 0
+                                                   AND e.start_date <= '{selectedDate:yyyy-MM-dd}'";
 
             // SQL query to retrieve past attendance records
             string sqlCountAttendance = $@"SELECT s.emp_id, a.time_in, a.time_out, a.time_in_status, e.start_date
-                                   FROM tbl_schedule s
-                                   LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'
-                                   INNER JOIN tbl_employee e ON s.emp_id = e.emp_id
-                                   WHERE FIND_IN_SET('{selectedDate:dddd}', s.work_days) > 0
-                                   AND e.is_deleted = 0
-                                   AND e.start_date <= '{selectedDate:yyyy-MM-dd}'";
+                                           FROM tbl_schedule s
+                                           LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{selectedDate:yyyy-MM-dd}'
+                                           INNER JOIN tbl_employee e ON s.emp_id = e.emp_id
+                                           WHERE FIND_IN_SET('{selectedDate:dddd}', s.work_days) > 0
+                                           AND e.is_deleted = 0
+                                           AND e.start_date <= '{selectedDate:yyyy-MM-dd}'";
 
             // SQL query to count on-leave employees for the selected date
             string sqlCountOnLeave = $@"SELECT COUNT(*) FROM tbl_leave 
-                                 WHERE (leave_status = 'Active' OR leave_status = 'Completed') 
-                                 AND (start_date <= '{selectedDate:yyyy-MM-dd}' AND end_date >= '{selectedDate:yyyy-MM-dd}')";
+                                        WHERE (leave_status = 'Active' OR leave_status = 'Completed') 
+                                        AND (start_date <= '{selectedDate:yyyy-MM-dd}' AND end_date >= '{selectedDate:yyyy-MM-dd}')";
 
             try
             {
@@ -912,8 +893,8 @@ namespace GUTZ_Capstone_Project
 
             // Switch to Employee List view
             flowLayoutPanel1.Visible = false;
-            flowLayoutPanel2.Visible = true;
-            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel3.Visible = true;
+            flowLayoutPanel3.Dock = DockStyle.Fill;
 
             // Track that the Employee List view is active
             isEmployeeListViewActive = true;
@@ -932,8 +913,10 @@ namespace GUTZ_Capstone_Project
 
         public void RefreshUI()
         {
+            timer1.Start();
             flowLayoutPanel1.Visible = true;
             flowLayoutPanel2.Visible = false;
+            flowLayoutPanel3.Visible = false;
             lblAttendanceSummaryDate.Text = "Real-Time Attendance Summary Today - " + DateTime.Now.ToString("dddd MMMM dd, yyyy");
             lblExpectedClockIn.Text = "Clocked-In (Today)";
             lblAttendancePercent.Text = "Attendance % (Today)";
@@ -1014,7 +997,7 @@ namespace GUTZ_Capstone_Project
                         {
                             _id = id.ToString(),
                             CurrentDate = DateTime.Now.ToString("dddd, MMM. dd, yyyy"),
-                            EmployeeProfilePic = File.Exists(imagePath) ? Image.FromFile(imagePath) : null,
+                            EmployeeProfilePic = await LoadImageAsync(imagePath),
                             EmployeeName = name,
                             ClockInTime = timeInFormatted,
                             Status = timeInStatus,
@@ -1054,7 +1037,7 @@ namespace GUTZ_Capstone_Project
                         }
 
                         // Add the card to the flow layout panel for all relevant employees
-                        flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
+                        flowLayoutPanel2.Controls.Add(employeeAttendanceCard);
                     }
                 }
             }
@@ -1205,9 +1188,9 @@ namespace GUTZ_Capstone_Project
             LoadAttendanceData(query);
         }
 
-        private void LoadAttendanceData(string query)
+        private async void LoadAttendanceData(string query)
         {
-            DataTable dt = DB_OperationHelperClass.QueryData(query);
+            DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(query));
             flowLayoutPanel1.Controls.Clear();
 
             if (dt.Rows.Count > 0)
@@ -1260,7 +1243,7 @@ namespace GUTZ_Capstone_Project
                     {
                         CurrentDate = DateTime.Today.ToString("dddd, MMM. dd, yyyy"),
                         _id = empId,
-                        EmployeeProfilePic = File.Exists(imagePath) ? Image.FromFile(imagePath) : null,
+                        EmployeeProfilePic = await LoadImageAsync(imagePath),
                         EmployeeName = name,
                         ClockInTime = timeInFormatted,
                         Status = timeInStatus,
@@ -1344,8 +1327,8 @@ namespace GUTZ_Capstone_Project
             cboFilter.SelectedIndex = 0;
 
             // Update the visibility of UI elements
-            flowLayoutPanel1.Visible = true;
             flowLayoutPanel2.Visible = false;
+            flowLayoutPanel1.Visible = true;
         }
 
         private void btnViewAnDownloadReport_Click(object sender, EventArgs e) // need fixed
@@ -1532,10 +1515,10 @@ namespace GUTZ_Capstone_Project
             LoadAttendanceData(query, selectedDate);
         }
 
-        private void LoadAttendanceData(string query, DateTime selectedDate)
+        private async void LoadAttendanceData(string query, DateTime selectedDate)
         {
-            DataTable dt = DB_OperationHelperClass.QueryData(query);
-            flowLayoutPanel1.Controls.Clear();
+            DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(query));
+            flowLayoutPanel2.Controls.Clear();
 
             if (dt.Rows.Count > 0)
             {
@@ -1585,7 +1568,7 @@ namespace GUTZ_Capstone_Project
                     {
                         CurrentDate = selectedDate.ToString("dddd, MMM. dd, yyyy"),
                         _id = empId,
-                        EmployeeProfilePic = File.Exists(imagePath) ? Image.FromFile(imagePath) : null,
+                        EmployeeProfilePic = await LoadImageAsync(imagePath),
                         EmployeeName = name,
                         ClockInTime = timeInFormatted,
                         Status = timeInStatus,
@@ -1614,7 +1597,7 @@ namespace GUTZ_Capstone_Project
                         employeeAttendanceCard.lblLeaveStatus.Text = leaveStatus;
                     }
 
-                    flowLayoutPanel1.Controls.Add(employeeAttendanceCard);
+                    flowLayoutPanel2.Controls.Add(employeeAttendanceCard);
                 }
             }
             else
@@ -1723,7 +1706,7 @@ namespace GUTZ_Capstone_Project
 
                     DataTable dt = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(query, parameters));
 
-                    flowLayoutPanel2.Controls.Clear();
+                    flowLayoutPanel3.Controls.Clear();
 
                     if (dt.Rows.Count > 0)
                     {
@@ -1775,7 +1758,7 @@ namespace GUTZ_Capstone_Project
                                 employeeListCardForAttendanceHistory.btnAddEmployeeLeaveSchedule.Image = Image.FromFile("C:/GUTZ/Icons/icons8-leave-24.png");
                             }
 
-                            flowLayoutPanel2.Controls.Add(employeeListCardForAttendanceHistory);
+                            flowLayoutPanel3.Controls.Add(employeeListCardForAttendanceHistory);
                         }
                     }
                     else
@@ -1804,34 +1787,37 @@ namespace GUTZ_Capstone_Project
         private void toggleSwitchViewPastAttendanceRecord_CheckedChanged(object sender, EventArgs e) // need fixed
         {
             btnViewAnDownloadReport.Enabled = true;
-            isUserInteracting = true;
             bool isChecked = toggleSwitchViewPastAttendanceRecord.Checked;
 
             if (isChecked)
             {
                 timer1.Stop();
+                isUserInteracting = true;
+                dateOfCurrentAttendanceRecord.Text = "Attendance Summary - " + selectedDate.ToString("dddd MMMM dd, yyyy");
+                lblAttendanceSummaryDate.Text = "Attendance Summary - " + selectedDate.ToString("dddd MMMM dd, yyyy");
                 lblTextFilterAttendanceRecord.Text = "Filter (Past) Attendance Record:";
                 lblSelectDate.Visible = true;
                 dtpEmpSelectDate.Visible = true;
                 pastdtpBottomBorder.Visible = true;
-                CountAttendanceForSelectedDate();
-                LoadAttendanceDataForSelectedDate();
                 btnViewEmployeeList.Enabled = false;
                 cboFilterPastAttendance.SelectedIndex = 0;
                 cboFilterPastAttendance.Visible = true;
+                flowLayoutPanel1.Visible = false;
+                flowLayoutPanel2.Visible = true;
+                flowLayoutPanel2.Dock = DockStyle.Fill;
+                CountAttendanceForSelectedDate();
             }
             else
             {
+                timer1.Start();
+                isUserInteracting = false;
                 lblTextFilterAttendanceRecord.Text = "Filter (Today's) Attendance Record:";
-
-                // Hide past filters
                 btnViewAnDownloadReport.Enabled = false;
                 btnViewEmployeeList.Enabled = true;
                 cboFilterPastAttendance.Visible = false;
                 lblSelectDate.Visible = false;
                 dtpEmpSelectDate.Visible = false;
                 pastdtpBottomBorder.Visible = false;
-
                 RefreshUI();
             }
         }

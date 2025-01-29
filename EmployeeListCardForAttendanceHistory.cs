@@ -105,12 +105,12 @@ namespace GUTZ_Capstone_Project
             if (_employeeAttendance != null)
             {
                 EmployeeAttendanceHistory employeeAttendanceHistory = new EmployeeAttendanceHistory(_id, _employeeAttendance);
-                _employeeAttendance.flowLayoutPanel2.Controls.Clear();
+                _employeeAttendance.flowLayoutPanel3.Controls.Clear();
                 _employeeAttendance.panelAttendanceDetails.Visible = false;
-                _employeeAttendance.flowLayoutPanel2.Visible = true;
-                _employeeAttendance.flowLayoutPanel2.Dock = DockStyle.Fill;
-                _employeeAttendance.flowLayoutPanel2.Visible = true;
-                _employeeAttendance.flowLayoutPanel2.Controls.Add(employeeAttendanceHistory);
+                _employeeAttendance.flowLayoutPanel3.Visible = true;
+                _employeeAttendance.flowLayoutPanel3.Dock = DockStyle.Fill;
+                _employeeAttendance.flowLayoutPanel3.Visible = true;
+                _employeeAttendance.flowLayoutPanel3.Controls.Add(employeeAttendanceHistory);
             }
         }
 

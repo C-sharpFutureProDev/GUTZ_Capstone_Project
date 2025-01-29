@@ -34,17 +34,6 @@ namespace GUTZ_Capstone_Project
             ToolTip.SetToolTip(btnBackToAttendanceForm, "Back To Employee List");
         }
 
-        // Fixed flicker user interface rendering
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;
-                return cp;
-            }
-        }
-
         private int CountWorkingDays(DateTime startDate, DateTime endDate, List<DayOfWeek> workingDays)
         {
             int workingDayCount = 0;
@@ -258,7 +247,7 @@ namespace GUTZ_Capstone_Project
                 if (employeeDt.Rows.Count > 0)
                 {
                     string image_path = employeeDt.Rows[0]["emp_ProfilePic"].ToString();
-                    employeeProfilePicture.Image = System.Drawing.Image.FromFile(image_path);
+                    employeeProfilePicture.Image = await LoadImageAsync(image_path);
                     lblEmployeeName.Text = employeeDt.Rows[0]["FullName"].ToString();
                     lblEmployeeJobRole.Text = employeeDt.Rows[0]["position_desc"].ToString();
                     lblEmployeePhoneNumber.Text = employeeDt.Rows[0]["phone"].ToString();
@@ -275,6 +264,29 @@ namespace GUTZ_Capstone_Project
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async Task<Image> LoadImageAsync(string imagePath)
+        {
+            return await Task.Run(() =>
+            {
+                if (string.IsNullOrEmpty(imagePath) || !File.Exists(imagePath))
+                {
+                    return null;
+                }
+
+                try
+                {
+                    using (var stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                    {
+                        return Image.FromStream(stream);
+                    }
+                }
+                catch
+                {
+                    return null;
+                }
+            });
         }
 
         private void btnDownloadAttendanceHistoryRecords_Click(object sender, EventArgs e)

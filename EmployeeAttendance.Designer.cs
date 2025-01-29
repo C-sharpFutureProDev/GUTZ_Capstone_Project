@@ -76,6 +76,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toggleSwitchViewPastAttendanceRecord = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.dateOfCurrentAttendanceRecord = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelAttendanceDetails.SuspendLayout();
             this.panelAttendanceSummary.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
@@ -820,7 +821,7 @@
             // lblAttendanceSummaryDate
             // 
             this.lblAttendanceSummaryDate.BackColor = System.Drawing.Color.White;
-            this.lblAttendanceSummaryDate.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblAttendanceSummaryDate.Font = new System.Drawing.Font("Arial Black", 8F, System.Drawing.FontStyle.Bold);
             this.lblAttendanceSummaryDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblAttendanceSummaryDate.Location = new System.Drawing.Point(17, 12);
             this.lblAttendanceSummaryDate.Name = "lblAttendanceSummaryDate";
@@ -937,12 +938,24 @@
             this.dateOfCurrentAttendanceRecord.Text = "Real Time Attendance Today";
             this.dateOfCurrentAttendanceRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Gray;
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(1514, 310);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(200, 666);
+            this.flowLayoutPanel3.TabIndex = 7;
+            this.flowLayoutPanel3.Visible = false;
+            // 
             // EmployeeAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
             this.ClientSize = new System.Drawing.Size(1914, 976);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panelAttendanceDetails);
@@ -1013,5 +1026,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
     }
 }
