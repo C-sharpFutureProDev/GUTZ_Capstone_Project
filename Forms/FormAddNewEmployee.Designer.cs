@@ -230,9 +230,9 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(41, 145);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(220, 24);
+            this.label10.Size = new System.Drawing.Size(61, 24);
             this.label10.TabIndex = 45;
-            this.label10.Text = "Choose Account Rate:";
+            this.label10.Text = "Rate:";
             // 
             // label5
             // 
@@ -1357,11 +1357,11 @@
             // 
             this.lblFormLabel.AutoSize = true;
             this.lblFormLabel.BackColor = System.Drawing.Color.White;
-            this.lblFormLabel.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormLabel.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblFormLabel.Location = new System.Drawing.Point(21, 15);
             this.lblFormLabel.Name = "lblFormLabel";
-            this.lblFormLabel.Size = new System.Drawing.Size(324, 36);
+            this.lblFormLabel.Size = new System.Drawing.Size(365, 41);
             this.lblFormLabel.TabIndex = 53;
             this.lblFormLabel.Text = "New Employee Record";
             // 
@@ -1387,7 +1387,7 @@
             this.txtCaptureStatusLog.PlaceholderText = "HID Digital Persona 4500 Logs.";
             this.txtCaptureStatusLog.ReadOnly = true;
             this.txtCaptureStatusLog.SelectedText = "";
-            this.txtCaptureStatusLog.Size = new System.Drawing.Size(454, 220);
+            this.txtCaptureStatusLog.Size = new System.Drawing.Size(454, 225);
             this.txtCaptureStatusLog.TabIndex = 43;
             // 
             // txtScannerPrompt
@@ -1421,7 +1421,7 @@
             this.lblSampleNeededStatus.BackColor = System.Drawing.Color.White;
             this.lblSampleNeededStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblSampleNeededStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblSampleNeededStatus.Location = new System.Drawing.Point(43, 308);
+            this.lblSampleNeededStatus.Location = new System.Drawing.Point(43, 315);
             this.lblSampleNeededStatus.Name = "lblSampleNeededStatus";
             this.lblSampleNeededStatus.Size = new System.Drawing.Size(252, 21);
             this.lblSampleNeededStatus.TabIndex = 59;
@@ -1433,7 +1433,7 @@
             this.scanningProgressBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.scanningProgressBar.BorderThickness = 1;
             this.scanningProgressBar.FillColor = System.Drawing.Color.White;
-            this.scanningProgressBar.Location = new System.Drawing.Point(47, 337);
+            this.scanningProgressBar.Location = new System.Drawing.Point(47, 345);
             this.scanningProgressBar.Name = "scanningProgressBar";
             this.scanningProgressBar.ProgressColor = System.Drawing.Color.Green;
             this.scanningProgressBar.ProgressColor2 = System.Drawing.Color.Green;
@@ -1449,7 +1449,7 @@
             this.employeeFingerprintImage.ImageRotate = 0F;
             this.employeeFingerprintImage.Location = new System.Drawing.Point(47, 81);
             this.employeeFingerprintImage.Name = "employeeFingerprintImage";
-            this.employeeFingerprintImage.Size = new System.Drawing.Size(210, 220);
+            this.employeeFingerprintImage.Size = new System.Drawing.Size(210, 225);
             this.employeeFingerprintImage.TabIndex = 57;
             this.employeeFingerprintImage.TabStop = false;
             // 
@@ -1459,7 +1459,7 @@
             this.progressPecentageStatus.BackColor = System.Drawing.Color.White;
             this.progressPecentageStatus.Font = new System.Drawing.Font("Arial", 10.5F);
             this.progressPecentageStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.progressPecentageStatus.Location = new System.Drawing.Point(678, 306);
+            this.progressPecentageStatus.Location = new System.Drawing.Point(670, 313);
             this.progressPecentageStatus.Name = "progressPecentageStatus";
             this.progressPecentageStatus.Size = new System.Drawing.Size(22, 24);
             this.progressPecentageStatus.TabIndex = 60;
@@ -1480,7 +1480,7 @@
             this.btnReEnrollFingerPrint.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnReEnrollFingerPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnReEnrollFingerPrint.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnReEnrollFingerPrint.Location = new System.Drawing.Point(47, 372);
+            this.btnReEnrollFingerPrint.Location = new System.Drawing.Point(47, 380);
             this.btnReEnrollFingerPrint.Name = "btnReEnrollFingerPrint";
             this.btnReEnrollFingerPrint.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
             this.btnReEnrollFingerPrint.PressedColor = System.Drawing.Color.Gray;
@@ -1541,7 +1541,7 @@
             this.btnStartScan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnStartScan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(98)))), ((int)(((byte)(104)))));
             this.btnStartScan.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnStartScan.Location = new System.Drawing.Point(567, 372);
+            this.btnStartScan.Location = new System.Drawing.Point(567, 380);
             this.btnStartScan.Name = "btnStartScan";
             this.btnStartScan.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
             this.btnStartScan.PressedColor = System.Drawing.Color.Gray;
@@ -1574,7 +1574,7 @@
             this.btnImportEmployeeDetails.PressedColor = System.Drawing.Color.Blue;
             this.btnImportEmployeeDetails.Size = new System.Drawing.Size(818, 40);
             this.btnImportEmployeeDetails.TabIndex = 75;
-            this.btnImportEmployeeDetails.Text = "Import Employee Details as CSV or Excel";
+            this.btnImportEmployeeDetails.Text = "Import Employee Details from CSV or Excel File";
             this.btnImportEmployeeDetails.Click += new System.EventHandler(this.btnImportEmployeeDetails_Click);
             // 
             // FormAddNewEmployee

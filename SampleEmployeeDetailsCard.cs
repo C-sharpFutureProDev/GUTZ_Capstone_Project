@@ -154,6 +154,9 @@ namespace GUTZ_Capstone_Project
                     lblEmployeeWorkingArrangement.Text = work_arrangement + " - " + "Office Based";
 
                     string workDaysString = dt.Rows[0]["work_days"].ToString();
+
+                    DetermineAndDisplayNonWorkingDays(workDaysString);
+
                     if (!string.IsNullOrEmpty(workDaysString))
                     {
                         // Split the work days string into an array
@@ -166,9 +169,9 @@ namespace GUTZ_Capstone_Project
                             { "Tuesday", "Tue." },
                             { "Wednesday", "Wed." },
                             { "Thursday", "Thu." },
-                            { "Friday", "Fri." }
-                            //{ "Saturday", "Sat." },
-                            //{ "Sunday", "Sun." }
+                            { "Friday", "Fri." },
+                            { "Saturday", "Sat." },
+                            { "Sunday", "Sun." }
                         };
 
                         // Create a list to hold abbreviated day names
@@ -185,7 +188,7 @@ namespace GUTZ_Capstone_Project
                         }
 
                         // Join the abbreviated days with " - "
-                        lblEmployeeWorkingDays.Text = string.Join(" - ", abbreviatedDays);
+                        lblEmployeeWorkingDays.Text = string.Join(", ", abbreviatedDays);
 
                         string accountName = dt.Rows[0]["account_name"].ToString();
                         lblEmployeeAccountName.Text = accountName;
@@ -246,6 +249,48 @@ namespace GUTZ_Capstone_Project
             }
         }
 
+        private void DetermineAndDisplayNonWorkingDays(string workDaysString)
+        {
+            if (!string.IsNullOrEmpty(workDaysString))
+            {
+                // Split the work days string into an array
+                string[] fullDayNames = workDaysString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                // Map full day names to abbreviated format
+                var dayAbbreviations = new Dictionary<string, string>
+                {
+                    { "Monday", "Mon." },
+                    { "Tuesday", "Tue." },
+                    { "Wednesday", "Wed." },
+                    { "Thursday", "Thu." },
+                    { "Friday", "Fri." },
+                    { "Saturday", "Sat." },
+                    { "Sunday", "Sun." }
+                };
+
+                // Determine non-working days
+                var allDays = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+                var nonWorkingDays = allDays.Except(fullDayNames.Select(day => day.Trim())).ToList();
+
+                // Abbreviate non-working days
+                var abbreviatedNonWorkingDays = new List<string>();
+                foreach (var day in nonWorkingDays)
+                {
+                    if (dayAbbreviations.ContainsKey(day))
+                    {
+                        abbreviatedNonWorkingDays.Add(dayAbbreviations[day]);
+                    }
+                }
+
+                // Display non-working days
+                lblNonScheduledWorkingDays.Text = string.Join(", ", abbreviatedNonWorkingDays);
+            }
+            else
+            {
+                lblNonScheduledWorkingDays.Text = "All days are non-working days";
+            }
+        }
+
         // Helper method to calculate working days in a month excluding weekends
         private int GetWorkingDaysInMonth(int year, int month)
         {
@@ -265,33 +310,6 @@ namespace GUTZ_Capstone_Project
 
             return workingDays;
         }
-
-        /*private async Task<Image> LoadImageAsync(string imagePath)
-        {
-            return await Task.Run(() =>
-            {
-                if (string.IsNullOrEmpty(imagePath) || !File.Exists(imagePath))
-                {
-                    MessageBox.Show("No profile image found.", "Image Not Found",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return null;
-                }
-
-                try
-                {
-                    using (var stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
-                    {
-                        return Image.FromStream(stream);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error loading image: {ex.Message}", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-            });
-        }*/
 
         private void btnMaximize_Click(object sender, EventArgs e)
         {
@@ -321,45 +339,6 @@ namespace GUTZ_Capstone_Project
                 _employeeList.panelEmployeeListFeatures.Visible = true;
             }
         }
-
-        private void guna2Panel18_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel21_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel19_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel22_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel20_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel23_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel17_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel16_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
+

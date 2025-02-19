@@ -1,7 +1,9 @@
-﻿using OfficeOpenXml;
+﻿using DPFP;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -21,6 +23,7 @@ namespace GUTZ_Capstone_Project
         private EmployeeAttendance _employeeAttendance;
         private Timer monthChangeTimer;
         private ToolTip ToolTip = new ToolTip();
+        private List<EmployeePastAttendanceHistoryCard> _attendanceHistoryCards = new List<EmployeePastAttendanceHistoryCard>();
 
         public EmployeeAttendanceHistory(string empID, EmployeeAttendance employeeAttendance)
         {
@@ -211,24 +214,43 @@ namespace GUTZ_Capstone_Project
 
         private async void EmployeeAttendanceHistory_Load(object sender, EventArgs e)
         {
-            int currentYear = DateTime.Now.Year;
+            // Unsubscribe from events to prevent them from firing during initialization
+            cboSortAttendanceHistory.SelectedIndexChanged -= cboSortAttendanceHistory_SelectedIndexChanged;
 
+            // Populate the year ComboBox (last 6 years including the current year)
+            cboFilterYear.Items.Clear();
+            int currentYear = DateTime.Now.Year;
             for (int year = currentYear; year >= currentYear - 6; year--)
             {
                 cboFilterYear.Items.Add(year);
             }
-
             cboFilterYear.SelectedItem = currentYear;
+
+            // Populate the month ComboBox to show all months by name
             UpdateComboBoxToCurrentMonth();
 
-            monthChangeTimer = new Timer();
-            monthChangeTimer.Interval = 3600000;
+            // Set default sort option
+            cboSortAttendanceHistory.SelectedIndex = 0;
+
+            // Initialize and start the timer for refreshing data
+            monthChangeTimer = new Timer
+            {
+                Interval = 3600000 // 1 hour
+            };
             monthChangeTimer.Tick += MonthChangeTimer_Tick;
             monthChangeTimer.Start();
 
+            // Load employee data asynchronously
             await LoadEmployeeDataAsync();
+
+            // Compute attendance metrics
             ComputeTotalAttendanceMetrics(_id);
+
+            // Display the initial attendance history (current month and year)
             FilterAndDisplayEmployeeAttendanceHistory(_id, DateTime.Now.Month, currentYear);
+
+            // Re-subscribe to the event after initialization
+            cboSortAttendanceHistory.SelectedIndexChanged += cboSortAttendanceHistory_SelectedIndexChanged;
         }
 
         private async Task LoadEmployeeDataAsync()
@@ -703,7 +725,7 @@ namespace GUTZ_Capstone_Project
             }
 
             string scheduledSql = $"SELECT work_days FROM tbl_schedule WHERE emp_id = '{id}'";
-            DataTable scheduledDt = DB_OperationHelperClass.QueryData(scheduledSql);
+            DataTable scheduledDt = await Task.Run(() => DB_OperationHelperClass.QueryData(scheduledSql));
 
             if (scheduledDt.Rows.Count == 0)
             {
@@ -718,7 +740,7 @@ namespace GUTZ_Capstone_Project
             DateTime currentDate = DateTime.Now.Date;
 
             string leaveSql = $"SELECT start_date, end_date FROM tbl_leave WHERE emp_id = '{id}' AND (leave_status = 'Active' OR leave_status = 'Completed')";
-            DataTable leaveDt = DB_OperationHelperClass.QueryData(leaveSql);
+            DataTable leaveDt = await Task.Run(() => DB_OperationHelperClass.QueryData(leaveSql));
 
             List<(DateTime start, DateTime end)> leavePeriods = new List<(DateTime, DateTime)>();
 
@@ -753,24 +775,10 @@ namespace GUTZ_Capstone_Project
                     continue;
                 }
 
-                // Skip weekends (Saturday and Sunday)
-                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
-                {
-                    date = date.AddDays(1);
-                    continue;
-                }
-
                 // Check if the employee is on leave for the current date
                 bool isOnLeave = leavePeriods.Any(leave => date >= leave.start && date <= leave.end);
 
-                string attendanceSql = $@"SELECT time_in, DATE_FORMAT(time_in, '%h:%i %p') as time_in_formatted, 
-                                          time_out, DATE_FORMAT(time_out, '%h:%i %p') as time_out_formatted, 
-                                          time_in_status 
-                                          FROM tbl_attendance 
-                                          WHERE emp_id = '{id}' AND DATE(time_in) = DATE('{date:yyyy-MM-dd}')";
-
-                DataTable attendanceDt = DB_OperationHelperClass.QueryData(attendanceSql);
-
+                // Initialize the card once
                 EmployeePastAttendanceHistoryCard employeePastAttendanceHistoryCard = new EmployeePastAttendanceHistoryCard(_employeeAttendance)
                 {
                     AttendanceDate = date.ToString("ddd. MMM. dd, yyyy"),
@@ -780,19 +788,8 @@ namespace GUTZ_Capstone_Project
                     Status = "--",
                 };
 
-                if (attendanceDt.Rows.Count > 0)
-                {
-                    hasAttendanceRecords = true;
-                    employeePastAttendanceHistoryCard.ClockInTime = attendanceDt.Rows[0]["time_in_formatted"].ToString();
-                    employeePastAttendanceHistoryCard.ClockOutTime = attendanceDt.Rows[0]["time_out_formatted"].ToString();
-                    employeePastAttendanceHistoryCard.Status = attendanceDt.Rows[0]["time_in_status"].ToString();
-
-                    if (attendanceDt.Rows[0]["time_in_status"].ToString() == "On Time" || attendanceDt.Rows[0]["time_in_status"].ToString() == "Late")
-                    {
-                        employeePastAttendanceHistoryCard.btnPresentMark.Visible = true;
-                    }
-                }
-                else if (isOnLeave)
+                // If the employee is on leave, display the leave card regardless of scheduled work days
+                if (isOnLeave)
                 {
                     employeePastAttendanceHistoryCard.btnLeaveMark.Visible = true;
                     employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(240, 248, 255);
@@ -807,12 +804,42 @@ namespace GUTZ_Capstone_Project
                     employeePastAttendanceHistoryCard.lblTimeOut.Text = leavePeriod.end.ToString("M/dd/yyyy");
                     hasAttendanceRecords = true;
                 }
+                // If the day is a scheduled work day, check for attendance
                 else if (workDaysSet.Contains(date.DayOfWeek.ToString()))
                 {
-                    employeePastAttendanceHistoryCard.btnAbsentMark.Visible = true;
-                    employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(255, 240, 240);
-                    employeePastAttendanceHistoryCard.lblTimeIn.TextAlign = ContentAlignment.MiddleCenter;
-                    hasAttendanceRecords = true;
+                    string attendanceSql = $@"SELECT time_in, DATE_FORMAT(time_in, '%h:%i %p') as time_in_formatted, 
+                                              time_out, DATE_FORMAT(time_out, '%h:%i %p') as time_out_formatted, 
+                                              time_in_status 
+                                              FROM tbl_attendance 
+                                              WHERE emp_id = '{id}' AND DATE(time_in) = DATE('{date:yyyy-MM-dd}')";
+
+                    DataTable attendanceDt = DB_OperationHelperClass.QueryData(attendanceSql);
+
+                    if (attendanceDt.Rows.Count > 0)
+                    {
+                        hasAttendanceRecords = true;
+                        employeePastAttendanceHistoryCard.ClockInTime = attendanceDt.Rows[0]["time_in_formatted"].ToString();
+                        employeePastAttendanceHistoryCard.ClockOutTime = attendanceDt.Rows[0]["time_out_formatted"].ToString();
+                        employeePastAttendanceHistoryCard.Status = attendanceDt.Rows[0]["time_in_status"].ToString();
+
+                        if (attendanceDt.Rows[0]["time_in_status"].ToString() == "On Time" || attendanceDt.Rows[0]["time_in_status"].ToString() == "Late")
+                        {
+                            employeePastAttendanceHistoryCard.btnPresentMark.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        employeePastAttendanceHistoryCard.btnAbsentMark.Visible = true;
+                        employeePastAttendanceHistoryCard.EmployeeListCardEmployeeDetailsCard.FillColor = Color.FromArgb(255, 240, 240);
+                        employeePastAttendanceHistoryCard.lblTimeIn.TextAlign = ContentAlignment.MiddleCenter;
+                        hasAttendanceRecords = true;
+                    }
+                }
+                else
+                {
+                    // Skip non-scheduled work days
+                    date = date.AddDays(1);
+                    continue;
                 }
 
                 flowLayoutPanel1.Controls.Add(employeePastAttendanceHistoryCard);
@@ -827,13 +854,297 @@ namespace GUTZ_Capstone_Project
                 lblEmployeeAveTimeIn.Text = "No Data";
                 lblEmployeeAveTimeOut.Text = "No Data";
                 lblEmployeeAttPerfPercemtage.Text = "No Data";
-                lblStartDate.Text = "N/A";
 
                 btnDownloadAttendanceHistoryRecords.Enabled = false;
             }
             else
             {
                 btnDownloadAttendanceHistoryRecords.Enabled = true;
+            }
+        }
+
+        private async void cboSortAttendanceHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Get the selected year and month from the filter ComboBoxes
+            int selectedYear = Convert.ToInt32(cboFilterYear.SelectedItem);
+            int selectedMonth = cboFilterMonth.SelectedIndex + 1; // Assuming 0-based index for months (Jan = 0, Feb = 1, etc.)
+
+            // Validation
+            if (selectedYear < 1900 || selectedYear > DateTime.Now.Year)
+            {
+                MessageBox.Show("Please select a valid year.", "Invalid Year", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedMonth < 1 || selectedMonth > 12)
+            {
+                MessageBox.Show("Please select a valid month (1-12).", "Invalid Month", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Debugging output
+            Debug.WriteLine($"Selected Year: {selectedYear}, Selected Month: {selectedMonth}");
+
+            try
+            {
+                // Clear the FlowLayoutPanel before loading new records
+                flowLayoutPanel1.Controls.Clear();
+
+                // Define the query string based on the selected sort option
+                string query = "";
+
+                switch (cboSortAttendanceHistory.SelectedIndex)
+                {
+                    case 0: // ALL (Display all records regardless of status)
+                        FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear);
+                        return; // Exit after displaying all records
+
+                    case 1: // On Time
+                        query = $@"SELECT ta.emp_id, ta.time_in, ta.time_out, ta.time_in_status, 
+                                    DATE_FORMAT(ta.time_in, '%Y-%m-%d') AS attendance_date
+                             FROM tbl_attendance ta
+                             WHERE ta.time_in_status = 'On Time' AND emp_id = '{_id}'
+                                   AND YEAR(ta.time_in) = {selectedYear}
+                                   AND MONTH(ta.time_in) = {selectedMonth}
+                             ORDER BY ta.time_in ASC";
+                        break;
+
+                    case 2: // Late
+                        query = $@"SELECT ta.emp_id, ta.time_in, ta.time_out, ta.time_in_status, 
+                                    DATE_FORMAT(ta.time_in, '%Y-%m-%d') AS attendance_date
+                             FROM tbl_attendance ta
+                             WHERE ta.time_in_status = 'Late' AND emp_id = '{_id}'
+                                   AND YEAR(ta.time_in) = {selectedYear}
+                                   AND MONTH(ta.time_in) = {selectedMonth}
+                             ORDER BY ta.time_in ASC";
+                        break;
+
+                    case 3: // Absent
+                            // Call a method to handle displaying absent records specifically
+                        await DisplayAbsentRecords(_id, selectedMonth, selectedYear);
+                        return; // Exit after displaying absent records
+
+                    case 4: // On Leave
+                        await DisplayOnLeaveRecords(_id, selectedMonth, selectedYear);
+                        return; // Exit after displaying leave records
+
+                    default:
+                        MessageBox.Show("Please select a valid sorting criterion.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                }
+
+                // Execute the query to retrieve data (only for cases 1 and 2)
+                if (cboSortAttendanceHistory.SelectedIndex != 0 && cboSortAttendanceHistory.SelectedIndex != 3 && cboSortAttendanceHistory.SelectedIndex != 4) // Skip query execution for "ALL", "Absent", and "On Leave"
+                {
+                    DataTable dt = await Task.Run(() => DB_OperationHelperClass.QueryData(query));
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            // Create an attendance card for each row in the result
+                            EmployeePastAttendanceHistoryCard employeePastAttendanceHistoryCard = new EmployeePastAttendanceHistoryCard(_employeeAttendance)
+                            {
+                                AttendanceDate = Convert.ToDateTime(row["attendance_date"]).ToString("ddd. MMM. dd, yyyy"),
+                                ID = row["emp_id"].ToString(),
+                                ClockInTime = row["time_in"] != DBNull.Value
+                                    ? Convert.ToDateTime(row["time_in"]).ToString("hh:mm tt")
+                                    : "--",
+                                ClockOutTime = row["time_out"] != DBNull.Value
+                                    ? Convert.ToDateTime(row["time_out"]).ToString("hh:mm tt")
+                                    : "--",
+                                Status = row["time_in_status"].ToString()
+                            };
+
+                            // Adjust visibility of Present/Late button based on status
+                            employeePastAttendanceHistoryCard.btnPresentMark.Visible = employeePastAttendanceHistoryCard.Status == "On Time" || employeePastAttendanceHistoryCard.Status == "Late";
+
+                            // Add the card to the FlowLayoutPanel
+                            flowLayoutPanel1.Controls.Add(employeePastAttendanceHistoryCard);
+                        }
+                    }
+                    else
+                    {
+                        // No records found
+                        MessageBox.Show($"No attendance records found for {selectedMonth}/{selectedYear} based on the selected sorting criterion.",
+                            "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving attendance history: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task DisplayAbsentRecords(string id, int selectedMonth, int selectedYear)
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            // Get the employee's start date
+            DateTime startDate;
+            string employeeSql = $"SELECT start_date FROM tbl_employee WHERE emp_id = '{id}'";
+
+            try
+            {
+                DataTable employeeDt = await Task.Run(() => DB_OperationHelperClass.QueryData(employeeSql));
+
+                if (employeeDt.Rows.Count > 0)
+                {
+                    startDate = Convert.ToDateTime(employeeDt.Rows[0]["start_date"]);
+                }
+                else
+                {
+                    MessageBox.Show($"No employee found with ID: {id}", "No Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving employee data: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Get the employee's scheduled workdays
+            string scheduledSql = $"SELECT work_days FROM tbl_schedule WHERE emp_id = '{id}'";
+            DataTable scheduledDt;
+
+            try
+            {
+                scheduledDt = await Task.Run(() => DB_OperationHelperClass.QueryData(scheduledSql));
+
+                if (scheduledDt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No scheduled workdays found for this employee.", "No Record",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving scheduled workdays: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Parse scheduled workdays into a HashSet
+            HashSet<DayOfWeek> workDaysSet = new HashSet<DayOfWeek>(
+                scheduledDt.Rows[0]["work_days"].ToString()
+                .Split(',')
+                .Select(day => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), day, true))
+            );
+
+            // Iterate through the selected month
+            DateTime date = new DateTime(selectedYear, selectedMonth, 1);
+            DateTime endDate = date.AddMonths(1).AddDays(-1);
+            DateTime currentDate = DateTime.Now.Date;
+
+            while (date <= endDate)
+            {
+                // Skip dates that are in the future or before the employee start date
+                if (date > currentDate || date < startDate)
+                {
+                    date = date.AddDays(1);
+                    continue;
+                }
+
+                // Check if the current date is a scheduled workday
+                if (!workDaysSet.Contains(date.DayOfWeek))
+                {
+                    date = date.AddDays(1);
+                    continue;
+                }
+
+                // Check if attendance exists for the current date
+                string attendanceSql = $@"SELECT time_in, time_out, time_in_status 
+                                          FROM tbl_attendance 
+                                          WHERE emp_id = '{id}' AND DATE(time_in) = '{date:yyyy-MM-dd}'";
+
+                DataTable attendanceDt = await Task.Run(() => DB_OperationHelperClass.QueryData(attendanceSql));
+
+                // If attendance exists, skip creating an "Absent" card
+                if (attendanceDt.Rows.Count > 0)
+                {
+                    date = date.AddDays(1);
+                    continue;
+                }
+
+                // Only create an "Absent" card when no attendance record exists for the date
+                EmployeePastAttendanceHistoryCard employeePastAttendanceHistoryCard = new EmployeePastAttendanceHistoryCard(_employeeAttendance)
+                {
+                    AttendanceDate = date.ToString("ddd. MMM. dd, yyyy"),
+                    ID = id,
+                    ClockInTime = "     --",
+                    ClockOutTime = "    --",
+                    Status = "Absent",
+                    btnAbsentMark = { Visible = true },
+                    EmployeeListCardEmployeeDetailsCard = { FillColor = Color.FromArgb(255, 240, 240) }
+                };
+
+                // Add the card to the FlowLayoutPanel
+                flowLayoutPanel1.Controls.Add(employeePastAttendanceHistoryCard);
+
+                // Move to the next day
+                date = date.AddDays(1);
+            }
+        }
+
+        private async Task DisplayOnLeaveRecords(string id, int selectedMonth, int selectedYear)
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            // Query to retrieve leave records for the selected month and year
+            string leaveSql = $@"SELECT start_date, end_date 
+                         FROM tbl_leave 
+                         WHERE emp_id = '{id}' 
+                               AND (leave_status = 'Active' OR leave_status = 'Completed')
+                               AND ((YEAR(start_date) = {selectedYear} AND MONTH(start_date) = {selectedMonth})
+                                    OR (YEAR(end_date) = {selectedYear} AND MONTH(end_date) = {selectedMonth}))";
+
+            try
+            {
+                DataTable leaveDt = await Task.Run(() => DB_OperationHelperClass.QueryData(leaveSql));
+
+                if (leaveDt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in leaveDt.Rows)
+                    {
+                        DateTime leaveStart = Convert.ToDateTime(row["start_date"]);
+                        DateTime leaveEnd = Convert.ToDateTime(row["end_date"]);
+
+                        // Iterate through each day in the leave period
+                        for (DateTime date = leaveStart; date <= leaveEnd; date = date.AddDays(1))
+                        {
+                            // Only display leave records for the selected month and year
+                            if (date.Year == selectedYear && date.Month == selectedMonth)
+                            {
+                                EmployeePastAttendanceHistoryCard employeePastAttendanceHistoryCard = new EmployeePastAttendanceHistoryCard(_employeeAttendance)
+                                {
+                                    AttendanceDate = date.ToString("ddd. MMM. dd, yyyy"),
+                                    ID = id,
+                                    ClockInTime = "--",
+                                    ClockOutTime = "--",
+                                    Status = "On Leave",
+                                    btnLeaveMark = { Visible = true },
+                                    EmployeeListCardEmployeeDetailsCard = { FillColor = Color.FromArgb(240, 248, 255) }
+                                };
+
+                                // Add the card to the FlowLayoutPanel
+                                flowLayoutPanel1.Controls.Add(employeePastAttendanceHistoryCard);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"No leave records found for {selectedMonth}/{selectedYear}.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving leave records: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

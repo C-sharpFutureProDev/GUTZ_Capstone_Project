@@ -129,7 +129,7 @@
             this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnLogout.Font = new System.Drawing.Font("Arial Black", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.Font = new System.Drawing.Font("Bookman Old Style", 11.5F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
@@ -278,7 +278,7 @@
             this.btnEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnEmployee.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
             this.btnEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnEmployee.HoverState.ForeColor = System.Drawing.Color.White;
@@ -294,7 +294,7 @@
             this.btnEmployee.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnEmployee.Size = new System.Drawing.Size(280, 58);
             this.btnEmployee.TabIndex = 22;
-            this.btnEmployee.Text = "Manage Employee";
+            this.btnEmployee.Text = "Employee List";
             this.btnEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
@@ -485,11 +485,13 @@
             // 
             // iconCurrentLoginAdmin
             // 
+            this.iconCurrentLoginAdmin.Image = ((System.Drawing.Image)(resources.GetObject("iconCurrentLoginAdmin.Image")));
             this.iconCurrentLoginAdmin.ImageRotate = 0F;
             this.iconCurrentLoginAdmin.Location = new System.Drawing.Point(1389, 10);
             this.iconCurrentLoginAdmin.Name = "iconCurrentLoginAdmin";
             this.iconCurrentLoginAdmin.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.iconCurrentLoginAdmin.Size = new System.Drawing.Size(50, 50);
+            this.iconCurrentLoginAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconCurrentLoginAdmin.TabIndex = 27;
             this.iconCurrentLoginAdmin.TabStop = false;
             // 
@@ -604,11 +606,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(13, 17);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 26);
+            this.label10.Size = new System.Drawing.Size(106, 24);
             this.label10.TabIndex = 29;
             this.label10.Text = "On Leave";
             // 
@@ -716,11 +718,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(13, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 26);
+            this.label3.Size = new System.Drawing.Size(204, 24);
             this.label3.TabIndex = 29;
             this.label3.Text = "Attendance, Today";
             // 
@@ -787,11 +789,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(13, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 26);
+            this.label2.Size = new System.Drawing.Size(171, 24);
             this.label2.TabIndex = 27;
             this.label2.Text = "Total Employee";
             // 

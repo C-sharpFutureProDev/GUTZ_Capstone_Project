@@ -99,6 +99,12 @@ namespace GUTZ_Capstone_Project
                         case "Friday":
                             chkBoxFriday.Checked = true;
                             break;
+                        case "Saturday":
+                            chkBoxSaturday.Checked = true;
+                            break;
+                        case "Sunday":
+                            chkBoxSunday.Checked = true;
+                            break;
                     }
                 }
 
@@ -134,6 +140,8 @@ namespace GUTZ_Capstone_Project
             if (chkBoxWednesday.Checked) selectedDaysList.Add("Wednesday");
             if (chkBoxThursday.Checked) selectedDaysList.Add("Thursday");
             if (chkBoxFriday.Checked) selectedDaysList.Add("Friday");
+            if (chkBoxSaturday.Checked) selectedDaysList.Add("Saturday");
+            if (chkBoxSunday.Checked) selectedDaysList.Add("Sunday");
 
             SelectedDays = selectedDaysList.ToArray();
             StartTime = GetTimeFromControls(StartNumUpDown, StartMinutesNumUpDown, cboStartAMOrPM);
@@ -152,7 +160,7 @@ namespace GUTZ_Capstone_Project
             if (!chkBoxMonday.Checked && !chkBoxTuesday.Checked && !chkBoxWednesday.Checked &&
                 !chkBoxThursday.Checked && !chkBoxFriday.Checked)
             {
-                MessageBox.Show("Please select at least one working day from Monday to Friday.", "Validation Error",
+                MessageBox.Show("Please select at least one working day from Monday to Sunday.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -244,6 +252,16 @@ namespace GUTZ_Capstone_Project
             isModified = true;
         }
 
+        private void chkBoxSaturday_CheckedChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
+        private void chkBoxSunday_CheckedChanged(object sender, EventArgs e)
+        {
+            isModified = true;
+        }
+
         private void StartNumUpDown_ValueChanged(object sender, EventArgs e)
         {
             isModified = true;
@@ -253,6 +271,5 @@ namespace GUTZ_Capstone_Project
         {
             isModified = true;
         }
-
     }
 }

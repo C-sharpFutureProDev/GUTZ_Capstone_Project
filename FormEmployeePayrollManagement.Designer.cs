@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmployeePayrollManagement));
             this.panelAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboSearchEmployeeForActivePayroll = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnIconSearch = new Guna.UI2.WinForms.Guna2Button();
+            this.txtSearchForActivePayroll = new Guna.UI2.WinForms.Guna2TextBox();
+            this.toggleSwitchViewRecentPayroll = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.lblTextViewPastAttendanceRecord = new System.Windows.Forms.Label();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTotalWages = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -43,6 +48,7 @@
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.btnViewEmployeeList = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnViewProcessedPayrollDetails = new Guna.UI2.WinForms.Guna2Button();
             this.btnCutPayroll = new Guna.UI2.WinForms.Guna2Button();
             this.lblPayDate = new System.Windows.Forms.Label();
             this.lblActivePayrollStatus = new System.Windows.Forms.Label();
@@ -66,6 +72,11 @@
             // 
             this.panelAttendanceDetails.BackColor = System.Drawing.Color.White;
             this.panelAttendanceDetails.BorderColor = System.Drawing.Color.White;
+            this.panelAttendanceDetails.Controls.Add(this.cboSearchEmployeeForActivePayroll);
+            this.panelAttendanceDetails.Controls.Add(this.btnIconSearch);
+            this.panelAttendanceDetails.Controls.Add(this.txtSearchForActivePayroll);
+            this.panelAttendanceDetails.Controls.Add(this.toggleSwitchViewRecentPayroll);
+            this.panelAttendanceDetails.Controls.Add(this.lblTextViewPastAttendanceRecord);
             this.panelAttendanceDetails.Controls.Add(this.guna2Panel9);
             this.panelAttendanceDetails.Controls.Add(this.guna2Panel8);
             this.panelAttendanceDetails.Controls.Add(this.guna2Panel2);
@@ -85,6 +96,125 @@
             this.panelAttendanceDetails.Size = new System.Drawing.Size(1914, 310);
             this.panelAttendanceDetails.TabIndex = 5;
             // 
+            // cboSearchEmployeeForActivePayroll
+            // 
+            this.cboSearchEmployeeForActivePayroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.cboSearchEmployeeForActivePayroll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployeeForActivePayroll.BorderThickness = 0;
+            this.cboSearchEmployeeForActivePayroll.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSearchEmployeeForActivePayroll.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearchEmployeeForActivePayroll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.cboSearchEmployeeForActivePayroll.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployeeForActivePayroll.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployeeForActivePayroll.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.cboSearchEmployeeForActivePayroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.cboSearchEmployeeForActivePayroll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSearchEmployeeForActivePayroll.ItemHeight = 35;
+            this.cboSearchEmployeeForActivePayroll.Items.AddRange(new object[] {
+            "ID Number",
+            "Employee Name"});
+            this.cboSearchEmployeeForActivePayroll.Location = new System.Drawing.Point(30, 254);
+            this.cboSearchEmployeeForActivePayroll.Name = "cboSearchEmployeeForActivePayroll";
+            this.cboSearchEmployeeForActivePayroll.ShadowDecoration.BorderRadius = 4;
+            this.cboSearchEmployeeForActivePayroll.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSearchEmployeeForActivePayroll.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.cboSearchEmployeeForActivePayroll.Size = new System.Drawing.Size(230, 41);
+            this.cboSearchEmployeeForActivePayroll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cboSearchEmployeeForActivePayroll.TabIndex = 141;
+            // 
+            // btnIconSearch
+            // 
+            this.btnIconSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnIconSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.BorderRadius = 1;
+            this.btnIconSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnIconSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnIconSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnIconSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnIconSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.btnIconSearch.ForeColor = System.Drawing.Color.White;
+            this.btnIconSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnIconSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnIconSearch.Image")));
+            this.btnIconSearch.ImageSize = new System.Drawing.Size(30, 34);
+            this.btnIconSearch.Location = new System.Drawing.Point(282, 260);
+            this.btnIconSearch.Name = "btnIconSearch";
+            this.btnIconSearch.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.btnIconSearch.PressedDepth = 0;
+            this.btnIconSearch.Size = new System.Drawing.Size(35, 35);
+            this.btnIconSearch.TabIndex = 142;
+            this.btnIconSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtSearchForActivePayroll
+            // 
+            this.txtSearchForActivePayroll.AutoRoundedCorners = true;
+            this.txtSearchForActivePayroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.txtSearchForActivePayroll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtSearchForActivePayroll.BorderRadius = 19;
+            this.txtSearchForActivePayroll.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchForActivePayroll.DefaultText = "";
+            this.txtSearchForActivePayroll.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchForActivePayroll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchForActivePayroll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchForActivePayroll.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchForActivePayroll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.txtSearchForActivePayroll.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtSearchForActivePayroll.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.txtSearchForActivePayroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.txtSearchForActivePayroll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.txtSearchForActivePayroll.Location = new System.Drawing.Point(339, 254);
+            this.txtSearchForActivePayroll.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtSearchForActivePayroll.Name = "txtSearchForActivePayroll";
+            this.txtSearchForActivePayroll.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.txtSearchForActivePayroll.PasswordChar = '\0';
+            this.txtSearchForActivePayroll.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.txtSearchForActivePayroll.PlaceholderText = "Search Employee";
+            this.txtSearchForActivePayroll.SelectedText = "";
+            this.txtSearchForActivePayroll.ShadowDecoration.BorderRadius = 4;
+            this.txtSearchForActivePayroll.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtSearchForActivePayroll.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.txtSearchForActivePayroll.Size = new System.Drawing.Size(271, 41);
+            this.txtSearchForActivePayroll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtSearchForActivePayroll.TabIndex = 140;
+            this.txtSearchForActivePayroll.TextChanged += new System.EventHandler(this.txtSearchForActivePayroll_TextChanged);
+            this.txtSearchForActivePayroll.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchForActivePayroll_KeyDown);
+            // 
+            // toggleSwitchViewRecentPayroll
+            // 
+            this.toggleSwitchViewRecentPayroll.AutoRoundedCorners = true;
+            this.toggleSwitchViewRecentPayroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.toggleSwitchViewRecentPayroll.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSwitchViewRecentPayroll.CheckedState.BorderRadius = 14;
+            this.toggleSwitchViewRecentPayroll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSwitchViewRecentPayroll.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSwitchViewRecentPayroll.CheckedState.InnerBorderRadius = 10;
+            this.toggleSwitchViewRecentPayroll.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleSwitchViewRecentPayroll.Location = new System.Drawing.Point(835, 265);
+            this.toggleSwitchViewRecentPayroll.Name = "toggleSwitchViewRecentPayroll";
+            this.toggleSwitchViewRecentPayroll.Size = new System.Drawing.Size(65, 30);
+            this.toggleSwitchViewRecentPayroll.TabIndex = 138;
+            this.toggleSwitchViewRecentPayroll.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSwitchViewRecentPayroll.UncheckedState.BorderRadius = 14;
+            this.toggleSwitchViewRecentPayroll.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSwitchViewRecentPayroll.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSwitchViewRecentPayroll.UncheckedState.InnerBorderRadius = 10;
+            this.toggleSwitchViewRecentPayroll.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleSwitchViewRecentPayroll.CheckedChanged += new System.EventHandler(this.toggleSwitchViewRecentPayroll_CheckedChanged);
+            // 
+            // lblTextViewPastAttendanceRecord
+            // 
+            this.lblTextViewPastAttendanceRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblTextViewPastAttendanceRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.lblTextViewPastAttendanceRecord.Location = new System.Drawing.Point(630, 265);
+            this.lblTextViewPastAttendanceRecord.Name = "lblTextViewPastAttendanceRecord";
+            this.lblTextViewPastAttendanceRecord.Size = new System.Drawing.Size(199, 30);
+            this.lblTextViewPastAttendanceRecord.TabIndex = 139;
+            this.lblTextViewPastAttendanceRecord.Text = "View Past Payroll:";
+            this.lblTextViewPastAttendanceRecord.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // guna2Panel9
             // 
             this.guna2Panel9.BackColor = System.Drawing.Color.White;
@@ -95,7 +225,7 @@
             this.guna2Panel9.Controls.Add(this.label16);
             this.guna2Panel9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.guna2Panel9.ForeColor = System.Drawing.Color.White;
-            this.guna2Panel9.Location = new System.Drawing.Point(644, 70);
+            this.guna2Panel9.Location = new System.Drawing.Point(630, 70);
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel9.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -124,7 +254,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(260, 32);
             this.label16.TabIndex = 114;
-            this.label16.Text = "Wages (Cumulative)";
+            this.label16.Text = "Gross Wages (Cumulative)";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel8
@@ -137,7 +267,7 @@
             this.guna2Panel8.Controls.Add(this.label14);
             this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.guna2Panel8.ForeColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(347, 70);
+            this.guna2Panel8.Location = new System.Drawing.Point(340, 70);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel8.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -190,13 +320,13 @@
             // lblTotalTutoringHours
             // 
             this.lblTotalTutoringHours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblTotalTutoringHours.Font = new System.Drawing.Font("Arial", 15.5F, System.Drawing.FontStyle.Bold);
+            this.lblTotalTutoringHours.Font = new System.Drawing.Font("Bookman Old Style", 15F, System.Drawing.FontStyle.Bold);
             this.lblTotalTutoringHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.lblTotalTutoringHours.Location = new System.Drawing.Point(3, 59);
             this.lblTotalTutoringHours.Name = "lblTotalTutoringHours";
             this.lblTotalTutoringHours.Size = new System.Drawing.Size(264, 47);
             this.lblTotalTutoringHours.TabIndex = 115;
-            this.lblTotalTutoringHours.Text = "0h : 0m";
+            this.lblTotalTutoringHours.Text = "0Hrs.";
             this.lblTotalTutoringHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -208,7 +338,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(260, 32);
             this.label5.TabIndex = 115;
-            this.label5.Text = "Tutoring Time (Cumulative)";
+            this.label5.Text = "Tutoring Hours (Cumulative)";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRefresh
@@ -271,6 +401,7 @@
             this.guna2Panel4.BorderColor = System.Drawing.Color.White;
             this.guna2Panel4.BorderRadius = 5;
             this.guna2Panel4.BorderThickness = 5;
+            this.guna2Panel4.Controls.Add(this.btnViewProcessedPayrollDetails);
             this.guna2Panel4.Controls.Add(this.btnCutPayroll);
             this.guna2Panel4.Controls.Add(this.lblPayDate);
             this.guna2Panel4.Controls.Add(this.lblActivePayrollStatus);
@@ -285,6 +416,35 @@
             this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel4.Size = new System.Drawing.Size(600, 220);
             this.guna2Panel4.TabIndex = 135;
+            // 
+            // btnViewProcessedPayrollDetails
+            // 
+            this.btnViewProcessedPayrollDetails.AutoRoundedCorners = true;
+            this.btnViewProcessedPayrollDetails.BackColor = System.Drawing.Color.White;
+            this.btnViewProcessedPayrollDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnViewProcessedPayrollDetails.BorderRadius = 19;
+            this.btnViewProcessedPayrollDetails.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnViewProcessedPayrollDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewProcessedPayrollDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewProcessedPayrollDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewProcessedPayrollDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewProcessedPayrollDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnViewProcessedPayrollDetails.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnViewProcessedPayrollDetails.ForeColor = System.Drawing.Color.White;
+            this.btnViewProcessedPayrollDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnViewProcessedPayrollDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnViewProcessedPayrollDetails.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnViewProcessedPayrollDetails.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcessedPayrollDetails.Image")));
+            this.btnViewProcessedPayrollDetails.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnViewProcessedPayrollDetails.Location = new System.Drawing.Point(29, 170);
+            this.btnViewProcessedPayrollDetails.Name = "btnViewProcessedPayrollDetails";
+            this.btnViewProcessedPayrollDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnViewProcessedPayrollDetails.PressedColor = System.Drawing.Color.Salmon;
+            this.btnViewProcessedPayrollDetails.Size = new System.Drawing.Size(544, 40);
+            this.btnViewProcessedPayrollDetails.TabIndex = 116;
+            this.btnViewProcessedPayrollDetails.Text = "View Details";
+            this.btnViewProcessedPayrollDetails.Visible = false;
+            this.btnViewProcessedPayrollDetails.Click += new System.EventHandler(this.btnViewProcessedPayrollDetails_Click);
             // 
             // btnCutPayroll
             // 
@@ -377,7 +537,7 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.guna2Panel1.Size = new System.Drawing.Size(903, 220);
+            this.guna2Panel1.Size = new System.Drawing.Size(891, 220);
             this.guna2Panel1.TabIndex = 134;
             // 
             // lblCurrentPayrollStatus
@@ -479,5 +639,11 @@
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitchViewRecentPayroll;
+        private System.Windows.Forms.Label lblTextViewPastAttendanceRecord;
+        public Guna.UI2.WinForms.Guna2TextBox txtSearchForActivePayroll;
+        private Guna.UI2.WinForms.Guna2ComboBox cboSearchEmployeeForActivePayroll;
+        private Guna.UI2.WinForms.Guna2Button btnIconSearch;
+        public Guna.UI2.WinForms.Guna2Button btnViewProcessedPayrollDetails;
     }
 }

@@ -84,7 +84,7 @@
             this.btnWorkingArrangement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnWorkingArrangement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnWorkingArrangement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnWorkingArrangement.Font = new System.Drawing.Font("Times New Roman", 9.5F);
+            this.btnWorkingArrangement.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.btnWorkingArrangement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnWorkingArrangement.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
             this.btnWorkingArrangement.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
@@ -131,23 +131,23 @@
             // lblJoinedDate
             // 
             this.lblJoinedDate.AutoSize = true;
-            this.lblJoinedDate.Font = new System.Drawing.Font("Arial", 7F);
+            this.lblJoinedDate.Font = new System.Drawing.Font("Bookman Old Style", 6.5F);
             this.lblJoinedDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblJoinedDate.Location = new System.Drawing.Point(161, 154);
             this.lblJoinedDate.Name = "lblJoinedDate";
-            this.lblJoinedDate.Size = new System.Drawing.Size(71, 16);
+            this.lblJoinedDate.Size = new System.Drawing.Size(76, 18);
             this.lblJoinedDate.TabIndex = 76;
             this.lblJoinedDate.Text = "Start Date";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 7F);
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 6.5F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(110, 154);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(54, 16);
+            this.label5.Size = new System.Drawing.Size(58, 18);
             this.label5.TabIndex = 75;
             this.label5.Text = "Joined:";
             // 
@@ -189,7 +189,7 @@
             this.btnViewEmployeeDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnViewEmployeeDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnViewEmployeeDetails.Font = new System.Drawing.Font("Times New Roman", 8.5F);
+            this.btnViewEmployeeDetails.Font = new System.Drawing.Font("Bookman Old Style", 7F);
             this.btnViewEmployeeDetails.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.btnViewEmployeeDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
@@ -262,7 +262,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.lblID.Font = new System.Drawing.Font("Bookman Old Style", 10F);
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(15, 142);
             this.lblID.Name = "lblID";
@@ -291,18 +291,18 @@
             // 
             // lblEmpRate
             // 
-            this.lblEmpRate.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmpRate.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblEmpRate.ForeColor = System.Drawing.Color.White;
             this.lblEmpRate.Location = new System.Drawing.Point(3, 58);
             this.lblEmpRate.Name = "lblEmpRate";
             this.lblEmpRate.Size = new System.Drawing.Size(216, 24);
             this.lblEmpRate.TabIndex = 64;
-            this.lblEmpRate.Text = "Account";
+            this.lblEmpRate.Text = "Rate";
             this.lblEmpRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblJobRole
             // 
-            this.lblJobRole.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblJobRole.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblJobRole.ForeColor = System.Drawing.Color.White;
             this.lblJobRole.Location = new System.Drawing.Point(2, 31);
             this.lblJobRole.Name = "lblJobRole";
@@ -313,7 +313,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";

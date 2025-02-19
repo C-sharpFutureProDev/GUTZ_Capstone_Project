@@ -168,13 +168,14 @@ namespace GUTZ_Capstone_Project
             int scheduledCount = 0;
             int onLeaveCount = 0;
 
-            // Count scheduled employees based on _reportDate
             string countScheduledEmployee = $@"SELECT COUNT(*) 
                                                FROM tbl_employee e
                                                INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
+                                               INNER JOIN tbl_position p ON e.position_id = p.position_id
                                                WHERE FIND_IN_SET(DAYNAME('{_reportDate:yyyy-MM-dd}'), s.work_days) > 0
                                                AND e.is_deleted = 0
-                                               AND e.start_date <= '{_reportDate:yyyy-MM-dd}'";
+                                               AND e.start_date <= '{_reportDate:yyyy-MM-dd}'
+                                               AND p.position_desc != 'Administrator'";
 
             // Count employees on leave based on _reportDate
             string countOnLeave = $@"SELECT COUNT(*) 
@@ -216,10 +217,12 @@ namespace GUTZ_Capstone_Project
             string countScheduledEmployee = $@"SELECT COUNT(*) FROM tbl_employee e
                                                INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
                                                LEFT JOIN tbl_leave l ON e.emp_id = l.emp_id AND l.leave_status = 'Active'
+                                               INNER JOIN tbl_position p ON e.position_id = p.position_id
                                                WHERE FIND_IN_SET(DAYNAME('{date:yyyy-MM-dd}'), s.work_days) > 0
                                                AND (l.leave_status IS NULL OR l.leave_status <> 'Active')
                                                AND e.is_deleted = 0
-                                               AND e.start_date <= '{date:yyyy-MM-dd}'";
+                                               AND e.start_date <= '{date:yyyy-MM-dd}'
+                                               AND p.position_desc != 'Administrator'";
 
             DataTable dt = DB_OperationHelperClass.QueryData(countScheduledEmployee);
             return dt.Rows.Count > 0 ? Convert.ToInt32(dt.Rows[0][0]) : 0;
@@ -273,15 +276,19 @@ namespace GUTZ_Capstone_Project
 
         private void ComputeTutoringHoursForSelectedDate()
         {
-            TimeSpan totalWorkingHours = TimeSpan.Zero;
+            long totalSeconds = 0;
 
-            string sqlCountAttendance = $@"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, a.time_in, a.time_out, a.time_in_status, a.working_hours, e.start_date
-                                           FROM tbl_schedule s
-                                           LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id AND DATE(a.time_in) = '{_reportDate:yyyy-MM-dd}'
-                                           INNER JOIN tbl_employee e ON s.emp_id = e.emp_id
-                                           WHERE FIND_IN_SET('{_reportDate:dddd}', s.work_days) > 0
-                                           AND e.is_deleted = 0
-                                           AND e.start_date <= '{_reportDate:yyyy-MM-dd}'";
+            string sqlCountAttendance = $@"SELECT s.emp_id, s.start_time, s.end_time, s.work_days, 
+                                         a.time_in, a.time_out, a.time_in_status, 
+                                         IFNULL(a.working_hours, '00:00:00') AS working_hours, 
+                                         e.start_date
+                                         FROM tbl_schedule s
+                                         LEFT JOIN tbl_attendance a ON a.emp_id = s.emp_id 
+                                         AND DATE(a.time_in) = '{_reportDate:yyyy-MM-dd}'
+                                         INNER JOIN tbl_employee e ON s.emp_id = e.emp_id
+                                         WHERE FIND_IN_SET('{_reportDate:dddd}', s.work_days) > 0
+                                         AND e.is_deleted = 0
+                                         AND e.start_date <= '{_reportDate:yyyy-MM-dd}'";
 
             try
             {
@@ -289,25 +296,27 @@ namespace GUTZ_Capstone_Project
 
                 foreach (DataRow row in dtAttendance.Rows)
                 {
-                    string empId = row["emp_id"].ToString();
                     DateTime? timeIn = row["time_in"] as DateTime?;
-                    TimeSpan workingHours = row["working_hours"] != DBNull.Value ? TimeSpan.Parse(row["working_hours"].ToString()) : TimeSpan.Zero;
+                    DateTime? timeOut = row["time_out"] as DateTime?;
                     string timeInStatus = row["time_in_status"]?.ToString();
 
-                    if (Convert.ToDateTime(row["start_date"]) <= _reportDate)
+                    // Check if the employee clocked in and clocked out
+                    if (timeIn.HasValue && timeOut.HasValue)
                     {
-                        if (timeIn.HasValue)
-                        {
-                            totalWorkingHours += workingHours;
-                        }
+                        TimeSpan workingHours = timeOut.Value - timeIn.Value;
+                        totalSeconds += (long)workingHours.TotalSeconds; // Accumulate total seconds
                     }
                 }
 
-                lblComputedTutoringHoursForDateSelected.Text = $"{totalWorkingHours.Hours}h : {totalWorkingHours.Minutes}m";
+                // Convert total seconds to hours and minutes
+                long hours = totalSeconds / 3600;
+                long minutes = (totalSeconds % 3600) / 60;
+
+                lblComputedTutoringHoursForDateSelected.Text = $"{hours}h : {minutes}m";
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error calculating attendance: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error calculating tutoring hours: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -395,6 +404,7 @@ namespace GUTZ_Capstone_Project
             string sql = $@"SELECT COUNT(e.emp_id) 
                             FROM tbl_employee e
                             LEFT JOIN tbl_schedule s ON e.emp_id = s.emp_id
+                            INNER JOIN tbl_position p ON e.position_id = p.position_id
                             WHERE e.is_deleted = 0
                             AND e.start_date <= CURDATE()
                             AND FIND_IN_SET(DAYNAME('{_reportDate:yyyy-MM-dd}'), s.work_days) > 0
@@ -410,7 +420,8 @@ namespace GUTZ_Capstone_Project
                                 WHERE l.emp_id = e.emp_id 
                                 AND '{_reportDate:yyyy-MM-dd}' BETWEEN l.start_date AND l.end_date 
                                 AND l.leave_status IN ('Active', 'Completed')
-                            );";
+                            )
+                            AND p.position_desc != 'Administrator'";
 
             try
             {
@@ -499,6 +510,7 @@ namespace GUTZ_Capstone_Project
                              a.time_out, 
                              a.time_in_status, 
                              a.late_time, 
+                             position_desc,
                              CASE 
                                  WHEN a.time_in IS NULL AND a.time_out IS NULL THEN '--'
                                  ELSE a.working_hours 
@@ -520,13 +532,14 @@ namespace GUTZ_Capstone_Project
                              tbl_employee e
                          INNER JOIN 
                              tbl_schedule s ON e.emp_id = s.emp_id
+                         INNER JOIN tbl_position ON e.position_id = tbl_position.position_id
                          LEFT JOIN 
                              tbl_attendance a ON e.emp_id = a.emp_id AND DATE(a.time_in) = '{_reportDate:yyyy-MM-dd}'
                          LEFT JOIN 
                              tbl_leave l ON e.emp_id = l.emp_id 
                              AND DATE('{_reportDate:yyyy-MM-dd}') BETWEEN l.start_date AND l.end_date
                          WHERE 
-                             s.work_days LIKE '%{_reportDate:dddd}%'
+                             s.work_days LIKE '%{_reportDate:dddd}%' AND position_desc != 'Administrator'
                          ORDER BY 
                              e.emp_id";
 
@@ -616,8 +629,7 @@ namespace GUTZ_Capstone_Project
                                 break;
                         }
 
-                        // Add the ReportCard control to the FlowLayoutPanel
-                        flowLayoutPanel1.Controls.Add(sampleEmployeeAttendanceReportCard);
+                        flowLayoutPanel1.Controls.Add(sampleEmployeeAttendanceReportCard); // Add the ReportCard control to the FlowLayoutPanel
                     }
                 }
                 else
@@ -643,6 +655,7 @@ namespace GUTZ_Capstone_Project
                                 a.time_out, 
                                 a.time_in_status, 
                                 a.late_time, 
+                                position_desc,
                                 CASE 
                                     WHEN a.time_in IS NULL AND a.time_out IS NULL THEN '--'
                                     ELSE a.working_hours 
@@ -662,6 +675,7 @@ namespace GUTZ_Capstone_Project
                                 l.leave_status
                             FROM 
                                  tbl_employee e
+                            INNER JOIN tbl_position ON e.position_id = tbl_position.position_id
                             LEFT JOIN 
                                  tbl_schedule s ON e.emp_id = s.emp_id
                             LEFT JOIN 
@@ -670,7 +684,7 @@ namespace GUTZ_Capstone_Project
                                  tbl_leave l ON e.emp_id = l.emp_id 
                                  AND DATE('{_reportDate:yyyy-MM-dd}') BETWEEN l.start_date AND l.end_date
                             WHERE 
-                                s.work_days LIKE '%{_reportDate:dddd}%'
+                                s.work_days LIKE '%{_reportDate:dddd}%' AND position_desc != 'Administrator'
                             ORDER BY 
                                 e.emp_id";
 
@@ -744,7 +758,6 @@ namespace GUTZ_Capstone_Project
 
                             worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(); // Auto-fit columns
 
-                            // Save the Excel file
                             FileInfo fi = new FileInfo(saveFileDialog.FileName);
                             package.SaveAs(fi);
                         }

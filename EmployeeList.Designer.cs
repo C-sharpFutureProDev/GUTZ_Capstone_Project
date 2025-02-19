@@ -66,10 +66,10 @@
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnExport = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.cboSearch = new Guna.UI2.WinForms.Guna2ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panelEmployeeListFeatures.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -91,7 +91,7 @@
             this.cboFilter.FillColor = System.Drawing.Color.Ivory;
             this.cboFilter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboFilter.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.cboFilter.Font = new System.Drawing.Font("Bookman Old Style", 10.5F);
             this.cboFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboFilter.ItemHeight = 35;
@@ -118,11 +118,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Ivory;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.label1.ForeColor = System.Drawing.Color.ForestGreen;
             this.label1.Location = new System.Drawing.Point(66, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 25);
+            this.label1.Size = new System.Drawing.Size(73, 21);
             this.label1.TabIndex = 67;
             this.label1.Text = "Active:";
             // 
@@ -130,11 +130,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Ivory;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.label2.ForeColor = System.Drawing.Color.Gray;
             this.label2.Location = new System.Drawing.Point(212, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 25);
+            this.label2.Size = new System.Drawing.Size(91, 21);
             this.label2.TabIndex = 68;
             this.label2.Text = "Inactive:";
             // 
@@ -181,11 +181,11 @@
             // 
             this.lblActiveEmployee.AutoSize = true;
             this.lblActiveEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblActiveEmployee.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblActiveEmployee.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblActiveEmployee.ForeColor = System.Drawing.Color.ForestGreen;
             this.lblActiveEmployee.Location = new System.Drawing.Point(138, 16);
             this.lblActiveEmployee.Name = "lblActiveEmployee";
-            this.lblActiveEmployee.Size = new System.Drawing.Size(22, 25);
+            this.lblActiveEmployee.Size = new System.Drawing.Size(22, 21);
             this.lblActiveEmployee.TabIndex = 71;
             this.lblActiveEmployee.Text = "0";
             // 
@@ -193,11 +193,11 @@
             // 
             this.lblInactiveEmployee.AutoSize = true;
             this.lblInactiveEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblInactiveEmployee.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.lblInactiveEmployee.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblInactiveEmployee.ForeColor = System.Drawing.Color.Gray;
             this.lblInactiveEmployee.Location = new System.Drawing.Point(298, 16);
             this.lblInactiveEmployee.Name = "lblInactiveEmployee";
-            this.lblInactiveEmployee.Size = new System.Drawing.Size(22, 25);
+            this.lblInactiveEmployee.Size = new System.Drawing.Size(22, 21);
             this.lblInactiveEmployee.TabIndex = 72;
             this.lblInactiveEmployee.Text = "0";
             // 
@@ -211,7 +211,7 @@
             this.btnAddNewEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddNewEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddNewEmployee.FillColor = System.Drawing.Color.Green;
-            this.btnAddNewEmployee.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.btnAddNewEmployee.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.btnAddNewEmployee.ForeColor = System.Drawing.Color.White;
             this.btnAddNewEmployee.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnAddNewEmployee.HoverState.FillColor = System.Drawing.Color.DarkGreen;
@@ -258,7 +258,7 @@
             this.panelEmployeeListFeatures.Controls.Add(this.cboSearch);
             this.panelEmployeeListFeatures.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelEmployeeListFeatures.FillColor = System.Drawing.Color.Ivory;
-            this.panelEmployeeListFeatures.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.panelEmployeeListFeatures.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.panelEmployeeListFeatures.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.panelEmployeeListFeatures.Location = new System.Drawing.Point(0, 0);
             this.panelEmployeeListFeatures.Name = "panelEmployeeListFeatures";
@@ -287,7 +287,7 @@
             // lblVUIHOC
             // 
             this.lblVUIHOC.BackColor = System.Drawing.Color.Ivory;
-            this.lblVUIHOC.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVUIHOC.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblVUIHOC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblVUIHOC.Location = new System.Drawing.Point(67, 5);
             this.lblVUIHOC.Name = "lblVUIHOC";
@@ -300,7 +300,7 @@
             // label15
             // 
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Bookman Old Style", 9F);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label15.Location = new System.Drawing.Point(3, 5);
             this.label15.Name = "label15";
@@ -329,7 +329,7 @@
             // lblRKESI
             // 
             this.lblRKESI.BackColor = System.Drawing.Color.Ivory;
-            this.lblRKESI.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRKESI.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblRKESI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblRKESI.Location = new System.Drawing.Point(67, 5);
             this.lblRKESI.Name = "lblRKESI";
@@ -342,7 +342,7 @@
             // label13
             // 
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Bookman Old Style", 9F);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label13.Location = new System.Drawing.Point(3, 5);
             this.label13.Name = "label13";
@@ -371,7 +371,7 @@
             // lblESO
             // 
             this.lblESO.BackColor = System.Drawing.Color.Ivory;
-            this.lblESO.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblESO.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblESO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblESO.Location = new System.Drawing.Point(67, 5);
             this.lblESO.Name = "lblESO";
@@ -384,7 +384,7 @@
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 9F);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label11.Location = new System.Drawing.Point(3, 5);
             this.label11.Name = "label11";
@@ -414,7 +414,7 @@
             // lblPartTime
             // 
             this.lblPartTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblPartTime.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartTime.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblPartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPartTime.Location = new System.Drawing.Point(113, 5);
             this.lblPartTime.Name = "lblPartTime";
@@ -427,7 +427,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 9F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
@@ -456,7 +456,7 @@
             // lblFullTime
             // 
             this.lblFullTime.BackColor = System.Drawing.Color.Ivory;
-            this.lblFullTime.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullTime.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblFullTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblFullTime.Location = new System.Drawing.Point(113, 5);
             this.lblFullTime.Name = "lblFullTime";
@@ -469,7 +469,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 9F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.Location = new System.Drawing.Point(3, 5);
             this.label7.Name = "label7";
@@ -499,7 +499,7 @@
             // lblFemaleEmployee
             // 
             this.lblFemaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblFemaleEmployee.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFemaleEmployee.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblFemaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblFemaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblFemaleEmployee.Name = "lblFemaleEmployee";
@@ -512,7 +512,7 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(3, 4);
             this.label5.Name = "label5";
@@ -540,7 +540,7 @@
             // lblMaleEmployee
             // 
             this.lblMaleEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblMaleEmployee.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaleEmployee.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.lblMaleEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblMaleEmployee.Location = new System.Drawing.Point(50, 5);
             this.lblMaleEmployee.Name = "lblMaleEmployee";
@@ -553,7 +553,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 9F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(3, 4);
             this.label3.Name = "label3";
@@ -572,7 +572,7 @@
             this.cboSort.FillColor = System.Drawing.Color.Ivory;
             this.cboSort.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSort.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.cboSort.Font = new System.Drawing.Font("Bookman Old Style", 10.5F);
             this.cboSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboSort.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSort.ItemHeight = 35;
@@ -680,7 +680,7 @@
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefresh.FillColor = System.Drawing.Color.Coral;
-            this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.btnRefresh.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.HoverState.BorderColor = System.Drawing.Color.Tomato;
             this.btnRefresh.HoverState.FillColor = System.Drawing.Color.Tomato;
@@ -712,7 +712,7 @@
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FillColor = System.Drawing.Color.Ivory;
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.txtSearch.Font = new System.Drawing.Font("Bookman Old Style", 10.5F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.txtSearch.Location = new System.Drawing.Point(309, 136);
@@ -742,7 +742,7 @@
             this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnExport.FillColor = System.Drawing.Color.Green;
-            this.btnExport.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
+            this.btnExport.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
             this.btnExport.ForeColor = System.Drawing.Color.White;
             this.btnExport.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnExport.HoverState.FillColor = System.Drawing.Color.DarkGreen;
@@ -760,6 +760,33 @@
             this.btnExport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.guna2Button1.BorderRadius = 4;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Green;
+            this.guna2Button1.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.DarkGreen;
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2Button1.Location = new System.Drawing.Point(1070, 17);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
+            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
+            this.guna2Button1.Size = new System.Drawing.Size(130, 40);
+            this.guna2Button1.TabIndex = 74;
+            this.guna2Button1.Text = "Import";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // cboSearch
             // 
             this.cboSearch.BackColor = System.Drawing.Color.Ivory;
@@ -769,7 +796,7 @@
             this.cboSearch.FillColor = System.Drawing.Color.Ivory;
             this.cboSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSearch.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.cboSearch.Font = new System.Drawing.Font("Bookman Old Style", 10.5F);
             this.cboSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSearch.ItemHeight = 35;
@@ -809,33 +836,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1914, 773);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.guna2Button1.BorderRadius = 4;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Green;
-            this.guna2Button1.Font = new System.Drawing.Font("Arial Narrow", 10.5F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.DarkGreen;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.DarkGreen;
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2Button1.Location = new System.Drawing.Point(1070, 17);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 1);
-            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
-            this.guna2Button1.Size = new System.Drawing.Size(130, 40);
-            this.guna2Button1.TabIndex = 74;
-            this.guna2Button1.Text = "Import";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // EmployeeList
             // 

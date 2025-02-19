@@ -30,9 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleEmployeeDetailsCard));
             this.panelEmployeeProfileDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblEmployeeActiveStatus = new System.Windows.Forms.Label();
             this.guna2Panel23 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblEmployeeBenefits = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.guna2Panel22 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblEmployeeWorkingArrangement = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -49,7 +51,7 @@
             this.lblEmployeeHireDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel17 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblHolidays = new System.Windows.Forms.Label();
+            this.lblNonScheduledWorkingDays = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblEmployeRatePerHour = new System.Windows.Forms.Label();
@@ -113,8 +115,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.employeeProfileImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblEmployeeActiveStatus = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.btnDeactivateEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.btnDeleteProfile = new Guna.UI2.WinForms.Guna2Button();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
@@ -153,7 +153,9 @@
             this.panelEmployeeProfileDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.panelEmployeeProfileDetails.BorderRadius = 10;
             this.panelEmployeeProfileDetails.BorderThickness = 10;
+            this.panelEmployeeProfileDetails.Controls.Add(this.lblEmployeeActiveStatus);
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel23);
+            this.panelEmployeeProfileDetails.Controls.Add(this.label16);
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel22);
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel21);
             this.panelEmployeeProfileDetails.Controls.Add(this.guna2Panel20);
@@ -197,6 +199,19 @@
             this.panelEmployeeProfileDetails.Size = new System.Drawing.Size(1547, 900);
             this.panelEmployeeProfileDetails.TabIndex = 69;
             // 
+            // lblEmployeeActiveStatus
+            // 
+            this.lblEmployeeActiveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
+            this.lblEmployeeActiveStatus.Font = new System.Drawing.Font("Arial Black", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeActiveStatus.ForeColor = System.Drawing.Color.Teal;
+            this.lblEmployeeActiveStatus.Location = new System.Drawing.Point(182, 472);
+            this.lblEmployeeActiveStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblEmployeeActiveStatus.Name = "lblEmployeeActiveStatus";
+            this.lblEmployeeActiveStatus.Size = new System.Drawing.Size(123, 40);
+            this.lblEmployeeActiveStatus.TabIndex = 122;
+            this.lblEmployeeActiveStatus.Text = "Active";
+            this.lblEmployeeActiveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // guna2Panel23
             // 
             this.guna2Panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
@@ -213,7 +228,6 @@
             this.guna2Panel23.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel23.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel23.TabIndex = 140;
-            this.guna2Panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel23_Paint);
             // 
             // lblEmployeeBenefits
             // 
@@ -241,6 +255,19 @@
             this.label46.TabIndex = 124;
             this.label46.Text = "Benefits";
             // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
+            this.label16.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.label16.Location = new System.Drawing.Point(88, 472);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(94, 40);
+            this.label16.TabIndex = 121;
+            this.label16.Text = "Status:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // guna2Panel22
             // 
             this.guna2Panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
@@ -257,7 +284,6 @@
             this.guna2Panel22.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel22.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel22.TabIndex = 139;
-            this.guna2Panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel22_Paint);
             // 
             // lblEmployeeWorkingArrangement
             // 
@@ -301,7 +327,6 @@
             this.guna2Panel21.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel21.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel21.TabIndex = 135;
-            this.guna2Panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel21_Paint);
             // 
             // lblEmployeeEmploymenType
             // 
@@ -345,7 +370,6 @@
             this.guna2Panel20.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel20.Size = new System.Drawing.Size(319, 80);
             this.guna2Panel20.TabIndex = 138;
-            this.guna2Panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel20_Paint);
             // 
             // lblEmployeeEndDate
             // 
@@ -389,7 +413,6 @@
             this.guna2Panel19.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel19.Size = new System.Drawing.Size(319, 80);
             this.guna2Panel19.TabIndex = 137;
-            this.guna2Panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel19_Paint);
             // 
             // EmployeeStartDate
             // 
@@ -433,7 +456,6 @@
             this.guna2Panel18.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel18.Size = new System.Drawing.Size(318, 80);
             this.guna2Panel18.TabIndex = 134;
-            this.guna2Panel18.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel18_Paint);
             // 
             // lblEmployeeHireDate
             // 
@@ -467,7 +489,7 @@
             this.guna2Panel17.BorderColor = System.Drawing.Color.Teal;
             this.guna2Panel17.BorderRadius = 10;
             this.guna2Panel17.BorderThickness = 10;
-            this.guna2Panel17.Controls.Add(this.lblHolidays);
+            this.guna2Panel17.Controls.Add(this.lblNonScheduledWorkingDays);
             this.guna2Panel17.Controls.Add(this.label42);
             this.guna2Panel17.FillColor = System.Drawing.Color.Teal;
             this.guna2Panel17.Location = new System.Drawing.Point(793, 784);
@@ -477,20 +499,19 @@
             this.guna2Panel17.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel17.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel17.TabIndex = 135;
-            this.guna2Panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel17_Paint);
             // 
-            // lblHolidays
+            // lblNonScheduledWorkingDays
             // 
-            this.lblHolidays.BackColor = System.Drawing.Color.Teal;
-            this.lblHolidays.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.lblHolidays.ForeColor = System.Drawing.Color.White;
-            this.lblHolidays.Location = new System.Drawing.Point(19, 40);
-            this.lblHolidays.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblHolidays.Name = "lblHolidays";
-            this.lblHolidays.Size = new System.Drawing.Size(290, 30);
-            this.lblHolidays.TabIndex = 120;
-            this.lblHolidays.Text = "Sat., Sun., and Holidays";
-            this.lblHolidays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNonScheduledWorkingDays.BackColor = System.Drawing.Color.Teal;
+            this.lblNonScheduledWorkingDays.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblNonScheduledWorkingDays.ForeColor = System.Drawing.Color.White;
+            this.lblNonScheduledWorkingDays.Location = new System.Drawing.Point(19, 40);
+            this.lblNonScheduledWorkingDays.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblNonScheduledWorkingDays.Name = "lblNonScheduledWorkingDays";
+            this.lblNonScheduledWorkingDays.Size = new System.Drawing.Size(290, 30);
+            this.lblNonScheduledWorkingDays.TabIndex = 120;
+            this.lblNonScheduledWorkingDays.Text = "Non-Scheduled Days";
+            this.lblNonScheduledWorkingDays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label42
             // 
@@ -587,9 +608,9 @@
             this.label38.Location = new System.Drawing.Point(15, 7);
             this.label38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(202, 22);
+            this.label38.Size = new System.Drawing.Size(190, 22);
             this.label38.TabIndex = 119;
-            this.label38.Text = "Based Salary (Avg.) / Month";
+            this.label38.Text = "Average Salary per Month";
             // 
             // guna2Panel11
             // 
@@ -650,7 +671,6 @@
             this.guna2Panel16.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel16.Size = new System.Drawing.Size(323, 80);
             this.guna2Panel16.TabIndex = 134;
-            this.guna2Panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel16_Paint);
             // 
             // lblEmployeeWorkingHours
             // 
@@ -1490,8 +1510,6 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.Teal;
             this.guna2Panel2.BorderRadius = 12;
             this.guna2Panel2.BorderThickness = 12;
-            this.guna2Panel2.Controls.Add(this.lblEmployeeActiveStatus);
-            this.guna2Panel2.Controls.Add(this.label16);
             this.guna2Panel2.Controls.Add(this.btnDeactivateEmployee);
             this.guna2Panel2.Controls.Add(this.btnDeleteProfile);
             this.guna2Panel2.Controls.Add(this.btnMinimize);
@@ -1506,32 +1524,6 @@
             this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel2.Size = new System.Drawing.Size(1406, 120);
             this.guna2Panel2.TabIndex = 69;
-            // 
-            // lblEmployeeActiveStatus
-            // 
-            this.lblEmployeeActiveStatus.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeActiveStatus.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeActiveStatus.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeActiveStatus.Location = new System.Drawing.Point(885, 12);
-            this.lblEmployeeActiveStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblEmployeeActiveStatus.Name = "lblEmployeeActiveStatus";
-            this.lblEmployeeActiveStatus.Size = new System.Drawing.Size(136, 96);
-            this.lblEmployeeActiveStatus.TabIndex = 122;
-            this.lblEmployeeActiveStatus.Text = "Active";
-            this.lblEmployeeActiveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label16
-            // 
-            this.label16.BackColor = System.Drawing.Color.Teal;
-            this.label16.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(795, 12);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(94, 96);
-            this.label16.TabIndex = 121;
-            this.label16.Text = "Status:";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDeactivateEmployee
             // 
@@ -1613,11 +1605,11 @@
             // lblEmployeeFullName
             // 
             this.lblEmployeeFullName.BackColor = System.Drawing.Color.Teal;
-            this.lblEmployeeFullName.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeFullName.Font = new System.Drawing.Font("Arial Black", 20.5F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeFullName.ForeColor = System.Drawing.Color.White;
-            this.lblEmployeeFullName.Location = new System.Drawing.Point(135, 12);
+            this.lblEmployeeFullName.Location = new System.Drawing.Point(150, 12);
             this.lblEmployeeFullName.Name = "lblEmployeeFullName";
-            this.lblEmployeeFullName.Size = new System.Drawing.Size(515, 96);
+            this.lblEmployeeFullName.Size = new System.Drawing.Size(878, 96);
             this.lblEmployeeFullName.TabIndex = 79;
             this.lblEmployeeFullName.Text = "Full Name";
             this.lblEmployeeFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1757,7 +1749,6 @@
         private System.Windows.Forms.Label lblEmployeeAccountName;
         private System.Windows.Forms.Label label36;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel17;
-        private System.Windows.Forms.Label lblHolidays;
         private System.Windows.Forms.Label label42;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
         private System.Windows.Forms.Label lblEmployeRatePerHour;
@@ -1789,5 +1780,6 @@
         private System.Windows.Forms.Label EmployeeStartDate;
         private System.Windows.Forms.Label lblEmployeeWorkingArrangement;
         private System.Windows.Forms.Label lblEmployeeEmploymenType;
+        private System.Windows.Forms.Label lblNonScheduledWorkingDays;
     }
 }

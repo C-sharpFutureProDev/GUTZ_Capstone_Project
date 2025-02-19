@@ -19,6 +19,7 @@ namespace GUTZ_Capstone_Project
         private string _clockOutTime;
         private string _status;
         private string _currentDate;
+        private string _workedHours;
         private EmployeeAttendance _employeeAttendance;
 
         public EmployeeAttendanceCard(EmployeeAttendance employeeAttendance)
@@ -92,5 +93,17 @@ namespace GUTZ_Capstone_Project
                 btnStatus.Text = _status;
             }
         }
+
+        [Category("Custom Control")]
+        public string WorkedHours
+        {
+            get => _workedHours;
+            set
+            {
+                _workedHours = value;
+                btnHoursWorked.Text = _workedHours;
+            }
+        }
+
     }
 }

@@ -109,7 +109,7 @@
             this.lblJobRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.lblJobRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.lblJobRole.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.lblJobRole.Font = new System.Drawing.Font("Times New Roman", 9.5F);
+            this.lblJobRole.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblJobRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.lblJobRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
             this.lblJobRole.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
@@ -128,7 +128,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(18, 143);
             this.lblID.Name = "lblID";
@@ -202,7 +202,7 @@
             this.btnViewEmployeeAttendanceHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewEmployeeAttendanceHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnViewEmployeeAttendanceHistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnViewEmployeeAttendanceHistory.Font = new System.Drawing.Font("Times New Roman", 8.5F);
+            this.btnViewEmployeeAttendanceHistory.Font = new System.Drawing.Font("Bookman Old Style", 7.5F);
             this.btnViewEmployeeAttendanceHistory.ForeColor = System.Drawing.Color.White;
             this.btnViewEmployeeAttendanceHistory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.btnViewEmployeeAttendanceHistory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
@@ -240,7 +240,7 @@
             // lblScheduleWorkingHours
             // 
             this.lblScheduleWorkingHours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.lblScheduleWorkingHours.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblScheduleWorkingHours.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblScheduleWorkingHours.ForeColor = System.Drawing.Color.White;
             this.lblScheduleWorkingHours.Location = new System.Drawing.Point(3, 58);
             this.lblScheduleWorkingHours.Name = "lblScheduleWorkingHours";
@@ -253,7 +253,7 @@
             // lblWorkingDays
             // 
             this.lblWorkingDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.lblWorkingDays.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblWorkingDays.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblWorkingDays.ForeColor = System.Drawing.Color.White;
             this.lblWorkingDays.Location = new System.Drawing.Point(3, 31);
             this.lblWorkingDays.Name = "lblWorkingDays";
@@ -266,7 +266,7 @@
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(60)))), ((int)(((byte)(50)))));
-            this.lblName.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";

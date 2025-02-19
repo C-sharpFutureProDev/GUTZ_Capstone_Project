@@ -220,7 +220,7 @@
             this.btnAbsent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnAbsent.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.btnAbsent.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnAbsent.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnAbsent.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnAbsent.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAbsent.ImageSize = new System.Drawing.Size(37, 39);
             this.btnAbsent.Location = new System.Drawing.Point(383, 70);
@@ -251,7 +251,7 @@
             this.btnClockIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnClockIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.btnClockIn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnClockIn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnClockIn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnClockIn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClockIn.ImageSize = new System.Drawing.Size(37, 39);
             this.btnClockIn.Location = new System.Drawing.Point(19, 70);
@@ -282,7 +282,7 @@
             this.btnClockOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnClockOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.btnClockOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnClockOut.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnClockOut.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnClockOut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClockOut.ImageSize = new System.Drawing.Size(45, 45);
             this.btnClockOut.Location = new System.Drawing.Point(201, 70);
@@ -313,7 +313,7 @@
             this.btnOnLeave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnOnLeave.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.btnOnLeave.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnOnLeave.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnOnLeave.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnOnLeave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnOnLeave.ImageSize = new System.Drawing.Size(37, 37);
             this.btnOnLeave.Location = new System.Drawing.Point(565, 70);
@@ -370,7 +370,7 @@
             // lblTextFilterAttendanceRecord
             // 
             this.lblTextFilterAttendanceRecord.BackColor = System.Drawing.Color.White;
-            this.lblTextFilterAttendanceRecord.Font = new System.Drawing.Font("Arial Black", 7.5F, System.Drawing.FontStyle.Bold);
+            this.lblTextFilterAttendanceRecord.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblTextFilterAttendanceRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lblTextFilterAttendanceRecord.Location = new System.Drawing.Point(49, 205);
             this.lblTextFilterAttendanceRecord.Name = "lblTextFilterAttendanceRecord";
@@ -382,7 +382,7 @@
             // lblTextViewPastAttendanceRecord
             // 
             this.lblTextViewPastAttendanceRecord.BackColor = System.Drawing.Color.White;
-            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Arial Black", 7.5F, System.Drawing.FontStyle.Bold);
+            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblTextViewPastAttendanceRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lblTextViewPastAttendanceRecord.Location = new System.Drawing.Point(403, 205);
             this.lblTextViewPastAttendanceRecord.Name = "lblTextViewPastAttendanceRecord";
@@ -442,7 +442,7 @@
             this.cboSearchEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearchEmployee.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.cboSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cboSearchEmployee.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.cboSearchEmployee.Font = new System.Drawing.Font("Bookman Old Style", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSearchEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.cboSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.cboSearchEmployee.ItemHeight = 35;
@@ -476,7 +476,7 @@
             this.btnIconSearch.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnIconSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnIconSearch.Image")));
             this.btnIconSearch.ImageSize = new System.Drawing.Size(30, 34);
-            this.btnIconSearch.Location = new System.Drawing.Point(313, 254);
+            this.btnIconSearch.Location = new System.Drawing.Point(311, 254);
             this.btnIconSearch.Name = "btnIconSearch";
             this.btnIconSearch.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
             this.btnIconSearch.PressedDepth = 0;
@@ -527,10 +527,10 @@
             this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.txtSearch.Font = new System.Drawing.Font("Bookman Old Style", 11F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.txtSearch.Location = new System.Drawing.Point(403, 248);
+            this.txtSearch.Location = new System.Drawing.Point(356, 248);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
@@ -541,7 +541,7 @@
             this.txtSearch.ShadowDecoration.BorderRadius = 4;
             this.txtSearch.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Size = new System.Drawing.Size(342, 41);
+            this.txtSearch.Size = new System.Drawing.Size(388, 41);
             this.txtSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtSearch.TabIndex = 79;
             this.txtSearch.Visible = false;
@@ -1005,7 +1005,6 @@
         private System.Windows.Forms.Label lblAttendancePercent;
         private System.Windows.Forms.Label lblAttendancePercentage;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private System.Windows.Forms.Label lblTutoringHours;
         private System.Windows.Forms.Label lblAccumulatedTutoringHours;
         private Guna.UI2.WinForms.Guna2Button btnViewAnDownloadReport;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel5;
@@ -1027,5 +1026,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label lblTutoringHours;
     }
 }

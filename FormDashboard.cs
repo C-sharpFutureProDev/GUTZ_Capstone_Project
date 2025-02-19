@@ -22,6 +22,8 @@ namespace GUTZ_Capstone_Project
         public FormDashboard(string id)
         {
             InitializeComponent();
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
 
             this.id = id;
             dueDate = DateTime.Now.AddDays(10);
@@ -29,7 +31,7 @@ namespace GUTZ_Capstone_Project
             timer1.Start();
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image;
-            DisplayAdminProfilePic();
+            //DisplayAdminProfilePic();
             btnPayrollManagement.Click += btnPayrollManagement_Click;
         }
 

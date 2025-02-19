@@ -79,7 +79,7 @@
             // 
             // lblRatePerHour
             // 
-            this.lblRatePerHour.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblRatePerHour.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblRatePerHour.ForeColor = System.Drawing.Color.White;
             this.lblRatePerHour.Location = new System.Drawing.Point(3, 58);
             this.lblRatePerHour.Name = "lblRatePerHour";
@@ -90,7 +90,7 @@
             // 
             // lblRateAccount
             // 
-            this.lblRateAccount.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblRateAccount.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblRateAccount.ForeColor = System.Drawing.Color.White;
             this.lblRateAccount.Location = new System.Drawing.Point(2, 31);
             this.lblRateAccount.Name = "lblRateAccount";
@@ -101,7 +101,7 @@
             // 
             // lblName
             // 
-            this.lblName.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(3, 4);
             this.lblName.Name = "lblName";
@@ -113,7 +113,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.Ivory;
-            this.lblID.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.lblID.Font = new System.Drawing.Font("Bookman Old Style", 10F);
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(15, 142);
             this.lblID.Name = "lblID";
@@ -133,7 +133,7 @@
             this.btnViewPayrollHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnViewPayrollHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnViewPayrollHistory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnViewPayrollHistory.Font = new System.Drawing.Font("Times New Roman", 8.5F);
+            this.btnViewPayrollHistory.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.btnViewPayrollHistory.ForeColor = System.Drawing.Color.White;
             this.btnViewPayrollHistory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.btnViewPayrollHistory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
@@ -184,7 +184,7 @@
             this.btnEmploymentType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmploymentType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmploymentType.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
-            this.btnEmploymentType.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.btnEmploymentType.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.btnEmploymentType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnEmploymentType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
             this.btnEmploymentType.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));

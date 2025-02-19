@@ -31,7 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleEmployeePayrollCard));
             this.employeeProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.paneLPayrollDetailsCard = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnCutPayroll = new Guna.UI2.WinForms.Guna2Button();
+            this.btnViewProcessedPayrollDetails = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCutCurrentPayroll = new Guna.UI2.WinForms.Guna2Button();
             this.lblTextPendingPayrollSummary = new System.Windows.Forms.Label();
             this.btnViewEmployeePayrollDetails = new Guna.UI2.WinForms.Guna2Button();
             this.lblID = new System.Windows.Forms.Label();
@@ -41,12 +42,12 @@
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.lblComputedLateTime = new System.Windows.Forms.Label();
             this.lblComputedTutoringHours = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblLateTime = new System.Windows.Forms.Label();
+            this.lblTutoringHours = new System.Windows.Forms.Label();
             this.lblComputedWage = new System.Windows.Forms.Label();
             this.lblComputedDeductions = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblNetWage = new System.Windows.Forms.Label();
+            this.lblDeductions = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnPayrollPeriod = new Guna.UI2.WinForms.Guna2Button();
             this.btnActivePayrollStatus = new Guna.UI2.WinForms.Guna2Button();
@@ -75,7 +76,8 @@
             this.paneLPayrollDetailsCard.BorderColor = System.Drawing.Color.Orange;
             this.paneLPayrollDetailsCard.BorderRadius = 15;
             this.paneLPayrollDetailsCard.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.paneLPayrollDetailsCard.Controls.Add(this.btnCutPayroll);
+            this.paneLPayrollDetailsCard.Controls.Add(this.btnViewProcessedPayrollDetails);
+            this.paneLPayrollDetailsCard.Controls.Add(this.btnCutCurrentPayroll);
             this.paneLPayrollDetailsCard.Controls.Add(this.lblTextPendingPayrollSummary);
             this.paneLPayrollDetailsCard.Controls.Add(this.btnViewEmployeePayrollDetails);
             this.paneLPayrollDetailsCard.Controls.Add(this.lblID);
@@ -94,32 +96,60 @@
             this.paneLPayrollDetailsCard.Size = new System.Drawing.Size(480, 490);
             this.paneLPayrollDetailsCard.TabIndex = 64;
             // 
-            // btnCutPayroll
+            // btnViewProcessedPayrollDetails
             // 
-            this.btnCutPayroll.AutoRoundedCorners = true;
-            this.btnCutPayroll.BackColor = System.Drawing.Color.Ivory;
-            this.btnCutPayroll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnCutPayroll.BorderRadius = 21;
-            this.btnCutPayroll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCutPayroll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCutPayroll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCutPayroll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCutPayroll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnCutPayroll.Font = new System.Drawing.Font("Arial", 11F);
-            this.btnCutPayroll.ForeColor = System.Drawing.Color.White;
-            this.btnCutPayroll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
-            this.btnCutPayroll.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
-            this.btnCutPayroll.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnCutPayroll.Image = ((System.Drawing.Image)(resources.GetObject("btnCutPayroll.Image")));
-            this.btnCutPayroll.ImageSize = new System.Drawing.Size(30, 32);
-            this.btnCutPayroll.Location = new System.Drawing.Point(25, 430);
-            this.btnCutPayroll.Name = "btnCutPayroll";
-            this.btnCutPayroll.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
-            this.btnCutPayroll.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnCutPayroll.Size = new System.Drawing.Size(433, 45);
-            this.btnCutPayroll.TabIndex = 131;
-            this.btnCutPayroll.Text = "Cut Payroll";
-            this.btnCutPayroll.Click += new System.EventHandler(this.btnCutPayroll_Click);
+            this.btnViewProcessedPayrollDetails.AutoRoundedCorners = true;
+            this.btnViewProcessedPayrollDetails.BackColor = System.Drawing.Color.Ivory;
+            this.btnViewProcessedPayrollDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnViewProcessedPayrollDetails.BorderRadius = 21;
+            this.btnViewProcessedPayrollDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewProcessedPayrollDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewProcessedPayrollDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewProcessedPayrollDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewProcessedPayrollDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnViewProcessedPayrollDetails.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnViewProcessedPayrollDetails.ForeColor = System.Drawing.Color.White;
+            this.btnViewProcessedPayrollDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnViewProcessedPayrollDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnViewProcessedPayrollDetails.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnViewProcessedPayrollDetails.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcessedPayrollDetails.Image")));
+            this.btnViewProcessedPayrollDetails.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnViewProcessedPayrollDetails.Location = new System.Drawing.Point(25, 430);
+            this.btnViewProcessedPayrollDetails.Name = "btnViewProcessedPayrollDetails";
+            this.btnViewProcessedPayrollDetails.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.btnViewProcessedPayrollDetails.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnViewProcessedPayrollDetails.Size = new System.Drawing.Size(433, 45);
+            this.btnViewProcessedPayrollDetails.TabIndex = 132;
+            this.btnViewProcessedPayrollDetails.Text = "View Details";
+            this.btnViewProcessedPayrollDetails.Visible = false;
+            this.btnViewProcessedPayrollDetails.Click += new System.EventHandler(this.btnViewProcessedPayrollDetails_Click);
+            // 
+            // btnCutCurrentPayroll
+            // 
+            this.btnCutCurrentPayroll.AutoRoundedCorners = true;
+            this.btnCutCurrentPayroll.BackColor = System.Drawing.Color.Ivory;
+            this.btnCutCurrentPayroll.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnCutCurrentPayroll.BorderRadius = 21;
+            this.btnCutCurrentPayroll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCutCurrentPayroll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCutCurrentPayroll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCutCurrentPayroll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCutCurrentPayroll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnCutCurrentPayroll.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnCutCurrentPayroll.ForeColor = System.Drawing.Color.White;
+            this.btnCutCurrentPayroll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnCutCurrentPayroll.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
+            this.btnCutCurrentPayroll.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnCutCurrentPayroll.Image = ((System.Drawing.Image)(resources.GetObject("btnCutCurrentPayroll.Image")));
+            this.btnCutCurrentPayroll.ImageSize = new System.Drawing.Size(30, 32);
+            this.btnCutCurrentPayroll.Location = new System.Drawing.Point(25, 430);
+            this.btnCutCurrentPayroll.Name = "btnCutCurrentPayroll";
+            this.btnCutCurrentPayroll.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.btnCutCurrentPayroll.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCutCurrentPayroll.Size = new System.Drawing.Size(433, 45);
+            this.btnCutCurrentPayroll.TabIndex = 131;
+            this.btnCutCurrentPayroll.Text = "Cut Payroll";
+            this.btnCutCurrentPayroll.Click += new System.EventHandler(this.btnCutPayroll_Click);
             // 
             // lblTextPendingPayrollSummary
             // 
@@ -160,7 +190,6 @@
             this.btnViewEmployeePayrollDetails.Size = new System.Drawing.Size(433, 45);
             this.btnViewEmployeePayrollDetails.TabIndex = 128;
             this.btnViewEmployeePayrollDetails.Text = "View Details";
-            this.btnViewEmployeePayrollDetails.Click += new System.EventHandler(this.btnViewEmployeeDetails_Click);
             // 
             // lblID
             // 
@@ -185,12 +214,12 @@
             this.panelEmployeePayrollDetails.Controls.Add(this.guna2Separator1);
             this.panelEmployeePayrollDetails.Controls.Add(this.lblComputedLateTime);
             this.panelEmployeePayrollDetails.Controls.Add(this.lblComputedTutoringHours);
-            this.panelEmployeePayrollDetails.Controls.Add(this.label8);
-            this.panelEmployeePayrollDetails.Controls.Add(this.label2);
+            this.panelEmployeePayrollDetails.Controls.Add(this.lblLateTime);
+            this.panelEmployeePayrollDetails.Controls.Add(this.lblTutoringHours);
             this.panelEmployeePayrollDetails.Controls.Add(this.lblComputedWage);
             this.panelEmployeePayrollDetails.Controls.Add(this.lblComputedDeductions);
-            this.panelEmployeePayrollDetails.Controls.Add(this.label4);
-            this.panelEmployeePayrollDetails.Controls.Add(this.label3);
+            this.panelEmployeePayrollDetails.Controls.Add(this.lblNetWage);
+            this.panelEmployeePayrollDetails.Controls.Add(this.lblDeductions);
             this.panelEmployeePayrollDetails.FillColor = System.Drawing.Color.White;
             this.panelEmployeePayrollDetails.ForeColor = System.Drawing.Color.White;
             this.panelEmployeePayrollDetails.Location = new System.Drawing.Point(25, 250);
@@ -255,29 +284,29 @@
             this.lblComputedTutoringHours.Text = "0h";
             this.lblComputedTutoringHours.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label8
+            // lblLateTime
             // 
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label8.Location = new System.Drawing.Point(15, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(255, 27);
-            this.label8.TabIndex = 69;
-            this.label8.Text = "Late Time (Cumulative):";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblLateTime.BackColor = System.Drawing.Color.White;
+            this.lblLateTime.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblLateTime.Location = new System.Drawing.Point(15, 45);
+            this.lblLateTime.Name = "lblLateTime";
+            this.lblLateTime.Size = new System.Drawing.Size(255, 27);
+            this.lblLateTime.TabIndex = 69;
+            this.lblLateTime.Text = "Late Time (Cumulative):";
+            this.lblLateTime.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // label2
+            // lblTutoringHours
             // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label2.Location = new System.Drawing.Point(15, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(255, 27);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "Tutoring Hours (Cumulative):";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblTutoringHours.BackColor = System.Drawing.Color.White;
+            this.lblTutoringHours.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutoringHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblTutoringHours.Location = new System.Drawing.Point(15, 8);
+            this.lblTutoringHours.Name = "lblTutoringHours";
+            this.lblTutoringHours.Size = new System.Drawing.Size(255, 27);
+            this.lblTutoringHours.TabIndex = 68;
+            this.lblTutoringHours.Text = "Tutoring Hours (Cumulative):";
+            this.lblTutoringHours.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblComputedWage
             // 
@@ -303,29 +332,29 @@
             this.lblComputedDeductions.Text = "₱ 00,000.00";
             this.lblComputedDeductions.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label4
+            // lblNetWage
             // 
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(15, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(255, 27);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "Net Wage (Cumulative):";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblNetWage.BackColor = System.Drawing.Color.White;
+            this.lblNetWage.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblNetWage.ForeColor = System.Drawing.Color.Black;
+            this.lblNetWage.Location = new System.Drawing.Point(15, 124);
+            this.lblNetWage.Name = "lblNetWage";
+            this.lblNetWage.Size = new System.Drawing.Size(255, 27);
+            this.lblNetWage.TabIndex = 65;
+            this.lblNetWage.Text = "Net Wage (Cumulative):";
+            this.lblNetWage.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // label3
+            // lblDeductions
             // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label3.Location = new System.Drawing.Point(15, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 27);
-            this.label3.TabIndex = 64;
-            this.label3.Text = "Deductions (Cumulative):";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblDeductions.BackColor = System.Drawing.Color.White;
+            this.lblDeductions.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeductions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblDeductions.Location = new System.Drawing.Point(15, 81);
+            this.lblDeductions.Name = "lblDeductions";
+            this.lblDeductions.Size = new System.Drawing.Size(255, 27);
+            this.lblDeductions.TabIndex = 64;
+            this.lblDeductions.Text = "Deductions (Cumulative):";
+            this.lblDeductions.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblName
             // 
@@ -416,19 +445,20 @@
         private System.Windows.Forms.Label lblName;
         public Guna.UI2.WinForms.Guna2Panel panelEmployeePayrollDetails;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblComputedWage;
         private System.Windows.Forms.Label lblComputedDeductions;
         public Guna.UI2.WinForms.Guna2Button btnViewEmployeePayrollDetails;
-        private System.Windows.Forms.Label lblTextPendingPayrollSummary;
         private System.Windows.Forms.Label lblComputedLateTime;
         private System.Windows.Forms.Label lblComputedTutoringHours;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator3;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
-        public Guna.UI2.WinForms.Guna2Button btnCutPayroll;
+        public Guna.UI2.WinForms.Guna2Button btnCutCurrentPayroll;
+        public Guna.UI2.WinForms.Guna2Button btnViewProcessedPayrollDetails;
+        public System.Windows.Forms.Label lblTextPendingPayrollSummary;
+        public System.Windows.Forms.Label lblNetWage;
+        public System.Windows.Forms.Label lblDeductions;
+        public System.Windows.Forms.Label lblLateTime;
+        public System.Windows.Forms.Label lblTutoringHours;
     }
 }

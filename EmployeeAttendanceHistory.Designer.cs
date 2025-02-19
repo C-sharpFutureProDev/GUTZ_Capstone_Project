@@ -60,6 +60,8 @@
             this.cboFilterYear = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboFilterMonth = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cboSortAttendanceHistory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -574,6 +576,8 @@
             this.guna2Panel5.BackColor = System.Drawing.Color.Gray;
             this.guna2Panel5.BorderColor = System.Drawing.Color.Ivory;
             this.guna2Panel5.BorderRadius = 10;
+            this.guna2Panel5.Controls.Add(this.label13);
+            this.guna2Panel5.Controls.Add(this.cboSortAttendanceHistory);
             this.guna2Panel5.Controls.Add(this.label12);
             this.guna2Panel5.Controls.Add(this.label11);
             this.guna2Panel5.Controls.Add(this.flowLayoutPanel1);
@@ -591,18 +595,63 @@
             this.guna2Panel5.Size = new System.Drawing.Size(1517, 555);
             this.guna2Panel5.TabIndex = 88;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Ivory;
+            this.label13.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(680, 32);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 22);
+            this.label13.TabIndex = 135;
+            this.label13.Text = "Sort By:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // cboSortAttendanceHistory
+            // 
+            this.cboSortAttendanceHistory.BackColor = System.Drawing.Color.Ivory;
+            this.cboSortAttendanceHistory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(97)))), ((int)(((byte)(112)))));
+            this.cboSortAttendanceHistory.BorderRadius = 5;
+            this.cboSortAttendanceHistory.BorderThickness = 0;
+            this.cboSortAttendanceHistory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSortAttendanceHistory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSortAttendanceHistory.FillColor = System.Drawing.Color.Ivory;
+            this.cboSortAttendanceHistory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSortAttendanceHistory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSortAttendanceHistory.Font = new System.Drawing.Font("Arial", 9F);
+            this.cboSortAttendanceHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboSortAttendanceHistory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSortAttendanceHistory.ItemHeight = 25;
+            this.cboSortAttendanceHistory.Items.AddRange(new object[] {
+            "ALL",
+            "On Time",
+            "Late",
+            "Absent",
+            "On-Leave"});
+            this.cboSortAttendanceHistory.Location = new System.Drawing.Point(773, 23);
+            this.cboSortAttendanceHistory.Name = "cboSortAttendanceHistory";
+            this.cboSortAttendanceHistory.ShadowDecoration.BorderRadius = 4;
+            this.cboSortAttendanceHistory.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSortAttendanceHistory.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.cboSortAttendanceHistory.Size = new System.Drawing.Size(142, 31);
+            this.cboSortAttendanceHistory.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cboSortAttendanceHistory.TabIndex = 133;
+            this.cboSortAttendanceHistory.SelectedIndexChanged += new System.EventHandler(this.cboSortAttendanceHistory_SelectedIndexChanged);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Ivory;
             this.label12.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(1001, 30);
+            this.label12.Location = new System.Drawing.Point(975, 30);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 22);
+            this.label12.Size = new System.Drawing.Size(94, 22);
             this.label12.TabIndex = 132;
-            this.label12.Text = "Filter:";
+            this.label12.Text = "Filter By:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label11
@@ -686,5 +735,7 @@
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2ComboBox cboSortAttendanceHistory;
     }
 }

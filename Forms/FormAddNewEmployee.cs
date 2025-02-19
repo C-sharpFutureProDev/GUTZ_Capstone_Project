@@ -83,116 +83,139 @@ namespace GUTZ_Capstone_Project.Forms
             Enroller = new DPFP.Processing.Enrollment();
             UpdateStatus();
 
-            if (_empId != null)
+            try
             {
-                string sql = @"SELECT emp_profilePic, tbl_account.account_id, account_name, fingerprint_data, f_name, m_name, l_name, b_day, age, gender, civil_status, address, email, phone, emerg_contact, hired_date,
-                                      employment_type, work_arrangement, start_date, end_date, position_desc
-                                      FROM tbl_employee
-                                      INNER JOIN tbl_fingerprint 
-                                        ON tbl_employee.emp_id = tbl_fingerprint.emp_id
-                                      INNER JOIN tbl_department
-                                        ON tbl_employee.department_id = tbl_department.department_id
-                                      INNER JOIN tbl_position
-                                        ON tbl_employee.position_id = tbl_position.position_id
-                                      INNER JOIN tbl_account
-                                        ON tbl_employee.account_id = tbl_account.account_id
-                                      WHERE tbl_employee.emp_id = @empId AND is_deleted = 0";
-
-                var parameters = new Dictionary<string, object>
-                {{ "@empId", _empId }};
-
-
-                DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
-                if (dt.Rows.Count > 0)
+                if (_empId != null)
                 {
-                    btnImportEmployeeDetails.Visible = false;
-                    this.Text = "Update Employee Existing Record Form";
-                    lblFormLabel.Text = "Update Existing Record";
-                    btnSaveEmployeeDetails.Text = "SAVE CHANGES";
-                    btnSaveEmployeeDetails.Size = new Size(225, 47);
-                    btnReEnrollFingerPrint.Visible = true;
-                    btnReEnrollFingerPrint.Location = new Point(248, 360);
-                    txtScannerPrompt.Visible = false;
-                    employeeFingerprintImage.Visible = false;
-                    txtCaptureStatusLog.Visible = false;
-                    lblSampleNeededStatus.Visible = false;
-                    progressPecentageStatus.Visible = false;
-                    scanningProgressBar.Visible = false;
-                    btnStartScan.Visible = false;
-                    btnSetSchedule.Text = "UPDATE SCHEDULE";
-                    btnResetInputFields.Enabled = false;
+                    string sql = @"SELECT emp_profilePic, tbl_account.account_id, account_name, fingerprint_data, f_name, m_name, l_name, b_day, age, gender, civil_status, address, email, phone, emerg_contact, hired_date,
+                                          employment_type, work_arrangement, start_date, end_date, position_desc
+                                          FROM tbl_employee
+                                          INNER JOIN tbl_fingerprint 
+                                            ON tbl_employee.emp_id = tbl_fingerprint.emp_id
+                                          INNER JOIN tbl_department
+                                            ON tbl_employee.department_id = tbl_department.department_id
+                                          INNER JOIN tbl_position
+                                            ON tbl_employee.position_id = tbl_position.position_id
+                                          INNER JOIN tbl_account
+                                            ON tbl_employee.account_id = tbl_account.account_id
+                                          WHERE tbl_employee.emp_id = @empId AND is_deleted = 0";
 
-                    txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
+                    var parameters = new Dictionary<string, object>
+                    {{ "@empId", _empId }};
 
-                    string middleName = dt.Rows[0]["m_name"].ToString();
-                    txtEmployeeMiddleIName.Text = middleName == "N/A" ? "N/A" : middleName;
-
-                    txtEmployeeLastName.Text = dt.Rows[0]["l_name"].ToString();
-                    string savedGender = dt.Rows[0]["gender"].ToString();
-
-                    rdbMale.Checked = (savedGender == "Male");
-                    rdbFemale.Checked = (savedGender != "Male");
-
-                    cboCivilStatus.SelectedItem = dt.Rows[0]["civil_status"].ToString();
-                    txtEmployeeAge.Text = dt.Rows[0]["age"].ToString();
-                    dtpEmployeeDateOfBirth.Value = Convert.ToDateTime(dt.Rows[0]["b_day"]);
-                    txtEmployeeContactNumber.Text = dt.Rows[0]["phone"].ToString();
-                    txtEmployeeEmail.Text = dt.Rows[0]["email"].ToString();
-                    txtEmergContact.Text = dt.Rows[0]["emerg_contact"].ToString();
-
-                    string image_path = dt.Rows[0]["emp_profilePic"].ToString();
-                    employeeProfilePicture.Image = System.Drawing.Image.FromFile(image_path);
-
-                    string[] addressParts = dt.Rows[0]["address"].ToString().Split(',');
-                    cboEmployeeCityMunicipality.SelectedItem = (addressParts.Length == 2) ? addressParts[1].Trim() : null;
-                    txtEmployeeBrgyAddress.Text = (addressParts.Length == 2) ? addressParts[0].Trim() : string.Empty;
-
-                    dtpEmployeeHiredDate.Value = Convert.ToDateTime(dt.Rows[0]["hired_date"]);
-                    int accID = int.Parse(dt.Rows[0]["account_id"].ToString());
-                    switch (accID)
+                    DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
+                    if (dt.Rows.Count > 0)
                     {
-                        case 1:
-                            cboEmployeeRateAccount.SelectedIndex = 0;
-                            break;
-                        case 2:
-                            cboEmployeeRateAccount.SelectedIndex = 1;
-                            break;
-                        case 3:
-                            cboEmployeeRateAccount.SelectedIndex = 2;
-                            break;
-                    }
+                        btnImportEmployeeDetails.Visible = false;
+                        this.Text = "Update Employee Existing Record";
+                        lblFormLabel.Text = "Update Existing Record";
+                        btnSaveEmployeeDetails.Text = "SAVE CHANGES";
+                        btnSaveEmployeeDetails.Size = new Size(220, 40);
+                        btnReEnrollFingerPrint.Visible = true;
+                        btnReEnrollFingerPrint.Location = new Point(248, 360);
+                        txtScannerPrompt.Visible = false;
+                        employeeFingerprintImage.Visible = false;
+                        txtCaptureStatusLog.Visible = false;
+                        lblSampleNeededStatus.Visible = false;
+                        progressPecentageStatus.Visible = false;
+                        scanningProgressBar.Visible = false;
+                        btnStartScan.Visible = false;
+                        btnSetSchedule.Text = "UPDATE SCHEDULE";
+                        btnResetInputFields.Enabled = false;
 
-                    string employmentType = dt.Rows[0]["employment_type"].ToString();
-                    switch (employmentType)
-                    {
-                        case "Tenured":
-                            cboEmploymentType.SelectedIndex = 1;
-                            break;
-                        case "Non-Tenured":
-                            cboEmploymentType.SelectedIndex = 0;
-                            break;
-                    }
+                        txtEmployeeFirstName.Text = dt.Rows[0]["f_name"].ToString();
 
-                    cboWorkArrangement.SelectedItem = dt.Rows[0]["work_arrangement"].ToString();
-                    dtpEmpStartDate.Value = Convert.ToDateTime(dt.Rows[0]["start_date"]);
-                    txtStartDate.Text = dtpEmpStartDate.Value.ToString("MMMM dd, yyyy");
-                    dtpEmpEndDate.Value = Convert.ToDateTime(dt.Rows[0]["end_date"]);
-                    string positionLevel = dt.Rows[0]["position_desc"].ToString();
-                    switch (positionLevel)
-                    {
-                        case "Administrator":
-                            cboPositionLevel.SelectedIndex = 0;
-                            break;
-                        case "ESL Tutor":
-                            cboPositionLevel.SelectedIndex = 1;
-                            break;
+                        string middleName = dt.Rows[0]["m_name"].ToString();
+                        txtEmployeeMiddleIName.Text = middleName == "N/A" ? "N/A" : middleName;
+
+                        txtEmployeeLastName.Text = dt.Rows[0]["l_name"].ToString();
+                        string savedGender = dt.Rows[0]["gender"].ToString();
+
+                        rdbMale.Checked = (savedGender == "Male");
+                        rdbFemale.Checked = (savedGender != "Male");
+
+                        cboCivilStatus.SelectedItem = dt.Rows[0]["civil_status"].ToString();
+                        txtEmployeeAge.Text = dt.Rows[0]["age"].ToString();
+                        dtpEmployeeDateOfBirth.Value = Convert.ToDateTime(dt.Rows[0]["b_day"]);
+                        txtEmployeeContactNumber.Text = dt.Rows[0]["phone"].ToString();
+                        txtEmployeeEmail.Text = dt.Rows[0]["email"].ToString();
+                        txtEmergContact.Text = dt.Rows[0]["emerg_contact"].ToString();
+
+                        // Handle profile picture loading with exception handling
+                        try
+                        {
+                            string image_path = dt.Rows[0]["emp_profilePic"].ToString();
+                            if (!string.IsNullOrEmpty(image_path) && File.Exists(image_path))
+                            {
+                                employeeProfilePicture.Image = System.Drawing.Image.FromFile(image_path);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Profile picture not found or invalid path.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                employeeProfilePicture.Image = null; // Set to default or placeholder image
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error loading profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            employeeProfilePicture.Image = null; // Set to default or placeholder image
+                        }
+
+                        string[] addressParts = dt.Rows[0]["address"].ToString().Split(',');
+                        cboEmployeeCityMunicipality.SelectedItem = (addressParts.Length == 2) ? addressParts[1].Trim() : null;
+                        txtEmployeeBrgyAddress.Text = (addressParts.Length == 2) ? addressParts[0].Trim() : string.Empty;
+
+                        dtpEmployeeHiredDate.Value = Convert.ToDateTime(dt.Rows[0]["hired_date"]);
+                        int accID = int.Parse(dt.Rows[0]["account_id"].ToString());
+                        switch (accID)
+                        {
+                            case 1:
+                                cboEmployeeRateAccount.SelectedIndex = 0;
+                                break;
+                            case 2:
+                                cboEmployeeRateAccount.SelectedIndex = 1;
+                                break;
+                            case 3:
+                                cboEmployeeRateAccount.SelectedIndex = 2;
+                                break;
+                        }
+
+                        string employmentType = dt.Rows[0]["employment_type"].ToString();
+                        switch (employmentType)
+                        {
+                            case "Tenured":
+                                cboEmploymentType.SelectedIndex = 1;
+                                break;
+                            case "Non-Tenured":
+                                cboEmploymentType.SelectedIndex = 0;
+                                break;
+                        }
+
+                        cboWorkArrangement.SelectedItem = dt.Rows[0]["work_arrangement"].ToString();
+                        dtpEmpStartDate.Value = Convert.ToDateTime(dt.Rows[0]["start_date"]);
+                        txtStartDate.Text = dtpEmpStartDate.Value.ToString("MMMM dd, yyyy");
+                        dtpEmpEndDate.Value = Convert.ToDateTime(dt.Rows[0]["end_date"]);
+                        string positionLevel = dt.Rows[0]["position_desc"].ToString();
+                        switch (positionLevel)
+                        {
+                            case "Administrator":
+                                cboPositionLevel.SelectedIndex = 0;
+                                break;
+                            case "ESL Tutor":
+                                cboPositionLevel.SelectedIndex = 1;
+                                break;
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("No records found to update.", "No Records Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No records found to update.", "No Records Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -881,7 +904,7 @@ namespace GUTZ_Capstone_Project.Forms
 
                             if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateAttendanceSql, attendanceParam))
                             {
-                                MessageBox.Show($"Employee record (including attendance ID) for Employee with ID {_empId} has been updated successfully.",
+                                MessageBox.Show($"Employee record for Employee with ID {_empId} has been updated successfully.",
                                     "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 this.Close();
@@ -1232,4 +1255,7 @@ namespace GUTZ_Capstone_Project.Forms
             public string PositionLevel { get; set; }
         }
     }
+
+
+
 }

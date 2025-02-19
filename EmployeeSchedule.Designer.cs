@@ -54,6 +54,8 @@
             this.cboEndAMOrPM = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnSaveSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.chkBoxSaturday = new System.Windows.Forms.CheckBox();
+            this.chkBoxSunday = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EndNumUpDown)).BeginInit();
@@ -89,6 +91,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.chkBoxSunday);
+            this.groupBox1.Controls.Add(this.chkBoxSaturday);
             this.groupBox1.Controls.Add(this.chkBoxFriday);
             this.groupBox1.Controls.Add(this.chkBoxThursday);
             this.groupBox1.Controls.Add(this.chkBoxWednesday);
@@ -98,7 +102,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Gray;
             this.groupBox1.Location = new System.Drawing.Point(30, 95);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(685, 85);
+            this.groupBox1.Size = new System.Drawing.Size(685, 135);
             this.groupBox1.TabIndex = 75;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work Days";
@@ -238,7 +242,7 @@
             this.groupBox2.Controls.Add(this.EndNumUpDown);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.groupBox2.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox2.Location = new System.Drawing.Point(30, 202);
+            this.groupBox2.Location = new System.Drawing.Point(30, 240);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(685, 160);
             this.groupBox2.TabIndex = 79;
@@ -446,7 +450,7 @@
             this.btnSaveSchedule.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSaveSchedule.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnSaveSchedule.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSaveSchedule.Location = new System.Drawing.Point(30, 379);
+            this.btnSaveSchedule.Location = new System.Drawing.Point(30, 420);
             this.btnSaveSchedule.Name = "btnSaveSchedule";
             this.btnSaveSchedule.Size = new System.Drawing.Size(100, 36);
             this.btnSaveSchedule.TabIndex = 80;
@@ -468,7 +472,7 @@
             this.btnClose.HoverState.BorderColor = System.Drawing.Color.MistyRose;
             this.btnClose.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnClose.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(615, 379);
+            this.btnClose.Location = new System.Drawing.Point(615, 420);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(100, 36);
@@ -476,12 +480,36 @@
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // chkBoxSaturday
+            // 
+            this.chkBoxSaturday.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxSaturday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chkBoxSaturday.Location = new System.Drawing.Point(200, 85);
+            this.chkBoxSaturday.Name = "chkBoxSaturday";
+            this.chkBoxSaturday.Size = new System.Drawing.Size(110, 35);
+            this.chkBoxSaturday.TabIndex = 79;
+            this.chkBoxSaturday.Text = "Saturday";
+            this.chkBoxSaturday.UseVisualStyleBackColor = true;
+            this.chkBoxSaturday.CheckedChanged += new System.EventHandler(this.chkBoxSaturday_CheckedChanged);
+            // 
+            // chkBoxSunday
+            // 
+            this.chkBoxSunday.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxSunday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chkBoxSunday.Location = new System.Drawing.Point(385, 85);
+            this.chkBoxSunday.Name = "chkBoxSunday";
+            this.chkBoxSunday.Size = new System.Drawing.Size(110, 35);
+            this.chkBoxSunday.TabIndex = 80;
+            this.chkBoxSunday.Text = "Sunday";
+            this.chkBoxSunday.UseVisualStyleBackColor = true;
+            this.chkBoxSunday.CheckedChanged += new System.EventHandler(this.chkBoxSunday_CheckedChanged);
+            // 
             // EmployeeSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(743, 435);
+            this.ClientSize = new System.Drawing.Size(743, 474);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSaveSchedule);
             this.Controls.Add(this.groupBox2);
@@ -532,5 +560,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chkBoxSunday;
+        private System.Windows.Forms.CheckBox chkBoxSaturday;
     }
 }
