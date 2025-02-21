@@ -444,8 +444,7 @@
             this.btnViewProcessedPayrollDetails.TabIndex = 116;
             this.btnViewProcessedPayrollDetails.Text = "View Details";
             this.btnViewProcessedPayrollDetails.Visible = false;
-            this.btnViewProcessedPayrollDetails.Click += new System.EventHandler(this.btnViewProcessedPayrollDetails_Click);
-            // 
+          
             // btnCutPayroll
             // 
             this.btnCutPayroll.AutoRoundedCorners = true;

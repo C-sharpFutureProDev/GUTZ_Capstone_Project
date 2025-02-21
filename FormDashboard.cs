@@ -181,6 +181,7 @@ namespace GUTZ_Capstone_Project
             CountTotalEmployee();
             CountAttendanceForToday();
             CountActiveEmployeeLeave();
+            SumTotalEmployeeNetWages();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -197,11 +198,14 @@ namespace GUTZ_Capstone_Project
 
         private void FormDashboard_Load(object sender, EventArgs e)
         {
+            cboMonthlyAttendanceAndPayrollOverview.SelectedIndex = 0;
+            cboYearOfAttendanceAndPayrollOverview.SelectedIndex = 0;
             UpdateDateTimeLabel();
             timer1.Start();
             CountTotalEmployee();
             CountAttendanceForToday();
             CountActiveEmployeeLeave();
+            SumTotalEmployeeNetWages();
         }
 
         private void UpdateDateTimeLabel()
@@ -341,20 +345,60 @@ namespace GUTZ_Capstone_Project
 
         private void CountActiveEmployeeLeave()
         {
-            string leaveStatus = "Active";
-            string sqlCountActiveLeave = "SELECT COUNT(*) FROM tbl_leave WHERE leave_status = '" + leaveStatus + "'";
-
-            DataTable countActiveLeave = DB_OperationHelperClass.QueryData(sqlCountActiveLeave);
-
-            if (countActiveLeave.Rows.Count > 0)
+            try
             {
+                string leaveStatus = "Active";
+                DateTime today = DateTime.Today;
+
+                // SQL query to count active leaves where today is between start_date and end_date
+                string sqlCountActiveLeave = @"SELECT COUNT(*) 
+                                               FROM tbl_leave 
+                                               WHERE leave_status = @leaveStatus 
+                                               AND @today >= start_date 
+                                               AND @today <= end_date";
+
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@leaveStatus", leaveStatus },
+                    { "@today", today }
+                };
+
+                DataTable countActiveLeave = DB_OperationHelperClass.ParameterizedQueryData(sqlCountActiveLeave, parameters);
+
                 int countTotalActiveLeave = countActiveLeave.Rows.Count > 0 ? Convert.ToInt32(countActiveLeave.Rows[0][0]) : 0;
                 lblOnLeave.Text = countTotalActiveLeave.ToString();
             }
-            else
+            catch (Exception ex)
             {
-                lblOnLeave.Text = "0";
+                MessageBox.Show($"Error counting active leaves: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SumTotalEmployeeNetWages()
+        {
+            try
+            {
+                // SQL query to sum all net_pay_total from tbl_wage
+                string sqlSumNetPay = "SELECT SUM(net_pay_total) FROM tbl_payroll";
+
+                DataTable totalNetWages = DB_OperationHelperClass.QueryData(sqlSumNetPay);
+
+                double totalEmployeeNetWages = 0.0;
+
+                if (totalNetWages.Rows.Count > 0 && totalNetWages.Rows[0][0] != DBNull.Value)
+                {
+                    totalEmployeeNetWages = Convert.ToDouble(totalNetWages.Rows[0][0]);
+                }
+
+                lblTotalEmployeeNetWages.Text = totalEmployeeNetWages.ToString("C"); // Format as currency
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error calculating total employee net wages: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
 }
+
+
+

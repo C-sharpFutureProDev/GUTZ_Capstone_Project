@@ -21,7 +21,6 @@ namespace GUTZ_Capstone_Project
             InitializeComponent();
             _reportDate = reportDate;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnDownLoadAttendanceReport, "Download Attendance Report");
         }

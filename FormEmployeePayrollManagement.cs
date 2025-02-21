@@ -1354,14 +1354,11 @@ namespace GUTZ_Capstone_Project
                 {
                     toggleSwitchViewRecentPayroll.Checked = false; // Turn off the toggle when the form is closed
                 };
-                formPastPayrollDetails.ShowDialog();
+                formPastPayrollDetails.Show();
             }
         }
-
-        private void btnViewProcessedPayrollDetails_Click(object sender, EventArgs e)
-        {
-           
-        }
-
     }
 }
+
+
+

@@ -99,11 +99,11 @@
             this.EmployeeLeaveDetails.Controls.Add(this.label3);
             this.EmployeeLeaveDetails.FillColor = System.Drawing.Color.White;
             this.EmployeeLeaveDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.EmployeeLeaveDetails.Location = new System.Drawing.Point(93, 80);
+            this.EmployeeLeaveDetails.Location = new System.Drawing.Point(91, 78);
             this.EmployeeLeaveDetails.Name = "EmployeeLeaveDetails";
             this.EmployeeLeaveDetails.ShadowDecoration.BorderRadius = 8;
             this.EmployeeLeaveDetails.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.EmployeeLeaveDetails.Size = new System.Drawing.Size(242, 120);
+            this.EmployeeLeaveDetails.Size = new System.Drawing.Size(244, 120);
             this.EmployeeLeaveDetails.TabIndex = 81;
             this.EmployeeLeaveDetails.Visible = false;
             // 
@@ -185,7 +185,7 @@
             this.btnHoursWorked.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnHoursWorked.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnHoursWorked.FillColor = System.Drawing.Color.White;
-            this.btnHoursWorked.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoursWorked.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.btnHoursWorked.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnHoursWorked.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnHoursWorked.HoverState.FillColor = System.Drawing.Color.White;
@@ -216,9 +216,9 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.label2.Location = new System.Drawing.Point(88, 170);
+            this.label2.Location = new System.Drawing.Point(86, 170);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.label2.Size = new System.Drawing.Size(130, 30);
@@ -303,7 +303,7 @@
             // 
             this.lblClockOut.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblClockOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.lblClockOut.Location = new System.Drawing.Point(108, 115);
+            this.lblClockOut.Location = new System.Drawing.Point(107, 115);
             this.lblClockOut.Name = "lblClockOut";
             this.lblClockOut.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.lblClockOut.Size = new System.Drawing.Size(112, 30);
@@ -338,7 +338,7 @@
             // 
             this.lblClockInStatus.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblClockInStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.lblClockInStatus.Location = new System.Drawing.Point(124, 140);
+            this.lblClockInStatus.Location = new System.Drawing.Point(123, 140);
             this.lblClockInStatus.Name = "lblClockInStatus";
             this.lblClockInStatus.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.lblClockInStatus.Size = new System.Drawing.Size(85, 30);
@@ -424,7 +424,7 @@
             // 
             this.lblClockIn.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
             this.lblClockIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.lblClockIn.Location = new System.Drawing.Point(123, 90);
+            this.lblClockIn.Location = new System.Drawing.Point(122, 90);
             this.lblClockIn.Name = "lblClockIn";
             this.lblClockIn.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.lblClockIn.Size = new System.Drawing.Size(98, 30);

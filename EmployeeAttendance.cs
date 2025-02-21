@@ -186,7 +186,7 @@ namespace GUTZ_Capstone_Project
                         if (leaveStatus == "Active")
                         {
                             employeeAttendanceCard.btnStatus.ForeColor = Color.FromArgb(0, 123, 255);
-                            employeeAttendanceCard.btnStatus.Padding = new Padding(0, 0, 35, 0);
+                            //employeeAttendanceCard.btnStatus.Padding = new Padding(0, 0, 35, 0);
                             employeeAttendanceCard.btnStatus.Text = "On Leave";
                             employeeAttendanceCard.btnAbsentMark.Visible = false; // Ensure absent mark is hidden
                             employeeAttendanceCard.btnLeaveMark.Visible = true;
@@ -1140,6 +1140,7 @@ namespace GUTZ_Capstone_Project
                         // Handle employees on leave
                         if (leaveStatus == "Active")
                         {
+                            employeeAttendanceCard.btnStatus.ForeColor = Color.FromArgb(0, 123, 255);
                             employeeAttendanceCard.btnAbsentMark.Visible = false; // Ensure absent mark is hidden
                             employeeAttendanceCard.btnLeaveMark.Visible = true;
                             employeeAttendanceCard.EmployeeLeaveDetails.Visible = true; // Show leave details
@@ -1400,6 +1401,7 @@ namespace GUTZ_Capstone_Project
 
                     if (timeInStatus == "On Leave")
                     {
+                        employeeAttendanceCard.btnStatus.ForeColor = Color.FromArgb(0, 123, 255);
                         employeeAttendanceCard.btnAbsentMark.Visible = false;
                         employeeAttendanceCard.btnLeaveMark.Visible = true;
                         employeeAttendanceCard.EmployeeLeaveDetails.Visible = true;
