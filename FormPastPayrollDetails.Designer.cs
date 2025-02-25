@@ -135,7 +135,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 9F);
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(21, 12);
             this.label2.Name = "label2";
@@ -147,7 +147,7 @@
             // lblAttendanceDate
             // 
             this.lblAttendanceDate.BackColor = System.Drawing.Color.White;
-            this.lblAttendanceDate.Font = new System.Drawing.Font("Bookman Old Style", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblAttendanceDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblAttendanceDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.lblAttendanceDate.Location = new System.Drawing.Point(43, 45);
             this.lblAttendanceDate.Name = "lblAttendanceDate";
@@ -170,7 +170,7 @@
             this.guna2Panel1.Controls.Add(this.label6);
             this.guna2Panel1.Controls.Add(this.lblPayrollID);
             this.guna2Panel1.Controls.Add(this.lblPastPayrollStatus);
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.ForeColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(568, 103);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -182,7 +182,7 @@
             // 
             // btnDownLoadSelectedPayrollPeriodReports
             // 
-            this.btnDownLoadSelectedPayrollPeriodReports.BackColor = System.Drawing.Color.Ivory;
+            this.btnDownLoadSelectedPayrollPeriodReports.BackColor = System.Drawing.Color.White;
             this.btnDownLoadSelectedPayrollPeriodReports.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.btnDownLoadSelectedPayrollPeriodReports.BorderRadius = 4;
             this.btnDownLoadSelectedPayrollPeriodReports.BorderThickness = 4;
@@ -208,10 +208,11 @@
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.guna2Panel3.BackColor = System.Drawing.Color.White;
             this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.guna2Panel3.BorderRadius = 8;
             this.guna2Panel3.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.guna2Panel3.BorderThickness = 1;
             this.guna2Panel3.Controls.Add(this.lblTotalNetPay);
             this.guna2Panel3.Controls.Add(this.label7);
             this.guna2Panel3.Controls.Add(this.lblTotalDeductions);
@@ -243,7 +244,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
+            this.label7.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(15, 94);
             this.label7.Name = "label7";
@@ -267,7 +268,7 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
+            this.label5.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(15, 52);
             this.label5.Name = "label5";
@@ -291,7 +292,7 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
+            this.label4.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(15, 10);
             this.label4.Name = "label4";
@@ -302,10 +303,11 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.guna2Panel2.BackColor = System.Drawing.Color.White;
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.guna2Panel2.BorderRadius = 8;
             this.guna2Panel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.guna2Panel2.BorderThickness = 1;
             this.guna2Panel2.Controls.Add(this.label10);
             this.guna2Panel2.Controls.Add(this.lblTotalEmployee);
             this.guna2Panel2.Controls.Add(this.label9);
@@ -325,7 +327,7 @@
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
+            this.label10.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(15, 94);
             this.label10.Name = "label10";
@@ -349,7 +351,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
+            this.label9.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(15, 52);
             this.label9.Name = "label9";
@@ -361,7 +363,7 @@
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Bookman Old Style", 9.5F);
+            this.label8.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(15, 10);
             this.label8.Name = "label8";
@@ -396,8 +398,8 @@
             // 
             // lblPayrollCutDate
             // 
-            this.lblPayrollCutDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.lblPayrollCutDate.Font = new System.Drawing.Font("Bookman Old Style", 9F);
+            this.lblPayrollCutDate.BackColor = System.Drawing.Color.White;
+            this.lblPayrollCutDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPayrollCutDate.ForeColor = System.Drawing.Color.Black;
             this.lblPayrollCutDate.Location = new System.Drawing.Point(20, 90);
             this.lblPayrollCutDate.Name = "lblPayrollCutDate";
@@ -408,20 +410,20 @@
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Arial", 12.5F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.label6.Location = new System.Drawing.Point(35, 12);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(698, 30);
+            this.label6.Size = new System.Drawing.Size(650, 30);
             this.label6.TabIndex = 150;
             this.label6.Text = "PAYROLL SUMMARY";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPayrollID
             // 
-            this.lblPayrollID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.lblPayrollID.Font = new System.Drawing.Font("Bookman Old Style", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblPayrollID.BackColor = System.Drawing.Color.White;
+            this.lblPayrollID.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblPayrollID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.lblPayrollID.Location = new System.Drawing.Point(31, 60);
             this.lblPayrollID.Name = "lblPayrollID";
@@ -432,8 +434,8 @@
             // 
             // lblPastPayrollStatus
             // 
-            this.lblPastPayrollStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.lblPastPayrollStatus.Font = new System.Drawing.Font("Bookman Old Style", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblPastPayrollStatus.BackColor = System.Drawing.Color.White;
+            this.lblPastPayrollStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lblPastPayrollStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
             this.lblPastPayrollStatus.Location = new System.Drawing.Point(399, 60);
             this.lblPastPayrollStatus.Name = "lblPastPayrollStatus";

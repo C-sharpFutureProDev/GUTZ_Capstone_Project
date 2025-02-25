@@ -53,7 +53,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblEmployeeAveTimeIn = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblEmployeeTotalAttendance = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblEmployeeTotalAttendance = new System.Windows.Forms.Label();
             this.panelEmploymentDetails.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeProfilePicture)).BeginInit();
@@ -455,19 +455,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(282, 95);
             this.guna2Panel1.TabIndex = 73;
             // 
-            // lblEmployeeTotalAttendance
-            // 
-            this.lblEmployeeTotalAttendance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(224)))));
-            this.lblEmployeeTotalAttendance.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
-            this.lblEmployeeTotalAttendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblEmployeeTotalAttendance.Location = new System.Drawing.Point(4, 45);
-            this.lblEmployeeTotalAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblEmployeeTotalAttendance.Name = "lblEmployeeTotalAttendance";
-            this.lblEmployeeTotalAttendance.Size = new System.Drawing.Size(274, 40);
-            this.lblEmployeeTotalAttendance.TabIndex = 86;
-            this.lblEmployeeTotalAttendance.Text = "0";
-            this.lblEmployeeTotalAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(224)))));
@@ -675,6 +662,19 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1491, 450);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // lblEmployeeTotalAttendance
+            // 
+            this.lblEmployeeTotalAttendance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(224)))));
+            this.lblEmployeeTotalAttendance.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeTotalAttendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblEmployeeTotalAttendance.Location = new System.Drawing.Point(4, 45);
+            this.lblEmployeeTotalAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblEmployeeTotalAttendance.Name = "lblEmployeeTotalAttendance";
+            this.lblEmployeeTotalAttendance.Size = new System.Drawing.Size(274, 40);
+            this.lblEmployeeTotalAttendance.TabIndex = 86;
+            this.lblEmployeeTotalAttendance.Text = "0";
+            this.lblEmployeeTotalAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EmployeeAttendanceHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -720,7 +720,6 @@
         private System.Windows.Forms.Label lblEmployeeAttPerfPercemtage;
         private System.Windows.Forms.Label lblEmployeeAveTimeOut;
         private System.Windows.Forms.Label lblEmployeeAveTimeIn;
-        private System.Windows.Forms.Label lblEmployeeTotalAttendance;
         private Guna.UI2.WinForms.Guna2Button btnDownloadAttendanceHistoryRecords;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -737,5 +736,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2ComboBox cboSortAttendanceHistory;
+        private System.Windows.Forms.Label lblEmployeeTotalAttendance;
     }
 }

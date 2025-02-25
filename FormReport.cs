@@ -215,10 +215,11 @@ namespace GUTZ_Capstone_Project
         {
             string countScheduledEmployee = $@"SELECT COUNT(*) FROM tbl_employee e
                                                INNER JOIN tbl_schedule s ON e.emp_id = s.emp_id
-                                               LEFT JOIN tbl_leave l ON e.emp_id = l.emp_id AND l.leave_status = 'Active'
+                                               LEFT JOIN tbl_leave l ON e.emp_id = l.emp_id 
+                                               AND '{date:yyyy-MM-dd}' BETWEEN l.start_date AND l.end_date
                                                INNER JOIN tbl_position p ON e.position_id = p.position_id
                                                WHERE FIND_IN_SET(DAYNAME('{date:yyyy-MM-dd}'), s.work_days) > 0
-                                               AND (l.leave_status IS NULL OR l.leave_status <> 'Active')
+                                               AND (l.leave_status IS NULL OR l.leave_status NOT IN ('Active', 'Completed'))
                                                AND e.is_deleted = 0
                                                AND e.start_date <= '{date:yyyy-MM-dd}'
                                                AND p.position_desc != 'Administrator'";

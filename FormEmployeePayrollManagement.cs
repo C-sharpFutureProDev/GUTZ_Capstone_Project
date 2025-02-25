@@ -214,41 +214,21 @@ namespace GUTZ_Capstone_Project
 
                                         if (timeIn.HasValue && timeOut.HasValue)
                                         {
-                                            // Define scheduled start and end times for the day
-                                            DateTime scheduledStartDateTime = date.Add(scheduledStartTime);
-                                            DateTime scheduledEndDateTime = date.Add(scheduledEndTime);
-
-                                            TimeSpan workingHours;
-
-                                            if (timeInStatus == "On Time")
+                                            // Check if timeIn is before or equal to timeOut
+                                            if (timeIn.Value <= timeOut.Value)
                                             {
-                                                // If on time, compute working hours from scheduled start to scheduled end
-                                                workingHours = scheduledEndDateTime - scheduledStartDateTime;
+                                                // Calculate working hours using the new method
+                                                TimeSpan workingHours = CalculateWorkingHours(timeIn.Value, timeOut.Value, scheduledStartTime, scheduledEndTime);
+
+                                                // Accumulate total working hours in seconds
+                                                long workingSeconds = (long)workingHours.TotalSeconds;
+                                                totalSeconds += workingSeconds;
                                             }
                                             else
                                             {
-                                                // If late, compute working hours from actual time_in to actual time_out
-                                                DateTime effectiveTimeOut = timeOut.Value > scheduledEndDateTime
-                                                    ? scheduledEndDateTime // Cap time_out to scheduled end time
-                                                    : timeOut.Value; // Use actual time_out if within schedule
-
-                                                // Ensure time_in is not before scheduled start time
-                                                DateTime effectiveTimeIn = timeIn.Value < scheduledStartDateTime
-                                                    ? scheduledStartDateTime // Cap time_in to scheduled start time
-                                                    : timeIn.Value; // Use actual time_in if after scheduled start time
-
-                                                workingHours = effectiveTimeOut - effectiveTimeIn;
+                                                // Log or handle the case where timeIn is after timeOut
+                                                Console.WriteLine($"Invalid attendance record for employee {employeeId} on {date}: timeIn is after timeOut.");
                                             }
-
-                                            // Ensure working hours are not negative
-                                            if (workingHours.TotalSeconds < 0)
-                                            {
-                                                workingHours = TimeSpan.Zero;
-                                            }
-
-                                            // Accumulate total working hours in seconds
-                                            long workingSeconds = (long)workingHours.TotalSeconds;
-                                            totalSeconds += workingSeconds;
                                         }
                                     }
                                 }
@@ -256,16 +236,8 @@ namespace GUTZ_Capstone_Project
                         }
                     }
 
-                    // Convert total seconds to hours and minutes
-                    int totalHours = (int)(totalSeconds / 3600); // Total hours
-                    int totalMinutes = (int)((totalSeconds % 3600) / 60); // Remaining minutes
-
-                    // Convert total seconds to decimal hours
-                    long roundedTotalSeconds = (long)Math.Round((double)totalSeconds); // Round total seconds to the nearest whole number
-                    decimal totalDecimalHours = Math.Round((decimal)roundedTotalSeconds / 3600, 2); // Convert to decimal hours and round to 2 decimal places
-
-                    // Format the result
-                    string totalWorkingTime = $"{totalDecimalHours} Hrs."; // Display as decimal hours
+                    // Format the result based on the total time
+                    string totalWorkingTime = FormatTotalTime(totalSeconds);
 
                     // Display the result
                     lblTotalTutoringHours.Text = totalWorkingTime;
@@ -282,6 +254,44 @@ namespace GUTZ_Capstone_Project
                 string message = $"An error occurred: {ex.Message}";
                 string caption = "Error";
                 MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private TimeSpan CalculateWorkingHours(DateTime actualTimeIn, DateTime actualTimeOut, TimeSpan scheduledStartTime, TimeSpan scheduledEndTime)
+        {
+            // Convert scheduled start and end times to DateTime on the same day as the actual time-in
+            DateTime scheduledStartDateTime = actualTimeIn.Date + scheduledStartTime;
+            DateTime scheduledEndDateTime = actualTimeIn.Date + scheduledEndTime;
+
+            // Determine the effective start time (scheduled start time or actual time-in if late)
+            DateTime effectiveStartTime = actualTimeIn > scheduledStartDateTime ? actualTimeIn : scheduledStartDateTime;
+
+            // Determine the effective end time (scheduled end time or actual time-out if earlier)
+            DateTime effectiveEndTime = actualTimeOut > scheduledEndDateTime ? scheduledEndDateTime : actualTimeOut;
+
+            // Calculate the working hours from the effective start time to the effective end time
+            TimeSpan workingHours = effectiveEndTime - effectiveStartTime;
+
+            // Ensure working hours are not negative (e.g., if time-out is earlier than effective start time)
+            return workingHours > TimeSpan.Zero ? workingHours : TimeSpan.Zero;
+        }
+
+        // Helper method to format the total time
+        private string FormatTotalTime(long totalSeconds)
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(totalSeconds);
+
+            if (timeSpan.Hours > 0)
+            {
+                return $"{timeSpan.Hours} hrs. {timeSpan.Minutes:D2}m {timeSpan.Seconds:D2}s";
+            }
+            else if (timeSpan.Minutes > 0)
+            {
+                return $"{timeSpan.Minutes}mins. {timeSpan.Seconds:D2}secs.";
+            }
+            else
+            {
+                return $"{timeSpan.Seconds}secs.";
             }
         }
 
@@ -861,7 +871,7 @@ namespace GUTZ_Capstone_Project
                         decimal totalWages = Math.Round(totalWorkingHours * ratePerHour, 2); // Round to 2 decimal places
 
                         // Compute net wages after deductions
-                        decimal netWages = Math.Round(totalWages - totalDeductions, 2); // Round to 2 decimal places
+                        decimal netWages = Math.Max(0, Math.Round(totalWages - totalDeductions, 2)); // Ensure non-negative net wages
 
                         // Find the existing card for the employee
                         foreach (SampleEmployeePayrollCard card in flowLayoutPanel1.Controls)
@@ -869,10 +879,19 @@ namespace GUTZ_Capstone_Project
                             if (card.ID == employeeId)
                             {
                                 card.EmployeeName = name;
-                                card.TutoringHours = $"{totalWorkingHours:F2} hours"; // Working hours in decimal format
-                                card.LateTime = $"{totalLateTime.TotalMinutes:F0}m"; // Late time in minutes
+                                card.TutoringHours = $"{totalWorkingHours:F2} hrs."; // Working hours in decimal format
+                                card.LateTime = $"{totalLateTime.TotalMinutes:F0} m"; // Late time in minutes
                                 card.Deductions = $"₱{totalDeductions:n2}"; // Total deductions rounded
-                                card.Wage = $"₱{netWages:n2}"; // Net wages after deductions rounded
+
+                                // Display net wages or zero if deductions exceed total wages
+                                card.Wage = netWages > 0 ? $"₱{netWages:n2}" : "₱0.00";
+
+                                // If deductions exceed total wages, display a warning
+                                if (totalDeductions > totalWages)
+                                {
+                                    card.Wage += " (Deductions exceed total wages)";
+                                }
+
                                 break;
                             }
                         }
@@ -1359,6 +1378,3 @@ namespace GUTZ_Capstone_Project
         }
     }
 }
-
-
-

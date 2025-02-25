@@ -109,7 +109,7 @@ namespace GUTZ_Capstone_Project
                     {
                         Text = formattedPayrollPeriod,
                         AutoSize = true,
-                        Font = new System.Drawing.Font("Bookman Old Style", 9),
+                        Font = new System.Drawing.Font("Arial", 10),
                         Tag = new { StartDate = payStartDate, EndDate = payEndDate }, // Store dates in the Tag property
                         AutoCheck = false // Disable automatic checking
                     };

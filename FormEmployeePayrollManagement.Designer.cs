@@ -320,13 +320,13 @@
             // lblTotalTutoringHours
             // 
             this.lblTotalTutoringHours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblTotalTutoringHours.Font = new System.Drawing.Font("Bookman Old Style", 15F, System.Drawing.FontStyle.Bold);
+            this.lblTotalTutoringHours.Font = new System.Drawing.Font("Arial", 15.5F, System.Drawing.FontStyle.Bold);
             this.lblTotalTutoringHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.lblTotalTutoringHours.Location = new System.Drawing.Point(3, 59);
             this.lblTotalTutoringHours.Name = "lblTotalTutoringHours";
             this.lblTotalTutoringHours.Size = new System.Drawing.Size(264, 47);
             this.lblTotalTutoringHours.TabIndex = 115;
-            this.lblTotalTutoringHours.Text = "0Hrs.";
+            this.lblTotalTutoringHours.Text = "0h";
             this.lblTotalTutoringHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -444,7 +444,7 @@
             this.btnViewProcessedPayrollDetails.TabIndex = 116;
             this.btnViewProcessedPayrollDetails.Text = "View Details";
             this.btnViewProcessedPayrollDetails.Visible = false;
-          
+            // 
             // btnCutPayroll
             // 
             this.btnCutPayroll.AutoRoundedCorners = true;
@@ -622,7 +622,6 @@
         private System.Windows.Forms.Label lblTotalDeductions;
         private System.Windows.Forms.Label label14;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.Label lblTotalTutoringHours;
         private System.Windows.Forms.Label label5;
         public Guna.UI2.WinForms.Guna2Button btnRefresh;
         public Guna.UI2.WinForms.Guna2Button btnViewEmployeeList;
@@ -644,5 +643,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboSearchEmployeeForActivePayroll;
         private Guna.UI2.WinForms.Guna2Button btnIconSearch;
         public Guna.UI2.WinForms.Guna2Button btnViewProcessedPayrollDetails;
+        private System.Windows.Forms.Label lblTotalTutoringHours;
     }
 }
