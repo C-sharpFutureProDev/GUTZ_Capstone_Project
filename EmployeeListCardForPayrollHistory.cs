@@ -18,10 +18,15 @@ namespace GUTZ_Capstone_Project
         private string _account;
         private string _employmentType;
         private string _ratePerHour;
+        private FormEmployeePayrollManagement _employeePayrollManagement;
 
-        public EmployeeListCardForPayrollHistory()
+        public EmployeeListCardForPayrollHistory(FormEmployeePayrollManagement employeePayrollManagement)
         {
             InitializeComponent();
+            if (employeePayrollManagement != null)
+            {
+                _employeePayrollManagement = employeePayrollManagement;
+            }
         }
 
         [Category("Custom Control")]
@@ -86,6 +91,19 @@ namespace GUTZ_Capstone_Project
             {
                 _ratePerHour = value;
                 lblRatePerHour.Text = value;
+            }
+        }
+
+        private void btnViewPayrollHistory_Click(object sender, EventArgs e)
+        {
+            if (_employeePayrollManagement != null)
+            {
+                EmployeePayrollHistory employeePayrollHistory = new EmployeePayrollHistory(_id, _employeePayrollManagement);
+                _employeePayrollManagement.panelPayrollDetails.Visible = false;
+                _employeePayrollManagement.flowLayoutPanel3.Visible = true;
+                _employeePayrollManagement.flowLayoutPanel3.Controls.Clear();
+                _employeePayrollManagement.flowLayoutPanel3.Dock = DockStyle.Fill;
+                _employeePayrollManagement.flowLayoutPanel3.Controls.Add(employeePayrollHistory);
             }
         }
     }

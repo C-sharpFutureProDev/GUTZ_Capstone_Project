@@ -289,6 +289,12 @@
     <Compile Include="EmployeePastAttendanceHistoryCard.Designer.cs">
       <DependentUpon>EmployeePastAttendanceHistoryCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeePayrollHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeePayrollHistory.Designer.cs">
+      <DependentUpon>EmployeePayrollHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeePersonal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,14 +380,14 @@
     <Compile Include="Forms\FormAddNewEmployee.Designer.cs">
       <DependentUpon>FormAddNewEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPayrollManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormPayrollManagement.Designer.cs">
-      <DependentUpon>FormPayrollManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleAttendanceReportsDetailsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleAttendanceReportsDetailsCard.Designer.cs">
+      <DependentUpon>SampleAttendanceReportsDetailsCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="SampleEmployeeListCardForReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -464,6 +470,9 @@
     <EmbeddedResource Include="EmployeePastAttendanceHistoryCard.resx">
       <DependentUpon>EmployeePastAttendanceHistoryCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeePayrollHistory.resx">
+      <DependentUpon>EmployeePayrollHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeePersonal.resx">
       <DependentUpon>EmployeePersonal.cs</DependentUpon>
     </EmbeddedResource>
@@ -503,9 +512,6 @@
     <EmbeddedResource Include="Forms\FormAddNewEmployee.resx">
       <DependentUpon>FormAddNewEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPayrollManagement.resx">
-      <DependentUpon>FormPayrollManagement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -515,6 +521,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SampleAttendanceReportsDetailsCard.resx">
+      <DependentUpon>SampleAttendanceReportsDetailsCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SampleEmployeeListCardForReport.resx">
       <DependentUpon>SampleEmployeeListCardForReport.cs</DependentUpon>
     </EmbeddedResource>

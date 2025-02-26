@@ -70,7 +70,7 @@ namespace GUTZ_Capstone_Project
                         else if (employmentType == "Non-Tenured")
                             ratePerHour = row["non_tenured_rate"].ToString();
 
-                        EmployeeListCardForPayrollHistory employeeListCardForPayrollHistory = new EmployeeListCardForPayrollHistory()
+                        EmployeeListCardForPayrollHistory employeeListCardForPayrollHistory = new EmployeeListCardForPayrollHistory(this)
                         {
                             ID = id,
                             EmployeeProfilePic = await LoadImageAsync(imagePath),

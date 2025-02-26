@@ -380,30 +380,6 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void SumTotalEmployeeNetWages()
-        {
-            try
-            {
-                // SQL query to sum all net_pay_total from tbl_wage
-                string sqlSumNetPay = "SELECT SUM(net_pay_total) FROM tbl_payroll";
-
-                DataTable totalNetWages = DB_OperationHelperClass.QueryData(sqlSumNetPay);
-
-                double totalEmployeeNetWages = 0.0;
-
-                if (totalNetWages.Rows.Count > 0 && totalNetWages.Rows[0][0] != DBNull.Value)
-                {
-                    totalEmployeeNetWages = Convert.ToDouble(totalNetWages.Rows[0][0]);
-                }
-
-                //lblTotalEmployeeNetWages.Text = totalEmployeeNetWages.ToString("C"); // Format as currency
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error calculating total employee net wages: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void AttendanceOverview(DateTime payStartDate, DateTime payEndDate)
         {
             try
@@ -984,3 +960,5 @@ namespace GUTZ_Capstone_Project
 
     }
 }
+
+

@@ -215,43 +215,6 @@ namespace GUTZ_Capstone_Project
 
         private void btnViewEmployeeDetails_Click(object sender, EventArgs e)
         {
-            /*if (_activeCard != null && _activeCard != this)
-            {
-                // Reset the previous active card
-                _activeCard.DeactivateCard();
-            }
-
-            // Set the current card as active
-            _activeCard = this;
-            ActivateCard();
-
-            if (_employeeList != null)
-            {
-                foreach (var card in _employeeList.flowLayoutPanel1.Controls.OfType<SampleProfileCard>())
-                {
-                    // Update location for each card's
-                    card.panelEmployeeListCard.Location = new Point(12, 20);
-                }
-
-                _employeeList.flowLayoutPanel1.Dock = DockStyle.Left; // Change docking style
-                _employeeList.flowLayoutPanel1.Size = new Size(410, 0); // Set size if needed
-
-                // Show flowLayoutPanel2
-                _employeeList.flowLayoutPanel2.Visible = true;
-                _employeeList.flowLayoutPanel2.Dock = DockStyle.Fill;
-
-                // Clear existing controls in flowLayoutPanel2
-                _employeeList.flowLayoutPanel2.Controls.Clear();
-
-                SampleEmployeeDetailsCard sampleEmployeeDetailsCard = new SampleEmployeeDetailsCard(_id, _employeeList);
-                _employeeList.flowLayoutPanel2.Controls.Add(sampleEmployeeDetailsCard);
-
-                // Refresh layout
-                _employeeList.flowLayoutPanel1.Refresh();
-                _employeeList.PerformLayout();
-            }*/
-
-
             if (_activeCard != null && _activeCard != this)
             {
                 // Reset the previous active card
@@ -292,7 +255,7 @@ namespace GUTZ_Capstone_Project
 
                 DataTable result = DB_OperationHelperClass.QueryData(query);
 
-                /*if (result != null && result.Rows.Count > 0)
+                /*if (result != null && result.Rows.Count > 0) // admin 
                 {
                     DataRow row = result.Rows[0];
                     int positionId = Convert.ToInt32(row["position_id"]);
@@ -333,3 +296,4 @@ namespace GUTZ_Capstone_Project
         }
     }
 }
+

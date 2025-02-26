@@ -38,7 +38,7 @@
             // 
             // panelEmployeeListCard
             // 
-            this.panelEmployeeListCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelEmployeeListCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.panelEmployeeListCard.BorderColor = System.Drawing.Color.Ivory;
             this.panelEmployeeListCard.BorderRadius = 8;
             this.panelEmployeeListCard.Controls.Add(this.chkSelectEmployee);
@@ -51,7 +51,7 @@
             this.panelEmployeeListCard.ShadowDecoration.BorderRadius = 15;
             this.panelEmployeeListCard.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelEmployeeListCard.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
-            this.panelEmployeeListCard.Size = new System.Drawing.Size(304, 70);
+            this.panelEmployeeListCard.Size = new System.Drawing.Size(305, 70);
             this.panelEmployeeListCard.TabIndex = 64;
             // 
             // chkSelectEmployee
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.panelEmployeeListCard);
             this.Name = "SampleEmployeeListCardForReport";
             this.Size = new System.Drawing.Size(305, 71);

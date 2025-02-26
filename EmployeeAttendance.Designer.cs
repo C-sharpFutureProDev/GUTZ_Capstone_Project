@@ -63,6 +63,7 @@
             this.lblTutoringHours = new System.Windows.Forms.Label();
             this.lblAccumulatedTutoringHours = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblAttendancePercentage = new System.Windows.Forms.Label();
             this.lblAttendancePercent = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblScheduledEmployeeToday = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.toggleSwitchViewPastAttendanceRecord = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.dateOfCurrentAttendanceRecord = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblAttendancePercentage = new System.Windows.Forms.Label();
             this.panelAttendanceDetails.SuspendLayout();
             this.panelAttendanceSummary.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
@@ -749,6 +749,19 @@
             this.guna2Panel3.Size = new System.Drawing.Size(230, 100);
             this.guna2Panel3.TabIndex = 145;
             // 
+            // lblAttendancePercentage
+            // 
+            this.lblAttendancePercentage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblAttendancePercentage.Font = new System.Drawing.Font("Arial", 15.8F, System.Drawing.FontStyle.Bold);
+            this.lblAttendancePercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.lblAttendancePercentage.Location = new System.Drawing.Point(3, 45);
+            this.lblAttendancePercentage.Name = "lblAttendancePercentage";
+            this.lblAttendancePercentage.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.lblAttendancePercentage.Size = new System.Drawing.Size(224, 45);
+            this.lblAttendancePercentage.TabIndex = 144;
+            this.lblAttendancePercentage.Text = "0.00%";
+            this.lblAttendancePercentage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblAttendancePercent
             // 
             this.lblAttendancePercent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
@@ -935,19 +948,6 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(200, 666);
             this.flowLayoutPanel3.TabIndex = 7;
             this.flowLayoutPanel3.Visible = false;
-            // 
-            // lblAttendancePercentage
-            // 
-            this.lblAttendancePercentage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblAttendancePercentage.Font = new System.Drawing.Font("Arial", 15.8F, System.Drawing.FontStyle.Bold);
-            this.lblAttendancePercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.lblAttendancePercentage.Location = new System.Drawing.Point(3, 45);
-            this.lblAttendancePercentage.Name = "lblAttendancePercentage";
-            this.lblAttendancePercentage.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.lblAttendancePercentage.Size = new System.Drawing.Size(224, 45);
-            this.lblAttendancePercentage.TabIndex = 144;
-            this.lblAttendancePercentage.Text = "0.00%";
-            this.lblAttendancePercentage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EmployeeAttendance
             // 

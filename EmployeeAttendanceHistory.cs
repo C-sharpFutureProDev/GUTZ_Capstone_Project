@@ -247,7 +247,7 @@ namespace GUTZ_Capstone_Project
             ComputeTotalAttendanceMetrics(_id);
 
             // Display the initial attendance history (current month and year)
-            FilterAndDisplayEmployeeAttendanceHistory(_id, DateTime.Now.Month, currentYear);
+            await FilterAndDisplayEmployeeAttendanceHistory(_id, DateTime.Now.Month, currentYear);
 
             // Re-subscribe to the event after initialization
             cboSortAttendanceHistory.SelectedIndexChanged += cboSortAttendanceHistory_SelectedIndexChanged;
@@ -257,10 +257,11 @@ namespace GUTZ_Capstone_Project
         {
             try
             {
-                string employeeSql = @"SELECT emp_ProfilePic, CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, phone, email, position_desc, start_date
+                string employeeSql = @"SELECT emp_ProfilePic, CONCAT(f_name, ' ', LEFT(m_name, 1), '. ', l_name) AS FullName, work_days, start_time, end_time, position_desc, start_date
                                        FROM tbl_employee
+                                       INNER JOIN tbl_schedule ON tbl_employee.emp_id = tbl_schedule.emp_id
                                        INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
-                                       WHERE emp_id = @empId";
+                                       WHERE tbl_employee.emp_id = @empId";
 
                 var paramID = new Dictionary<string, object> { { "@empId", _id } };
 
@@ -272,8 +273,18 @@ namespace GUTZ_Capstone_Project
                     employeeProfilePicture.Image = await LoadImageAsync(image_path);
                     lblEmployeeName.Text = employeeDt.Rows[0]["FullName"].ToString();
                     lblEmployeeJobRole.Text = employeeDt.Rows[0]["position_desc"].ToString();
-                    lblEmployeePhoneNumber.Text = employeeDt.Rows[0]["phone"].ToString();
-                    lblEmployeeEmail.Text = employeeDt.Rows[0]["email"].ToString();
+
+                    // Format work_days
+                    string workDays = employeeDt.Rows[0]["work_days"].ToString();
+                    string[] daysArray = workDays.Split(',');
+                    string formattedDays = string.Join(",", daysArray.Select(day => day.Trim().Substring(0, 1).ToUpper()));
+                    lblEmployeeWorkDays.Text = formattedDays;
+
+                    // Format start_time and end_time in 12-hour format
+                    DateTime startTime = DateTime.Parse(employeeDt.Rows[0]["start_time"].ToString());
+                    DateTime endTime = DateTime.Parse(employeeDt.Rows[0]["end_time"].ToString());
+                    lblStartTimeAndEndTime.Text = $"{startTime:hh:mm tt} - {endTime:hh:mm tt}";
+
                     DateTime startDate = Convert.ToDateTime(employeeDt.Rows[0]["start_date"]);
                     lblStartDate.Text = startDate.ToString("MMMM dd, yyyy");
                 }
@@ -677,7 +688,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void cboFilterMonth_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cboFilterMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             string month = cboFilterMonth.SelectedItem.ToString();
             int selectedMonth = DateTime.ParseExact(month, "MMMM", CultureInfo.InvariantCulture).Month;
@@ -694,10 +705,10 @@ namespace GUTZ_Capstone_Project
             ComputeAverageTimeOutForMonth(_id, selectedMonth, selectedYear);
             ComputeAverageTimeInForMonth(_id, selectedMonth, selectedYear);
             CountTotalAttendanceForMonth(_id, selectedMonth, selectedYear);
-            FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear);
+            await FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear);
         }
 
-        private async void FilterAndDisplayEmployeeAttendanceHistory(string id, int selectedMonth, int selectedYear)
+        private async Task FilterAndDisplayEmployeeAttendanceHistory(string id, int selectedMonth, int selectedYear)
         {
             flowLayoutPanel1.Controls.Clear();
 
@@ -882,9 +893,6 @@ namespace GUTZ_Capstone_Project
                 return;
             }
 
-            // Debugging output
-            Debug.WriteLine($"Selected Year: {selectedYear}, Selected Month: {selectedMonth}");
-
             try
             {
                 // Clear the FlowLayoutPanel before loading new records
@@ -896,7 +904,7 @@ namespace GUTZ_Capstone_Project
                 switch (cboSortAttendanceHistory.SelectedIndex)
                 {
                     case 0: // ALL (Display all records regardless of status)
-                        FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear);
+                        await FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear);
                         return; // Exit after displaying all records
 
                     case 1: // On Time
@@ -1168,3 +1176,4 @@ namespace GUTZ_Capstone_Project
         }
     }
 }
+

@@ -118,30 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnGenerateReports.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBackToPayrollForm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        aPwEbYf82t4d/zoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnDownloadGeneratedReports.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDownloadPayrollHistoryRecords.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAQhJREFUSEu9lk0KwjAUhEWl6p30FD2MO7fWW7hx40oQ/DlQ9RJCnJdMNrXtS1+K

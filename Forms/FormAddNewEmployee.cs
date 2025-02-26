@@ -691,7 +691,7 @@ namespace GUTZ_Capstone_Project.Forms
             if (string.IsNullOrEmpty(_empId)) // Add new employee record
             {
                 // Check if selectedDays is null or empty
-                if (selectedDays == null || selectedDays.Length == 0 || startTime == null || endTime == null || startTime == TimeSpan.Zero || startTime == TimeSpan.Zero)
+                if (selectedDays == null || selectedDays.Length == 0 || startTime == null || endTime == null || startTime == TimeSpan.Zero || endTime == TimeSpan.Zero)
                 {
                     MessageBox.Show("It seems that there is no working schedule currently set. Please create and set valid working schedule to proceed.", "Schedule Not Set",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -738,8 +738,9 @@ namespace GUTZ_Capstone_Project.Forms
                         emp_id = int.Parse(dt.Rows[0]["emp_id"].ToString());
                     }
 
+                    // Insert into fingerprint table
                     string insertIntoFingerprintTable = @"INSERT INTO tbl_fingerprint (fingerprint_data, emp_id)
-                                                          VALUES(@FingerprintData, @EmpId)";
+                                                          ALUES(@FingerprintData, @EmpId)";
 
                     var param = new Dictionary<string, object>
                     {
@@ -748,19 +749,31 @@ namespace GUTZ_Capstone_Project.Forms
                     };
                     if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoFingerprintTable, param))
                     {
-                        string insertIntoProfileTable = @"INSERT INTO tbl_wage (emp_id, status) 
-                                                          VALUES (@EmpId, @Status)"; // tbl_wage - need adjustment for payroll id
-                        var profileParam = new Dictionary<string, object>
+                        // Retrieve the payroll_id for an In-Progress payroll
+                        int payroll_id = 0;
+                        string selectPayrollId = "SELECT payroll_id FROM tbl_payroll WHERE payroll_status = 'In-Progress' LIMIT 1";
+                        dt = DB_OperationHelperClass.QueryData(selectPayrollId);
+                        if (dt.Rows.Count > 0)
+                        {
+                            payroll_id = int.Parse(dt.Rows[0]["payroll_id"].ToString());
+                        }
+
+                        // Insert into wage table with the retrieved payroll_id
+                        string insertIntoWageTable = @"INSERT INTO tbl_wage (emp_id, payroll_id, status) 
+                                               VALUES (@EmpId, @PayrollId, @Status)";
+                        var wageParam = new Dictionary<string, object>
                         {
                             { "@EmpId", emp_id },
+                            { "@PayrollId", payroll_id },
                             { "@Status", "In-Progress" }
                         };
-                        if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoProfileTable, profileParam))
-                        {
 
+                        if (DB_OperationHelperClass.ExecuteCRUDSQLQuery(insertIntoWageTable, wageParam))
+                        {
+                            // Insert into schedule table
                             string workDays = string.Join(",", selectedDays);
                             string insertSchedule = @"INSERT INTO tbl_schedule (emp_id, work_days, start_time, end_time)
-                                                                        VALUES (@EmpId, @workDays, @startTime, @endTime)";
+                                                      VALUES (@EmpId, @workDays, @startTime, @endTime)";
 
                             var paramSched = new Dictionary<string, object>
                             {
@@ -789,15 +802,19 @@ namespace GUTZ_Capstone_Project.Forms
                                     this.Close();
                                 }
                             }
+                            else
+                            {
+                                MessageBox.Show("Failed to add new record to schedule table.", "Failed Adding New Employee!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Failed to add new record to wage table.", "Failed Adding New Employee!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Failed to add new record.", "Failed Adding New Employee!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Failed to add new record to fingerprint table.", "Failed Adding New Employee!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -1255,7 +1272,4 @@ namespace GUTZ_Capstone_Project.Forms
             public string PositionLevel { get; set; }
         }
     }
-
-
-
 }

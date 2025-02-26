@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmployeePayrollManagement));
-            this.panelAttendanceDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelPayrollDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.cboSearchEmployeeForActivePayroll = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnIconSearch = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearchForActivePayroll = new Guna.UI2.WinForms.Guna2TextBox();
@@ -57,10 +57,11 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblCurrentPayrollStatus = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panelAttendanceDetails.SuspendLayout();
+            this.panelPayrollDetails.SuspendLayout();
             this.guna2Panel9.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -68,33 +69,33 @@
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelAttendanceDetails
+            // panelPayrollDetails
             // 
-            this.panelAttendanceDetails.BackColor = System.Drawing.Color.White;
-            this.panelAttendanceDetails.BorderColor = System.Drawing.Color.White;
-            this.panelAttendanceDetails.Controls.Add(this.cboSearchEmployeeForActivePayroll);
-            this.panelAttendanceDetails.Controls.Add(this.btnIconSearch);
-            this.panelAttendanceDetails.Controls.Add(this.txtSearchForActivePayroll);
-            this.panelAttendanceDetails.Controls.Add(this.toggleSwitchViewRecentPayroll);
-            this.panelAttendanceDetails.Controls.Add(this.lblTextViewPastAttendanceRecord);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel9);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel8);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel2);
-            this.panelAttendanceDetails.Controls.Add(this.btnRefresh);
-            this.panelAttendanceDetails.Controls.Add(this.btnViewEmployeeList);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel4);
-            this.panelAttendanceDetails.Controls.Add(this.guna2Panel1);
-            this.panelAttendanceDetails.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAttendanceDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.panelAttendanceDetails.Font = new System.Drawing.Font("Symbol", 8.25F);
-            this.panelAttendanceDetails.ForeColor = System.Drawing.Color.White;
-            this.panelAttendanceDetails.Location = new System.Drawing.Point(0, 0);
-            this.panelAttendanceDetails.Name = "panelAttendanceDetails";
-            this.panelAttendanceDetails.ShadowDecoration.BorderRadius = 1;
-            this.panelAttendanceDetails.ShadowDecoration.Color = System.Drawing.Color.Green;
-            this.panelAttendanceDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
-            this.panelAttendanceDetails.Size = new System.Drawing.Size(1914, 310);
-            this.panelAttendanceDetails.TabIndex = 5;
+            this.panelPayrollDetails.BackColor = System.Drawing.Color.White;
+            this.panelPayrollDetails.BorderColor = System.Drawing.Color.White;
+            this.panelPayrollDetails.Controls.Add(this.cboSearchEmployeeForActivePayroll);
+            this.panelPayrollDetails.Controls.Add(this.btnIconSearch);
+            this.panelPayrollDetails.Controls.Add(this.txtSearchForActivePayroll);
+            this.panelPayrollDetails.Controls.Add(this.toggleSwitchViewRecentPayroll);
+            this.panelPayrollDetails.Controls.Add(this.lblTextViewPastAttendanceRecord);
+            this.panelPayrollDetails.Controls.Add(this.guna2Panel9);
+            this.panelPayrollDetails.Controls.Add(this.guna2Panel8);
+            this.panelPayrollDetails.Controls.Add(this.guna2Panel2);
+            this.panelPayrollDetails.Controls.Add(this.btnRefresh);
+            this.panelPayrollDetails.Controls.Add(this.btnViewEmployeeList);
+            this.panelPayrollDetails.Controls.Add(this.guna2Panel4);
+            this.panelPayrollDetails.Controls.Add(this.guna2Panel1);
+            this.panelPayrollDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPayrollDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.panelPayrollDetails.Font = new System.Drawing.Font("Symbol", 8.25F);
+            this.panelPayrollDetails.ForeColor = System.Drawing.Color.White;
+            this.panelPayrollDetails.Location = new System.Drawing.Point(0, 0);
+            this.panelPayrollDetails.Name = "panelPayrollDetails";
+            this.panelPayrollDetails.ShadowDecoration.BorderRadius = 1;
+            this.panelPayrollDetails.ShadowDecoration.Color = System.Drawing.Color.Green;
+            this.panelPayrollDetails.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.panelPayrollDetails.Size = new System.Drawing.Size(1914, 310);
+            this.panelPayrollDetails.TabIndex = 5;
             // 
             // cboSearchEmployeeForActivePayroll
             // 
@@ -563,6 +564,21 @@
             this.label4.Text = "Current Payroll Summary";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Gray;
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(1514, 310);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(200, 666);
+            this.flowLayoutPanel3.TabIndex = 10;
+            this.flowLayoutPanel3.Visible = false;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
@@ -571,23 +587,19 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 310);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1570, 666);
-            this.flowLayoutPanel1.TabIndex = 10;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1714, 666);
+            this.flowLayoutPanel1.TabIndex = 9;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1570, 310);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1714, 310);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(344, 666);
-            this.flowLayoutPanel2.TabIndex = 9;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 666);
+            this.flowLayoutPanel2.TabIndex = 8;
             this.flowLayoutPanel2.Visible = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormEmployeePayrollManagement
             // 
@@ -595,14 +607,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1914, 976);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.panelAttendanceDetails);
+            this.Controls.Add(this.panelPayrollDetails);
             this.Name = "FormEmployeePayrollManagement";
             this.Text = "Payroll Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEmployeePayrollManagement_FormClosing);
             this.Load += new System.EventHandler(this.FormEmployeePayrollManagement_Load);
-            this.panelAttendanceDetails.ResumeLayout(false);
+            this.panelPayrollDetails.ResumeLayout(false);
             this.guna2Panel9.ResumeLayout(false);
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
@@ -614,7 +627,7 @@
 
         #endregion
 
-        public Guna.UI2.WinForms.Guna2Panel panelAttendanceDetails;
+        public Guna.UI2.WinForms.Guna2Panel panelPayrollDetails;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private System.Windows.Forms.Label lblTotalWages;
         private System.Windows.Forms.Label label16;
@@ -634,8 +647,6 @@
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label lblCurrentPayrollStatus;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitchViewRecentPayroll;
         private System.Windows.Forms.Label lblTextViewPastAttendanceRecord;
@@ -644,5 +655,8 @@
         private Guna.UI2.WinForms.Guna2Button btnIconSearch;
         public Guna.UI2.WinForms.Guna2Button btnViewProcessedPayrollDetails;
         private System.Windows.Forms.Label lblTotalTutoringHours;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

@@ -96,7 +96,7 @@
             this.lblRateAccount.Name = "lblRateAccount";
             this.lblRateAccount.Size = new System.Drawing.Size(216, 24);
             this.lblRateAccount.TabIndex = 63;
-            this.lblRateAccount.Text = "Account Rate";
+            this.lblRateAccount.Text = "Rate";
             this.lblRateAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
@@ -147,6 +147,7 @@
             this.btnViewPayrollHistory.Size = new System.Drawing.Size(222, 33);
             this.btnViewPayrollHistory.TabIndex = 84;
             this.btnViewPayrollHistory.Text = "Payroll History";
+            this.btnViewPayrollHistory.Click += new System.EventHandler(this.btnViewPayrollHistory_Click);
             // 
             // btnActiveOrInactiveStatus
             // 
@@ -196,7 +197,7 @@
             this.btnEmploymentType.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnEmploymentType.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(179)))));
             this.btnEmploymentType.PressedDepth = 0;
-            this.btnEmploymentType.Size = new System.Drawing.Size(130, 35);
+            this.btnEmploymentType.Size = new System.Drawing.Size(150, 35);
             this.btnEmploymentType.TabIndex = 88;
             this.btnEmploymentType.Text = "Type";
             // 
