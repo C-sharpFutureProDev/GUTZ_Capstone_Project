@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDashboard));
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.flowLayoutPanelCompletedPeriods = new System.Windows.Forms.FlowLayoutPanel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnGenerateReports = new Guna.UI2.WinForms.Guna2Button();
@@ -44,6 +43,7 @@
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnBackToHome = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.flowLayoutPanelCompletedPeriods = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -86,8 +86,20 @@
             this.top4ProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.top5ProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.top1ProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblTop5EarnerNetPay = new System.Windows.Forms.Label();
+            this.lblTop4EarnerNetPay = new System.Windows.Forms.Label();
+            this.lblTop3EarnerNetPay = new System.Windows.Forms.Label();
+            this.lblTop2EarnerNetPay = new System.Windows.Forms.Label();
+            this.lblTop1EarnerNetPay = new System.Windows.Forms.Label();
+            this.lblTop5EarnerGrossPay = new System.Windows.Forms.Label();
+            this.lblTop4EarnerGrossPay = new System.Windows.Forms.Label();
+            this.lblTop3EarnerGrossPay = new System.Windows.Forms.Label();
+            this.lblTop2EarnerGrossPay = new System.Windows.Forms.Label();
+            this.lblTop1EarnerGrossPay = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblTop5EarnersName = new System.Windows.Forms.Label();
             this.lblTop4EarnersName = new System.Windows.Forms.Label();
             this.lblTop3EarnersName = new System.Windows.Forms.Label();
@@ -98,6 +110,7 @@
             this.top2Earner = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.top5Earner = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.top1Earner = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -140,6 +153,7 @@
             this.lblTotalAttendance = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelAttendance = new Guna.UI2.WinForms.Guna2Panel();
             this.lblPresentForToday = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -148,19 +162,6 @@
             this.lblTotalEmployee = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblTop1EarnerGrossPay = new System.Windows.Forms.Label();
-            this.lblTop2EarnerGrossPay = new System.Windows.Forms.Label();
-            this.lblTop3EarnerGrossPay = new System.Windows.Forms.Label();
-            this.lblTop4EarnerGrossPay = new System.Windows.Forms.Label();
-            this.lblTop5EarnerGrossPay = new System.Windows.Forms.Label();
-            this.lblTop1EarnerNetPay = new System.Windows.Forms.Label();
-            this.lblTop2EarnerNetPay = new System.Windows.Forms.Label();
-            this.lblTop3EarnerNetPay = new System.Windows.Forms.Label();
-            this.lblTop4EarnerNetPay = new System.Windows.Forms.Label();
-            this.lblTop5EarnerNetPay = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -238,16 +239,6 @@
             this.panelMenu.Size = new System.Drawing.Size(320, 673);
             this.panelMenu.TabIndex = 22;
             // 
-            // flowLayoutPanelCompletedPeriods
-            // 
-            this.flowLayoutPanelCompletedPeriods.AutoScroll = true;
-            this.flowLayoutPanelCompletedPeriods.BackColor = System.Drawing.Color.Ivory;
-            this.flowLayoutPanelCompletedPeriods.ForeColor = System.Drawing.Color.Black;
-            this.flowLayoutPanelCompletedPeriods.Location = new System.Drawing.Point(93, 63);
-            this.flowLayoutPanelCompletedPeriods.Name = "flowLayoutPanelCompletedPeriods";
-            this.flowLayoutPanelCompletedPeriods.Size = new System.Drawing.Size(378, 102);
-            this.flowLayoutPanelCompletedPeriods.TabIndex = 146;
-            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.Transparent;
@@ -258,7 +249,7 @@
             this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnLogout.Font = new System.Drawing.Font("Bookman Old Style", 11.5F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
@@ -287,7 +278,7 @@
             this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnSettings.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnSettings.Font = new System.Drawing.Font("Arial", 10.5F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnSettings.HoverState.ForeColor = System.Drawing.Color.White;
@@ -317,7 +308,7 @@
             this.btnGenerateReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnGenerateReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnGenerateReports.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnGenerateReports.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnGenerateReports.Font = new System.Drawing.Font("Arial", 10.5F);
             this.btnGenerateReports.ForeColor = System.Drawing.Color.White;
             this.btnGenerateReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnGenerateReports.HoverState.ForeColor = System.Drawing.Color.White;
@@ -347,7 +338,7 @@
             this.btnPayrollManagement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPayrollManagement.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPayrollManagement.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnPayrollManagement.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnPayrollManagement.Font = new System.Drawing.Font("Arial", 10.5F);
             this.btnPayrollManagement.ForeColor = System.Drawing.Color.White;
             this.btnPayrollManagement.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnPayrollManagement.HoverState.ForeColor = System.Drawing.Color.White;
@@ -363,7 +354,7 @@
             this.btnPayrollManagement.ShadowDecoration.Enabled = true;
             this.btnPayrollManagement.Size = new System.Drawing.Size(280, 58);
             this.btnPayrollManagement.TabIndex = 24;
-            this.btnPayrollManagement.Text = "Manage Payroll";
+            this.btnPayrollManagement.Text = "Employee Payroll";
             this.btnPayrollManagement.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPayrollManagement.Click += new System.EventHandler(this.btnPayrollManagement_Click);
             // 
@@ -377,7 +368,7 @@
             this.btnAttendanceMonitoring.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAttendanceMonitoring.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAttendanceMonitoring.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnAttendanceMonitoring.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnAttendanceMonitoring.Font = new System.Drawing.Font("Arial", 10.5F);
             this.btnAttendanceMonitoring.ForeColor = System.Drawing.Color.White;
             this.btnAttendanceMonitoring.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnAttendanceMonitoring.HoverState.ForeColor = System.Drawing.Color.White;
@@ -393,7 +384,7 @@
             this.btnAttendanceMonitoring.ShadowDecoration.Enabled = true;
             this.btnAttendanceMonitoring.Size = new System.Drawing.Size(280, 58);
             this.btnAttendanceMonitoring.TabIndex = 23;
-            this.btnAttendanceMonitoring.Text = "Manage Attendance";
+            this.btnAttendanceMonitoring.Text = "Employee Attendance";
             this.btnAttendanceMonitoring.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAttendanceMonitoring.Click += new System.EventHandler(this.btnAttendanceMonitoring_Click);
             // 
@@ -407,7 +398,7 @@
             this.btnEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmployee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
-            this.btnEmployee.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployee.Font = new System.Drawing.Font("Arial", 10.5F);
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
             this.btnEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(58)))), ((int)(((byte)(14)))));
             this.btnEmployee.HoverState.ForeColor = System.Drawing.Color.White;
@@ -502,6 +493,16 @@
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(284, 14);
             this.guna2Separator1.TabIndex = 1;
+            // 
+            // flowLayoutPanelCompletedPeriods
+            // 
+            this.flowLayoutPanelCompletedPeriods.AutoScroll = true;
+            this.flowLayoutPanelCompletedPeriods.BackColor = System.Drawing.Color.Ivory;
+            this.flowLayoutPanelCompletedPeriods.ForeColor = System.Drawing.Color.Black;
+            this.flowLayoutPanelCompletedPeriods.Location = new System.Drawing.Point(93, 63);
+            this.flowLayoutPanelCompletedPeriods.Name = "flowLayoutPanelCompletedPeriods";
+            this.flowLayoutPanelCompletedPeriods.Size = new System.Drawing.Size(378, 102);
+            this.flowLayoutPanelCompletedPeriods.TabIndex = 146;
             // 
             // timer1
             // 
@@ -664,6 +665,7 @@
             this.iconAdminNotification.Size = new System.Drawing.Size(42, 42);
             this.iconAdminNotification.TabIndex = 25;
             this.iconAdminNotification.UseVisualStyleBackColor = false;
+            this.iconAdminNotification.Visible = false;
             this.iconAdminNotification.Click += new System.EventHandler(this.iconAdminNotification_Click);
             this.iconAdminNotification.MouseEnter += new System.EventHandler(this.iconAdminNotification_MouseEnter);
             this.iconAdminNotification.MouseLeave += new System.EventHandler(this.iconAdminNotification_MouseLeave);
@@ -722,11 +724,11 @@
             // lblOnLeave
             // 
             this.lblOnLeave.BackColor = System.Drawing.Color.Ivory;
-            this.lblOnLeave.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblOnLeave.Font = new System.Drawing.Font("Times New Roman", 34F, System.Drawing.FontStyle.Bold);
             this.lblOnLeave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblOnLeave.Location = new System.Drawing.Point(3, 80);
+            this.lblOnLeave.Location = new System.Drawing.Point(3, 75);
             this.lblOnLeave.Name = "lblOnLeave";
-            this.lblOnLeave.Size = new System.Drawing.Size(284, 62);
+            this.lblOnLeave.Size = new System.Drawing.Size(284, 65);
             this.lblOnLeave.TabIndex = 34;
             this.lblOnLeave.Text = "ITGTBG";
             this.lblOnLeave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -735,11 +737,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label10.Font = new System.Drawing.Font("Bell MT", 11.5F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(13, 17);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(165, 22);
+            this.label10.Size = new System.Drawing.Size(178, 28);
             this.label10.TabIndex = 29;
             this.label10.Text = "On Leave Today";
             // 
@@ -1105,18 +1107,6 @@
             this.top1ProfilePic.TabIndex = 30;
             this.top1ProfilePic.TabStop = false;
             // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(33, 15);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(485, 28);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Top 5\'s Attendees";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // guna2Panel9
             // 
             this.guna2Panel9.AutoScroll = true;
@@ -1124,6 +1114,7 @@
             this.guna2Panel9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(193)))));
             this.guna2Panel9.BorderRadius = 10;
             this.guna2Panel9.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.guna2Panel9.Controls.Add(this.label12);
             this.guna2Panel9.Controls.Add(this.lblTop5EarnerNetPay);
             this.guna2Panel9.Controls.Add(this.lblTop4EarnerNetPay);
             this.guna2Panel9.Controls.Add(this.lblTop3EarnerNetPay);
@@ -1154,6 +1145,161 @@
             this.guna2Panel9.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel9.Size = new System.Drawing.Size(488, 233);
             this.guna2Panel9.TabIndex = 58;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Bookman Old Style", 8F);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(24, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(135, 20);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "ESL Tutor";
+            // 
+            // lblTop5EarnerNetPay
+            // 
+            this.lblTop5EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop5EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop5EarnerNetPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop5EarnerNetPay.Location = new System.Drawing.Point(330, 280);
+            this.lblTop5EarnerNetPay.Name = "lblTop5EarnerNetPay";
+            this.lblTop5EarnerNetPay.Size = new System.Drawing.Size(130, 30);
+            this.lblTop5EarnerNetPay.TabIndex = 67;
+            this.lblTop5EarnerNetPay.Text = "0";
+            this.lblTop5EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTop4EarnerNetPay
+            // 
+            this.lblTop4EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop4EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop4EarnerNetPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop4EarnerNetPay.Location = new System.Drawing.Point(330, 221);
+            this.lblTop4EarnerNetPay.Name = "lblTop4EarnerNetPay";
+            this.lblTop4EarnerNetPay.Size = new System.Drawing.Size(130, 30);
+            this.lblTop4EarnerNetPay.TabIndex = 66;
+            this.lblTop4EarnerNetPay.Text = "0";
+            this.lblTop4EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTop3EarnerNetPay
+            // 
+            this.lblTop3EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop3EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop3EarnerNetPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop3EarnerNetPay.Location = new System.Drawing.Point(330, 165);
+            this.lblTop3EarnerNetPay.Name = "lblTop3EarnerNetPay";
+            this.lblTop3EarnerNetPay.Size = new System.Drawing.Size(130, 30);
+            this.lblTop3EarnerNetPay.TabIndex = 65;
+            this.lblTop3EarnerNetPay.Text = "0";
+            this.lblTop3EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTop2EarnerNetPay
+            // 
+            this.lblTop2EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop2EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop2EarnerNetPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop2EarnerNetPay.Location = new System.Drawing.Point(330, 110);
+            this.lblTop2EarnerNetPay.Name = "lblTop2EarnerNetPay";
+            this.lblTop2EarnerNetPay.Size = new System.Drawing.Size(130, 30);
+            this.lblTop2EarnerNetPay.TabIndex = 64;
+            this.lblTop2EarnerNetPay.Text = "0";
+            this.lblTop2EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTop1EarnerNetPay
+            // 
+            this.lblTop1EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop1EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop1EarnerNetPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop1EarnerNetPay.Location = new System.Drawing.Point(330, 53);
+            this.lblTop1EarnerNetPay.Name = "lblTop1EarnerNetPay";
+            this.lblTop1EarnerNetPay.Size = new System.Drawing.Size(130, 30);
+            this.lblTop1EarnerNetPay.TabIndex = 51;
+            this.lblTop1EarnerNetPay.Text = "0";
+            this.lblTop1EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTop5EarnerGrossPay
+            // 
+            this.lblTop5EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop5EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop5EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop5EarnerGrossPay.Location = new System.Drawing.Point(179, 280);
+            this.lblTop5EarnerGrossPay.Name = "lblTop5EarnerGrossPay";
+            this.lblTop5EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
+            this.lblTop5EarnerGrossPay.TabIndex = 63;
+            this.lblTop5EarnerGrossPay.Text = "0";
+            this.lblTop5EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTop4EarnerGrossPay
+            // 
+            this.lblTop4EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop4EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop4EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop4EarnerGrossPay.Location = new System.Drawing.Point(179, 221);
+            this.lblTop4EarnerGrossPay.Name = "lblTop4EarnerGrossPay";
+            this.lblTop4EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
+            this.lblTop4EarnerGrossPay.TabIndex = 62;
+            this.lblTop4EarnerGrossPay.Text = "0";
+            this.lblTop4EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTop3EarnerGrossPay
+            // 
+            this.lblTop3EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop3EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop3EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop3EarnerGrossPay.Location = new System.Drawing.Point(179, 165);
+            this.lblTop3EarnerGrossPay.Name = "lblTop3EarnerGrossPay";
+            this.lblTop3EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
+            this.lblTop3EarnerGrossPay.TabIndex = 61;
+            this.lblTop3EarnerGrossPay.Text = "0";
+            this.lblTop3EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTop2EarnerGrossPay
+            // 
+            this.lblTop2EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop2EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop2EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop2EarnerGrossPay.Location = new System.Drawing.Point(179, 110);
+            this.lblTop2EarnerGrossPay.Name = "lblTop2EarnerGrossPay";
+            this.lblTop2EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
+            this.lblTop2EarnerGrossPay.TabIndex = 60;
+            this.lblTop2EarnerGrossPay.Text = "0";
+            this.lblTop2EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTop1EarnerGrossPay
+            // 
+            this.lblTop1EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop1EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
+            this.lblTop1EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
+            this.lblTop1EarnerGrossPay.Location = new System.Drawing.Point(179, 53);
+            this.lblTop1EarnerGrossPay.Name = "lblTop1EarnerGrossPay";
+            this.lblTop1EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
+            this.lblTop1EarnerGrossPay.TabIndex = 51;
+            this.lblTop1EarnerGrossPay.Text = "0";
+            this.lblTop1EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 8F);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(332, 17);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(135, 21);
+            this.label11.TabIndex = 51;
+            this.label11.Text = "Net Pay";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 8F);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(179, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 21);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Gross Pay";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblTop5EarnersName
             // 
@@ -1275,11 +1421,23 @@
             this.top1Earner.TabIndex = 51;
             this.top1Earner.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Bell MT", 11.5F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(33, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(485, 28);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Top 5\'s Attendees";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Font = new System.Drawing.Font("Bell MT", 11.5F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Location = new System.Drawing.Point(33, 340);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(488, 30);
@@ -1306,7 +1464,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Ivory;
-            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 14.5F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Bell MT", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label6.Location = new System.Drawing.Point(45, 18);
             this.label6.Name = "label6";
@@ -1481,7 +1639,7 @@
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(219, 30);
             this.label31.TabIndex = 29;
-            this.label31.Text = "Net Tutoring Hours";
+            this.label31.Text = "Net Hours Worked";
             this.label31.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2Panel24
@@ -1817,7 +1975,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(219, 30);
             this.label21.TabIndex = 29;
-            this.label21.Text = "Gross Tutoring Hours";
+            this.label21.Text = "Gross Hours Worked";
             this.label21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2Panel26
@@ -1878,6 +2036,18 @@
             this.guna2Panel4.Size = new System.Drawing.Size(555, 185);
             this.guna2Panel4.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Bell MT", 13.5F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(3, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(549, 35);
+            this.label4.TabIndex = 51;
+            this.label4.Text = "Completed Payroll Period Dates";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panelAttendance
             // 
             this.panelAttendance.BackColor = System.Drawing.Color.Transparent;
@@ -1898,11 +2068,11 @@
             // lblPresentForToday
             // 
             this.lblPresentForToday.BackColor = System.Drawing.Color.Ivory;
-            this.lblPresentForToday.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblPresentForToday.Font = new System.Drawing.Font("Times New Roman", 34F, System.Drawing.FontStyle.Bold);
             this.lblPresentForToday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPresentForToday.Location = new System.Drawing.Point(3, 80);
+            this.lblPresentForToday.Location = new System.Drawing.Point(3, 75);
             this.lblPresentForToday.Name = "lblPresentForToday";
-            this.lblPresentForToday.Size = new System.Drawing.Size(284, 62);
+            this.lblPresentForToday.Size = new System.Drawing.Size(284, 65);
             this.lblPresentForToday.TabIndex = 30;
             this.lblPresentForToday.Text = "OCS";
             this.lblPresentForToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1911,11 +2081,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Bell MT", 11.5F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(13, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 22);
+            this.label3.Size = new System.Drawing.Size(204, 28);
             this.label3.TabIndex = 29;
             this.label3.Text = "Attendance, Today";
             // 
@@ -1969,11 +2139,11 @@
             // lblTotalEmployee
             // 
             this.lblTotalEmployee.BackColor = System.Drawing.Color.Ivory;
-            this.lblTotalEmployee.Font = new System.Drawing.Font("Arial", 28.5F, System.Drawing.FontStyle.Bold);
+            this.lblTotalEmployee.Font = new System.Drawing.Font("Times New Roman", 34F, System.Drawing.FontStyle.Bold);
             this.lblTotalEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotalEmployee.Location = new System.Drawing.Point(3, 80);
+            this.lblTotalEmployee.Location = new System.Drawing.Point(3, 75);
             this.lblTotalEmployee.Name = "lblTotalEmployee";
-            this.lblTotalEmployee.Size = new System.Drawing.Size(284, 62);
+            this.lblTotalEmployee.Size = new System.Drawing.Size(284, 65);
             this.lblTotalEmployee.TabIndex = 27;
             this.lblTotalEmployee.Text = "GUTZ";
             this.lblTotalEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1982,11 +2152,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Bell MT", 11.5F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(13, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 22);
+            this.label2.Size = new System.Drawing.Size(174, 28);
             this.label2.TabIndex = 27;
             this.label2.Text = "Total Employee";
             // 
@@ -2018,162 +2188,6 @@
             this.guna2Button1.Size = new System.Drawing.Size(44, 44);
             this.guna2Button1.TabIndex = 28;
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9.5F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(549, 28);
-            this.label4.TabIndex = 51;
-            this.label4.Text = "Completed Payroll Period Dates";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 8F);
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(179, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 30);
-            this.label9.TabIndex = 51;
-            this.label9.Text = "Gross Pay";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 8F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(332, 17);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(135, 30);
-            this.label11.TabIndex = 51;
-            this.label11.Text = "Net Pay";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblTop1EarnerGrossPay
-            // 
-            this.lblTop1EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop1EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop1EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop1EarnerGrossPay.Location = new System.Drawing.Point(179, 53);
-            this.lblTop1EarnerGrossPay.Name = "lblTop1EarnerGrossPay";
-            this.lblTop1EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
-            this.lblTop1EarnerGrossPay.TabIndex = 51;
-            this.lblTop1EarnerGrossPay.Text = "0";
-            this.lblTop1EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblTop2EarnerGrossPay
-            // 
-            this.lblTop2EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop2EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop2EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop2EarnerGrossPay.Location = new System.Drawing.Point(179, 110);
-            this.lblTop2EarnerGrossPay.Name = "lblTop2EarnerGrossPay";
-            this.lblTop2EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
-            this.lblTop2EarnerGrossPay.TabIndex = 60;
-            this.lblTop2EarnerGrossPay.Text = "0";
-            this.lblTop2EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblTop3EarnerGrossPay
-            // 
-            this.lblTop3EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop3EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop3EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop3EarnerGrossPay.Location = new System.Drawing.Point(179, 165);
-            this.lblTop3EarnerGrossPay.Name = "lblTop3EarnerGrossPay";
-            this.lblTop3EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
-            this.lblTop3EarnerGrossPay.TabIndex = 61;
-            this.lblTop3EarnerGrossPay.Text = "0";
-            this.lblTop3EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblTop4EarnerGrossPay
-            // 
-            this.lblTop4EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop4EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop4EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop4EarnerGrossPay.Location = new System.Drawing.Point(179, 221);
-            this.lblTop4EarnerGrossPay.Name = "lblTop4EarnerGrossPay";
-            this.lblTop4EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
-            this.lblTop4EarnerGrossPay.TabIndex = 62;
-            this.lblTop4EarnerGrossPay.Text = "0";
-            this.lblTop4EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblTop5EarnerGrossPay
-            // 
-            this.lblTop5EarnerGrossPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop5EarnerGrossPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop5EarnerGrossPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop5EarnerGrossPay.Location = new System.Drawing.Point(179, 280);
-            this.lblTop5EarnerGrossPay.Name = "lblTop5EarnerGrossPay";
-            this.lblTop5EarnerGrossPay.Size = new System.Drawing.Size(135, 30);
-            this.lblTop5EarnerGrossPay.TabIndex = 63;
-            this.lblTop5EarnerGrossPay.Text = "0";
-            this.lblTop5EarnerGrossPay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblTop1EarnerNetPay
-            // 
-            this.lblTop1EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop1EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop1EarnerNetPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop1EarnerNetPay.Location = new System.Drawing.Point(330, 53);
-            this.lblTop1EarnerNetPay.Name = "lblTop1EarnerNetPay";
-            this.lblTop1EarnerNetPay.Size = new System.Drawing.Size(130, 30);
-            this.lblTop1EarnerNetPay.TabIndex = 51;
-            this.lblTop1EarnerNetPay.Text = "0";
-            this.lblTop1EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblTop2EarnerNetPay
-            // 
-            this.lblTop2EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop2EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop2EarnerNetPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop2EarnerNetPay.Location = new System.Drawing.Point(330, 110);
-            this.lblTop2EarnerNetPay.Name = "lblTop2EarnerNetPay";
-            this.lblTop2EarnerNetPay.Size = new System.Drawing.Size(130, 30);
-            this.lblTop2EarnerNetPay.TabIndex = 64;
-            this.lblTop2EarnerNetPay.Text = "0";
-            this.lblTop2EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblTop3EarnerNetPay
-            // 
-            this.lblTop3EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop3EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop3EarnerNetPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop3EarnerNetPay.Location = new System.Drawing.Point(330, 165);
-            this.lblTop3EarnerNetPay.Name = "lblTop3EarnerNetPay";
-            this.lblTop3EarnerNetPay.Size = new System.Drawing.Size(130, 30);
-            this.lblTop3EarnerNetPay.TabIndex = 65;
-            this.lblTop3EarnerNetPay.Text = "0";
-            this.lblTop3EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblTop4EarnerNetPay
-            // 
-            this.lblTop4EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop4EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop4EarnerNetPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop4EarnerNetPay.Location = new System.Drawing.Point(330, 221);
-            this.lblTop4EarnerNetPay.Name = "lblTop4EarnerNetPay";
-            this.lblTop4EarnerNetPay.Size = new System.Drawing.Size(130, 30);
-            this.lblTop4EarnerNetPay.TabIndex = 66;
-            this.lblTop4EarnerNetPay.Text = "0";
-            this.lblTop4EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblTop5EarnerNetPay
-            // 
-            this.lblTop5EarnerNetPay.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop5EarnerNetPay.Font = new System.Drawing.Font("Bookman Old Style", 8.5F);
-            this.lblTop5EarnerNetPay.ForeColor = System.Drawing.Color.Black;
-            this.lblTop5EarnerNetPay.Location = new System.Drawing.Point(330, 280);
-            this.lblTop5EarnerNetPay.Name = "lblTop5EarnerNetPay";
-            this.lblTop5EarnerNetPay.Size = new System.Drawing.Size(130, 30);
-            this.lblTop5EarnerNetPay.TabIndex = 67;
-            this.lblTop5EarnerNetPay.Text = "0";
-            this.lblTop5EarnerNetPay.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // FormDashboard
             // 
@@ -2373,6 +2387,7 @@
         private System.Windows.Forms.Label lblTop3EarnerGrossPay;
         private System.Windows.Forms.Label lblTop2EarnerGrossPay;
         private System.Windows.Forms.Label lblTop1EarnerGrossPay;
+        private System.Windows.Forms.Label label12;
     }
 }
 

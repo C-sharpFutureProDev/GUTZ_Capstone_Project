@@ -48,7 +48,6 @@
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.btnViewEmployeeList = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnViewProcessedPayrollDetails = new Guna.UI2.WinForms.Guna2Button();
             this.btnCutPayroll = new Guna.UI2.WinForms.Guna2Button();
             this.lblPayDate = new System.Windows.Forms.Label();
             this.lblActivePayrollStatus = new System.Windows.Forms.Label();
@@ -61,6 +60,8 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cboSearchEmployeeForEmployeeListView = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtSearchEmployeeForEmployeeListView = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelPayrollDetails.SuspendLayout();
             this.guna2Panel9.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
@@ -73,6 +74,8 @@
             // 
             this.panelPayrollDetails.BackColor = System.Drawing.Color.White;
             this.panelPayrollDetails.BorderColor = System.Drawing.Color.White;
+            this.panelPayrollDetails.Controls.Add(this.txtSearchEmployeeForEmployeeListView);
+            this.panelPayrollDetails.Controls.Add(this.cboSearchEmployeeForEmployeeListView);
             this.panelPayrollDetails.Controls.Add(this.cboSearchEmployeeForActivePayroll);
             this.panelPayrollDetails.Controls.Add(this.btnIconSearch);
             this.panelPayrollDetails.Controls.Add(this.txtSearchForActivePayroll);
@@ -192,7 +195,7 @@
             this.toggleSwitchViewRecentPayroll.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.toggleSwitchViewRecentPayroll.CheckedState.InnerBorderRadius = 10;
             this.toggleSwitchViewRecentPayroll.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleSwitchViewRecentPayroll.Location = new System.Drawing.Point(835, 265);
+            this.toggleSwitchViewRecentPayroll.Location = new System.Drawing.Point(856, 265);
             this.toggleSwitchViewRecentPayroll.Name = "toggleSwitchViewRecentPayroll";
             this.toggleSwitchViewRecentPayroll.Size = new System.Drawing.Size(65, 30);
             this.toggleSwitchViewRecentPayroll.TabIndex = 138;
@@ -207,13 +210,13 @@
             // lblTextViewPastAttendanceRecord
             // 
             this.lblTextViewPastAttendanceRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblTextViewPastAttendanceRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lblTextViewPastAttendanceRecord.Location = new System.Drawing.Point(630, 265);
+            this.lblTextViewPastAttendanceRecord.Location = new System.Drawing.Point(630, 235);
             this.lblTextViewPastAttendanceRecord.Name = "lblTextViewPastAttendanceRecord";
-            this.lblTextViewPastAttendanceRecord.Size = new System.Drawing.Size(199, 30);
+            this.lblTextViewPastAttendanceRecord.Size = new System.Drawing.Size(220, 60);
             this.lblTextViewPastAttendanceRecord.TabIndex = 139;
-            this.lblTextViewPastAttendanceRecord.Text = "View Past Payroll:";
+            this.lblTextViewPastAttendanceRecord.Text = "View Past Payroll Period\'s:";
             this.lblTextViewPastAttendanceRecord.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // guna2Panel9
@@ -339,7 +342,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(260, 32);
             this.label5.TabIndex = 115;
-            this.label5.Text = "Tutoring Hours (Cumulative)";
+            this.label5.Text = "Hours Worked (Cumulative)";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRefresh
@@ -402,7 +405,6 @@
             this.guna2Panel4.BorderColor = System.Drawing.Color.White;
             this.guna2Panel4.BorderRadius = 5;
             this.guna2Panel4.BorderThickness = 5;
-            this.guna2Panel4.Controls.Add(this.btnViewProcessedPayrollDetails);
             this.guna2Panel4.Controls.Add(this.btnCutPayroll);
             this.guna2Panel4.Controls.Add(this.lblPayDate);
             this.guna2Panel4.Controls.Add(this.lblActivePayrollStatus);
@@ -417,34 +419,6 @@
             this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel4.Size = new System.Drawing.Size(600, 220);
             this.guna2Panel4.TabIndex = 135;
-            // 
-            // btnViewProcessedPayrollDetails
-            // 
-            this.btnViewProcessedPayrollDetails.AutoRoundedCorners = true;
-            this.btnViewProcessedPayrollDetails.BackColor = System.Drawing.Color.White;
-            this.btnViewProcessedPayrollDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnViewProcessedPayrollDetails.BorderRadius = 19;
-            this.btnViewProcessedPayrollDetails.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.btnViewProcessedPayrollDetails.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewProcessedPayrollDetails.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewProcessedPayrollDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnViewProcessedPayrollDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewProcessedPayrollDetails.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnViewProcessedPayrollDetails.Font = new System.Drawing.Font("Arial", 10F);
-            this.btnViewProcessedPayrollDetails.ForeColor = System.Drawing.Color.White;
-            this.btnViewProcessedPayrollDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
-            this.btnViewProcessedPayrollDetails.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(77)))), ((int)(((byte)(64)))));
-            this.btnViewProcessedPayrollDetails.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnViewProcessedPayrollDetails.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcessedPayrollDetails.Image")));
-            this.btnViewProcessedPayrollDetails.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnViewProcessedPayrollDetails.Location = new System.Drawing.Point(29, 170);
-            this.btnViewProcessedPayrollDetails.Name = "btnViewProcessedPayrollDetails";
-            this.btnViewProcessedPayrollDetails.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.btnViewProcessedPayrollDetails.PressedColor = System.Drawing.Color.Salmon;
-            this.btnViewProcessedPayrollDetails.Size = new System.Drawing.Size(544, 40);
-            this.btnViewProcessedPayrollDetails.TabIndex = 116;
-            this.btnViewProcessedPayrollDetails.Text = "View Details";
-            this.btnViewProcessedPayrollDetails.Visible = false;
             // 
             // btnCutPayroll
             // 
@@ -601,6 +575,68 @@
             this.flowLayoutPanel2.TabIndex = 8;
             this.flowLayoutPanel2.Visible = false;
             // 
+            // cboSearchEmployeeForEmployeeListView
+            // 
+            this.cboSearchEmployeeForEmployeeListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.cboSearchEmployeeForEmployeeListView.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployeeForEmployeeListView.BorderThickness = 0;
+            this.cboSearchEmployeeForEmployeeListView.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSearchEmployeeForEmployeeListView.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearchEmployeeForEmployeeListView.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.cboSearchEmployeeForEmployeeListView.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployeeForEmployeeListView.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cboSearchEmployeeForEmployeeListView.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.cboSearchEmployeeForEmployeeListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.cboSearchEmployeeForEmployeeListView.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.cboSearchEmployeeForEmployeeListView.ItemHeight = 35;
+            this.cboSearchEmployeeForEmployeeListView.Items.AddRange(new object[] {
+            "ID No.",
+            "Emp. Name"});
+            this.cboSearchEmployeeForEmployeeListView.Location = new System.Drawing.Point(30, 254);
+            this.cboSearchEmployeeForEmployeeListView.Name = "cboSearchEmployeeForEmployeeListView";
+            this.cboSearchEmployeeForEmployeeListView.ShadowDecoration.BorderRadius = 4;
+            this.cboSearchEmployeeForEmployeeListView.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cboSearchEmployeeForEmployeeListView.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.cboSearchEmployeeForEmployeeListView.Size = new System.Drawing.Size(230, 41);
+            this.cboSearchEmployeeForEmployeeListView.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cboSearchEmployeeForEmployeeListView.TabIndex = 143;
+            this.cboSearchEmployeeForEmployeeListView.Visible = false;
+            // 
+            // txtSearchEmployeeForEmployeeListView
+            // 
+            this.txtSearchEmployeeForEmployeeListView.AutoRoundedCorners = true;
+            this.txtSearchEmployeeForEmployeeListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.txtSearchEmployeeForEmployeeListView.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtSearchEmployeeForEmployeeListView.BorderRadius = 19;
+            this.txtSearchEmployeeForEmployeeListView.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchEmployeeForEmployeeListView.DefaultText = "";
+            this.txtSearchEmployeeForEmployeeListView.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchEmployeeForEmployeeListView.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchEmployeeForEmployeeListView.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchEmployeeForEmployeeListView.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchEmployeeForEmployeeListView.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.txtSearchEmployeeForEmployeeListView.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtSearchEmployeeForEmployeeListView.Font = new System.Drawing.Font("Times New Roman", 11.5F);
+            this.txtSearchEmployeeForEmployeeListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.txtSearchEmployeeForEmployeeListView.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(61)))));
+            this.txtSearchEmployeeForEmployeeListView.Location = new System.Drawing.Point(340, 254);
+            this.txtSearchEmployeeForEmployeeListView.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtSearchEmployeeForEmployeeListView.Name = "txtSearchEmployeeForEmployeeListView";
+            this.txtSearchEmployeeForEmployeeListView.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.txtSearchEmployeeForEmployeeListView.PasswordChar = '\0';
+            this.txtSearchEmployeeForEmployeeListView.PlaceholderForeColor = System.Drawing.Color.LightGray;
+            this.txtSearchEmployeeForEmployeeListView.PlaceholderText = "Search";
+            this.txtSearchEmployeeForEmployeeListView.SelectedText = "";
+            this.txtSearchEmployeeForEmployeeListView.ShadowDecoration.BorderRadius = 4;
+            this.txtSearchEmployeeForEmployeeListView.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtSearchEmployeeForEmployeeListView.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.txtSearchEmployeeForEmployeeListView.Size = new System.Drawing.Size(270, 41);
+            this.txtSearchEmployeeForEmployeeListView.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtSearchEmployeeForEmployeeListView.TabIndex = 144;
+            this.txtSearchEmployeeForEmployeeListView.Visible = false;
+            this.txtSearchEmployeeForEmployeeListView.TextChanged += new System.EventHandler(this.txtSearchEmployeeForEmployeeListView_TextChanged);
+            this.txtSearchEmployeeForEmployeeListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchEmployeeForEmployeeListView_KeyDown);
+            // 
             // FormEmployeePayrollManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -653,10 +689,11 @@
         public Guna.UI2.WinForms.Guna2TextBox txtSearchForActivePayroll;
         private Guna.UI2.WinForms.Guna2ComboBox cboSearchEmployeeForActivePayroll;
         private Guna.UI2.WinForms.Guna2Button btnIconSearch;
-        public Guna.UI2.WinForms.Guna2Button btnViewProcessedPayrollDetails;
-        private System.Windows.Forms.Label lblTotalTutoringHours;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label lblTotalTutoringHours;
+        public Guna.UI2.WinForms.Guna2TextBox txtSearchEmployeeForEmployeeListView;
+        private Guna.UI2.WinForms.Guna2ComboBox cboSearchEmployeeForEmployeeListView;
     }
 }

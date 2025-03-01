@@ -69,7 +69,8 @@ namespace GUTZ_Capstone_Project
             double attendancePercentage = 0.0;
             string averageTimeOut = string.Empty;
             string averageTimeIn = string.Empty;
-            int totalAttendanceCount = 0;
+            int totalAbsentCount = 0;
+            int totalLeaveCount = 0;
 
             try
             {
@@ -138,13 +139,32 @@ namespace GUTZ_Capstone_Project
 
                 int attendedDays = attendanceDt.Rows.Count > 0 ? Convert.ToInt32(attendanceDt.Rows[0][0]) : 0;
 
-                // Step 5: Calculate attendance percentage
+                // Step 5: Calculate total absent days
+                totalAbsentCount = totalWorkingDays - attendedDays;
+
+                // Step 6: Calculate total leave days using start_date and end_date
+                string leaveSql = $@"SELECT SUM(DATEDIFF(LEAST(end_date, '{currentDate:yyyy-MM-dd}'), GREATEST(start_date, '{startDate:yyyy-MM-dd}')) + 1) AS TotalLeaveDays
+                                     FROM tbl_leave
+                                     WHERE emp_id = '{id}' 
+                                     AND leave_status = 'Approved'
+                                     AND end_date >= '{startDate:yyyy-MM-dd}' 
+                                     AND start_date <= '{currentDate:yyyy-MM-dd}'";
+
+                DataTable leaveDt = DB_OperationHelperClass.QueryData(leaveSql);
+                totalLeaveCount = leaveDt.Rows.Count > 0 && leaveDt.Rows[0]["TotalLeaveDays"] != DBNull.Value
+                                  ? Convert.ToInt32(leaveDt.Rows[0]["TotalLeaveDays"])
+                                  : 0;
+
+                // Step 7: Calculate attendance percentage
                 if (totalWorkingDays > 0)
                 {
                     attendancePercentage = (attendedDays / (double)totalWorkingDays) * 100;
                 }
 
                 lblEmployeeAttPerfPercemtage.Text = $"{attendancePercentage:F2}%";
+                lblEmployeeTotalAttendance.Text = attendedDays.ToString();
+                lblEmployeeTotalAbsent.Text = totalAbsentCount.ToString();
+                lblTotalEmployeeLeave.Text = totalLeaveCount.ToString();
 
                 // Compute average time out
                 string averageTimeOutQuery = $@"SELECT SEC_TO_TIME(AVG(TIME_TO_SEC(TIME(time_out)))) AS AverageTime
@@ -199,11 +219,6 @@ namespace GUTZ_Capstone_Project
                 }
 
                 lblEmployeeAveTimeIn.Text = averageTimeIn;
-
-                // Count total attendance
-                totalAttendanceCount = attendedDays;
-
-                lblEmployeeTotalAttendance.Text = totalAttendanceCount.ToString();
             }
             catch (Exception ex)
             {
@@ -322,7 +337,7 @@ namespace GUTZ_Capstone_Project
             });
         }
 
-        private void btnDownloadAttendanceHistoryRecords_Click(object sender, EventArgs e)
+        private async void btnDownloadAttendanceHistoryRecords_Click(object sender, EventArgs e)
         {
             // Retrieve selected month and year from the combo boxes
             if (cboFilterMonth.SelectedItem == null || cboFilterYear.SelectedItem == null)
@@ -335,14 +350,32 @@ namespace GUTZ_Capstone_Project
             int selectedMonth = DateTime.ParseExact(month, "MMMM", CultureInfo.InvariantCulture).Month;
             int selectedYear = (int)cboFilterYear.SelectedItem;
 
-            int totalAttendance = 0;
-            int totalLate = 0;
-            int totalAbsent = 0;
+            // Retrieve employee's start date
+            DateTime startDate;
+            string employeeSql = $"SELECT start_date FROM tbl_employee WHERE emp_id = '{_id}'";
+            DataTable employeeDt = DB_OperationHelperClass.QueryData(employeeSql);
+
+            if (employeeDt.Rows.Count > 0)
+            {
+                startDate = Convert.ToDateTime(employeeDt.Rows[0]["start_date"]);
+            }
+            else
+            {
+                MessageBox.Show($"No employee found with ID: {_id}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             // Retrieve work days set for this employee
             string scheduledSql = $"SELECT work_days FROM tbl_schedule WHERE emp_id = '{_id}'";
             DataTable scheduledDt = DB_OperationHelperClass.QueryData(scheduledSql);
-            HashSet<string> workDaysSet = new HashSet<string>(scheduledDt.Rows[0]["work_days"].ToString().Split(','));
+            HashSet<DayOfWeek> workDaysSet = new HashSet<DayOfWeek>(
+                scheduledDt.Rows[0]["work_days"].ToString()
+                .Split(',')
+                .Select(day => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), day.Trim(), true))
+            );
+
+            // Get leave days for the selected month and year
+            HashSet<DateTime> leaveDaysSet = await GetLeaveDaysForMonth(_id, selectedMonth, selectedYear);
 
             // Set the first day of the selected month and the last day of the month
             DateTime firstDate = new DateTime(selectedYear, selectedMonth, 1);
@@ -355,6 +388,11 @@ namespace GUTZ_Capstone_Project
             attendanceDataTable.Columns.Add("Clock Out");
             attendanceDataTable.Columns.Add("Status");
 
+            int totalAttendance = 0;
+            int totalLate = 0;
+            int totalAbsent = 0;
+            int totalLeave = 0;
+
             // Loop through the selected month to count attendance and absences
             for (DateTime date = firstDate; date <= lastDate; date = date.AddDays(1))
             {
@@ -364,17 +402,17 @@ namespace GUTZ_Capstone_Project
                     continue; // Skip future dates
                 }
 
-                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                // Skip dates before the employee's start date
+                if (date < startDate)
                 {
-                    continue; // Skip weekends
+                    continue; // Skip dates prior to the start date
                 }
 
                 // Check if the employee was scheduled to work on this day
-                bool isScheduled = workDaysSet.Contains(date.DayOfWeek.ToString());
+                bool isScheduled = workDaysSet.Contains(date.DayOfWeek);
 
                 // Attendance data retrieval for that date
-                string sql = $@"SELECT
-                                     time_in,
+                string sql = $@"SELECT time_in,
                                      DATE_FORMAT(time_in, '%h:%i %p') AS time_in_formatted,
                                      time_out,
                                      DATE_FORMAT(time_out, '%h:%i %p') AS time_out_formatted,
@@ -403,9 +441,16 @@ namespace GUTZ_Capstone_Project
                 }
                 else if (isScheduled)
                 {
-                    // If scheduled but no clock-in record, count as absent
-                    status = "Absent";
-                    totalAbsent++;
+                    if (leaveDaysSet.Contains(date))
+                    {
+                        status = "Leave";
+                        totalLeave++;
+                    }
+                    else
+                    {
+                        status = "Absent";
+                        totalAbsent++;
+                    }
                 }
 
                 // Add attendance record to the DataTable
@@ -415,12 +460,34 @@ namespace GUTZ_Capstone_Project
             DialogResult result = MessageBox.Show($"Do you want to download the attendance history for employee with ID: {_id} for {month} {selectedYear}?", "Download Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                ExportAttendanceHistoryToExcel(attendanceDataTable, selectedMonth, selectedYear, totalAttendance, totalLate, totalAbsent);
+                ExportAttendanceHistoryToExcel(attendanceDataTable, selectedMonth, selectedYear, totalAttendance, totalLate, totalAbsent, totalLeave);
             }
         }
 
-        private void ExportAttendanceHistoryToExcel(DataTable attendanceDataTable, int month, int year, int totalAttendance, int totalLate, int totalAbsent)
+        private string GetEmployeeName(string empId)
         {
+            string name = "N/A"; // Default name in case of no data
+            string sql = $"SELECT f_name, m_name, l_name FROM tbl_employee WHERE emp_id = '{empId}'";
+
+            DataTable employeeDt = DB_OperationHelperClass.QueryData(sql);
+            if (employeeDt.Rows.Count > 0)
+            {
+                string firstName = employeeDt.Rows[0]["f_name"].ToString();
+                string middleName = employeeDt.Rows[0]["m_name"].ToString();
+                string lastName = employeeDt.Rows[0]["l_name"].ToString();
+
+                // Format the name
+                string middleInitial = string.IsNullOrEmpty(middleName) ? "N/A" : middleName.Substring(0, 1) + ".";
+                name = $"{firstName} {middleInitial} {lastName}".Trim();
+            }
+
+            return name;
+        }
+
+        private void ExportAttendanceHistoryToExcel(DataTable attendanceDataTable, int month, int year, int totalAttendance, int totalLate, int totalAbsent, int totalLeave)
+        {
+            string employeeName = GetEmployeeName(_id); // Get employee name
+
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
@@ -437,42 +504,59 @@ namespace GUTZ_Capstone_Project
                         {
                             ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Attendance History");
 
+                            // Add employee details at the top
+                            worksheet.Cells["A1"].Value = $"Name: {employeeName}";
+                            worksheet.Cells["A2"].Value = $"Emp. ID: {_id}";
+                            worksheet.Cells["A1:A2"].Style.Font.Bold = true;
+                            worksheet.Cells["A1:A2"].Style.Font.Size = 12; // Adjusted font size
+                            worksheet.Cells["A1:A2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+
                             // Add primary header
-                            worksheet.Cells["A1:D1"].Merge = true;
-                            worksheet.Cells["A1"].Value = "Attendance History";
-                            worksheet.Cells["A1"].Style.Font.Bold = true;
-                            worksheet.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
-                            worksheet.Cells["A1"].Style.Font.Size = 16; // Adjusted font size
-                            worksheet.Cells["A1"].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.None; // No background color
-                            worksheet.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.Black); // Black text color
+                            worksheet.Cells["A4:D4"].Merge = true;
+                            worksheet.Cells["A4"].Value = "Attendance History";
+                            worksheet.Cells["A4"].Style.Font.Bold = true;
+                            worksheet.Cells["A4"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                            worksheet.Cells["A4"].Style.Font.Size = 16; // Adjusted font size
+                            worksheet.Cells["A4"].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.None; // No background color
+                            worksheet.Cells["A4"].Style.Font.Color.SetColor(System.Drawing.Color.Black); // Black text color
 
                             // Define headers
-                            worksheet.Cells[2, 1].Value = "Date";
-                            worksheet.Cells[2, 2].Value = "Clock In";
-                            worksheet.Cells[2, 3].Value = "Clock Out";
-                            worksheet.Cells[2, 4].Value = "Status";
+                            worksheet.Cells[5, 1].Value = "Date";
+                            worksheet.Cells[5, 2].Value = "Clock In";
+                            worksheet.Cells[5, 3].Value = "Clock Out";
+                            worksheet.Cells[5, 4].Value = "Status";
+
+                            // Add total counts at the bottom
+                            worksheet.Cells[5, 6].Value = "Total Attendance";
+                            worksheet.Cells[5, 7].Value = totalAttendance;
+                            worksheet.Cells[6, 6].Value = "Total Late";
+                            worksheet.Cells[6, 7].Value = totalLate;
+                            worksheet.Cells[7, 6].Value = "Total Absent";
+                            worksheet.Cells[7, 7].Value = totalAbsent;
+                            worksheet.Cells[8, 6].Value = "Total Leave";
+                            worksheet.Cells[8, 7].Value = totalLeave;
 
                             // Customize header row with blue background and white text
-                            worksheet.Cells["A2:D2"].Style.Font.Bold = true; // Make header bold
-                            worksheet.Cells["A2:D2"].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid; // Solid fill
-                            worksheet.Cells["A2:D2"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 123, 255)); // Blue background color
-                            worksheet.Cells["A2:D2"].Style.Font.Color.SetColor(System.Drawing.Color.White); // Set font color to white
-                            worksheet.Cells["A2:D2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left; // Left align
+                            worksheet.Cells["A5:D5"].Style.Font.Bold = true; // Make header bold
+                            worksheet.Cells["A5:D5"].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid; // Solid fill
+                            worksheet.Cells["A5:D5"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 123, 255)); // Blue background color
+                            worksheet.Cells["A5:D5"].Style.Font.Color.SetColor(System.Drawing.Color.White); // Set font color to white
+                            worksheet.Cells["A5:D5"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left; // Left align
 
                             // Populate data with alternating row colors
                             for (int i = 0; i < attendanceDataTable.Rows.Count; i++)
                             {
                                 DataRow row = attendanceDataTable.Rows[i];
-                                worksheet.Cells[i + 3, 1].Value = row["Date"];
-                                worksheet.Cells[i + 3, 2].Value = row["Clock In"];
-                                worksheet.Cells[i + 3, 3].Value = row["Clock Out"];
-                                worksheet.Cells[i + 3, 4].Value = row["Status"];
+                                worksheet.Cells[i + 6, 1].Value = row["Date"];
+                                worksheet.Cells[i + 6, 2].Value = row["Clock In"];
+                                worksheet.Cells[i + 6, 3].Value = row["Clock Out"];
+                                worksheet.Cells[i + 6, 4].Value = row["Status"];
 
                                 // Set alternating row colors for better readability
                                 if (i % 2 == 0)
                                 {
-                                    worksheet.Cells[i + 3, 1, i + 3, 4].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
-                                    worksheet.Cells[i + 3, 1, i + 3, 4].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(248, 249, 250)); // Light gray
+                                    worksheet.Cells[i + 6, 1, i + 6, 4].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                                    worksheet.Cells[i + 6, 1, i + 6, 4].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(248, 249, 250)); // Light gray
                                 }
                             }
 
@@ -664,7 +748,7 @@ namespace GUTZ_Capstone_Project
             lblEmployeeAveTimeIn.Text = averageTimeIn;
         }
 
-        private void CountTotalAttendanceForMonth(string id, int selectedMonth, int selectedYear)
+        private void CountTotalAttendanceForMonth(string id, int selectedMonth, int selectedYear) // OK
         {
             int count = 0;
             string sqlCountTotalAttendance = $@"SELECT COUNT(*) FROM tbl_attendance
@@ -688,6 +772,179 @@ namespace GUTZ_Capstone_Project
             }
         }
 
+        private async Task CountTotalAbsentForMonth(string id, int selectedMonth, int selectedYear)
+        {
+            int totalAbsentCount = 0;
+
+            // Get the employee's start date
+            DateTime startDate;
+            string employeeSql = $"SELECT start_date FROM tbl_employee WHERE emp_id = '{id}'";
+
+            try
+            {
+                DataTable employeeDt = await Task.Run(() => DB_OperationHelperClass.QueryData(employeeSql));
+
+                if (employeeDt.Rows.Count > 0)
+                {
+                    startDate = Convert.ToDateTime(employeeDt.Rows[0]["start_date"]);
+                }
+                else
+                {
+                    MessageBox.Show($"No employee found with ID: {id}", "No Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving employee data: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Get the employee's scheduled workdays
+            string scheduledSql = $"SELECT work_days FROM tbl_schedule WHERE emp_id = '{id}'";
+            DataTable scheduledDt;
+
+            try
+            {
+                scheduledDt = await Task.Run(() => DB_OperationHelperClass.QueryData(scheduledSql));
+
+                if (scheduledDt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No scheduled workdays found for this employee.", "No Record",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving scheduled workdays: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Parse scheduled workdays into a HashSet
+            HashSet<DayOfWeek> workDaysSet = new HashSet<DayOfWeek>(
+                scheduledDt.Rows[0]["work_days"].ToString()
+                .Split(',')
+                .Select(day => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), day.Trim(), true))
+            );
+
+            // Get leave days for the selected month and year
+            HashSet<DateTime> leaveDaysSet = await GetLeaveDaysForMonth(id, selectedMonth, selectedYear);
+
+            // Iterate through the selected month
+            DateTime date = new DateTime(selectedYear, selectedMonth, 1);
+            DateTime endDate = date.AddMonths(1).AddDays(-1);
+            DateTime currentDate = DateTime.Now.Date;
+
+            while (date <= endDate)
+            {
+                // Skip dates that are in the future or before the employee's start date
+                if (date > currentDate || date < startDate)
+                {
+                    date = date.AddDays(1);
+                    continue;
+                }
+
+                // Check if the current date is a scheduled workday
+                if (!workDaysSet.Contains(date.DayOfWeek))
+                {
+                    date = date.AddDays(1);
+                    continue;
+                }
+
+                // Check if the employee is on leave for the current date
+                if (leaveDaysSet.Contains(date))
+                {
+                    date = date.AddDays(1);
+                    continue; // Skip counting as absent if on leave
+                }
+
+                // Check if attendance exists for the current date
+                string attendanceSql = $@"SELECT COUNT(*) 
+                                          FROM tbl_attendance 
+                                          WHERE emp_id = '{id}' AND DATE(time_in) = '{date:yyyy-MM-dd}'";
+
+                DataTable attendanceDt = await Task.Run(() => DB_OperationHelperClass.QueryData(attendanceSql));
+
+                // If no attendance record exists for the date, count as absent
+                if (attendanceDt.Rows.Count == 0 || Convert.ToInt32(attendanceDt.Rows[0][0]) == 0)
+                {
+                    totalAbsentCount++;
+                }
+
+                // Move to the next day
+                date = date.AddDays(1);
+            }
+
+            // Display total absent count
+            lblEmployeeTotalAbsent.Text = totalAbsentCount.ToString();
+        }
+
+        private async Task<HashSet<DateTime>> GetLeaveDaysForMonth(string id, int selectedMonth, int selectedYear)
+        {
+            HashSet<DateTime> leaveDaysSet = new HashSet<DateTime>();
+
+            // SQL query to retrieve leave records for the specified employee and month/year
+            string leaveSql = $@"SELECT start_date, end_date 
+                                 FROM tbl_leave 
+                                 WHERE emp_id = '{id}' 
+                                 AND (leave_status = 'Active' OR leave_status = 'Completed')
+                                 AND (MONTH(start_date) = {selectedMonth} OR MONTH(end_date) = {selectedMonth}) 
+                                 AND (YEAR(start_date) = {selectedYear} OR YEAR(end_date) = {selectedYear})";
+
+            // Get leave records for the month
+            DataTable leaveDt = await Task.Run(() => DB_OperationHelperClass.QueryData(leaveSql));
+
+            foreach (DataRow row in leaveDt.Rows)
+            {
+                DateTime startDate = Convert.ToDateTime(row["start_date"]);
+                DateTime endDate = Convert.ToDateTime(row["end_date"]);
+
+                // Ensure the leave dates fall within the specified month
+                DateTime current = startDate;
+                while (current <= endDate)
+                {
+                    if (current.Month == selectedMonth && current.Year == selectedYear)
+                    {
+                        leaveDaysSet.Add(current);
+                    }
+                    current = current.AddDays(1);
+                }
+            }
+
+            return leaveDaysSet;
+        }
+
+        private void CountTotalLeaveForMonth(string id, int selectedMonth, int selectedYear)
+        {
+            int count = 0;
+            string sqlCountTotalLeave = $@"SELECT SUM(DATEDIFF(LEAST(end_date, LAST_DAY(CONCAT('{selectedYear}', '-', '{selectedMonth}', '-01'))), 
+                                           GREATEST(start_date, CONCAT('{selectedYear}', '-', '{selectedMonth}', '-01'))) + 1) AS TotalLeaveDays
+                                           FROM tbl_leave
+                                           WHERE emp_id = '{id}' 
+                                           AND (leave_status = 'Completed' OR leave_status = 'Active')
+                                           AND (start_date <= LAST_DAY(CONCAT('{selectedYear}', '-', '{selectedMonth}', '-01')) 
+                                           AND end_date >= CONCAT('{selectedYear}', '-', '{selectedMonth}', '-01'))";
+
+            try
+            {
+                DataTable dt = DB_OperationHelperClass.QueryData(sqlCountTotalLeave);
+
+                count = dt.Rows.Count > 0 && dt.Rows[0]["TotalLeaveDays"] != DBNull.Value
+                        ? Convert.ToInt32(dt.Rows[0]["TotalLeaveDays"])
+                        : 0;
+
+                lblTotalEmployeeLeave.Text = count.ToString();
+            }
+            catch (Exception ex)
+            {
+                string msg = $"Error occurred while counting total leave days for employee with ID: '{id}': {ex.Message}";
+                MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private async void cboFilterMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             string month = cboFilterMonth.SelectedItem.ToString();
@@ -705,6 +962,8 @@ namespace GUTZ_Capstone_Project
             ComputeAverageTimeOutForMonth(_id, selectedMonth, selectedYear);
             ComputeAverageTimeInForMonth(_id, selectedMonth, selectedYear);
             CountTotalAttendanceForMonth(_id, selectedMonth, selectedYear);
+            await CountTotalAbsentForMonth(_id, selectedMonth, selectedYear);
+            CountTotalLeaveForMonth(_id, selectedMonth, selectedYear);
             await FilterAndDisplayEmployeeAttendanceHistory(_id, selectedMonth, selectedYear);
         }
 
@@ -910,21 +1169,21 @@ namespace GUTZ_Capstone_Project
                     case 1: // On Time
                         query = $@"SELECT ta.emp_id, ta.time_in, ta.time_out, ta.time_in_status, 
                                     DATE_FORMAT(ta.time_in, '%Y-%m-%d') AS attendance_date
-                             FROM tbl_attendance ta
-                             WHERE ta.time_in_status = 'On Time' AND emp_id = '{_id}'
-                                   AND YEAR(ta.time_in) = {selectedYear}
-                                   AND MONTH(ta.time_in) = {selectedMonth}
-                             ORDER BY ta.time_in ASC";
+                                   FROM tbl_attendance ta
+                                   WHERE ta.time_in_status = 'On Time' AND emp_id = '{_id}'
+                                       AND YEAR(ta.time_in) = {selectedYear}
+                                       AND MONTH(ta.time_in) = {selectedMonth}
+                                   ORDER BY ta.time_in ASC";
                         break;
 
                     case 2: // Late
                         query = $@"SELECT ta.emp_id, ta.time_in, ta.time_out, ta.time_in_status, 
-                                    DATE_FORMAT(ta.time_in, '%Y-%m-%d') AS attendance_date
-                             FROM tbl_attendance ta
-                             WHERE ta.time_in_status = 'Late' AND emp_id = '{_id}'
-                                   AND YEAR(ta.time_in) = {selectedYear}
-                                   AND MONTH(ta.time_in) = {selectedMonth}
-                             ORDER BY ta.time_in ASC";
+                                   DATE_FORMAT(ta.time_in, '%Y-%m-%d') AS attendance_date
+                                   FROM tbl_attendance ta
+                                   WHERE ta.time_in_status = 'Late' AND emp_id = '{_id}'
+                                       AND YEAR(ta.time_in) = {selectedYear}
+                                       AND MONTH(ta.time_in) = {selectedMonth}
+                                   ORDER BY ta.time_in ASC";
                         break;
 
                     case 3: // Absent
@@ -1044,6 +1303,9 @@ namespace GUTZ_Capstone_Project
                 .Select(day => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), day, true))
             );
 
+            // Get leave days for the selected month and year
+            HashSet<DateTime> leaveDaysSet = await GetLeaveDaysForMonth(id, selectedMonth, selectedYear);
+
             // Iterate through the selected month
             DateTime date = new DateTime(selectedYear, selectedMonth, 1);
             DateTime endDate = date.AddMonths(1).AddDays(-1);
@@ -1051,7 +1313,7 @@ namespace GUTZ_Capstone_Project
 
             while (date <= endDate)
             {
-                // Skip dates that are in the future or before the employee start date
+                // Skip dates that are in the future or before the employee's start date
                 if (date > currentDate || date < startDate)
                 {
                     date = date.AddDays(1);
@@ -1063,6 +1325,13 @@ namespace GUTZ_Capstone_Project
                 {
                     date = date.AddDays(1);
                     continue;
+                }
+
+                // Check if the employee is on leave for the current date
+                if (leaveDaysSet.Contains(date))
+                {
+                    date = date.AddDays(1);
+                    continue; // Skip counting as absent if on leave
                 }
 
                 // Check if attendance exists for the current date
@@ -1105,11 +1374,11 @@ namespace GUTZ_Capstone_Project
 
             // Query to retrieve leave records for the selected month and year
             string leaveSql = $@"SELECT start_date, end_date 
-                         FROM tbl_leave 
-                         WHERE emp_id = '{id}' 
-                               AND (leave_status = 'Active' OR leave_status = 'Completed')
-                               AND ((YEAR(start_date) = {selectedYear} AND MONTH(start_date) = {selectedMonth})
-                                    OR (YEAR(end_date) = {selectedYear} AND MONTH(end_date) = {selectedMonth}))";
+                                 FROM tbl_leave 
+                                 WHERE emp_id = '{id}' 
+                                       AND (leave_status = 'Active' OR leave_status = 'Completed')
+                                       AND ((YEAR(start_date) = {selectedYear} AND MONTH(start_date) = {selectedMonth})
+                                            OR (YEAR(end_date) = {selectedYear} AND MONTH(end_date) = {selectedMonth}))";
 
             try
             {
@@ -1176,4 +1445,5 @@ namespace GUTZ_Capstone_Project
         }
     }
 }
+
 

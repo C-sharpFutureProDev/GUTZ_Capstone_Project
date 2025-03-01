@@ -740,7 +740,7 @@ namespace GUTZ_Capstone_Project.Forms
 
                     // Insert into fingerprint table
                     string insertIntoFingerprintTable = @"INSERT INTO tbl_fingerprint (fingerprint_data, emp_id)
-                                                          ALUES(@FingerprintData, @EmpId)";
+                                                          VALUES(@FingerprintData, @EmpId)";
 
                     var param = new Dictionary<string, object>
                     {

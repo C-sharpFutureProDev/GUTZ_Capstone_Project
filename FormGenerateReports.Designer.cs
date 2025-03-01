@@ -99,7 +99,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Bell MT", 10.5F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(432, 34);
             this.label3.Name = "label3";
@@ -129,11 +129,11 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Bell MT", 9.5F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(23, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 47);
+            this.label1.Size = new System.Drawing.Size(140, 59);
             this.label1.TabIndex = 153;
             this.label1.Text = "Choose Period Date:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,7 +225,7 @@
             // lblSelectedEmployeeCount
             // 
             this.lblSelectedEmployeeCount.BackColor = System.Drawing.Color.White;
-            this.lblSelectedEmployeeCount.Font = new System.Drawing.Font("Baskerville Old Face", 10.5F);
+            this.lblSelectedEmployeeCount.Font = new System.Drawing.Font("Bell MT", 10.5F);
             this.lblSelectedEmployeeCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblSelectedEmployeeCount.Location = new System.Drawing.Point(20, 25);
             this.lblSelectedEmployeeCount.Name = "lblSelectedEmployeeCount";
@@ -283,11 +283,11 @@
             // chkSelectAllEmployee
             // 
             this.chkSelectAllEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.chkSelectAllEmployee.Font = new System.Drawing.Font("Baskerville Old Face", 10F);
-            this.chkSelectAllEmployee.ForeColor = System.Drawing.Color.Black;
-            this.chkSelectAllEmployee.Location = new System.Drawing.Point(216, 44);
+            this.chkSelectAllEmployee.Font = new System.Drawing.Font("Bell MT", 10.5F);
+            this.chkSelectAllEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chkSelectAllEmployee.Location = new System.Drawing.Point(205, 44);
             this.chkSelectAllEmployee.Name = "chkSelectAllEmployee";
-            this.chkSelectAllEmployee.Size = new System.Drawing.Size(130, 30);
+            this.chkSelectAllEmployee.Size = new System.Drawing.Size(141, 30);
             this.chkSelectAllEmployee.TabIndex = 150;
             this.chkSelectAllEmployee.Text = "Select ALL";
             this.chkSelectAllEmployee.UseVisualStyleBackColor = false;
@@ -306,8 +306,8 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.label5.Font = new System.Drawing.Font("Baskerville Old Face", 10.5F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Font = new System.Drawing.Font("Bell MT", 11F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Location = new System.Drawing.Point(9, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(337, 30);

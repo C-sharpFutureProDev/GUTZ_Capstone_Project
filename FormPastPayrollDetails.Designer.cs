@@ -333,7 +333,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(177, 30);
             this.label10.TabIndex = 159;
-            this.label10.Text = "Tutoring Hours:";
+            this.label10.Text = "Hours Worked:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTotalEmployee
@@ -522,7 +522,7 @@
             this.lblComputedTutoringHours.Name = "lblComputedTutoringHours";
             this.lblComputedTutoringHours.Size = new System.Drawing.Size(194, 30);
             this.lblComputedTutoringHours.TabIndex = 80;
-            this.lblComputedTutoringHours.Text = "TUTORING HOURS";
+            this.lblComputedTutoringHours.Text = "HOURS WORKED";
             this.lblComputedTutoringHours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTimeIn

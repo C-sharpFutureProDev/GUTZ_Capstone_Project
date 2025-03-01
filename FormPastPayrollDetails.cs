@@ -38,7 +38,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private async void LoadEmployeePayrollDetails(int payrollId)
+        private async Task LoadEmployeePayrollDetails(int payrollId)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace GUTZ_Capstone_Project
             return 0m;
         }
 
-        private async void LoadAllAvailablePastPayrollPeriod()
+        private async Task LoadAllAvailablePastPayrollPeriod()
         {
             try
             {
@@ -126,7 +126,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void RdbPayrollPeriod_Click(object sender, EventArgs e)
+        private async void RdbPayrollPeriod_Click(object sender, EventArgs e)
         {
             try
             {
@@ -149,7 +149,7 @@ namespace GUTZ_Capstone_Project
                     DateTime payStartDate = dates.StartDate;
                     DateTime payEndDate = dates.EndDate;
 
-                    LoadSelectedPayrollPeriodDetails(payStartDate, payEndDate);
+                    await LoadSelectedPayrollPeriodDetails(payStartDate, payEndDate);
                 }
             }
             catch (Exception ex)
@@ -158,7 +158,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private async void LoadSelectedPayrollPeriodDetails(DateTime payStartDate, DateTime payEndDate)
+        private async Task LoadSelectedPayrollPeriodDetails(DateTime payStartDate, DateTime payEndDate)
         {
             try
             {
@@ -193,7 +193,7 @@ namespace GUTZ_Capstone_Project
                     CountEmployeesAndTotalTutoringHours(payrollId);
 
                     // Load individual employee payroll details
-                    LoadEmployeePayrollDetails(payrollId);
+                    await LoadEmployeePayrollDetails(payrollId);
                 }
             }
             catch (Exception ex)
@@ -236,9 +236,9 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private void FormPastPayrollDetails_Load(object sender, EventArgs e)
+        private async void FormPastPayrollDetails_Load(object sender, EventArgs e)
         {
-            LoadAllAvailablePastPayrollPeriod();
+            await LoadAllAvailablePastPayrollPeriod();
         }
 
         private void btnDownLoadSelectedPayrollPeriodReports_Click(object sender, EventArgs e)

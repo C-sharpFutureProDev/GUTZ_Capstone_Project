@@ -251,8 +251,11 @@ namespace GUTZ_Capstone_Project
                                                 ON l.emp_id = s.emp_id
                                                 AND l.leave_status = 'Active'
                                                 AND '{currentDate:yyyy-MM-dd}' BETWEEN l.start_date AND l.end_date
+                                            LEFT JOIN 
+                                                tbl_employee e
+                                                ON e.emp_id = s.emp_id
                                             WHERE 
-                                                s.work_days LIKE '%{currentDate.DayOfWeek}%'
+                                                s.work_days LIKE '%{currentDate.DayOfWeek}%' 
                                                 AND l.emp_id IS NULL";
 
             DataTable dtAttendance = DB_OperationHelperClass.QueryData(sqlCountAttendance);
@@ -1000,7 +1003,7 @@ namespace GUTZ_Capstone_Project
         {
             isReturningFromHistory = false;
             txtSearch.Clear();
-            btnViewEmployeeList_Click_1(this, EventArgs.Empty); // Simulate Refresh button click
+            btnViewEmployeeList_Click_1(this, EventArgs.Empty); // Simulate View Employee List button click
         }
 
         public void RefreshUI()
@@ -1012,7 +1015,7 @@ namespace GUTZ_Capstone_Project
             lblAttendanceSummaryDate.Text = "Real-Time Attendance Summary Today - " + DateTime.Now.ToString("dddd MMMM dd, yyyy");
             lblExpectedClockIn.Text = "Clocked-In (Today)";
             lblAttendancePercent.Text = "Attendance % (Today)";
-            lblAccumulatedTutoringHours.Text = "Tutoring Hours (Today)";
+            lblAccumulatedTutoringHours.Text = "Hours Worked (Today)";
             LoadAndRetrieveRealTimeEmployeeAttendanceData();
             CountAttendance();
             CountForRealTimeOnLeave();
@@ -1963,7 +1966,7 @@ namespace GUTZ_Capstone_Project
                 lblTextFilterAttendanceRecord.Text = "Filter (Past) Attendance Record:";
                 lblExpectedClockIn.Text = "Clocked-In (Total)";
                 lblAttendancePercent.Text = "Attendance % (Total)";
-                lblAccumulatedTutoringHours.Text = "Tutoring Hours (Total)";
+                lblAccumulatedTutoringHours.Text = "Hours Worked (Total)";
                 lblSelectDate.Visible = true;
                 dtpEmpSelectDate.Visible = true;
                 pastdtpBottomBorder.Visible = true;
@@ -1991,4 +1994,5 @@ namespace GUTZ_Capstone_Project
         }
     }
 }
+
 

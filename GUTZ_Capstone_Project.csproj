@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -418,6 +418,12 @@
     <Compile Include="SampleEmployeePayrollCard.Designer.cs">
       <DependentUpon>SampleEmployeePayrollCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="SampleEmployeePayrollHistoryDetailsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleEmployeePayrollHistoryDetailsCard.Designer.cs">
+      <DependentUpon>SampleEmployeePayrollHistoryDetailsCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="SamplePastPayrollDetailsCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -538,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SampleEmployeePayrollCard.resx">
       <DependentUpon>SampleEmployeePayrollCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleEmployeePayrollHistoryDetailsCard.resx">
+      <DependentUpon>SampleEmployeePayrollHistoryDetailsCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SamplePastPayrollDetailsCard.resx">
       <DependentUpon>SamplePastPayrollDetailsCard.cs</DependentUpon>

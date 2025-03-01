@@ -283,15 +283,15 @@ namespace GUTZ_Capstone_Project
 
             if (timeSpan.Hours > 0)
             {
-                return $"{timeSpan.Hours} hrs. {timeSpan.Minutes:D2}m {timeSpan.Seconds:D2}s";
+                return $"{timeSpan.Hours}h. {timeSpan.Minutes:D2}m {timeSpan.Seconds:D2}s";
             }
             else if (timeSpan.Minutes > 0)
             {
-                return $"{timeSpan.Minutes}mins. {timeSpan.Seconds:D2}secs.";
+                return $"{timeSpan.Minutes}m {timeSpan.Seconds:D2}s";
             }
             else
             {
-                return $"{timeSpan.Seconds}secs.";
+                return $"{timeSpan.Seconds}s";
             }
         }
 
@@ -660,8 +660,6 @@ namespace GUTZ_Capstone_Project
                             existingCard.lblLateTime.Text = "Late Time (Cumulative):";
                             existingCard.lblDeductions.Text = "Deductions (Cumulative):";
                             existingCard.lblNetWage.Text = "Net Wage (Cumulative):";
-                            existingCard.btnCutCurrentPayroll.Visible = true;
-                            existingCard.btnViewProcessedPayrollDetails.Visible = false;
                         }
                     }
                     else
@@ -684,8 +682,6 @@ namespace GUTZ_Capstone_Project
                             newCard.lblLateTime.Text = "Late Time (Total):";
                             newCard.lblDeductions.Text = "Deductions (Total):";
                             newCard.lblNetWage.Text = "Net Wage (Total):";
-                            newCard.btnCutCurrentPayroll.Visible = false;
-                            newCard.btnViewProcessedPayrollDetails.Visible = true;
                         }
 
                         flowLayoutPanel1.Controls.Add(newCard);
@@ -927,6 +923,10 @@ namespace GUTZ_Capstone_Project
 
         private void btnViewEmployeeList_Click(object sender, EventArgs e)
         {
+            cboSearchEmployeeForEmployeeListView.Visible = true;
+            cboSearchEmployeeForEmployeeListView.SelectedIndex = 0;
+            txtSearchEmployeeForEmployeeListView.Visible = true;
+
             // Disable both buttons to prevent rapid clicking
             btnViewEmployeeList.Enabled = false;
             btnRefresh.Enabled = false;
@@ -947,12 +947,23 @@ namespace GUTZ_Capstone_Project
             }
         }
 
+        // New public method to simulate button click
+        public void SimulateViewEmployeeListClick()
+        {
+            flowLayoutPanel1.Visible = false;
+            flowLayoutPanel2.Visible = true;
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            btnViewEmployeeList_Click(this, EventArgs.Empty);
+        }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             timer1.Start();
             // Disable both buttons to prevent rapid clicking
             btnViewEmployeeList.Enabled = false;
             btnRefresh.Enabled = false;
+            cboSearchEmployeeForEmployeeListView.Visible = false;
+            txtSearchEmployeeForEmployeeListView.Visible = false;
             flowLayoutPanel1.Controls.Clear();
 
             try
@@ -989,6 +1000,14 @@ namespace GUTZ_Capstone_Project
 
         private async void btnCutPayroll_Click(object sender, EventArgs e)
         {
+            // Entire Active Cut Payroll confirmation dialog
+            var result = MessageBox.Show("Are you sure you want to cut the payroll?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                return; // Exit the method if the user chooses No
+            }
+
             try
             {
                 // Retrieve the current payroll details
@@ -1003,14 +1022,11 @@ namespace GUTZ_Capstone_Project
 
                 DataRow currentPayroll = dtPayroll.Rows[0];
 
-                DateTime payStartDate = DateTime.Parse(currentPayroll["pay_start_date"].ToString());
-                DateTime payEndDate = DateTime.Parse(currentPayroll["pay_end_date"].ToString());
-                int payrollId = int.Parse(currentPayroll["payroll_id"].ToString());
-
-                // Check if the end date has passed
-                if (DateTime.Now < payEndDate)
+                if (!DateTime.TryParse(currentPayroll["pay_start_date"].ToString(), out DateTime payStartDate) ||
+                    !DateTime.TryParse(currentPayroll["pay_end_date"].ToString(), out DateTime payEndDate) ||
+                    !int.TryParse(currentPayroll["payroll_id"].ToString(), out int payrollId))
                 {
-                    MessageBox.Show("The payroll period has not ended yet.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid payroll details format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -1045,96 +1061,103 @@ namespace GUTZ_Capstone_Project
                     DataTable dtAttendance = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(getAttendanceQuery, attendanceParameters));
 
                     int empTotalAttendance = 0;
-                    if (dtAttendance.Rows.Count > 0)
+                    if (dtAttendance.Rows.Count > 0 && int.TryParse(dtAttendance.Rows[0]["EmployeeTotalAttendance"].ToString(), out empTotalAttendance))
                     {
-                        empTotalAttendance = Convert.ToInt32(dtAttendance.Rows[0]["EmployeeTotalAttendance"]);
-                    }
+                        // Call ComputeIndividualPayroll to calculate the employee's payroll details
+                        ComputeIndividualPayroll(empId);
 
-                    // Call ComputeIndividualPayroll to calculate the employee's payroll details
-                    ComputeIndividualPayroll(empId);
-
-                    // Retrieve the individual payroll details from the UI
-                    foreach (SampleEmployeePayrollCard card in flowLayoutPanel1.Controls)
-                    {
-                        if (card.ID == empId)
+                        // Retrieve the individual payroll details from the UI
+                        foreach (SampleEmployeePayrollCard card in flowLayoutPanel1.Controls)
                         {
-                            // Parse tutoring hours from the card (format: "XX.XX hours")
-                            decimal tutoringHours = decimal.Parse(card.TutoringHours.Replace(" hours", ""));
-
-                            // Parse late time from the card (format: "XXm")
-                            decimal lateTimeMinutes = decimal.Parse(card.LateTime.Replace("m", ""));
-                            TimeSpan lateTime = TimeSpan.FromMinutes((double)lateTimeMinutes);
-                            string lateTimeFormatted = lateTime.ToString(@"hh\:mm\:ss");
-
-                            // Parse deductions and net pay from the card
-                            decimal deduction = decimal.Parse(card.Deductions.Replace("₱", "").Replace(",", ""));
-                            decimal netPay = decimal.Parse(card.Wage.Replace("₱", "").Replace(",", ""));
-
-                            // Compute gross pay as net pay plus deduction
-                            decimal grossPay = netPay + deduction;
-
-                            // Accumulate totals for the payroll
-                            grossPayTotal += grossPay; // Total gross pay
-                            deductionTotal += deduction; // Total deductions
-                            netPayTotal += netPay; // Total net pay
-                            totalAttendance += empTotalAttendance; // Use actual attendance count
-
-                            // Check if the employee's payroll has already been cut individually
-                            string getCustomCutDateQuery = @"SELECT custom_cut_date FROM tbl_wage
-                                                             WHERE payroll_id = @payrollId AND emp_id = @empId";
-                            var customCutDateParameters = new Dictionary<string, object>
+                            if (card.ID == empId)
                             {
-                                { "@payrollId", payrollId },
-                                { "@empId", empId }
-                            };
+                                // Parse tutoring hours from the card (format: "XX.XX hours")
+                                string tutoringHoursStr = card.TutoringHours.Replace(" hrs.", "").Trim();
+                                if (!decimal.TryParse(tutoringHoursStr, out decimal tutoringHours))
+                                {
+                                    MessageBox.Show($"Invalid tutoring hours format for employee {empId}: {card.TutoringHours}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    continue; // Skip this employee if the format is invalid
+                                }
 
-                            DataTable dtCustomCutDate = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(getCustomCutDateQuery, customCutDateParameters));
-                            string customCutDate = dtCustomCutDate.Rows.Count > 0 ? dtCustomCutDate.Rows[0]["custom_cut_date"].ToString() : null;
+                                // Parse late time from the card (format: "XXm")
+                                if (!decimal.TryParse(card.LateTime.Replace("m", "").Trim(), out decimal lateTimeMinutes))
+                                {
+                                    MessageBox.Show($"Invalid late time format for employee {empId}: {card.LateTime}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    continue; // Skip this employee if the format is invalid
+                                }
+                                TimeSpan lateTime = TimeSpan.FromMinutes((double)lateTimeMinutes);
+                                string lateTimeFormatted = lateTime.ToString(@"hh\:mm\:ss");
 
-                            // Format customCutDate to include only the date part (yyyy-MM-dd)
-                            string formattedCustomCutDate = null;
-                            if (!string.IsNullOrEmpty(customCutDate))
-                            {
-                                DateTime parsedDate;
-                                if (DateTime.TryParse(customCutDate, out parsedDate))
+                                // Parse deductions and net pay from the card
+                                if (!decimal.TryParse(card.Deductions.Replace("₱", "").Replace(",", "").Trim(), out decimal deduction) ||
+                                    !decimal.TryParse(card.Wage.Replace("₱", "").Replace(",", "").Trim(), out decimal netPay))
+                                {
+                                    MessageBox.Show($"Invalid wage data for employee {empId}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    continue; // Skip this employee if the format is invalid
+                                }
+
+                                // Compute gross pay
+                                decimal grossPay = netPay + deduction;
+
+                                // Accumulate totals for the payroll
+                                grossPayTotal += grossPay;
+                                deductionTotal += deduction;
+                                netPayTotal += netPay;
+                                totalAttendance += empTotalAttendance;
+
+                                // Check if the employee's payroll has already been cut individually
+                                string getCustomCutDateQuery = @"SELECT custom_cut_date FROM tbl_wage
+                                                                 WHERE payroll_id = @payrollId AND emp_id = @empId";
+                                var customCutDateParameters = new Dictionary<string, object>
+                                {
+                                    { "@payrollId", payrollId },
+                                    { "@empId", empId }
+                                };
+
+                                DataTable dtCustomCutDate = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(getCustomCutDateQuery, customCutDateParameters));
+                                string customCutDate = dtCustomCutDate.Rows.Count > 0 ? dtCustomCutDate.Rows[0]["custom_cut_date"].ToString() : null;
+
+                                // Format customCutDate
+                                string formattedCustomCutDate = null;
+                                if (!string.IsNullOrEmpty(customCutDate) && DateTime.TryParse(customCutDate, out DateTime parsedDate))
                                 {
                                     formattedCustomCutDate = parsedDate.ToString("yyyy-MM-dd");
                                 }
+
+                                // Update existing employee payroll details in tbl_wage
+                                string updateWageQuery = @"UPDATE tbl_wage
+                                                           SET emp_total_attendance = @totalAttendance,
+                                                               gross_pay = @grossPay,
+                                                               tutoring_hours = @tutoringHours,
+                                                               late_time = @lateTime,
+                                                               deduction = @deduction,
+                                                               net_pay = @netPay,
+                                                               custom_cut_date = @customCutDate, 
+                                                               status = 'Completed'
+                                                           WHERE payroll_id = @payrollId
+                                                             AND emp_id = @empId";
+
+                                var wageParameters = new Dictionary<string, object>
+                                {
+                                    { "@totalAttendance", empTotalAttendance },
+                                    { "@grossPay", grossPay },
+                                    { "@tutoringHours", tutoringHours },
+                                    { "@lateTime", lateTimeFormatted },
+                                    { "@deduction", deduction },
+                                    { "@netPay", netPay },
+                                    { "@customCutDate", string.IsNullOrEmpty(formattedCustomCutDate) ? (object)DBNull.Value : formattedCustomCutDate },
+                                    { "@payrollId", payrollId },
+                                    { "@empId", empId }
+                                };
+
+                                await Task.Run(() => DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateWageQuery, wageParameters));
+                                break; // Exit the inner loop after processing the employee
                             }
-
-                            // Update existing employee payroll details in tbl_wage
-                            string updateWageQuery = @"UPDATE tbl_wage
-                                                       SET emp_total_attendance = @totalAttendance,
-                                                           gross_pay = @grossPay,
-                                                           tutoring_hours = @tutoringHours,
-                                                           late_time = @lateTime,
-                                                           deduction = @deduction,
-                                                           net_pay = @netPay,
-                                                           custom_cut_date = @customCutDate, -- Retain existing custom_cut_date if already set
-                                                           status = 'Completed'
-                                                       WHERE payroll_id = @payrollId
-                                                         AND emp_id = @empId";
-
-                            var wageParameters = new Dictionary<string, object>
-                            {
-                                { "@totalAttendance", empTotalAttendance },
-                                { "@grossPay", grossPay },
-                                { "@tutoringHours", tutoringHours },
-                                { "@lateTime", lateTimeFormatted },
-                                { "@deduction", deduction },
-                                { "@netPay", netPay },
-                                { "@customCutDate", string.IsNullOrEmpty(formattedCustomCutDate) ? (object)DBNull.Value : formattedCustomCutDate }, // Corrected line
-                                { "@payrollId", payrollId },
-                                { "@empId", empId }
-                            };
-
-                            await Task.Run(() => DB_OperationHelperClass.ExecuteCRUDSQLQuery(updateWageQuery, wageParameters));
-                            break;
                         }
                     }
                 }
 
-                // Update the payroll summary, mark it as completed, and set the cut date
+                // Update the payroll summary
                 string updatePayrollQuery = @"UPDATE tbl_payroll
                                               SET total_attendance = @totalAttendance,
                                                   gross_pay_total = @grossPayTotal,
@@ -1150,7 +1173,7 @@ namespace GUTZ_Capstone_Project
                     { "@grossPayTotal", grossPayTotal },
                     { "@deductionTotal", deductionTotal },
                     { "@netPayTotal", netPayTotal },
-                    { "@cutDate", DateTime.Now.ToString("yyyy-MM-dd") }, // Current date in the required format
+                    { "@cutDate", DateTime.Now.ToString("yyyy-MM-dd") },
                     { "@payrollId", payrollId }
                 };
 
@@ -1193,7 +1216,7 @@ namespace GUTZ_Capstone_Project
                     string empId = row["emp_id"].ToString();
 
                     string insertNewWageQuery = @"INSERT INTO tbl_wage (payroll_id, emp_id, status, is_paid, custom_cut_date)
-                                  VALUES (@newPayrollId, @empId, 'In-Progress', NULL, NULL)"; // Set custom_cut_date to NULL for new payroll
+                                                  VALUES (@newPayrollId, @empId, 'In-Progress', NULL, NULL)";
 
                     var newWageParameters = new Dictionary<string, object>
                     {
@@ -1374,6 +1397,128 @@ namespace GUTZ_Capstone_Project
                     toggleSwitchViewRecentPayroll.Checked = false; // Turn off the toggle when the form is closed
                 };
                 formPastPayrollDetails.Show();
+            }
+        }
+
+        private async void txtSearchEmployeeForEmployeeListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchText = txtSearchEmployeeForEmployeeListView.Text.Trim();
+
+                if (string.IsNullOrEmpty(searchText))
+                {
+                    MessageBox.Show("Please enter a valid search term.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                try
+                {
+                    string query = "";
+
+                    switch (cboSearchEmployeeForEmployeeListView.SelectedIndex)
+                    {
+                        case 0: // ID
+                            query = @"SELECT emp_id, position_desc, emp_profilePic, work_arrangement, f_name, m_name, l_name, account_name, tenured_rate, non_tenured_rate, employment_type
+                                      FROM tbl_employee
+                                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                      INNER JOIN tbl_rates ON tbl_rates.account_id = tbl_account.account_id
+                                      WHERE is_deleted = 0 AND emp_id = @empId
+                                      ORDER BY emp_id ASC";
+                            break;
+                        case 1: // Name
+                            query = @"SELECT emp_id, position_desc, emp_profilePic, work_arrangement, f_name, m_name, l_name, account_name, tenured_rate, non_tenured_rate, employment_type
+                                      FROM tbl_employee
+                                      INNER JOIN tbl_position ON tbl_employee.position_id = tbl_position.position_id
+                                      INNER JOIN tbl_account ON tbl_account.account_id = tbl_employee.account_id
+                                      INNER JOIN tbl_rates ON tbl_rates.account_id = tbl_account.account_id
+                                      WHERE is_deleted = 0 AND CONCAT(f_name, ' ', 
+                                      CASE WHEN m_name IS NULL OR m_name = 'N/A' THEN '' ELSE CONCAT(LEFT(m_name, 1), '. ') END, 
+                                      l_name) LIKE @empName
+                                      ORDER BY emp_id ASC";
+                            break;
+                        default:
+                            MessageBox.Show("Please select a valid search criterion.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                    }
+
+                    var parameters = new Dictionary<string, object>();
+
+                    switch (cboSearchEmployeeForEmployeeListView.SelectedIndex)
+                    {
+                        case 0:
+                            parameters.Add("@empId", searchText);
+                            break;
+                        case 1:
+                            parameters.Add("@empName", "%" + searchText + "%");
+                            break;
+                    }
+
+                    DataTable dt = await Task.Run(() => DB_OperationHelperClass.ParameterizedQueryData(query, parameters));
+
+                    flowLayoutPanel2.Controls.Clear();
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string id = row["emp_id"].ToString();
+                            string firstName = row["f_name"].ToString();
+                            string middleName = row["m_name"].ToString();
+                            string lastName = row["l_name"].ToString();
+                            string name = string.IsNullOrEmpty(middleName) || middleName == "N/A"
+                                ? $"{firstName} {lastName}"
+                                : $"{firstName} {middleName[0]}. {lastName}";
+
+                            string imagePath = row["emp_profilePic"].ToString();
+                            string accountName = row["account_name"].ToString();
+                            string employmentType = row["employment_type"].ToString();
+                            string jobRole = row["position_desc"].ToString();
+                            string ratePerHour = string.Empty;
+
+                            if (employmentType == "Tenured")
+                                ratePerHour = row["tenured_rate"].ToString();
+                            else if (employmentType == "Non-Tenured")
+                                ratePerHour = row["non_tenured_rate"].ToString();
+
+                            EmployeeListCardForPayrollHistory employeeListCardForPayrollHistory = new EmployeeListCardForPayrollHistory(this)
+                            {
+                                ID = id,
+                                EmployeeProfilePic = await LoadImageAsync(imagePath),
+                                EmployeeName = name,
+                                Account = accountName,
+                                EmploymentType = employmentType,
+                                RatePerHour = "₱" + ratePerHour + " / Hour",
+                            };
+
+                            if (jobRole == "Administrator")
+                            {
+                                employeeListCardForPayrollHistory.Hide();
+                            }
+
+                            flowLayoutPanel2.Controls.Add(employeeListCardForPayrollHistory);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No employee records found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while searching for the employee: " + ex.Message, "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txtSearchEmployeeForEmployeeListView_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSearchEmployeeForEmployeeListView.Text))
+            {
+                flowLayoutPanel2.Controls.Clear();
+                PopulateEmployeeList();
             }
         }
     }

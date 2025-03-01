@@ -11,7 +11,6 @@ namespace GUTZ_Capstone_Project
         private int attemptCount = 0;
         private bool isLockedOut = false;
         private int lockoutDuration = 30;
-        private string currentLoginAdminID;
 
         public FormLogin()
         {
@@ -55,7 +54,6 @@ namespace GUTZ_Capstone_Project
                 txtUsername.Clear();
                 txtPassword.Clear();
                 txtUsername.Focus();
-
                 return;
             }
 
@@ -65,13 +63,12 @@ namespace GUTZ_Capstone_Project
                 txtUsername.Clear();
                 txtPassword.Clear();
                 txtUsername.Focus();
-
                 return;
             }
 
             try
             {
-                string sqlLogin = "SELECT emp_id FROM tbl_users WHERE username = @username AND password = @password";
+                string sqlLogin = "SELECT COUNT(*) FROM tbl_users WHERE username = @username AND password = @password";
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
                     { "@username", txtUsername.Text },
@@ -80,12 +77,11 @@ namespace GUTZ_Capstone_Project
 
                 DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sqlLogin, parameters);
 
-                if (dt.Rows.Count > 0)
+                if (dt.Rows.Count > 0 && Convert.ToInt32(dt.Rows[0][0]) > 0)
                 {
-                    currentLoginAdminID = dt.Rows[0]["emp_id"].ToString();
-                    FormLoading formLoading = new FormLoading(currentLoginAdminID);
-                    formLoading.Show();
-                    this.Hide();
+                    FormDashboard formDashboard = new FormDashboard();
+                    formDashboard.Show();
+                    this.Hide(); // Hide the login form
                 }
                 else
                 {

@@ -22,21 +22,18 @@ namespace GUTZ_Capstone_Project
         private Form currentChildForm;
         private System.Drawing.Color _originalIconColor;
         private DateTime dueDate;
-        private string id;
 
-        public FormDashboard(string id)
+        public FormDashboard()
         {
             InitializeComponent();
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
 
-            this.id = id;
             dueDate = DateTime.Now.AddDays(10);
             timer1.Tick += timer1_Tick;
             timer1.Start();
             this.WindowState = FormWindowState.Maximized;
             originalImage = iconCurrentChildForm.Image;
-            //DisplayAdminProfilePic();
             btnPayrollManagement.Click += btnPayrollManagement_Click;
         }
 
@@ -49,48 +46,6 @@ namespace GUTZ_Capstone_Project
                 cp.ExStyle |= 0x02000000;
                 return cp;
             }
-        }
-
-        private void DisplayAdminProfilePic() // Set to actual administrator
-        {
-            string sql = "SELECT emp_profilePic FROM tbl_employee WHERE emp_id = @id";
-
-            var parameters = new Dictionary<string, object> { { "@id", id } };
-            try
-            {
-                DataTable dt = DB_OperationHelperClass.ParameterizedQueryData(sql, parameters);
-
-                if (dt.Rows.Count == 0)
-                {
-                    MessageBox.Show("No profile picture found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                string adminProfilePath = dt.Rows[0]["emp_profilePic"].ToString();
-
-                try
-                {
-                    iconCurrentLoginAdmin.SizeMode = PictureBoxSizeMode.StretchImage;
-                    iconCurrentLoginAdmin.Image = Image.FromFile(adminProfilePath);
-                }
-                catch (FileNotFoundException)
-                {
-                    MessageBox.Show("Profile picture file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error loading profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void ActivateButton(object senderBtn)
@@ -179,7 +134,7 @@ namespace GUTZ_Capstone_Project
             ActivateButton(sender);
         }
 
-        private void btnBackToHome_Click(object sender, EventArgs e)
+        private async void btnBackToHome_Click(object sender, EventArgs e)
         {
             if (currentChildForm != null)
                 Reset();
@@ -188,7 +143,7 @@ namespace GUTZ_Capstone_Project
             CountAttendanceForToday();
             CountActiveEmployeeLeave();
             //SumTotalEmployeeNetWages();
-            LoadAllAvailablePastPayrollPeriod();
+            await LoadAllAvailablePastPayrollPeriod();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -203,7 +158,7 @@ namespace GUTZ_Capstone_Project
             UpdateDateTimeLabel();
         }
 
-        private void FormDashboard_Load(object sender, EventArgs e)
+        private async void FormDashboard_Load(object sender, EventArgs e)
         {
             UpdateDateTimeLabel();
             timer1.Start();
@@ -211,7 +166,7 @@ namespace GUTZ_Capstone_Project
             CountAttendanceForToday();
             CountActiveEmployeeLeave();
             //SumTotalEmployeeNetWages();
-            LoadAllAvailablePastPayrollPeriod();
+            await LoadAllAvailablePastPayrollPeriod();
         }
 
         private void UpdateDateTimeLabel()
@@ -283,7 +238,7 @@ namespace GUTZ_Capstone_Project
         private void CountTotalEmployee()
         {
             // Count total active employees
-            string countEmployeeQuery = @"SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0";
+            string countEmployeeQuery = @"SELECT COUNT(*) FROM tbl_employee WHERE is_deleted = 0 AND position_id != 1101";
             DataTable dtTotal = DB_OperationHelperClass.QueryData(countEmployeeQuery);
 
             int countTotalEmployee = dtTotal.Rows.Count > 0 ? Convert.ToInt32(dtTotal.Rows[0][0]) : 0;
@@ -549,7 +504,7 @@ namespace GUTZ_Capstone_Project
             }
         }
 
-        private async void LoadAllAvailablePastPayrollPeriod()
+        private async Task LoadAllAvailablePastPayrollPeriod()
         {
             try
             {

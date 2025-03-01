@@ -291,7 +291,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(322, 26);
             this.label14.TabIndex = 159;
-            this.label14.Text = "Computed Tutoring Hours";
+            this.label14.Text = "Computed Hours Worked";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel5
@@ -405,11 +405,11 @@
             // lblRatePerHour
             // 
             this.lblRatePerHour.BackColor = System.Drawing.Color.White;
-            this.lblRatePerHour.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRatePerHour.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblRatePerHour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblRatePerHour.Location = new System.Drawing.Point(561, 65);
+            this.lblRatePerHour.Location = new System.Drawing.Point(627, 65);
             this.lblRatePerHour.Name = "lblRatePerHour";
-            this.lblRatePerHour.Size = new System.Drawing.Size(365, 26);
+            this.lblRatePerHour.Size = new System.Drawing.Size(299, 26);
             this.lblRatePerHour.TabIndex = 155;
             this.lblRatePerHour.Text = "Rate/Hour:";
             this.lblRatePerHour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -417,11 +417,11 @@
             // lblAccountName
             // 
             this.lblAccountName.BackColor = System.Drawing.Color.White;
-            this.lblAccountName.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountName.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblAccountName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblAccountName.Location = new System.Drawing.Point(561, 25);
+            this.lblAccountName.Location = new System.Drawing.Point(627, 25);
             this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(365, 26);
+            this.lblAccountName.Size = new System.Drawing.Size(299, 26);
             this.lblAccountName.TabIndex = 154;
             this.lblAccountName.Text = "Rate:";
             this.lblAccountName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -429,9 +429,9 @@
             // lblWageID
             // 
             this.lblWageID.BackColor = System.Drawing.Color.White;
-            this.lblWageID.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWageID.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblWageID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblWageID.Location = new System.Drawing.Point(347, 65);
+            this.lblWageID.Location = new System.Drawing.Point(443, 68);
             this.lblWageID.Name = "lblWageID";
             this.lblWageID.Size = new System.Drawing.Size(151, 26);
             this.lblWageID.TabIndex = 153;
@@ -441,9 +441,9 @@
             // lblPayrollID
             // 
             this.lblPayrollID.BackColor = System.Drawing.Color.White;
-            this.lblPayrollID.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPayrollID.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblPayrollID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPayrollID.Location = new System.Drawing.Point(347, 26);
+            this.lblPayrollID.Location = new System.Drawing.Point(443, 29);
             this.lblPayrollID.Name = "lblPayrollID";
             this.lblPayrollID.Size = new System.Drawing.Size(151, 26);
             this.lblPayrollID.TabIndex = 152;
@@ -453,7 +453,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.White;
-            this.lblID.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(23, 65);
             this.lblID.Name = "lblID";
@@ -469,7 +469,7 @@
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblName.Location = new System.Drawing.Point(23, 25);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(306, 30);
+            this.lblName.Size = new System.Drawing.Size(392, 30);
             this.lblName.TabIndex = 150;
             this.lblName.Text = "Name:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

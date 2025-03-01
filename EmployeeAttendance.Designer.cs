@@ -37,7 +37,6 @@
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.dtpEmpSelectDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnTotalAttendance = new System.Windows.Forms.Label();
-            this.btnAbsent = new Guna.UI2.WinForms.Guna2Button();
             this.btnClockIn = new Guna.UI2.WinForms.Guna2Button();
             this.btnClockOut = new Guna.UI2.WinForms.Guna2Button();
             this.btnOnLeave = new Guna.UI2.WinForms.Guna2Button();
@@ -77,6 +76,7 @@
             this.toggleSwitchViewPastAttendanceRecord = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.dateOfCurrentAttendanceRecord = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAbsent = new Guna.UI2.WinForms.Guna2Button();
             this.panelAttendanceDetails.SuspendLayout();
             this.panelAttendanceSummary.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
@@ -204,37 +204,6 @@
             this.btnTotalAttendance.TabIndex = 105;
             this.btnTotalAttendance.Text = "Total Attendance:";
             this.btnTotalAttendance.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // btnAbsent
-            // 
-            this.btnAbsent.BackColor = System.Drawing.Color.White;
-            this.btnAbsent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnAbsent.BorderRadius = 5;
-            this.btnAbsent.BorderThickness = 5;
-            this.btnAbsent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAbsent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAbsent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAbsent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAbsent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnAbsent.Font = new System.Drawing.Font("Arial", 15.8F, System.Drawing.FontStyle.Bold);
-            this.btnAbsent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnAbsent.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnAbsent.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnAbsent.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.btnAbsent.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAbsent.ImageSize = new System.Drawing.Size(37, 39);
-            this.btnAbsent.Location = new System.Drawing.Point(383, 70);
-            this.btnAbsent.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAbsent.Name = "btnAbsent";
-            this.btnAbsent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.btnAbsent.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.btnAbsent.PressedDepth = 0;
-            this.btnAbsent.ShadowDecoration.BorderRadius = 8;
-            this.btnAbsent.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
-            this.btnAbsent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.btnAbsent.Size = new System.Drawing.Size(150, 65);
-            this.btnAbsent.TabIndex = 45;
-            this.btnAbsent.Text = "0";
             // 
             // btnClockIn
             // 
@@ -370,7 +339,7 @@
             // lblTextFilterAttendanceRecord
             // 
             this.lblTextFilterAttendanceRecord.BackColor = System.Drawing.Color.White;
-            this.lblTextFilterAttendanceRecord.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblTextFilterAttendanceRecord.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextFilterAttendanceRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lblTextFilterAttendanceRecord.Location = new System.Drawing.Point(49, 205);
             this.lblTextFilterAttendanceRecord.Name = "lblTextFilterAttendanceRecord";
@@ -382,7 +351,7 @@
             // lblTextViewPastAttendanceRecord
             // 
             this.lblTextViewPastAttendanceRecord.BackColor = System.Drawing.Color.White;
-            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Bookman Old Style", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblTextViewPastAttendanceRecord.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblTextViewPastAttendanceRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lblTextViewPastAttendanceRecord.Location = new System.Drawing.Point(403, 205);
             this.lblTextViewPastAttendanceRecord.Name = "lblTextViewPastAttendanceRecord";
@@ -728,7 +697,7 @@
             this.lblAccumulatedTutoringHours.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.lblAccumulatedTutoringHours.Size = new System.Drawing.Size(215, 27);
             this.lblAccumulatedTutoringHours.TabIndex = 142;
-            this.lblAccumulatedTutoringHours.Text = "Tutoring Hours (Today)";
+            this.lblAccumulatedTutoringHours.Text = "Hours Worked (Today)";
             this.lblAccumulatedTutoringHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
@@ -949,6 +918,37 @@
             this.flowLayoutPanel3.TabIndex = 7;
             this.flowLayoutPanel3.Visible = false;
             // 
+            // btnAbsent
+            // 
+            this.btnAbsent.BackColor = System.Drawing.Color.White;
+            this.btnAbsent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.btnAbsent.BorderRadius = 5;
+            this.btnAbsent.BorderThickness = 5;
+            this.btnAbsent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAbsent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAbsent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAbsent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAbsent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.btnAbsent.Font = new System.Drawing.Font("Arial", 15.8F, System.Drawing.FontStyle.Bold);
+            this.btnAbsent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnAbsent.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.btnAbsent.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.btnAbsent.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.btnAbsent.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAbsent.ImageSize = new System.Drawing.Size(37, 39);
+            this.btnAbsent.Location = new System.Drawing.Point(383, 70);
+            this.btnAbsent.Margin = new System.Windows.Forms.Padding(5);
+            this.btnAbsent.Name = "btnAbsent";
+            this.btnAbsent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.btnAbsent.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.btnAbsent.PressedDepth = 0;
+            this.btnAbsent.ShadowDecoration.BorderRadius = 8;
+            this.btnAbsent.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
+            this.btnAbsent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
+            this.btnAbsent.Size = new System.Drawing.Size(150, 65);
+            this.btnAbsent.TabIndex = 45;
+            this.btnAbsent.Text = "0";
+            // 
             // EmployeeAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -985,7 +985,6 @@
         public System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpEmpSelectDate;
         private System.Windows.Forms.Label btnTotalAttendance;
-        private Guna.UI2.WinForms.Guna2Button btnAbsent;
         private Guna.UI2.WinForms.Guna2Button btnClockIn;
         private Guna.UI2.WinForms.Guna2Button btnClockOut;
         private Guna.UI2.WinForms.Guna2Button btnOnLeave;
@@ -1027,5 +1026,6 @@
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label lblTutoringHours;
         private System.Windows.Forms.Label lblAttendancePercentage;
+        private Guna.UI2.WinForms.Guna2Button btnAbsent;
     }
 }

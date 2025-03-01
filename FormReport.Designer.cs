@@ -537,7 +537,7 @@
             this.label4.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.label4.Size = new System.Drawing.Size(194, 26);
             this.label4.TabIndex = 149;
-            this.label4.Text = "Tutoring Hours (Total)";
+            this.label4.Text = "Hours Worked (Total)";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel2
@@ -681,7 +681,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(200, 22);
             this.label13.TabIndex = 158;
-            this.label13.Text = "Ave. Tutoring Hrs.";
+            this.label13.Text = "Ave. Hrs. Worked";
             this.label13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // guna2Panel5
@@ -795,7 +795,7 @@
             this.lblComputedTutoringHours.Name = "lblComputedTutoringHours";
             this.lblComputedTutoringHours.Size = new System.Drawing.Size(177, 30);
             this.lblComputedTutoringHours.TabIndex = 80;
-            this.lblComputedTutoringHours.Text = "TUTORING HOURS";
+            this.lblComputedTutoringHours.Text = "HOURS WORKED";
             this.lblComputedTutoringHours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // EmployeeAttendanceDetails

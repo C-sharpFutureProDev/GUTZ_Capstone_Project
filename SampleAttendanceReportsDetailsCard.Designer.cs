@@ -387,7 +387,7 @@
             this.lblRequiredTutoringHoursPerDay.Name = "lblRequiredTutoringHoursPerDay";
             this.lblRequiredTutoringHoursPerDay.Size = new System.Drawing.Size(488, 26);
             this.lblRequiredTutoringHoursPerDay.TabIndex = 157;
-            this.lblRequiredTutoringHoursPerDay.Text = "Required Tutoring Hours/Day:";
+            this.lblRequiredTutoringHoursPerDay.Text = "Required  Hrs. Worked/Day:";
             this.lblRequiredTutoringHoursPerDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDateRange
@@ -405,11 +405,11 @@
             // lblEndTime
             // 
             this.lblEndTime.BackColor = System.Drawing.Color.White;
-            this.lblEndTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndTime.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblEndTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblEndTime.Location = new System.Drawing.Point(621, 65);
+            this.lblEndTime.Location = new System.Drawing.Point(691, 69);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(305, 26);
+            this.lblEndTime.Size = new System.Drawing.Size(235, 26);
             this.lblEndTime.TabIndex = 155;
             this.lblEndTime.Text = "End Time:";
             this.lblEndTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -417,11 +417,11 @@
             // lblStartTime
             // 
             this.lblStartTime.BackColor = System.Drawing.Color.White;
-            this.lblStartTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartTime.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblStartTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblStartTime.Location = new System.Drawing.Point(621, 25);
+            this.lblStartTime.Location = new System.Drawing.Point(691, 29);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(305, 26);
+            this.lblStartTime.Size = new System.Drawing.Size(235, 26);
             this.lblStartTime.TabIndex = 154;
             this.lblStartTime.Text = "Start Time:";
             this.lblStartTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -429,11 +429,11 @@
             // lblWorkingDays
             // 
             this.lblWorkingDays.BackColor = System.Drawing.Color.White;
-            this.lblWorkingDays.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWorkingDays.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblWorkingDays.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblWorkingDays.Location = new System.Drawing.Point(370, 65);
+            this.lblWorkingDays.Location = new System.Drawing.Point(450, 68);
             this.lblWorkingDays.Name = "lblWorkingDays";
-            this.lblWorkingDays.Size = new System.Drawing.Size(279, 26);
+            this.lblWorkingDays.Size = new System.Drawing.Size(245, 26);
             this.lblWorkingDays.TabIndex = 153;
             this.lblWorkingDays.Text = "Work Days:";
             this.lblWorkingDays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -441,9 +441,9 @@
             // lblScheduleID
             // 
             this.lblScheduleID.BackColor = System.Drawing.Color.White;
-            this.lblScheduleID.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScheduleID.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblScheduleID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblScheduleID.Location = new System.Drawing.Point(370, 26);
+            this.lblScheduleID.Location = new System.Drawing.Point(450, 29);
             this.lblScheduleID.Name = "lblScheduleID";
             this.lblScheduleID.Size = new System.Drawing.Size(151, 26);
             this.lblScheduleID.TabIndex = 152;
@@ -453,7 +453,7 @@
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.White;
-            this.lblID.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Font = new System.Drawing.Font("Bell MT", 9F, System.Drawing.FontStyle.Bold);
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblID.Location = new System.Drawing.Point(23, 65);
             this.lblID.Name = "lblID";
@@ -469,7 +469,7 @@
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblName.Location = new System.Drawing.Point(23, 25);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(341, 30);
+            this.lblName.Size = new System.Drawing.Size(392, 30);
             this.lblName.TabIndex = 150;
             this.lblName.Text = "Name:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
