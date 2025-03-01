@@ -29,35 +29,30 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblPayrollPeriod = new System.Windows.Forms.Label();
+            this.lblPayrollStatus = new System.Windows.Forms.Label();
+            this.lblCutDate = new System.Windows.Forms.Label();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblRateAndType = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblPayrollID = new System.Windows.Forms.Label();
             this.lblTotalHoursWorked = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblTotalNetpay = new System.Windows.Forms.Label();
             this.lblTotalDeductions = new System.Windows.Forms.Label();
             this.lblTotalGrossPay = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblPayrollPeriod = new System.Windows.Forms.Label();
-            this.lblPayrollID = new System.Windows.Forms.Label();
             this.lblWageID = new System.Windows.Forms.Label();
-            this.lblCutDate = new System.Windows.Forms.Label();
-            this.lblRateAndType = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.lblPayrollStatus = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -77,6 +72,122 @@
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1);
             this.guna2Panel1.Size = new System.Drawing.Size(700, 438);
             this.guna2Panel1.TabIndex = 66;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BackColor = System.Drawing.Color.White;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel4.BorderRadius = 10;
+            this.guna2Panel4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.guna2Panel4.Controls.Add(this.lblPayrollPeriod);
+            this.guna2Panel4.Controls.Add(this.lblPayrollStatus);
+            this.guna2Panel4.Controls.Add(this.lblCutDate);
+            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.guna2Panel4.Location = new System.Drawing.Point(359, 25);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
+            this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
+            this.guna2Panel4.Size = new System.Drawing.Size(315, 145);
+            this.guna2Panel4.TabIndex = 102;
+            // 
+            // lblPayrollPeriod
+            // 
+            this.lblPayrollPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.lblPayrollPeriod.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPayrollPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPayrollPeriod.Location = new System.Drawing.Point(2, 5);
+            this.lblPayrollPeriod.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblPayrollPeriod.Name = "lblPayrollPeriod";
+            this.lblPayrollPeriod.Size = new System.Drawing.Size(309, 30);
+            this.lblPayrollPeriod.TabIndex = 86;
+            this.lblPayrollPeriod.Text = "Period: 12/16/26 - 01/16/25";
+            this.lblPayrollPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPayrollStatus
+            // 
+            this.lblPayrollStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.lblPayrollStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPayrollStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPayrollStatus.Location = new System.Drawing.Point(6, 91);
+            this.lblPayrollStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblPayrollStatus.Name = "lblPayrollStatus";
+            this.lblPayrollStatus.Size = new System.Drawing.Size(305, 30);
+            this.lblPayrollStatus.TabIndex = 100;
+            this.lblPayrollStatus.Text = "Status: Completed";
+            this.lblPayrollStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCutDate
+            // 
+            this.lblCutDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.lblCutDate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCutDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCutDate.Location = new System.Drawing.Point(6, 48);
+            this.lblCutDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblCutDate.Name = "lblCutDate";
+            this.lblCutDate.Size = new System.Drawing.Size(305, 30);
+            this.lblCutDate.TabIndex = 87;
+            this.lblCutDate.Text = "Cut Date: 01/17/2025";
+            this.lblCutDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.White;
+            this.guna2Panel3.BorderRadius = 10;
+            this.guna2Panel3.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.guna2Panel3.Controls.Add(this.lblName);
+            this.guna2Panel3.Controls.Add(this.lblID);
+            this.guna2Panel3.Controls.Add(this.lblRateAndType);
+            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.guna2Panel3.Location = new System.Drawing.Point(28, 25);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
+            this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
+            this.guna2Panel3.Size = new System.Drawing.Size(315, 145);
+            this.guna2Panel3.TabIndex = 101;
+            // 
+            // lblName
+            // 
+            this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.lblName.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblName.Location = new System.Drawing.Point(20, 10);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(291, 30);
+            this.lblName.TabIndex = 88;
+            this.lblName.Text = "Name: Elena P. Koshka";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblID
+            // 
+            this.lblID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.lblID.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblID.Location = new System.Drawing.Point(22, 53);
+            this.lblID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(199, 30);
+            this.lblID.TabIndex = 89;
+            this.lblID.Text = "Emp. ID: 1026";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblRateAndType
+            // 
+            this.lblRateAndType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.lblRateAndType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lblRateAndType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRateAndType.Location = new System.Drawing.Point(22, 96);
+            this.lblRateAndType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblRateAndType.Name = "lblRateAndType";
+            this.lblRateAndType.Size = new System.Drawing.Size(291, 30);
+            this.lblRateAndType.TabIndex = 90;
+            this.lblRateAndType.Text = "Rate: VUIHOC - Tenured";
+            this.lblRateAndType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel2
             // 
@@ -105,6 +216,18 @@
             this.guna2Panel2.Size = new System.Drawing.Size(646, 227);
             this.guna2Panel2.TabIndex = 91;
             // 
+            // lblPayrollID
+            // 
+            this.lblPayrollID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.lblPayrollID.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblPayrollID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPayrollID.Location = new System.Drawing.Point(59, 16);
+            this.lblPayrollID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.lblPayrollID.Name = "lblPayrollID";
+            this.lblPayrollID.Size = new System.Drawing.Size(275, 35);
+            this.lblPayrollID.TabIndex = 84;
+            this.lblPayrollID.Text = "Payroll ID: 1";
+            // 
             // lblTotalHoursWorked
             // 
             this.lblTotalHoursWorked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
@@ -117,6 +240,19 @@
             this.lblTotalHoursWorked.TabIndex = 99;
             this.lblTotalHoursWorked.Text = "37.17hrs";
             this.lblTotalHoursWorked.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label13.Location = new System.Drawing.Point(55, 60);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(176, 30);
+            this.label13.TabIndex = 98;
+            this.label13.Text = "Hours Worked:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Separator1
             // 
@@ -141,6 +277,32 @@
             this.label9.TabIndex = 96;
             this.label9.Text = "Total Net  Pay:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label12.Location = new System.Drawing.Point(55, 140);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(172, 30);
+            this.label12.TabIndex = 95;
+            this.label12.Text = "Deductions:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label11.Location = new System.Drawing.Point(55, 98);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(172, 30);
+            this.label11.TabIndex = 94;
+            this.label11.Text = "Gross Pay:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTotalNetpay
             // 
@@ -181,44 +343,6 @@
             this.lblTotalGrossPay.Text = "₱4,225.00";
             this.lblTotalGrossPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblName
-            // 
-            this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblName.Location = new System.Drawing.Point(20, 10);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(291, 30);
-            this.lblName.TabIndex = 88;
-            this.lblName.Text = "Name: Elena P. Koshka";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPayrollPeriod
-            // 
-            this.lblPayrollPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.lblPayrollPeriod.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.lblPayrollPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPayrollPeriod.Location = new System.Drawing.Point(2, 5);
-            this.lblPayrollPeriod.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblPayrollPeriod.Name = "lblPayrollPeriod";
-            this.lblPayrollPeriod.Size = new System.Drawing.Size(309, 30);
-            this.lblPayrollPeriod.TabIndex = 86;
-            this.lblPayrollPeriod.Text = "Period: 12/16/26 - 01/16/25";
-            this.lblPayrollPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPayrollID
-            // 
-            this.lblPayrollID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.lblPayrollID.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold);
-            this.lblPayrollID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPayrollID.Location = new System.Drawing.Point(59, 16);
-            this.lblPayrollID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblPayrollID.Name = "lblPayrollID";
-            this.lblPayrollID.Size = new System.Drawing.Size(275, 35);
-            this.lblPayrollID.TabIndex = 84;
-            this.lblPayrollID.Text = "Payroll ID: 1";
-            // 
             // lblWageID
             // 
             this.lblWageID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
@@ -232,205 +356,6 @@
             this.lblWageID.Text = "Wage ID: 1";
             this.lblWageID.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCutDate
-            // 
-            this.lblCutDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.lblCutDate.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.lblCutDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblCutDate.Location = new System.Drawing.Point(6, 48);
-            this.lblCutDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblCutDate.Name = "lblCutDate";
-            this.lblCutDate.Size = new System.Drawing.Size(305, 30);
-            this.lblCutDate.TabIndex = 87;
-            this.lblCutDate.Text = "Cut Date: 01/17/2025";
-            this.lblCutDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblRateAndType
-            // 
-            this.lblRateAndType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.lblRateAndType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.lblRateAndType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblRateAndType.Location = new System.Drawing.Point(22, 96);
-            this.lblRateAndType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblRateAndType.Name = "lblRateAndType";
-            this.lblRateAndType.Size = new System.Drawing.Size(291, 30);
-            this.lblRateAndType.TabIndex = 90;
-            this.lblRateAndType.Text = "Rate: VUIHOC - Tenured";
-            this.lblRateAndType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblID
-            // 
-            this.lblID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.lblID.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblID.Location = new System.Drawing.Point(22, 53);
-            this.lblID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(199, 30);
-            this.lblID.TabIndex = 89;
-            this.lblID.Text = "Emp. ID: 1026";
-            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPayrollStatus
-            // 
-            this.lblPayrollStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.lblPayrollStatus.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.lblPayrollStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPayrollStatus.Location = new System.Drawing.Point(6, 91);
-            this.lblPayrollStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.lblPayrollStatus.Name = "lblPayrollStatus";
-            this.lblPayrollStatus.Size = new System.Drawing.Size(305, 30);
-            this.lblPayrollStatus.TabIndex = 100;
-            this.lblPayrollStatus.Text = "Status: Completed";
-            this.lblPayrollStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label1.Location = new System.Drawing.Point(4, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 30);
-            this.label1.TabIndex = 86;
-            this.label1.Text = "Period: 12/16/26 - 01/16/25";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label4.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label4.Location = new System.Drawing.Point(4, 52);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(305, 30);
-            this.label4.TabIndex = 87;
-            this.label4.Text = "Cut Date: 01/17/2025";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label5.Location = new System.Drawing.Point(20, 96);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(291, 30);
-            this.label5.TabIndex = 90;
-            this.label5.Text = "Rate: VUIHOC - Tenured";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label6.Location = new System.Drawing.Point(20, 53);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(199, 30);
-            this.label6.TabIndex = 89;
-            this.label6.Text = "Emp. ID: 1026";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label11.Location = new System.Drawing.Point(55, 98);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 30);
-            this.label11.TabIndex = 94;
-            this.label11.Text = "Gross Pay:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label12.Location = new System.Drawing.Point(55, 140);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(172, 30);
-            this.label12.TabIndex = 95;
-            this.label12.Text = "Deductions:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label13.Location = new System.Drawing.Point(55, 60);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(176, 30);
-            this.label13.TabIndex = 98;
-            this.label13.Text = "Hours Worked:";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label14
-            // 
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.label14.Font = new System.Drawing.Font("Arial", 8.5F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label14.Location = new System.Drawing.Point(4, 94);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 8);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(307, 30);
-            this.label14.TabIndex = 100;
-            this.label14.Text = "Status: Completed";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderRadius = 10;
-            this.guna2Panel3.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.guna2Panel3.Controls.Add(this.lblName);
-            this.guna2Panel3.Controls.Add(this.label6);
-            this.guna2Panel3.Controls.Add(this.lblID);
-            this.guna2Panel3.Controls.Add(this.label5);
-            this.guna2Panel3.Controls.Add(this.lblRateAndType);
-            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(28, 25);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
-            this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.guna2Panel3.Size = new System.Drawing.Size(315, 145);
-            this.guna2Panel3.TabIndex = 101;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.White;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel4.BorderRadius = 10;
-            this.guna2Panel4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.guna2Panel4.Controls.Add(this.label1);
-            this.guna2Panel4.Controls.Add(this.lblPayrollPeriod);
-            this.guna2Panel4.Controls.Add(this.label4);
-            this.guna2Panel4.Controls.Add(this.label14);
-            this.guna2Panel4.Controls.Add(this.lblPayrollStatus);
-            this.guna2Panel4.Controls.Add(this.lblCutDate);
-            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.guna2Panel4.Location = new System.Drawing.Point(359, 25);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(194)))), ((int)(((byte)(155)))));
-            this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
-            this.guna2Panel4.Size = new System.Drawing.Size(315, 145);
-            this.guna2Panel4.TabIndex = 102;
-            // 
             // SampleEmployeePayrollHistoryDetailsCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -440,9 +365,9 @@
             this.Name = "SampleEmployeePayrollHistoryDetailsCard";
             this.Size = new System.Drawing.Size(734, 452);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -465,14 +390,9 @@
         private System.Windows.Forms.Label lblWageID;
         private System.Windows.Forms.Label lblPayrollID;
         private System.Windows.Forms.Label lblPayrollPeriod;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel3;
     }

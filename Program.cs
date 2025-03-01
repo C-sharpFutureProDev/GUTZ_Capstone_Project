@@ -29,7 +29,7 @@ namespace GUTZ_Capstone_Project
             StartScheduler().GetAwaiter().GetResult();
 
             // Run the application
-            //Application.Run(new FormDashboard()); // bypass
+            // Application.Run(new FormDashboard()); // bypass
             Application.Run(new FormLogin());
         }
 
